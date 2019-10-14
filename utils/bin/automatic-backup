@@ -1,0 +1,33 @@
+#!/usr/bin/env fish
+
+if [ "$START_BACKUP" = "1" ]
+    echo "Cleaning up before starting backup process..."
+    echo "Emptying trash..."
+    ktrash5 --empty
+
+    echo "Starting backup of /home/scrumplex"
+
+    set baseDir "/home/scrumplex"
+
+    set archiveName automated-(date +%d.%m.%Y_%s)
+
+    borg create $argv --stats --exclude-caches --exclude-from $baseDir/.borgignore --progress "/run/media/scrumplex/SEFA2T/Backups/andromeda-Pool::$archiveName" "$baseDir" || true
+
+    echo "Starting backup of /run/media/scrumplex/DEV"
+
+    set baseDir /run/media/scrumplex/DEV
+
+    set archiveName automated-(date +%d.%m.%Y_%s)
+
+    borg create $argv --stats --exclude-caches --exclude-from $baseDir/.borgignore --progress "/run/media/scrumplex/SEFA2T/Backups/DEV-Pool::$archiveName" "$baseDir" || true
+
+    read -P "Press enter to continue... "
+else
+    kdialog --yesno "Do you want to start a backup?" --title "Automatic Backup"
+
+    if test $status -eq 1
+        exit 0
+    end
+
+    konsole -e "fish -C 'set -x START_BACKUP 1' $HOME/bin/automatic-backup"
+end

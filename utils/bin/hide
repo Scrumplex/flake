@@ -1,0 +1,6 @@
+#!/usr/bin/env fish
+for arg in $argv
+    set folder (echo -n $arg | string replace -r '(.)/$' '$1')
+	echo "Hiding $folder"
+	echo "$folder" >> .hidden
+end
