@@ -1,8 +1,6 @@
 function systemctl
-	for option in $argv
-        if [ "$option" = "--user" ]
-            exec /usr/bin/systemctl $argv
-        end
+    if contains -- --user $argv
+            /usr/bin/systemctl $argv
     end
-    exec sudo /usr/bin/systemctl $argv
+    /usr/bin/sudo /usr/bin/systemctl $argv
 end
