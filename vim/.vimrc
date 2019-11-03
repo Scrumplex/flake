@@ -11,6 +11,7 @@ set autoindent
 set hlsearch
 set ignorecase
 set smartcase
+set clipboard=unnamed
 
 syntax enable
 filetype plugin on
@@ -26,5 +27,5 @@ Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts=1
 
