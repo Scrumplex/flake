@@ -26,6 +26,5 @@ Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
-:AirlineTheme dark
 let g:airline_powerline_fonts = 1
 
