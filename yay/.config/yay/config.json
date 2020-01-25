@@ -1,6 +1,6 @@
 {
 	"aururl": "https://aur.archlinux.org",
-	"buildDir": "/run/media/scrumplex/DATA/.cache/yay/",
+	"buildDir": "/home/scrumplex/.cache/yay",
 	"editor": "",
 	"editorflags": "",
 	"makepkgbin": "makepkg",
