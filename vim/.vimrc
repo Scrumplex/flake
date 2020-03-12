@@ -2,8 +2,6 @@ set encoding=UTF-8
 
 set mouse=a
 set number
-set spell
-set spelllang=en,de
 
 set expandtab
 set autoindent
