@@ -1,31 +1,27 @@
 #!/usr/bin/env fish
 
+function run_backup -a base_directory -a repository_path
+    set archive_name "automated-"(date +%Y_%m_%d_%s)
+    
+    borg create --stats --exclude-caches --exclude-from "$base_directory/.borgignore" --progress "$repository_path::$archive_name" "$base_directory"; or true
+end
+
 if [ "$START_BACKUP" = "1" ]
     echo "Cleaning up before starting backup process..."
     echo "Emptying trash..."
     ktrash5 --empty
-
+    
     echo "Starting backup of /home/scrumplex"
-
-    set baseDir "/home/scrumplex"
-
-    set archiveName automated-(date +%d.%m.%Y_%s)
-
-    borg create $argv --stats --exclude-caches --exclude-from $baseDir/.borgignore --progress "/run/media/scrumplex/SEFA2T/Backups/andromeda-Pool::$archiveName" "$baseDir" || true
+    run_backup "/home/scrumplex" "/run/media/scrumplex/SEFA2T/Backups/andromeda-Pool"
 
     echo "Starting backup of /run/media/scrumplex/DEV"
+    run_backup "/run/media/scrumplex/DEV" "/run/media/scrumplex/SEFA2T/Backups/DEV-Pool"
 
-    set baseDir /run/media/scrumplex/DEV
-
-    set archiveName automated-(date +%d.%m.%Y_%s)
-
-    borg create $argv --stats --exclude-caches --exclude-from $baseDir/.borgignore --progress "/run/media/scrumplex/SEFA2T/Backups/DEV-Pool::$archiveName" "$baseDir" || true
-
-    read -P "Press enter to continue... "
+    read -P "Press enter to exit... "
 else
     kdialog --yesno "Do you want to start a backup?" --title "Automatic Backup"
 
-    if test $status -eq 1
+    if test $status -gt 0
         exit 0
     end
 
