@@ -20,7 +20,6 @@ filetype plugin on
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-scripts/sudo.vim'
-Plug 'leifdenby/vim-spellcheck-toggle'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
