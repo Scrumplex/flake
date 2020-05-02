@@ -35,5 +35,5 @@ SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_prompt_pwd_dir_length:0
 SETUVAR fish_user_paths:/home/scrumplex/kde/src/kdesrc\x2dbuild\x1e/home/scrumplex/bin\x1e/home/scrumplex/\x2erustup/toolchains/nightly\x2dx86_64\x2dunknown\x2dlinux\x2dgnu/bin
 SETUVAR fisher_dependency_count:bang\x2dbang
-SETUVAR theme_color_scheme:light
+SETUVAR theme_color_scheme:nord
 SETUVAR theme_nerd_fonts:yes
