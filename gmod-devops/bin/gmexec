@@ -1,0 +1,7 @@
+#!/bin/bash
+
+gmod_path="/home/scrumplex/.local/share/Steam/steamapps/common/GarrysMod"
+basename=$(basename "$0")
+export LD_LIBRARY_PATH="$gmod_path/bin:$LD_LIBRARY_PATH"
+
+exec $gmod_path/bin/$basename $@
