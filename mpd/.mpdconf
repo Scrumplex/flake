@@ -36,6 +36,15 @@ audio_output {
 	format                  "22500:16:2"
 }
 
+audio_output {
+        type                    "httpd"
+        name                    "HTTP Stream"
+        encoder                 "vorbis"
+        port                    "8899"
+        bitrate                 "320"
+        format                  "48000:16:2"
+}
+
 resampler {
 	plugin "soxr"
 	quality "very high"
