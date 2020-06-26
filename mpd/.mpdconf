@@ -37,6 +37,13 @@ audio_output {
 }
 
 audio_output {
+	type                    "fifo"
+	name                    "Snapcast FIFO"
+	path                    "/tmp/snapcast_fifo"
+	format                  "48000:16:2"
+}
+
+audio_output {
         type                    "httpd"
         name                    "HTTP Stream"
         encoder                 "vorbis"
