@@ -1,22 +1,7 @@
 #!/usr/bin/env fish
 
-function run_backup -a base_directory -a repository_path
-    set archive_name "automated-"(date +%Y_%m_%d_%s)
-    
-    borg create --stats --exclude-caches --exclude-from "$base_directory/.borgignore" --progress "$repository_path::$archive_name" "$base_directory"; or true
-end
-
 if [ "$START_BACKUP" = "1" ]
-    echo "Cleaning up before starting backup process..."
-    echo "Emptying trash..."
-    ktrash5 --empty
-    
-    echo "Starting backup of /home/scrumplex"
-    run_backup "/home/scrumplex" "/run/media/scrumplex/SEFA2T/Backups/andromeda-Pool"
-
-    echo "Starting backup of /run/media/scrumplex/DEV"
-    run_backup "/run/media/scrumplex/DEV" "/run/media/scrumplex/SEFA2T/Backups/DEV-Pool"
-
+    borgmatic --stats --progress; or true    
     read -P "Press enter to exit... "
 else
     kdialog --yesno "Do you want to start a backup?" --title "Automatic Backup"
