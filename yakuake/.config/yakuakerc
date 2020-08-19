@@ -1,0 +1,21 @@
+[Appearance]
+Skin=yakuake-breeze_perfect_dark
+
+[Desktop Entry]
+DefaultProfile=Profile 1.profile
+
+[Dialogs]
+FirstRun=false
+
+[Favorite Profiles]
+Favorites=
+
+[KFileDialog Settings]
+detailViewIconSize=0
+
+[Shortcuts]
+next-session=Ctrl+Tab
+previous-session=Ctrl+Shift+Tab
+
+[Window]
+Height=90
