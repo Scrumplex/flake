@@ -1,9 +1,0 @@
-[Unit]
-Description=Triggers backup script when usb backup drive is mounted
-RequiresMountsFor=/run/media/scrumplex/SEFA2T
-
-[Service]
-ExecStart=/home/scrumplex/bin/automatic-backup
-
-[Install]
-WantedBy=run-media-scrumplex-SEFA2T.mount

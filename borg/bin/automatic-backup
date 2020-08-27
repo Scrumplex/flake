@@ -4,11 +4,6 @@ if [ "$START_BACKUP" = "1" ]
     borgmatic --stats --progress; or true    
     read -P "Press enter to exit... "
 else
-    kdialog --yesno "Do you want to start a backup?" --title "Automatic Backup"
-
-    if test $status -gt 0
-        exit 0
-    end
-
-    konsole -e "fish -C 'set -x START_BACKUP 1' $HOME/bin/automatic-backup"
+    screen -dmS borgmatic env START_BACKUP=1 automatic-backup
 end
+

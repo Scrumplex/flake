@@ -1,0 +1,11 @@
+[Unit]
+Description=Triggers backup script
+#RequiresMountsFor=/run/media/scrumplex/SEFA2T
+
+[Service]
+Type=forking
+ExecStart=/home/scrumplex/bin/automatic-backup
+
+[Install]
+#WantedBy=run-media-scrumplex-SEFA2T.mount
+

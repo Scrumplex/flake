@@ -11,7 +11,8 @@ location:
     # repositories are backed up to in sequence. See ssh_command for SSH options like
     # identity file or port.
     repositories:
-        - /run/media/scrumplex/SEFA2T/Backups/andromeda-Pool
+      #        - /run/media/scrumplex/SEFA2T/Backups/andromeda-Pool
+        - obai58wh@obai58wh.repo.borgbase.com:repo
 
     # Stay in same file system (do not cross mount points). Defaults to false. But when
     # a database hook is used, the setting here is ignored and one_file_system is
@@ -131,7 +132,7 @@ storage:
     # use on repositories that were initialized with passcommand/repokey encryption.
     # Note that if both encryption_passcommand and encryption_passphrase are set,
     # then encryption_passphrase takes precedence. Defaults to not set.
-    # encryption_passcommand: secret-tool lookup borg-repository repo-name
+    encryption_passcommand: pass borgbase/andromeda
 
     # Passphrase to unlock the encryption key with. Only use on repositories that were
     # initialized with passphrase/repokey encryption. Quote the value if it contains
@@ -262,7 +263,6 @@ consistency:
     # most recent archive. Note that "data" implies "archives".
     checks:
         - repository
-        - archives
 
     # Paths to a subset of the repositories in the location section on which to run
     # consistency checks. Handy in case some of your repositories are very large, and
@@ -272,7 +272,7 @@ consistency:
         # - user@backupserver:sourcehostname.borg
 
     # Restrict the number of checked archives to the last n. Applies only to the "archives" check. Defaults to checking all archives.
-    check_last: 5
+    # check_last: 5
 
     # When performing the "archives" check, only consider archive names starting with
     # this prefix. Borg placeholders can be used. See the output of
@@ -298,6 +298,7 @@ hooks:
         - echo "Clearing trash"
         - ktrash5 --empty
         - echo "Starting a backup."
+        - notify-send -a borgmatic "Automatic backup has been started" "Now running an automatic backup."
 
     # List of one or more shell commands or scripts to execute before pruning, run
     # once per configuration file.
