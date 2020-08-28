@@ -132,7 +132,7 @@ storage:
     # use on repositories that were initialized with passcommand/repokey encryption.
     # Note that if both encryption_passcommand and encryption_passphrase are set,
     # then encryption_passphrase takes precedence. Defaults to not set.
-    encryption_passcommand: pass borgbase/andromeda
+    encryption_passcommand: kwalletcli -f Borg -e automatic-backup
 
     # Passphrase to unlock the encryption key with. Only use on repositories that were
     # initialized with passphrase/repokey encryption. Quote the value if it contains
@@ -298,38 +298,45 @@ hooks:
         - echo "Clearing trash"
         - ktrash5 --empty
         - echo "Starting a backup."
+        - systemd-notify --ready --status="Backing up..."
         - notify-send -a borgmatic "Automatic backup has been started" "Now running an automatic backup."
 
     # List of one or more shell commands or scripts to execute before pruning, run
     # once per configuration file.
     before_prune:
         - echo "Starting pruning."
+        - systemd-notify --ready --status="Pruning..."
 
     # List of one or more shell commands or scripts to execute before consistency
     # checks, run once per configuration file.
     before_check:
         - echo "Starting checks."
+        - systemd-notify --ready --status="Checking..."
 
     # List of one or more shell commands or scripts to execute after creating a
     # backup, run once per configuration file.
     after_backup:
         - echo "Finished a backup."
+        - systemd-notify --ready --status="Backup done"
 
     # List of one or more shell commands or scripts to execute after pruning, run once
     # per configuration file.
     after_prune:
         - echo "Finished pruning."
+        - systemd-notify --ready --status="Prune done"
 
     # List of one or more shell commands or scripts to execute after consistency
     # checks, run once per configuration file.
     after_check:
         - echo "Finished checks."
+        - systemd-notify --ready --status="Checks done"
 
     # List of one or more shell commands or scripts to execute when an exception
     # occurs during a "prune", "create", or "check" action or an associated
     # before/after hook.
     on_error:
         - echo "Error during prune/create/check."
+        - systemd-notify --status="Failed"
 
     # List of one or more PostgreSQL databases to dump before creating a backup,
     # run once per configuration file. The database dumps are added to your source
