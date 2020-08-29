@@ -13,6 +13,7 @@ location:
     repositories:
       #        - /run/media/scrumplex/SEFA2T/Backups/andromeda-Pool
         - obai58wh@obai58wh.repo.borgbase.com:repo
+        - media@10.10.10.4:data/backup/andromeda
 
     # Stay in same file system (do not cross mount points). Defaults to false. But when
     # a database hook is used, the setting here is ignored and one_file_system is
@@ -238,7 +239,7 @@ retention:
     keep_daily: 7
 
     # Number of weekly archives to keep.
-    # keep_weekly: 4
+    keep_weekly: 4
 
     # Number of monthly archives to keep.
     keep_monthly: 24
