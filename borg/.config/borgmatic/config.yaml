@@ -6,6 +6,7 @@ location:
     source_directories:
         - /home/scrumplex
         - /run/media/scrumplex/DEV
+        - /run/media/scrumplex/DATA
 
     # Paths to local or remote repositories (required). Tildes are expanded. Multiple
     # repositories are backed up to in sequence. See ssh_command for SSH options like
@@ -73,10 +74,10 @@ location:
     # are expanded. See the output of "borg help patterns" for more details.
     exclude_patterns:
         - ~/.android
-        - ~/.cache
         - ~/.ccache
         - ~/.cargo
         - ~/.chroot
+        - ~/.conan
         - ~/.gradle
         - ~/.local/share/baloo
         - ~/.local/share/containers
@@ -93,9 +94,13 @@ location:
         - ~/.yarn
         - ~/kde
         - ~/Lutris
-        - /run/media/scrumplex/DEV/.snapshots
-        - /run/media/scrumplex/DEV/.cache
+        - /run/media/scrumplex/DATA/Games
+        - /run/media/scrumplex/DATA/ItchLibrary
+        - /run/media/scrumplex/DATA/SteamLibrary
         - /run/media/scrumplex/DEV/Android-SDK
+        - "*/.Trash-*"
+        - "*/.cache"
+        - "*/.snapshots"
 
     # Read exclude patterns from one or more separate named files, one pattern per
     # line. See the output of "borg help patterns" for more details.
