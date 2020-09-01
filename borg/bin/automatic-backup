@@ -6,4 +6,5 @@ SCREEN=$(which screen)
 BORGMATIC=$(which borgmatic)
 
 export BORG_PASSCOMMAND="$(which kwalletcli) -f Borg -e automatic-backup--${1}"
-$BORGMATIC --stats --progress -c "$HOME/.config/borgmatic/config.${1}.yaml"
+$BORGMATIC --stats --list -c "$HOME/.config/borgmatic/config.${1}.yaml"
+
