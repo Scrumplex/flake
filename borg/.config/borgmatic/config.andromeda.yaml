@@ -138,7 +138,7 @@ storage:
     # use on repositories that were initialized with passcommand/repokey encryption.
     # Note that if both encryption_passcommand and encryption_passphrase are set,
     # then encryption_passphrase takes precedence. Defaults to not set.
-    encryption_passcommand: kwalletcli -f Borg -e automatic-backup
+    # encryption_passcommand: 
 
     # Passphrase to unlock the encryption key with. Only use on repositories that were
     # initialized with passphrase/repokey encryption. Quote the value if it contains

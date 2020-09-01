@@ -1,9 +1,9 @@
-#!/usr/bin/env fish
+#!/bin/bash
 
-if [ "$START_BACKUP" = "1" ]
-    borgmatic --stats --progress; or true    
-    read -P "Press enter to exit... "
-else
-    screen -dmS borgmatic env START_BACKUP=1 automatic-backup
-end
+set -x
 
+SCREEN=$(which screen)
+BORGMATIC=$(which borgmatic)
+
+export BORG_PASSCOMMAND="$(which kwalletcli) -f Borg -e automatic-backup--${1}"
+$BORGMATIC --stats --progress -c "$HOME/.config/borgmatic/config.${1}.yaml"

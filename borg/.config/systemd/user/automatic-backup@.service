@@ -1,0 +1,7 @@
+[Unit]
+Description=Borgmatic backup for %i
+Before=shutdown.target
+
+[Service]
+ExecStart=/home/scrumplex/bin/automatic-backup %i
+NotifyAccess=all
