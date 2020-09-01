@@ -1,10 +1,8 @@
 #!/bin/bash
-
 set -x
 
 SCREEN=$(which screen)
 BORGMATIC=$(which borgmatic)
 
 export BORG_PASSCOMMAND="$(which kwalletcli) -f Borg -e automatic-backup--${1}"
-$BORGMATIC --stats --list -c "$HOME/.config/borgmatic/config.${1}.yaml"
-
+$BORGMATIC -c "$HOME/.config/borgmatic/config.${1}.yaml" --stats --files -v -1 --syslog-verbosity 0
