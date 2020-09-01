@@ -72,6 +72,7 @@ location:
     exclude_patterns:
         - /run/media/scrumplex/SEFA2T/Animes
         - /run/media/scrumplex/SEFA2T/Backups/Legacy-Borg
+        - /run/media/scrumplex/SEFA2T/Games
         - /run/media/scrumplex/SEFA2T/Videos
         - "*/.Trash-*"
         - "*/.cache"
