@@ -1,7 +1,18 @@
 [Unit]
 Description=Borgmatic backup for %i
-Before=shutdown.target
+ConditionACPower=true
 
 [Service]
-ExecStart=/home/scrumplex/bin/automatic-backup %i
+ExecStartPre=sleep 1m
+ExecStart=systemd-inhibit --who="borgmatic" --why="Prevent interrupting scheduled backup" /home/scrumplex/bin/automatic-backup %i
+
 NotifyAccess=all
+Restart=no
+
+# Lower CPU and I/O priority.
+Nice=19
+CPUSchedulingPolicy=batch
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+IOWeight=100
+
