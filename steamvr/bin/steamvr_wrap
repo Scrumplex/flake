@@ -1,0 +1,4 @@
+#!/bin/bash
+lh on
+$@
+lh off
