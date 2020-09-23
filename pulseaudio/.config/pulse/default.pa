@@ -7,7 +7,7 @@
     set-source-port alsa_input.pci-0000_00_1f.3.analog-stereo analog-input-linein
     set-source-mute alsa_input.pci-0000_00_1f.3.analog-stereo false
 
-    load-module module-loopback source=alsa_input.pci-0000_00_1f.3.analog-stereo
+    load-module module-loopback source=alsa_input.pci-0000_00_1f.3.analog-stereo source_dont_move=true
 
     load-module module-combine-sink slaves=alsa_output.usb-Logitech_G533_Gaming_Headset-00.analog-stereo sink_properties=device.description=OBS
     load-module module-ladspa-sink sink_name=ladspa plugin=sc4_1882 label=sc4 control=1,1.5,401,-30,20,5,12 sink_properties=device.description=LADSPA
