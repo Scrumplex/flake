@@ -5,10 +5,10 @@ DefaultProfile=Profile 1.profile
 Favorites=
 
 [MainWindow]
-DisplayPort-0 DisplayPort-1 Height 1080=662
-DisplayPort-0 DisplayPort-1 Width 1920=1459
-DisplayPort-0 DisplayPort-1 XPosition=384
-DisplayPort-0 DisplayPort-1 YPosition=312
+DisplayPort-0 DisplayPort-1 Height 1080=315
+DisplayPort-0 DisplayPort-1 Width 1920=615
+DisplayPort-0 DisplayPort-1 XPosition=609
+DisplayPort-0 DisplayPort-1 YPosition=335
 Height 1080=662
 Height 600=539
 State=AAAA/wAAAAD9AAAAAAAABHIAAAKvAAAABAAAAAQAAAAIAAAACPwAAAAA
