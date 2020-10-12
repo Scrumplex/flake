@@ -84,6 +84,7 @@ location:
         - ~/.local/share/lutris/runners
         - ~/.local/share/lutris/runtime
         - ~/.local/share/Steam/steamapps
+        - ~/.local/share/Trash
         - ~/.m2
         - ~/.node-gyp
         - ~/.npm
@@ -301,8 +302,6 @@ hooks:
     # List of one or more shell commands or scripts to execute before creating a
     # backup, run once per configuration file.
     before_backup:
-        - echo "Clearing trash"
-        - ktrash5 --empty
         - echo "Starting a backup."
         - systemd-notify --ready --status="Backing up..."
         - notify-send -a borgmatic "Automatic backup has been started" "Now running an automatic backup."
