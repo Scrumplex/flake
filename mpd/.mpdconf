@@ -31,15 +31,8 @@ audio_output {
 
 audio_output {
 	type                    "fifo"
-	name                    "GLava FIFO"
-	path                    "/home/scrumplex/.mpd/fifo"
-	format                  "22500:16:2"
-}
-
-audio_output {
-	type                    "fifo"
-	name                    "Snapcast FIFO"
-	path                    "/tmp/snapcast_fifo"
+	name                    "Snapcast"
+	path                    "/run/snapserver/snapfifo_mpd"
 	format                  "48000:16:2"
 }
 
