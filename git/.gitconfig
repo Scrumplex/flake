@@ -1,0 +1,28 @@
+[user]
+	name = Sefa Eyeoglu
+	email = contact@scrumplex.net
+[core]
+	autocrlf = input
+[color]
+	ui = auto
+[url "ssh://aur@aur.archlinux.org/"]
+	insteadOf = aur:
+
+[push]
+	followTags = true
+
+[alias]
+	chore = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"chore: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"chore(${2}): ${@:3}\"; else git commit -m \"chore: ${@}\"; fi }; f"
+	docs = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"docs: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"docs(${2}): ${@:3}\"; else git commit -m \"docs: ${@}\"; fi }; f"
+	feat = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"feat: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"feat(${2}): ${@:3}\"; else git commit -m \"feat: ${@}\"; fi }; f"
+	fix = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"fix: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"fix(${2}): ${@:3}\"; else git commit -m \"fix: ${@}\"; fi }; f"
+	localize = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"localize: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"localize(${2}): ${@:3}\"; else git commit -m \"localize: ${@}\"; fi }; f"
+	refactor = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"refactor: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"refactor(${2}): ${@:3}\"; else git commit -m \"refactor: ${@}\"; fi }; f"
+	style = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"style: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"style(${2}): ${@:3}\"; else git commit -m \"style: ${@}\"; fi }; f"
+	test = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"test: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"test(${2}): ${@:3}\"; else git commit -m \"test: ${@}\"; fi }; f"
+[url "https://invent.kde.org/"]
+	insteadOf = kde:
+[url "ssh://git@invent.kde.org/"]
+	pushInsteadOf = kde:
+[pull]
+	rebase = true
