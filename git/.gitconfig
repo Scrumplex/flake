@@ -1,15 +1,18 @@
 [user]
 	name = Sefa Eyeoglu
 	email = contact@scrumplex.net
+
 [core]
 	autocrlf = input
+
 [color]
 	ui = auto
-[url "ssh://aur@aur.archlinux.org/"]
-	insteadOf = aur:
 
 [push]
 	followTags = true
+
+[pull]
+	rebase = true
 
 [alias]
 	chore = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"chore: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"chore(${2}): ${@:3}\"; else git commit -m \"chore: ${@}\"; fi }; f"
@@ -20,9 +23,26 @@
 	refactor = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"refactor: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"refactor(${2}): ${@:3}\"; else git commit -m \"refactor: ${@}\"; fi }; f"
 	style = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"style: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"style(${2}): ${@:3}\"; else git commit -m \"style: ${@}\"; fi }; f"
 	test = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"test: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"test(${2}): ${@:3}\"; else git commit -m \"test: ${@}\"; fi }; f"
+
+[url "https://github.com/"]
+        insteadOf = github:
+
+[url "ssh://git@github.com/"]
+        pushInsteadOf = github:
+
+[url "https://gitlab.com/"]
+        insteadOf = gitlab:
+
+[url "ssh://git@gitlab.com/"]
+        pushInsteadOf = gitlab:
+
 [url "https://invent.kde.org/"]
 	insteadOf = kde:
+
 [url "ssh://git@invent.kde.org/"]
-	pushInsteadOf = kde:
-[pull]
-	rebase = true
+        pushInsteadOf = kde:
+
+[url "ssh://aur@aur.archlinux.org/"]
+        insteadOf = aur:
+        pushInsteadOf = aur:
+
