@@ -1,0 +1,38 @@
+directory: ~/Music
+library: ~/Music/musiclibrary.db
+clutter: Thumbs.DB .DS_Store .directory
+
+import:
+  move: yes
+  timid: yes
+  detail: yes
+  bell: yes
+
+ui:
+    color: yes
+
+plugins: chroma convert duplicates edit embedart fetchart mbcollection mbsync mpdstats mpdupdate replaygain scrub thumbnails
+include:
+  - secrets.yaml
+
+convert:
+  auto: no
+  dest: ~/.Music.exported
+  copy_album_art: yes
+  never_convert_lossy_files: yes
+  format: opus
+  formats:
+    opus:
+      command: ffmpeg -i $source -y -c:a libopus -b:a 192K -application audio $dest
+      extension: opus
+
+mpd:
+  host: localhost
+  port: 6600
+
+replaygain:
+  backend: gstreamer
+
+thumbnails:
+  dolphin: yes
+
