@@ -1,3 +1,4 @@
 ssh/.ssh/hosts/** filter=git-crypt diff=git-crypt
+beets/.config/beets/secrets.yaml filter=git-crypt diff=git-crypt
 
 
