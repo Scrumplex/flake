@@ -4,8 +4,12 @@ Description=SSH key agent
 [Service]
 Type=simple
 Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+Environment=DISPLAY=:0
+Environment=SSH_ASKPASS=/usr/bin/ksshaskpass
+ExecStartPre=-/usr/lib/pam_kwallet_init
 ExecStart=/usr/bin/ssh-agent -D -a $SSH_AUTH_SOCK
-ExecStartPost=/usr/bin/bash "$HOME/ssh-agent-load-keys"
+ExecStartPost=%h/bin/ssh-agent-load-keys
 
 [Install]
 WantedBy=default.target
+
