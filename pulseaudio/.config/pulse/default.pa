@@ -11,7 +11,5 @@
 
     load-module module-combine-sink slaves=alsa_output.usb-Logitech_G533_Gaming_Headset-00.analog-stereo sink_properties=device.description=OBS
     load-module module-ladspa-sink sink_name=ladspa plugin=sc4_1882 label=sc4 control=1,1.5,401,-30,20,5,12 sink_properties=device.description=LADSPA
-
-    load-module module-pipe-sink file=/run/snapserver/snapfifo_pa sink_properties=device.description=Snapcast format=s16le rate=48000
 .fail
 
