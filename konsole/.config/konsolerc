@@ -6,9 +6,14 @@ Favorites=
 
 [MainWindow]
 DisplayPort-0 DisplayPort-1 Height 1080=315
+DisplayPort-0 DisplayPort-1 Height 1920x1080=507
 DisplayPort-0 DisplayPort-1 Width 1920=615
+DisplayPort-0 DisplayPort-1 Width 1920x1080=808
+DisplayPort-0 DisplayPort-1 Window-Maximized 1920x1080=true
 DisplayPort-0 DisplayPort-1 XPosition=609
+DisplayPort-0 DisplayPort-1 XPosition 1920x1080=1920
 DisplayPort-0 DisplayPort-1 YPosition=335
+DisplayPort-0 DisplayPort-1 YPosition 1920x1080=61
 Height 1080=662
 Height 600=539
 State=AAAA/wAAAAD9AAAAAAAABHIAAAKvAAAABAAAAAQAAAAIAAAACPwAAAAA
