@@ -102,6 +102,7 @@ location:
         - /run/media/scrumplex/DATA/Games
         - /run/media/scrumplex/DATA/ItchLibrary
         - /run/media/scrumplex/DATA/SteamLibrary
+        - /run/media/scrumplex/DATA/Torrents
         - /run/media/scrumplex/DEV/Android-SDK
         - "*/.Trash-*"
         - "*/.cache"
