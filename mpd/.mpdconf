@@ -1,5 +1,5 @@
 music_directory			"~/Music"
-playlist_directory		"~/.mpd/playlists"
+playlist_directory		"~/Music/Playlists"
 db_file				"~/.mpd/database"
 log_file			"~/.mpd/log"
 pid_file			"~/.mpd/pid"
@@ -27,7 +27,6 @@ filesystem_charset		"UTF-8"
 audio_output {
 	type			"pulse"
 	name			"Primary Audio Stream"
-        format                  "48000:16:2"
 }
 
 audio_output {
