@@ -11,7 +11,7 @@ import:
 ui:
     color: yes
 
-plugins: chroma convert duplicates edit embedart fetchart mbcollection mbsync mpdstats mpdupdate replaygain scrub thumbnails
+plugins: chroma convert duplicates edit embedart fetchart hook mbcollection mbsync mpdstats mpdupdate playlist replaygain scrub thumbnails
 include:
   - secrets.yaml
 
@@ -26,9 +26,17 @@ convert:
       command: ffmpeg -i $source -y -c:a libopus -b:a 192K -application audio $dest
       extension: opus
 
+hook:
+  hooks:
+    - event: database_change  # Run often enough so that the dumb user doesn't need to bother
+      command: bash -c "rsync -av \"$HOME/Music/Playlists\" \"$HOME/.Music.exported\""
 mpd:
   host: localhost
   port: 6600
+
+playlist:
+  auto: yes
+  playlist_dir: ~/Music/Playlists
 
 replaygain:
   backend: gstreamer
