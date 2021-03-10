@@ -1,0 +1,22 @@
+<?xml version="1.1" encoding="utf-8"?>
+<rack><plugin type="compressor" instance-name="PW Compressor" input-index="1" output-index="1">
+<preset bank="0" program="0" plugin="compressor" name="">
+  <param name="bypass" value="0" />
+  <param name="level_in" value="1" />
+  <param name="meter_in" value="0.00441394" />
+  <param name="meter_out" value="0.0124845" />
+  <param name="clip_in" value="0" />
+  <param name="clip_out" value="0" />
+  <param name="threshold" value="0.03125" />
+  <param name="ratio" value="4.29497e+09" />
+  <param name="attack" value="1.49081" />
+  <param name="release" value="250" />
+  <param name="makeup" value="2.82843" />
+  <param name="knee" value="1.77522" />
+  <param name="detection" value="0" />
+  <param name="stereo_link" value="0" />
+  <param name="compression" value="1" />
+  <param name="mix" value="1" />
+</preset>
+</plugin>
+</rack>
