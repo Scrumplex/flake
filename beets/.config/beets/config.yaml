@@ -11,25 +11,10 @@ import:
 ui:
     color: yes
 
-plugins: chroma convert duplicates edit embedart fetchart hook mbcollection mbsync mpdstats mpdupdate playlist replaygain scrub thumbnails
+plugins: chroma duplicates edit embedart fetchart hook mbcollection mbsync mpdstats mpdupdate playlist replaygain scrub thumbnails
 include:
   - secrets.yaml
 
-convert:
-  auto: no
-  dest: ~/.Music.exported
-  copy_album_art: yes
-  never_convert_lossy_files: yes
-  format: opus
-  formats:
-    opus:
-      command: ffmpeg -i $source -y -c:a libopus -b:a 192K -application audio $dest
-      extension: opus
-
-hook:
-  hooks:
-    - event: database_change  # Run often enough so that the dumb user doesn't need to bother
-      command: bash -c "rsync -av \"$HOME/Music/Playlists\" \"$HOME/.Music.exported\""
 mpd:
   host: localhost
   port: 6600
