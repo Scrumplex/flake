@@ -27,6 +27,7 @@ filesystem_charset		"UTF-8"
 audio_output {
 	type			"pulse"
 	name			"Primary Audio Stream"
+        format                  "48000:16:2"
 }
 
 audio_output {
