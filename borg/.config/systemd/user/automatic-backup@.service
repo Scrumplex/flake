@@ -4,7 +4,7 @@ ConditionACPower=true
 
 [Service]
 ExecStartPre=sleep 1m
-ExecStart=systemd-inhibit --who="borgmatic" --why="Prevent interrupting scheduled backup" /home/scrumplex/bin/automatic-backup %i
+ExecStart=systemd-inhibit --who="borgmatic" --why="Prevent interrupting scheduled backup" %h/bin/automatic-backup %i
 
 NotifyAccess=all
 Restart=no
@@ -15,4 +15,3 @@ CPUSchedulingPolicy=batch
 IOSchedulingClass=best-effort
 IOSchedulingPriority=7
 IOWeight=100
-
