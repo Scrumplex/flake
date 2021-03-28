@@ -9,7 +9,7 @@ import:
   bell: yes
 
 ui:
-    color: yes
+  color: yes
 
 plugins: chroma duplicates edit embedart fetchart hook mbcollection mbsync mpdstats mpdupdate playlist replaygain scrub thumbnails
 include:
@@ -28,4 +28,3 @@ replaygain:
 
 thumbnails:
   dolphin: yes
-
