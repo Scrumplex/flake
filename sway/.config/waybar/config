@@ -1,0 +1,33 @@
+{
+        "position": "top",
+        "modules-left": ["sway/workspaces", "mpd"],
+        "modules-center": ["clock"],
+        "modules-right": ["pulseaudio", "tray", "clock#date"],
+
+        "sway/workspaces": {
+                
+        },
+        "mpd": {
+	        "format": "{stateIcon} {artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) 🎵",
+	"format-disconnected": "Disconnected 🎵",
+	"format-stopped": "Stopped 🎵",
+	"interval": 10,
+	"state-icons": {
+		"paused": "",
+		"playing": ""
+	},
+	"tooltip-format": "MPD (connected)",
+	"tooltip-format-disconnected": "MPD (disconnected)",
+        "on-scroll-up": "mpc vol up",
+        "on-scroll-down": "mpc vol down"
+},
+        "clock": {
+                "format": "{:%H:%M:%S}",
+                "interval": 1
+        },
+        "clock#date": {
+                "format": "{:%a, %d. %b %Y}",
+                "interval": 1
+        }
+}
+

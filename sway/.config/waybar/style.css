@@ -1,0 +1,32 @@
+* {
+        font-family: "FiraCode Nerd Font Mono";
+        font-size: 12px;
+}
+
+window#waybar {
+        background: RGBA(46, 52, 64, 0.9);
+        color: #eceff4;  /* nord6 */
+}
+
+.modules-left > widget {
+        margin-left: 32px;
+}
+
+.modules-left, .modules-center {
+        padding-left: 16px;
+        padding-right: 16px;
+        border-bottom-right-radius: 16px;
+        background: #3b4252; /* nord0 */
+}
+
+.modules-right, .modules-center {
+        padding-right: 16px;
+        padding-left: 16px;
+        border-bottom-left-radius: 16px;
+        background: #3b4252; /* nord0 */
+}
+
+#workspaces, #mpd, #window, #pulseaudio, #clock {
+        padding: 0 8px;
+}
+
