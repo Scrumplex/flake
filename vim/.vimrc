@@ -1,5 +1,6 @@
 set encoding=UTF-8
 
+
 set mouse=a
 set number
 
@@ -25,6 +26,7 @@ Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'arcticicestudio/nord-vim'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
