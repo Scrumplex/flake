@@ -27,6 +27,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'arcticicestudio/nord-vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'dense-analysis/ale'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
