@@ -40,10 +40,11 @@ output DP-3 disable
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 240 'swaymsg "output * dpms off"' \
+         resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -193,6 +194,10 @@ input 1133:49277:Logitech_Gaming_Mouse_G502 {
     bindsym XF86AudioPlay exec mpc toggle
     bindsym XF86AudioNext exec mpc next
     bindsym XF86AudioPrev exec mpc previous
+    bindsym Shift+XF86AudioRaiseVolume exec mpc vol +2
+    bindsym Shift+XF86AudioLowerVolume exec mpc vol -2
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
 
 #
 # Resizing containers:
