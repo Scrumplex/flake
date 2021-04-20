@@ -20,7 +20,7 @@ filetype plugin on
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-scripts/sudo.vim'
+Plug 'lambdalisue/suda.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
@@ -40,6 +40,7 @@ call deoplete#custom#option('sources', {
 \})
 
 let g:airline_powerline_fonts=1
+let g:suda_smart_edit = 1
 
 colorscheme nord
 
