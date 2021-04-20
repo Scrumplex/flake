@@ -199,6 +199,8 @@ input 1133:49277:Logitech_Gaming_Mouse_G502 {
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
     bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
 
+    bindsym $mod+q exec swaylock
+
 #
 # Resizing containers:
 #
