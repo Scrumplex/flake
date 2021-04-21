@@ -21,7 +21,7 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu j4-dmenu-desktop --dmenu='bemenu -H30 -mall --fn "Fira Sans" -i' --term='kitty' | xargs swaymsg exec --
+set $menu j4-dmenu-desktop --dmenu='bemenu -H30 -mall --fn "Fira Sans" -i' --term='alacritty' | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -241,6 +241,7 @@ bar {
         swaybar_command waybar
 }
 
+font pango:FiraCode Nerd Font Mono 10
 client.focused          $nord3  $nord3  $nord6  $nord9  $nord0
 client.focused_inactive $nord1  $nord1  $nord4  $nord9  $nord0
 client.unfocused        $nord0  $nord0  $nord4  $nord9  $nord0
