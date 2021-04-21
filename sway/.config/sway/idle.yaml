@@ -7,5 +7,8 @@ timeouts:
   - timeout: 240
     command: 'swaymsg "output * dpms off"'
     resume: 'swaymsg "output * dpms on"'
+  - timeout: 600
+    command: 'systemctl suspend'
+
 before-sleep: 'swaylock -f -c 000000'
 
