@@ -4,6 +4,8 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+include nord
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -238,6 +240,13 @@ bindsym $mod+r mode "resize"
 bar {
         swaybar_command waybar
 }
+
+client.focused          $nord3  $nord3  $nord6  $nord9  $nord0
+client.focused_inactive $nord1  $nord1  $nord4  $nord9  $nord0
+client.unfocused        $nord0  $nord0  $nord4  $nord9  $nord0
+client.urgent           $nord11 $nord11 $nord4  $nord9  $nord0
+
+
 # See https://github.com/xdbob/sway-services
 include "/etc/sway/config.d/10-service.conf"
 
