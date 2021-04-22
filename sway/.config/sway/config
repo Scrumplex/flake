@@ -189,8 +189,8 @@ input 1133:49277:Logitech_Gaming_Mouse_G502 {
     bindsym XF86AudioPrev exec mpc previous
     bindsym Shift+XF86AudioRaiseVolume exec mpc vol +2
     bindsym Shift+XF86AudioLowerVolume exec mpc vol -2
-    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
-    bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +2%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -2%
 
     bindsym $mod+q exec swaylock
     bindsym Print exec screenshot-bash
