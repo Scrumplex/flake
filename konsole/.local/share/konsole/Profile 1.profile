@@ -1,5 +1,6 @@
 [Appearance]
 ColorScheme=nord
+Font=Fira Code,10,-1,5,57,0,0,0,0,0,Medium
 UseFontLineChararacters=true
 
 [General]
