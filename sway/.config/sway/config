@@ -249,6 +249,10 @@ client.unfocused        $nord0  $nord0  $nord4  $nord9  $nord0
 client.urgent           $nord11 $nord11 $nord4  $nord9  $nord0
 
 
+for_window [app_id=popup_pulsemixer] floating enable
+for_window [app_id=popup_pulsemixer] resize set 800 600
+for_window [app_id=popup_pulsemixer] border none
+
 # See https://github.com/xdbob/sway-services
 include "/etc/sway/config.d/10-service.conf"
 
