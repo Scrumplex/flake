@@ -25,6 +25,7 @@
                 "on-click-right": ""
         },
         "pulseaudio": {
+                "scroll-step": 2.0,
                 "on-click": "kitty --class=popup_pulsemixer pulsemixer"
         },
         "clock": {
