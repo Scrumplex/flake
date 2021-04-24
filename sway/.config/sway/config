@@ -89,8 +89,8 @@ input 1133:49277:Logitech_Gaming_Mouse_G502 {
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    # Exit sway and poweroff
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you want to power off?' -b 'Yes, exit sway and power off' 'systemctl poweroff'
 #
 # Moving around:
 #
