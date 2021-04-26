@@ -4,6 +4,9 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+# See https://github.com/alebastr/sway-systemd
+include "/etc/sway/config.d/*"
+
 include nord
 
 ### Variables
@@ -253,6 +256,10 @@ for_window [app_id=popup_pulsemixer] floating enable
 for_window [app_id=popup_pulsemixer] resize set 800 600
 for_window [app_id=popup_pulsemixer] border none
 
-# See https://github.com/xdbob/sway-services
-include "/etc/sway/config.d/10-service.conf"
+exec mako
+exec swayidle \
+        timeout 300 'swaylock -f -c 000000' \
+        timeout 240 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+        timeout 600 'systemctl suspend' \
+        before-sleep 'swaylock -f -c 000000'
 
