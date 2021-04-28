@@ -189,7 +189,7 @@ input 1133:49277:Logitech_Gaming_Mouse_G502 {
 #
     bindsym XF86AudioPlay exec mpc toggle
     bindsym XF86AudioNext exec mpc next
-    bindsym XF86AudioPrev exec mpc previous
+    bindsym XF86AudioPrev exec mpc prev
     bindsym Shift+XF86AudioRaiseVolume exec mpc vol +2
     bindsym Shift+XF86AudioLowerVolume exec mpc vol -2
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +2%
