@@ -8,9 +8,9 @@
                 
         },
         "mpd": {
-	        "format": "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) 🎵",
-	        "format-disconnected": "Disconnected 🎵",
-                "format-stopped": "Stopped 🎵",
+	        "format": "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+	        "format-disconnected": "Disconnected ",
+                "format-stopped": "Stopped ",
                 "interval": 10,
                 "state-icons": {
                         "paused": "",
