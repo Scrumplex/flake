@@ -2,7 +2,7 @@
         "position": "top",
         "modules-left": ["sway/workspaces", "mpd"],
         "modules-center": ["clock"],
-        "modules-right": ["pulseaudio", "tray", "clock#date"],
+        "modules-right": ["network", "pulseaudio", "tray", "clock#date"],
 
         "sway/workspaces": {
                 
@@ -23,6 +23,19 @@
                 "on-click": "kitty --class=popup_ncmpcpp ncmpcpp",
                 "on-click-middle": "mpc toggle",
                 "on-click-right": ""
+        },
+        "network": {
+                "format": "{ifname}",
+                "format-wifi": "{essid} ({signalStrength}%)  {bandwidthDownBits}  {bandwidthUpBits}",
+                "format-ethernet": " {bandwidthDownBits}  {bandwidthUpBits}",
+                "format-disconnected": "鈴 disconnected",
+                "tooltip-format": "{ifname}",
+                "tooltip-format-wifi": "{essid} ({signalStrength}%) 直",
+                "tooltip-format-ethernet": "{ifname} ",
+                "tooltip-format-disconnected": "Disconnected",
+                "on-click": "kitty --class=popup_nload nload",
+                "max-length": 50,
+                "interval": 1
         },
         "pulseaudio": {
                 "scroll-step": 2.0,
