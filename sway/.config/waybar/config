@@ -5,7 +5,16 @@
         "modules-right": ["network", "pulseaudio", "tray", "clock#date"],
 
         "sway/workspaces": {
-                
+                "disable-scroll": true,
+                "all-outputs": false,
+                "format": "{icon}",
+                "format-icons": {
+                        "1:browse": "",
+                        "2:secondary": "",
+                        "3:code": "",
+                        "4:mail": "",
+                        "5:chat": ""
+                }
         },
         "mpd": {
 	        "format": "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
