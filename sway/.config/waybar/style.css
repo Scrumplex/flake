@@ -30,3 +30,20 @@ window#waybar {
         padding: 0 8px;
 }
 
+#workspaces button {
+        border: none;
+        border-bottom: 2px solid transparent;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        transition: border 100ms ease;
+}
+
+#workspaces button.focused {
+        border-bottom-color: #eceff4; /* nord6 */
+}
+
+#workspaces button:hover {
+        border-bottom-color: rgba(236, 239, 244, 0.5); /* nord6 */
+}

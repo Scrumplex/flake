@@ -10,7 +10,7 @@
                 "format": "{icon}",
                 "format-icons": {
                         "1:browse": "",
-                        "2:secondary": "",
+                        "2:secondary": "",
                         "3:code": "",
                         "4:mail": "",
                         "5:chat": ""
