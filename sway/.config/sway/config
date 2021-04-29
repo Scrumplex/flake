@@ -4,62 +4,44 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-# See https://github.com/alebastr/sway-systemd
-include "/etc/sway/config.d/*"
 
+### Includes
+# mainly for sway-systemd
+include "/etc/sway/config.d/*"
 include nord
 
+
 ### Variables
-#
-# Logo key. Use Mod1 for Alt.
 set $mod Mod4
-# Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
-set $term kitty
 
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $wallpaper /usr/share/wallpapers/Next/contents/images/1920x1080.png
+
+set $term kitty
 set $menu j4-dmenu-desktop --dmenu='bemenu -H30 -mall --fn "Fira Code" -i' --term='kitty' | xargs swaymsg exec --
 
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/wallpapers/Next/contents/images/1920x1080.png fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
 
-output DP-1 resolution 1920x1080 position 0,0
-output DP-2 resolution 1920x1080 position 1920,0
+### Output configuration
+output DP-1 {
+        resolution 1920x1080
+        position 0,0
+        bg $wallpaper fill
+}
+
+output DP-2 {
+        resolution 1920x1080
+        position 1920,0
+        bg $wallpaper fill
+}
+
+# Disable Valve Index
 output DP-3 disable
 
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
 input * {
         xkb_layout "de"
 }
@@ -69,145 +51,118 @@ input 1133:49277:Logitech_Gaming_Mouse_G502 {
         pointer_accel   -1.0
 }
 
-### Key bindings
-#
-# Basics:
-#
-    # Start a terminal
-    bindsym $mod+Return exec $term
 
-    # Kill focused window
-    bindsym $mod+Shift+q kill
+### Keybinds
+# Move/Resite windows with mouse
+floating_modifier $mod normal
 
-    # Start your launcher
-    bindsym $mod+d exec $menu
+# Start terminal
+bindsym $mod+Return exec $term
+# Close active window
+bindsym $mod+Shift+q kill
+# Launcher
+bindsym $mod+d exec $menu
+# Reload
+bindsym $mod+Shift+c reload
+# Bye Bye
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you want to power off?' -b 'Yes, exit sway and power off' 'systemctl poweroff'
+# Manual lock
+bindsym $mod+q exec swaylock
+# Screenshot
+bindsym Print exec screenshot-bash
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
+# Move focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+# Ditto, with arrow keys
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
-    # Reload the configuration file
-    bindsym $mod+Shift+c reload
+# Move the focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+# Ditto, with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
-    # Exit sway and poweroff
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you want to power off?' -b 'Yes, exit sway and power off' 'systemctl poweroff'
-#
-# Moving around:
-#
-    # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+# Move the focused WORKSPACE to other output
+bindsym $mod+Ctrl+$left move workspace output left
+bindsym $mod+Ctrl+$down move workspace output down
+bindsym $mod+Ctrl+$up move workspace output up
+bindsym $mod+Ctrl+$right move workspace output right
+# Ditto, with arrow keys
+bindsym $mod+Ctrl+Left move workspace output left
+bindsym $mod+Ctrl+Down move workspace output down
+bindsym $mod+Ctrl+Up move workspace output up
+bindsym $mod+Ctrl+Right move workspace output right
 
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
-#
-# Workspaces:
-#
-    bindsym $mod+Ctrl+Left move workspace output left
-    bindsym $mod+Ctrl+Down move workspace output down
-    bindsym $mod+Ctrl+Up move workspace output up
-    bindsym $mod+Ctrl+Right move workspace output right
-    # Switch to workspace
-    bindsym $mod+1 workspace "1:browse"
-    bindsym $mod+2 workspace "2:secondary"
-    bindsym $mod+3 workspace "3:code"
-    bindsym $mod+4 workspace "4:mail"
-    bindsym $mod+5 workspace "5:chat"
-    bindsym $mod+6 workspace "6:6"
-    bindsym $mod+7 workspace "7:7"
-    bindsym $mod+8 workspace "8:8"
-    bindsym $mod+9 workspace "9:9"
-    bindsym $mod+0 workspace "10:10"
-    # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace "1:browse"
-    bindsym $mod+Shift+2 move container to workspace "2:secondary"
-    bindsym $mod+Shift+3 move container to workspace "3:code"
-    bindsym $mod+Shift+4 move container to workspace "4:mail"
-    bindsym $mod+Shift+5 move container to workspace "5:chat"
-    bindsym $mod+Shift+6 move container to workspace "6:6"
-    bindsym $mod+Shift+7 move container to workspace "7:7"
-    bindsym $mod+Shift+8 move container to workspace "8:8"
-    bindsym $mod+Shift+9 move container to workspace "9:9"
-    bindsym $mod+Shift+0 move container to workspace "10:10"
-#
-# Layout stuff:
-#
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+# Switch to workspace
+bindsym $mod+1 workspace "1:browse"
+bindsym $mod+2 workspace "2:secondary"
+bindsym $mod+3 workspace "3:code"
+bindsym $mod+4 workspace "4:mail"
+bindsym $mod+5 workspace "5:chat"
+bindsym $mod+6 workspace "6:6"
+bindsym $mod+7 workspace "7:7"
+bindsym $mod+8 workspace "8:8"
+bindsym $mod+9 workspace "9:9"
+bindsym $mod+0 workspace "10:10"
 
-    # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace "1:browse"
+bindsym $mod+Shift+2 move container to workspace "2:secondary"
+bindsym $mod+Shift+3 move container to workspace "3:code"
+bindsym $mod+Shift+4 move container to workspace "4:mail"
+bindsym $mod+Shift+5 move container to workspace "5:chat"
+bindsym $mod+Shift+6 move container to workspace "6:6"
+bindsym $mod+Shift+7 move container to workspace "7:7"
+bindsym $mod+Shift+8 move container to workspace "8:8"
+bindsym $mod+Shift+9 move container to workspace "9:9"
+bindsym $mod+Shift+0 move container to workspace "10:10"
 
-    # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+# Switch the current container between different layout styles
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+bindsym $mod+b splith
+bindsym $mod+v splitv
 
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
 
-    # Move focus to the parent container
-    bindsym $mod+a focus parent
-#
-# Scratchpad:
-#
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
 
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
 
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+# Move focus to the parent container
+bindsym $mod+a focus parent
 
-#
-# Multimedia:
-#
-#
-    bindsym XF86AudioPlay exec mpc toggle
-    bindsym XF86AudioNext exec mpc next
-    bindsym XF86AudioPrev exec mpc prev
-    bindsym Shift+XF86AudioRaiseVolume exec mpc vol +2
-    bindsym Shift+XF86AudioLowerVolume exec mpc vol -2
-    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +2%
-    bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -2%
+# Multimedia keys
+bindsym XF86AudioStop exec mpc stop
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
+# Pulse volume
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +2%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -2%
+# MPD volume
+bindsym Shift+XF86AudioRaiseVolume exec mpc vol +2
+bindsym Shift+XF86AudioLowerVolume exec mpc vol -2
 
-    bindsym $mod+q exec swaylock
-    bindsym Print exec screenshot-bash
-
-#
-# Resizing containers:
-#
+# Resize mode
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
+
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
     bindsym $up resize shrink height 10px
@@ -225,28 +180,14 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-#bar {
-#    position top
-#
-#    # When the status_command prints a new line to stdout, swaybar updates.
-#    # The default just shows the current date and time.
-#    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-#
-#    colors {
-#        statusline #ffffff
-#        background #323232
-#        inactive_workspace #32323200 #32323200 #5c5c5c
-#    }
-#}
 
+### Status bar
 bar {
         swaybar_command waybar
 }
 
+
+### Look and feel
 font pango:Fira Code 10
 client.focused          $nord3  $nord3  $nord6  $nord9  $nord0
 client.focused_inactive $nord1  $nord1  $nord4  $nord9  $nord0
@@ -254,14 +195,19 @@ client.unfocused        $nord0  $nord0  $nord4  $nord9  $nord0
 client.urgent           $nord11 $nord11 $nord4  $nord9  $nord0
 
 
+### Window rules
+# Show PulseMixer popup from waybar as floating window
 for_window [app_id=popup_pulsemixer] floating enable
 for_window [app_id=popup_pulsemixer] resize set 800 600
 for_window [app_id=popup_pulsemixer] border none
 
+# Kontact to Mail Workspace
 assign [app_id=kontact] 4:mail
-for_window [app_id=kontact] workspace 4:mail
 
+### Services
+# TODO: Use mako.service when available
 exec mako
+# TODO: Create service for swayidle
 exec swayidle \
         timeout 300 'swaylock -f -c 000000' \
         timeout 240 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
