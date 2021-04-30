@@ -14,6 +14,10 @@
                         "3:code": "",
                         "4:mail": "",
                         "5:chat": ""
+                },
+                "persistent_workspaces": {
+                        "1:browse": [],
+                        "2:secondary": []
                 }
         },
         "mpd": {
