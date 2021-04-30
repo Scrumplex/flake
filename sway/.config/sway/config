@@ -204,6 +204,12 @@ for_window [app_id=popup_pulsemixer] border none
 # Kontact to Mail Workspace
 assign [app_id=kontact] 4:mail
 
+# Chat apps to Chat Workspace
+assign [app_id=telegramdesktop] 5:chat
+assign [class=Signal] 5:chat
+assign [class=Element] 5:chat
+assign [class=Discord] 5:chat
+
 ### Services
 # TODO: Use mako.service when available
 exec mako
