@@ -32,6 +32,12 @@ output DP-1 {
         bg $wallpaper fill
 }
 
+output eDP-1 {
+        resolution 1920x1080
+        position 0,0
+        bg $wallpaper fill
+}
+
 output DP-2 {
         resolution 1920x1080
         position 1920,0
