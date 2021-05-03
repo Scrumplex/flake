@@ -32,15 +32,15 @@ output DP-1 {
         bg $wallpaper fill
 }
 
-output eDP-1 {
-        resolution 1920x1080
-        position 0,0
-        bg $wallpaper fill
-}
-
 output DP-2 {
         resolution 1920x1080
         position 1920,0
+        bg $wallpaper fill
+}
+
+output eDP-1 {
+        resolution 1920x1080
+        position 0,0
         bg $wallpaper fill
 }
 
@@ -53,6 +53,12 @@ input * {
 input 1133:49277:Logitech_Gaming_Mouse_G502 {
         accel_profile   "adaptive"
         pointer_accel   -1.0
+}
+
+input 1267:12384:ELAN0501:00_04F3:3060_Touchpad {
+        natural_scroll  enabled
+        tap             enabled
+        tap_button_map  lrm
 }
 
 
