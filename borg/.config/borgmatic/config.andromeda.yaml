@@ -12,7 +12,6 @@ location:
     # repositories are backed up to in sequence. See ssh_command for SSH options like
     # identity file or port.
     repositories:
-      #        - /run/media/scrumplex/SEFA2T/Backups/andromeda-Pool
         - obai58wh@obai58wh.repo.borgbase.com:repo
         - media@10.10.10.4:data/backup/andromeda
 
@@ -92,6 +91,7 @@ location:
         - ~/.m2
         - ~/.node-gyp
         - ~/.npm
+        - ~/.nvm
         - ~/.rustup
         - ~/.steam
         - ~/.tmp
