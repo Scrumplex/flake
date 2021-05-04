@@ -221,8 +221,6 @@ assign [class=Element] 5:chat
 assign [class=discord] 5:chat
 
 ### Services
-# TODO: Use mako.service when available
-exec mako
 # TODO: Create service for swayidle
 exec swayidle \
         timeout 300 'swaylock -f -c 000000' \
