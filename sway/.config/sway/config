@@ -220,6 +220,9 @@ assign [class=Signal] 5:chat
 assign [class=Element] 5:chat
 assign [class=discord] 5:chat
 
+# Inhibit
+for_window [title=.*] inhibit_idle fullscreen
+
 ### Services
 # TODO: Create service for swayidle
 exec swayidle \
