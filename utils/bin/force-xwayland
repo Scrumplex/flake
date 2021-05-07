@@ -1,0 +1,6 @@
+#!/bin/sh
+export GDK_BACKEND=x11
+export QPA_PLATFORM=xcb
+export SDL_VIDEODRIVER=x11
+
+exec $@
