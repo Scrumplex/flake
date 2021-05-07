@@ -1,6 +1,6 @@
 #!/bin/bash
 voip_sink_monitor="VoIP Audio/Sink sink Monitor"
-output_sink_playback="[G533 Wireless Headset Dongle] Analog Stereo Output"
+output_sink_playback="[G533 Wireless Headset Dongle] Analog Stereo"
 calf_client_name="calf-compressor"
 
 sleep 2
