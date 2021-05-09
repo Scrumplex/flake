@@ -31,8 +31,8 @@
                 },
                 "tooltip-format": "MPD (connected)",
                 "tooltip-format-disconnected": "MPD (disconnected)",
-                "on-scroll-up": "mpc vol +2",
-                "on-scroll-down": "mpc vol -2",
+                "on-scroll-up": "mpc vol +2 && mpc vol | sed 's/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock",
+                "on-scroll-down": "mpc vol -2 && mpc vol | sed 's/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock",
                 "on-click": "kitty --class=popup_ncmpcpp ncmpcpp",
                 "on-click-middle": "mpc toggle",
                 "on-click-right": ""
@@ -52,7 +52,9 @@
         },
         "pulseaudio": {
                 "scroll-step": 2.0,
-                "on-click": "kitty --class=popup_pulsemixer pulsemixer"
+                "on-click": "kitty --class=popup_pulsemixer pulsemixer",
+                "on-scroll-up": "pamixer -ui 2 && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock",
+                "on-scroll-down": "pamixer -ud 2 && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock"
         },
         "clock": {
                 "format": "{:%H:%M:%S}",
