@@ -32,7 +32,7 @@ button:active {
         background-image: image(url("./lock.png"));
 }
 
-#logout {
+#exit {
         background-image: image(url("./exit-to-app.png"));
 }
 

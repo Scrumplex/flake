@@ -17,9 +17,9 @@
         "keybind" : "u"
 }
 {
-        "label" : "logout",
-        "action" : "loginctl terminate-session",
-        "text" : "Logout",
+        "label" : "exit",
+        "action" : "swaymsg exit",
+        "text" : "Exit",
         "keybind" : "e"
 }
 {
