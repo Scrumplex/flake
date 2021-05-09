@@ -1,0 +1,53 @@
+* {
+        background-image: none;
+}
+
+window {
+        background-color: rgba(46, 52, 64, 0.9); /* nord0 */
+        color: #eceff4;  /* nord6 */
+        font-family: "Fira Code"
+}
+
+button {
+        background-color: #3b4252;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 25%;
+        border: none;
+}
+
+button:hover {
+        background-color: #434c5e; /* nord2 */
+}
+
+button:focus {
+        background-color: #88c0d0; /* nord8 */
+}
+
+button:active {
+        background-color: #8fbcbb; /* nord7 */
+}
+
+#lock {
+        background-image: image(url("./lock.png"));
+}
+
+#logout {
+        background-image: image(url("./exit-to-app.png"));
+}
+
+#suspend {
+        background-image: image(url("./power-sleep.png"));
+}
+
+#hibernate {
+        background-image: image(url("./power-cycle.png"));
+}
+
+#shutdown {
+        background-image: image(url("./power.png"));
+}
+
+#reboot {
+        background-image: image(url("./restart.png"));
+}

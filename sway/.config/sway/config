@@ -75,7 +75,7 @@ bindsym $mod+d exec $menu
 # Reload
 bindsym $mod+Shift+c reload
 # Bye Bye
-bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you want to power off?' -b 'Yes, exit sway and power off' 'systemctl poweroff'
+bindsym $mod+Shift+e exec wlogout
 # Manual lock
 bindsym $mod+q exec swaylock
 # Screenshot

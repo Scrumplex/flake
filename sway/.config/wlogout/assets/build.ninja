@@ -1,0 +1,12 @@
+# Set DPI to 2048
+inkscapeflags = -d 2048
+
+rule convert
+        command = inkscape $in -o $out $inkscapeflags
+
+build ../exit-to-app.png: convert exit-to-app.svg
+build ../lock.png: convert lock.svg
+build ../power-cycle.png: convert power-cycle.svg
+build ../power-sleep.png: convert power-sleep.svg
+build ../power.png: convert power.svg
+build ../restart.png: convert restart.svg
