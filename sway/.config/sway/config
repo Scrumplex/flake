@@ -22,7 +22,7 @@ set $right l
 set $wallpaper /usr/share/wallpapers/Next/contents/images/1920x1080.png
 
 set $term kitty
-set $menu j4-dmenu-desktop --dmenu='bemenu -H30 -mall --fn "Fira Code" -i' --term='kitty' | xargs swaymsg exec --
+set $menu j4-dmenu-desktop --dmenu='bemenu -iH28 -mall --fn "Fira Code"' --term='kitty' | xargs swaymsg exec --
 
 
 ### Output configuration
