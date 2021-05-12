@@ -2,9 +2,10 @@
 Description=Lightweight ovewrlay bar for Wayland
 
 [Service]
+EnvironmentFile=-%E/wob/env
 ExecStartPre=/usr/bin/mkfifo %t/wob.sock
-ExecStart=/usr/bin/sh -c "tail -f %t/wob.sock | wob"
-ExecStopPost=/usr/bin/rm %t/wob.sock
+ExecStart=/usr/bin/sh -c "tail -f %t/wob.sock | wob $WOB_ARGS"
+ExecStopPost=/usr/bin/rm -f %t/wob.sock
 
 [Install]
 WantedBy=sway-session.target
