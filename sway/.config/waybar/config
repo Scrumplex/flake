@@ -60,6 +60,9 @@
                 "format": "{:%H:%M:%S}",
                 "interval": 1
         },
+        "tray": {
+                "spacing": 10
+        },
         "clock#date": {
                 "format": "{:%a, %d. %b %Y}",
                 "interval": 1
