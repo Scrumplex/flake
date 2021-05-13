@@ -3,6 +3,7 @@ Description=Lightweight overlay bar for Wayland
 
 [Socket]
 ListenFIFO=%t/wob.sock
+RemoveOnStop=on
 Service=wob.service
 
 [Install]
