@@ -1,11 +1,12 @@
 [Unit]
 Description=Lightweight ovewrlay bar for Wayland
+Requires=wob.socket
 
 [Service]
 EnvironmentFile=-%E/wob/env
-ExecStartPre=/usr/bin/mkfifo %t/wob.sock
-ExecStart=/usr/bin/sh -c "tail -f %t/wob.sock | wob $WOB_ARGS"
-ExecStopPost=/usr/bin/rm -f %t/wob.sock
+ExecStart=/usr/bin/wob $WOB_ARGS
+Sockets=wob.socket
+StandardInput=socket
 
 [Install]
 WantedBy=sway-session.target

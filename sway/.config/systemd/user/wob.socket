@@ -1,0 +1,10 @@
+[Unit]
+Description=Lightweight overlay bar for Wayland
+
+[Socket]
+ListenFIFO=%t/wob.sock
+Service=wob.service
+
+[Install]
+WantedBy=sway-session.target
+
