@@ -22,7 +22,8 @@ set $right l
 set $wallpaper /usr/share/wallpapers/Next/contents/images/1920x1080.png
 
 set $term kitty
-set $menu j4-dmenu-desktop --dmenu='bemenu -iH28 -mall --fn "Fira Code"' --term='kitty' | xargs swaymsg exec --
+set $menu bemenu -iH28 -mall --fn "Fira Code"
+set $launcher j4-dmenu-desktop --dmenu='$menu' --term='kitty' | xargs swaymsg exec --
 
 
 ### Output configuration
@@ -63,7 +64,7 @@ input 1267:12384:ELAN0501:00_04F3:3060_Touchpad {
 
 
 ### Keybinds
-# Move/Resite windows with mouse
+# Move/Resize windows with mouse
 floating_modifier $mod normal
 
 # Start terminal
@@ -71,7 +72,7 @@ bindsym $mod+Return exec $term
 # Close active window
 bindsym $mod+Shift+q kill
 # Launcher
-bindsym $mod+d exec $menu
+bindsym $mod+d exec $launcher
 # Reload
 bindsym $mod+Shift+c reload
 # Bye Bye
