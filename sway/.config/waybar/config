@@ -2,7 +2,7 @@
         "position": "top",
         "modules-left": ["sway/workspaces", "mpd"],
         "modules-center": ["clock"],
-        "modules-right": ["network", "pulseaudio", "tray", "clock#date"],
+        "modules-right": ["network", "pulseaudio", "idle_inhibitor", "tray", "clock#date"],
 
         "sway/workspaces": {
                 "disable-scroll": true,
@@ -40,8 +40,8 @@
         "network": {
                 "format": "{ifname}",
                 "format-wifi": "{essid} ({signalStrength}%)  {bandwidthDownBits}  {bandwidthUpBits}",
-                "format-ethernet": " {bandwidthDownBits}  {bandwidthUpBits}",
-                "format-disconnected": "鈴 disconnected",
+                "format-ethernet": "",
+                "format-disconnected": " disconnected",
                 "tooltip-format": "{ifname}",
                 "tooltip-format-wifi": "{essid} ({signalStrength}%) 直",
                 "tooltip-format-ethernet": "{ifname} ",
@@ -51,7 +51,18 @@
                 "interval": 1
         },
         "pulseaudio": {
-                "scroll-step": 2.0,
+                "format": "{volume}% {icon}",
+                "format-bluetooth": "{volume}% {icon}",
+                "format-muted": "ﱝ",
+                "format-icons": {
+                     "headphones": "",
+                     "handsfree": "",
+                     "headset": "",
+                     "phone": "",
+                     "portable": "",
+                     "car": "",
+                     "default": "墳"
+                },
                 "on-click": "kitty --class=popup_pulsemixer pulsemixer",
                 "on-scroll-up": "pamixer -ui 2 && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock",
                 "on-scroll-down": "pamixer -ud 2 && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock"
@@ -59,6 +70,13 @@
         "clock": {
                 "format": "{:%H:%M:%S}",
                 "interval": 1
+        },
+        "idle_inhibitor": {
+                "format": "{icon}",
+                "format-icons": {
+                        "activated": "零",
+                        "deactivated": "鈴"
+                }
         },
         "tray": {
                 "spacing": 10
