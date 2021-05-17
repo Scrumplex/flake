@@ -1,7 +1,8 @@
 # bobthefisher Theme settings
 set -g theme_color_scheme "nord"
 set -g theme_nerd_fonts "yes"
-# Don't truncate $PWD
+set -g theme_title_display_process "yes"
+# Don't abbreviate $PWD
 set -g fish_prompt_pwd_dir_length 0
 
 # Custom $PATH
