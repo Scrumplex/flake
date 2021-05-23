@@ -209,6 +209,9 @@ for_window [app_id=popup_pulsemixer] floating enable
 for_window [app_id=popup_pulsemixer] resize set 800 600
 for_window [app_id=popup_pulsemixer] border none
 
+# LXQt Polkit Agent
+for_window [app_id=lxqt-policykit-agent] floating enable
+
 # Kontact to Mail Workspace
 assign [app_id=kontact] 4:mail
 

@@ -1,0 +1,9 @@
+[Unit]
+Description=LXQt PolicyKit Agent
+
+[Service]
+ExecStart=/usr/bin/lxqt-policykit-agent
+
+[Install]
+WantedBy=sway-session.target
+
