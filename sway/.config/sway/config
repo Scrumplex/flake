@@ -223,6 +223,7 @@ assign [class=discord] 5:chat
 
 # Inhibit
 for_window [title=.*] inhibit_idle fullscreen
+for_window [class=vrmonitor] inihibit_idle open
 
 ### Services
 # TODO: Create service for swayidle
