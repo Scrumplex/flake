@@ -233,6 +233,3 @@ exec swayidle \
         timeout 600 'systemctl suspend' \
         before-sleep 'swaylock -f -c 000000'
 
-# Unlock KWallet
-exec --no-startup-id /usr/lib/pam_kwallet_init
-
