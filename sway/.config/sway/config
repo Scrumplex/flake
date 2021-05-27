@@ -19,7 +19,7 @@ set $down j
 set $up k
 set $right l
 
-set $wallpaper /usr/share/wallpapers/Next/contents/images/1920x1080.png
+set $wallpaper /usr/share/wallpapers/Next/contents/images/2560x1440.png
 
 set $term kitty
 set $menu bemenu -iH28 -mall --fn "Fira Code"
@@ -28,14 +28,16 @@ set $launcher j4-dmenu-desktop --dmenu='$menu' --term='kitty' | xargs swaymsg ex
 
 ### Output configuration
 output DP-1 {
-        resolution 1920x1080
+        resolution 2560x1440
         position 0,0
         bg $wallpaper fill
+        adaptive_sync on
 }
 
 output DP-2 {
         resolution 1920x1080
-        position 1920,0
+        # right of DP-1 common bottom edge
+        position 2560,360
         bg $wallpaper fill
 }
 
