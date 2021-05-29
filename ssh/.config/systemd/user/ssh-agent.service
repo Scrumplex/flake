@@ -4,7 +4,6 @@ Description=SSH key agent
 [Service]
 Type=simple
 ExecStart=/usr/bin/ssh-agent -D -a $SSH_AUTH_SOCK
-ExecStartPost=%h/bin/ssh-agent-load-keys
 
 [Install]
 WantedBy=graphical-session.target
