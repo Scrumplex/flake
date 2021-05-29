@@ -27,25 +27,23 @@ set $launcher j4-dmenu-desktop --dmenu='$menu' --term='kitty' | xargs swaymsg ex
 
 
 ### Output configuration
-output DP-1 {
+output "Goldstar Company Ltd LG ULTRAGEAR 104MANJ7FL47" {
         resolution 2560x1440
         position 0,0
-        bg $wallpaper fill
         adaptive_sync on
 }
 
-output DP-2 {
+output "Samsung Electric Company S24E650 H4ZJ803253" {
         resolution 1920x1080
-        # right of DP-1 common bottom edge
-        position 2560,360
-        bg $wallpaper fill
+        position 2560,0
 }
 
 output eDP-1 {
         resolution 1920x1080
         position 0,0
-        bg $wallpaper fill
 }
+
+output * bg $wallpaper fill
 
 
 ### Input configuration
