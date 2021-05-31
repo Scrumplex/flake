@@ -49,8 +49,9 @@ output * bg $wallpaper fill
 
 
 ### Input configuration
-input * {
+input type:keyboard {
         xkb_layout "de"
+        xkb_numlock enabled
 }
 
 input 1133:49277:Logitech_Gaming_Mouse_G502 {
