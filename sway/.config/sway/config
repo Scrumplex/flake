@@ -43,8 +43,6 @@ output eDP-1 {
         position 0,0
 }
 
-output "Unknown Index HMD 0x0000FD89" disable
-
 output * bg $wallpaper fill
 
 
