@@ -2,7 +2,7 @@
         "position": "top",
         "modules-left": ["sway/workspaces", "mpd"],
         "modules-center": ["clock"],
-        "modules-right": ["network", "pulseaudio", "idle_inhibitor", "tray", "clock#date"],
+        "modules-right": ["network", "pulseaudio", "battery", "idle_inhibitor", "tray", "clock#date"],
 
         "sway/workspaces": {
                 "disable-scroll": true,
@@ -66,6 +66,16 @@
                 "on-click": "kitty --class=popup_pulsemixer pulsemixer",
                 "on-scroll-up": "pamixer -ui 2 && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock",
                 "on-scroll-down": "pamixer -ud 2 && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock"
+        },
+        "battery": {
+               "interval": 60,
+               "states": {
+                   "warning": 30,
+                   "critical": 15
+               },
+               "format": "{capacity}% {icon}",
+               "format-icons": ["", "", "", "", ""],
+               "max-length": 25
         },
         "clock": {
                 "format": "{:%H:%M:%S}",
