@@ -38,7 +38,7 @@ output "Samsung Electric Company S24E650 H4ZJ803253" {
         position 2560,0
 }
 
-output eDP-1 {
+output "Unknown 0x046F 0x00000000" {
         resolution 1920x1080
         position 0,0
 }
