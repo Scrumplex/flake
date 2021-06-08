@@ -92,6 +92,7 @@ location:
         - ~/.node-gyp
         - ~/.npm
         - ~/.nvm
+        - ~/.rbenv
         - ~/.rustup
         - ~/.steam
         - ~/.tmp
