@@ -9,7 +9,7 @@
 # mainly for sway-systemd
 include /etc/sway/config.d/10-systemd-cgroups.conf
 include /etc/sway/config.d/10-systemd-session.conf
-include nord
+include *
 
 
 ### Variables
@@ -18,8 +18,6 @@ set $left h
 set $down j
 set $up k
 set $right l
-
-set $wallpaper /usr/share/wallpapers/Next/contents/images/2560x1440.png
 
 set $term kitty
 set $menu bemenu -iH28 -mall --fn "Fira Code"
@@ -42,8 +40,6 @@ output "Unknown 0x046F 0x00000000" {
         resolution 1920x1080
         position 0,0
 }
-
-output * bg $wallpaper fill
 
 
 ### Input configuration
