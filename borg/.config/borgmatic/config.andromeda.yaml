@@ -13,7 +13,6 @@ location:
     # identity file or port.
     repositories:
         - obai58wh@obai58wh.repo.borgbase.com:repo
-        - media@10.10.10.4:data/backup/andromeda
 
     # Any paths matching these patterns are excluded from backups. Globs and tildes
     # are expanded. See the output of "borg help patterns" for more details.
