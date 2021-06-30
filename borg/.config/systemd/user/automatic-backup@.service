@@ -1,6 +1,8 @@
 [Unit]
 Description=Borgmatic backup for %i
 ConditionACPower=true
+After=ssh-agent.service
+Requires=ssh-agent.service
 
 [Service]
 ExecStartPre=sleep 1m
