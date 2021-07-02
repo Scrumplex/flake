@@ -1,0 +1,22 @@
+[Added Associations]
+
+[Default Applications]
+application/pdf=org.kde.okular.desktop;
+application/x-bittorrent=org.qbittorrent.qBittorrent.desktop;
+application/x-extension-htm=firefox.desktop;
+application/x-extension-html=firefox.desktop;
+application/x-extension-shtml=firefox.desktop;
+application/x-extension-xht=firefox.desktop;
+application/x-extension-xhtml=firefox.desktop;
+application/xhtml+xml=firefox.desktop;
+image/png=imv.desktop;
+inode/directory=ranger.desktop;
+text/html=firefox.desktop;
+video/mp4=mpv.desktop;
+x-scheme-handler/about=firefox.desktop;
+x-scheme-handler/chrome=firefox.desktop;
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/mailto=org.kde.kmail2.desktop;
+x-scheme-handler/terminal=kitty.desktop;
+x-scheme-handler/unknown=firefox.desktop;
