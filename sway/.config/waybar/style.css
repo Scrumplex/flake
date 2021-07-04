@@ -1,6 +1,6 @@
 * {
         font-family: "Fira Code";
-        font-size: 9pt;
+        font-size: 10pt;
 }
 
 window#waybar {
@@ -37,6 +37,7 @@ window#waybar {
         border-top-right-radius: 16px;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
+        padding: 0 8px;
         transition: border 100ms ease;
 }
 
@@ -45,6 +46,7 @@ window#waybar {
 }
 
 #workspaces button:hover {
+        background-image: none; /* remove Adwaita button gradient */
         border-bottom-color: rgba(236, 239, 244, 0.5); /* nord6 */
 }
 
