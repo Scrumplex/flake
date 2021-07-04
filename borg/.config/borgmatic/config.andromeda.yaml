@@ -46,11 +46,8 @@ location:
         - "*/.snapshots"
 
     exclude_caches: true
-
-    # Exclude directories that contain a file with the given filenames. Defaults to not
-    # set.
-    # exclude_if_present:
-        # - .nobackup
+    exclude_if_present:
+        - .nobackup
 
 storage:
     compression: zstd
@@ -79,6 +76,9 @@ retention:
 
     # Number of yearly archives to keep.
     # keep_yearly: 1
+
+consistency:
+    checks:
 
 hooks:
     before_backup:
