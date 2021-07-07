@@ -77,9 +77,6 @@ retention:
     # Number of yearly archives to keep.
     # keep_yearly: 1
 
-consistency:
-    checks:
-
 hooks:
     before_backup:
         - echo "Starting a backup."
@@ -90,10 +87,6 @@ hooks:
         - echo "Starting pruning."
         - systemd-notify --ready --status="Pruning..."
 
-    before_check:
-        - echo "Starting checks."
-        - systemd-notify --ready --status="Checking..."
-
     after_backup:
         - echo "Finished a backup."
         - systemd-notify --ready --status="Backup done"
@@ -102,11 +95,7 @@ hooks:
         - echo "Finished pruning."
         - systemd-notify --ready --status="Prune done"
 
-    after_check:
-        - echo "Finished checks."
-        - systemd-notify --ready --status="Checks done"
-
     on_error:
-        - echo "Error during prune/create/check."
+        - echo "Error during prune/create."
         - systemd-notify --status="Failed"
 
