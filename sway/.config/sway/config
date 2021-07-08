@@ -20,7 +20,7 @@ set $up k
 set $right l
 
 set $term kitty
-set $menu bemenu -iH28 -mall --fn "Fira Code" -p "Launch"
+set $menu bemenu -iH26 -mall --fn "Fira Code" -p "Launch"
 set $launcher j4-dmenu-desktop --dmenu='$menu' --term='kitty' | xargs swaymsg exec --
 
 
