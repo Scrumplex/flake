@@ -1,7 +1,5 @@
 [Unit]
 Description=Run automatic backup
-Requires=ssh-agent.service
-After=ssh-agent.service
 
 [Timer]
 OnCalendar=daily
