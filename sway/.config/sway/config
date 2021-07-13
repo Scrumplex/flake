@@ -21,7 +21,10 @@ set $right l
 
 set $term kitty
 set $menu bemenu -iH26 -mall --fn "Fira Code" -p "Launch"
-set $launcher j4-dmenu-desktop --dmenu='$menu' --term='kitty' | xargs swaymsg exec --
+set $launcher j4-dmenu-desktop --dmenu='$menu' --term='$term' | xargs swaymsg exec --
+set $exitnag wlogout
+set $lock swaylock
+set $screenshot screenshot-bash
 
 
 ### Output configuration
@@ -73,11 +76,11 @@ bindsym $mod+d exec $launcher
 # Reload
 bindsym $mod+Shift+c reload
 # Bye Bye
-bindsym $mod+Shift+e exec wlogout
+bindsym $mod+Shift+e exec $exitnag
 # Manual lock
-bindsym $mod+q exec swaylock
+bindsym $mod+q exec $lock
 # Screenshot
-bindsym Print exec screenshot-bash
+bindsym Print exec $screenshot
 
 # Move focus around
 bindsym $mod+$left focus left
