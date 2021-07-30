@@ -162,6 +162,7 @@ bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 # Pulse volume
+bindsym XF86AudioMute exec pamixer -t && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock
 bindsym XF86AudioRaiseVolume exec pamixer -ui 2 && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock
 bindsym XF86AudioLowerVolume exec pamixer -ud 2 && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock
 # MPD volume
