@@ -195,12 +195,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-### Status bar
-bar {
-        swaybar_command waybar
-}
-
-
 ### Look and feel
 font pango:Fira Code 10
 client.focused          $nord3  $nord3  $nord6  $nord9  $nord0
