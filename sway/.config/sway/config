@@ -22,6 +22,7 @@ set $right l
 set $term kitty
 set $menu bemenu -iH26 -mall --fn "Fira Code" -p "Launch"
 set $launcher j4-dmenu-desktop --dmenu='$menu' --term='$term' | xargs swaymsg exec --
+set $passmenu passmenu
 set $exitnag wlogout
 set $lock swaylock
 set $screenshot screenshot-bash
@@ -73,6 +74,8 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 # Launcher
 bindsym $mod+d exec $launcher
+# Password manager
+bindsym $mod+p exec $passmenu
 # Reload
 bindsym $mod+Shift+c reload
 # Bye Bye
