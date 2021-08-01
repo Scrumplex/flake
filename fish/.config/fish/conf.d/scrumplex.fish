@@ -6,9 +6,6 @@ set -g theme_title_display_process "yes"
 # Custom $PATH
 fish_add_path -gp "$HOME/bin" "$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin" "/usr/lib/ccache/bin"
 
-# GPG Key for package and repo- signing
-set -gx GPGKEY "C10411294912A422"
-
 # for real, why is this the default?
 set -gx ANSIBLE_NOCOWS 1
 
