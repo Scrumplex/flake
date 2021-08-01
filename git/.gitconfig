@@ -10,7 +10,6 @@
 
 [core]
         autocrlf = input
-        abbrev = 16
 
 [pretty]
         fixes = Fixes: %h (\"%s\")
