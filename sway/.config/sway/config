@@ -45,6 +45,8 @@ output "Unknown 0x046F 0x00000000" {
         position 0,0
 }
 
+output * bg ~/Pictures/Wallpapers/current-wallpaper.jpg fill
+
 
 ### Input configuration
 input type:keyboard {
