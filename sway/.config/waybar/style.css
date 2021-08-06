@@ -1,29 +1,26 @@
-* {
+window#waybar {
         font-family: "Fira Code";
         font-size: 10pt;
-}
-
-window#waybar {
         background: RGBA(46, 52, 64, 0.9);
         color: #eceff4;  /* nord6 */
 }
 
-.modules-left > widget {
-        margin-left: 32px;
-}
-
 .modules-left, .modules-center {
-        padding-left: 16px;
         padding-right: 16px;
-        border-bottom-right-radius: 16px;
-        background: #3b4252; /* nord0 */
 }
 
 .modules-right, .modules-center {
-        padding-right: 16px;
         padding-left: 16px;
-        border-bottom-left-radius: 16px;
-        background: #3b4252; /* nord0 */
+}
+
+.modules-left > widget > *, .modules-center > widget > *, .modules-right > widget > * {
+        background-color: #434c5e;
+}
+
+#custom-arrowL, #custom-arrowR {
+        color: #434c5e;
+        background-color: transparent;
+        font-size: 14pt;
 }
 
 #workspaces, #mpd, #clock, #network, #pulseaudio, #idle_inhibitor, #tray {
@@ -33,23 +30,32 @@ window#waybar {
 #workspaces button {
         border: none;
         border-bottom: 2px solid transparent;
-        border-top-left-radius: 16px;
-        border-top-right-radius: 16px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+        border-radius: 0;
+        box-shadow: none;  /* dunno why this is set */
         padding: 0 8px;
-        transition: border 100ms ease;
+        transition: border 100ms ease, color 100ms ease;
 }
 
 #workspaces button.focused {
-        border-bottom-color: #eceff4; /* nord6 */
+        border-bottom-color: #8fbcbb;
+        color: #8fbcbb;
 }
 
 #workspaces button:hover {
         background-image: none; /* remove Adwaita button gradient */
-        border-bottom-color: rgba(236, 239, 244, 0.5); /* nord6 */
+        border-bottom-color: #5e81ac;
+}
+
+#workspaces button:hover label {
+        text-shadow: none; /* Adwaita? */
+}
+
+#workspaces button:active {
+        color: #5e81ac;
+        border-bottom-color: #5e81ac;
 }
 
 #network.ethernet {
         padding: 0;
 }
+

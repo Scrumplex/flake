@@ -1,8 +1,8 @@
 {
         "position": "top",
-        "modules-left": ["sway/workspaces", "mpd"],
-        "modules-center": ["clock"],
-        "modules-right": ["network", "pulseaudio", "battery", "idle_inhibitor", "tray", "clock#date"],
+        "modules-left": ["sway/workspaces", "mpd", "custom/arrowL"],
+        "modules-center": ["custom/arrowR", "clock", "custom/arrowL"],
+        "modules-right": ["custom/arrowR", "network", "pulseaudio", "battery", "idle_inhibitor", "tray", "clock#date"],
 
         "sway/workspaces": {
                 "disable-scroll": true,
@@ -94,6 +94,12 @@
         "clock#date": {
                 "format": "{:%a, %d. %b %Y}",
                 "interval": 1
+        },
+        "custom/arrowL": {
+                "format": ""
+        },
+        "custom/arrowR": {
+                "format": ""
         }
 }
 
