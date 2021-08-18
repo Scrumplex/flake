@@ -11,7 +11,6 @@ location:
     # identity file or port.
     repositories:
         - ll55l77x@ll55l77x.repo.borgbase.com:repo
-        - media@10.10.10.4:data/backup/SEFA2T
 
     # Stay in same file system (do not cross mount points). Defaults to false. But when
     # a database hook is used, the setting here is ignored and one_file_system is
@@ -114,7 +113,7 @@ storage:
     # use on repositories that were initialized with passcommand/repokey encryption.
     # Note that if both encryption_passcommand and encryption_passphrase are set,
     # then encryption_passphrase takes precedence. Defaults to not set.
-    # encryption_passcommand: 
+    # encryption_passcommand:
 
     # Passphrase to unlock the encryption key with. Only use on repositories that were
     # initialized with passphrase/repokey encryption. Quote the value if it contains
