@@ -59,6 +59,11 @@ input 1133:49277:Logitech_Gaming_Mouse_G502 {
         pointer_accel   -1.0
 }
 
+input 6127:24717:PixArt_Lenovo_USB_Optical_Mouse {
+        accel_profile   "adaptive"
+        pointer_accel   -1.0
+}
+
 input 1267:12384:ELAN0501:00_04F3:3060_Touchpad {
         natural_scroll  enabled
         tap             enabled
