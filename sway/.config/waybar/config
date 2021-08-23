@@ -33,7 +33,7 @@
                 "tooltip-format-disconnected": "MPD (disconnected)",
                 "on-scroll-up": "mpc vol +2 && mpc vol | sed 's/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock",
                 "on-scroll-down": "mpc vol -2 && mpc vol | sed 's/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock",
-                "on-click": "run-or-raise popup_ncmpcpp 'kitty --class=popup_ncmpcpp ncmpcpp'",
+                "on-click": "termapp ncmpcpp",
                 "on-click-middle": "mpc toggle",
                 "on-click-right": "",
                 "smooth-scrolling-threshold": 0.16
@@ -47,7 +47,7 @@
                 "tooltip-format-wifi": "{essid} ({signalStrength}%) 直",
                 "tooltip-format-ethernet": "{ifname} ",
                 "tooltip-format-disconnected": "Disconnected",
-                "on-click": "kitty --class=popup_nload nload",
+                "on-click": "termapp nload",
                 "max-length": 50,
                 "interval": 1
         },
@@ -64,7 +64,7 @@
                      "car": "",
                      "default": "墳"
                 },
-                "on-click": "run-or-raise popup_pulsemixer 'kitty --class=popup_pulsemixer pulsemixer'",
+                "on-click": "termapp pulsemixer",
                 "on-scroll-up": "pamixer -ui 2 && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock",
                 "on-scroll-down": "pamixer -ud 2 && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock",
                 "smooth-scrolling-threshold": 0.16
