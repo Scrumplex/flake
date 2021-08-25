@@ -7,3 +7,8 @@ border-color=#2e3440
 # nord8
 progress-color=over #88c0d0
 
+
+[urgency=critical]
+layer=overlay
+anchor=top-center
+
