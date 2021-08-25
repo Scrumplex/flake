@@ -1,7 +1,7 @@
 font=Fira Code 10
 
 # nord0
-background-color=#2e3440
+background-color=#2e3440e5
 # nord0
 border-color=#2e3440
 # nord8
@@ -12,3 +12,5 @@ progress-color=over #88c0d0
 layer=overlay
 anchor=top-center
 
+[mode=dnd]
+invisible=1
