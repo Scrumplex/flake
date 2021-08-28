@@ -1,0 +1,3 @@
+visualizer_data_source = ~/.mpd/fifo
+visualizer_output_name = FIFO
+visualizer_in_stereo = yes
