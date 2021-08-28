@@ -91,6 +91,8 @@ bindsym $mod+Shift+e exec $exitnag
 bindsym $mod+q exec $lock
 # Screenshot
 bindsym Print exec $screenshot
+# Dismiss last notification
+bindsym $mod+Backspace exec makoctl dismiss
 
 # Move focus around
 bindsym $mod+$left focus left
