@@ -1,5 +1,5 @@
 [Unit]
-Description=Lightweight ovewrlay bar for Wayland
+Description=Lightweight overlay bar for Wayland
 Requires=wob.socket
 
 [Service]
