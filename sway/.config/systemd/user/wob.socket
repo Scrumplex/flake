@@ -1,9 +1,11 @@
 [Unit]
-Description=Lightweight overlay bar for Wayland
+Description=Socket activation for lightweight overlay bar for Wayland
 
 [Socket]
 ListenFIFO=%t/wob.sock
 RemoveOnStop=on
+# If wob crashes from an input systemd should NOT shove it right back into it after it restarted
+FlushPending=yes
 Service=wob.service
 
 [Install]
