@@ -1,8 +1,7 @@
 [Unit]
 Description=Borgmatic backup for %i
-ConditionACPower=true
-After=ssh-agent.service
-Wants=ssh-agent.service
+After=gpg-agent-ssh.socket
+Wants=gpg-agent-ssh.socket
 
 [Service]
 ExecStart=systemd-inhibit --who="borgmatic" --why="Prevent interrupting scheduled backup" %h/bin/automatic-backup %i
