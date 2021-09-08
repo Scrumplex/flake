@@ -1,4 +1,5 @@
 [Added Associations]
+x-scheme-handler/tg=userapp-Telegram Desktop-YILS50.desktop;
 
 [Default Applications]
 application/pdf=org.kde.okular.desktop;
@@ -9,7 +10,9 @@ application/x-extension-shtml=firefox.desktop;
 application/x-extension-xht=firefox.desktop;
 application/x-extension-xhtml=firefox.desktop;
 application/xhtml+xml=firefox.desktop;
+image/*=imv.desktop;
 image/png=imv.desktop;
+image/svg+xml=org.inkscape.Inkscape.desktop;
 inode/directory=ranger.desktop;
 text/html=firefox.desktop;
 video/mp4=mpv.desktop;
@@ -19,4 +22,5 @@ x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 x-scheme-handler/mailto=org.kde.kmail2.desktop;
 x-scheme-handler/terminal=kitty.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-YILS50.desktop;
 x-scheme-handler/unknown=firefox.desktop;
