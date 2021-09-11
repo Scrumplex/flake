@@ -21,10 +21,9 @@
                 }
         },
         "mpd": {
-	        "format": "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+	        "format": "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ({volume}%) ",
 	        "format-disconnected": "Disconnected ",
                 "format-stopped": "Stopped ",
-                "interval": 10,
                 "state-icons": {
                         "paused": "",
                         "playing": ""
