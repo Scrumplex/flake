@@ -21,7 +21,7 @@ set $right l
 
 set $term kitty
 set $menu bemenu -p "Launch"
-set $launcher j4-dmenu-desktop --dmenu="$menu" --term="$term" | xargs swaymsg exec --
+set $launcher j4-dmenu-desktop --dmenu="$menu" --term="$term"
 set $passmenu passmenu
 set $exitnag wlogout
 set $lock swaylock
