@@ -1,2 +1,2 @@
 #!/bin/bash
-exec systemd-run --user --pty --collect --unit sway -- sway
+exec systemd-run --user --collect --wait --unit sway -- sway
