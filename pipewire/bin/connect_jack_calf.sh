@@ -1,6 +1,6 @@
 #!/bin/bash
 voip_sink_monitor="VoIP Audio/Sink sink Monitor"
-output_sink_playback="Starship/Matisse HD Audio Controller Analog Stereo"
+output_sink_playback="Schiit Hel 2 Digital Stereo (IEC958)"
 calf_client_name="calf-compressor"
 
 sleep 2
