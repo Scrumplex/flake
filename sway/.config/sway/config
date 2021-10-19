@@ -220,9 +220,7 @@ client.urgent           $nord11 $nord11 $nord4  $nord9  $nord0
 
 ### Window rules
 # Show PulseMixer popup from waybar as floating window
-for_window [app_id=popup_pulsemixer] floating enable
-for_window [app_id=popup_pulsemixer] resize set 800 600
-for_window [app_id=popup_pulsemixer] border none
+for_window [app_id=popup_pulsemixer] floating enable; sticky enable; resize set 800 600; border none
 
 # LXQt Polkit Agent
 for_window [app_id=lxqt-policykit-agent] floating enable
