@@ -1,2 +1,0 @@
-#!/bin/bash
-exec systemd-run --user --collect --wait --unit sway -- sway
