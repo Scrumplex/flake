@@ -22,7 +22,7 @@ set $right l
 set $term kitty
 set $menu bemenu -p "Launch"
 set $launcher j4-dmenu-desktop --dmenu="$menu" --term="$term" --usage-log="$HOME/.cache/j4-dmenu-desktop.log" --no-generic
-set $passmenu passmenu
+set $passmenu passmenu --type
 set $exitnag wlogout
 set $lock swaylock
 set $screenshot screenshot-bash
