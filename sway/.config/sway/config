@@ -78,7 +78,7 @@ floating_modifier $mod normal
 # Start terminal
 bindsym $mod+Return exec $term
 # Close active window
-bindsym $mod+Shift+q kill
+bindsym $mod+Escape kill
 # Launcher
 bindsym $mod+d exec $launcher
 # Password manager
@@ -88,7 +88,7 @@ bindsym $mod+Shift+c reload
 # Bye Bye
 bindsym $mod+Shift+e exec $exitnag
 # Manual lock
-bindsym $mod+q exec $lock
+bindsym $mod+Ctrl+q exec $lock
 # Screenshot
 bindsym Print exec $screenshot
 # Dismiss last notification
