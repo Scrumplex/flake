@@ -225,6 +225,9 @@ for_window [app_id=popup_pulsemixer] floating enable; sticky enable; resize set 
 # LXQt Polkit Agent
 for_window [app_id=lxqt-policykit-agent] floating enable
 
+# Firefox PiP
+for_window [app_id=firefox title=Picture-in-Picture] floating enable; sticky enable
+
 # Kontact to Mail Workspace
 assign [app_id=kontact] 4:mail
 
