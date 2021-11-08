@@ -16,6 +16,7 @@ location:
         - ~/.gradle
         - ~/.local/share/baloo
         - ~/.local/share/containers
+        - ~/.local/share/Jetbrains
         - ~/.local/share/lutris/runners
         - ~/.local/share/lutris/runtime
         - ~/.local/share/Steam/appcache
@@ -24,6 +25,7 @@ location:
         - ~/.local/share/Steam/depotcache
         - ~/.local/share/Steam/steamapps
         - ~/.local/share/Trash
+        - ~/.local/share/virtualenvs
         - ~/.m2
         - ~/.node-gyp
         - ~/.npm
