@@ -17,6 +17,10 @@ location:
         - ~/.local/share/Jetbrains
         - ~/.local/share/lutris/runners
         - ~/.local/share/lutris/runtime
+        - ~/.local/share/multimc/assets
+        - ~/.local/share/multimc/bin
+        - ~/.local/share/multimc/cache
+        - ~/.local/share/multimc/libraries
         - ~/.local/share/Steam/appcache
         - ~/.local/share/Steam/compatibilitytools.d
         - ~/.local/share/Steam/config/htmlcache
