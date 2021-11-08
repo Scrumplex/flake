@@ -27,6 +27,7 @@ location:
         - ~/.local/share/Steam/depotcache
         - ~/.local/share/Steam/steamapps
         - ~/.local/share/Trash
+        - ~/.local/share/virtualenv
         - ~/.local/share/virtualenvs
         - ~/.m2
         - ~/.node-gyp
