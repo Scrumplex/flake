@@ -4,7 +4,6 @@ visualizer_in_stereo = yes
 
 volume_change_step = 2
 connected_message_on_startup = no
-cyclic_scrolling = yes
 clock_display_seconds = yes
 display_bitrate = yes
 
