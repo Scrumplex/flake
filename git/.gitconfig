@@ -55,3 +55,5 @@
 [url "ssh://git@git.sr.ht/"]
         pushInsteadOf = srht:
 
+[commit]
+	gpgsign = true
