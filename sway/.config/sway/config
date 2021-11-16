@@ -213,11 +213,13 @@ bindsym $mod+r mode "resize"
 
 
 ### Look and feel
+default_border normal 4
+smart_borders on
 font pango:Fira Code 10
-client.focused          $nord3  $nord3  $nord6  $nord9  $nord0
-client.focused_inactive $nord1  $nord1  $nord4  $nord9  $nord0
-client.unfocused        $nord0  $nord0  $nord4  $nord9  $nord0
-client.urgent           $nord11 $nord11 $nord4  $nord9  $nord0
+client.focused          $nord3  $nord3  $nord6
+client.focused_inactive $nord1  $nord1  $nord4
+client.unfocused        $nord0  $nord0  $nord4
+client.urgent           $nord11 $nord11 $nord4
 
 
 ### Window rules
