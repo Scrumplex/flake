@@ -22,7 +22,7 @@ set $right l
 set $term kitty
 set $menu bemenu -p "Launch"
 set $launcher j4-dmenu-desktop --dmenu="$menu" --term="$term" --usage-log="$HOME/.cache/j4-dmenu-desktop.log" --no-generic
-set $passmenu passmenu --type
+set $passmenu passmenu
 set $exitnag wlogout
 set $lock swaylock
 set $screenshot screenshot-bash
@@ -82,7 +82,8 @@ bindsym $mod+Escape kill
 # Launcher
 bindsym $mod+d exec $launcher
 # Password manager
-bindsym $mod+p exec $passmenu
+bindsym $mod+p exec $passmenu --type
+bindsym $mod+Shift+p exec $passmenu
 # Reload
 bindsym $mod+Shift+c reload
 # Bye Bye
