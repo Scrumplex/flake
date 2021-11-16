@@ -173,6 +173,7 @@ bindsym $mod+a focus parent
 # Multimedia keys
 bindsym XF86AudioStop exec mpc stop
 bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioPause exec mpc toggle
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 # Open ncmpcpp
