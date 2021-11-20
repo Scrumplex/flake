@@ -10,19 +10,11 @@ bind_to_address			"127.0.0.1"
 port				"6600"
 zeroconf_enabled		"no"
 
-connection_timeout		"60"
-max_connections			"10"
-max_playlist_length		"16384"
-max_command_list_size		"2048"
-max_output_buffer_size		"8192"
-
-replaygain			"auto"
-replaygain_preamp		"10"
-volume_normalization		"no"
-
-auto_update			"yes"
-
 filesystem_charset		"UTF-8"
+
+input_cache {
+        size                    "1 GB"
+}
 
 audio_output {
         type                    "pipewire"
@@ -47,7 +39,6 @@ audio_output {
 }
 
 resampler {
-	plugin "soxr"
-	quality "very high"
+        plugin                  "soxr"
+        quality                 "very high"
 }
-
