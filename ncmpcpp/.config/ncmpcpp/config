@@ -7,6 +7,7 @@ connected_message_on_startup = no
 clock_display_seconds = yes
 display_bitrate = yes
 
+visualizer_color = cyan
 empty_tag_color = red:b
 header_window_color = cyan
 volume_color = cyan:b
