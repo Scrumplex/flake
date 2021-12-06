@@ -19,3 +19,5 @@ def_key "g"
 def_key "G"
   move_end
 
+def_key "space"
+  jump_to_playing_song
