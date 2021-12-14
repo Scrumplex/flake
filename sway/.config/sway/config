@@ -33,7 +33,7 @@ output "Goldstar Company Ltd LG ULTRAGEAR 104MANJ7FL47" {
         mode 2560x1440@144Hz
         position 0,0
         # Monitor supports FreeSync. BUT it has flickering, which sucks :( Let's wait until it gets solved
-        # adaptive_sync on
+        adaptive_sync on
 }
 
 output "Samsung Electric Company S24E650 H4ZJ803253" {
