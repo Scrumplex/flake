@@ -79,30 +79,30 @@ retention:
     keep_weekly: 4
 
     # Number of monthly archives to keep.
-    keep_monthly: 24
+    keep_monthly: 12
 
     # Number of yearly archives to keep.
-    # keep_yearly: 1
+    keep_yearly: 2
 
 hooks:
     before_backup:
         - echo "Starting a backup."
-        - systemd-notify --ready --status="Backing up..."
+        - systemd-notify --ready --status="Backing up..." || true
         - notify-send -a borgmatic "Automatic backup has been started" "Now running an automatic backup."
 
     before_prune:
         - echo "Starting pruning."
-        - systemd-notify --ready --status="Pruning..."
+        - systemd-notify --ready --status="Pruning..." || true
 
     after_backup:
         - echo "Finished a backup."
-        - systemd-notify --ready --status="Backup done"
+        - systemd-notify --ready --status="Backup done" || true
 
     after_prune:
         - echo "Finished pruning."
-        - systemd-notify --ready --status="Prune done"
+        - systemd-notify --ready --status="Prune done" || true
 
     on_error:
         - echo "Error during prune/create."
-        - systemd-notify --status="Failed"
+        - systemd-notify --status="Failed" || true
 
