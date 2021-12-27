@@ -1,3 +1,7 @@
 #!/bin/sh
 
-exec /usr/bin/kitty -1 $@
+if [ -z "$@" ]; then
+    exec /usr/bin/kitty -1
+fi
+
+/usr/bin/kitty $@
