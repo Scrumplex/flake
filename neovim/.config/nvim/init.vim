@@ -112,16 +112,31 @@ cmp.setup.cmdline(':', {
     })
 })
 
+-- language servers
+
+nvim_lsp.bashls.setup {}
+nvim_lsp.clangd.setup {}
+nvim_lsp.cssls.setup {
+    cmd = { "vscode-css-languageserver", "--stdio" }
+}
+nvim_lsp.eslint.setup {}
+nvim_lsp.html.setup {
+    cmd = { "vscode-html-languageserver", "--stdio" }
+}
+nvim_lsp.jsonls.setup {
+    cmd = { "vscode-json-languageserver", "--stdio" }
+}
+nvim_lsp.pylsp.setup {}
 nvim_lsp.rls.setup {
     capabilities = capabilities,
     settings = {
         rust = {
-            unstable_features = true,
             build_on_save = true,
-            all_features = true,
         },
     },
 }
+nvim_lsp.yamlls.setup {}
+
 
 bufferline.setup()
 

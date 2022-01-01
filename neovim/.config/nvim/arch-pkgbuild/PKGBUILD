@@ -1,0 +1,16 @@
+# Maintainer: Sefa Eyeoglu <contact@scrumplex.net>
+
+pkgname=scrumplex-neovim-meta
+pkgver=1
+pkgrel=1
+pkgdesc="Scrumplex Neovim Meta package"
+arch=(any)
+url="https://scrumplex.net"
+license=('GPL')
+depends=("neovim" "python" "bash-language-server" "clang" "vscode-css-languageserver" "vscode-eslint-language-server" "vscode-html-languageserver" "vscode-json-languageserver" "python-lsp-server" "rust" "yaml-language-server")
+
+
+package() {
+
+    echo "Install rls using 'rustup component add rls rust-analysis'"
+}
