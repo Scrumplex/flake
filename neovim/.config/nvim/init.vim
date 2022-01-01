@@ -2,6 +2,7 @@ set encoding=UTF-8
 
 set mouse=a
 set number
+set termguicolors
 
 set tabstop=4
 set shiftwidth=4
@@ -26,6 +27,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'arcticicestudio/nord-vim'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'akinsho/bufferline.nvim'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'L3MON4D3/LuaSnip'
@@ -36,6 +39,7 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'sbdchd/neoformat'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 Plug 'rust-lang/rust.vim'
 Plug 'dag/vim-fish'
@@ -49,13 +53,21 @@ let g:suda_smart_edit = 1
 colorscheme nord
 
 " Keymap
-map <C-A-L> :Neoformat<CR>
+nnoremap <C-S-I> :Neoformat<CR>
+
+nnoremap <C-Left> :BufferLineCyclePrev<CR>
+nnoremap <C-Right> :BufferLineCycleNext<CR>
+nnoremap <C-H> :BufferLineCyclePrev<CR>
+nnoremap <C-L> :BufferLineCycleNext<CR>
+nnoremap <C-W> :bd<CR>
+
 
 " LSP, Auto Completion and Snippets
 lua << EOF
-local cmp = require'cmp'
+local cmp = require('cmp')
 local nvim_lsp = require('lspconfig')
 local luasnip = require('luasnip')
+local bufferline = require('bufferline')
 
 cmp.setup({
     snippet = {
@@ -110,4 +122,7 @@ nvim_lsp.rls.setup {
         },
     },
 }
+
+bufferline.setup()
+
 EOF
