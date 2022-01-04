@@ -1,61 +1,57 @@
 window#waybar {
-        font-family: "Fira Code";
-        font-size: 10pt;
-        background: RGBA(46, 52, 64, 0.9);
-        color: #eceff4;  /* nord6 */
+    font-family: "Fira Code";
+    font-size: 10pt;
+    background: RGBA(46, 52, 64, 0.9);
+    color: #eceff4;  /* nord6 */
 }
 
-.modules-left, .modules-center {
-        padding-right: 16px;
+.modules-left, .modules-center, .modules-right {
+    margin-left: 8px;
+    margin-right: 8px;
+    background-color: #434c5e;
+    border-radius: 16px;
 }
 
-.modules-right, .modules-center {
-        padding-left: 16px;
+#workspaces, #mpd, #clock, #network, #pulseaudio, #idle_inhibitor, #tray, #battery {
+    padding: 0 12px;
 }
 
-.modules-left > widget > *, .modules-center > widget > *, .modules-right > widget > * {
-        background-color: #434c5e;
-}
-
-#custom-arrowL, #custom-arrowR {
-        color: #434c5e;
-        background-color: transparent;
-        font-size: 14pt;
-}
-
-#workspaces, #mpd, #clock, #network, #pulseaudio, #idle_inhibitor, #tray {
-        padding: 0 8px;
+#workspaces {
+    padding-left: 0;
 }
 
 #workspaces button {
-        border: none;
-        border-bottom: 2px solid transparent;
-        border-radius: 0;
-        box-shadow: none;  /* dunno why this is set */
-        padding: 0 8px;
-        transition: border 100ms ease, color 100ms ease;
+    border: none;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;  /* dunno why this is set */
+    padding: 4px 8px;
 }
 
-#workspaces button.focused {
-        border-bottom-color: #8fbcbb;
-        color: #8fbcbb;
+#workspaces button, #idle_inhibitor {
+    border-radius: 16px;
+    transition: background-color 100ms ease, color 100ms ease;
+}
+
+#workspaces button.focused, #idle_inhibitor.activated {
+    background-color: #8fbcbb;
+    color: #434c5e;
 }
 
 #workspaces button:hover {
-        background-image: none; /* remove Adwaita button gradient */
-        border-bottom-color: #5e81ac;
+    background-image: none; /* remove Adwaita button gradient */
+    background-color: #5e81ac;
 }
 
 #workspaces button:hover label {
-        text-shadow: none; /* Adwaita? */
+    text-shadow: none; /* Adwaita? */
 }
 
 #workspaces button:active {
-        color: #5e81ac;
-        border-bottom-color: #5e81ac;
+    color: #434c5e;
+    background-color: #5e81ac;
 }
 
 #network.ethernet {
-        padding: 0;
+    padding: 0;
 }
-
