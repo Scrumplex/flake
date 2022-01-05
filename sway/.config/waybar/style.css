@@ -13,7 +13,7 @@ window#waybar {
 }
 
 #workspaces, #mpd, #clock, #network, #pulseaudio, #idle_inhibitor, #tray, #battery {
-    margin: 0 12px;
+    margin: 0 8px;
 }
 
 #workspaces {
@@ -32,7 +32,12 @@ window#waybar {
     padding: 0;
 }
 
-#workspaces button.focused, #idle_inhibitor.activated {
+#workspaces button.urgent, #idle_inhibitor.activated {
+    background-color: #bf616a;
+    color: #434c5e;
+}
+
+#workspaces button.focused {
     background-color: #8fbcbb;
     color: #434c5e;
 }
