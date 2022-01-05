@@ -11,4 +11,4 @@ nord6=#eceff4
 # Frost (greenish, blue-dark blue)
 nord8=#88c0d0
 
-exec /usr/bin/bemenu -iH26 -mall --tb "$nord3" --tf "$nord6" --fb "$nord1" --ff "$nord6" --nb "$nord1" --nf "$nord5" --hb "$nord8" --hf "$nord0" --fn "Fira Code" "$@"
+exec /usr/bin/bemenu -iH32 -mall --tb "$nord3" --tf "$nord6" --fb "$nord1" --ff "$nord6" --nb "$nord1" --nf "$nord5" --hb "$nord8" --hf "$nord0" --fn "Fira Code" "$@"

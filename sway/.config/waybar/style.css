@@ -13,24 +13,23 @@ window#waybar {
 }
 
 #workspaces, #mpd, #clock, #network, #pulseaudio, #idle_inhibitor, #tray, #battery {
-    padding: 0 12px;
+    margin: 0 12px;
 }
 
 #workspaces {
-    padding-left: 0;
-}
-
-#workspaces button {
-    border: none;
-    background-color: transparent;
-    border-radius: 0;
-    box-shadow: none;  /* dunno why this is set */
-    padding: 4px 8px;
+    margin-left: 0;
 }
 
 #workspaces button, #idle_inhibitor {
+    border: none;
+    background-color: transparent;
+    box-shadow: none;  /* dunno why this is set */
     border-radius: 16px;
     transition: background-color 100ms ease, color 100ms ease;
+    /* make it 32px × 32px */
+    min-width: 32px;
+    min-height: 32px;
+    padding: 0;
 }
 
 #workspaces button.focused, #idle_inhibitor.activated {
