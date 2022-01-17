@@ -2,7 +2,7 @@
         "position": "top",
         "modules-left": ["sway/workspaces", "mpd"],
         "modules-center": ["clock"],
-        "modules-right": ["tray", "network", "pulseaudio", "battery", "custom/pa-mute", "idle_inhibitor", "clock#date"],
+        "modules-right": ["network", "pulseaudio", "battery", "custom/pa-mute", "idle_inhibitor", "clock#date", "tray"],
 
         "sway/workspaces": {
                 "disable-scroll": true,
@@ -94,18 +94,12 @@
                         "deactivated": ""
                 }
         },
-        "tray": {
-                "spacing": 10
-        },
         "clock#date": {
                 "format": "{:%a, %d. %b %Y}",
                 "interval": 1
         },
-        "custom/arrowL": {
-                "format": ""
-        },
-        "custom/arrowR": {
-                "format": ""
+        "tray": {
+                "spacing": 16
         }
 }
 

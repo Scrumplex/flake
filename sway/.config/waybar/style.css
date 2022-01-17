@@ -12,8 +12,16 @@ window#waybar {
     border-radius: 16px;
 }
 
-#workspaces, #mpd, #clock, #network, #pulseaudio, #idle_inhibitor, #tray, #battery {
+#workspaces, #mpd, #clock, #network, #pulseaudio, #battery, #custom-pa-mute, #idle_inhibitor, #tray {
     margin: 0 8px;
+}
+
+#custom-pa-mute {
+    margin-right: 0;
+}
+
+#idle_inhibitor {
+    margin-left: 0;
 }
 
 #workspaces {
@@ -35,6 +43,10 @@ window#waybar {
 #workspaces button.urgent, #idle_inhibitor.activated, #custom-pa-mute.muted {
     background-color: #bf616a;
     color: #434c5e;
+}
+
+#idle_inhibitor.activated {
+    background-color: #d08770;
 }
 
 #workspaces button.focused {
