@@ -2,7 +2,7 @@
         "position": "top",
         "modules-left": ["sway/workspaces", "mpd"],
         "modules-center": ["clock"],
-        "modules-right": ["tray", "network", "pulseaudio", "battery", "idle_inhibitor", "clock#date"],
+        "modules-right": ["tray", "network", "pulseaudio", "battery", "custom/pa-mute", "idle_inhibitor", "clock#date"],
 
         "sway/workspaces": {
                 "disable-scroll": true,
@@ -81,6 +81,11 @@
         "clock": {
                 "format": "{:%H:%M:%S}",
                 "interval": 1
+        },
+        "custom/pa-mute": {
+            "exec": "$HOME/.config/waybar/components/pa-mute",
+            "return-type": "json",
+            "on-click": "pamixer --default-source --toggle-mute"
         },
         "idle_inhibitor": {
                 "format": "{icon}",

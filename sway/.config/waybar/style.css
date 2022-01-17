@@ -20,7 +20,7 @@ window#waybar {
     margin-left: 0;
 }
 
-#workspaces button, #idle_inhibitor {
+#workspaces button, #idle_inhibitor, #custom-pa-mute {
     border: none;
     background-color: transparent;
     box-shadow: none;  /* dunno why this is set */
@@ -32,7 +32,7 @@ window#waybar {
     padding: 0;
 }
 
-#workspaces button.urgent, #idle_inhibitor.activated {
+#workspaces button.urgent, #idle_inhibitor.activated, #custom-pa-mute.muted {
     background-color: #bf616a;
     color: #434c5e;
 }
