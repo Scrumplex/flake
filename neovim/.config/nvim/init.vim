@@ -24,8 +24,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'lambdalisue/suda.vim'
 Plug 'editorconfig/editorconfig-vim'
 
-Plug 'vim-airline/vim-airline'
-Plug 'arcticicestudio/nord-vim'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/bufferline.nvim'
@@ -50,7 +50,7 @@ call plug#end()
 let g:airline_powerline_fonts=1
 let g:suda_smart_edit = 1
 
-colorscheme nord
+colorscheme catppuccin
 
 " Keymap
 nnoremap <C-S-I> :Neoformat<CR>
@@ -64,10 +64,15 @@ nnoremap <C-W> :bd<CR>
 
 " LSP, Auto Completion and Snippets
 lua << EOF
+local catppuccin = require('catppuccin')
+local lualine = require('lualine')
 local cmp = require('cmp')
 local nvim_lsp = require('lspconfig')
 local luasnip = require('luasnip')
 local bufferline = require('bufferline')
+
+catppuccin.setup()
+lualine.setup()
 
 cmp.setup({
     snippet = {
