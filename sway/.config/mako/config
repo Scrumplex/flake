@@ -1,16 +1,15 @@
 font=Fira Code 10
 
-# nord0
-background-color=#2e3440e6
-# nord0
-border-color=#2e3440
-# nord8
-progress-color=over #88c0d0
 
+background-color=#1E1E2E
+text-color=#D9E0EE
+border-color=#89DCEB
+progress-color=over #302D41
 
 [urgency=critical]
 layer=overlay
 anchor=top-center
+border-color=#F28FAD
 
 [mode=dnd]
 invisible=1
