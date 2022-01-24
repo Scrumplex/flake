@@ -1,1 +1,2 @@
-WOB_ARGS="--border-color #434c5eff --background-color #2e3440e6 --bar-color #8fbcbbff"
+WOB_ARGS="--offset 0 --padding 8 --border 2 --border-color #89DCEBFF --background-color #1E1E2EE6 --bar-color #89DCEBFF"
+#                                                          ^ sky                        ^ black2              ^ sky
