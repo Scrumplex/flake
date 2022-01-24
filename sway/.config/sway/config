@@ -183,6 +183,9 @@ bindsym $mod+XF86AudioPlay exec termapp ncmpcpp
 bindsym XF86AudioMute exec pamixer -t && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock
 bindsym XF86AudioRaiseVolume exec pamixer -ui 2 && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock
 bindsym XF86AudioLowerVolume exec pamixer -ud 2 && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock
+# Pulse microphone mute
+bindsym $mod+XF86AudioMute exec pamixer --default-source --toggle-mute
+bindsym $mod+m exec pamixer --default-source --toggle-mute
 # Open pulsemixer
 bindsym $mod+XF86AudioRaiseVolume exec termapp pulsemixer
 bindsym $mod+XF86AudioLowerVolume exec termapp pulsemixer
