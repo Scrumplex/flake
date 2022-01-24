@@ -1,14 +1,14 @@
 window#waybar {
     font-family: "Fira Code";
     font-size: 10pt;
-    background: RGBA(46, 52, 64, 0.9);
-    color: #eceff4;  /* nord6 */
+    background: RGBA(26, 24, 38, 0.9);  /* black1 */
+    color: #D9E0EE;  /* white */
 }
 
 .modules-left, .modules-center, .modules-right {
     margin-left: 8px;
     margin-right: 8px;
-    background-color: #434c5e;
+    background-color: #302D41;  /* black3 */
     border-radius: 16px;
 }
 
@@ -41,31 +41,34 @@ window#waybar {
 }
 
 #workspaces button.urgent, #idle_inhibitor.activated, #custom-pa-mute.muted {
-    background-color: #bf616a;
-    color: #434c5e;
+    background-color: #F28FAD;  /* red */
+    color: #161320;  /* black0 */
 }
 
 #idle_inhibitor.activated {
-    background-color: #d08770;
-}
-
-#workspaces button.focused {
-    background-color: #8fbcbb;
-    color: #434c5e;
+    background-color: #F8BD96; /* peach */
 }
 
 #workspaces button:hover {
     background-image: none; /* remove Adwaita button gradient */
-    background-color: #5e81ac;
+    background-color: #575268;  /* black4 */
 }
 
 #workspaces button:hover label {
     text-shadow: none; /* Adwaita? */
 }
 
-#workspaces button:active {
-    color: #434c5e;
-    background-color: #5e81ac;
+#workspaces button.focused {
+    background-color: #96CDFB;  /* blue */
+    color: #161320;  /* black0 */
+}
+
+#workspaces button.focused:hover {
+    background-color: #B5E8E0;  /* teal */
+}
+
+#workspaces button:active, #workspaces button.focused:active {
+    background-color: #DDB6F2;  /* mauve */
 }
 
 #network.ethernet {
