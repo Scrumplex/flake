@@ -29,6 +29,8 @@ Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/bufferline.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'L3MON4D3/LuaSnip'
@@ -66,6 +68,8 @@ nnoremap <C-W> :bd<CR>
 lua << EOF
 local catppuccin = require('catppuccin')
 local lualine = require('lualine')
+local gitsigns = require('gitsigns')
+
 local cmp = require('cmp')
 local nvim_lsp = require('lspconfig')
 local luasnip = require('luasnip')
@@ -73,6 +77,7 @@ local bufferline = require('bufferline')
 
 catppuccin.setup()
 lualine.setup()
+gitsigns.setup()
 
 cmp.setup({
     snippet = {
