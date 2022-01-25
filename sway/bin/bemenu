@@ -1,14 +1,25 @@
 #!/bin/bash
-# Polar Night (dark-bright)
-nord0=#2e3440
-nord1=#3b4252
-nord3=#4c566a
+cat_rosewater="#F5E0DC"
+cat_flamingo="#F2CDCD"
+cat_mauve="#DDB6F2"
+cat_pink="#F5C2E7"
+cat_maroon="#E8A2AF"
+cat_red="#F28FAD"
+cat_peach="#F8BD96"
+cat_yellow="#FAE3B0"
+cat_green="#ABE9B3"
+cat_teal="#B5E8E0"
+cat_blue="#96CDFB"
+cat_sky="#89DCEB"
+cat_lavender="#C9CBFF"
+cat_black0="#161320"
+cat_black1="#1A1826"
+cat_black2="#1E1E2E"
+cat_black3="#302D41"
+cat_black4="#575268"
+cat_gray0="#6E6C7E"
+cat_gray1="#988BA2"
+cat_gray2="#C3BAC6"
+cat_white="#D9E0EE"
 
-# Snow Storm (dark-bright)
-nord5=#e5e9f0
-nord6=#eceff4
-
-# Frost (greenish, blue-dark blue)
-nord8=#88c0d0
-
-exec /usr/bin/bemenu -iH32 -mall --tb "$nord3" --tf "$nord6" --fb "$nord1" --ff "$nord6" --nb "$nord1" --nf "$nord5" --hb "$nord8" --hf "$nord0" --fn "Fira Code" "$@"
+exec /usr/bin/bemenu -iH32 -mall --tb "$cat_black3" --tf "$cat_peach" --fb "$cat_black2" --ff "$cat_white" --nb "$cat_black2" --nf "$cat_white" --hb "$cat_peach" --hf "$cat_black0" --fn "Fira Code" "$@"
