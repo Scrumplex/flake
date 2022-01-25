@@ -220,10 +220,11 @@ bindsym $mod+r mode "resize"
 default_border normal 4
 smart_borders on
 font pango:Fira Code 10
-client.focused          $cat_black4 $cat_black4 $cat_white  $cat_flamingo
-client.focused_inactive $cat_black2 $cat_black2 $cat_white  $cat_black4
-client.unfocused        $cat_black0 $cat_black0 $cat_white  $cat_black0
-client.urgent           $cat_red    $cat_red    $cat_black0 $cat_red
+client.focused           $cat_lavender $cat_lavender $cat_black0 $cat_flamingo
+client.focused_inactive  $cat_black4   $cat_black4   $cat_white  $cat_black4
+client.focused_tab_title $cat_black4   $cat_black4   $cat_pink   $cat_black4
+client.unfocused         $cat_black2   $cat_black2   $cat_white  $cat_black2
+client.urgent            $cat_yellow   $cat_yellow   $cat_black0 $cat_red
 
 
 ### Window rules
