@@ -41,8 +41,12 @@ window#waybar {
 }
 
 #workspaces button.urgent, #idle_inhibitor.activated, #custom-pa-mute.muted {
-    background-color: #F28FAD;  /* red */
+    background-color: #FAE3B0;  /* yellow */
     color: #161320;  /* black0 */
+}
+
+#custom-pa-mute.muted {
+    background-color: #F28FAD; /* red */
 }
 
 #idle_inhibitor.activated {
@@ -68,7 +72,8 @@ window#waybar {
 }
 
 #workspaces button:active, #workspaces button.focused:active {
-    background-color: #DDB6F2;  /* mauve */
+    background-color: #D9E0EE;  /* white */
+    color: #161320;  /* black0 */
 }
 
 #network.ethernet {
