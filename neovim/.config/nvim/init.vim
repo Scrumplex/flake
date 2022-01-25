@@ -23,6 +23,7 @@ filetype plugin on
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'lambdalisue/suda.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
@@ -70,6 +71,8 @@ local catppuccin = require('catppuccin')
 local lualine = require('lualine')
 local gitsigns = require('gitsigns')
 
+local treesitter = require('nvim-treesitter.configs')
+
 local cmp = require('cmp')
 local nvim_lsp = require('lspconfig')
 local luasnip = require('luasnip')
@@ -78,6 +81,14 @@ local bufferline = require('bufferline')
 catppuccin.setup()
 lualine.setup()
 gitsigns.setup()
+
+treesitter.setup({
+    ensure_installed = "maintained",
+    sync_install = false,
+    highlight = {
+        enable = true
+    }
+})
 
 cmp.setup({
     snippet = {
