@@ -1,7 +1,7 @@
 window#waybar {
     font-family: "Fira Code";
     font-size: 10pt;
-    background: RGBA(26, 24, 38, 0.9);  /* black1 */
+    background: RGBA(26, 24, 38, 0.95);  /* black1 */
     color: #D9E0EE;  /* white */
 }
 
