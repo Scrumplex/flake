@@ -2,6 +2,7 @@
 Description=Calf Jack Host with Compressor loaded
 Requires=pipewire-pulse.service
 After=pipewire-pulse.service
+BindsTo=pipewire-pulse.service
 
 [Service]
 ExecStartPre=/usr/bin/pactl load-module module-null-sink object.linger=1 media.class=Audio/Sink sink_name=VoIP channel_map=stereo
