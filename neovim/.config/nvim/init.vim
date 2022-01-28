@@ -58,8 +58,8 @@ colorscheme catppuccin
 " Keymap
 nnoremap <C-S-I> :Neoformat<CR>
 
-nnoremap <C-Left> :BufferLineCyclePrev<CR>
-nnoremap <C-Right> :BufferLineCycleNext<CR>
+nnoremap t :BufferLineCyclePrev<CR>
+nnoremap T :BufferLineCycleNext<CR>
 nnoremap <C-H> :BufferLineCyclePrev<CR>
 nnoremap <C-L> :BufferLineCycleNext<CR>
 nnoremap <C-W> :bd<CR>
