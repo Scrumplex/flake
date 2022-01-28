@@ -11,17 +11,19 @@ import:
 ui:
   color: yes
 
-plugins: chroma duplicates edit embedart fetchart hook mbcollection mbsync mpdstats mpdupdate playlist replaygain scrub
+plugins: alternatives chroma duplicates edit embedart fetchart hook mbcollection mbsync mpdstats mpdupdate replaygain scrub
 include:
   - secrets.yaml
+
+alternatives:
+  phone:
+    directory: ../.Music.phone
+    query: ""
+    formats: opus
 
 mpd:
   host: localhost
   port: 6600
-
-playlist:
-  auto: yes
-  playlist_dir: ~/Music/Playlists
 
 replaygain:
   backend: gstreamer
