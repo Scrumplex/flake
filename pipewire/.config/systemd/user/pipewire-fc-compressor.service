@@ -1,0 +1,12 @@
+[Unit]
+Description=PipeWire Filter Chain - Compressor
+Requires=pipewire.service
+After=pipewire.service
+BindsTo=pipewire.service
+
+[Service]
+ExecStart=/usr/bin/pipewire -c %E/pipewire/fc/compressor.conf
+
+[Install]
+WantedBy=default.target
+
