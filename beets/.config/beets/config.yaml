@@ -11,7 +11,7 @@ import:
 ui:
   color: yes
 
-plugins: alternatives chroma duplicates edit embedart fetchart hook mbcollection mbsync mpdstats mpdupdate replaygain scrub
+plugins: absubmit acousticbrainz alternatives chroma duplicates edit embedart fetchart hook mbcollection mbsync mpdstats mpdupdate replaygain scrub
 include:
   - secrets.yaml
 
