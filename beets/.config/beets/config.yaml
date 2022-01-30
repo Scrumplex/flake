@@ -21,6 +21,11 @@ alternatives:
     query: ""
     formats: opus
 
+hook:
+  hooks:
+    - event: import
+      command: beet alt update phone
+
 mpd:
   host: localhost
   port: 6600
