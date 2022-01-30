@@ -1,53 +1,51 @@
-* {
-        background-image: none;
-}
-
-window {
-        background-color: rgba(46, 52, 64, 0.9); /* nord0 */
-        color: #eceff4;  /* nord6 */
-        font-family: "Fira Code"
+window#waybar {
+    font-family: "Fira Code";
+    font-size: 10pt;
+    background: RGBA(26, 24, 38, 0.95);  /* black1 */
+    color: #D9E0EE;  /* white */
 }
 
 button {
-        background-color: #3b4252;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 25%;
-        border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    border: none;
 }
 
 button:hover {
-        background-color: #434c5e; /* nord2 */
+    background-color: #575268;  /* black4 */
 }
 
 button:focus {
-        background-color: #88c0d0; /* nord8 */
+    background-color: #96CDFB;  /* blue */
+    color: #161320;  /* black0 */
 }
 
 button:active {
-        background-color: #8fbcbb; /* nord7 */
+    background-color: #D9E0EE;  /* white */
+    color: #161320;  /* black0 */
 }
 
 #lock {
-        background-image: image(url("./lock.png"));
+    background-image: image(url("./lock.png"));
 }
 
 #exit {
-        background-image: image(url("./exit-to-app.png"));
+    background-image: image(url("./exit-to-app.png"));
 }
 
 #suspend {
-        background-image: image(url("./power-sleep.png"));
+    background-image: image(url("./power-sleep.png"));
 }
 
 #hibernate {
-        background-image: image(url("./power-cycle.png"));
+    background-image: image(url("./power-cycle.png"));
 }
 
 #shutdown {
-        background-image: image(url("./power.png"));
+    background-image: image(url("./power.png"));
 }
 
 #reboot {
-        background-image: image(url("./restart.png"));
+    background-image: image(url("./restart.png"));
 }
