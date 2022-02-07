@@ -11,7 +11,7 @@ import:
 ui:
   color: yes
 
-plugins: absubmit acousticbrainz alternatives chroma duplicates edit embedart fetchart hook mbcollection mbsync mpdstats mpdupdate replaygain scrub
+plugins: absubmit acousticbrainz alternatives chroma duplicates edit fetchart hook mbcollection mbsync mpdstats mpdupdate replaygain scrub
 include:
   - secrets.yaml
 
@@ -19,12 +19,14 @@ alternatives:
   phone:
     directory: ../.Music.phone
     query: ""
-    formats: opus
+    formats: mp3 opus aac
 
 hook:
   hooks:
     - event: import
       command: beet alt update phone
+    - event: import  # copy over cover art
+      command: rsync -av --delete --include="*.png" --include="*.jpg" --include="*.jpeg" --include="*/" --include=".stfolder" --exclude="*" $HOME/Music/ $HOME/.Music.phone
 
 mpd:
   host: localhost
