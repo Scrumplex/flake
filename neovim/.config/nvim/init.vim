@@ -56,13 +56,15 @@ let g:suda_smart_edit = 1
 colorscheme catppuccin
 
 " Keymap
-nnoremap <C-S-I> :Neoformat<CR>
+let mapleader=" "
+nnoremap <silent> <C-S-I> :Neoformat<CR>
 
-nnoremap t :BufferLineCyclePrev<CR>
-nnoremap T :BufferLineCycleNext<CR>
-nnoremap <C-H> :BufferLineCyclePrev<CR>
-nnoremap <C-L> :BufferLineCycleNext<CR>
-nnoremap <C-W> :bd<CR>
+nnoremap <silent> T :BufferLineCyclePrev<CR>
+nnoremap <silent> t :BufferLineCycleNext<CR>
+nnoremap <silent> <C-H> :BufferLineCyclePrev<CR>
+nnoremap <silent> <C-L> :BufferLineCycleNext<CR>
+nnoremap <silent> <C-W> :bd<CR>
+nnoremap <silent> <leader>t :CHADopen<CR>
 
 
 " LSP, Auto Completion and Snippets
