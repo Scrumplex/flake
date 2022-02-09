@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ -z "$@" ]; then
+if [ "$#" -eq 0 ]; then
     exec /usr/bin/kitty -1
 fi
 
