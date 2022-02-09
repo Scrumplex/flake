@@ -19,3 +19,9 @@ Application  --> Virtual sink -->|--> Virtual source
                                  |--> Default sink
 ```
 
+# How to use this?
+Enable and start the included systemd template unit:
+```
+$ systemctl --user enable --now pipewire-companion@compressor.conf
+$ systemctl --user enable --now pipewire-companion@desktop-source.conf
+```
