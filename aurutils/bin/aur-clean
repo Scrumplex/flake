@@ -1,0 +1,6 @@
+#!/bin/sh --
+# aur-clean - cleanup old packages from all repos
+
+aur repo --list-path | while read -r repo_path; do
+    paccache -c "${repo_path%/*}" -rvk1
+done
