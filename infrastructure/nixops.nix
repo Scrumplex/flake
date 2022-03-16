@@ -1,5 +1,5 @@
 {
-  network.description = "nixos";
+  network.description = "scrumplex.net";
   network.enableRollback = true;
   network.storage.legacy.databasefile = "./deployment.nixops";
 
