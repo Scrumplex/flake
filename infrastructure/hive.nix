@@ -1,7 +1,7 @@
 {
-  network.description = "scrumplex.net";
-  network.enableRollback = true;
-  network.storage.legacy.databasefile = "./deployment.nixops";
+  meta.name = "scrumplex.net";
+  meta.description = "scrumplex.net Network";
+  meta.nixpkgs = <nixpkgs>;
 
   spacehub = {
     deployment.targetHost = "scrumplex.net";
