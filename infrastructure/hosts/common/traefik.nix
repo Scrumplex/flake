@@ -17,7 +17,7 @@
       };
       entryPoints = {
         web = {
-          address = ":80";
+          address = ":1080";
           http = {
             redirections.entryPoint = {
               to = "websecure";
