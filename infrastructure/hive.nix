@@ -1,7 +1,10 @@
+{ sources ? import ./nix/sources.nix
+, pkgs ? import sources.nixpkgs {}
+}:
 {
   meta.name = "scrumplex.net";
   meta.description = "scrumplex.net Network";
-  meta.nixpkgs = <nixpkgs>;
+  meta.nixpkgs = pkgs;
 
   spacehub = {
     deployment.targetHost = "scrumplex.net";
