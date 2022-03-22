@@ -2,7 +2,7 @@
 
 {
   services.borgbackup.jobs.borgbase = {
-    environment.BORG_RSH = "ssh -i /run/keys/id_borgbase";
+    environment.BORG_RSH = "ssh -i ${config.age.secrets.id_borgbase.path}";
     paths = [
       "/home"
       "/root"

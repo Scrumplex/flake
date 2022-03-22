@@ -1,4 +1,16 @@
 {
+    "agenix": {
+        "branch": "main",
+        "description": "age-encrypted secrets for NixOS",
+        "homepage": "https://matrix.to/#/#agenix:nixos.org",
+        "owner": "ryantm",
+        "repo": "agenix",
+        "rev": "764c975e74bce2f89a5106b68ec48e2b586f893c",
+        "sha256": "0lzr43pcfbhk0qmac4g2giglyvq1rkgcwh88sfi5l79n48a5fhr4",
+        "type": "tarball",
+        "url": "https://github.com/ryantm/agenix/archive/764c975e74bce2f89a5106b68ec48e2b586f893c.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "niv": {
         "branch": "master",
         "description": "Easy dependency management for Nix projects",
