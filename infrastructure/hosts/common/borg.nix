@@ -23,13 +23,4 @@
       passphrase = "";
     };
   };
-
-  systemd.services."borgbackup-job-borgbase" = {
-    after = [ "id_borgbase-key.service" ];
-    wants = [ "id_borgbase-key.service" ];
-  };
-  systemd.timers."borgbackup-job-borgbase" = {
-    after = [ "id_borgbase-key.service" ];
-    wants = [ "id_borgbase-key.service" ];
-  };
 }
