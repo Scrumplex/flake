@@ -1,72 +1,41 @@
-set encoding=UTF-8
-
-set mouse=a
-set number
-set termguicolors
-
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set autoindent
-
-set hlsearch
-set ignorecase
-set smartcase
-set clipboard+=unnamedplus
-set nospell
-
-set completeopt=menu,menuone,noselect
-
-syntax enable
-filetype plugin on
-
-call plug#begin('~/.local/share/nvim/plugged')
-Plug 'lambdalisue/suda.vim'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'catppuccin/nvim', {'as': 'catppuccin'}
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'akinsho/bufferline.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'lewis6991/gitsigns.nvim'
-
-Plug 'neovim/nvim-lspconfig'
-Plug 'L3MON4D3/LuaSnip'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'sbdchd/neoformat'
-Plug 'lukas-reineke/indent-blankline.nvim'
-
-Plug 'rust-lang/rust.vim'
-Plug 'dag/vim-fish'
-Plug 'lervag/vimtex'
-Plug 'digitaltoad/vim-pug'
-call plug#end()
-
-let g:airline_powerline_fonts=1
-let g:suda_smart_edit = 1
-
-colorscheme catppuccin
-
-" Keymap
-let mapleader=" "
-nnoremap <silent> <C-S-I> :Neoformat<CR>
-
-nnoremap <silent> T :BufferLineCyclePrev<CR>
-nnoremap <silent> t :BufferLineCycleNext<CR>
-nnoremap <silent> <C-H> :BufferLineCyclePrev<CR>
-nnoremap <silent> <C-L> :BufferLineCycleNext<CR>
-nnoremap <silent> <leader>t :CHADopen<CR>
+-- Visual
+vim.o.title             = true
+vim.o.termguicolors     = true                          -- Use true colors, required for some plugins
+vim.wo.number           = true
+vim.wo.signcolumn       = 'yes'
 
 
-lua << EOF
+vim.o.hlsearch          = true
+vim.o.ignorecase        = true                          -- Ignore case when using lowercase in search
+vim.o.smartcase         = true                          -- But don't ignore it when using upper case
+
+vim.o.autoindent        = true
+vim.o.smartindent       = true
+
+vim.o.expandtab         = true                          -- Convert tabs to spaces.
+vim.o.tabstop           = 4
+vim.o.softtabstop       = 4
+vim.o.shiftwidth        = 4
+
+vim.o.splitbelow        = true
+vim.o.splitright        = true
+vim.o.mouse             = 'a'
+vim.o.clipboard         = "unnamedplus"
+
+
+vim.o.fileencoding      = "utf-8"
+vim.o.spell             = false
+vim.o.spelllang         = "en_us"
+vim.o.completeopt       = "menu,menuone,noselect"
+
+require('plugins')
+
+vim.cmd('let mapleader=" "')
+vim.cmd("let g:suda_smart_edit = 1")
+vim.cmd('syntax enable')
+vim.cmd('filetype plugin on')
+vim.cmd('colorscheme catppuccin')  -- TODO: convert these to lua?
+
 local catppuccin = require('catppuccin')
 local lualine = require('lualine')
 local gitsigns = require('gitsigns')
@@ -138,6 +107,12 @@ cmp.setup.cmdline(':', {
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
+vim.api.nvim_set_keymap('n', "T", "<cmd>BufferLineCyclePrev<CR>", opts)
+vim.api.nvim_set_keymap('n', "t", "<cmd>BufferLineCycleNext<CR>", opts)
+vim.api.nvim_set_keymap('n', "<C-H>", "<cmd>BufferLineCyclePrev<CR>", opts)
+vim.api.nvim_set_keymap('n', "<C-L>", "<cmd>BufferLineCycleNext<CR>", opts)
+vim.api.nvim_set_keymap('n', "<leader>t", "<cmd>CHADopen<CR>", opts)
+
 vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
@@ -205,4 +180,3 @@ local chadtree_settings = {
 }
 vim.api.nvim_set_var("chadtree_settings", chadtree_settings)
 
-EOF
