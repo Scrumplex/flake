@@ -5,6 +5,7 @@ background-color=#1E1E2E
 text-color=#D9E0EE
 border-color=#89DCEB
 progress-color=over #302D41
+border-radius=12
 
 [urgency=critical]
 layer=overlay
