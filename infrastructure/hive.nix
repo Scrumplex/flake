@@ -15,6 +15,7 @@
     deployment.targetPort = 22701;
 
     age.secrets.id_borgbase.file = secrets/spacehub/id_borgbase.age;
+    age.secrets."wireguard.key".file = secrets/spacehub/wireguard.key.age;
 
     imports = [ ./hosts/spacehub/configuration.nix ];
   };
@@ -24,6 +25,7 @@
     deployment.targetPort = 22701;
 
     age.secrets.id_borgbase.file = secrets/duckhub/id_borgbase.age;
+    age.secrets."wireguard.key".file = secrets/duckhub/wireguard.key.age;
 
     imports = [ ./hosts/duckhub/configuration.nix ];
   };

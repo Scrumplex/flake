@@ -9,7 +9,7 @@
     ];
     listenPort = 22701;
 
-    privateKeyFile = "/etc/secrets/wg-scrumplex.key";
+    privateKeyFile = config.age.secrets."wireguard.key".path;
 
     peers = [
       {
