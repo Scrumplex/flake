@@ -11,6 +11,12 @@
     };
   };
 
+  services.openssh = {
+    enable = true;
+    ports = [ 22701 ];
+    passwordAuthentication = false;
+  };
+
   users = {
     mutableUsers = false;
     users.root = {
@@ -21,11 +27,9 @@
   };
 
   environment.systemPackages = with pkgs; [
-    kitty  # technically only term info
+    kitty.terminfo
     htop
     nload
-    git
-    git-crypt
   ];
 
   programs.neovim = {
@@ -49,12 +53,6 @@
         syntax enable
         filetype plugin on
       '';
-  };
-
-  services.openssh = {
-    enable = true;
-    ports = [ 22701 ];
-    openFirewall = false;
   };
 
   nix = {
