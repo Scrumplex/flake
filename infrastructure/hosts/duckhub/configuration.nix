@@ -9,7 +9,6 @@
       ../common/netcup.nix
       ../common/borg.nix
       ../common/traefik.nix
-      ../common/sslh.nix
 
       ./traefik.nix  # our overrides
       ./wireguard.nix
