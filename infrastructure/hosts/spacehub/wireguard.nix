@@ -1,10 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  networking.nat.enable = true;
-  networking.nat.externalInterface = "ens3";
-  networking.nat.internalInterfaces = [ "wg-scrumplex" ];
-
   networking.firewall.allowedUDPPorts = [ 22701 ];
   networking.wireguard.interfaces.wg-scrumplex = {
     ips = [
@@ -14,10 +10,6 @@
     listenPort = 22701;
 
     privateKeyFile = "/etc/secrets/wg-scrumplex.key";
-
-    postSetup = ''${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.255.255.0/24 -o ens3 -j MASQUERADE'';
-
-    postShutdown = ''${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.255.255.0/24 -o ens3 -j MASQUERADE'';
 
     peers = [
       {
