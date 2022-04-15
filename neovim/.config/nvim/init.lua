@@ -52,7 +52,11 @@ lualine.setup()
 gitsigns.setup()
 
 treesitter.setup({
-    ensure_installed = "maintained",
+    ensure_installed = { "bash", "bibtex", "c", "cmake", "comment", "cpp", "css", "dockerfile",
+                            "fish", "glsl", "go", "html", "http", "java", "javascript", "jsdoc",
+                            "json", "kotlin", "latex", "lua", "make", "ninja", "nix", "pug",
+                            "python", "regex", "rust", "scss", "toml", "typescript", "vala",
+                            "vim", "vue", "yaml" },
     sync_install = false,
     highlight = {
         enable = true
