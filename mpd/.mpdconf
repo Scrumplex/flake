@@ -12,6 +12,8 @@ zeroconf_enabled    "no"
 
 filesystem_charset  "UTF-8"
 
+restore_paused      "yes"
+
 input_cache {
     size            "1 GB"
 }
