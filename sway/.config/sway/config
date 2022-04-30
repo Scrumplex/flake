@@ -69,6 +69,7 @@ input 1267:12384:ELAN0501:00_04F3:3060_Touchpad {
         natural_scroll  enabled
         tap             enabled
         tap_button_map  lrm
+        dwt             disabled
 }
 
 
