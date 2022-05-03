@@ -30,7 +30,6 @@
         websecure = {
           address = ":443";
           http = {
-            tls.options = "hardened@file";
             tls.certResolver = "letsencrypt";
             middlewares = "security@file";
           };
@@ -50,7 +49,7 @@
         stsIncludeSubdomains = true;
         stsPreload = true;
       };
-      tls.options.hardened = {
+      tls.options.default = {
         minVersion = "VersionTLS12";
         cipherSuites = [
           "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
