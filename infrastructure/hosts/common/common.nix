@@ -65,7 +65,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 30d";
+      options = "--delete-older-than 14d";
     };
     # Free up to 1GiB whenever there is less than 100MiB left.
     extraOptions = ''
