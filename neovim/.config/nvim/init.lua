@@ -115,7 +115,7 @@ vim.api.nvim_set_keymap('n', "T", "<cmd>BufferLineCyclePrev<CR>", opts)
 vim.api.nvim_set_keymap('n', "t", "<cmd>BufferLineCycleNext<CR>", opts)
 vim.api.nvim_set_keymap('n', "<C-H>", "<cmd>BufferLineCyclePrev<CR>", opts)
 vim.api.nvim_set_keymap('n', "<C-L>", "<cmd>BufferLineCycleNext<CR>", opts)
-vim.api.nvim_set_keymap('n', "<leader>t", "<cmd>CHADopen<CR>", opts)
+vim.api.nvim_set_keymap('n', "<leader>t", "<cmd>Neotree toggle reveal<CR>", opts)
 
 vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
@@ -177,10 +177,4 @@ nvim_lsp.rls.setup {
 
 
 bufferline.setup()
-
-local chadtree_settings = {
-    ["xdg"] = true,
-    ["view.sort_by"] = {"is_folder", "file_name"}
-}
-vim.api.nvim_set_var("chadtree_settings", chadtree_settings)
 

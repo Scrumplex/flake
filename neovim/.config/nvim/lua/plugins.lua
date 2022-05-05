@@ -9,9 +9,21 @@ return require('packer').startup(function()
 
     use 'nvim-lualine/lualine.nvim'
     use {'catppuccin/nvim', as = 'catppuccin'}
-    use {'ms-jpq/chadtree', branch = 'chad', run = ':CHADdeps'}
-    use 'kyazdani42/nvim-web-devicons'
-    use 'akinsho/bufferline.nvim'
+    use {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        requires = { 
+            "nvim-lua/plenary.nvim",
+            "kyazdani42/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+        }
+    }
+    use {
+        'akinsho/bufferline.nvim',
+        requires = {
+            "kyazdani42/nvim-web-devicons",
+        }
+    }
     use 'nvim-lua/plenary.nvim'
     use 'lewis6991/gitsigns.nvim'
 
