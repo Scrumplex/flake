@@ -246,6 +246,7 @@ assign [app_id=kontact] 4:mail
 assign [app_id=telegramdesktop] 5:chat
 assign [class=Signal] 5:chat
 assign [class=Element] 5:chat
+assign [app_id=Element] 5:chat
 assign [class=discord] 5:chat
 
 # Inhibit
