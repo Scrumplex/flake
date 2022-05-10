@@ -15,7 +15,7 @@
       within = "1d";
       daily = 3;
       weekly = 4;
-      monthly = 12;
+      monthly = 6;
       yearly = 2;
     };
     encryption = {
