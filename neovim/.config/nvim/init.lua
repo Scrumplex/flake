@@ -180,7 +180,7 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
-local servers = { "bashls", "clangd", "eslint", "pylsp", "yamlls" }
+local servers = { "bashls", "clangd", "eslint", "pylsp", "rls", "yamlls" }
 
 for _, lsp in pairs(servers) do
 	nvim_lsp[lsp].setup({
@@ -199,15 +199,6 @@ nvim_lsp.html.setup({
 nvim_lsp.jsonls.setup({
 	cmd = { "vscode-json-languageserver", "--stdio" },
 	on_attach = on_attach,
-})
-nvim_lsp.rls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = {
-		rust = {
-			build_on_save = true,
-		},
-	},
 })
 
 bufferline.setup()
