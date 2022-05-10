@@ -1,8 +1,9 @@
 [Added Associations]
 
 [Default Applications]
+application/epub+zip=org.pwmt.zathura.desktop;
 application/json=nvim.desktop;
-application/pdf=org.kde.okular.desktop;
+application/pdf=org.pwmt.zathura.desktop;
 application/x-bittorrent=org.qbittorrent.qBittorrent.desktop;
 application/x-extension-htm=firefox.desktop;
 application/x-extension-html=firefox.desktop;
