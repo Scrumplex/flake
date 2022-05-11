@@ -31,9 +31,6 @@
         64738
       ];
       allowedUDPPorts = [
-        # srt
-        1935
-
         # ts3
         9987
 
