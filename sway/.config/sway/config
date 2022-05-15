@@ -239,8 +239,8 @@ for_window [app_id=lxqt-policykit-agent] floating enable
 # Firefox PiP
 for_window [app_id=firefox title=Picture-in-Picture] floating enable; sticky enable
 
-# Kontact to Mail Workspace
-assign [app_id=kontact] 4:mail
+# Evolution to Mail Workspace
+assign [app_id=evolution] 4:mail
 
 # Chat apps to Chat Workspace
 assign [app_id=telegramdesktop] 5:chat
