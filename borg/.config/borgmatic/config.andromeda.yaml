@@ -76,10 +76,10 @@ retention:
     keep_daily: 7
 
     # Number of weekly archives to keep.
-    keep_weekly: 4
+    keep_weekly: 6
 
     # Number of monthly archives to keep.
-    keep_monthly: 12
+    keep_monthly: 6
 
     # Number of yearly archives to keep.
     keep_yearly: 2
