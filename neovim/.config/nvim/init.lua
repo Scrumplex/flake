@@ -144,7 +144,7 @@ vim.api.nvim_set_keymap("n", "T", "<cmd>BufferLineCyclePrev<CR>", opts)
 vim.api.nvim_set_keymap("n", "t", "<cmd>BufferLineCycleNext<CR>", opts)
 vim.api.nvim_set_keymap("n", "<C-H>", "<cmd>BufferLineCyclePrev<CR>", opts)
 vim.api.nvim_set_keymap("n", "<C-L>", "<cmd>BufferLineCycleNext<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>Neotree toggle reveal<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>Neotree reveal<CR>", opts)
 
 vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 vim.api.nvim_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
@@ -180,7 +180,7 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
-local servers = { "bashls", "clangd", "eslint", "pylsp", "rls", "yamlls" }
+local servers = { "bashls", "clangd", "eslint", "ltex", "pylsp", "rls", "yamlls" }
 
 for _, lsp in pairs(servers) do
 	nvim_lsp[lsp].setup({
