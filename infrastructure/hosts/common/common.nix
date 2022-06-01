@@ -26,7 +26,9 @@
     mutableUsers = false;
     users.root = {
       openssh.authorizedKeys.keys = [
-        "ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAFVss7naM39Guka0iDWXfsHniST+5pitCCAbDv9S2Z69lrATg9W8dP6R5kug81nQZ+cfITVpZqyt34PVvQLUWoWKgD5MYOXy3f5DjwWvrsIWRETGmYI5bOwW825j8CjDfcnvWa2xKyTZeOLU7+rQR5f+G5owXVGTfeHKdEOofI/4I68Cg== scrumplex@andromeda"  #andromeda
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJV9lYhi0kcwAAjPTMl6sycwCGkjrI0bvTIwpPuXkW2W scrumplex@andromeda"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILI4YbjYdiJxS6ptsJ/k161c9SY2yD6siW6Al+xSCDgD scrumplex@doppler"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDOXynAF50OShHHCcIGuHO133PWo/pjpaYgyOQDTS5Tj termux@blackeye"
       ];
     };
   };
