@@ -39,7 +39,7 @@
         },
         "network": {
                 "format": "{ifname}",
-                "format-wifi": "{essid} ({signalStrength}%)  {bandwidthDownBits}  {bandwidthUpBits}",
+                "format-wifi": "{essid} 直",
                 "format-ethernet": "",
                 "format-disconnected": "disconnected ",
                 "tooltip-format": "{ifname}",
