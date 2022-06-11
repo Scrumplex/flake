@@ -79,3 +79,15 @@ window#waybar {
 #network.ethernet {
     padding: 0;
 }
+
+#battery.warning {
+    color: #FAE3B0;  /* yellow */
+}
+
+#battery.critical {
+    color: #F28FAD; /* red */
+}
+
+#battery.charging {
+    color: #96CDFB;  /* blue */
+}
