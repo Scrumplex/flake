@@ -18,7 +18,8 @@
 # depends on: https://github.com/Alexays/Waybar/issues/699
 
 show() {
-    if pamixer --default-source --get-mute 2>&1 > /dev/null; then
+    muted=$(pamixer --default-source --get-mute 2> /dev/null)
+    if [ "$muted" == "true" ]; then
         CLASS="muted"
         TEXT=""
     else
