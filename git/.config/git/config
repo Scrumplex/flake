@@ -1,72 +1,62 @@
 [user]
-	name = Sefa Eyeoglu
-	email = contact@scrumplex.net
+    name = Sefa Eyeoglu
+    email = contact@scrumplex.net
 
 [sendemail]
-        smtpserver = smtp.mailbox.org
-        smtpuser = sefa@mailbox.org
-        smtpencryption = tls
-        smtpserverport = 587
+    smtpserver = smtp.mailbox.org
+    smtpuser = sefa@mailbox.org
+    smtpencryption = tls
+    smtpserverport = 587
 
 [core]
-        autocrlf = input
-        pager = delta
-
-[interactive]
-        diffFilter = delta --color-only
-
-[delta]
-        navigate = true
-
-[merge]
-        conflictstyle = diff3
-
-[diff]
-        colorMoved = default
-
-[pretty]
-        fixes = Fixes: %h (\"%s\")
-
-[color]
-        ui = auto
-
-[push]
-        followTags = true
-
-[pull]
-        rebase = true
-
-[alias]
-        chore = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"chore: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"chore(${2}): ${@:3}\"; else git commit -m \"chore: ${@}\"; fi }; f"
-        docs = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"docs: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"docs(${2}): ${@:3}\"; else git commit -m \"docs: ${@}\"; fi }; f"
-        feat = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"feat: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"feat(${2}): ${@:3}\"; else git commit -m \"feat: ${@}\"; fi }; f"
-        fix = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"fix: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"fix(${2}): ${@:3}\"; else git commit -m \"fix: ${@}\"; fi }; f"
-        localize = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"localize: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"localize(${2}): ${@:3}\"; else git commit -m \"localize: ${@}\"; fi }; f"
-        refactor = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"refactor: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"refactor(${2}): ${@:3}\"; else git commit -m \"refactor: ${@}\"; fi }; f"
-        style = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"style: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"style(${2}): ${@:3}\"; else git commit -m \"style: ${@}\"; fi }; f"
-        test = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ -z \"$1\" ]; then git commit -m \"test: \" -e; elif [ \"$1\" == \"-s\" ]; then git commit -m \"test(${2}): ${@:3}\"; else git commit -m \"test: ${@}\"; fi }; f"
-
-[url "https://github.com/"]
-        insteadOf = github:
-
-[url "ssh://git@github.com/"]
-        pushInsteadOf = github:
-
-[url "https://gitlab.com/"]
-        insteadOf = gitlab:
-
-[url "ssh://git@gitlab.com/"]
-        pushInsteadOf = gitlab:
-
-[url "ssh://aur@aur.archlinux.org/"]
-        insteadOf = aur:
-        pushInsteadOf = aur:
-
-[url "https://git.sr.ht/"]
-        insteadOf = srht:
-
-[url "ssh://git@git.sr.ht/"]
-        pushInsteadOf = srht:
+    autocrlf = input
+    pager = delta
 
 [commit]
 	gpgsign = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
+[pretty]
+    fixes = Fixes: %h (\"%s\")
+
+[color]
+    ui = auto
+
+[push]
+    followTags = true
+
+[pull]
+    rebase = true
+
+[url "https://github.com/"]
+    insteadOf = github:
+
+[url "ssh://git@github.com/"]
+    pushInsteadOf = github:
+
+[url "https://gitlab.com/"]
+    insteadOf = gitlab:
+
+[url "ssh://git@gitlab.com/"]
+    pushInsteadOf = gitlab:
+
+[url "ssh://aur@aur.archlinux.org/"]
+    insteadOf = aur:
+    pushInsteadOf = aur:
+
+[url "https://git.sr.ht/"]
+    insteadOf = srht:
+
+[url "ssh://git@git.sr.ht/"]
+    pushInsteadOf = srht:
