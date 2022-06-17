@@ -23,6 +23,7 @@
 
 [merge]
     conflictstyle = diff3
+    tool = meld
 
 [diff]
     colorMoved = default
