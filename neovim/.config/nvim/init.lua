@@ -140,8 +140,6 @@ cmp.setup.cmdline(":", {
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("n", "p", "\"0p", opts)
-vim.api.nvim_set_keymap("v", "p", "\"0p", opts)
 vim.api.nvim_set_keymap("n", "T", "<cmd>BufferLineCyclePrev<CR>", opts)
 vim.api.nvim_set_keymap("n", "t", "<cmd>BufferLineCycleNext<CR>", opts)
 vim.api.nvim_set_keymap("n", "<C-H>", "<cmd>BufferLineCyclePrev<CR>", opts)
