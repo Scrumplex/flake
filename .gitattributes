@@ -1,3 +1,3 @@
 ssh/.ssh/hosts/** filter=git-crypt diff=git-crypt
 beets/.config/beets/secrets.yaml filter=git-crypt diff=git-crypt
-mpd/.mpdscribble/mpdscribble.conf filter=git-crypt diff=git-crypt
+mpd/.config/mpdscribble/mpdscribble.conf filter=git-crypt diff=git-crypt
