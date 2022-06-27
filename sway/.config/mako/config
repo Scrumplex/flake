@@ -1,16 +1,20 @@
 font=Fira Code 10
 
-
-background-color=#1E1E2E
-text-color=#D9E0EE
-border-color=#89DCEB
-progress-color=over #302D41
+# base
+background-color=#1e1e2e
+# text
+text-color=#cdd6f4
+# blue
+border-color=#89b4fa
+# surface0
+progress-color=over #313244
 border-radius=12
 
 [urgency=critical]
 layer=overlay
 anchor=top-center
-border-color=#F28FAD
+# maroon
+border-color=#eba0ac
 
 [mode=dnd]
 invisible=1

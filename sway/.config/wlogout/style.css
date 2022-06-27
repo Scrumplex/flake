@@ -1,8 +1,7 @@
 window#waybar {
     font-family: "Fira Code";
     font-size: 10pt;
-    background: RGBA(26, 24, 38, 0.95);  /* black1 */
-    color: #D9E0EE;  /* white */
+    color: #cdd6f4;  /* text */
 }
 
 button {
@@ -10,20 +9,21 @@ button {
     background-position: center;
     background-size: 25%;
     border: none;
+    background-color: #1e1e2e;
 }
 
 button:hover {
-    background-color: #575268;  /* black4 */
+    background-color: #313244;  /* surface0 */
 }
 
 button:focus {
-    background-color: #96CDFB;  /* blue */
-    color: #161320;  /* black0 */
+    background-color: #89b4fa;  /* blue */
+    color: #1e1e2e;  /* base */
 }
 
 button:active {
-    background-color: #D9E0EE;  /* white */
-    color: #161320;  /* black0 */
+    background-color: #cdd6f4;  /* text */
+    color: #1e1e2e;  /* base */
 }
 
 #lock {

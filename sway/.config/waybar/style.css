@@ -1,14 +1,14 @@
 window#waybar {
     font-family: "Fira Code";
     font-size: 10pt;
-    background: RGBA(26, 24, 38, 0.95);  /* black1 */
-    color: #D9E0EE;  /* white */
+    background: RGBA(17, 17, 27, 0.95);  /* crust */
+    color: #cdd6f4;  /* text */
 }
 
 .modules-left, .modules-center, .modules-right {
     margin-left: 8px;
     margin-right: 8px;
-    background-color: #302D41;  /* black3 */
+    background-color: #1e1e2e;  /* base */
     border-radius: 16px;
 }
 
@@ -41,21 +41,21 @@ window#waybar {
 }
 
 #workspaces button.urgent, #idle_inhibitor.activated, #custom-pa-mute.muted {
-    background-color: #FAE3B0;  /* yellow */
-    color: #161320;  /* black0 */
+    background-color: #fab387;  /* peach */
+    color: #1e1e2e;  /* base */
 }
 
 #custom-pa-mute.muted {
-    background-color: #F28FAD; /* red */
+    background-color: #f38ba8; /* red */
 }
 
 #idle_inhibitor.activated {
-    background-color: #F8BD96; /* peach */
+    background-color: #cba6f7; /* mauve */
 }
 
 #workspaces button:hover {
     background-image: none; /* remove Adwaita button gradient */
-    background-color: #575268;  /* black4 */
+    background-color: #585b70;  /* surface2 */
 }
 
 #workspaces button:hover label {
@@ -63,17 +63,17 @@ window#waybar {
 }
 
 #workspaces button.focused {
-    background-color: #96CDFB;  /* blue */
+    background-color: #89b4fa;  /* blue */
     color: #161320;  /* black0 */
 }
 
 #workspaces button.focused:hover {
-    background-color: #B5E8E0;  /* teal */
+    background-color: #89dceb;  /* sky */
 }
 
 #workspaces button:active, #workspaces button.focused:active {
-    background-color: #D9E0EE;  /* white */
-    color: #161320;  /* black0 */
+    background-color: #cdd6f4;  /* text */
+    color: #1e1e2e;  /* base */
 }
 
 #network.ethernet {
@@ -81,13 +81,13 @@ window#waybar {
 }
 
 #battery.warning {
-    color: #FAE3B0;  /* yellow */
+    color: #fab387;  /* peach */
 }
 
 #battery.critical {
-    color: #F28FAD; /* red */
+    color: #f38ba8;  /* maroon */
 }
 
 #battery.charging {
-    color: #96CDFB;  /* blue */
+    color: #a6e3a1;  /* green */
 }
