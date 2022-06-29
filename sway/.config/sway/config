@@ -20,8 +20,7 @@ set $up k
 set $right l
 
 set $term kitty
-set $menu bemenu -p "Launch"
-set $launcher j4-dmenu-desktop --dmenu="$menu" --term="$term" --usage-log="$HOME/.cache/j4-dmenu-desktop.log" --no-generic
+set $launcher fuzzel
 set $passmenu passmenu
 set $exitnag wlogout
 set $lock swaylock
