@@ -61,3 +61,9 @@
 
 [url "ssh://git@git.sr.ht/"]
     pushInsteadOf = srht:
+
+[url "https://codeberg.org/"]
+    insteadOf = codeberg:
+
+[url "ssh://git@codeberg.org/"]
+    pushInsteadOf = codeberg:
