@@ -24,6 +24,7 @@
 
                 age.secrets.id_borgbase.file = secrets/spacehub/id_borgbase.age;
                 age.secrets."wireguard.key".file = secrets/spacehub/wireguard.key.age;
+                age.secrets."hetzner.key".file = secrets/spacehub/hetzner.key.age;
 
                 imports = [ ./hosts/spacehub ];
             };
@@ -34,6 +35,7 @@
 
                 age.secrets.id_borgbase.file = secrets/duckhub/id_borgbase.age;
                 age.secrets."wireguard.key".file = secrets/duckhub/wireguard.key.age;
+                age.secrets."hetzner.key".file = secrets/duckhub/hetzner.key.age;
 
                 imports = [ ./hosts/duckhub ];
             };

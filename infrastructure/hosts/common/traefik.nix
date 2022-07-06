@@ -3,6 +3,10 @@
 {
   networking.firewall.allowedTCPPorts = [ 80 443 ];
 
+  systemd.services.traefik.serviceConfig = {
+    EnvironmentFile = config.age.secrets."hetzner.key".path;
+  };
+
   services.traefik = {
     enable = true;
     group = "docker";
@@ -40,6 +44,7 @@
         storage = "/var/lib/traefik/acme-le.json";
         keyType = "EC384";
         httpChallenge.entryPoint = "web";
+        dnsChallenge.provider = "hetzner";
       };
     };
 
