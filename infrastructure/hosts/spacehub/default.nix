@@ -24,6 +24,15 @@
 
     firewall = {
       allowedTCPPorts = [
+        # OME
+        3478
+        10000
+        10001
+        10002
+        10003
+        10004
+        10005
+
         # ts3
         41144
 
@@ -31,9 +40,6 @@
         64738
       ];
       allowedUDPPorts = [
-        # srt
-        1935
-
         # ts3
         9987
 
