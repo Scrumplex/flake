@@ -16,9 +16,7 @@
           system = "x86_64-linux";
         };
 
-        defaults = { pkgs, ... }: {
-          imports = [ "${agenix}/modules/age.nix" ];
-        };
+        defaults.imports = [ "${agenix}/modules/age.nix" ];
 
         spacehub = {
           deployment.targetHost = "scrumplex.net";
