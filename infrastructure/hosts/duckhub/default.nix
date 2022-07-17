@@ -10,7 +10,7 @@
       ../common/borg.nix
       ../common/traefik.nix
 
-      ./traefik.nix  # our overrides
+      ./traefik.nix # our overrides
       ./wireguard.nix
     ];
 

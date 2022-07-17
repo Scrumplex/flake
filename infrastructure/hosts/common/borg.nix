@@ -1,4 +1,4 @@
-{  config, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   services.borgbackup.jobs.borgbase = {
@@ -7,7 +7,7 @@
       "/srv"
       "/var/lib"
     ];
-    startAt = "05:00";  # run later, maybe the servers are overloaded at 00:00 CE(S)T
+    startAt = "05:00"; # run later, maybe the servers are overloaded at 00:00 CE(S)T
     compression = "auto,zstd";
     prune.keep = {
       within = "1d";
