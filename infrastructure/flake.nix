@@ -51,5 +51,6 @@
             agenix.defaultPackage.${system}
           ];
         };
+        packages.default = pkgs.colmena;
       });
 }
