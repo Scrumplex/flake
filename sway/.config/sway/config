@@ -220,7 +220,7 @@ bindsym $mod+r mode "resize"
 ### Look and feel
 default_border normal 4
 smart_borders on
-font pango:Fira Code 10
+font pango:Monocraft 10
 client.focused           $cat_blue      $cat_blue       $cat_base   $cat_blue
 client.focused_inactive  $cat_surface0  $cat_surface0   $cat_pink   $cat_surface0
 client.unfocused         $cat_base      $cat_base       $cat_text   $cat_base

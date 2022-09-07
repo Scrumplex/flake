@@ -27,4 +27,4 @@ cat_mantle="181825"
 cat_crust="11111b"
 
 
-exec /usr/bin/fuzzel --font="Fira Code:size=13" --terminal="kitty" --background="${cat_surface0}ff" --text-color="${cat_text}ff" --match-color="${cat_blue}ff" --selection-color="${cat_peach}ff" --selection-text-color="${cat_base}ff" --border-width="2" --border-radius="12" --border-color="${cat_peach}ff" "$@"
+exec /usr/bin/fuzzel --font="Monocraft:size=13" --terminal="kitty" --background="${cat_surface0}ff" --text-color="${cat_text}ff" --match-color="${cat_blue}ff" --selection-color="${cat_peach}ff" --selection-text-color="${cat_base}ff" --border-width="2" --border-radius="12" --border-color="${cat_peach}ff" "$@"
