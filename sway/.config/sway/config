@@ -23,7 +23,7 @@ set $term kitty
 set $launcher fuzzel
 set $passmenu passmenu
 set $exitnag wlogout
-set $lock gtklock --config-daemonize
+set $lock gtklock --config --daemonize
 set $screenshot screenshot-bash
 
 
