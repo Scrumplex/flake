@@ -2,6 +2,7 @@
 set -g theme_color_scheme "catppuccin"
 set -g theme_nerd_fonts "yes"
 set -g theme_title_display_process "yes"
+fish_config theme choose "Catppuccin Mocha"
 
 # Custom $PATH
 fish_add_path -g "/usr/lib/ccache/bin"
