@@ -54,6 +54,20 @@
     };
 
     dynamicConfigOptions = {
+      http.routers = {
+        prismMeta = {
+          entryPoints = [ "websecure" ];
+          service = "prismMeta";
+          rule = "Host(`meta.scrumplex.rocks`)";
+        };
+      };
+
+      http.services = {
+        prismMeta.loadBalancer = {
+          servers = [ { url = "https://meta.prismlauncher.org"; } ];
+          passHostHeader = false;
+        };
+      };
       http.middlewares.security.headers = {
         stsSeconds = 31536000;
         stsIncludeSubdomains = true;
