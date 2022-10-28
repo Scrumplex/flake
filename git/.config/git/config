@@ -67,3 +67,5 @@
 
 [url "ssh://git@codeberg.org/"]
     pushInsteadOf = codeberg:
+[init]
+	defaultBranch = main
