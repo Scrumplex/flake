@@ -5,6 +5,24 @@ window#waybar {
     color: #cdd6f4;  /* text */
 }
 
+/* normalize buttons */
+button {
+    background: transparent;
+    box-shadow: none;  /* dunno why this is set */
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    border-radius: 16px;
+    /* make it 32px × 32px */
+    min-width: 32px;
+    min-height: 32px;
+}
+
+button:hover {
+    background: transparent;
+    box-shadow: inherit;
+}
+
 .modules-left, .modules-center, .modules-right {
     margin-left: 8px;
     margin-right: 8px;
@@ -30,14 +48,7 @@ window#waybar {
 
 #workspaces button, #idle_inhibitor, #custom-pa-mute {
     border: none;
-    background-color: transparent;
-    box-shadow: none;  /* dunno why this is set */
-    border-radius: 16px;
     transition: background-color 100ms ease, color 100ms ease;
-    /* make it 32px × 32px */
-    min-width: 32px;
-    min-height: 32px;
-    padding: 0;
 }
 
 #workspaces button.urgent, #idle_inhibitor.activated, #custom-pa-mute.muted {
