@@ -93,7 +93,7 @@ bindsym $mod+Ctrl+q exec $lock
 # Screenshot
 bindsym Print exec $screenshot
 bindsym Shift+Print exec $screenshot active_window
-bindsym $mod+Print exec $screenshot output
+bindsym $mod+Print exec $screenshot active_output
 # Dismiss last notification
 bindsym $mod+Backspace exec makoctl dismiss
 
