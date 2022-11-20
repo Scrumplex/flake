@@ -1,7 +1,3 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
 # Read `man 5 sway` for a complete reference.
 
 
@@ -229,7 +225,7 @@ client.urgent            $cat_peach     $cat_peach      $cat_base   $cat_peach
 
 ### Window rules
 # Show PulseMixer popup from waybar as floating window
-for_window [app_id=popup_pulsemixer] floating enable; sticky enable; resize set 800 600; border none
+for_window [app_id=popup_pulsemixer] floating enable; sticky enable; resize set 800 600; border pixel
 
 # LXQt Polkit Agent
 for_window [app_id=lxqt-policykit-agent] floating enable
