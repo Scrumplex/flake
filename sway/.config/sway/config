@@ -237,7 +237,7 @@ for_window [app_id=firefox title=Picture-in-Picture] floating enable; sticky ena
 assign [app_id=evolution] 4:mail
 
 # Chat apps to Chat Workspace
-assign [app_id=telegramdesktop] 5:chat
+assign [app_id=org.telegram.desktop] 5:chat
 assign [class=Signal] 5:chat
 assign [class=Element] 5:chat
 assign [app_id=Element] 5:chat
