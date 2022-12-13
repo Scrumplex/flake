@@ -11,12 +11,12 @@ VoIP application  --> Virtual sink -->|                       |--> Default sink
 ```
 
 ## desktop-source.conf
-This is a loopback device (see [PipeWire Wiki](https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Virtual-Devices#coupled-streams)) that creates a sink and a source.
-You can pipe sound into the sink, it will then be looped back into the default sink, as well as redirecting it to the source.
+This is a loopback device (see [PipeWire Wiki](https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Virtual-Devices#coupled-streams)) that creates a sink.
+You can pipe sound into the sink, it will then be looped back into the default sink.
+This is useful to easily isolate apps that should be captured by OBS, for example.
 
 ```
-Application  --> Virtual sink -->|--> Virtual source
-                                 |--> Default sink
+Application  --> Virtual sink --> Default sink
 ```
 
 # How to use this?
