@@ -73,7 +73,7 @@
         stsIncludeSubdomains = true;
         stsPreload = true;
       };
-      tls.options.default = {
+      tls.options.hardened = {
         minVersion = "VersionTLS12";
         cipherSuites = [
           # TLS 1.3
