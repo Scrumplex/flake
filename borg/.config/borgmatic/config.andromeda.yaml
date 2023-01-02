@@ -1,8 +1,8 @@
 location:
     source_directories:
         - /home/scrumplex
-        - /media/DEV
         - /media/DATA
+        - /media/DATA2
 
     repositories:
         - obai58wh@obai58wh.repo.borgbase.com:repo
@@ -19,10 +19,12 @@ location:
         - ~/.local/share/JetBrains
         - ~/.local/share/lutris/runners
         - ~/.local/share/lutris/runtime
-        - ~/.local/share/multimc/assets
-        - ~/.local/share/multimc/bin
-        - ~/.local/share/multimc/cache
-        - ~/.local/share/multimc/libraries
+        - ~/.local/share/PrismLauncher/assets
+        - ~/.local/share/PrismLauncher/cache
+        - ~/.local/share/PrismLauncher/libraries
+        - ~/.local/share/PrismLauncher/meta
+        - ~/.local/share/PrismLauncher/metacache
+        - ~/.local/share/PrismLauncher/translations
         - ~/.local/share/Steam/appcache
         - ~/.local/share/Steam/compatibilitytools.d
         - ~/.local/share/Steam/config/htmlcache
@@ -45,12 +47,12 @@ location:
         - ~/Lutris
         - /media/DATA/Games
         - /media/DATA/ItchLibrary
-        - /media/DATA/SteamLibrary
         - /media/DATA/Torrents
-        - /media/DEV/Android-SDK
-        - "*/.Trash-*"
+        - /media/DATA2/SteamLibrary
         - "*/.cache"
+        - "*/.pnpm-store"
         - "*/.snapshots"
+        - "*/.Trash-*"
 
     exclude_caches: true
     exclude_if_present:
