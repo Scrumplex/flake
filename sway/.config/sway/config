@@ -35,7 +35,7 @@ output "Samsung Electric Company S24E650 H4ZJ803253" {
         position 2560,0
 }
 
-output "Unknown 0x046F 0x00000000" {
+output "LG Display 0x046F Unknown" {
         mode 1920x1080@60Hz
         position 0,0
 }
@@ -59,7 +59,7 @@ input 6127:24717:PixArt_Lenovo_USB_Optical_Mouse {
         pointer_accel   -1.0
 }
 
-input 1267:12384:ELAN0501:00_04F3:3060_Touchpad {
+input 2:14:ETPS/2_Elantech_Touchpad {
         natural_scroll  enabled
         tap             enabled
         tap_button_map  lrm
