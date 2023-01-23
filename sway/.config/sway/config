@@ -5,7 +5,7 @@
 # mainly for sway-systemd
 include /etc/sway/config.d/10-systemd-cgroups.conf
 include /etc/sway/config.d/10-systemd-session.conf
-include *
+include catppuccin
 
 
 ### Variables
@@ -40,7 +40,7 @@ output "LG Display 0x046F Unknown" {
         position 0,0
 }
 
-output * bg ~/Pictures/Wallpapers/current-wallpaper.jpg fill
+output * bg ~/.config/sway/current-wallpaper.jpg fill
 
 
 ### Input configuration
