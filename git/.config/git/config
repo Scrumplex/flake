@@ -1,6 +1,7 @@
 [user]
     name = Sefa Eyeoglu
     email = contact@scrumplex.net
+	signingkey = E13DFD4B47127951
 
 [sendemail]
     smtpserver = smtp.mailbox.org
