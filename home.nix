@@ -73,6 +73,38 @@
     userEmail = "contact@scrumplex.net";
     userName = "Sefa Eyeoglu";
   };
+  programs.ssh = {
+    enable = true;
+    controlMaster = "auto";
+    controlPath = "~/.ssh/sockets/master-%r@%n:%p";
+    controlPersist = "10m";
+    matchBlocks = {
+      "aur.archlinux.org" = {
+        user = "aur";
+	identityFile = "~/.ssh/id_ed25519";
+      };
+      "gitlab.com" = {
+        user = "git";
+	identityFile = "~/.ssh/id_ed25519";
+      };
+      "git.sr.ht" = {
+        user = "git";
+	identityFile = "~/.ssh/id_ed25519";
+      };
+      "github.com" = {
+        user = "git";
+	identityFile = "~/.ssh/id_ed25519";
+      };
+      "codeberg.org" = {
+        user = "git";
+	identityFile = "~/.ssh/id_ed25519";
+      };
+      "gitlab.freedesktop.org" = {
+        user = "git";
+	identityFile = "~/.ssh/id_ed25519";
+      };
+    };
+  };
   programs.gpg = {
     enable = true;
     homedir = "${config.xdg.dataHome}/gnupg";
