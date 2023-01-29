@@ -1,2 +1,0 @@
-#!/bin/sh
-ssh-add ~/.ssh/scrumplex ~/.ssh/git </dev/null
