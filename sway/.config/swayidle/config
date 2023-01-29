@@ -1,5 +1,0 @@
-timeout 240 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
-timeout 300 'gtklock'
-timeout 600 'systemctl suspend'
-before-sleep 'gtklock'
-after-resume 'swaymsg "output * dpms on"'
