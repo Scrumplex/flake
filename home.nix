@@ -85,7 +85,7 @@
     pkgs.steam-run
 
     pkgs.fira
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "NerdFontsSymbolsOnly" ]; })
+    (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
     pkgs.monocraft
 
     pkgs.catppuccin-cursors.mochaMaroon
@@ -902,7 +902,7 @@ window#waybar {
 
   programs.kitty = {
     enable = true;
-    font.name = "Fira Code Regular Nerd Font Complete";
+    font.name = "Fira Code";
     theme = "Catppuccin-Mocha";
   };
 }
