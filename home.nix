@@ -81,6 +81,7 @@
     pkgs.ark
     pkgs.evolution
 
+    pkgs.mangohud
     pkgs.steam
     pkgs.steam-run
 
@@ -983,4 +984,7 @@ window#waybar {
       map kitty_mod+y scroll_to_prompt -1
     '';
   };
+
+  # Misc
+  services.syncthing.enable = true;
 }
