@@ -72,6 +72,20 @@
     signing.signByDefault = true;
     userEmail = "contact@scrumplex.net";
     userName = "Sefa Eyeoglu";
+    extraConfig = {
+      url = {
+        "https://github.com/".insteadOf = "github:";
+        "ssh://git@github.com/".pushInsteadOf = "github:";
+        "https://gitlab.com/".insteadOf = "gitlab:";
+        "ssh://git@gitlab.com/".pushInsteadOf = "gitlab:";
+        "https://aur.archlinux.org/".insteadOf = "aur:";
+        "ssh://aur@aur.archlinux.org/".pushInsteadOf = "aur:";
+        "https://git.sr.ht/".insteadOf = "srht:";
+        "ssh://git@git.sr.ht/".pushInsteadOf = "srht:";
+        "https://codeberg.org/".insteadOf = "codeberg:";
+        "ssh://git@codeberg.org/".pushInsteadOf = "codeberg:";
+      };
+    };
   };
   programs.ssh = {
     enable = true;
@@ -81,27 +95,27 @@
     matchBlocks = {
       "aur.archlinux.org" = {
         user = "aur";
-	identityFile = "~/.ssh/id_ed25519";
+        identityFile = "~/.ssh/id_ed25519";
       };
       "gitlab.com" = {
         user = "git";
-	identityFile = "~/.ssh/id_ed25519";
+        identityFile = "~/.ssh/id_ed25519";
       };
       "git.sr.ht" = {
         user = "git";
-	identityFile = "~/.ssh/id_ed25519";
+        identityFile = "~/.ssh/id_ed25519";
       };
       "github.com" = {
         user = "git";
-	identityFile = "~/.ssh/id_ed25519";
+        identityFile = "~/.ssh/id_ed25519";
       };
       "codeberg.org" = {
         user = "git";
-	identityFile = "~/.ssh/id_ed25519";
+        identityFile = "~/.ssh/id_ed25519";
       };
       "gitlab.freedesktop.org" = {
         user = "git";
-	identityFile = "~/.ssh/id_ed25519";
+        identityFile = "~/.ssh/id_ed25519";
       };
     };
   };
@@ -431,39 +445,39 @@ audio_output {
     layout = [
       {
         label = "shutdown";
-	action = "systemctl poweroff";
-	text = "Shutdown";
-	keybind = "s";
+        action = "systemctl poweroff";
+        text = "Shutdown";
+        keybind = "s";
       }
       {
         label = "hibernate";
-	action = "systemctl hibernate";
-	text = "Hibernate";
-	keybind = "h";
+        action = "systemctl hibernate";
+        text = "Hibernate";
+        keybind = "h";
       }
       {
         label = "suspend";
-	action = "systemctl suspend";
-	text = "Suspend";
-	keybind = "u";
+        action = "systemctl suspend";
+        text = "Suspend";
+        keybind = "u";
       }
       {
         label = "exit";
-	action = "${pkgs.sway}/bin/swaymsg exit";
-	text = "Exit";
-	keybind = "e";
+        action = "${pkgs.sway}/bin/swaymsg exit";
+        text = "Exit";
+        keybind = "e";
       }
       {
         label = "reboot";
-	action = "systemctl reboot";
-	text = "Reboot";
-	keybind = "r";
+        action = "systemctl reboot";
+        text = "Reboot";
+        keybind = "r";
       }
       {
         label = "lock";
-	action = "${pkgs.gtklock}/bin/gtklock";
-	text = "Lock";
-	keybind = "l";
+        action = "${pkgs.gtklock}/bin/gtklock";
+        text = "Lock";
+        keybind = "l";
       }
     ];
     style = ''
@@ -544,8 +558,8 @@ button:active {
           };
         };
         mpd = {
-	  format = "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ({volume}%) ";
-	  format-disconnected = "Disconnected ";
+          format = "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ({volume}%) ";
+          format-disconnected = "Disconnected ";
           format-stopped = "Stopped ";
           state-icons = {
                   paused = "";
