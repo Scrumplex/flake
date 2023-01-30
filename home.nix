@@ -67,12 +67,21 @@
   programs.git = {
     enable = true;
     package = pkgs.gitAndTools.gitFull;
-    delta.enable = true;
+    delta = {
+      enable = true;
+      options.navigate = true;
+    };
     signing.key = "E13DFD4B47127951";
     signing.signByDefault = true;
     userEmail = "contact@scrumplex.net";
     userName = "Sefa Eyeoglu";
     extraConfig = {
+      core.autocrlf = "input";
+      color.ui = "auto";
+      diff.colorMoved = "default";
+      push.followTags = true;
+      pull.rebase = true;
+      init.defaultBranch = "main";
       url = {
         "https://github.com/".insteadOf = "github:";
         "ssh://git@github.com/".pushInsteadOf = "github:";
