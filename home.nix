@@ -150,6 +150,22 @@
       set -g theme_title_display_process "yes"
       fish_config theme choose "Catppuccin Mocha"
     '';
+    shellAbbrs = {
+      g = "git";
+      ga = "git add";
+      gap = "git add -p";
+      gca = "git commit -s --amend";
+      gcm = "git commit -sm";
+      gco = "git checkout";
+      gd = "git diff";
+      gdc = "git diff --cached";
+      gl = "git log";
+      gp = "git push";
+      gpl = "git pull";
+      gri = "git rebase --interactive";
+      grc = "git rebase --continue";
+      gs = "git status";
+    };
     plugins = [
       {
         name = "done";
