@@ -517,7 +517,7 @@ audio_output {
         "${mod}+p" = "exec ${pkgs.pass}/bin/passmenu --type";
         "${mod}+Shift+p" = "exec ${pkgs.pass}/bin/passmenu";
         "${mod}+Shift+c" = "reload";
-        "${mod}+Shift+e" = "${pkgs.wlogout}/bin/wlogout";
+        "${mod}+Shift+e" = "exec ${pkgs.wlogout}/bin/wlogout";
         "${mod}+Ctrl+q" = "exec ${pkgs.gtklock}/bin/gtklock";
         # TODO: Screenshots
         #"${mod}+Print" = "";
