@@ -90,6 +90,7 @@
     pkgs.steam-run
 
     pkgs.fira
+    pkgs.fira-code
     (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
     pkgs.monocraft
 
