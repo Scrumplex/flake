@@ -943,8 +943,11 @@ window#waybar {
   gtk = {
     enable = true;
     iconTheme.name = "Adwaita";
-    font.name = "Fira Sans";
-    font.size = 11;
+    font = {
+      package = pkgs.fira;
+      name = "Fira Sans Regular";
+      size = 11;
+    };
     theme.name = "Catppuccin-Mocha-Standard-Teal-Dark";
   };
 
