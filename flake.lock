@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "flake-compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1668681692,
+        "narHash": "sha256-Ht91NGdewz8IQLtWZ9LCeNXMSXHUss+9COoqu6JLmXU=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "009399224d5e398d03b22badca40a37ac85412a1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -21,6 +37,22 @@
         "type": "github"
       }
     },
+    "libnbtplusplus": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1650031308,
+        "narHash": "sha256-TvVOjkUobYJD9itQYueELJX3wmecvEdCbJ0FinW2mL4=",
+        "owner": "PrismLauncher",
+        "repo": "libnbtplusplus",
+        "rev": "2203af7eeb48c45398139b583615134efd8d407f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "PrismLauncher",
+        "repo": "libnbtplusplus",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1675115703,
@@ -37,10 +69,33 @@
         "type": "github"
       }
     },
+    "prismlauncher": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "libnbtplusplus": "libnbtplusplus",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1675090971,
+        "narHash": "sha256-kGna5Tegd/6+95q9UxLv5Q/yRWIf5Fa1p1uMvNXKl/M=",
+        "owner": "PrismLauncher",
+        "repo": "PrismLauncher",
+        "rev": "deed49574ac344f126eed5fd71f7151c72ff79ac",
+        "type": "github"
+      },
+      "original": {
+        "owner": "PrismLauncher",
+        "repo": "PrismLauncher",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "prismlauncher": "prismlauncher"
       }
     },
     "utils": {

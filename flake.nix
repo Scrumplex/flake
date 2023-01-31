@@ -7,9 +7,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    prismlauncher = {
+      url = "github:PrismLauncher/PrismLauncher";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  nixConfig.extra-substituters = [ "https://prismlauncher.cachix.org" ];
+  nixConfig.extra-trusted-public-keys = [ "prismlauncher.cachix.org-1:GhJfjdP1RFKtFSH3gXTIQCvZwsb2cioisOf91y/bK0w=" ];
+
+  outputs = { nixpkgs, home-manager, prismlauncher, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -17,6 +24,7 @@
         config = {
           allowUnfree = true;
         };
+	overlays = [ prismlauncher.overlay ];
       };
     in {
       homeConfigurations.scrumplex = home-manager.lib.homeManagerConfiguration {

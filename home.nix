@@ -79,6 +79,7 @@
     pkgs.signal-desktop
     pkgs.element-desktop
     pkgs.obs-studio
+    pkgs.prismlauncher
     pkgs.ark
     pkgs.evolution
     pkgs.inkscape
