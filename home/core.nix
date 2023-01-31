@@ -1,4 +1,3 @@
-
 { config, pkgs, ... }:
 
 {
@@ -45,15 +44,32 @@
     controlPath = "~/.ssh/sockets/master-%r@%n:%p";
     controlPersist = "10m";
 
-    matchBlocks = let
-      idFile = "~/.ssh/id_ed25519";
+    matchBlocks = let idFile = "~/.ssh/id_ed25519";
     in {
-      "aur.archlinux.org" = { user = "aur"; identityFile = idFile; };
-      "gitlab.com" = { user = "git"; identityFile = idFile; };
-      "git.sr.ht" = { user = "git"; identityFile = idFile; };
-      "github.com" = { user = "git"; identityFile = idFile; };
-      "codeberg.org" = { user = "git"; identityFile = idFile; };
-      "gitlab.freedesktop.org" = { user = "git"; identityFile = idFile; };
+      "aur.archlinux.org" = {
+        user = "aur";
+        identityFile = idFile;
+      };
+      "gitlab.com" = {
+        user = "git";
+        identityFile = idFile;
+      };
+      "git.sr.ht" = {
+        user = "git";
+        identityFile = idFile;
+      };
+      "github.com" = {
+        user = "git";
+        identityFile = idFile;
+      };
+      "codeberg.org" = {
+        user = "git";
+        identityFile = idFile;
+      };
+      "gitlab.freedesktop.org" = {
+        user = "git";
+        identityFile = idFile;
+      };
     };
   };
 
@@ -68,22 +84,17 @@
     defaultCacheTtlSsh = 1209600;
     maxCacheTtl = 1209600;
     maxCacheTtlSsh = 1209600;
-    extraConfig = "
-      allow-preset-passphrase
-    ";
+    extraConfig = "allow-preset-passphrase";
   };
   xdg.configFile."pam-gnupg".text = ''
     ${config.programs.gpg.homedir}
     2622167BDE636A248CE883080EE77D752284FDF4
     EA9F43D0C2AEA7D44EDE68FAAAD1776402F99A4E
-    FF6C7F0072EA36E2577171982192FF40739A731D
   '';
 
   services.gnome-keyring.enable = true;
 
   programs.password-store.enable = true;
 
-  home.packages = with pkgs; [
-    pkgs.git-crypt
-  ];
+  home.packages = with pkgs; [ pkgs.git-crypt ];
 }

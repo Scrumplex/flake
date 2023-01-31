@@ -3,8 +3,10 @@
 {
   programs.fzf = {
     enable = true;
-    enableFishIntegration = false;  # we use jethrokuan/fzf instead
-    defaultOptions = ["--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD"];
+    enableFishIntegration = false; # we use jethrokuan/fzf instead
+    defaultOptions = [
+      "--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD"
+    ];
   };
 
   programs.fish = {
@@ -14,7 +16,7 @@
       set -g theme_nerd_fonts "yes"
       set -g theme_title_display_process "yes"
       fish_config theme choose "Catppuccin Mocha"
-    '';  # TODO: programs.fish.plugins doesn't have support for Fish themes!
+    ''; # TODO: programs.fish.plugins doesn't have support for Fish themes!
     shellAbbrs = {
       g = "git";
       ga = "git add";
@@ -121,6 +123,6 @@
       if [ "$(${pkgs.procps}/bin/ps -p $PPID -o comm=)" != "fish" ]; then
         exec fish
       fi
-    '';  # TODO: this breaks nested nix-shells
+    ''; # TODO: this breaks nested nix-shells
   };
 }

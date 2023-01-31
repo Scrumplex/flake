@@ -35,14 +35,38 @@ in {
   programs.ncmpcpp = {
     enable = true;
     bindings = [
-      { key = "9"; command = "show_clock"; }
-      { key = "f"; command = "seek_forward"; }
-      { key = "F"; command = "seek_backward"; }
-      { key = "n"; command = "next_found_item"; }
-      { key = "N"; command = "previous_found_item"; }
-      { key = "g"; command = "move_home"; }
-      { key = "G"; command = "move_end"; }
-      { key = "space"; command = "jump_to_playing_song"; }
+      {
+        key = "9";
+        command = "show_clock";
+      }
+      {
+        key = "f";
+        command = "seek_forward";
+      }
+      {
+        key = "F";
+        command = "seek_backward";
+      }
+      {
+        key = "n";
+        command = "next_found_item";
+      }
+      {
+        key = "N";
+        command = "previous_found_item";
+      }
+      {
+        key = "g";
+        command = "move_home";
+      }
+      {
+        key = "G";
+        command = "move_end";
+      }
+      {
+        key = "space";
+        command = "jump_to_playing_song";
+      }
     ];
     settings = {
       visualizer_data_source = mpdFifoPath;

@@ -42,9 +42,7 @@
           mode = "1920x1080@60Hz";
           position = "0,0";
         };
-        "*" = {
-          bg = "${./sway/current-wallpaper.jpg} fill";
-        };
+        "*" = { bg = "${./sway/current-wallpaper.jpg} fill"; };
       };
       assigns = {
         "4:mail" = [{ app_id = "evolution"; }];
@@ -56,19 +54,21 @@
           { class = "discord"; }
         ];
       };
-      floating.criteria = [
-        { app_id = "lxqt-policykit-agent"; }
-      ];
+      floating.criteria = [{ app_id = "lxqt-policykit-agent"; }];
       window = {
         border = 4;
         hideEdgeBorders = "smart";
         commands = [
           {
             criteria.app_id = "popup_pulsemixer";
-            command = "floating enable; sticky enable; resize set 800 600; border pixel";
+            command =
+              "floating enable; sticky enable; resize set 800 600; border pixel";
           }
           {
-            criteria = { app_id = "firefox"; title = "Picture-in-Picture"; };
+            criteria = {
+              app_id = "firefox";
+              title = "Picture-in-Picture";
+            };
             command = "floating enable; sticky enable";
           }
           {
@@ -77,19 +77,19 @@
           }
         ];
       };
-      bars = [];
+      bars = [ ];
       fonts = {
         names = [ "Monocraft" ];
         size = 10.0;
       };
       colors = let
-          cat_blue = "#89b4fa";
-          cat_base = "#1e1e2e";
-          cat_surface0 = "#313244";
-          cat_pink = "#f5c2e7";
-          cat_text = "#cdd6f4";
-          cat_peach = "#fab387";
-        in {  # TODO: create catppuccin module
+        cat_blue = "#89b4fa";
+        cat_base = "#1e1e2e";
+        cat_surface0 = "#313244";
+        cat_pink = "#f5c2e7";
+        cat_text = "#cdd6f4";
+        cat_peach = "#fab387";
+      in { # TODO: create catppuccin module
         focused = {
           background = cat_blue;
           border = cat_blue;
@@ -119,17 +119,16 @@
           text = cat_base;
         };
       };
-      keybindings = 
-        let
-          swayConf = config.wayland.windowManager.sway.config;
-	  terminal = swayConf.terminal;
-	  menu = swayConf.menu;
-          mod = swayConf.modifier;
-          left = swayConf.left;
-          right = swayConf.right;
-          up = swayConf.up;
-          down = swayConf.down;
-        in {
+      keybindings = let
+        swayConf = config.wayland.windowManager.sway.config;
+        terminal = swayConf.terminal;
+        menu = swayConf.menu;
+        mod = swayConf.modifier;
+        left = swayConf.left;
+        right = swayConf.right;
+        up = swayConf.up;
+        down = swayConf.down;
+      in {
         "${mod}+Return" = "exec ${terminal}";
         "${mod}+Escape" = "kill";
         "${mod}+d" = "exec ${menu}";
@@ -212,7 +211,8 @@
         "XF86AudioMute" = "exec ${pkgs.pamixer}/bin/pamixer -t";
         "XF86AudioRaiseVolume" = "exec ${pkgs.pamixer}/bin/pamixer -ui 2";
         "XF86AudioLowerVolume" = "exec ${pkgs.pamixer}/bin/pamixer -ud 2";
-        "${mod}+XF86AudioMute" = "exec ${pkgs.pamixer}/bin/pamixer --default-source -t";
+        "${mod}+XF86AudioMute" =
+          "exec ${pkgs.pamixer}/bin/pamixer --default-source -t";
         "${mod}+m" = "exec ${pkgs.pamixer}/bin/pamixer --default-source -t";
         "Shift+XF86AudioRaiseVolume" = "exec ${pkgs.mpc-cli}/bin/mpc vol +2";
         "Shift+XF86AudioLowerVolume" = "exec ${pkgs.mpc-cli}/bin/mpc vol -2";
@@ -221,22 +221,30 @@
   };
   services.swayidle = {
     enable = true;
-    events =
-      let
-        swaymsg = "${pkgs.sway}/bin/swaymsg";
-        gtklock = "${pkgs.gtklock}/bin/gtklock";
-      in [
+    events = let
+      swaymsg = "${pkgs.sway}/bin/swaymsg";
+      gtklock = "${pkgs.gtklock}/bin/gtklock";
+    in [
       #{ event = "before-sleep"; command = gtklock; }
-      { event = "after-resume"; command = "${swaymsg} \"output * dpms on\""; }
+      {
+        event = "after-resume";
+        command = ''${swaymsg} "output * dpms on"'';
+      }
     ];
-    timeouts =
-      let
-        swaymsg = "${pkgs.sway}/bin/swaymsg";
-        gtklock = "${pkgs.gtklock}/bin/gtklock";
-      in [
-      { timeout = 240; command = "${swaymsg} \"output * dpms off\""; resumeCommand = "${swaymsg} \"output * dpms on\""; }
+    timeouts = let
+      swaymsg = "${pkgs.sway}/bin/swaymsg";
+      gtklock = "${pkgs.gtklock}/bin/gtklock";
+    in [
+      {
+        timeout = 240;
+        command = ''${swaymsg} "output * dpms off"'';
+        resumeCommand = ''${swaymsg} "output * dpms on"'';
+      }
       #{ timeout = 300; command = gtklock; }
-      { timeout = 600; command = "systemctl suspend"; }
+      {
+        timeout = 600;
+        command = "systemctl suspend";
+      }
     ];
   };
   programs.mako = {
@@ -335,7 +343,7 @@
       #reboot {
           background-image: image(url("${./sway/restart.png}"));
       }
-  '';
+    '';
   };
   programs.waybar = {
     enable = true;
@@ -344,7 +352,15 @@
         position = "top";
         modules-left = [ "sway/workspaces" "mpd" ];
         modules-center = [ "clock" ];
-        modules-right = [ "network" "pulseaudio" "battery" "custom/pa-mute" "idle_inhibitor" "clock#date" "tray" ];
+        modules-right = [
+          "network"
+          "pulseaudio"
+          "battery"
+          "custom/pa-mute"
+          "idle_inhibitor"
+          "clock#date"
+          "tray"
+        ];
         "sway/workspaces" = {
           disable-scroll = true;
           all-outputs = false;
@@ -357,87 +373,93 @@
             "5:chat" = "";
           };
           persistent_workspaces = {
-            "1" = [];
-            "2" = [];
+            "1" = [ ];
+            "2" = [ ];
           };
         };
         mpd = {
-          format = "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ({volume}%) ";
+          format =
+            "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ({volume}%) ";
           format-disconnected = "Disconnected ";
           format-stopped = "Stopped ";
           state-icons = {
-                  paused = "";
-                  playing = "";
+            paused = "";
+            playing = "";
           };
           tooltip-format = "MPD (connected)";
           tooltip-format-disconnected = "MPD (disconnected)";
-          on-scroll-up = "${pkgs.mpc-cli}/bin/mpc vol +2 && ${pkgs.mpc-cli}/bin/mpc vol | sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
-          on-scroll-down = "${pkgs.mpc-cli}/bin/mpc vol -2 && ${pkgs.mpc-cli}/bin/mpc vol | sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
+          on-scroll-up =
+            "${pkgs.mpc-cli}/bin/mpc vol +2 && ${pkgs.mpc-cli}/bin/mpc vol | sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
+          on-scroll-down =
+            "${pkgs.mpc-cli}/bin/mpc vol -2 && ${pkgs.mpc-cli}/bin/mpc vol | sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
           on-click = "termapp ncmpcpp";
           on-click-middle = "${pkgs.mpc-cli}/bin/mpc toggle";
           on-click-right = "";
           smooth-scrolling-threshold = 0.16;
         };
         network = {
-                format = "{ifname}";
-                format-wifi = "{essid} 直";
-                format-ethernet = "";
-                format-disconnected = "disconnected ";
-                tooltip-format = "{ifname}";
-                tooltip-format-wifi = "{essid} ({signalStrength}%) 直";
-                tooltip-format-ethernet = "{ifname} ";
-                tooltip-format-disconnected = "Disconnected";
-                on-click = "termapp nload";
-                max-length = 50;
-                interval = 1;
+          format = "{ifname}";
+          format-wifi = "{essid} 直";
+          format-ethernet = "";
+          format-disconnected = "disconnected ";
+          tooltip-format = "{ifname}";
+          tooltip-format-wifi = "{essid} ({signalStrength}%) 直";
+          tooltip-format-ethernet = "{ifname} ";
+          tooltip-format-disconnected = "Disconnected";
+          on-click = "termapp nload";
+          max-length = 50;
+          interval = 1;
         };
         pulseaudio = {
-                format = "{volume}% {icon}";
-                format-bluetooth = "{volume}% {icon}";
-                format-muted = "ﱝ";
-                format-icons = {
-                     headphones = "";
-                     handsfree = "";
-                     headset = "";
-                     phone = "";
-                     portable = "";
-                     car = "";
-                     default = "墳";
-                };
-                on-click = "termapp pulsemixer";
-                on-scroll-up = "${pkgs.pamixer}/bin/pamixer -ui 2 && ${pkgs.pamixer}/bin/pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock";
-                on-scroll-down = "${pkgs.pamixer}/bin/pamixer -ud 2 && ${pkgs.pamixer}/bin/pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock";
-                smooth-scrolling-threshold = 0.16;
+          format = "{volume}% {icon}";
+          format-bluetooth = "{volume}% {icon}";
+          format-muted = "ﱝ";
+          format-icons = {
+            headphones = "";
+            handsfree = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car = "";
+            default = "墳";
+          };
+          on-click = "termapp pulsemixer";
+          on-scroll-up =
+            "${pkgs.pamixer}/bin/pamixer -ui 2 && ${pkgs.pamixer}/bin/pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock";
+          on-scroll-down =
+            "${pkgs.pamixer}/bin/pamixer -ud 2 && ${pkgs.pamixer}/bin/pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock";
+          smooth-scrolling-threshold = 0.16;
         };
         battery = {
-               interval = 10;
-               states = {
-                   warning = 30;
-                   critical = 15;
-               };
-               format = "{capacity}% {icon}";
-               format-icons = ["" "" "" "" ""];
-               max-length = 25;
+          interval = 10;
+          states = {
+            warning = 30;
+            critical = 15;
+          };
+          format = "{capacity}% {icon}";
+          format-icons = [ "" "" "" "" "" ];
+          max-length = 25;
         };
         clock = {
-                format = "{:%H:%M:%S}";
-                interval = 1;
+          format = "{:%H:%M:%S}";
+          interval = 1;
         };
         "custom/pa-mute" = {
-            exec = "$HOME/.config/waybar/components/pa-mute";
-            return-type = "json";
-            on-click = "${pkgs.pamixer}/bin/pamixer --default-source --toggle-mute";
+          exec = "$HOME/.config/waybar/components/pa-mute";
+          return-type = "json";
+          on-click =
+            "${pkgs.pamixer}/bin/pamixer --default-source --toggle-mute";
         };
         idle_inhibitor = {
-                format = "{icon}";
-                format-icons = {
-                        activated = "";
-                        deactivated = "";
-                };
+          format = "{icon}";
+          format-icons = {
+            activated = "";
+            deactivated = "";
+          };
         };
         "clock#date" = {
-                format = "{:%a, %d. %b %Y}";
-                interval = 1;
+          format = "{:%a, %d. %b %Y}";
+          interval = 1;
         };
         tray.spacing = 16;
       };
@@ -449,30 +471,30 @@
         background: RGBA(17, 17, 27, 0.95);  /* crust */
         color: #cdd6f4;  /* text */
       }
-      
+
       .modules-left, .modules-center, .modules-right {
         margin-left: 8px;
         margin-right: 8px;
         background-color: #1e1e2e;  /* base */
         border-radius: 16px;
       }
-      
+
       #workspaces, #mpd, #clock, #network, #pulseaudio, #battery, #custom-pa-mute, #idle_inhibitor, #tray {
         margin: 0 8px;
       }
-      
+
       #custom-pa-mute {
         margin-right: 0;
       }
-      
+
       #idle_inhibitor {
         margin-left: 0;
       }
-      
+
       #workspaces {
         margin-left: 0;
       }
-      
+
       #workspaces button, #idle_inhibitor, #custom-pa-mute {
         border: none;
         background-color: transparent;
@@ -484,55 +506,55 @@
         min-height: 32px;
         padding: 0;
       }
-      
+
       #workspaces button.urgent, #idle_inhibitor.activated, #custom-pa-mute.muted {
         background-color: #fab387;  /* peach */
         color: #1e1e2e;  /* base */
       }
-      
+
       #custom-pa-mute.muted {
         background-color: #f38ba8; /* red */
       }
-      
+
       #idle_inhibitor.activated {
         background-color: #cba6f7; /* mauve */
       }
-      
+
       #workspaces button:hover {
         background-image: none; /* remove Adwaita button gradient */
         background-color: #585b70;  /* surface2 */
       }
-      
+
       #workspaces button:hover label {
         text-shadow: none; /* Adwaita? */
       }
-      
+
       #workspaces button.focused {
         background-color: #89b4fa;  /* blue */
         color: #161320;  /* black0 */
       }
-      
+
       #workspaces button.focused:hover {
         background-color: #89dceb;  /* sky */
       }
-      
+
       #workspaces button:active, #workspaces button.focused:active {
         background-color: #cdd6f4;  /* text */
         color: #1e1e2e;  /* base */
       }
-      
+
       #network.ethernet {
         padding: 0;
       }
-      
+
       #battery.warning {
         color: #fab387;  /* peach */
       }
-      
+
       #battery.critical {
         color: #f38ba8;  /* maroon */
       }
-      
+
       #battery.charging {
         color: #a6e3a1;  /* green */
       }

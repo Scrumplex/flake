@@ -7,7 +7,7 @@
     theme = "Catppuccin-Mocha";
     settings = {
       disable_ligatures = "cursor";
-      paste_actions = "";  # removes all actions
+      paste_actions = ""; # removes all actions
       placement_strategy = "top-left";
       tab_bar_style = "powerline";
       background_opacity = "0.975";

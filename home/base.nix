@@ -81,7 +81,7 @@
     (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
 
     (pkgs.catppuccin-gtk.override {
-      accents = ["teal"];
+      accents = [ "teal" ];
       variant = "mocha";
     })
   ];

@@ -51,7 +51,7 @@
       hwdec = "auto";
       hwdec-codecs = "vaapi";
       profile = "gpu-hq";
-      video-sync="display-resample";
+      video-sync = "display-resample";
       volume = 50;
     };
   };
