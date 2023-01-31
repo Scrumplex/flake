@@ -388,6 +388,17 @@ audio_output {
     };
   };
 
+  programs.mpv = {
+    enable = true;
+    config = {
+      hwdec = "auto";
+      hwdec-codecs = "vaapi";
+      profile = "gpu-hq";
+      video-sync="display-resample";
+      volume = 50;
+    };
+  };
+
   # GUI tools
   programs.firefox.enable = true;
   programs.chromium.enable = true;

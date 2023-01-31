@@ -1,9 +1,0 @@
-[Unit]
-Description=Jellyfin MPV Shim
-
-[Service]
-ExecStart=/usr/bin/jellyfin-mpv-shim
-
-[Install]
-WantedBy=graphical-session.target
-
