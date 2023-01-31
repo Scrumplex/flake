@@ -80,6 +80,9 @@
     pkgs.obs-studio
     pkgs.ark
     pkgs.evolution
+    pkgs.inkscape
+    pkgs.gimp
+    pkgs.krita
 
     pkgs.mangohud
     pkgs.steam
