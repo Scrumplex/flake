@@ -391,6 +391,7 @@ audio_output {
 
   # GUI tools
   programs.firefox.enable = true;
+  programs.chromium.enable = true;
   programs.browserpass.enable = true;
 
   wayland.windowManager.sway = {
