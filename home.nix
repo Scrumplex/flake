@@ -93,13 +93,17 @@
     (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
     pkgs.monocraft
 
-    pkgs.catppuccin-cursors.mochaMaroon
     (pkgs.catppuccin-gtk.override {
       accents = ["teal"];
       variant = "mocha";
     })
     pkgs.gnome.gnome-themes-extra
   ];
+
+  home.pointerCursor = {
+    name = "Adwaita";
+    package = pkgs.gnome.gnome-themes-extra;
+  };
 
   # Core tools
   programs.git = {
@@ -936,9 +940,9 @@ window#waybar {
 
   gtk = {
     enable = true;
-    cursorTheme.name = "Catppuccin-Mocha-Maroon-Cursors";
     iconTheme.name = "Adwaita";
-    font.name = "Fira Sans 11";
+    font.name = "Fira Sans";
+    font.size = 11;
     theme.name = "Catppuccin-Mocha-Standard-Teal-Dark";
   };
 
