@@ -74,6 +74,7 @@
     pkgs.gtklock
 
     pkgs.discord
+    pkgs.slack
     pkgs.tdesktop
     pkgs.signal-desktop
     pkgs.element-desktop
