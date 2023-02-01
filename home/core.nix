@@ -70,6 +70,42 @@
         user = "git";
         identityFile = idFile;
       };
+
+      "iss.lan" = {
+        user = "root";
+        hostname = "10.10.10.1";
+        identityFile = idFile;
+      };
+
+      "voyager.lan" = {
+        user = "root";
+        hostname = "10.10.10.8";
+        identityFile = idFile;
+      };
+
+      "cosmos.lan" = {
+        user = "root";
+        hostname = "10.10.10.11";
+        identityFile = idFile;
+      };
+
+      "eclipse.lan" = {
+        user = "root";
+        hostname = "10.10.10.12";
+        identityFile = idFile;
+      };
+
+      "scrumplex.net" = {
+        user = "root";
+        port = 22701;
+        identityFile = idFile;
+      };
+
+      "duckhub.io" = {
+        user = "root";
+        port = 22701;
+        identityFile = idFile;
+      };
     };
   };
 
