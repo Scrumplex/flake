@@ -1,15 +1,4 @@
-set $term kitty
-set $launcher fuzzel
 set $passmenu passmenu
-set $exitnag wlogout
-set $lock gtklock --config --daemonize
-set $screenshot screenshot-bash
-
-bindsym $mod+Shift+e exec $exitnag
-# Screenshot
-bindsym Print exec $screenshot
-bindsym Shift+Print exec $screenshot active_window
-bindsym $mod+Print exec $screenshot active_output
 
 # Pulse volume
 bindsym XF86AudioMute exec pamixer -t && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock

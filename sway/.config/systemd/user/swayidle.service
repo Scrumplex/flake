@@ -1,9 +1,0 @@
-[Unit]
-Description=Sway Idle Daemon
-
-[Service]
-ExecStart=/usr/bin/swayidle
-
-[Install]
-WantedBy=sway-session.target
-
