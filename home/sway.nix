@@ -1,6 +1,46 @@
 { config, pkgs, ... }:
 
-{
+let
+  run-or-raise = pkgs.writeShellScript "run-or-raise.sh" ''
+    # Copyright (C) 2020-2021 Bob Hepple <bob.hepple@gmail.com>
+    # Copyright (C) 2021 Sefa Eyeoglu <contact@scrumplex.net>
+
+    # This program is free software: you can redistribute it and/or modify
+    # it under the terms of the GNU General Public License as published by
+    # the Free Software Foundation, either version 3 of the License, or (at
+    # your option) any later version.
+    # 
+    # This program is distributed in the hope that it will be useful, but
+    # WITHOUT ANY WARRANTY; without even the implied warranty of
+    # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    # General Public License for more details.
+    # 
+    # You should have received a copy of the GNU General Public License
+    # along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+    class="$1"
+    runstring="$2"
+
+    [[ -z "$class" ]] && exit 1
+    [[ -z "$runstring" ]] && exit 1
+
+    swaymsg "[app_id=$class] focus" &>/dev/null || {
+      # could be Xwayland app:
+      swaymsg "[class=$class] focus" &>/dev/null
+    } || exec $runstring
+
+    exit 0
+  '';
+  termapp = pkgs.writeShellScript "termapp.sh" ''
+    if [ $# -eq 0 ]; then
+      exit 2
+    fi
+
+    appid="popup_$(${pkgs.coreutils}/bin/basename $1)"
+
+    exec ${run-or-raise} "$appid" "${pkgs.kitty}/bin/kitty --class='$appid' $@"
+  '';
+in {
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -424,7 +464,7 @@
             "${pkgs.mpc-cli}/bin/mpc vol +2 && ${pkgs.mpc-cli}/bin/mpc vol | ${pkgs.gnused}/bin/sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
           on-scroll-down =
             "${pkgs.mpc-cli}/bin/mpc vol -2 && ${pkgs.mpc-cli}/bin/mpc vol | ${pkgs.gnused}/bin/sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
-          on-click = "termapp ncmpcpp";
+          on-click = "${termapp} ${pkgs.ncmpcpp}/bin/ncmpcpp";
           on-click-middle = "${pkgs.mpc-cli}/bin/mpc toggle";
           on-click-right = "";
           smooth-scrolling-threshold = 0.16;
@@ -438,7 +478,7 @@
           tooltip-format-wifi = "{essid} ({signalStrength}%) 直";
           tooltip-format-ethernet = "{ifname} ";
           tooltip-format-disconnected = "Disconnected";
-          on-click = "termapp nload";
+          on-click = "${termapp} ${pkgs.nload}/bin/nload";
           max-length = 50;
           interval = 1;
         };
@@ -455,7 +495,7 @@
             car = "";
             default = "墳";
           };
-          on-click = "termapp pulsemixer";
+          on-click = "${termapp} ${pkgs.pulsemixer}/bin/pulsemixer";
           on-scroll-up =
             "${pkgs.pamixer}/bin/pamixer -ui 2 && ${pkgs.pamixer}/bin/pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock";
           on-scroll-down =
