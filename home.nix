@@ -37,6 +37,8 @@
     pkgs.gimp
     pkgs.krita
 
+    pkgs.qpwgraph
+
     pkgs.mangohud
     pkgs.steam
     pkgs.steam-run
