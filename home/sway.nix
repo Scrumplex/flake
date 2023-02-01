@@ -219,28 +219,27 @@
       };
     };
   };
-  services.swayidle = {
+  services.swayidle = let
+    swaymsg = "${pkgs.sway}/bin/swaymsg";
+    gtklock = "${pkgs.gtklock}/bin/gtklock";
+  in {
     enable = true;
-    events = let
-      swaymsg = "${pkgs.sway}/bin/swaymsg";
-      gtklock = "${pkgs.gtklock}/bin/gtklock";
-    in [
-      #{ event = "before-sleep"; command = gtklock; }
+    events = [
+      {
+        event = "before-sleep";
+        command = gtklock;
+      }
       {
         event = "after-resume";
         command = ''${swaymsg} "output * dpms on"'';
       }
     ];
-    timeouts = let
-      swaymsg = "${pkgs.sway}/bin/swaymsg";
-      gtklock = "${pkgs.gtklock}/bin/gtklock";
-    in [
+    timeouts = [
       {
-        timeout = 240;
+        timeout = 120;
         command = ''${swaymsg} "output * dpms off"'';
         resumeCommand = ''${swaymsg} "output * dpms on"'';
       }
-      #{ timeout = 300; command = gtklock; }
       {
         timeout = 600;
         command = "systemctl suspend";
