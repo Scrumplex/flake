@@ -389,9 +389,9 @@
           tooltip-format = "MPD (connected)";
           tooltip-format-disconnected = "MPD (disconnected)";
           on-scroll-up =
-            "${pkgs.mpc-cli}/bin/mpc vol +2 && ${pkgs.mpc-cli}/bin/mpc vol | sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
+            "${pkgs.mpc-cli}/bin/mpc vol +2 && ${pkgs.mpc-cli}/bin/mpc vol | ${pkgs.gnused}/bin/sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
           on-scroll-down =
-            "${pkgs.mpc-cli}/bin/mpc vol -2 && ${pkgs.mpc-cli}/bin/mpc vol | sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
+            "${pkgs.mpc-cli}/bin/mpc vol -2 && ${pkgs.mpc-cli}/bin/mpc vol | ${pkgs.gnused}/bin/sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
           on-click = "termapp ncmpcpp";
           on-click-middle = "${pkgs.mpc-cli}/bin/mpc toggle";
           on-click-right = "";
