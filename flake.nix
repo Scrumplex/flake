@@ -11,6 +11,10 @@
       url = "github:PrismLauncher/PrismLauncher";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    screenshot-bash = {
+      url = "git+https://codeberg.org/Scrumplex/screenshot-bash";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig.extra-substituters = [ "https://prismlauncher.cachix.org" ];
@@ -18,13 +22,13 @@
     "prismlauncher.cachix.org-1:GhJfjdP1RFKtFSH3gXTIQCvZwsb2cioisOf91y/bK0w="
   ];
 
-  outputs = { nixpkgs, home-manager, prismlauncher, ... }:
+  outputs = { nixpkgs, home-manager, prismlauncher, screenshot-bash, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
         config = { allowUnfree = true; };
-        overlays = [ prismlauncher.overlay ];
+        overlays = [ prismlauncher.overlay screenshot-bash.overlay ];
       };
     in {
       homeConfigurations.scrumplex = home-manager.lib.homeManagerConfiguration {

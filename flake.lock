@@ -24,11 +24,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1675181178,
-        "narHash": "sha256-jymSUUjKoArptU7LJ1i4boysXptnpuETiUTenKgs2fM=",
+        "lastModified": 1675247113,
+        "narHash": "sha256-+YcXjfCP4hNu8A68b/UoXFCTDwKLuLV+x/7dQnM5U/o=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "69696fe53940562a047bf2ec675cc1dcd1bc09b3",
+        "rev": "782cb855b2f23c485011a196c593e2d7e4fce746",
         "type": "github"
       },
       "original": {
@@ -95,7 +95,28 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "prismlauncher": "prismlauncher"
+        "prismlauncher": "prismlauncher",
+        "screenshot-bash": "screenshot-bash"
+      }
+    },
+    "screenshot-bash": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1675260394,
+        "narHash": "sha256-QimBcfuPsE/2zlIwH45A2ZU0cxbUAusKYCalERoeMTY=",
+        "ref": "refs/heads/master",
+        "rev": "b7435fb3b0be09ad7b0c9ff8c8bf5cbd622a4033",
+        "revCount": 45,
+        "type": "git",
+        "url": "https://codeberg.org/Scrumplex/screenshot-bash"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/Scrumplex/screenshot-bash"
       }
     },
     "utils": {

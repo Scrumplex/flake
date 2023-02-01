@@ -9,6 +9,7 @@
     ./home/sway.nix
     ./home/kitty.nix
     ./home/borg.nix
+    ./home/screenshot-bash.nix
   ];
 
   home.username = "scrumplex";
@@ -37,7 +38,6 @@
     pkgs.mangohud
     pkgs.steam
     pkgs.steam-run
-
   ];
 
   programs.neovim = {
