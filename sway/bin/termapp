@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [ $# -eq 0 ]; then
-        exit 2
-fi
-
-appid="popup_$1"
-
-exec run-or-raise "$appid" "kitty --class='$appid' $@"
