@@ -21,6 +21,8 @@
 
   home.packages = [
     pkgs.htop
+    pkgs.file
+    pkgs.tree
 
     pkgs.discord
     pkgs.slack
