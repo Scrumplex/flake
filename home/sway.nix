@@ -128,6 +128,11 @@
         right = swayConf.right;
         up = swayConf.up;
         down = swayConf.down;
+
+        mpc = "${pkgs.mpc-cli}/bin/mpc";
+        pamixer = "${pkgs.pamixer}/bin/pamixer";
+        sed = "${pkgs.gnused}/bin/sed";
+        brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
       in {
         "${mod}+Return" = "exec ${terminal}";
         "${mod}+Escape" = "kill";
@@ -203,19 +208,31 @@
 
         "${mod}+a" = "focus parent";
 
-        "XF86AudioStop" = "exec ${pkgs.mpc-cli}/bin/mpc stop";
-        "XF86AudioPlay" = "exec ${pkgs.mpc-cli}/bin/mpc toggle";
-        "XF86AudioPause" = "exec ${pkgs.mpc-cli}/bin/mpc toggle";
-        "XF86AudioNext" = "exec ${pkgs.mpc-cli}/bin/mpc next";
-        "XF86AudioPrev" = "exec ${pkgs.mpc-cli}/bin/mpc prev";
-        "XF86AudioMute" = "exec ${pkgs.pamixer}/bin/pamixer -t";
-        "XF86AudioRaiseVolume" = "exec ${pkgs.pamixer}/bin/pamixer -ui 2";
-        "XF86AudioLowerVolume" = "exec ${pkgs.pamixer}/bin/pamixer -ud 2";
-        "${mod}+XF86AudioMute" =
-          "exec ${pkgs.pamixer}/bin/pamixer --default-source -t";
-        "${mod}+m" = "exec ${pkgs.pamixer}/bin/pamixer --default-source -t";
-        "Shift+XF86AudioRaiseVolume" = "exec ${pkgs.mpc-cli}/bin/mpc vol +2";
-        "Shift+XF86AudioLowerVolume" = "exec ${pkgs.mpc-cli}/bin/mpc vol -2";
+        "XF86AudioStop" = "exec ${mpc} stop";
+        "XF86AudioPlay" = "exec ${mpc} toggle";
+        "XF86AudioPause" = "exec ${mpc} toggle";
+        "XF86AudioNext" = "exec ${mpc} next";
+        "XF86AudioPrev" = "exec ${mpc} prev";
+
+        "XF86AudioMute" =
+          "exec ${pamixer} -t && ${pamixer} --get-volume > $XDG_RUNTIME_DIR/wob.sock";
+        "XF86AudioRaiseVolume" =
+          "exec ${pamixer} -ui 2 && ${pamixer} --get-volume > $XDG_RUNTIME_DIR/wob.sock";
+        "XF86AudioLowerVolume" =
+          "exec ${pamixer} -ud 2 && ${pamixer} --get-volume > $XDG_RUNTIME_DIR/wob.sock";
+
+        "${mod}+XF86AudioMute" = "exec ${pamixer} --default-source -t";
+        "${mod}+m" = "exec ${pamixer} --default-source -t";
+
+        "Shift+XF86AudioRaiseVolume" =
+          "exec ${mpc} vol +2 && ${mpc} vol | ${sed} 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
+        "Shift+XF86AudioLowerVolume" =
+          "exec ${mpc} vol -2 && ${mpc} vol | ${sed} 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
+
+        "XF86MonBrightnessDown" =
+          "exec ${brightnessctl} set 5%- | ${sed} 's/.*(([0-9]+)%).*/1/p' > $XDG_RUNTIME_DIR/wob.sock";
+        "XF86MonBrightnessUp" =
+          "exec ${brightnessctl} set 5%+ | ${sed} 's/.*(([0-9]+)%).*/1/p' > $XDG_RUNTIME_DIR/wob.sock";
       };
     };
   };
@@ -586,7 +603,8 @@
   services.xembed-sni-proxy.enable = true;
   systemd.user.services.wob = {
     Unit = {
-      Description = "A lightweight overlay volume/backlight/progress/anything bar for Wayland";
+      Description =
+        "A lightweight overlay volume/backlight/progress/anything bar for Wayland";
       Documentation = "man:wob(1)";
       PartOf = "graphical-session.target";
       After = "graphical-session.target";
