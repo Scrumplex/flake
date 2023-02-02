@@ -4,6 +4,9 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "podman" ];
   };
+
+  nix.settings.trusted-users = [ "root" ];
+
   home-manager.users.scrumplex = {
     imports = [ ./home.nix ];
 
