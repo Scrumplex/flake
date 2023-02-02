@@ -2,14 +2,14 @@
 
 {
   imports = [
-    ./home/base.nix
-    ./home/core.nix
-    ./home/fish.nix
-    ./home/mpd.nix
-    ./home/sway.nix
-    ./home/kitty.nix
-    ./home/borg.nix
-    ./home/screenshot-bash.nix
+    ./base.nix
+    ./core.nix
+    ./fish.nix
+    ./mpd.nix
+    ./sway.nix
+    ./kitty.nix
+    ./borg.nix
+    ./screenshot-bash.nix
   ];
 
   home.username = "scrumplex";

@@ -31,15 +31,18 @@
         overlays = [ prismlauncher.overlay screenshot-bash.overlay ];
       };
     in {
-      homeConfigurations.scrumplex = home-manager.lib.homeManagerConfiguration {
+      nixosConfigurations.andromeda = nixpkgs.lib.nixosSystem {
+        inherit system;
         inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+        modules = [
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
+          ./hosts/andromeda
+          ./homes/scrumplex
+        ];
       };
     };
 }
