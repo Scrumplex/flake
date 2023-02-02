@@ -98,15 +98,6 @@
         };
       }
       {
-        name = "catppuccin";
-        src = pkgs.fetchFromGitHub {
-          owner = "catppuccin";
-          repo = "fish";
-          rev = "b90966686068b5ebc9f80e5b90fdf8c02ee7a0ba";
-          sha256 = "wQlYQyqklU/79K2OXRZXg5LvuIugK7vhHgpahpLFaOw=";
-        };
-      }
-      {
         name = "puffer-fish";
         src = pkgs.fetchFromGitHub {
           owner = "nickeb96";
@@ -117,6 +108,14 @@
       }
     ];
   };
+  xdg.configFile."fish/themes/Catppuccin Mocha.theme".source = let
+    themePlugin = pkgs.fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "fish";
+      rev = "b90966686068b5ebc9f80e5b90fdf8c02ee7a0ba";
+      sha256 = "wQlYQyqklU/79K2OXRZXg5LvuIugK7vhHgpahpLFaOw=";
+    };
+  in "${themePlugin}/themes/Catppuccin Mocha.theme";
   programs.bash = {
     enable = true;
     initExtra = lib.mkAfter ''
