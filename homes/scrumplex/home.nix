@@ -2,6 +2,8 @@
 
 {
   imports = [
+    ../../modules/fish-theme.nix
+
     ./base.nix
     ./core.nix
     ./fish.nix

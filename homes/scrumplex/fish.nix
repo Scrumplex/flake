@@ -15,8 +15,7 @@
       set -g theme_color_scheme "catppuccin"
       set -g theme_nerd_fonts "yes"
       set -g theme_title_display_process "yes"
-      fish_config theme choose "Catppuccin Mocha"
-    ''; # TODO: programs.fish.plugins doesn't have support for Fish themes!
+    '';
     shellAbbrs = {
       g = "git";
       ga = "git add";
@@ -107,15 +106,17 @@
         };
       }
     ];
-  };
-  xdg.configFile."fish/themes/Catppuccin Mocha.theme".source = let
-    themePlugin = pkgs.fetchFromGitHub {
-      owner = "catppuccin";
-      repo = "fish";
-      rev = "b90966686068b5ebc9f80e5b90fdf8c02ee7a0ba";
-      sha256 = "wQlYQyqklU/79K2OXRZXg5LvuIugK7vhHgpahpLFaOw=";
+    theme = {
+      enable = true;
+      name = "Catppuccin Mocha";
+      plugin = pkgs.fetchFromGitHub {
+        owner = "catppuccin";
+        repo = "fish";
+        rev = "b90966686068b5ebc9f80e5b90fdf8c02ee7a0ba";
+        sha256 = "wQlYQyqklU/79K2OXRZXg5LvuIugK7vhHgpahpLFaOw=";
+      };
     };
-  in "${themePlugin}/themes/Catppuccin Mocha.theme";
+  };
   programs.bash = {
     enable = true;
     initExtra = lib.mkAfter ''
