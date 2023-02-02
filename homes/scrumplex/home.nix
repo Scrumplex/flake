@@ -12,13 +12,6 @@
     ./screenshot-bash.nix
   ];
 
-  home.username = "scrumplex";
-  home.homeDirectory = "/home/scrumplex";
-
-  home.stateVersion = "23.05";
-
-  programs.home-manager.enable = true;
-
   home.packages = [
     pkgs.htop
     pkgs.file
