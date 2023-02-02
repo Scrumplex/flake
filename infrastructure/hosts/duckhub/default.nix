@@ -1,30 +1,28 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
+  imports = [
+    ./hardware-configuration.nix
 
-      ../common/common.nix
-      ../common/netcup.nix
-      ../common/borg.nix
-      ../common/traefik.nix
+    ../common/common.nix
+    ../common/netcup.nix
+    ../common/borg.nix
+    ../common/traefik.nix
 
-      ./traefik.nix # our overrides
-      ./wireguard.nix
-    ];
+    ./traefik.nix # our overrides
+    ./wireguard.nix
+  ];
 
   networking = {
     hostName = "duckhub";
-    interfaces.ens3.ipv6.addresses = [
-      {
-        address = "2a03:4000:60:e42:a85d:7ff:feae:a374";
-        prefixLength = 64;
-      }
-    ];
+    interfaces.ens3.ipv6.addresses = [{
+      address = "2a03:4000:60:e42:a85d:7ff:feae:a374";
+      prefixLength = 64;
+    }];
   };
 
-  services.borgbackup.jobs.borgbase.repo = "e629u305@e629u305.repo.borgbase.com:repo";
+  services.borgbackup.jobs.borgbase.repo =
+    "e629u305@e629u305.repo.borgbase.com:repo";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

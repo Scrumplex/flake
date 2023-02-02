@@ -1,26 +1,23 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
+  imports = [
+    ./hardware-configuration.nix
 
-      ../common/common.nix
-      ../common/netcup.nix
-      ../common/borg.nix
-      ../common/traefik.nix
+    ../common/common.nix
+    ../common/netcup.nix
+    ../common/borg.nix
+    ../common/traefik.nix
 
-      ./wireguard.nix
-    ];
+    ./wireguard.nix
+  ];
 
   networking = {
     hostName = "spacehub";
-    interfaces.ens3.ipv6.addresses = [
-      {
-        address = "2a03:4000:60:e31:8238:c03b:a699:0288";
-        prefixLength = 64;
-      }
-    ];
+    interfaces.ens3.ipv6.addresses = [{
+      address = "2a03:4000:60:e31:8238:c03b:a699:0288";
+      prefixLength = 64;
+    }];
 
     firewall = {
       allowedTCPPorts = [
@@ -51,7 +48,8 @@
     };
   };
 
-  services.borgbackup.jobs.borgbase.repo = "j0b0k0o5@j0b0k0o5.repo.borgbase.com:repo";
+  services.borgbackup.jobs.borgbase.repo =
+    "j0b0k0o5@j0b0k0o5.repo.borgbase.com:repo";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

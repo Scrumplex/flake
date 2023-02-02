@@ -13,9 +13,7 @@
       colmena = {
         meta.name = "scrumplex.net";
         meta.description = "scrumplex.net Network";
-        meta.nixpkgs = import nixpkgs {
-          system = "x86_64-linux";
-        };
+        meta.nixpkgs = import nixpkgs { system = "x86_64-linux"; };
 
         defaults.imports = [ "${agenix}/modules/age.nix" ];
 
@@ -41,16 +39,11 @@
           imports = [ ./hosts/duckhub ];
         };
       };
-    }
-    //
-    flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = nixpkgs.legacyPackages.${system}; in
-      rec {
+    } // flake-utils.lib.eachDefaultSystem (system:
+      let pkgs = nixpkgs.legacyPackages.${system};
+      in rec {
         devShell = pkgs.mkShell {
-          buildInputs = [
-            pkgs.colmena
-            agenix.defaultPackage.${system}
-          ];
+          buildInputs = [ pkgs.colmena agenix.defaultPackage.${system} ];
         };
         packages.default = pkgs.colmena;
       });

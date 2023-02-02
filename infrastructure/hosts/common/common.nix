@@ -5,20 +5,14 @@
     enable = true;
     autoPrune = {
       enable = true;
-      flags = [
-        "--all"
-      ];
+      flags = [ "--all" ];
     };
   };
 
   services.openssh = {
     enable = true;
     ports = [ 22701 ];
-    listenAddresses = [
-      {
-        addr = "[::]";
-      }
-    ];
+    listenAddresses = [{ addr = "[::]"; }];
     passwordAuthentication = false;
   };
 
@@ -33,33 +27,28 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    kitty.terminfo
-    htop
-    nload
-  ];
+  environment.systemPackages = with pkgs; [ kitty.terminfo htop nload ];
 
   programs.neovim = {
     enable = true;
-    configure.customRC =
-      ''
-        set encoding=UTF-8
+    configure.customRC = ''
+      set encoding=UTF-8
 
-        set mouse=a
-        set number
+      set mouse=a
+      set number
 
-        set expandtab
-        set autoindent
+      set expandtab
+      set autoindent
 
-        set hlsearch
-        set ignorecase
-        set smartcase
-        set clipboard=unnamed
-        set nospell
+      set hlsearch
+      set ignorecase
+      set smartcase
+      set clipboard=unnamed
+      set nospell
 
-        syntax enable
-        filetype plugin on
-      '';
+      syntax enable
+      filetype plugin on
+    '';
   };
 
   nix = {
@@ -76,8 +65,6 @@
     '';
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
+  nixpkgs.config = { allowUnfree = true; };
 
 }
