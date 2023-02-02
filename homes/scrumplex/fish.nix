@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   programs.fzf = {
@@ -119,9 +119,9 @@
   };
   programs.bash = {
     enable = true;
-    bashrcExtra = ''
+    initExtra = lib.mkAfter ''
       if [ "$(${pkgs.procps}/bin/ps -p $PPID -o comm=)" != "fish" ]; then
-        exec fish
+        exec ${pkgs.fish}/bin/fish
       fi
     ''; # TODO: this breaks nested nix-shells
   };
