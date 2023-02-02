@@ -24,9 +24,9 @@ let
     [[ -z "$class" ]] && exit 1
     [[ -z "$runstring" ]] && exit 1
 
-    swaymsg "[app_id=$class] focus" &>/dev/null || {
+    ${pkgs.sway}/bin/swaymsg "[app_id=$class] focus" &>/dev/null || {
       # could be Xwayland app:
-      swaymsg "[class=$class] focus" &>/dev/null
+      ${pkgs.sway}/bin/swaymsg "[class=$class] focus" &>/dev/null
     } || exec $runstring
 
     exit 0
