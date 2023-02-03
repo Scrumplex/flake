@@ -22,6 +22,7 @@
     pkgs.psmisc
     pkgs.ripgrep
     pkgs.flatpak-builder
+    pkgs.distrobox
 
     pkgs.discord
     pkgs.slack
