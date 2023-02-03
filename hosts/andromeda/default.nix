@@ -7,6 +7,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.consoleMode = "max";
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.verbose = false;
+  boot.consoleLogLevel = 0;
+  boot.kernelParams = [ "quiet" "udev.log_level=3" ];
+
+  hardware.enableRedistributableFirmware = true;
 
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
