@@ -18,6 +18,9 @@
     pkgs.htop
     pkgs.file
     pkgs.tree
+    pkgs.unzip
+    pkgs.psmisc
+    pkgs.ripgrep
 
     pkgs.discord
     pkgs.slack
