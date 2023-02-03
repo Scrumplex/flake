@@ -21,6 +21,7 @@
     pkgs.unzip
     pkgs.psmisc
     pkgs.ripgrep
+    pkgs.flatpak-builder
 
     pkgs.discord
     pkgs.slack
