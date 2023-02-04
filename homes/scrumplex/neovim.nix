@@ -11,6 +11,7 @@
       shellcheck # shellcheck lsp
       gopls # shellcheck lsp
       nodePackages.vscode-langservers-extracted # eslint/html/css/json lsp
+      nil # nix lsp
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -194,7 +195,7 @@
       vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
     end
 
-    local servers = { "bashls", "clangd", "eslint", "gopls", "pylsp", "rls", "yamlls" }
+    local servers = { "bashls", "clangd", "eslint", "gopls", "nil_ls", "pylsp", "rls", "yamlls" }
 
     for _, lsp in pairs(servers) do
       nvim_lsp[lsp].setup({
