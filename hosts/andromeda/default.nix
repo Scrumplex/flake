@@ -87,11 +87,6 @@
     storeOnly = true;
   };
 
-  programs.ccache = {
-    enable = true;
-    packageNames = [ "prismlauncher" ];
-  };
-
   programs.steam.enable = true;
   programs.fish.enable = true;
 
