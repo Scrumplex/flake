@@ -7,6 +7,7 @@
     ./base.nix
     ./core.nix
     ./fish.nix
+    ./neovim.nix
     ./mpd.nix
     ./sway.nix
     ./kitty.nix
@@ -43,11 +44,6 @@
     pkgs.steam
     pkgs.steam-run
   ];
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
 
   programs.mpv = {
     enable = true;
