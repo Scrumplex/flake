@@ -32,6 +32,14 @@
       grc = "git rebase --continue";
       gs = "git status";
     };
+    shellAliases.ll = "ls -laFh";
+    functions.systemctl = ''
+      if contains -- --user $argv
+          command systemctl $argv
+      else
+          sudo systemctl $argv
+      end
+    '';
     plugins = [
       {
         name = "done";
