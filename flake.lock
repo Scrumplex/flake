@@ -53,17 +53,32 @@
         "type": "github"
       }
     },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1674550793,
+        "narHash": "sha256-ljJlIFQZwtBbzWqWTmmw2O5BFmQf1A/DspwMOQtGXHk=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "b7ac0a56029e4f9e6743b9993037a5aaafd57103",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1675545634,
         "narHash": "sha256-TbQeQcM5TA/wIho6xtzG+inUfiGzUXi8ewwttiQWYJE=",
-        "owner": "nixos",
+        "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "0591d6b57bfeb55dfeec99a671843337bc2c3323",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
+        "owner": "NixOS",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
@@ -78,11 +93,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1675518208,
-        "narHash": "sha256-L0A2e250qdqB5rwalplGbdHQa5+FCwVVaJm00Z7vcd0=",
+        "lastModified": 1675620588,
+        "narHash": "sha256-47VKOEqPgiwCOjzUHdeEsJimbyQDgX/jEP6W1CxumM8=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "d2fd0fd8e896e3d5dc0449ae719fdaa7d27968a5",
+        "rev": "e89a10945c683a1212fa6aa7824173f4f20cdee6",
         "type": "github"
       },
       "original": {
@@ -94,6 +109,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "prismlauncher": "prismlauncher",
         "screenshot-bash": "screenshot-bash"

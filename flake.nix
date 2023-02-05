@@ -2,7 +2,8 @@
   description = "Home Manager configuration of Jane Doe";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,7 +23,8 @@
     "prismlauncher.cachix.org-1:GhJfjdP1RFKtFSH3gXTIQCvZwsb2cioisOf91y/bK0w="
   ];
 
-  outputs = { nixpkgs, home-manager, prismlauncher, screenshot-bash, ... }:
+  outputs = { nixpkgs, nixos-hardware, home-manager, prismlauncher
+    , screenshot-bash, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -36,6 +38,9 @@
         inherit pkgs;
         modules = [
           ./hosts/common.nix
+          nixos-hardware.nixosModules.common-cpu-amd-pstate
+          nixos-hardware.nixosModules.common-gpu-amd
+          nixos-hardware.nixosModules.common-pc-ssd
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
