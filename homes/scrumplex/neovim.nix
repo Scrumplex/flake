@@ -30,6 +30,8 @@
 
       plenary-nvim
       gitsigns-nvim
+      nvim-web-devicons
+      nui-nvim
 
       nvim-lspconfig
       luasnip
