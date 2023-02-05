@@ -39,6 +39,7 @@
     pkgs.krita
 
     pkgs.qpwgraph
+    pkgs.beets
 
     pkgs.mangohud
     pkgs.steam
