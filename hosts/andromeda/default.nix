@@ -3,14 +3,19 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  boot.loader.timeout = 0;
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.consoleMode = "max";
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.verbose = false;
-  boot.consoleLogLevel = 0;
-  boot.kernelParams = [ "quiet" "udev.log_level=3" ];
-  boot.tmpOnTmpfs = true;
+  boot = {
+    loader = {
+      timeout = 0;
+      systemd-boot.enable = true;
+      systemd-boot.consoleMode = "max";
+      efi.canTouchEfiVariables = true;
+    };
+    bootspec.enable = true;
+    initrd.verbose = false;
+    consoleLogLevel = 0;
+    kernelParams = [ "quiet" "udev.log_level=3" ];
+    tmpOnTmpfs = true;
+  };
 
   hardware.enableRedistributableFirmware = true;
 
