@@ -37,6 +37,7 @@
     pkgs.inkscape
     pkgs.gimp
     pkgs.krita
+    pkgs.portfolio
 
     pkgs.qpwgraph
     pkgs.beets
