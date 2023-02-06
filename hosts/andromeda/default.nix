@@ -107,7 +107,6 @@
     settings = {
       general = {
         desiredgov = "performance";
-        defaultgov = "powersave";
         softrealtime = "on";
         renice = 10;
         ioprio = 1;
