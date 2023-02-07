@@ -32,6 +32,7 @@ in {
       }
     '';
   };
+  services.mpd-discord-rpc.enable = true;
   programs.ncmpcpp = {
     enable = true;
     package = pkgs.ncmpcpp.override { visualizerSupport = true; };
