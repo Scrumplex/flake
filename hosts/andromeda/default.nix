@@ -93,7 +93,6 @@
   };
 
   programs.steam.enable = true;
-  programs.fish.enable = true;
 
   services.logind.extraConfig = ''
     HandlePowerKey=suspend

@@ -125,12 +125,4 @@
       };
     };
   };
-  programs.bash = {
-    enable = true;
-    initExtra = lib.mkAfter ''
-      if [ "$(${pkgs.procps}/bin/ps -p $PPID -o comm=)" != "fish" ]; then
-        exec ${pkgs.fish}/bin/fish
-      fi
-    ''; # TODO: this breaks nested nix-shells
-  };
 }
