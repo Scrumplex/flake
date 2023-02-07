@@ -24,6 +24,8 @@
     pkgs.ripgrep
     pkgs.flatpak-builder
     pkgs.distrobox
+    pkgs.imv
+    pkgs.okular
 
     pkgs.discord
     pkgs.slack
