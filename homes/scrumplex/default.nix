@@ -4,7 +4,7 @@ in {
 
   users.users."${username}" = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "podman" ];
+    extraGroups = [ "wheel" "podman" "adbusers" ];
   };
 
   nix.settings.trusted-users = [ username ];
