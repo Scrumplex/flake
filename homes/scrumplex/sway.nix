@@ -51,7 +51,7 @@ in {
       modifier = "Mod4";
       input = {
         "type:keyboard" = {
-          xkb_layout = "de";
+          xkb_layout = "us";
           xkb_numlock = "enabled";
         };
         "1133:49277:Logitech_Gaming_Mouse_G502" = {
