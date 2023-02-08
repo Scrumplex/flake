@@ -63,7 +63,7 @@
     privateKeyFile = "/etc/nixos/wg-scrumplex.key";
   };
 
-  console = { keyMap = "de-latin1"; };
+  console = { keyMap = "us"; };
 
   security.rtkit.enable = true;
   services.pipewire = {
