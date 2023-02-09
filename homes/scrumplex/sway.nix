@@ -52,6 +52,7 @@ in {
       input = {
         "type:keyboard" = {
           xkb_layout = "us";
+          xkb_variant = "altgr-intl";
           xkb_numlock = "enabled";
         };
         "1133:49277:Logitech_Gaming_Mouse_G502" = {
