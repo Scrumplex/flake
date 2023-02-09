@@ -22,6 +22,7 @@
     pkgs.unzip
     pkgs.psmisc
     pkgs.ripgrep
+    pkgs.libqalculate
     pkgs.flatpak-builder
     pkgs.distrobox
     pkgs.imv
