@@ -5,7 +5,7 @@ in {
   users.users."${username}" = {
     isNormalUser = true;
     shell = pkgs.fish;
-    extraGroups = [ "wheel" "podman" "adbusers" ];
+    extraGroups = [ "wheel" "podman" "adbusers" "input" ];
   };
 
   nix.settings.trusted-users = [ username ];
