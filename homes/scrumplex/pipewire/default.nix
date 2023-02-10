@@ -8,9 +8,7 @@
         config = ./compressor.conf;
         extraPackages = [ pkgs.calf ];
       };
-      desktop-source = {
-        config = ./desktop-source.conf;
-      };
+      desktop-source = { config = ./desktop-source.conf; };
       #equalizer = {
       #  config = ./equalizer.conf;
       #  extraPackages = [ pkgs.lsp-plugins ];

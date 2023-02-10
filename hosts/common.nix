@@ -9,9 +9,7 @@
     }];
   }];
 
-  services.udev.packages = with pkgs; [
-    zoom65-udev-rules
-  ];
+  services.udev.packages = with pkgs; [ zoom65-udev-rules ];
 
   programs.fish.enable = true;
 
