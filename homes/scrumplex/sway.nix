@@ -1,16 +1,6 @@
 { config, pkgs, ... }:
 
-let
-  run-or-raise = "${pkgs.run-or-raise}/bin/run-or-raise";
-  termapp = pkgs.writeShellScript "termapp.sh" ''
-    if [ $# -eq 0 ]; then
-      exit 2
-    fi
-
-    appid="popup_$(${pkgs.coreutils}/bin/basename $1)"
-
-    exec ${run-or-raise} "$appid" "${pkgs.kitty}/bin/kitty --class='$appid' $@"
-  '';
+let termapp = "${pkgs.termapp}/bin/termapp";
 in {
   wayland.windowManager.sway = {
     enable = true;
