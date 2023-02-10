@@ -27,10 +27,11 @@
     , screenshot-bash, ... }:
     let
       system = "x86_64-linux";
+      myPackages = final: import ./pkgs;
       pkgs = import nixpkgs {
         inherit system;
         config = { allowUnfree = true; };
-        overlays = [ prismlauncher.overlay screenshot-bash.overlay ];
+        overlays = [ prismlauncher.overlay screenshot-bash.overlay myPackages ];
       };
     in {
       nixosConfigurations.andromeda = nixpkgs.lib.nixosSystem {
