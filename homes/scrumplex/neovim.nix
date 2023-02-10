@@ -8,6 +8,7 @@
       gcc # treesitter
       rustc # treesitter
       clang-tools # clangd lsp
+      nodePackages.bash-language-server # bashls lsp
       shellcheck # shellcheck lsp
       gopls # shellcheck lsp
       nodePackages.vscode-langservers-extracted # eslint/html/css/json lsp
