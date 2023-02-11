@@ -3,20 +3,6 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  boot = {
-    loader = {
-      timeout = 0;
-      systemd-boot.enable = true;
-      systemd-boot.consoleMode = "max";
-      efi.canTouchEfiVariables = true;
-    };
-    bootspec.enable = true;
-    initrd.verbose = false;
-    consoleLogLevel = 0;
-    kernelParams = [ "quiet" "udev.log_level=3" ];
-    tmpOnTmpfs = true;
-  };
-
   hardware.enableRedistributableFirmware = true;
 
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;

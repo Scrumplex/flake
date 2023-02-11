@@ -38,7 +38,7 @@
         inherit system;
         inherit pkgs;
         modules = [
-          ./hosts/common.nix
+          ./hosts/common
           nixos-hardware.nixosModules.common-cpu-amd-pstate
           nixos-hardware.nixosModules.common-gpu-amd
           nixos-hardware.nixosModules.common-pc-ssd
