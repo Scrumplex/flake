@@ -44,7 +44,7 @@ in {
           mode = "1920x1080@60Hz";
           position = "0,0";
         };
-        "*" = { bg = "${./sway/current-wallpaper.jpg} fill"; };
+        "*" = { bg = "${./current-wallpaper.jpg} fill"; };
       };
       assigns = {
         "4:mail" = [{ app_id = "evolution"; }];
@@ -325,59 +325,7 @@ in {
         keybind = "l";
       }
     ];
-    style = ''
-      window {
-          font-family: "Fira Code";
-          font-size: 10pt;
-          color: #cdd6f4;  /* text */
-      }
-
-      button {
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: 25%;
-          border: none;
-          background-color: #1e1e2e;
-      }
-
-      button:hover {
-          background-color: #313244;  /* surface0 */
-      }
-
-      button:focus {
-          background-color: #89b4fa;  /* blue */
-          color: #1e1e2e;  /* base */
-      }
-
-      button:active {
-          background-color: #cdd6f4;  /* text */
-          color: #1e1e2e;  /* base */
-      }
-
-      #lock {
-          background-image: image(url("${./sway/lock.png}"));
-      }
-
-      #exit {
-          background-image: image(url("${./sway/exit-to-app.png}"));
-      }
-
-      #suspend {
-          background-image: image(url("${./sway/power-sleep.png}"));
-      }
-
-      #hibernate {
-          background-image: image(url("${./sway/power-cycle.png}"));
-      }
-
-      #shutdown {
-          background-image: image(url("${./sway/power.png}"));
-      }
-
-      #reboot {
-          background-image: image(url("${./sway/restart.png}"));
-      }
-    '';
+    style = import ./wlogout.css.nix;
   };
   programs.waybar = {
     enable = true;
@@ -549,101 +497,7 @@ in {
         tray.spacing = 16;
       };
     };
-    style = ''
-      window#waybar {
-        font-family: "Monocraft";
-        font-size: 10pt;
-        background: RGBA(17, 17, 27, 0.95);  /* crust */
-        color: #cdd6f4;  /* text */
-      }
-
-      .modules-left, .modules-center, .modules-right {
-        margin-left: 8px;
-        margin-right: 8px;
-        background-color: #1e1e2e;  /* base */
-        border-radius: 16px;
-      }
-
-      #workspaces, #mpd, #clock, #network, #pulseaudio, #battery, #custom-pa-mute, #idle_inhibitor, #tray {
-        margin: 0 8px;
-      }
-
-      #custom-pa-mute {
-        margin-right: 0;
-      }
-
-      #idle_inhibitor {
-        margin-left: 0;
-      }
-
-      #workspaces {
-        margin-left: 0;
-      }
-
-      #workspaces button, #idle_inhibitor, #custom-pa-mute {
-        border: none;
-        background-color: transparent;
-        box-shadow: none;  /* dunno why this is set */
-        border-radius: 16px;
-        transition: background-color 100ms ease, color 100ms ease;
-        /* make it 32px × 32px */
-        min-width: 32px;
-        min-height: 32px;
-        padding: 0;
-      }
-
-      #workspaces button.urgent, #idle_inhibitor.activated, #custom-pa-mute.muted {
-        background-color: #fab387;  /* peach */
-        color: #1e1e2e;  /* base */
-      }
-
-      #custom-pa-mute.muted {
-        background-color: #f38ba8; /* red */
-      }
-
-      #idle_inhibitor.activated {
-        background-color: #cba6f7; /* mauve */
-      }
-
-      #workspaces button:hover {
-        background-image: none; /* remove Adwaita button gradient */
-        background-color: #585b70;  /* surface2 */
-      }
-
-      #workspaces button:hover label {
-        text-shadow: none; /* Adwaita? */
-      }
-
-      #workspaces button.focused {
-        background-color: #89b4fa;  /* blue */
-        color: #161320;  /* black0 */
-      }
-
-      #workspaces button.focused:hover {
-        background-color: #89dceb;  /* sky */
-      }
-
-      #workspaces button:active, #workspaces button.focused:active {
-        background-color: #cdd6f4;  /* text */
-        color: #1e1e2e;  /* base */
-      }
-
-      #network.ethernet {
-        padding: 0;
-      }
-
-      #battery.warning {
-        color: #fab387;  /* peach */
-      }
-
-      #battery.critical {
-        color: #f38ba8;  /* maroon */
-      }
-
-      #battery.charging {
-        color: #a6e3a1;  /* green */
-      }
-    '';
+    style = ./waybar.css;
     systemd.enable = true;
   };
   services.wlsunset = {
@@ -688,10 +542,8 @@ in {
   '';
 
   home.packages = with pkgs; [
-    pkgs.wl-clipboard
-
-    pkgs.gtklock
-
-    pkgs.pulsemixer
+    wl-clipboard
+    gtklock
+    pulsemixer
   ];
 }
