@@ -48,16 +48,7 @@
     privateKeyFile = "/etc/nixos/wg-scrumplex.key";
   };
 
-  console = { keyMap = "us"; };
-
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
+  console.keyMap = "us";
 
   services.flatpak.enable = true;
   xdg.portal = {
@@ -65,45 +56,25 @@
     wlr.enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.gtklock.gnupg = { # also enables support for gtklock!
-    enable = true;
-    noAutostart = true;
-    storeOnly = true;
-  };
-  security.pam.services.login.gnupg = {
-    enable = true;
-    noAutostart = true;
-    storeOnly = true;
-  };
 
-  programs.steam.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+
+  security.pam.services = let
+    pamGnupgOpts = {
+      enable = true;
+      noAutostart = true;
+      storeOnly = true;
+    };
+  in {
+    gtklock.gnupg = pamGnupgOpts;
+    login.gnupg = pamGnupgOpts;
+  };
 
   services.logind.extraConfig = ''
     HandlePowerKey=suspend
   '';
 
-  hardware.opengl.enable = true;
-  programs.sway.enable = true;
-
   programs.adb.enable = true;
-
-  programs.gamemode = {
-    enable = true;
-    settings = {
-      general = {
-        desiredgov = "performance";
-        softrealtime = "on";
-        renice = 10;
-        ioprio = 1;
-        inhibit_screensaver = 0;
-      };
-      custom = {
-        start = ''${pkgs.libnotify}/bin/notify-send "GameMode started"'';
-        stop = ''${pkgs.libnotify}/bin/notify-send "GameMode ended"'';
-      };
-    };
-  };
 
   environment.systemPackages = with pkgs; [ vim ];
 

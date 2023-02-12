@@ -1,5 +1,13 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
-  imports = [ ./boot.nix ./fish.nix ./misc.nix ./nix.nix ];
+  imports = [
+    ./boot.nix
+    ./fish.nix
+    ./gaming.nix
+    ./misc.nix
+    ./nix.nix
+    ./pipewire.nix
+    ./sway.nix
+  ];
 }
