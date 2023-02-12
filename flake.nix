@@ -34,8 +34,8 @@
         overlays = [ prismlauncher.overlay screenshot-bash.overlay myPackages ];
       };
 
-      mkHost = { hostName, system, pkgs, modules }:
-        nixpkgs.lib.nixosSystem {
+      mkHost = { hostName, system, pkgs, modules }: {
+        ${hostName} = nixpkgs.lib.nixosSystem {
           inherit system;
           inherit pkgs;
 
@@ -50,8 +50,9 @@
             ({ lib, ... }: { networking.hostName = lib.mkDefault hostName; })
           ] ++ modules;
         };
+      };
     in {
-      nixosConfigurations.andromeda = mkHost {
+      nixosConfigurations = (mkHost {
         inherit system;
         inherit pkgs;
 
@@ -64,6 +65,6 @@
 
           ./homes/scrumplex
         ];
-      };
+      });
     };
 }
