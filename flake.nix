@@ -65,6 +65,17 @@
 
           ./homes/scrumplex
         ];
+      }) // (mkHost {
+        inherit system;
+        inherit pkgs;
+
+        hostName = "dyson";
+
+        modules = [
+          nixos-hardware.nixosModules.framework-12th-gen-intel
+
+          ./homes/scrumplex
+        ];
       });
     };
 }
