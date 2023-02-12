@@ -7,7 +7,6 @@
 
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
-  networking.hostName = "andromeda"; # Define your hostname.
   time.timeZone = "Europe/Berlin";
 
   fileSystems = {

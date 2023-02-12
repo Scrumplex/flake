@@ -33,21 +33,35 @@
         config = { allowUnfree = true; };
         overlays = [ prismlauncher.overlay screenshot-bash.overlay myPackages ];
       };
+
+      mkHost = { hostName, system, pkgs, modules }:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          inherit pkgs;
+
+          modules = [
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+            }
+            ./hosts/common
+            ./hosts/${hostName}
+            ({ lib, ... }: { networking.hostName = lib.mkDefault hostName; })
+          ] ++ modules;
+        };
     in {
-      nixosConfigurations.andromeda = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.andromeda = mkHost {
         inherit system;
         inherit pkgs;
+
+        hostName = "andromeda";
+
         modules = [
-          ./hosts/common
           nixos-hardware.nixosModules.common-cpu-amd-pstate
           nixos-hardware.nixosModules.common-gpu-amd
           nixos-hardware.nixosModules.common-pc-ssd
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-          }
-          ./hosts/andromeda
+
           ./homes/scrumplex
         ];
       };
