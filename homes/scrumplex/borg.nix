@@ -1,8 +1,10 @@
 { pkgs, config, ... }:
 
 {
-  services.borgmatic.enable = true;
-  services.borgmatic.frequency = "daily";
+  services.borgmatic = {
+    enable = true;
+    frequency = "daily";
+  };
 
   # Hacky workaround missing env var for SSH Agent
   # d.bhxq1zzygp4wsptpawmb9am4 is stable as long as programs.gpg.homedir doesn't change!
@@ -68,6 +70,24 @@
           ];
         };
       };
+      consistency.checks = [
+        {
+          name = "repository";
+          frequency = "2 weeks";
+        }
+        {
+          name = "archives";
+          frequency = "4 weeks";
+        }
+        {
+          name = "data";
+          frequency = "6 weeks";
+        }
+        {
+          name = "extract";
+          frequency = "6 weeks";
+        }
+      ];
       retention = {
         keepDaily = 7;
         keepWeekly = 6;
