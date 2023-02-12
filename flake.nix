@@ -24,15 +24,6 @@
     };
   };
 
-  nixConfig.extra-substituters = [
-    "https://prismlauncher.cachix.org"
-    "https://pre-commit-hooks.cachix.org"
-  ];
-  nixConfig.extra-trusted-public-keys = [
-    "prismlauncher.cachix.org-1:GhJfjdP1RFKtFSH3gXTIQCvZwsb2cioisOf91y/bK0w="
-    "pre-commit-hooks.cachix.org-1:Pkk3Panw5AW24TOv6kz3PvLhlH8puAsJTBbOPmBo7Rc="
-  ];
-
   outputs = { self, nixpkgs, flake-utils, nixos-hardware, pre-commit-hooks
     , home-manager, prismlauncher, screenshot-bash, ... }:
 
