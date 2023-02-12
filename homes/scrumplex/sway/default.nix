@@ -93,7 +93,8 @@ in {
         cat_pink = "#f5c2e7";
         cat_text = "#cdd6f4";
         cat_peach = "#fab387";
-      in { # TODO: create catppuccin module
+      in {
+        # TODO: create catppuccin module
         focused = {
           background = cat_blue;
           border = cat_blue;

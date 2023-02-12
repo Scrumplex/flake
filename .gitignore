@@ -1,2 +1,6 @@
 .directory
-.ninja_log
+
+# this is managed by our Flake
+/.pre-commit-config.yaml
+
+/.direnv/
