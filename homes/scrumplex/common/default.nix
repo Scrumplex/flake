@@ -98,6 +98,7 @@
     startInBackground = true;
   };
 
+  xsession.preferStatusNotifierItems = true; # needed for network-manager-applet
   services.network-manager-applet.enable =
     lib.mkDefault systemConfig.networking.networkmanager.enable;
 }
