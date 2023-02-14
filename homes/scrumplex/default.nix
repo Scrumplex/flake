@@ -1,11 +1,12 @@
-{ config, pkgs, home-manager, ... }:
+{ lib, config, pkgs, home-manager, ... }:
 let username = "scrumplex";
 in {
 
   users.users."${username}" = {
     isNormalUser = true;
     shell = pkgs.fish;
-    extraGroups = [ "wheel" "podman" "adbusers" "input" "libvirtd" ];
+    extraGroups = [ "wheel" "podman" "adbusers" "input" "libvirtd" ]
+      ++ lib.optional config.networking.networkmanager.enable "networkmanager";
   };
 
   nix.settings.trusted-users = [ username ];
@@ -22,5 +23,8 @@ in {
     systemd.user.startServices = true;
 
     nixpkgs.config.allowUnfree = true;
+
+    services.network-manager-applet.enable =
+      lib.mkDefault config.networking.networkmanager.enable;
   };
 }

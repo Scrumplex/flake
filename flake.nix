@@ -81,17 +81,17 @@
 
             ./homes/scrumplex
           ];
-          #}) // (mkHost {
-          #  inherit system;
-          #  inherit pkgs;
+        }) // (mkHost {
+          inherit system;
+          inherit pkgs;
 
-          #  hostName = "dyson";
+          hostName = "dyson";
 
-          #  modules = [
-          #    nixos-hardware.nixosModules.framework-12th-gen-intel
+          modules = [
+            nixos-hardware.nixosModules.framework-12th-gen-intel
 
-          #    ./homes/scrumplex
-          #  ];
+            ./homes/scrumplex
+          ];
         });
       });
 }

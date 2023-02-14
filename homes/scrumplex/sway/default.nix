@@ -26,7 +26,7 @@ in {
           accel_profile = "adaptive";
           pointer_accel = "-1.0";
         };
-        "2:14:ETPS/2_Elantech_Touchpad" = {
+        "2362:628:PIXA3854:00_093A:0274_Touchpad" = {
           natural_scroll = "enabled";
           tap = "enabled";
           tap_button_map = "lrm";
@@ -42,9 +42,10 @@ in {
           mode = "1920x1080@60Hz";
           position = "2560,0";
         };
-        "LG Display 0x046F Unknown" = {
-          mode = "1920x1080@60Hz";
+        "BOE 0x095F Unknown" = {
+          mode = "2256x1504@59.999Hz";
           position = "0,0";
+          scale = "1.25";
         };
         "*" = { bg = "${./current-wallpaper.jpg} fill"; };
       };
@@ -235,9 +236,9 @@ in {
           "exec ${mpc} vol -2 && ${mpc} vol | ${sed} 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
 
         "XF86MonBrightnessDown" =
-          "exec ${brightnessctl} set 5%- | ${sed} 's/.*(([0-9]+)%).*/1/p' > $XDG_RUNTIME_DIR/wob.sock";
+          "exec ${brightnessctl} set 5%- | ${sed} -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
         "XF86MonBrightnessUp" =
-          "exec ${brightnessctl} set 5%+ | ${sed} 's/.*(([0-9]+)%).*/1/p' > $XDG_RUNTIME_DIR/wob.sock";
+          "exec ${brightnessctl} set 5%+ | ${sed} -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
       };
     };
   };
@@ -510,7 +511,6 @@ in {
     temperature.day = 5700;
     temperature.night = 3000;
   };
-  services.xembed-sni-proxy.enable = true;
 
   home.packages = with pkgs; [ wl-clipboard gtklock pulsemixer ];
 }
