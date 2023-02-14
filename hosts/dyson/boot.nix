@@ -8,4 +8,10 @@
     enable = true;
     pkiBundle = "/etc/secureboot";
   };
+
+  boot.plymouth = {
+    enable = true;
+    theme = "bgrt";
+    font = "${pkgs.fira}/share/fonts/opentype/FiraSans-Regular.otf";
+  };
 }
