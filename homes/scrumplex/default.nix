@@ -23,8 +23,5 @@ in {
     systemd.user.startServices = true;
 
     nixpkgs.config.allowUnfree = true;
-
-    services.network-manager-applet.enable =
-      lib.mkDefault config.networking.networkmanager.enable;
   };
 }

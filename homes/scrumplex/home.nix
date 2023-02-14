@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ lib, config, systemConfig, pkgs, ... }:
 
 {
   imports = [
@@ -98,4 +98,7 @@
     enable = true;
     startInBackground = true;
   };
+
+  services.network-manager-applet.enable =
+    lib.mkDefault systemConfig.networking.networkmanager.enable;
 }
