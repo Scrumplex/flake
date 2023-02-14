@@ -1,5 +1,7 @@
 { lib, config, pkgs, home-manager, ... }:
-let username = "scrumplex";
+let
+  username = "scrumplex";
+  hostName = config.networking.hostName;
 in {
 
   users.users."${username}" = {
@@ -12,7 +14,7 @@ in {
   nix.settings.trusted-users = [ username ];
 
   home-manager.users."${username}" = {
-    imports = [ ./home.nix ];
+    imports = [ ./common ./${hostName} ];
 
     home.username = username;
     home.homeDirectory = "/home/${username}";
