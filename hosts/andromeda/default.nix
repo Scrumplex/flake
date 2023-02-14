@@ -83,6 +83,8 @@
     dockerSocket.enable = true;
   };
 
+  virtualisation.libvirtd.enable = true;
+
   services.openssh.enable = true;
 
   networking.firewall.allowedTCPPorts = [ 22000 ];

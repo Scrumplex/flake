@@ -29,6 +29,7 @@
     pkgs.distrobox
     pkgs.imv
     pkgs.okular
+    pkgs.virt-manager
 
     pkgs.discord
     pkgs.slack
