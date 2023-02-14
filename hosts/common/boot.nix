@@ -1,9 +1,9 @@
-{ ... }:
+{ lib, ... }:
 
 {
   boot = {
     # Needs unstable nixpkgs!
-    bootspec.enable = true;
+    bootspec.enable = lib.mkDefault true;
 
     loader = {
       systemd-boot.enable = true;

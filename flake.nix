@@ -14,6 +14,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
     prismlauncher = {
       url = "github:PrismLauncher/PrismLauncher";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +30,7 @@
   };
 
   outputs = { self, nixpkgs, flake-utils, nixos-hardware, pre-commit-hooks
-    , home-manager, prismlauncher, screenshot-bash, ... }:
+    , home-manager, lanzaboote, prismlauncher, screenshot-bash, ... }:
 
     flake-utils.lib.eachDefaultSystem (system:
       let pkgs = nixpkgs.legacyPackages.${system};
@@ -61,6 +66,7 @@
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
               }
+              lanzaboote.nixosModules.lanzaboote
               ./hosts/common
               ./hosts/${hostName}
               ({ lib, ... }: { networking.hostName = lib.mkDefault hostName; })
