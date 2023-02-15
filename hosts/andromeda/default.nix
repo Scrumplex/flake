@@ -50,6 +50,8 @@
 
   console.keyMap = "us";
 
+  hardware.amdgpu.amdvlk = false;
+
   services.flatpak.enable = true;
   xdg.portal = {
     enable = true;
