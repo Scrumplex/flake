@@ -16,40 +16,38 @@
     ./screenshot-bash.nix
   ];
 
-  home.packages = [
-    pkgs.htop
-    pkgs.file
-    pkgs.tree
-    pkgs.unzip
-    pkgs.psmisc
-    pkgs.ripgrep
-    pkgs.libqalculate
-    pkgs.flatpak-builder
-    pkgs.distrobox
-    pkgs.imv
-    pkgs.okular
-    pkgs.virt-manager
+  home.packages = with pkgs; [
+    htop
+    file
+    tree
+    unzip
+    psmisc
+    ripgrep
+    libqalculate
+    flatpak-builder
+    distrobox
+    imv
+    okular
+    virt-manager
 
-    pkgs.discord
-    pkgs.slack
-    pkgs.tdesktop
-    pkgs.signal-desktop
-    pkgs.element-desktop
-    pkgs.obs-studio
-    pkgs.prismlauncher
-    pkgs.ark
-    pkgs.evolution
-    pkgs.inkscape
-    pkgs.gimp
-    pkgs.krita
-    pkgs.portfolio
+    slack
+    tdesktop
+    signal-desktop
+    element-desktop
+    obs-studio
+    prismlauncher
+    ark
+    evolution
+    inkscape
+    gimp
+    krita
+    portfolio
 
-    pkgs.qpwgraph
-    pkgs.beets
+    qpwgraph
+    beets
 
-    pkgs.mangohud
-    pkgs.steam
-    pkgs.steam-run
+    steam
+    steam-run
   ];
 
   programs.mpv = {
