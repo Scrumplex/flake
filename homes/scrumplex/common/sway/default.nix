@@ -12,6 +12,10 @@ in {
       terminal = "${pkgs.kitty}/bin/kitty";
       menu = "${pkgs.fuzzel}/bin/fuzzel";
       modifier = "Mod4";
+      startup = [{
+        command = "systemctl --user import-environment";
+      } # ugly, but this fixes most issues, until home-manager adopts environment.d
+        ];
       input = {
         "type:keyboard" = {
           xkb_layout = "us";
