@@ -10,6 +10,4 @@
     ./pipewire.nix
     ./sway.nix
   ];
-
-  home-manager.extraSpecialArgs = { systemConfig = config; };
 }

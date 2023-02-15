@@ -1,4 +1,4 @@
-{ lib, config, systemConfig, pkgs, ... }:
+{ lib, config, nixosConfig, pkgs, ... }:
 
 {
   imports = [
@@ -98,5 +98,5 @@
 
   xsession.preferStatusNotifierItems = true; # needed for network-manager-applet
   services.network-manager-applet.enable =
-    lib.mkDefault systemConfig.networking.networkmanager.enable;
+    lib.mkDefault nixosConfig.networking.networkmanager.enable;
 }
