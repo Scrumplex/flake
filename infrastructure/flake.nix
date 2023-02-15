@@ -3,12 +3,19 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
-    agenix.url = "github:ryantm/agenix";
-    agenix.inputs.nixpkgs.follows = "nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
-  outputs = { self, nixpkgs, flake-utils, agenix }:
+  outputs = { self, nixpkgs, flake-utils, agenix, pre-commit-hooks }:
     {
       colmena = {
         meta.name = "scrumplex.net";
@@ -42,8 +49,16 @@
     } // flake-utils.lib.eachDefaultSystem (system:
       let pkgs = nixpkgs.legacyPackages.${system};
       in {
+        checks = {
+          pre-commit-check = pre-commit-hooks.lib.${system}.run {
+            src = ./.;
+            hooks = { nixfmt.enable = true; };
+          };
+        };
         devShells.default = pkgs.mkShell {
-          buildInputs = [ pkgs.colmena agenix.packages.${system}.agenix ];
+          inherit (self.checks.${system}.pre-commit-check) shellHook;
+          packages =
+            [ pkgs.colmena pkgs.nixfmt agenix.packages.${system}.agenix ];
         };
       });
 }
