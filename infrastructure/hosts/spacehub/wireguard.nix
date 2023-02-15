@@ -28,7 +28,7 @@
         allowedIPs = [ "10.255.255.20" "fd69:5efa:5efa:5efa::20" ];
       }
       {
-        publicKey = "L7A0HON+NBxmTmwjtuKreThu+V45SYhIduEjI/HyzCc=";
+        publicKey = "GQ2KrkMCj1b0tveuXe25yuabHx2xE68oXhHi1f/CTlM=";
         allowedIPs = [ "10.255.255.21" "fd69:5efa:5efa:5efa::21" ];
       }
     ];
