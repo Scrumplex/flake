@@ -41,10 +41,9 @@
       };
     } // flake-utils.lib.eachDefaultSystem (system:
       let pkgs = nixpkgs.legacyPackages.${system};
-      in rec {
-        devShell = pkgs.mkShell {
-          buildInputs = [ pkgs.colmena agenix.defaultPackage.${system} ];
+      in {
+        devShells.default = pkgs.mkShell {
+          buildInputs = [ pkgs.colmena agenix.packages.${system}.agenix ];
         };
-        packages.default = pkgs.colmena;
       });
 }
