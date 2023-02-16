@@ -79,14 +79,6 @@
           name = "archives";
           frequency = "4 weeks";
         }
-        {
-          name = "data";
-          frequency = "6 weeks";
-        }
-        {
-          name = "extract";
-          frequency = "6 weeks";
-        }
       ];
       retention = {
         keepDaily = 7;
