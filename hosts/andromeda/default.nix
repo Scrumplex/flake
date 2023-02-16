@@ -7,8 +7,6 @@
 
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
-  time.timeZone = "Europe/Berlin";
-
   fileSystems = {
     "/media/DATA" = {
       device =
@@ -47,8 +45,6 @@
     ];
     privateKeyFile = "/etc/nixos/wg-scrumplex.key";
   };
-
-  console.keyMap = "us";
 
   hardware.amdgpu.amdvlk = false;
 

@@ -7,11 +7,7 @@
 
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
-  time.timeZone = "Europe/Berlin";
-
   networking.networkmanager.enable = true;
-
-  console.keyMap = "us";
 
   services.flatpak.enable = true;
   xdg.portal = {
