@@ -13,7 +13,7 @@ in {
       menu = "${pkgs.fuzzel}/bin/fuzzel";
       modifier = "Mod4";
       startup = [{
-        command = "systemctl --user import-environment";
+        command = "${pkgs.systemd}/bin/systemctl --user import-environment";
       } # ugly, but this fixes most issues, until home-manager adopts environment.d
         ];
       input = {
@@ -249,6 +249,7 @@ in {
   services.swayidle = let
     swaymsg = "${pkgs.sway}/bin/swaymsg";
     gtklock = "${pkgs.gtklock}/bin/gtklock";
+    systemctl = "${pkgs.systemd}/bin/systemctl";
   in {
     enable = true;
     events = [
@@ -269,7 +270,7 @@ in {
       }
       {
         timeout = 600;
-        command = "systemctl suspend";
+        command = "${systemctl} suspend";
       }
     ];
   };
@@ -295,40 +296,44 @@ in {
   };
   programs.wlogout = {
     enable = true;
-    layout = [
+    layout = let
+      swaymsg = "${pkgs.sway}/bin/swaymsg";
+      gtklock = "${pkgs.gtklock}/bin/gtklock";
+      systemctl = "${pkgs.systemd}/bin/systemctl";
+    in [
       {
         label = "shutdown";
-        action = "systemctl poweroff";
+        action = "${systemctl} poweroff";
         text = "Shutdown";
         keybind = "s";
       }
       {
         label = "hibernate";
-        action = "systemctl hibernate";
+        action = "${systemctl} hibernate";
         text = "Hibernate";
         keybind = "h";
       }
       {
         label = "suspend";
-        action = "systemctl suspend";
+        action = "${systemctl} suspend";
         text = "Suspend";
         keybind = "u";
       }
       {
         label = "exit";
-        action = "${pkgs.sway}/bin/swaymsg exit";
+        action = "${swaymsg} exit";
         text = "Exit";
         keybind = "e";
       }
       {
         label = "reboot";
-        action = "systemctl reboot";
+        action = "${systemctl} reboot";
         text = "Reboot";
         keybind = "r";
       }
       {
         label = "lock";
-        action = "${pkgs.gtklock}/bin/gtklock";
+        action = gtklock;
         text = "Lock";
         keybind = "l";
       }
