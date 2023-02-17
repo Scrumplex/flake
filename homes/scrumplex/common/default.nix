@@ -109,5 +109,4 @@
       sha256 = "GrRCOwCgM8BFhY8TzO3/WDTUnGtqkhvlDWE//ox2GxI=";
     };
   in "${theme}/dist/mocha.yml";
-
 }

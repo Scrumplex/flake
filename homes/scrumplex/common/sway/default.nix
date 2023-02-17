@@ -2,7 +2,7 @@
 
 let termapp = "${pkgs.termapp}/bin/termapp";
 in {
-  imports = [ ./wob.nix ];
+  imports = [ ./fuzzel.nix ./wob.nix ];
 
   wayland.windowManager.sway = {
     enable = true;
