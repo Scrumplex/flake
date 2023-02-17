@@ -255,7 +255,7 @@ in {
     events = [
       {
         event = "before-sleep";
-        command = gtklock;
+        command = "${gtklock}; ${swaymsg} 'output * power on'";
       }
       {
         event = "after-resume";
