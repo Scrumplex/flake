@@ -151,7 +151,7 @@ in {
         "${mod}+Shift+p" = "exec ${pkgs.pass}/bin/passmenu";
         "${mod}+Shift+c" = "reload";
         "${mod}+Shift+e" = "exec ${pkgs.wlogout}/bin/wlogout";
-        "${mod}+Ctrl+q" = "exec ${pkgs.gtklock}/bin/gtklock";
+        "${mod}+Ctrl+q" = "exec ${pkgs.gtklock}/bin/gtklock -d";
         # TODO: Screenshots
         #"${mod}+Print" = "";
         "${mod}+Backspace" = "exec ${pkgs.mako}/bin/makoctl dismiss";
@@ -248,7 +248,7 @@ in {
   };
   services.swayidle = let
     swaymsg = "${pkgs.sway}/bin/swaymsg";
-    gtklock = "${pkgs.gtklock}/bin/gtklock";
+    gtklock = "${pkgs.gtklock}/bin/gtklock -d";
     systemctl = "${pkgs.systemd}/bin/systemctl";
   in {
     enable = true;
@@ -259,14 +259,14 @@ in {
       }
       {
         event = "after-resume";
-        command = ''${swaymsg} "output * dpms on"'';
+        command = "${swaymsg} 'output * power on'";
       }
     ];
     timeouts = [
       {
         timeout = 120;
-        command = ''${swaymsg} "output * dpms off"'';
-        resumeCommand = ''${swaymsg} "output * dpms on"'';
+        command = "${swaymsg} 'output * power off'";
+        resumeCommand = "${swaymsg} 'output * power on'";
       }
       {
         timeout = 600;
@@ -298,7 +298,7 @@ in {
     enable = true;
     layout = let
       swaymsg = "${pkgs.sway}/bin/swaymsg";
-      gtklock = "${pkgs.gtklock}/bin/gtklock";
+      gtklock = "${pkgs.gtklock}/bin/gtklock -d";
       systemctl = "${pkgs.systemd}/bin/systemctl";
     in [
       {
