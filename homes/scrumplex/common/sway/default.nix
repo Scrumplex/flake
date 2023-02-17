@@ -252,6 +252,7 @@ in {
     systemctl = "${pkgs.systemd}/bin/systemctl";
   in {
     enable = true;
+    extraArgs = [ "-d" ];
     events = [
       {
         event = "before-sleep";
