@@ -18,4 +18,6 @@
       }
     ];
   }];
+
+  security.pki.certificates = [ (builtins.readFile ../../misc/root_ca.crt) ];
 }
