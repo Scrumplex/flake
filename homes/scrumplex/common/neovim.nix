@@ -22,10 +22,7 @@
       }
       nvim-treesitter
       lualine-nvim
-      {
-        plugin = catppuccin-nvim;
-        config = "colorscheme catppuccin";
-      }
+      catppuccin-nvim
       neo-tree-nvim
       bufferline-nvim
 
@@ -90,16 +87,25 @@
       local luasnip = require("luasnip")
       local bufferline = require("bufferline")
 
-      catppuccin.setup()
+      local ts_path = vim.fn.stdpath("cache") .. "/treesitters"
+      vim.fn.mkdir(ts_path, "p")
+      vim.opt.runtimepath:append(ts_path)
+      local cp_path = vim.fn.stdpath("cache") .. "/catppuccin-nvim"
+      vim.fn.mkdir(cp_path, "p")
+      vim.opt.runtimepath:append(cp_path)
+
+
+      catppuccin.setup({
+        transparent_background = true,
+        compile_path = cp_path
+      })
       lualine.setup()
       gitsigns.setup()
 
-      local pid = vim.fn.stdpath("cache") .. "/treesitters"
-      vim.fn.mkdir(pid, "p")
-      vim.opt.runtimepath:append(pid)
+      vim.cmd.colorscheme "catppuccin"
 
       treesitter.setup({
-        parser_install_dir = pid,
+        parser_install_dir = ts_path,
         ensure_installed = "all",
         sync_install = false,
         highlight = {
