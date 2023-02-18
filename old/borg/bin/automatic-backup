@@ -1,7 +1,0 @@
-#!/bin/bash
-set -x
-
-BORGMATIC=$(which borgmatic)
-
-export BORG_PASSCOMMAND="$(which pass) show borgbase/${1}"
-$BORGMATIC -c "$HOME/.config/borgmatic/config.${1}.yaml" --stats --files -v -1 --syslog-verbosity 0 prune create
