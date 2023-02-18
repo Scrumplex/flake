@@ -35,6 +35,8 @@
 
   programs.adb.enable = true;
 
+  services.fwupd.enable = true;
+
   environment.systemPackages = with pkgs; [ vim ];
 
   virtualisation.podman = {
