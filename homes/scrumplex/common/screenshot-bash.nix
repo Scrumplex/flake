@@ -2,7 +2,7 @@
 
 {
   xdg.configFile."screenshot-bash.conf".text = let
-    pass = "${pkgs.pass}/bin/pass";
+    pass = "${config.programs.password-store.package}/bin/pass";
     pwgen = "${pkgs.pwgen}/bin/pwgen";
     swaymsg = "${pkgs.sway}/bin/swaymsg";
     jq = "${pkgs.jq}/bin/jq";

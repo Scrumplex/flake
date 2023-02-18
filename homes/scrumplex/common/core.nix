@@ -132,5 +132,8 @@
 
   programs.password-store.enable = true;
 
-  home.packages = with pkgs; [ pkgs.git-crypt ];
+  home.packages = with pkgs; [
+    git-crypt
+    config.programs.password-store.package
+  ];
 }

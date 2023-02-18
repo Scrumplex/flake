@@ -26,4 +26,6 @@
     width=2
     radius=12
   '';
+  programs.password-store.package =
+    pkgs.pass-wayland.override { dmenu-wayland = pkgs.fuzzel-dmenu-shim; };
 }

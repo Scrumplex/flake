@@ -87,7 +87,8 @@
         keepYearly = 2;
       };
       storage = {
-        encryptionPasscommand = "${pkgs.pass}/bin/pass show borgbase/andromeda";
+        encryptionPasscommand =
+          "${config.programs.password-store.package}/bin/pass show borgbase/andromeda";
         extraConfig.compression = "zstd";
       };
     };

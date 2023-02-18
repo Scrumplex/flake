@@ -147,8 +147,8 @@ in {
         "${mod}+Return" = "exec ${terminal}";
         "${mod}+Escape" = "kill";
         "${mod}+d" = "exec ${menu}";
-        "${mod}+p" = "exec ${pkgs.pass}/bin/passmenu --type";
-        "${mod}+Shift+p" = "exec ${pkgs.pass}/bin/passmenu";
+        "${mod}+p" =
+          "exec ${config.programs.password-store.package}/bin/passmenu";
         "${mod}+Shift+c" = "reload";
         "${mod}+Shift+e" = "exec ${pkgs.wlogout}/bin/wlogout";
         "${mod}+Ctrl+q" = "exec ${pkgs.gtklock}/bin/gtklock -d";
