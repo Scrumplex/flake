@@ -1,5 +1,6 @@
 { lib, config, pkgs, home-manager, ... }:
 let
+  inherit (lib) optional;
   username = "scrumplex";
   hostName = config.networking.hostName;
 in {
@@ -7,8 +8,11 @@ in {
   users.users."${username}" = {
     isNormalUser = true;
     shell = pkgs.fish;
-    extraGroups = [ "wheel" "podman" "adbusers" "input" "libvirtd" ]
-      ++ lib.optional config.networking.networkmanager.enable "networkmanager";
+    extraGroups = [ "wheel" "input" ]
+      ++ optional config.networking.networkmanager.enable "networkmanager"
+      ++ optional config.programs.adb.enable "adbusers"
+      ++ optional config.virtualisation.libvirtd.enable "libvirtd"
+      ++ optional config.virtualisation.podman.enable "podman";
   };
 
   nix.settings.trusted-users = [ username ];
@@ -22,7 +26,7 @@ in {
     home.stateVersion = config.system.stateVersion;
 
     programs.home-manager.enable = true;
-    systemd.user.startServices = true;
+    systemd.user.startServices = "sd-switch";
 
     nixpkgs.config.allowUnfree = true;
   };
