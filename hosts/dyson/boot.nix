@@ -16,7 +16,5 @@
       theme = "bgrt";
       font = "${pkgs.fira}/share/fonts/opentype/FiraSans-Regular.otf";
     };
-
-    initrd.systemd.enable = true;
   };
 }
