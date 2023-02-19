@@ -1,17 +1,22 @@
 { lib, pkgs, ... }: {
-  boot.bootspec.enable = lib.mkForce true;
   environment.systemPackages = with pkgs; [ sbctl ];
 
-  boot.loader.systemd-boot.enable = lib.mkForce false;
+  boot = {
+    bootspec.enable = lib.mkForce true;
 
-  boot.lanzaboote = {
-    enable = true;
-    pkiBundle = "/etc/secureboot";
-  };
+    loader.systemd-boot.enable = lib.mkForce false;
 
-  boot.plymouth = {
-    enable = true;
-    theme = "bgrt";
-    font = "${pkgs.fira}/share/fonts/opentype/FiraSans-Regular.otf";
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
+
+    plymouth = {
+      enable = true;
+      theme = "bgrt";
+      font = "${pkgs.fira}/share/fonts/opentype/FiraSans-Regular.otf";
+    };
+
+    initrd.systemd.enable = true;
   };
 }
