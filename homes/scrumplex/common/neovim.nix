@@ -12,6 +12,7 @@
       shellcheck # shellcheck lsp
       gopls # shellcheck lsp
       nodePackages.vscode-langservers-extracted # eslint/html/css/json lsp
+      nodePackages.yaml-language-server # yaml lsp
       nil # nix lsp
     ];
 
@@ -201,26 +202,13 @@
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
       end
 
-      local servers = { "bashls", "clangd", "eslint", "gopls", "nil_ls", "pylsp", "rls", "yamlls" }
+      local servers = { "bashls", "clangd", "cssls", "eslint", "gopls", "html", "jsonls", "nil_ls", "pylsp", "rls", "yamlls" }
 
       for _, lsp in pairs(servers) do
         nvim_lsp[lsp].setup({
           on_attach = on_attach,
         })
       end
-
-      nvim_lsp.cssls.setup({
-        cmd = { "vscode-css-languageserver", "--stdio" },
-        on_attach = on_attach,
-      })
-      nvim_lsp.html.setup({
-        cmd = { "vscode-html-languageserver", "--stdio" },
-        on_attach = on_attach,
-      })
-      nvim_lsp.jsonls.setup({
-        cmd = { "vscode-json-languageserver", "--stdio" },
-        on_attach = on_attach,
-      })
 
       bufferline.setup()
 
