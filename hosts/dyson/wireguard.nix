@@ -1,4 +1,6 @@
-{ ... }: {
+{ config, ... }: {
+  age.secrets.wg-scrumplex.file =
+    ../../secrets/${config.networking.hostName}/wg.age;
   networking.wireguard.interfaces.wg-scrumplex = {
     ips = [ "10.255.255.21/24" "fd69:5efa:5efa:5efa::21/64" ];
     peers = [
@@ -21,6 +23,6 @@
         persistentKeepalive = 60;
       }
     ];
-    privateKeyFile = "/etc/nixos/wg-scrumplex.key";
+    privateKeyFile = config.age.secrets.wg-scrumplex.path;
   };
 }
