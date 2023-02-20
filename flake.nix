@@ -14,6 +14,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,7 +34,7 @@
   };
 
   outputs = { self, nixpkgs, flake-utils, nixos-hardware, pre-commit-hooks
-    , home-manager, lanzaboote, prismlauncher, screenshot-bash, ... }:
+    , home-manager, agenix, lanzaboote, prismlauncher, screenshot-bash, ... }:
 
     flake-utils.lib.eachDefaultSystem (system:
       let pkgs = nixpkgs.legacyPackages.${system};
@@ -43,7 +47,7 @@
         };
         devShells.default = pkgs.mkShell {
           inherit (self.checks.${system}.pre-commit-check) shellHook;
-          packages = with pkgs; [ nixfmt ];
+          packages = with pkgs; [ nixfmt agenix.packages.${system}.agenix ];
         };
       }) // (let
         system = "x86_64-linux";
@@ -66,6 +70,7 @@
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
               }
+              agenix.nixosModules.age
               lanzaboote.nixosModules.lanzaboote
               ./hosts/common
               ./hosts/${hostName}
