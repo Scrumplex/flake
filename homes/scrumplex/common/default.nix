@@ -41,6 +41,7 @@
     inkscape
     gimp
     krita
+    libreoffice
     portfolio
 
     qpwgraph
