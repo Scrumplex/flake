@@ -75,6 +75,8 @@
               ./hosts/common
               ./hosts/${hostName}
               ({ lib, ... }: { networking.hostName = lib.mkDefault hostName; })
+
+              ./scrumplex
             ] ++ modules;
           };
         };
@@ -89,8 +91,6 @@
             nixos-hardware.nixosModules.common-cpu-amd-pstate
             nixos-hardware.nixosModules.common-gpu-amd
             nixos-hardware.nixosModules.common-pc-ssd
-
-            ./homes/scrumplex
           ];
         }) // (mkHost {
           inherit system;
@@ -98,11 +98,7 @@
 
           hostName = "dyson";
 
-          modules = [
-            nixos-hardware.nixosModules.framework-12th-gen-intel
-
-            ./homes/scrumplex
-          ];
+          modules = [ nixos-hardware.nixosModules.framework-12th-gen-intel ];
         });
       });
 }

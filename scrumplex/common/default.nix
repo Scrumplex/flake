@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ../../../modules/fish-theme.nix
-    ../../../modules/pipewire.nix
+    ../../modules/fish-theme.nix
+    ../../modules/pipewire.nix
 
     ./base.nix
     ./core.nix
