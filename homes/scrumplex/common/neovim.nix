@@ -21,7 +21,7 @@
         plugin = suda-vim;
         config = "let g:suda_smart_edit = 1";
       }
-      nvim-treesitter
+      nvim-treesitter.withAllGrammars
       lualine-nvim
       catppuccin-nvim
       neo-tree-nvim
@@ -88,9 +88,6 @@
       local luasnip = require("luasnip")
       local bufferline = require("bufferline")
 
-      local ts_path = vim.fn.stdpath("cache") .. "/treesitters"
-      vim.fn.mkdir(ts_path, "p")
-      vim.opt.runtimepath:append(ts_path)
       local cp_path = vim.fn.stdpath("cache") .. "/catppuccin-nvim"
       vim.fn.mkdir(cp_path, "p")
       vim.opt.runtimepath:append(cp_path)
@@ -106,8 +103,6 @@
       vim.cmd.colorscheme "catppuccin"
 
       treesitter.setup({
-        parser_install_dir = ts_path,
-        ensure_installed = "all",
         sync_install = false,
         highlight = {
           enable = true,
