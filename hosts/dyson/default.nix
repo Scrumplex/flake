@@ -6,6 +6,8 @@
 
   hardware.enableRedistributableFirmware = true;
 
+  powerManagement.cpuFreqGovernor = "powersave";
+
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   networking.networkmanager.enable = true;

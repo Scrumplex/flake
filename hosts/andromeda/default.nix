@@ -5,6 +5,8 @@
 
   hardware.enableRedistributableFirmware = true;
 
+  powerManagement.cpuFreqGovernor = "schedutil";
+
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   fileSystems = {
