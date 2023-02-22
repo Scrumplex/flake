@@ -11,6 +11,7 @@
     ./neovim.nix
     ./pipewire
     ./mpd.nix
+    ./ranger.nix
     ./sway
     ./kitty.nix
     ./screenshot-bash.nix
