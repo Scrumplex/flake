@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   boot.loader.grub = {
     enable = true;
     version = 2;
@@ -9,7 +7,7 @@
 
   networking = {
     useDHCP = false;
-    interfaces.ens3 = { useDHCP = true; };
+    interfaces.ens3 = {useDHCP = true;};
   };
 
   time.timeZone = "Europe/Berlin";

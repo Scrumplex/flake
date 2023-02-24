@@ -1,18 +1,20 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   virtualisation.docker = {
     enable = true;
     autoPrune = {
       enable = true;
-      flags = [ "--all" ];
+      flags = ["--all"];
     };
   };
 
   services.openssh = {
     enable = true;
-    ports = [ 22701 ];
-    listenAddresses = [{ addr = "[::]"; }];
+    ports = [22701];
+    listenAddresses = [{addr = "[::]";}];
     passwordAuthentication = false;
   };
 
@@ -28,7 +30,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [ kitty.terminfo htop nload ];
+  environment.systemPackages = with pkgs; [kitty.terminfo htop nload];
 
   programs.neovim = {
     enable = true;
@@ -66,6 +68,5 @@
     '';
   };
 
-  nixpkgs.config = { allowUnfree = true; };
-
+  nixpkgs.config = {allowUnfree = true;};
 }

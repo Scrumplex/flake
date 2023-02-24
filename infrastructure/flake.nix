@@ -15,14 +15,20 @@
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, agenix, pre-commit-hooks }:
+  outputs = {
+    self,
+    nixpkgs,
+    flake-utils,
+    agenix,
+    pre-commit-hooks,
+  }:
     {
       colmena = {
         meta.name = "scrumplex.net";
         meta.description = "scrumplex.net Network";
-        meta.nixpkgs = import nixpkgs { system = "x86_64-linux"; };
+        meta.nixpkgs = import nixpkgs {system = "x86_64-linux";};
 
-        defaults.imports = [ "${agenix}/modules/age.nix" ];
+        defaults.imports = ["${agenix}/modules/age.nix"];
 
         spacehub = {
           deployment.targetHost = "scrumplex.net";
@@ -32,7 +38,7 @@
           age.secrets."wireguard.key".file = secrets/spacehub/wireguard.key.age;
           age.secrets."hetzner.key".file = secrets/spacehub/hetzner.key.age;
 
-          imports = [ ./hosts/spacehub ];
+          imports = [./hosts/spacehub];
         };
 
         duckhub = {
@@ -43,22 +49,22 @@
           age.secrets."wireguard.key".file = secrets/duckhub/wireguard.key.age;
           age.secrets."hetzner.key".file = secrets/duckhub/hetzner.key.age;
 
-          imports = [ ./hosts/duckhub ];
+          imports = [./hosts/duckhub];
         };
       };
-    } // flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = nixpkgs.legacyPackages.${system};
-      in {
-        checks = {
-          pre-commit-check = pre-commit-hooks.lib.${system}.run {
-            src = ./.;
-            hooks = { nixfmt.enable = true; };
-          };
+    }
+    // flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      checks = {
+        pre-commit-check = pre-commit-hooks.lib.${system}.run {
+          src = ./.;
+          hooks = {alejandra.enable = true;};
         };
-        devShells.default = pkgs.mkShell {
-          inherit (self.checks.${system}.pre-commit-check) shellHook;
-          packages =
-            [ pkgs.colmena pkgs.nixfmt agenix.packages.${system}.agenix ];
-        };
-      });
+      };
+      devShells.default = pkgs.mkShell {
+        inherit (self.checks.${system}.pre-commit-check) shellHook;
+        packages = [pkgs.colmena pkgs.alejandra agenix.packages.${system}.agenix];
+      };
+    });
 }

@@ -1,7 +1,5 @@
-{ config, ... }:
-
-{
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+{config, ...}: {
+  networking.firewall.allowedTCPPorts = [80 443];
 
   systemd.services.traefik.serviceConfig = {
     EnvironmentFile = config.age.secrets."hetzner.key".path;
@@ -12,9 +10,9 @@
     group = "docker";
 
     staticConfigOptions = {
-      api = { insecure = true; };
-      accessLog = { };
-      providers.docker = { exposedByDefault = false; };
+      api = {insecure = true;};
+      accessLog = {};
+      providers.docker = {exposedByDefault = false;};
       entryPoints = {
         web = {
           address = ":80";
@@ -52,7 +50,7 @@
     dynamicConfigOptions = {
       http.routers = {
         prismMeta = {
-          entryPoints = [ "websecure" ];
+          entryPoints = ["websecure"];
           service = "prismMeta";
           rule = "Host(`meta.scrumplex.rocks`)";
         };
@@ -60,7 +58,7 @@
 
       http.services = {
         prismMeta.loadBalancer = {
-          servers = [{ url = "https://meta.prismlauncher.org"; }];
+          servers = [{url = "https://meta.prismlauncher.org";}];
           passHostHeader = false;
         };
       };
@@ -81,10 +79,9 @@
           "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"
           "TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256"
         ];
-        curvePreferences = [ "CurveP521" "CurveP384" ];
+        curvePreferences = ["CurveP521" "CurveP384"];
         sniStrict = true;
       };
     };
   };
 }
-
