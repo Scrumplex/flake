@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   fuzzel-dmenu-shim = pkgs.callPackage ./tools/wayland/fuzzel-dmenu-shim { };

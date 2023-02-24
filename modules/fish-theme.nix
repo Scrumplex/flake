@@ -1,8 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
   inherit (lib) types literalExpression;
-  inherit (lib.options) mkEnableOption mkPackageOption mkOption;
+  inherit (lib.options) mkEnableOption mkOption;
   inherit (lib.modules) mkIf;
 
   cfg = config.programs.fish.theme;
