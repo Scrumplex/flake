@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-
-{
-  home.packages = with pkgs; [ fuzzel ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [fuzzel];
 
   xdg.configFile."fuzzel/fuzzel.ini".text = ''
     [main]
@@ -27,5 +25,5 @@
     radius=12
   '';
   programs.password-store.package =
-    pkgs.pass-wayland.override { dmenu-wayland = pkgs.fuzzel-dmenu-shim; };
+    pkgs.pass-wayland.override {dmenu-wayland = pkgs.fuzzel-dmenu-shim;};
 }

@@ -1,8 +1,11 @@
-{ config, pkgs, ... }:
-
-let termapp = "${pkgs.termapp}/bin/termapp";
+{
+  config,
+  pkgs,
+  ...
+}: let
+  termapp = "${pkgs.termapp}/bin/termapp";
 in {
-  imports = [ ./fuzzel.nix ./wob.nix ];
+  imports = [./fuzzel.nix ./wob.nix];
 
   wayland.windowManager.sway = {
     enable = true;
@@ -12,10 +15,11 @@ in {
       terminal = "${pkgs.kitty}/bin/kitty";
       menu = "${pkgs.fuzzel}/bin/fuzzel";
       modifier = "Mod4";
-      startup = [{
-        command = "${pkgs.systemd}/bin/systemctl --user import-environment";
-      } # ugly, but this fixes most issues, until home-manager adopts environment.d
-        ];
+      startup = [
+        {
+          command = "${pkgs.systemd}/bin/systemctl --user import-environment";
+        } # ugly, but this fixes most issues, until home-manager adopts environment.d
+      ];
       input = {
         "type:keyboard" = {
           xkb_layout = "us";
@@ -51,27 +55,26 @@ in {
           position = "0,0";
           scale = "1.25";
         };
-        "*" = { bg = "${./current-wallpaper.jpg} fill"; };
+        "*" = {bg = "${./current-wallpaper.jpg} fill";};
       };
       assigns = {
-        "4:mail" = [{ app_id = "evolution"; }];
+        "4:mail" = [{app_id = "evolution";}];
         "5:chat" = [
-          { app_id = "org.telegram.desktop"; }
-          { class = "Signal"; }
-          { class = "Element"; }
-          { app_id = "Element"; }
-          { class = "discord"; }
+          {app_id = "org.telegram.desktop";}
+          {class = "Signal";}
+          {class = "Element";}
+          {app_id = "Element";}
+          {class = "discord";}
         ];
       };
-      floating.criteria = [{ app_id = "lxqt-policykit-agent"; }];
+      floating.criteria = [{app_id = "lxqt-policykit-agent";}];
       window = {
         border = 4;
         hideEdgeBorders = "smart";
         commands = [
           {
             criteria.app_id = "popup_pulsemixer";
-            command =
-              "floating enable; sticky enable; resize set 800 600; border pixel";
+            command = "floating enable; sticky enable; resize set 800 600; border pixel";
           }
           {
             criteria = {
@@ -86,9 +89,9 @@ in {
           }
         ];
       };
-      bars = [ ];
+      bars = [];
       fonts = {
-        names = [ "Monocraft" ];
+        names = ["Monocraft"];
         size = 10.0;
       };
       colors = let
@@ -147,8 +150,7 @@ in {
         "${mod}+Return" = "exec ${terminal}";
         "${mod}+Escape" = "kill";
         "${mod}+d" = "exec ${menu}";
-        "${mod}+p" =
-          "exec ${config.programs.password-store.package}/bin/passmenu";
+        "${mod}+p" = "exec ${config.programs.password-store.package}/bin/passmenu";
         "${mod}+Shift+c" = "reload";
         "${mod}+Shift+e" = "exec ${pkgs.wlogout}/bin/wlogout";
         "${mod}+Ctrl+q" = "exec ${pkgs.gtklock}/bin/gtklock -d";
@@ -224,25 +226,18 @@ in {
         "XF86AudioNext" = "exec ${mpc} next";
         "XF86AudioPrev" = "exec ${mpc} prev";
 
-        "XF86AudioMute" =
-          "exec ${pamixer} -t && ${pamixer} --get-volume > $XDG_RUNTIME_DIR/wob.sock";
-        "XF86AudioRaiseVolume" =
-          "exec ${pamixer} -ui 2 && ${pamixer} --get-volume > $XDG_RUNTIME_DIR/wob.sock";
-        "XF86AudioLowerVolume" =
-          "exec ${pamixer} -ud 2 && ${pamixer} --get-volume > $XDG_RUNTIME_DIR/wob.sock";
+        "XF86AudioMute" = "exec ${pamixer} -t && ${pamixer} --get-volume > $XDG_RUNTIME_DIR/wob.sock";
+        "XF86AudioRaiseVolume" = "exec ${pamixer} -ui 2 && ${pamixer} --get-volume > $XDG_RUNTIME_DIR/wob.sock";
+        "XF86AudioLowerVolume" = "exec ${pamixer} -ud 2 && ${pamixer} --get-volume > $XDG_RUNTIME_DIR/wob.sock";
 
         "${mod}+XF86AudioMute" = "exec ${pamixer} --default-source -t";
         "${mod}+m" = "exec ${pamixer} --default-source -t";
 
-        "Shift+XF86AudioRaiseVolume" =
-          "exec ${mpc} vol +2 && ${mpc} vol | ${sed} 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
-        "Shift+XF86AudioLowerVolume" =
-          "exec ${mpc} vol -2 && ${mpc} vol | ${sed} 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
+        "Shift+XF86AudioRaiseVolume" = "exec ${mpc} vol +2 && ${mpc} vol | ${sed} 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
+        "Shift+XF86AudioLowerVolume" = "exec ${mpc} vol -2 && ${mpc} vol | ${sed} 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
 
-        "XF86MonBrightnessDown" =
-          "exec ${brightnessctl} set 5%- | ${sed} -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
-        "XF86MonBrightnessUp" =
-          "exec ${brightnessctl} set 5%+ | ${sed} -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
+        "XF86MonBrightnessDown" = "exec ${brightnessctl} set 5%- | ${sed} -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
+        "XF86MonBrightnessUp" = "exec ${brightnessctl} set 5%+ | ${sed} -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
       };
     };
   };
@@ -252,7 +247,7 @@ in {
     systemctl = "${pkgs.systemd}/bin/systemctl";
   in {
     enable = true;
-    extraArgs = [ "-d" ];
+    extraArgs = ["-d"];
     events = [
       {
         event = "before-sleep";
@@ -346,8 +341,8 @@ in {
     settings = {
       mainBar = {
         position = "top";
-        modules-left = [ "sway/workspaces" "mpd" ];
-        modules-center = [ "clock" ];
+        modules-left = ["sway/workspaces" "mpd"];
+        modules-center = ["clock"];
         modules-right = [
           "network"
           "pulseaudio"
@@ -369,13 +364,12 @@ in {
             "5:chat" = "";
           };
           persistent_workspaces = {
-            "1" = [ ];
-            "2" = [ ];
+            "1" = [];
+            "2" = [];
           };
         };
         mpd = {
-          format =
-            "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ({volume}%) ";
+          format = "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ({volume}%) ";
           format-disconnected = "Disconnected ";
           format-stopped = "Stopped ";
           state-icons = {
@@ -384,12 +378,9 @@ in {
           };
           tooltip-format = "MPD (connected)";
           tooltip-format-disconnected = "MPD (disconnected)";
-          on-scroll-up =
-            "${pkgs.mpc-cli}/bin/mpc vol +2 && ${pkgs.mpc-cli}/bin/mpc vol | ${pkgs.gnused}/bin/sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
-          on-scroll-down =
-            "${pkgs.mpc-cli}/bin/mpc vol -2 && ${pkgs.mpc-cli}/bin/mpc vol | ${pkgs.gnused}/bin/sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
-          on-click =
-            "${termapp} ${config.programs.ncmpcpp.package}/bin/ncmpcpp";
+          on-scroll-up = "${pkgs.mpc-cli}/bin/mpc vol +2 && ${pkgs.mpc-cli}/bin/mpc vol | ${pkgs.gnused}/bin/sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
+          on-scroll-down = "${pkgs.mpc-cli}/bin/mpc vol -2 && ${pkgs.mpc-cli}/bin/mpc vol | ${pkgs.gnused}/bin/sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
+          on-click = "${termapp} ${config.programs.ncmpcpp.package}/bin/ncmpcpp";
           on-click-middle = "${pkgs.mpc-cli}/bin/mpc toggle";
           on-click-right = "";
           smooth-scrolling-threshold = 0.16;
@@ -421,10 +412,8 @@ in {
             default = "墳";
           };
           on-click = "${termapp} ${pkgs.pulsemixer}/bin/pulsemixer";
-          on-scroll-up =
-            "${pkgs.pamixer}/bin/pamixer -ui 2 && ${pkgs.pamixer}/bin/pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock";
-          on-scroll-down =
-            "${pkgs.pamixer}/bin/pamixer -ud 2 && ${pkgs.pamixer}/bin/pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock";
+          on-scroll-up = "${pkgs.pamixer}/bin/pamixer -ui 2 && ${pkgs.pamixer}/bin/pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock";
+          on-scroll-down = "${pkgs.pamixer}/bin/pamixer -ud 2 && ${pkgs.pamixer}/bin/pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock";
           smooth-scrolling-threshold = 0.16;
         };
         battery = {
@@ -434,7 +423,7 @@ in {
             critical = 15;
           };
           format = "{capacity}% {icon}";
-          format-icons = [ "" "" "" "" "" ];
+          format-icons = ["" "" "" "" ""];
           max-length = 25;
         };
         clock = {
@@ -522,5 +511,5 @@ in {
     temperature.night = 3000;
   };
 
-  home.packages = with pkgs; [ wl-clipboard gtklock pulsemixer ];
+  home.packages = with pkgs; [wl-clipboard gtklock pulsemixer];
 }

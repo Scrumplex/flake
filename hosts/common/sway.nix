@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   programs.sway.enable = true;
-  security.pam.services.gtklock = { };
+  security.pam.services.gtklock = {};
 }

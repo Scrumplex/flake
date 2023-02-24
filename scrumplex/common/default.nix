@@ -1,6 +1,10 @@
-{ lib, config, nixosConfig, pkgs, ... }:
-
 {
+  lib,
+  config,
+  nixosConfig,
+  pkgs,
+  ...
+}: {
   imports = [
     ../../modules/fish-theme.nix
     ../../modules/pipewire.nix

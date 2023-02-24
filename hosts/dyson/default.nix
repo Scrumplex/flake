@@ -1,8 +1,5 @@
-{ pkgs, ... }:
-
-{
-  imports =
-    [ ./hardware-configuration.nix ./boot.nix ./swapfile.nix ./wireguard.nix ];
+{pkgs, ...}: {
+  imports = [./hardware-configuration.nix ./boot.nix ./swapfile.nix ./wireguard.nix];
 
   hardware.enableRedistributableFirmware = true;
 
@@ -16,7 +13,7 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
   services.gnome.gnome-keyring.enable = true;
@@ -40,7 +37,7 @@
 
   services.fwupd.enable = true;
 
-  environment.systemPackages = with pkgs; [ vim ];
+  environment.systemPackages = with pkgs; [vim];
 
   virtualisation.podman = {
     enable = true;
@@ -49,9 +46,8 @@
 
   services.openssh.enable = true;
 
-  networking.firewall.allowedTCPPorts = [ 22000 ];
-  networking.firewall.allowedUDPPorts = [ 21027 22000 ];
+  networking.firewall.allowedTCPPorts = [22000];
+  networking.firewall.allowedUDPPorts = [21027 22000];
 
   system.stateVersion = "23.05";
 }
-

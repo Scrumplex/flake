@@ -1,6 +1,8 @@
-{ config, lib, ... }:
-
-let
+{
+  config,
+  lib,
+  ...
+}: let
   inherit (lib) types literalExpression;
   inherit (lib.options) mkEnableOption mkOption;
   inherit (lib.modules) mkIf;
@@ -25,7 +27,7 @@ in {
           repo = "fish";
           rev = "b90966686068b5ebc9f80e5b90fdf8c02ee7a0ba";
           sha256 = "wQlYQyqklU/79K2OXRZXg5LvuIugK7vhHgpahpLFaOw=";
-        } 
+        }
       '';
     };
   };
@@ -33,7 +35,6 @@ in {
     programs.fish.shellInit = ''
       fish_config theme choose "${cfg.name}"
     '';
-    xdg.configFile."fish/themes/${cfg.name}.theme".source =
-      "${cfg.plugin}/themes/${cfg.name}.theme";
+    xdg.configFile."fish/themes/${cfg.name}.theme".source = "${cfg.plugin}/themes/${cfg.name}.theme";
   };
 }

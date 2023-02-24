@@ -33,38 +33,54 @@
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, nixos-hardware, pre-commit-hooks
-    , home-manager, agenix, lanzaboote, prismlauncher, screenshot-bash, ... }:
+  outputs = {
+    self,
+    nixpkgs,
+    flake-utils,
+    nixos-hardware,
+    pre-commit-hooks,
+    home-manager,
+    agenix,
+    lanzaboote,
+    prismlauncher,
+    screenshot-bash,
+    ...
+  }:
+    flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      checks = {
+        pre-commit-check = pre-commit-hooks.lib.${system}.run {
+          src = ./.;
+          hooks = {alejandra.enable = true;};
+        };
+      };
+      devShells.default = pkgs.mkShell {
+        inherit (self.checks.${system}.pre-commit-check) shellHook;
+        packages = with pkgs; [alejandra agenix.packages.${system}.agenix];
+      };
+    })
+    // (let
+      system = "x86_64-linux";
+      scrumpkgs = {...}: import ./pkgs;
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {allowUnfree = true;};
+        overlays = [prismlauncher.overlay screenshot-bash.overlay scrumpkgs];
+      };
 
-    flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = nixpkgs.legacyPackages.${system};
-      in {
-        checks = {
-          pre-commit-check = pre-commit-hooks.lib.${system}.run {
-            src = ./.;
-            hooks = { nixfmt.enable = true; };
-          };
-        };
-        devShells.default = pkgs.mkShell {
-          inherit (self.checks.${system}.pre-commit-check) shellHook;
-          packages = with pkgs; [ nixfmt agenix.packages.${system}.agenix ];
-        };
-      }) // (let
-        system = "x86_64-linux";
-        scrumpkgs = { ... }: import ./pkgs;
-        pkgs = import nixpkgs {
+      mkHost = {
+        hostName,
+        system,
+        pkgs,
+        modules,
+      }: {
+        ${hostName} = nixpkgs.lib.nixosSystem {
           inherit system;
-          config = { allowUnfree = true; };
-          overlays =
-            [ prismlauncher.overlay screenshot-bash.overlay scrumpkgs ];
-        };
+          inherit pkgs;
 
-        mkHost = { hostName, system, pkgs, modules }: {
-          ${hostName} = nixpkgs.lib.nixosSystem {
-            inherit system;
-            inherit pkgs;
-
-            modules = [
+          modules =
+            [
               home-manager.nixosModules.home-manager
               {
                 home-manager.useGlobalPkgs = true;
@@ -74,14 +90,16 @@
               lanzaboote.nixosModules.lanzaboote
               ./hosts/common
               ./hosts/${hostName}
-              ({ lib, ... }: { networking.hostName = lib.mkDefault hostName; })
+              ({lib, ...}: {networking.hostName = lib.mkDefault hostName;})
 
               ./scrumplex
-            ] ++ modules;
-          };
+            ]
+            ++ modules;
         };
-      in {
-        nixosConfigurations = (mkHost {
+      };
+    in {
+      nixosConfigurations =
+        (mkHost {
           inherit system;
           inherit pkgs;
 
@@ -92,13 +110,14 @@
             nixos-hardware.nixosModules.common-gpu-amd
             nixos-hardware.nixosModules.common-pc-ssd
           ];
-        }) // (mkHost {
+        })
+        // (mkHost {
           inherit system;
           inherit pkgs;
 
           hostName = "dyson";
 
-          modules = [ nixos-hardware.nixosModules.framework-12th-gen-intel ];
+          modules = [nixos-hardware.nixosModules.framework-12th-gen-intel];
         });
-      });
+    });
 }

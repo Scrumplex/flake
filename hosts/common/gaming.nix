@@ -1,10 +1,14 @@
-{ config, pkgs, ... }:
-
 {
-  assertions = [{
-    assertion = config.powerManagement.cpuFreqGovernor != null;
-    message = "No CPU frequency governor set.";
-  }];
+  config,
+  pkgs,
+  ...
+}: {
+  assertions = [
+    {
+      assertion = config.powerManagement.cpuFreqGovernor != null;
+      message = "No CPU frequency governor set.";
+    }
+  ];
 
   programs.steam.enable = true;
   programs.gamemode = {
@@ -24,5 +28,4 @@
       };
     };
   };
-
 }

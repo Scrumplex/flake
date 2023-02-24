@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   xdg = {
     enable = true;
     userDirs = {
@@ -78,10 +76,10 @@
     pkgs.fira
     pkgs.monocraft
     pkgs.fira-code
-    (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
 
     (pkgs.catppuccin-gtk.override {
-      accents = [ "teal" ];
+      accents = ["teal"];
       variant = "mocha";
     })
   ];

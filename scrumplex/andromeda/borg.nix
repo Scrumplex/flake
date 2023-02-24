@@ -1,6 +1,4 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   services.borgmatic = {
     enable = true;
     frequency = "daily";
@@ -8,19 +6,17 @@
 
   # Hacky workaround missing env var for SSH Agent
   # d.bhxq1zzygp4wsptpawmb9am4 is stable as long as programs.gpg.homedir doesn't change!
-  systemd.user.services.borgmatic.Service.Environment =
-    "SSH_AUTH_SOCK=%t/gnupg/d.bhxq1zzygp4wsptpawmb9am4/S.gpg-agent.ssh PASSWORD_STORE_DIR=${config.programs.password-store.settings.PASSWORD_STORE_DIR} GNUPGHOME=${config.programs.gpg.homedir}";
+  systemd.user.services.borgmatic.Service.Environment = "SSH_AUTH_SOCK=%t/gnupg/d.bhxq1zzygp4wsptpawmb9am4/S.gpg-agent.ssh PASSWORD_STORE_DIR=${config.programs.password-store.settings.PASSWORD_STORE_DIR} GNUPGHOME=${config.programs.gpg.homedir}";
 
   programs.borgmatic = {
     enable = true;
     backups.andromeda = {
       location = {
-        repositories = [ "obai58wh@obai58wh.repo.borgbase.com:repo" ];
-        sourceDirectories =
-          [ config.home.homeDirectory "/media/DATA" "/media/DATA2" ];
+        repositories = ["obai58wh@obai58wh.repo.borgbase.com:repo"];
+        sourceDirectories = [config.home.homeDirectory "/media/DATA" "/media/DATA2"];
         extraConfig = {
           exclude_caches = true;
-          exclude_if_present = [ ".nobackup" ];
+          exclude_if_present = [".nobackup"];
           exclude_patterns = [
             "~/.android"
             "~/.ccache"
@@ -87,8 +83,7 @@
         keepYearly = 2;
       };
       storage = {
-        encryptionPasscommand =
-          "${config.programs.password-store.package}/bin/pass show borgbase/andromeda";
+        encryptionPasscommand = "${config.programs.password-store.package}/bin/pass show borgbase/andromeda";
         extraConfig.compression = "zstd";
       };
     };

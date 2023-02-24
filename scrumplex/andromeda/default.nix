@@ -1,7 +1,5 @@
-{ pkgs, ... }:
+{pkgs, ...}: {
+  imports = [./borg.nix];
 
-{
-  imports = [ ./borg.nix ];
-
-  home.packages = with pkgs; [ discord ];
+  home.packages = with pkgs; [discord];
 }

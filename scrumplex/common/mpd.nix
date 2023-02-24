@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   mpdFifoName = "FIFO";
   mpdFifoPath = "~/.cache/mpd.fifo";
 in {
@@ -35,7 +33,7 @@ in {
   services.mpd-discord-rpc.enable = true;
   programs.ncmpcpp = {
     enable = true;
-    package = pkgs.ncmpcpp.override { visualizerSupport = true; };
+    package = pkgs.ncmpcpp.override {visualizerSupport = true;};
     bindings = [
       {
         key = "9";

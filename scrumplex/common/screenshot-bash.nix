@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   xdg.configFile."screenshot-bash.conf".text = let
     pass = "${config.programs.password-store.package}/bin/pass";
     pwgen = "${pkgs.pwgen}/bin/pwgen";
@@ -48,5 +50,5 @@
     "${mod}+Print" = "exec ${screenshot-bash} active_output";
   };
 
-  home.packages = with pkgs; [ screenshot-bash ];
+  home.packages = with pkgs; [screenshot-bash];
 }

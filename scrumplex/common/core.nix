@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.git = {
     enable = true;
     package = pkgs.gitAndTools.gitFull;
@@ -44,7 +46,8 @@
     controlPath = "~/.ssh/sockets/master-%r@%n:%p";
     controlPersist = "10m";
 
-    matchBlocks = let idFile = "~/.ssh/id_ed25519";
+    matchBlocks = let
+      idFile = "~/.ssh/id_ed25519";
     in {
       "aur.archlinux.org" = {
         user = "aur";

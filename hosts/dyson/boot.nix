@@ -1,5 +1,9 @@
-{ lib, pkgs, ... }: {
-  environment.systemPackages = with pkgs; [ sbctl ];
+{
+  lib,
+  pkgs,
+  ...
+}: {
+  environment.systemPackages = with pkgs; [sbctl];
 
   boot = {
     bootspec.enable = lib.mkForce true;

@@ -1,10 +1,7 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   systemd.user.services.wob = {
     Unit = {
-      Description =
-        "A lightweight overlay volume/backlight/progress/anything bar for Wayland";
+      Description = "A lightweight overlay volume/backlight/progress/anything bar for Wayland";
       Documentation = "man:wob(1)";
       PartOf = "graphical-session.target";
       After = "graphical-session.target";
@@ -14,7 +11,7 @@
       StandardInput = "socket";
       ExecStart = "${pkgs.wob}/bin/wob";
     };
-    Install.WantedBy = [ "graphical-session.target" ];
+    Install.WantedBy = ["graphical-session.target"];
   };
 
   systemd.user.sockets.wob = {
@@ -24,7 +21,7 @@
       RemoveOnStop = "yes";
       FlushPending = "yes";
     };
-    Install.WantedBy = [ "sockets.target" ];
+    Install.WantedBy = ["sockets.target"];
   };
 
   xdg.configFile."wob/wob.ini".text = ''
