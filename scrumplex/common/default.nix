@@ -36,7 +36,6 @@
     tdesktop
     signal-desktop
     element-desktop
-    obs-studio
     prismlauncher
     ark
     evolution
@@ -92,6 +91,14 @@
       toggle_hud = "Shift_R+F12";
       toggle_fps_limit = "Shift_R+F1";
     };
+  };
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-gstreamer
+      obs-vaapi
+    ];
   };
 
   services.nextcloud-client = {
