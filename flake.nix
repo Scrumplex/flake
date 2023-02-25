@@ -68,6 +68,7 @@
         config = {allowUnfree = true;};
         overlays = [prismlauncher.overlay screenshot-bash.overlay scrumpkgs];
       };
+      scrumModules = import ./modules;
 
       mkHost = {
         hostName,
@@ -85,6 +86,8 @@
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
+
+                home-manager.sharedModules = scrumModules;
               }
               agenix.nixosModules.age
               lanzaboote.nixosModules.lanzaboote
