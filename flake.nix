@@ -62,7 +62,7 @@
     })
     // (let
       system = "x86_64-linux";
-      scrumpkgs = {...}: import ./pkgs;
+      scrumpkgs = _: import ./pkgs;
       pkgs = import nixpkgs {
         inherit system;
         config = {allowUnfree = true;};
