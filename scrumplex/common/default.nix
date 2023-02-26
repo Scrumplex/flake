@@ -31,6 +31,7 @@
     imv
     okular
     virt-manager
+    fluxcd
 
     slack
     tdesktop
