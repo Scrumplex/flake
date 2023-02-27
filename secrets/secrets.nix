@@ -13,4 +13,6 @@ let
 in {
   "andromeda/wg.age".publicKeys = andromeda ++ scrumplex;
   "dyson/wg.age".publicKeys = dyson ++ scrumplex;
+
+  "andromeda/cache-key.age".publicKeys = andromeda ++ scrumplex;
 }

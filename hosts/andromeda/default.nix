@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  imports = [./hardware-configuration.nix];
+  imports = [./hardware-configuration.nix ./nix-serve.nix];
 
   hardware.enableRedistributableFirmware = true;
 
