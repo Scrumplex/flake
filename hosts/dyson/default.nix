@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  imports = [./hardware-configuration.nix ./boot.nix ./swapfile.nix ./wireguard.nix];
+  imports = [./hardware-configuration.nix ./boot.nix ./nix.nix ./swapfile.nix ./wireguard.nix];
 
   hardware.enableRedistributableFirmware = true;
 
