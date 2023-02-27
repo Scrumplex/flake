@@ -1,13 +1,13 @@
-{config, ...}: {
-  age.secrets."cache-priv-key.pem" = {
-    file = ../../secrets/andromeda/cache-key.age;
-    mode = "600";
-    owner = "nix-serve";
-    group = "nix-serve";
-  };
+{
+  config,
+  pkgs,
+  ...
+}: {
+  age.secrets."cache-priv-key.pem".file = ../../secrets/andromeda/cache-key.age;
 
   services.nix-serve = {
     enable = true;
+    package = pkgs.nix-serve-ng;
     secretKeyFile = config.age.secrets."cache-priv-key.pem".path;
     openFirewall = true;
   };

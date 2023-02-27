@@ -23,6 +23,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+    nix-serve-ng = {
+      url = "github:aristanetworks/nix-serve-ng";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.utils.follows = "flake-utils";
+    };
     prismlauncher = {
       url = "github:PrismLauncher/PrismLauncher";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,6 +47,7 @@
     home-manager,
     agenix,
     lanzaboote,
+    nix-serve-ng,
     prismlauncher,
     screenshot-bash,
     ...
@@ -66,7 +72,7 @@
       pkgs = import nixpkgs {
         inherit system;
         config = {allowUnfree = true;};
-        overlays = [prismlauncher.overlay screenshot-bash.overlay scrumpkgs];
+        overlays = [nix-serve-ng.overlays.default prismlauncher.overlay screenshot-bash.overlay scrumpkgs];
       };
       scrumModules = import ./modules;
 
