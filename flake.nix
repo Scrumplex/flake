@@ -76,6 +76,8 @@
       };
       scrumModules = import ./modules;
 
+      username = "scrumplex";
+
       mkHost = {
         hostName,
         system,
@@ -101,7 +103,7 @@
               ./hosts/${hostName}
               ({lib, ...}: {networking.hostName = lib.mkDefault hostName;})
 
-              ./scrumplex
+              (import ./home username)
             ]
             ++ modules;
         };

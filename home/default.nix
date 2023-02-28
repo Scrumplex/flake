@@ -1,13 +1,10 @@
-{
+username: {
   lib,
   config,
   pkgs,
-  home-manager,
   ...
 }: let
   inherit (lib) optional;
-  username = "scrumplex";
-  hostName = config.networking.hostName;
 in {
   users.users."${username}" = {
     isNormalUser = true;
@@ -23,7 +20,7 @@ in {
   nix.settings.trusted-users = [username];
 
   home-manager.users."${username}" = {
-    imports = [./common ./${hostName}];
+    imports = [./common ./${config.networking.hostName}];
 
     home.username = username;
     home.homeDirectory = "/home/${username}";
