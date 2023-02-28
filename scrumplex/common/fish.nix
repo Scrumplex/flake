@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   programs.fzf = {
     enable = true;
     enableFishIntegration = false; # we use jethrokuan/fzf instead
@@ -30,7 +35,14 @@
       grc = "git rebase --continue";
       gs = "git status";
     };
-    shellAliases.ll = "ls -laFh";
+    shellAliases = lib.mkMerge [
+      {
+        ll = "ls -laFh";
+      }
+      (lib.mkIf config.programs.exa.enable {
+        ls = "${config.programs.exa.package}/bin/exa";
+      })
+    ];
     functions.systemctl = ''
       if contains -- --user $argv
           command systemctl $argv
@@ -128,4 +140,6 @@
     enable = true;
     nix-direnv.enable = true;
   };
+
+  programs.exa.enable = true;
 }
