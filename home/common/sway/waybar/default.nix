@@ -170,19 +170,19 @@
       };
     };
     systemd.enable = true;
-    style = ''
+    style = with config.theme; ''
       window#waybar {
         font-family: "Monocraft";
         font-size: 10pt;
-        background: RGBA(17, 17, 27, 0.95);  /* crust */
-        color: #cdd6f4;  /* text */
+        background-color: #${crust};
+        color: #${text};
       }
 
       .modules-left, .modules-center, .modules-right {
         margin-left: 8px;
         margin-right: 8px;
-        background-color: #1e1e2e;  /* base */
         border-radius: 16px;
+        background-color: #${base};
       }
 
       #workspaces, #mpd, #clock, #network, #pulseaudio, #battery, #custom-pa-mute, #idle_inhibitor, #tray {
@@ -214,21 +214,21 @@
       }
 
       #workspaces button.urgent, #idle_inhibitor.activated, #custom-pa-mute.muted {
-        background-color: #fab387;  /* peach */
-        color: #1e1e2e;  /* base */
+        background-color: #${peach};
+        color: #${base};
       }
 
       #custom-pa-mute.muted {
-        background-color: #f38ba8; /* red */
+        background-color: #${red};
       }
 
       #idle_inhibitor.activated {
-        background-color: #cba6f7; /* mauve */
+        background-color: #${mauve};
       }
 
       #workspaces button:hover {
         background-image: none; /* remove Adwaita button gradient */
-        background-color: #585b70;  /* surface2 */
+        background-color: #${surface2};
       }
 
       #workspaces button:hover label {
@@ -236,17 +236,17 @@
       }
 
       #workspaces button.focused {
-        background-color: #89b4fa;  /* blue */
-        color: #161320;  /* black0 */
+        background-color: #${blue};
+        color: #${crust};
       }
 
       #workspaces button.focused:hover {
-        background-color: #89dceb;  /* sky */
+        background-color: #${sky};
       }
 
       #workspaces button:active, #workspaces button.focused:active {
-        background-color: #cdd6f4;  /* text */
-        color: #1e1e2e;  /* base */
+        background-color: #${text};
+        color: #${base};
       }
 
       #network.ethernet {
@@ -254,15 +254,15 @@
       }
 
       #battery.warning {
-        color: #fab387;  /* peach */
+        color: #${peach};
       }
 
       #battery.critical {
-        color: #f38ba8;  /* maroon */
+        color: #${maroon};
       }
 
       #battery.charging {
-        color: #a6e3a1;  /* green */
+        color: #${green};
       }
     '';
   };

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.wlogout = {
     enable = true;
     layout = let
@@ -43,11 +47,11 @@
         keybind = "l";
       }
     ];
-    style = ''
+    style = with config.theme; ''
       window {
         font-family: "Fira Code";
         font-size: 10pt;
-        color: #cdd6f4;  /* text */
+        color: #${text};
       }
 
       button {
@@ -55,21 +59,21 @@
         background-position: center;
         background-size: 25%;
         border: none;
-        background-color: #1e1e2e;
+        background-color: #${base};
       }
 
       button:hover {
-        background-color: #313244;  /* surface0 */
+        background-color: #${surface0};
       }
 
       button:focus {
-        background-color: #89b4fa;  /* blue */
-        color: #1e1e2e;  /* base */
+        background-color: #${blue};
+        color: #${base};
       }
 
       button:active {
-        background-color: #cdd6f4;  /* text */
-        color: #1e1e2e;  /* base */
+        background-color: #${text};
+        color: #${base};
       }
 
       #lock {

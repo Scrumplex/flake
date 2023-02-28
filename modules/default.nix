@@ -1,1 +1,1 @@
-[./fish-theme.nix ./pipewire.nix]
+[./catppuccin.nix ./fish-theme.nix ./pipewire.nix]

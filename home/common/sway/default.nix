@@ -92,42 +92,34 @@
         names = ["Monocraft"];
         size = 10.0;
       };
-      colors = let
-        cat_blue = "#89b4fa";
-        cat_base = "#1e1e2e";
-        cat_surface0 = "#313244";
-        cat_pink = "#f5c2e7";
-        cat_text = "#cdd6f4";
-        cat_peach = "#fab387";
-      in {
-        # TODO: create catppuccin module
+      colors = with config.theme; {
         focused = {
-          background = cat_blue;
-          border = cat_blue;
-          childBorder = cat_blue;
-          indicator = cat_blue;
-          text = cat_base;
+          background = "#${blue}";
+          border = "#${blue}";
+          childBorder = "#${blue}";
+          indicator = "#${blue}";
+          text = "#${base}";
         };
         focusedInactive = {
-          background = cat_surface0;
-          border = cat_surface0;
-          childBorder = cat_surface0;
-          indicator = cat_surface0;
-          text = cat_pink;
+          background = "#${surface0}";
+          border = "#${surface0}";
+          childBorder = "#${surface0}";
+          indicator = "#${surface0}";
+          text = "#${pink}";
         };
         unfocused = {
-          background = cat_base;
-          border = cat_base;
-          childBorder = cat_base;
-          indicator = cat_base;
-          text = cat_text;
+          background = "#${base}";
+          border = "#${base}";
+          childBorder = "#${base}";
+          indicator = "#${base}";
+          text = "#${text}";
         };
         urgent = {
-          background = cat_peach;
-          border = cat_peach;
-          childBorder = cat_peach;
-          indicator = cat_peach;
-          text = cat_base;
+          background = "#${peach}";
+          border = "#${peach}";
+          childBorder = "#${peach}";
+          indicator = "#${peach}";
+          text = "#${base}";
         };
       };
       keybindings = let

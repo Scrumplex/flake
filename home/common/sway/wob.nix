@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   systemd.user.services.wob = {
     Unit = {
       Description = "A lightweight overlay volume/backlight/progress/anything bar for Wayland";
@@ -24,12 +28,12 @@
     Install.WantedBy = ["sockets.target"];
   };
 
-  xdg.configFile."wob/wob.ini".text = ''
+  xdg.configFile."wob/wob.ini".text = with config.theme; ''
     border_offset=0
     border_size=2
     bar_padding=8
-    border_color=89dcebff
-    background_color=11111be6
-    bar_color=89dcebff
+    border_color=${sky}ff
+    background_color=${crust}e6
+    bar_color=${sky}ff
   '';
 }
