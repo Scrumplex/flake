@@ -1,11 +1,14 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
+  inherit (builtins) substring;
   inherit (lib) types;
   inherit (lib.modules) mkIf mkMerge;
   inherit (lib.options) mkEnableOption mkOption;
+  inherit (lib.strings) toUpper;
 
   cfg = config.theme;
 
@@ -167,9 +170,14 @@ in {
   options.theme = {
     enable = mkEnableOption "theme";
 
-    variant = mkOption {
+    palette = mkOption {
       type = types.str;
       default = "mocha";
+    };
+
+    variant = mkOption {
+      type = types.str;
+      default = "teal";
     };
 
     colors = mkOption {
@@ -178,9 +186,45 @@ in {
       readOnly = true;
       description = "Definition of theme colors";
     };
+
+    gtk = mkEnableOption "apply GTK theme";
+    kitty = mkEnableOption "apply Kitty theme";
   };
 
-  config = mkIf cfg.enable {
-    theme.colors = mkMerge [(mkIf (cfg.variant == "latte") latteColors) (mkIf (cfg.variant == "frappe") frappeColors) (mkIf (cfg.variant == "macchiato") macchiatoColors) (mkIf (cfg.variant == "mocha") mochaColors)];
-  };
+  config = let
+    themeColors =
+      if cfg.palette == "latte"
+      then latteColors
+      else if cfg.palette == "frappe"
+      then frappeColors
+      else if cfg.palette == "macchiato"
+      then macchiatoColors
+      else mochaColors;
+
+    paletteUpper = toUpper (substring 0 1 cfg.palette) + (substring 1 999 cfg.palette);
+    variantUpper = toUpper (substring 0 1 cfg.variant) + (substring 1 999 cfg.variant);
+    gtkVariant =
+      if cfg.palette == "latte"
+      then "Light"
+      else "Dark";
+  in
+    mkIf cfg.enable (mkMerge [
+      {
+        theme.colors = themeColors;
+      }
+      (mkIf cfg.kitty {
+        programs.kitty.theme = "Catppuccin-${paletteUpper}";
+      })
+      (mkIf cfg.gtk {
+        gtk.theme = {
+          name = "Catppuccin-${paletteUpper}-Standard-${variantUpper}-${gtkVariant}";
+          package = pkgs.catppuccin-gtk.override {
+            # TODO: package option
+            accents = [cfg.variant];
+            variant = cfg.palette;
+          };
+        };
+        home.packages = [config.gtk.theme.package];
+      })
+    ]);
 }

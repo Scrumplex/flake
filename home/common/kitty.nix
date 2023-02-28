@@ -2,7 +2,6 @@
   programs.kitty = {
     enable = true;
     font.name = "Fira Code";
-    theme = "Catppuccin-Mocha";
     settings = {
       disable_ligatures = "cursor";
       paste_actions = ""; # removes all actions
@@ -39,4 +38,6 @@
       map kitty_mod+y scroll_to_prompt -1
     '';
   };
+
+  theme.kitty = true;
 }

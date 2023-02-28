@@ -55,7 +55,7 @@
 
   theme = {
     enable = true;
-    variant = "mocha";
+    palette = "mocha";
   };
 
   programs.mpv = {

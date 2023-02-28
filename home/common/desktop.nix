@@ -58,8 +58,9 @@
       name = "Fira Sans Regular";
       size = 11;
     };
-    theme.name = "Catppuccin-Mocha-Standard-Teal-Dark";
   };
+
+  theme.gtk = true;
 
   # TODO: Kvantum maybe?
   # TODO: Qt 6!
@@ -77,10 +78,5 @@
     monocraft
     fira-code
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-
-    (catppuccin-gtk.override {
-      accents = ["teal"];
-      variant = "mocha";
-    })
   ];
 }
