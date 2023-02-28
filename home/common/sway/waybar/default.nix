@@ -170,7 +170,7 @@
       };
     };
     systemd.enable = true;
-    style = with config.theme; ''
+    style = with config.theme.colors; ''
       window#waybar {
         font-family: "Monocraft";
         font-size: 10pt;

@@ -1,5 +1,5 @@
 {config, ...}: {
-  programs.mako = with config.theme; {
+  programs.mako = with config.theme.colors; {
     enable = true;
     font = "Monocraft 10";
     borderRadius = 12;

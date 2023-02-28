@@ -92,7 +92,7 @@
         names = ["Monocraft"];
         size = 10.0;
       };
-      colors = with config.theme; {
+      colors = with config.theme.colors; {
         focused = {
           background = "#${blue}";
           border = "#${blue}";

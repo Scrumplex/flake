@@ -53,6 +53,11 @@
     steam-run
   ];
 
+  theme = {
+    enable = true;
+    variant = "mocha";
+  };
+
   programs.mpv = {
     enable = true;
     config = {

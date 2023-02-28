@@ -5,7 +5,7 @@
 }: {
   home.packages = with pkgs; [fuzzel];
 
-  xdg.configFile."fuzzel/fuzzel.ini".text = with config.theme; ''
+  xdg.configFile."fuzzel/fuzzel.ini".text = with config.theme.colors; ''
     [main]
     font="Monocraft:size=13"
     terminal=${pkgs.kitty}/bin/kitty

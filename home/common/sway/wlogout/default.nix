@@ -47,7 +47,7 @@
         keybind = "l";
       }
     ];
-    style = with config.theme; ''
+    style = with config.theme.colors; ''
       window {
         font-family: "Fira Code";
         font-size: 10pt;

@@ -28,7 +28,7 @@
     Install.WantedBy = ["sockets.target"];
   };
 
-  xdg.configFile."wob/wob.ini".text = with config.theme; ''
+  xdg.configFile."wob/wob.ini".text = with config.theme.colors; ''
     border_offset=0
     border_size=2
     bar_padding=8
