@@ -70,15 +70,15 @@
   };
 
   home.packages = with pkgs; [
-    pkgs.xdg-user-dirs
-    pkgs.xdg-utils
+    xdg-user-dirs
+    xdg-utils
 
-    pkgs.fira
-    pkgs.monocraft
-    pkgs.fira-code
-    (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+    fira
+    monocraft
+    fira-code
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
 
-    (pkgs.catppuccin-gtk.override {
+    (catppuccin-gtk.override {
       accents = ["teal"];
       variant = "mocha";
     })

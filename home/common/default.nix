@@ -6,16 +6,16 @@
   ...
 }: {
   imports = [
-    ./base.nix
-    ./core.nix
+    ./desktop.nix
+    ./dev.nix
     ./fish.nix
+    ./kitty.nix
+    ./mpd.nix
     ./neovim.nix
     ./pipewire
-    ./mpd.nix
     ./ranger.nix
-    ./sway
-    ./kitty.nix
     ./screenshot-bash.nix
+    ./sway
   ];
 
   home.packages = with pkgs; [
