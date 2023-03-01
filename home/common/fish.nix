@@ -40,7 +40,7 @@
         ll = "ls -laFh";
       }
       (lib.mkIf config.programs.exa.enable {
-        ls = "${config.programs.exa.package}/bin/exa";
+        ls = "exa"; # note: we rely on the alias created by exa
       })
     ];
     functions.systemctl = ''
@@ -141,5 +141,9 @@
     nix-direnv.enable = true;
   };
 
-  programs.exa.enable = true;
+  programs.exa = {
+    enable = true;
+    icons = true;
+    git = true;
+  };
 }
