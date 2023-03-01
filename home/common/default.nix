@@ -45,6 +45,8 @@
     krita
     libreoffice
     portfolio
+    gnome.nautilus
+    dolphin
 
     qpwgraph
     beets
