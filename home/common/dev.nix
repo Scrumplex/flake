@@ -9,8 +9,6 @@
 
     userName = "Sefa Eyeoglu";
     userEmail = "contact@scrumplex.net";
-    signing.key = "E13DFD4B47127951";
-    signing.signByDefault = true;
 
     delta = {
       enable = true;
@@ -36,6 +34,11 @@
         "https://codeberg.org/".insteadOf = "codeberg:";
         "ssh://git@codeberg.org/".pushInsteadOf = "codeberg:";
       };
+
+      # don't use programs.git.signing, as it will force some settings here
+      # See https://github.com/nix-community/home-manager/pull/3479
+      user.signingKey = "E13DFD4B47127951";
+      commit.gpgSign = true;
     };
   };
 
