@@ -72,7 +72,7 @@
       pkgs = import nixpkgs {
         inherit system;
         config = {allowUnfree = true;};
-        overlays = [nix-serve-ng.overlays.default prismlauncher.overlay screenshot-bash.overlay scrumpkgs];
+        overlays = [nix-serve-ng.overlays.default prismlauncher.overlay screenshot-bash.overlays.default scrumpkgs];
       };
       scrumModules = import ./modules;
 

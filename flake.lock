@@ -554,11 +554,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1675260394,
-        "narHash": "sha256-QimBcfuPsE/2zlIwH45A2ZU0cxbUAusKYCalERoeMTY=",
+        "lastModified": 1677684148,
+        "narHash": "sha256-b5xTm9Gr2F1iFq2WXYLV13HJ4KSnqpzPnurSPI9xJsA=",
         "ref": "refs/heads/master",
-        "rev": "b7435fb3b0be09ad7b0c9ff8c8bf5cbd622a4033",
-        "revCount": 45,
+        "rev": "afe18036aab6eefafa53c005abdbfaf5cd2c290b",
+        "revCount": 46,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/screenshot-bash"
       },
