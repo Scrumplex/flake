@@ -1,5 +1,20 @@
 {pkgs, ...}: {
-  boot.tmpOnTmpfs = true;
+  programs.adb.enable = true;
+  services.openssh.enable = true;
+  virtualisation.podman = {
+    enable = true;
+    dockerSocket.enable = true;
+  };
+
+  networking.firewall = {
+    allowedTCPPorts = [
+      22000 # syncthing
+    ];
+    allowedUDPPorts = [
+      21027 # syncthing
+      22000 # syncthing
+    ];
+  };
 
   services.udev.packages = with pkgs; [zoom65-udev-rules];
 

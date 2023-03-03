@@ -99,8 +99,8 @@
               }
               agenix.nixosModules.age
               lanzaboote.nixosModules.lanzaboote
-              ./hosts/common
-              ./hosts/${hostName}
+              ./host/common
+              ./host/${hostName}
               ({lib, ...}: {networking.hostName = lib.mkDefault hostName;})
 
               (import ./home username)
