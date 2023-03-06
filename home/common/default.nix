@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./autostart.nix
     ./desktop.nix
     ./dev.nix
     ./fish.nix
