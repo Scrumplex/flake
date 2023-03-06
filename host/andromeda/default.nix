@@ -11,6 +11,9 @@
   powerManagement.cpuFreqGovernor = "schedutil";
   hardware.amdgpu.amdvlk = false;
 
+  networking.useNetworkd = true;
+  systemd.network.wait-online.anyInterface = true;
+
   fileSystems = {
     "/media/DATA" = {
       device = "/dev/disk/by-id/ata-KINGSTON_SA400S37960G_50026B768299115B-part1";
