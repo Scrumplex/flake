@@ -10,7 +10,8 @@ in {
     isNormalUser = true;
     shell = pkgs.fish;
     extraGroups =
-      ["wheel" "input"]
+      ["wheel" "input" "audio" "video"]
+      ++ optional config.security.rtkit.enable "rtkit"
       ++ optional config.networking.networkmanager.enable "networkmanager"
       ++ optional config.programs.adb.enable "adbusers"
       ++ optional config.virtualisation.libvirtd.enable "libvirtd"
