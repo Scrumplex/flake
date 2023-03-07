@@ -62,17 +62,14 @@
 
   theme.gtk = true;
 
-  # TODO: Kvantum maybe?
-  # TODO: Qt 6!
-  qt = {
-    enable = true;
-    platformTheme = "gtk";
-    style.name = "gtk2";
-  };
+  home.sessionVariables.QT_QPA_PLATFORMTHEME = "qt5ct";
 
   home.packages = with pkgs; [
     xdg-user-dirs
     xdg-utils
+
+    qt5ct
+    qt6ct
 
     fira
     monocraft
