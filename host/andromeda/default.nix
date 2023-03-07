@@ -13,6 +13,7 @@
 
   networking.useNetworkd = true;
   systemd.network.wait-online.anyInterface = true;
+  services.resolved.dnssec = "false";
 
   fileSystems = {
     "/media/DATA" = {
