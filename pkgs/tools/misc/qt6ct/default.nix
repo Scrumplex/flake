@@ -6,6 +6,7 @@
   qtsvg,
   qmake,
   qttools,
+  wrapQtAppsHook,
 }: let
   inherit (lib) getDev;
 in
@@ -20,7 +21,7 @@ in
       sha256 = "7WuHdb7gmdC/YqrPDT7OYbD6BEm++EcIkmORW7cSPDE=";
     };
 
-    nativeBuildInputs = [qmake qttools];
+    nativeBuildInputs = [qmake qttools wrapQtAppsHook];
 
     buildInputs = [qtbase qtsvg];
 
@@ -28,7 +29,6 @@ in
       "LRELEASE_EXECUTABLE=${getDev qttools}/bin/lrelease"
       "PLUGINDIR=${placeholder "out"}/${qtbase.qtPluginPrefix}"
     ];
-    dontWrapQtApps = true;
 
     meta = with lib; {
       description = "Qt6 Configuration Tool";
