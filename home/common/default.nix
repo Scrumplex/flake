@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./autostart.nix
+    ./beets.nix
     ./desktop.nix
     ./dev.nix
     ./fish.nix
@@ -50,7 +51,6 @@
     dolphin
 
     qpwgraph
-    beets
 
     steam
     steam-run

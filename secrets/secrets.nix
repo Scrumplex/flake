@@ -11,8 +11,10 @@ let
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOLPh2twOIyrawZAQC76U9gUVETyPWBOSWJ4k9hdA8mP"
   ];
 in {
+  "andromeda/cache-key.age".publicKeys = andromeda ++ scrumplex;
   "andromeda/wg.age".publicKeys = andromeda ++ scrumplex;
+
   "dyson/wg.age".publicKeys = dyson ++ scrumplex;
 
-  "andromeda/cache-key.age".publicKeys = andromeda ++ scrumplex;
+  "common/beets-secrets.yaml".publicKeys = andromeda ++ dyson ++ scrumplex;
 }

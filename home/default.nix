@@ -18,6 +18,11 @@ in {
       ++ optional config.virtualisation.podman.enable "podman";
   };
 
+  age.secrets."beets-secrets.yaml" = {
+    file = ../secrets/common/beets-secrets.yaml;
+    owner = username;
+  };
+
   nix.settings.trusted-users = [username];
 
   home-manager.users."${username}" = {
