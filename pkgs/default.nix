@@ -1,12 +1,15 @@
-{pkgs, ...}: {
-  fuzzel-dmenu-shim = pkgs.callPackage ./tools/wayland/fuzzel-dmenu-shim {};
+self: super:
+with self; {
+  fishPlugins = super.fishPlugins.overrideScope' (import ./shells/fish/plugins);
 
-  qt6ct = pkgs.qt6Packages.callPackage ./tools/misc/qt6ct {};
+  fuzzel-dmenu-shim = callPackage ./tools/wayland/fuzzel-dmenu-shim {};
 
-  run-or-raise = pkgs.callPackage ./tools/wayland/run-or-raise {};
+  qt6ct = qt6Packages.callPackage ./tools/misc/qt6ct {};
 
-  termapp = pkgs.callPackage ./tools/wayland/termapp {};
+  run-or-raise = callPackage ./tools/wayland/run-or-raise {};
+
+  termapp = callPackage ./tools/wayland/termapp {};
 
   zoom65-udev-rules =
-    pkgs.callPackage ./os-specific/linux/zoom65-udev-rules {};
+    callPackage ./os-specific/linux/zoom65-udev-rules {};
 }
