@@ -49,6 +49,7 @@
     portfolio
     gnome.nautilus
     dolphin
+    AusweisApp2
 
     qpwgraph
 
