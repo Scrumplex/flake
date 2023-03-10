@@ -50,6 +50,32 @@
           sudo systemctl $argv
       end
     '';
+    plugins = with pkgs.fishPlugins; [
+      {
+        name = "autopair.fish";
+        src = autopair-fish.src;
+      }
+      {
+        name = "bobthefisher";
+        src = bobthefisher.src;
+      }
+      {
+        name = "fzf";
+        src = fzf.src;
+      }
+      {
+        name = "humantime.fish";
+        src = humantime-fish.src;
+      }
+      {
+        name = "puffer";
+        src = puffer.src;
+      }
+      {
+        name = "z";
+        src = z.src;
+      }
+    ];
     theme = {
       enable = true;
       name = "Catppuccin Mocha";
@@ -72,14 +98,4 @@
     icons = true;
     git = true;
   };
-
-  home.packages = with pkgs.fishPlugins; [
-    done
-    z
-    autopair-fish
-    bobthefisher
-    humantime-fish
-    fzf
-    puffer
-  ];
 }
