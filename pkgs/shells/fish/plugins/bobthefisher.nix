@@ -5,17 +5,17 @@
 }:
 buildFishPlugin rec {
   pname = "bobthefisher";
-  version = "unstable-2022-06-27";
+  version = "unstable-2023-03-09";
 
   src = fetchFromGitHub {
     owner = "Scrumplex";
-    repo = pname;
-    rev = "fb35870208f697e57946ed044345c94306899466";
-    sha256 = "sha256-SubqgQooQq+gOC/UE3i96Sst/Q29kGwsQ6IMZVePFw8=";
+    repo = "bobthefisher";
+    rev = "6528033a2c9ca90611d04b6a4afd2131b9495cdc";
+    sha256 = "sha256-UDoSMFKtd6ur10guqJlkpA0YSCBv45FR5QKJqdXZWgw=";
   };
 
   meta = with lib; {
-    description = "A Powerline-style, Git-aware fish theme optimized for awesome";
+    description = "A Powerline-style, Git-aware fish theme optimized for awesome (fork of bobthefish)";
     homepage = "https://github.com/Scrumplex/bobthefisher";
     license = licenses.mit;
     maintainers = with maintainers; [Scrumplex];
