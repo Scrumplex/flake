@@ -31,7 +31,10 @@
   };
 
   services.logind.extraConfig = ''
-    HandlePowerKey=suspend
+    HandlePowerKey=suspend-then-hibernate
+    HandleLidSwitch=suspend-then-hibernate
+    PowerKeyIgnoreInhibited=yes
+    LidSwitchIgnoreInhibited=no
   '';
 
   environment.systemPackages = with pkgs; [vim];
