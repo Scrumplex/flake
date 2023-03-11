@@ -1,0 +1,173 @@
+From fdf56f23334abf993c548ad15b37f55ca44454a9 Mon Sep 17 00:00:00 2001
+From: Sefa Eyeoglu <contact@scrumplex.net>
+Date: Sat, 11 Mar 2023 12:41:56 +0100
+Subject: [PATCH 1/2] Add token_file configuration option
+
+This option provides an alternative way to set the access token. Instead
+of providing the value in the configuration file, users can now use a
+secure path to provide the secret in and let listenbrainz-mpd load it
+from there.
+
+This is especially useful for Nix users, as this allows storing the
+secret outside of the world readable Nix store.
+
+Signed-off-by: Sefa Eyeoglu <contact@scrumplex.net>
+---
+ config.toml.sample          |  3 +++
+ src/config.rs               | 30 ++++++++++++++++++++++++++++--
+ src/submission_actor/mod.rs |  2 +-
+ 3 files changed, 32 insertions(+), 3 deletions(-)
+
+diff --git a/config.toml.sample b/config.toml.sample
+index 89452e4..bb85ea1 100644
+--- a/config.toml.sample
++++ b/config.toml.sample
+@@ -6,6 +6,9 @@
+ # If you use listenbrainz.org, obtain this from https://listenbrainz.org/profile and put it
+ # between the quotes.
+ token = ""
++# Alternatively you can specify a path to a file that contains the token. This file will be read
++# at runtime.
++#token_file = ""
+ 
+ # Submit genre tags on the played songs as folksonomy tags.
+ #genres_as_folksonomy = true
+diff --git a/src/config.rs b/src/config.rs
+index d282068..075455c 100644
+--- a/src/config.rs
++++ b/src/config.rs
+@@ -31,13 +31,21 @@ pub fn load(args: CliArgs) -> Result<Configuration> {
+     let mut config: Configuration = toml::from_str(&config)
+         .with_context(|| format!("Failed to parse configuration file at {}", path.display()))?;
+ 
++    if let Token::File { token_file } = &config.submission.token {
++        let token = fs::read_to_string(token_file).expect(&format!(
++            "Failed to read token file {}",
++            token_file.display()
++        ));
++        config.submission.token = Token::Inline { token };
++    }
++
+     validate(&mut config).context("Invalid configuration")?;
+ 
+     Ok(config)
+ }
+ 
+ fn validate(config: &mut Configuration) -> Result<()> {
+-    if config.submission.token.is_empty() {
++    if config.submission.token.value().is_empty() {
+         bail!("User token cannot be empty");
+     }
+ 
+@@ -103,9 +111,27 @@ pub struct Configuration {
+     pub mpd: Mpd,
+ }
+ 
++#[derive(Debug, Deserialize)]
++#[serde(untagged)]
++pub enum Token {
++    Inline { token: String },
++    File { token_file: std::path::PathBuf },
++}
++
++impl Token {
++    pub fn value(&self) -> &str {
++        if let Token::Inline { token } = self {
++            token.trim()
++        } else {
++            ""
++        }
++    }
++}
++
+ #[derive(Debug, Deserialize)]
+ pub struct Submission {
+-    pub token: String,
++    #[serde(flatten)]
++    pub token: Token,
+     #[serde(default = "default_api_url")]
+     pub api_url: String,
+     #[serde(default = "genres_as_folksonomy")]
+diff --git a/src/submission_actor/mod.rs b/src/submission_actor/mod.rs
+index ee7a0d2..c6a9aa8 100644
+--- a/src/submission_actor/mod.rs
++++ b/src/submission_actor/mod.rs
+@@ -97,7 +97,7 @@ fn build_http_client(configuration: &Configuration) -> Client {
+     let mut headers = HeaderMap::new();
+     headers.insert(
+         header::AUTHORIZATION,
+-        HeaderValue::from_str(&format!("Token {}", configuration.submission.token))
++        HeaderValue::from_str(&format!("Token {}", configuration.submission.token.value()))
+             .expect("failed to create Authorization header"),
+     );
+ 
+-- 
+2.30.8
+
+
+From 19b4b6c0997bf6f03fb8eee5904f0066d6d3c003 Mon Sep 17 00:00:00 2001
+From: Sefa Eyeoglu <contact@scrumplex.net>
+Date: Sat, 11 Mar 2023 12:51:29 +0100
+Subject: [PATCH 2/2] Add password_file configuration option
+
+Similarly to the token_file option, allow specifying a password for MPD
+by specifying a file path containing the secret.
+
+Signed-off-by: Sefa Eyeoglu <contact@scrumplex.net>
+---
+ config.toml.sample |  4 ++++
+ src/config.rs      | 12 ++++++++++++
+ 2 files changed, 16 insertions(+)
+
+diff --git a/config.toml.sample b/config.toml.sample
+index bb85ea1..c5bd761 100644
+--- a/config.toml.sample
++++ b/config.toml.sample
+@@ -32,3 +32,7 @@ token = ""
+ # MPD server password.
+ # Defaults to no password.
+ #password = ""
++# Alternatively you can specify a path to a file that contains the password. This file will be
++# read at runtime.
++# Defaults to no path.
++#password_file = ""
+diff --git a/src/config.rs b/src/config.rs
+index 075455c..99c0665 100644
+--- a/src/config.rs
++++ b/src/config.rs
+@@ -39,6 +39,16 @@ pub fn load(args: CliArgs) -> Result<Configuration> {
+         config.submission.token = Token::Inline { token };
+     }
+ 
++    if config.mpd.password.is_none() {
++        if let Some(pw_file) = &config.mpd.password_file {
++            let password = fs::read_to_string(pw_file).expect(&format!(
++                "Failed to read password file {}",
++                pw_file.display()
++            ));
++            config.mpd.password = Some(password);
++        }
++    }
++
+     validate(&mut config).context("Invalid configuration")?;
+ 
+     Ok(config)
+@@ -153,6 +163,7 @@ fn genres_as_folksonomy() -> bool {
+ pub struct Mpd {
+     pub address: String,
+     pub password: Option<String>,
++    pub password_file: Option<std::path::PathBuf>,
+ }
+ 
+ impl Default for Mpd {
+@@ -160,6 +171,7 @@ impl Default for Mpd {
+         Mpd {
+             address: String::from("127.0.0.1:6600"),
+             password: None,
++            password_file: None,
+         }
+     }
+ }
+-- 
+2.30.8
+

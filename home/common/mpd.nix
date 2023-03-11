@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  nixosConfig,
+  pkgs,
+  ...
+}: let
   mpdFifoName = "FIFO";
   mpdFifoPath = "~/.cache/mpd.fifo";
 in {
@@ -31,6 +35,10 @@ in {
     '';
   };
   services.mpd-discord-rpc.enable = true;
+  services.listenbrainz-mpd = {
+    enable = true;
+    settings.submission.token_file = nixosConfig.age.secrets."listenbrainz-token".path;
+  };
   programs.ncmpcpp = {
     enable = true;
     package = pkgs.ncmpcpp.override {visualizerSupport = true;};

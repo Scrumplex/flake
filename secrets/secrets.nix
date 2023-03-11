@@ -17,4 +17,5 @@ in {
   "dyson/wg.age".publicKeys = dyson ++ scrumplex;
 
   "common/beets-secrets.yaml".publicKeys = andromeda ++ dyson ++ scrumplex;
+  "common/listenbrainz-token".publicKeys = andromeda ++ dyson ++ scrumplex;
 }
