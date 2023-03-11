@@ -11,7 +11,6 @@
 
     config = {
       terminal = "${pkgs.kitty}/bin/kitty";
-      menu = "${pkgs.fuzzel}/bin/fuzzel";
       modifier = "Mod4";
       startup = [
         {

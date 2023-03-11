@@ -25,7 +25,8 @@
       };
     };
   };
-  home.packages = [config.programs.fuzzel.package];
+
+  wayland.windowManager.sway.config.menu = "${config.programs.fuzzel.package}/bin/fuzzel";
 
   programs.password-store.package =
     pkgs.pass-wayland.override {dmenu-wayland = pkgs.fuzzel-dmenu-shim;};
