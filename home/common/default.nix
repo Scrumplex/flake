@@ -21,7 +21,6 @@
   ];
 
   home.packages = with pkgs; [
-    htop
     file
     tree
     unzip
@@ -129,4 +128,25 @@
       sha256 = "GrRCOwCgM8BFhY8TzO3/WDTUnGtqkhvlDWE//ox2GxI=";
     };
   in "${theme}/dist/mocha.yml";
+
+  programs.htop = {
+    enable = true;
+    settings =
+      {
+        ".tree_view_always_by_pid" = 1;
+      }
+      // (with config.lib.htop;
+        leftMeters [
+          (bar "LeftCPUs2")
+          (bar "Memory")
+          (bar "Swap")
+        ])
+      // (with config.lib.htop;
+        rightMeters [
+          (bar "RightCPUs2")
+          (text "Tasks")
+          (text "LoadAverage")
+          (text "Uptime")
+        ]);
+  };
 }
