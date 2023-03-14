@@ -156,11 +156,11 @@
     "flake-compat_6": {
       "flake": false,
       "locked": {
-        "lastModified": 1668681692,
-        "narHash": "sha256-Ht91NGdewz8IQLtWZ9LCeNXMSXHUss+9COoqu6JLmXU=",
+        "lastModified": 1673956053,
+        "narHash": "sha256-4gtG9iQuiKITOjNQQeQIpoIB6b16fm+504Ch3sNKLd8=",
         "owner": "edolstra",
         "repo": "flake-compat",
-        "rev": "009399224d5e398d03b22badca40a37ac85412a1",
+        "rev": "35bb57c0c8d8b62bbfd284272c928ceb64ddbde9",
         "type": "github"
       },
       "original": {
@@ -489,17 +489,23 @@
     "prismlauncher": {
       "inputs": {
         "flake-compat": "flake-compat_6",
+        "flake-utils": [
+          "flake-utils"
+        ],
         "libnbtplusplus": "libnbtplusplus",
         "nixpkgs": [
           "nixpkgs"
+        ],
+        "pre-commit-hooks": [
+          "pre-commit-hooks"
         ]
       },
       "locked": {
-        "lastModified": 1678739088,
-        "narHash": "sha256-yqzJpgdWO0Vct+9UazLy60XXmngTMKpvHGok8P9owpY=",
+        "lastModified": 1678798431,
+        "narHash": "sha256-+BzvPioU0vwFQny+bdTRcbljA2nt90Mt3wN6hm7rvlU=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "e0e26a37b530254383fbb7b6853e8e3358f7100d",
+        "rev": "45b0367d14f38d40af5cc8603f7daab05d83af5f",
         "type": "github"
       },
       "original": {

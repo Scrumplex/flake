@@ -31,6 +31,8 @@
     prismlauncher = {
       url = "github:PrismLauncher/PrismLauncher";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };
     screenshot-bash = {
       url = "git+https://codeberg.org/Scrumplex/screenshot-bash";
@@ -72,7 +74,7 @@
       pkgs = import nixpkgs {
         inherit system;
         config = {allowUnfree = true;};
-        overlays = [nix-serve-ng.overlays.default prismlauncher.overlay screenshot-bash.overlays.default scrumpkgs];
+        overlays = [nix-serve-ng.overlays.default prismlauncher.overlays.default screenshot-bash.overlays.default scrumpkgs];
       };
       scrumModules = import ./modules;
 
