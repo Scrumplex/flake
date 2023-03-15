@@ -31,6 +31,7 @@
     distrobox
     imv
     okular
+    evince
     virt-manager
     fluxcd
 
