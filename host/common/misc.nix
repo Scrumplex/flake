@@ -43,5 +43,7 @@
     }
   ];
 
+  services.udisks2.enable = true;
+
   security.pki.certificates = [(builtins.readFile ../../misc/root_ca.crt)];
 }
