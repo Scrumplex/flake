@@ -38,7 +38,7 @@
     shellAliases = lib.mkMerge [
       {
         ip = "ip --color=auto";
-        ll = "ls -laFh";
+        ll = "ls -l --all --classify --human-readable";
       }
       (lib.mkIf config.programs.exa.enable {
         ls = "exa"; # note: we rely on the alias created by exa
