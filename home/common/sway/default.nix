@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  imports = [./clipboard.nix ./fuzzel.nix ./mako.nix ./swayidle.nix ./waybar ./wlogout ./wlsunset.nix ./wob.nix];
+  imports = [./fuzzel.nix ./mako.nix ./swayidle.nix ./waybar ./wlogout ./wlsunset.nix ./wob.nix];
 
   wayland.windowManager.sway = {
     enable = true;
