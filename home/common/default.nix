@@ -134,7 +134,9 @@
     enable = true;
     settings =
       {
+        "delay" = 10;
         ".tree_view_always_by_pid" = 1;
+        "tree_view" = 1;
       }
       // (with config.lib.htop;
         leftMeters [
