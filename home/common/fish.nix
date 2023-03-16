@@ -37,6 +37,7 @@
     };
     shellAliases = lib.mkMerge [
       {
+        ip = "ip --color=auto";
         ll = "ls -laFh";
       }
       (lib.mkIf config.programs.exa.enable {
