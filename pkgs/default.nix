@@ -4,8 +4,6 @@ with self; {
 
   fuzzel-dmenu-shim = callPackage ./tools/wayland/fuzzel-dmenu-shim {};
 
-  listenbrainz-mpd = super.listenbrainz-mpd.overrideAttrs (import ./applications/audio/listenbrainz-mpd);
-
   qt6ct = qt6Packages.callPackage ./tools/misc/qt6ct {};
 
   run-or-raise = callPackage ./tools/wayland/run-or-raise {};
