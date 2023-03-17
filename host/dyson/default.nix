@@ -30,11 +30,17 @@
     gtklock.gnupg = config.security.pam.services.login.gnupg;
   };
 
-  services.logind.extraConfig = ''
-    HandlePowerKey=suspend-then-hibernate
-    HandleLidSwitch=suspend-then-hibernate
-    PowerKeyIgnoreInhibited=yes
-    LidSwitchIgnoreInhibited=no
+  services.logind = {
+    lidSwitch = "suspend-then-hibernate";
+    extraConfig = ''
+      HandlePowerKey=suspend-then-hibernate
+      PowerKeyIgnoreInhibited=yes
+      LidSwitchIgnoreInhibited=no
+    '';
+  };
+
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=10m
   '';
 
   environment.systemPackages = with pkgs; [vim];
