@@ -8,5 +8,6 @@
     ./pipewire.nix
     ./regional.nix
     ./sway.nix
+    ./utils.nix
   ];
 }
