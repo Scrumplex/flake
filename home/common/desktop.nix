@@ -71,6 +71,8 @@
     qt5ct
     qt6ct
 
+    noto-fonts-emoji
+    noto-fonts-cjk
     fira
     monocraft
     fira-code
