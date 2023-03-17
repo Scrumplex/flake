@@ -27,8 +27,11 @@
     psmisc
     ripgrep
     libqalculate
+    ffmpeg
+    dig
     flatpak-builder
     distrobox
+
     imv
     okular
     evince
