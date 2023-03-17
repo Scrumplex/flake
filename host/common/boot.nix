@@ -17,5 +17,6 @@
     kernelParams = ["quiet" "udev.log_level=3"];
 
     tmpOnTmpfs = true;
+    tmpOnTmpfsSize = "75%";
   };
 }
