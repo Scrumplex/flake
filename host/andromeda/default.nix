@@ -6,7 +6,7 @@
   imports = [./hardware-configuration.nix ./nix-serve.nix ./wireguard.nix];
 
   hardware.enableRedistributableFirmware = true;
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  boot.kernelPackages = pkgs.linux_zen_scrumplex;
 
   powerManagement.cpuFreqGovernor = "schedutil";
   hardware.amdgpu.amdvlk = false;

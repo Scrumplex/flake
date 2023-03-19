@@ -4,6 +4,15 @@ with self; {
 
   fuzzel-dmenu-shim = callPackage ./tools/wayland/fuzzel-dmenu-shim {};
 
+  linux_zen_scrumplex = linuxPackagesFor (super.linuxKernel.packages.linux_zen.kernel.override {
+    kernelPatches = [
+      {
+        name = "cap_sys_nice_begone";
+        patch = ./cap_sys_nice_begone.patch;
+      }
+    ];
+  });
+
   qt6ct = qt6Packages.callPackage ./tools/misc/qt6ct {};
 
   run-or-raise = callPackage ./tools/wayland/run-or-raise {};
