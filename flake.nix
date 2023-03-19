@@ -70,11 +70,10 @@
     })
     // (let
       system = "x86_64-linux";
-      scrumpkgs = import ./pkgs;
       pkgs = import nixpkgs {
         inherit system;
         config = {allowUnfree = true;};
-        overlays = [nix-serve-ng.overlays.default prismlauncher.overlays.default screenshot-bash.overlays.default scrumpkgs];
+        overlays = [nix-serve-ng.overlays.default prismlauncher.overlays.default screenshot-bash.overlays.default self.overlays.default];
       };
       scrumModules = import ./modules;
 
@@ -132,5 +131,8 @@
 
           modules = [nixos-hardware.nixosModules.framework-12th-gen-intel];
         });
-    });
+    })
+    // {
+      overlays.default = import ./pkgs;
+    };
 }
