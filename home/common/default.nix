@@ -48,6 +48,7 @@
     inkscape
     gimp
     krita
+    tenacity
     libreoffice
     portfolio
     gnome.nautilus
