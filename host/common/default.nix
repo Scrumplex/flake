@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./boot.nix
+    ./bluetooth.nix
     ./fish.nix
     ./gaming.nix
     ./misc.nix

@@ -13,6 +13,8 @@
 
   networking.networkmanager.enable = true;
 
+  hardware.bluetooth.enable = true;
+
   services.flatpak.enable = true;
   xdg.portal = {
     enable = true;
