@@ -16,6 +16,7 @@
   services.resolved.dnssec = "false";
 
   hardware.bluetooth.enable = true;
+  hardware.xpadneo.enable = true;
 
   fileSystems = {
     "/media/DATA" = {
