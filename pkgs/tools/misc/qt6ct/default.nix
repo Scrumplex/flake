@@ -12,13 +12,13 @@
 in
   stdenv.mkDerivation rec {
     pname = "qt6ct";
-    version = "0.7";
+    version = "0.8";
 
     src = fetchFromGitHub {
       owner = "trialuser02";
       repo = "qt6ct";
       rev = version;
-      sha256 = "7WuHdb7gmdC/YqrPDT7OYbD6BEm++EcIkmORW7cSPDE=";
+      sha256 = "BFE5aUgn3uFJWTgd4sUwP2L9RZwwwr5jVtAapA9vYbA=";
     };
 
     nativeBuildInputs = [qmake qttools wrapQtAppsHook];
@@ -28,6 +28,7 @@ in
     qmakeFlags = [
       "LRELEASE_EXECUTABLE=${getDev qttools}/bin/lrelease"
       "PLUGINDIR=${placeholder "out"}/${qtbase.qtPluginPrefix}"
+      "LIBDIR=${placeholder "out"}/lib"
     ];
 
     meta = with lib; {
