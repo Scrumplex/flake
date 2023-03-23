@@ -27,7 +27,7 @@
       colmena = {
         meta.name = "scrumplex.net";
         meta.description = "scrumplex.net Network";
-        meta.nixpkgs = import nixpkgs {system = "x86_64-linux";};
+        meta.nixpkgs = nixpkgs.legacyPackages.x86_64-linux;
 
         defaults.imports = ["${agenix}/modules/age.nix"];
 
