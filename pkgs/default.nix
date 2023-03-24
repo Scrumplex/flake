@@ -4,6 +4,8 @@ with self; {
 
   fuzzel-dmenu-shim = callPackage ./tools/wayland/fuzzel-dmenu-shim {};
 
+  glfw-wayland-minecraft = callPackage ./development/libraries/glfw-wayland-minecraft {};
+
   linux_zen_scrumplex = linuxPackagesFor (super.linuxKernel.packages.linux_zen.kernel.override {
     kernelPatches = [
       {
@@ -12,6 +14,10 @@ with self; {
       }
     ];
   });
+
+  prismlauncher = super.prismlauncher.override {
+    glfw = glfw-wayland-minecraft;
+  };
 
   qt6ct = qt6Packages.callPackage ./tools/misc/qt6ct {};
 
