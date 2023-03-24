@@ -41,7 +41,6 @@ in {
   };
   programs.ncmpcpp = {
     enable = true;
-    package = pkgs.ncmpcpp.override {visualizerSupport = true;};
     bindings = [
       {
         key = "9";

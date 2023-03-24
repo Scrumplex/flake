@@ -15,6 +15,10 @@ with self; {
     ];
   });
 
+  ncmpcpp = super.ncmpcpp.override {
+    visualizerSupport = true;
+  };
+
   prismlauncher = super.prismlauncher.override {
     glfw = glfw-wayland-minecraft;
   };

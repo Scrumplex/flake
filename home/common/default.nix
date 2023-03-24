@@ -21,42 +21,43 @@
   ];
 
   home.packages = with pkgs; [
+    dig
+    distrobox
+    ffmpeg
     file
-    tree
-    unzip
+    flatpak-builder
+    fluxcd
+    libqalculate
     psmisc
     ripgrep
-    libqalculate
-    ffmpeg
-    dig
-    flatpak-builder
-    distrobox
+    tree
+    unzip
 
+    ark
+    dolphin
+    evince
+    gnome.nautilus
     imv
     okular
-    evince
-    virt-manager
-    fluxcd
 
-    slack
-    tdesktop
-    signal-desktop
+    qpwgraph
+    virt-manager
+
     element-desktop
-    prismlauncher
-    ark
-    evolution
+    signal-desktop
+    tdesktop
+
     inkscape
     gimp
     krita
     tenacity
     libreoffice
+
+    evolution
     portfolio
-    gnome.nautilus
-    dolphin
     AusweisApp2
 
-    qpwgraph
-
+    prismlauncher
     steam
     steam-run
   ];

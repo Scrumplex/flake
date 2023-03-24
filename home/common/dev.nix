@@ -134,9 +134,4 @@
   services.gnome-keyring.enable = true;
 
   programs.password-store.enable = true;
-
-  home.packages = with pkgs; [
-    git-crypt
-    config.programs.password-store.package
-  ];
 }

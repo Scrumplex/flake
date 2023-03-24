@@ -42,13 +42,4 @@
       include = [nixosConfig.age.secrets."beets-secrets.yaml".path];
     };
   };
-
-  systemd.user.services."beets-mpdstats" = {
-    Unit = {
-      Description = "Beets MPDStats daemon";
-      After = ["mpd.service"];
-      Requires = ["mpd.service"];
-    };
-    Service.ExecStart = "${config.programs.beets.package}/bin/beet mpdstats";
-  };
 }
