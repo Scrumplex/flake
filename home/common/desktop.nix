@@ -19,8 +19,7 @@
       name = "Adwaita";
     };
     font = {
-      package = pkgs.fira;
-      name = "Fira Sans Regular";
+      name = "Fira Sans";
       size = 11;
     };
   };
