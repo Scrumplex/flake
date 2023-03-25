@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   programs.adb.enable = true;
   programs.mtr.enable = true;
+  programs.bandwhich.enable = true;
   services.openssh.enable = true;
   virtualisation.podman = {
     enable = true;
