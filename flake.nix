@@ -75,7 +75,6 @@
         config = {allowUnfree = true;};
         overlays = [nix-serve-ng.overlays.default prismlauncher.overlays.default screenshot-bash.overlays.default self.overlays.default];
       };
-      scrumModules = import ./modules;
 
       username = "scrumplex";
 
@@ -96,7 +95,7 @@
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
 
-                home-manager.sharedModules = scrumModules;
+                home-manager.sharedModules = pkgs.lib.attrValues self.hmModules;
               }
               agenix.nixosModules.age
               lanzaboote.nixosModules.lanzaboote
@@ -133,6 +132,14 @@
         });
     })
     // {
+      hmModules = {
+        beets = import ./modules/hm/beets.nix;
+        catppuccin = import ./modules/hm/catppuccin.nix;
+        fish-theme = import ./modules/hm/fish-theme.nix;
+        fuzzel = import ./modules/hm/fuzzel.nix;
+        jellyfin-mpv-shim = import ./modules/hm/jellyfin-mpv-shim.nix;
+        pipewire = import ./modules/hm/pipewire.nix;
+      };
       overlays.default = import ./pkgs;
     };
 }
