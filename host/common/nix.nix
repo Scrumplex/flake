@@ -1,4 +1,6 @@
-{...}: {
+{pkgs, ...}: let
+  channelPath = "/etc/nix/channels/nixpkgs";
+in {
   nix = {
     settings = {
       auto-optimise-store = true;
@@ -10,5 +12,12 @@
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
+    nixPath = [
+      "nixpkgs=${channelPath}"
+    ];
   };
+
+  systemd.tmpfiles.rules = [
+    "L+ ${channelPath}     - - - - ${pkgs.path}"
+  ];
 }
