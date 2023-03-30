@@ -14,7 +14,6 @@
   services.openssh = {
     enable = true;
     ports = [22701];
-    listenAddresses = [{addr = "[::]";}];
     passwordAuthentication = false;
   };
 
