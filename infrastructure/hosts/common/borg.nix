@@ -1,7 +1,7 @@
 {config, ...}: {
   services.borgbackup.jobs.borgbase = {
     environment.BORG_RSH = "ssh -i ${config.age.secrets.id_borgbase.path}";
-    paths = ["/srv" "/var/lib"];
+    paths = ["/srv" "/var/lib" "/home" "/root"];
     startAt = "05:00"; # run later, maybe the servers are overloaded at 00:00 CE(S)T
     compression = "auto,zstd";
     prune.keep = {

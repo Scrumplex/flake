@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
     flake-utils.url = "github:numtide/flake-utils";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,6 +21,7 @@
     self,
     nixpkgs,
     flake-utils,
+    nixos-hardware,
     agenix,
     pre-commit-hooks,
   }:
@@ -51,6 +53,22 @@
           age.secrets."hetzner.key".file = secrets/duckhub/hetzner.key.age;
 
           imports = [./hosts/duckhub];
+        };
+
+        eclipse = {
+          deployment.targetHost = "eclipse.lan";
+          deployment.targetPort = 22701;
+
+          age.secrets."ca_intermediate.key".file = secrets/eclipse/ca_intermediate.key.age;
+          age.secrets."ca_intermediate.pass".file = secrets/eclipse/ca_intermediate.pass.age;
+          age.secrets.id_borgbase.file = secrets/eclipse/id_borgbase.age;
+
+          imports = [
+            nixos-hardware.nixosModules.common-cpu-amd-pstate
+            nixos-hardware.nixosModules.common-gpu-amd
+            nixos-hardware.nixosModules.common-pc-ssd
+            ./hosts/eclipse
+          ];
         };
       };
     }
