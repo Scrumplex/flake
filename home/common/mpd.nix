@@ -21,9 +21,9 @@ in {
       }
 
       audio_output {
-        type "pulse"
+        type "pipewire"
         name "Primary Audio Stream"
-        format "48000:32:2"
+        format "96000:32:2"
       }
 
       audio_output {
