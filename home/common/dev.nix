@@ -100,6 +100,7 @@
       "eclipse.lan" = {
         user = "root";
         hostname = "10.10.10.12";
+        port = 22701;
         identityFile = idFile;
       };
 
