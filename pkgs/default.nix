@@ -6,6 +6,15 @@ with self; {
 
   glfw-wayland-minecraft = callPackage ./development/libraries/glfw-wayland-minecraft {};
 
+  glfwUnstable = super.glfw.overrideAttrs (o: {
+    src = fetchFromGitHub {
+      owner = "glfw";
+      repo = "GLFW";
+      rev = "62e175ef9fae75335575964c845a302447c012c7";
+      sha256 = "sha256-GiY4d7xadR0vN5uCQyWaOpoo2o6uMGl1fCcX4uDGnks=";
+    };
+  });
+
   linux_zen_scrumplex = linuxPackagesFor (super.linuxKernel.packages.linux_zen.kernel.override {
     kernelPatches = [
       {
@@ -20,7 +29,7 @@ with self; {
   };
 
   prismlauncher = super.prismlauncher.override {
-    glfw = glfw-wayland-minecraft;
+    glfw = glfwUnstable;
   };
 
   qt6ct = qt6Packages.callPackage ./tools/misc/qt6ct {};
