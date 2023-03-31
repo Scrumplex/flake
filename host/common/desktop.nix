@@ -4,6 +4,7 @@
 
   fonts = {
     fonts = with pkgs; [
+      noto-fonts-cjk-sans
       fira
       monocraft
       fira-code
