@@ -96,6 +96,7 @@
       "cosmos.lan" = {
         user = "root";
         hostname = "10.10.10.11";
+        port = 22701;
         identityFile = idFile;
       };
 
