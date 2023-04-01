@@ -36,7 +36,7 @@
           eclipse = nixpkgs.legacyPackages.x86_64-linux;
         };
 
-        defaults.imports = ["${agenix}/modules/age.nix"];
+        defaults.imports = [agenix.nixosModules.age];
 
         spacehub = {
           deployment.targetHost = "scrumplex.net";
