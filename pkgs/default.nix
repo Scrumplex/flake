@@ -6,7 +6,7 @@ with self; {
 
   glfw-wayland-minecraft = callPackage ./development/libraries/glfw-wayland-minecraft {};
 
-  glfwUnstable = super.glfw.overrideAttrs (o: {
+  glfwUnstable = super.glfw.overrideAttrs (_: {
     src = fetchFromGitHub {
       owner = "glfw";
       repo = "GLFW";
