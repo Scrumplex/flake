@@ -6,6 +6,7 @@ let
 
   spacehub = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOPLNX2+TkwkR92aSmNw8faKt4DO58EJkJrBk//MEHrf";
   duckhub = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINo54AduiP0MDvRS35SeEV0Wi1Nlszo3enR/xVJtGQaX";
+  cosmos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFP1mSnn2jJw4nsRtGdikPlN6Cie+kOo5a1bYctjjapg";
   eclipse = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEgfjN4xqCCsl+XzvSFFIR4WQ18r4+G7kGcMLkTe4be6";
 in {
   "spacehub/id_borgbase.age".publicKeys = scrumplex ++ [spacehub];
@@ -15,6 +16,10 @@ in {
   "duckhub/id_borgbase.age".publicKeys = scrumplex ++ [duckhub];
   "duckhub/wireguard.key.age".publicKeys = scrumplex ++ [duckhub];
   "duckhub/hetzner.key.age".publicKeys = scrumplex ++ [duckhub];
+
+  "cosmos/id_borgbase.age".publicKeys = scrumplex ++ [cosmos];
+  "cosmos/wireguard.key.age".publicKeys = scrumplex ++ [cosmos];
+  "cosmos/hetzner.key.age".publicKeys = scrumplex ++ [cosmos];
 
   "eclipse/ca_intermediate.key.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/ca_intermediate.pass.age".publicKeys = scrumplex ++ [eclipse];

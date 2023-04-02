@@ -33,6 +33,7 @@
         meta.nodeNixpkgs = {
           spacehub = nixpkgs.legacyPackages.x86_64-linux;
           duckhub = nixpkgs.legacyPackages.x86_64-linux;
+          cosmos = nixpkgs.legacyPackages.aarch64-linux;
           eclipse = nixpkgs.legacyPackages.x86_64-linux;
         };
 
@@ -58,6 +59,21 @@
           age.secrets."hetzner.key".file = secrets/duckhub/hetzner.key.age;
 
           imports = [./hosts/duckhub];
+        };
+
+        cosmos = {
+          deployment.targetHost = "cosmos.lan";
+          deployment.targetPort = 22701;
+          deployment.buildOnTarget = true;
+
+          age.secrets.id_borgbase.file = secrets/cosmos/id_borgbase.age;
+          age.secrets."wireguard.key".file = secrets/cosmos/wireguard.key.age;
+          age.secrets."hetzner.key".file = secrets/cosmos/hetzner.key.age;
+
+          imports = [
+            nixos-hardware.nixosModules.raspberry-pi-4
+            ./hosts/cosmos
+          ];
         };
 
         eclipse = {
