@@ -1,8 +1,4 @@
-{
-  nixosConfig,
-  pkgs,
-  ...
-}: let
+{nixosConfig, ...}: let
   mpdFifoName = "FIFO";
   mpdFifoPath = "~/.cache/mpd.fifo";
 in {

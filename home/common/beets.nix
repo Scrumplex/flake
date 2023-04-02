@@ -1,7 +1,6 @@
 {
   config,
   nixosConfig,
-  pkgs,
   ...
 }: {
   programs.beets = {
