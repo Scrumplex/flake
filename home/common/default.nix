@@ -27,6 +27,7 @@
     file
     flatpak-builder
     fluxcd
+    kubectl
     libqalculate
     psmisc
     ripgrep
