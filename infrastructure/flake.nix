@@ -80,8 +80,16 @@
           deployment.targetHost = "eclipse.lan";
           deployment.targetPort = 22701;
 
-          age.secrets."ca_intermediate.key".file = secrets/eclipse/ca_intermediate.key.age;
-          age.secrets."ca_intermediate.pass".file = secrets/eclipse/ca_intermediate.pass.age;
+          age.secrets."ca_intermediate.key" = {
+            file = secrets/eclipse/ca_intermediate.key.age;
+            owner = "step-ca";
+            group = "step-ca";
+          };
+          age.secrets."ca_intermediate.pass" = {
+            file = secrets/eclipse/ca_intermediate.pass.age;
+            owner = "step-ca";
+            group = "step-ca";
+          };
           age.secrets.id_borgbase.file = secrets/eclipse/id_borgbase.age;
 
           imports = [
