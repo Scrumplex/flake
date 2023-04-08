@@ -8,6 +8,7 @@ in {
   imports = [
     ../common/common.nix
     ../common/borg.nix
+    ../common/nix.nix
 
     ./boot.nix
     ./traefik.nix

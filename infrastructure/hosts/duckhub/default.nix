@@ -5,6 +5,7 @@
     ../common/common.nix
     ../common/netcup.nix
     ../common/borg.nix
+    ../common/nix.nix
     ../common/traefik.nix
 
     ./traefik.nix # our overrides

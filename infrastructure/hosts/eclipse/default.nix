@@ -8,6 +8,7 @@
 
     ../common/common.nix
     ../common/borg.nix
+    ../common/nix.nix
 
     ./boot.nix
     ./step-ca.nix
