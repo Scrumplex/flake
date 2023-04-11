@@ -13,10 +13,4 @@
       "cgroup_memory=1"
     ];
   };
-
-  boot.loader.raspberryPi = {
-    enable = true;
-    version = 4;
-  };
-  boot.loader.generic-extlinux-compatible.enable = false;
 }
