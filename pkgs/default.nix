@@ -1,5 +1,9 @@
 self: super:
 with self; {
+  discord = super.discord.override {
+    withOpenASAR = true;
+  };
+
   fishPlugins = super.fishPlugins.overrideScope' (import ./shells/fish/plugins);
 
   fuzzel-dmenu-shim = callPackage ./tools/wayland/fuzzel-dmenu-shim {};
