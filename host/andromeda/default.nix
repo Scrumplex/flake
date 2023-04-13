@@ -38,6 +38,12 @@
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [samsung-unified-linux-driver_1_00_37];
+  };
+  services.avahi.enable = true;
+
   services.gnome.gnome-keyring.enable = true;
   security.pam.services = {
     login.gnupg = {
