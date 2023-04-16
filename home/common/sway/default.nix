@@ -219,8 +219,9 @@
         "XF86AudioRaiseVolume" = "exec ${pamixer} -ui 2 && ${pamixer} --get-volume > $XDG_RUNTIME_DIR/wob.sock";
         "XF86AudioLowerVolume" = "exec ${pamixer} -ud 2 && ${pamixer} --get-volume > $XDG_RUNTIME_DIR/wob.sock";
 
-        "${mod}+XF86AudioMute" = "exec ${pamixer} --default-source -t";
-        "${mod}+m" = "exec ${pamixer} --default-source -t";
+        "${mod}+XF86AudioMute" = "exec ${config.programs.waybar.settings.mainBar."custom/pa-mute".on-click}";
+        "${mod}+m" = "exec ${config.programs.waybar.settings.mainBar."custom/pa-mute".on-click}";
+        "${mod}+n" = "exec ${config.programs.waybar.settings.mainBar."custom/camera-blank".on-click}";
 
         "Shift+XF86AudioRaiseVolume" = "exec ${mpc} vol +2 && ${mpc} vol | ${sed} 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
         "Shift+XF86AudioLowerVolume" = "exec ${mpc} vol -2 && ${mpc} vol | ${sed} 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";

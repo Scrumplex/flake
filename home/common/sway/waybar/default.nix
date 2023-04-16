@@ -17,6 +17,7 @@
           "pulseaudio"
           "battery"
           "custom/pa-mute"
+          "custom/camera-blank"
           "idle_inhibitor"
           "clock#date"
           "tray"
@@ -155,6 +156,82 @@
           return-type = "json";
           on-click = "${pamixer} --default-source --toggle-mute";
         };
+        "custom/camera-blank" = let
+          v4l2-ctl = "${pkgs.v4l-utils}/bin/v4l2-ctl";
+          jq = "${pkgs.jq}/bin/jq";
+          sed = "${pkgs.gnused}/bin/sed";
+          device = "/dev/v4l/by-id/usb-Show-me_Webcam_Project_Piwebcam_00000000d97c0a61-video-index0";
+        in {
+          exec = pkgs.writeShellScript "camera-blank.sh" ''
+            # Based on https://git.sr.ht/~whynothugo/dotfiles/tree/adf6af990b0348974b657ed4241d4bcf83dbcea3/item/home/.local/lib/waybar-mic
+            # Copyright (c) 2012-2021, Hugo Osvaldo Barrera <hugo@barrera.io>
+            # Copyright (c) 2021,2023, Sefa Eyeoglu <contact@scrumplex.net>
+            #
+            # Permission to use, copy, modify, and/or distribute this software for any
+            # purpose with or without fee is hereby granted, provided that the above
+            # copyright notice and this permission notice appear in all copies.
+            #
+            # THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+            # REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+            # FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+            # INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+            # LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+            # OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+            # PERFORMANCE OF THIS SOFTWARE.
+
+
+            show() {
+              brightness=$(${v4l2-ctl} --device "${device}" -C brightness | ${sed} 's|n/a|0|g;s/[^0-9]*//g')
+              if [ "$brightness" != "50" ]; then
+                CLASS="blank"
+                TEXT="󱜷"
+              else
+                CLASS="not-blank"
+                TEXT="󰖠"
+              fi
+
+              ${jq} --compact-output \
+                --null-input \
+                --arg text "$TEXT" \
+                --arg class "$CLASS" \
+                '{"text": $text, "class": $class}'
+            }
+
+            monitor() {
+              while true; do
+                show
+                inotifywait --event open --event close --timeout 1 "${device}" &> /dev/null
+              done
+              exit
+            }
+
+            monitor
+          '';
+          return-type = "json";
+          on-click = pkgs.writeShellScript "camera-blank-toggle.sh" ''
+            # Copyright (c) 2021,2023, Sefa Eyeoglu <contact@scrumplex.net>
+            #
+            # Permission to use, copy, modify, and/or distribute this software for any
+            # purpose with or without fee is hereby granted, provided that the above
+            # copyright notice and this permission notice appear in all copies.
+            #
+            # THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+            # REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+            # FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+            # INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+            # LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+            # OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+            # PERFORMANCE OF THIS SOFTWARE.
+
+
+            brightness=$(${v4l2-ctl} --device "${device}" -C brightness | ${sed} 's|n/a|0|g;s/[^0-9]*//g')
+            if [ "$brightness" -lt "30" ]; then
+              ${v4l2-ctl} --device "${device}" -c brightness=50
+            else
+              ${v4l2-ctl} --device "${device}" -c brightness=0
+            fi
+          '';
+        };
         idle_inhibitor = {
           format = "{icon}";
           format-icons = {
@@ -185,15 +262,15 @@
         background-color: #${base};
       }
 
-      #workspaces, #mpd, #clock, #network, #pulseaudio, #battery, #custom-pa-mute, #idle_inhibitor, #tray {
+      #workspaces, #mpd, #clock, #network, #pulseaudio, #battery, #custom-pa-mute, #custom-camera-blank, #idle_inhibitor, #tray {
         margin: 0 8px;
       }
 
-      #custom-pa-mute {
+      #custom-pa-mute, #custom-camera-blank {
         margin-right: 0;
       }
 
-      #idle_inhibitor {
+      #idle_inhibitor, #custom-camera-blank {
         margin-left: 0;
       }
 
@@ -201,7 +278,7 @@
         margin-left: 0;
       }
 
-      #workspaces button, #idle_inhibitor, #custom-pa-mute {
+      #workspaces button, #idle_inhibitor, #custom-pa-mute, #custom-camera-blank {
         border: none;
         background-color: transparent;
         box-shadow: none;  /* dunno why this is set */
@@ -213,12 +290,12 @@
         padding: 0;
       }
 
-      #workspaces button.urgent, #idle_inhibitor.activated, #custom-pa-mute.muted {
+      #workspaces button.urgent, #idle_inhibitor.activated, #custom-pa-mute.muted, #custom-camera-blank.blank {
         background-color: #${peach};
         color: #${base};
       }
 
-      #custom-pa-mute.muted {
+      #custom-pa-mute.muted, #custom-camera-blank.blank {
         background-color: #${red};
       }
 
