@@ -16,7 +16,9 @@
     consoleLogLevel = 0;
     kernelParams = ["quiet" "udev.log_level=3"];
 
-    tmpOnTmpfs = true;
-    tmpOnTmpfsSize = "75%";
+    tmp = {
+      useTmpfs = true;
+      tmpfsSize = "75%";
+    };
   };
 }
