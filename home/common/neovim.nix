@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -17,6 +13,7 @@
       nodePackages.yaml-language-server # yaml lsp
       nil # nix lsp
       rust-analyzer # rust
+      python3Packages.python-lsp-server # python
     ];
 
     plugins = with pkgs.vimPlugins; [
