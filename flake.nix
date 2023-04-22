@@ -105,6 +105,7 @@
 
               (import ./home username)
             ]
+            ++ (pkgs.lib.attrValues self.nixosModules)
             ++ modules;
         };
       };
@@ -139,6 +140,9 @@
         fuzzel = import ./modules/hm/fuzzel.nix;
         jellyfin-mpv-shim = import ./modules/hm/jellyfin-mpv-shim.nix;
         pipewire = import ./modules/hm/pipewire.nix;
+      };
+      nixosModules = {
+        flatpak-icons-workaround = import ./modules/nixos/flatpak-icons-workaround.nix;
       };
       overlays.default = import ./pkgs;
     };
