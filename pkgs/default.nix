@@ -19,14 +19,10 @@ with self; {
     };
   });
 
-  linux_zen_scrumplex = linuxPackagesFor (super.linuxKernel.packages.linux_zen.kernel.override {
-    kernelPatches = [
-      {
-        name = "cap_sys_nice_begone";
-        patch = ./cap_sys_nice_begone.patch;
-      }
-    ];
-  });
+  kernelPatches.cap_sys_nice_begone = {
+    name = "cap_sys_nice_begone";
+    patch = ./cap_sys_nice_begone.patch;
+  };
 
   ncmpcpp = super.ncmpcpp.override {
     visualizerSupport = true;

@@ -86,10 +86,12 @@
       }: {
         ${hostName} = nixpkgs.lib.nixosSystem {
           inherit system;
-          inherit pkgs;
 
           modules =
             [
+              {
+                nixpkgs.pkgs = pkgs;
+              }
               home-manager.nixosModules.home-manager
               {
                 home-manager.useGlobalPkgs = true;
