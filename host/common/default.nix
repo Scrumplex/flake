@@ -2,6 +2,7 @@
   imports = [
     ./boot.nix
     ./bluetooth.nix
+    ./ccache.nix
     ./desktop.nix
     ./fish.nix
     ./gaming.nix
