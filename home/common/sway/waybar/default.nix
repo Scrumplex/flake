@@ -160,7 +160,18 @@
           v4l2-ctl = "${pkgs.v4l-utils}/bin/v4l2-ctl";
           jq = "${pkgs.jq}/bin/jq";
           sed = "${pkgs.gnused}/bin/sed";
-          device = "/dev/v4l/by-id/usb-Show-me_Webcam_Project_Piwebcam_00000000d97c0a61-video-index0";
+          device = "/dev/v4l/by-id/usb-046d_Logitech_Webcam_C925e_D8A39E5F-video-index0";
+          commonCode = pkgs.writeShellScript "camera-blank-common.sh" ''
+            v4l_value() {
+              ${v4l2-ctl} --device "${device}" -C "$1" | ${sed} 's|n/a|0|g;s/[^0-9]*//g'
+            }
+
+            is_blank() {
+              auto_exposure=$(v4l_value auto_exposure)
+              exposure_time_absolute=$(v4l_value exposure_time_absolute)
+              [ "$auto_exposure" != "3" ] && [ "$exposure_time_absolute" == 3 ]
+            }
+          '';
         in {
           exec = pkgs.writeShellScript "camera-blank.sh" ''
             # Based on https://git.sr.ht/~whynothugo/dotfiles/tree/adf6af990b0348974b657ed4241d4bcf83dbcea3/item/home/.local/lib/waybar-mic
@@ -178,11 +189,10 @@
             # LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
             # OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
             # PERFORMANCE OF THIS SOFTWARE.
-
+            source ${commonCode}
 
             show() {
-              brightness=$(${v4l2-ctl} --device "${device}" -C brightness | ${sed} 's|n/a|0|g;s/[^0-9]*//g')
-              if [ "$brightness" != "50" ]; then
+              if is_blank; then
                 CLASS="blank"
                 TEXT="󱜷"
               else
@@ -223,12 +233,12 @@
             # OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
             # PERFORMANCE OF THIS SOFTWARE.
 
+            source ${commonCode}
 
-            brightness=$(${v4l2-ctl} --device "${device}" -C brightness | ${sed} 's|n/a|0|g;s/[^0-9]*//g')
-            if [ "$brightness" -lt "30" ]; then
-              ${v4l2-ctl} --device "${device}" -c brightness=50
+            if is_blank; then
+              ${v4l2-ctl} --device "${device}" -c auto_exposure=3
             else
-              ${v4l2-ctl} --device "${device}" -c brightness=0
+              ${v4l2-ctl} --device "${device}" -c auto_exposure=1 -c exposure_time_absolute=3
             fi
           '';
         };
