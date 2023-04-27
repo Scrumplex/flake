@@ -39,6 +39,7 @@
     evince
     gnome.nautilus
     imv
+    livecaptions
     okular
 
     qpwgraph
