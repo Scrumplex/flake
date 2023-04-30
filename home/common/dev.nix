@@ -21,6 +21,8 @@
       options.navigate = true;
     };
 
+    lfs.enable = true;
+
     extraConfig = {
       core.autocrlf = "input";
       color.ui = "auto";
