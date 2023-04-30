@@ -1,0 +1,7 @@
+home/common/sway/current-wallpaper.jpg filter=lfs diff=lfs merge=lfs -text
+home/common/sway/wlogout/exit-to-app.png filter=lfs diff=lfs merge=lfs -text
+home/common/sway/wlogout/lock.png filter=lfs diff=lfs merge=lfs -text
+home/common/sway/wlogout/power-cycle.png filter=lfs diff=lfs merge=lfs -text
+home/common/sway/wlogout/power-sleep.png filter=lfs diff=lfs merge=lfs -text
+home/common/sway/wlogout/power.png filter=lfs diff=lfs merge=lfs -text
+home/common/sway/wlogout/restart.png filter=lfs diff=lfs merge=lfs -text
