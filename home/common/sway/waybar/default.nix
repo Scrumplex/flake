@@ -11,7 +11,7 @@
       mainBar = {
         position = "top";
         modules-left = ["sway/workspaces" "mpd"];
-        modules-center = ["clock"];
+        modules-center = ["clock" "clock#other"];
         modules-right = [
           "network"
           "pulseaudio"
@@ -97,8 +97,14 @@
           max-length = 25;
         };
         clock = {
-          format = "{:%H:%M:%S}";
+          format = "{:%T}";
           interval = 1;
+        };
+        "clock#other" = {
+          format = "{:%H:%M %p}";
+          interval = 1;
+          locale = "en_US";
+          timezone = "America/New_York";
         };
         "custom/pa-mute" = import ./modules/pa-mute.nix pkgs;
         "custom/camera-blank" = import ./modules/camera-blank.nix {
@@ -213,6 +219,10 @@
 
       #battery.charging {
         color: #${green};
+      }
+
+      #clock.other {
+        color: #${subtext0};
       }
     '';
   };
