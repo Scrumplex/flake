@@ -47,7 +47,14 @@
         keybind = "l";
       }
     ];
-    style = with config.theme.colors; ''
+    style = with config.theme.colors; let
+      icons = pkgs.fetchzip {
+        name = "power-icons.zip";
+        url = "https://scrumplex.rocks/cloud/power-icons.zip";
+        hash = "sha256-qg/l+Uj6WjbK7oNwhTGdJdb4hgKolxZASgd2ZcJcUyo=";
+        stripRoot = false;
+      };
+    in ''
       window {
         font-family: "Fira Code";
         font-size: 10pt;
@@ -77,27 +84,27 @@
       }
 
       #lock {
-        background-image: image(url("${./lock.png}"));
+        background-image: image(url("${icons}/lock.png"));
       }
 
       #exit {
-        background-image: image(url("${./exit-to-app.png}"));
+        background-image: image(url("${icons}/exit-to-app.png"));
       }
 
       #suspend {
-        background-image: image(url("${./power-sleep.png}"));
+        background-image: image(url("${icons}/power-sleep.png"));
       }
 
       #hibernate {
-        background-image: image(url("${./power-cycle.png}"));
+        background-image: image(url("${icons}/power-cycle.png"));
       }
 
       #shutdown {
-        background-image: image(url("${./power.png}"));
+        background-image: image(url("${icons}/power.png"));
       }
 
       #reboot {
-        background-image: image(url("${./restart.png}"));
+        background-image: image(url("${icons}/restart.png"));
       }
     '';
   };

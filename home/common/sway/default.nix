@@ -3,13 +3,19 @@
   pkgs,
   ...
 }: {
-  imports = [./fuzzel.nix ./mako.nix ./swayidle.nix ./waybar ./wlogout ./wlsunset.nix ./wob.nix];
+  imports = [./fuzzel.nix ./mako.nix ./swayidle.nix ./waybar ./wlogout.nix ./wlsunset.nix ./wob.nix];
 
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
 
-    config = {
+    config = let
+      wallpaper = pkgs.fetchurl {
+        name = "sway-wallpaper.jpg";
+        url = "https://scrumplex.rocks/img/richard-horvath-catppuccin.jpg";
+        hash = "sha256-HQ+ZvNPUCnYkAl21JR6o83OBsAJAvpBt93OUSm0ibLU=";
+      };
+    in {
       terminal = "${pkgs.kitty}/bin/kitty";
       modifier = "Mod4";
       startup = [
@@ -52,7 +58,7 @@
           position = "0,0";
           scale = "1.25";
         };
-        "*" = {bg = "${./current-wallpaper.jpg} fill";};
+        "*" = {bg = "${wallpaper} fill";};
       };
       assigns = {
         "4:mail" = [{app_id = "evolution";}];
