@@ -37,6 +37,21 @@ with self; {
     visualizerSupport = true;
   };
 
+  tomlplusplus = super.tomlplusplus.override {
+    meson = meson.overrideAttrs (
+      {patches ? [], ...}: {
+        patches =
+          patches
+          ++ [
+            (fetchpatch {
+              url = "https://github.com/mesonbuild/meson/commit/7c78c2b5a0314078bdabb998ead56925dc8b0fc0.patch";
+              sha256 = "sha256-vSnHhuOIXf/1X+bUkUmGND5b30ES0O8EDArwb4p2/w4=";
+            })
+          ];
+      }
+    );
+  };
+
   prismlauncher = super.prismlauncher.override {
     glfw = glfwUnstable;
   };
