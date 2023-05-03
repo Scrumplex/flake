@@ -1,8 +1,15 @@
 self: super:
 with self; {
-  discord = super.discord.override {
-    withOpenASAR = true;
-  };
+  discord =
+    (import ./applications/networking/instant-messengers/discord {
+      inherit lib stdenv;
+      inherit callPackage fetchurl;
+      branch = "stable";
+    })
+    .override {
+      withOpenASAR = true;
+      withVencord = true;
+    };
 
   fishPlugins = super.fishPlugins.overrideScope' (import ./shells/fish/plugins);
 
@@ -39,6 +46,8 @@ with self; {
   run-or-raise = callPackage ./tools/wayland/run-or-raise {};
 
   termapp = callPackage ./tools/wayland/termapp {};
+
+  vencord = callPackage ./development/misc/vencord {};
 
   zoom65-udev-rules =
     callPackage ./os-specific/linux/zoom65-udev-rules {};
