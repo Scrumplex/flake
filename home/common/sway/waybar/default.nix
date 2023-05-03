@@ -101,7 +101,7 @@
           interval = 1;
         };
         "clock#other" = {
-          format = "{:%H:%M %p}";
+          format = "{:%I:%M %p}";
           interval = 1;
           locale = "en_US";
           timezone = "America/New_York";
