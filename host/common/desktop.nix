@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs.sway.enable = true;
   security.pam.services.gtklock = {};
 
@@ -25,34 +29,30 @@
         monospace = ["Fira Code"];
       };
 
-      localConf = ''
+      localConf = let
+        fonts = [
+          "Fira Code"
+          "Fira Code,Fira Code Light"
+          "Fira Code,Fira Code Medium"
+          "Fira Code,Fira Code Retina"
+          "Fira Code,Fira Code SemiBold"
+          "Monocraft"
+        ];
+
+        mkAlias = font: ''
+          <alias>
+            <family>${font}</family>
+            <prefer><family>Symbols Nerd Font</family></prefer>
+          </alias>
+        '';
+
+        aliases = builtins.map mkAlias fonts;
+        aliases' = lib.strings.concatLines aliases;
+      in ''
         <?xml version="1.0"?>
         <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
         <fontconfig>
-          <alias>
-            <family>Fira Code</family>
-            <prefer><family>Symbols Nerd Font</family></prefer>
-          </alias>
-          <alias>
-            <family>Fira Code,Fira Code Medium</family>
-            <prefer><family>Symbols Nerd Font</family></prefer>
-          </alias>
-          <alias>
-            <family>Fira Code,Fira Code SemiBold</family>
-            <prefer><family>Symbols Nerd Font</family></prefer>
-          </alias>
-          <alias>
-            <family>Fira Code,Fira Code Light</family>
-            <prefer><family>Symbols Nerd Font</family></prefer>
-          </alias>
-          <alias>
-            <family>Fira Code,Fira Code Retina</family>
-            <prefer><family>Symbols Nerd Font</family></prefer>
-          </alias>
-          <alias>
-            <family>Monocraft</family>
-            <prefer><family>Symbols Nerd Font</family></prefer>
-          </alias>
+          ${aliases'}
         </fontconfig>
       '';
     };
