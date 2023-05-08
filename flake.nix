@@ -40,7 +40,7 @@
     };
   };
 
-  outputs = {
+  outputs = inputs @ {
     self,
     nixpkgs,
     flake-utils,
@@ -109,6 +109,8 @@
             ]
             ++ (pkgs.lib.attrValues self.nixosModules)
             ++ modules;
+
+          specialArgs = {inherit inputs;};
         };
       };
     in {
