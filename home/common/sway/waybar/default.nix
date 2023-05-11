@@ -27,11 +27,11 @@
           all-outputs = false;
           format = "{icon}";
           format-icons = {
-            "1" = "ﱣ";
-            "2" = "ﱢ";
-            "3" = "卑";
-            "4:mail" = "";
-            "5:chat" = "";
+            "1" = ""; # this is not a material design circle like the other icons
+            "2" = "󰝤";
+            "3" = "󰔶";
+            "4:mail" = "󰇮";
+            "5:chat" = "󰍩";
           };
           persistent_workspaces = {
             "1" = [];
@@ -40,11 +40,11 @@
         };
         mpd = {
           format = "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ({volume}%) ";
-          format-disconnected = "Disconnected ";
-          format-stopped = "Stopped ";
+          format-disconnected = "Disconnected 󰎈";
+          format-stopped = "Stopped 󰎈";
           state-icons = {
-            paused = "";
-            playing = "";
+            paused = "󰏤";
+            playing = "󰐊";
           };
           tooltip-format = "MPD (connected)";
           tooltip-format-disconnected = "MPD (disconnected)";
@@ -57,12 +57,11 @@
         };
         network = {
           format = "{ifname}";
-          format-wifi = "{essid} 直";
+          format-wifi = "{essid} 󰖩";
           format-ethernet = "";
-          format-disconnected = "disconnected ";
+          format-disconnected = "disconnected 󰅤";
           tooltip-format = "{ifname}";
-          tooltip-format-wifi = "{essid} ({signalStrength}%) 直";
-          tooltip-format-ethernet = "{ifname} ";
+          tooltip-format-wifi = "{essid} ({signalStrength}%) 󰖩";
           tooltip-format-disconnected = "Disconnected";
           on-click = "${termapp} ${pkgs.nload}/bin/nload";
           max-length = 50;
@@ -70,16 +69,16 @@
         };
         pulseaudio = {
           format = "{volume}% {icon}";
-          format-bluetooth = "{volume}% {icon}";
-          format-muted = "ﱝ";
+          format-bluetooth = "{volume}% {icon}󰂰";
+          format-muted = "󰝟";
           format-icons = {
-            headphones = "";
-            handsfree = "";
-            headset = "";
-            phone = "";
-            portable = "";
-            car = "";
-            default = "墳";
+            headphones = "󰋋";
+            handsfree = "󰋏";
+            headset = "󰋎";
+            phone = "󰏲";
+            portable = "󰄜";
+            car = "󰄍";
+            default = "󰕾";
           };
           on-click = "${termapp} ${pkgs.pulsemixer}/bin/pulsemixer";
           on-scroll-up = "${pkgs.pamixer}/bin/pamixer -ui 2 && ${pkgs.pamixer}/bin/pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock";
@@ -93,7 +92,7 @@
             critical = 15;
           };
           format = "{capacity}% {icon}";
-          format-icons = ["" "" "" "" ""];
+          format-icons = ["󱃍" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
           max-length = 25;
         };
         clock = {
@@ -114,8 +113,8 @@
         idle_inhibitor = {
           format = "{icon}";
           format-icons = {
-            activated = "";
-            deactivated = "";
+            activated = "󰅶";
+            deactivated = "󰾪";
           };
         };
         "clock#date" = {

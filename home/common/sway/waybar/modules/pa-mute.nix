@@ -26,10 +26,10 @@ in {
       muted=$(${pamixer} --default-source --get-mute 2> /dev/null)
       if [ "$muted" == "true" ]; then
         CLASS="muted"
-        TEXT=""
+        TEXT="󰍭"
       else
         CLASS="not-muted"
-        TEXT=""
+        TEXT="󰍬"
       fi
 
       ${jq} --compact-output \
