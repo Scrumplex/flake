@@ -24,6 +24,11 @@
     };
   };
 
+  # Stop apps from generating fontconfig caches and breaking reproducibility
+  systemd.user.tmpfiles.rules = [
+    "R %C/fontconfig - - - - -"
+  ];
+
   theme.gtk = true;
 
   home.sessionVariables.QT_QPA_PLATFORMTHEME = "qt5ct";
