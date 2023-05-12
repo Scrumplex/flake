@@ -10,6 +10,7 @@
       background_opacity = "0.975";
       update_check_interval = 0;
     };
+    shellIntegration.mode = "no-cursor";
     extraConfig = ''
       # From https://github.com/ryanoasis/nerd-fonts/wiki/Glyph-Sets-and-Code-Points
       # Seti-UI + Custom
