@@ -141,7 +141,6 @@
       hmModules = {
         catppuccin = import ./modules/hm/catppuccin.nix;
         fish-theme = import ./modules/hm/fish-theme.nix;
-        fuzzel = import ./modules/hm/fuzzel.nix;
         jellyfin-mpv-shim = import ./modules/hm/jellyfin-mpv-shim.nix;
         pipewire = import ./modules/hm/pipewire.nix;
       };
