@@ -39,7 +39,7 @@
           };
         };
         mpd = {
-          format = "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ({volume}%) ";
+          format = "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ({volume}%) 󰎈";
           format-disconnected = "Disconnected 󰎈";
           format-stopped = "Stopped 󰎈";
           state-icons = {
