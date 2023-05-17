@@ -3,12 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-parts.url = "github:hercules-ci/flake-parts";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -22,17 +21,14 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
     nix-serve-ng = {
       url = "github:aristanetworks/nix-serve-ng";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.utils.follows = "flake-utils";
     };
     prismlauncher = {
       url = "github:PrismLauncher/PrismLauncher";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
       inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };
     screenshot-bash = {
@@ -43,110 +39,113 @@
 
   outputs = inputs @ {
     self,
-    nixpkgs,
-    flake-utils,
-    nixos-hardware,
-    pre-commit-hooks,
-    home-manager,
-    agenix,
-    lanzaboote,
-    nix-serve-ng,
-    prismlauncher,
-    screenshot-bash,
+    flake-parts,
     ...
   }:
-    flake-utils.lib.eachDefaultSystem (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      checks = {
-        pre-commit-check = pre-commit-hooks.lib.${system}.run {
-          src = ./.;
-          hooks = {alejandra.enable = true;};
-        };
-      };
-      devShells.default = pkgs.mkShell {
-        inherit (self.checks.${system}.pre-commit-check) shellHook;
-        packages = with pkgs; [alejandra agenix.packages.${system}.agenix];
-      };
-    })
-    // (let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config = {allowUnfree = true;};
-        overlays = [nix-serve-ng.overlays.default prismlauncher.overlays.default screenshot-bash.overlays.default self.overlays.default];
-      };
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      flake =
+        {
+          hmModules = {
+            catppuccin = import ./modules/hm/catppuccin.nix;
+            fish-theme = import ./modules/hm/fish-theme.nix;
+            jellyfin-mpv-shim = import ./modules/hm/jellyfin-mpv-shim.nix;
+            pipewire = import ./modules/hm/pipewire.nix;
+          };
+          nixosModules = {
+            flatpak-icons-workaround = import ./modules/nixos/flatpak-icons-workaround.nix;
+          };
+          overlays.default = import ./pkgs;
+        }
+        // (let
+          username = "scrumplex";
 
-      username = "scrumplex";
+          inherit (inputs) agenix home-manager lanzaboote nix-serve-ng nixpkgs prismlauncher screenshot-bash;
 
-      mkHost = {
-        hostName,
-        system,
-        pkgs,
-        modules,
-      }: {
-        ${hostName} = nixpkgs.lib.nixosSystem {
-          inherit system;
+          inherit (nixpkgs.lib) attrValues;
 
-          modules =
-            [
-              {
-                nixpkgs.pkgs = pkgs;
-              }
-              home-manager.nixosModules.home-manager
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
+          mkHost = {
+            hostName,
+            system,
+            modules,
+            overlays ? [nix-serve-ng.overlays.default prismlauncher.overlays.default screenshot-bash.overlays.default] ++ [self.overlays.default],
+          }: {
+            ${hostName} = nixpkgs.lib.nixosSystem {
+              inherit system;
 
-                home-manager.sharedModules = pkgs.lib.attrValues self.hmModules;
-              }
-              agenix.nixosModules.age
-              lanzaboote.nixosModules.lanzaboote
-              ./host/common
-              ./host/${hostName}
-              ({lib, ...}: {networking.hostName = lib.mkDefault hostName;})
+              modules =
+                [
+                  {
+                    nixpkgs = {
+                      config.allowUnfree = true;
 
-              (import ./home username)
-            ]
-            ++ (pkgs.lib.attrValues self.nixosModules)
-            ++ modules;
+                      inherit overlays;
+                    };
 
-          specialArgs = {inherit inputs;};
-        };
-      };
-    in {
-      nixosConfigurations =
-        (mkHost {
-          inherit system;
-          inherit pkgs;
+                    home-manager = {
+                      useGlobalPkgs = true;
+                      useUserPackages = true;
+                      sharedModules = attrValues self.hmModules;
+                    };
+                    networking.hostName = hostName;
+                  }
 
-          hostName = "andromeda";
+                  agenix.nixosModules.age
+                  home-manager.nixosModules.home-manager
+                  lanzaboote.nixosModules.lanzaboote
 
-          modules = [
-            nixos-hardware.nixosModules.common-cpu-amd-pstate
-            nixos-hardware.nixosModules.common-gpu-amd
-            nixos-hardware.nixosModules.common-pc-ssd
-          ];
-        })
-        // (mkHost {
-          inherit system;
-          inherit pkgs;
+                  ./host/common
+                  ./host/${hostName}
+                  (import ./home username)
+                ]
+                ++ (attrValues self.nixosModules)
+                ++ modules;
 
-          hostName = "dyson";
-
-          modules = [nixos-hardware.nixosModules.framework-12th-gen-intel];
+              specialArgs = {inherit inputs;};
+            };
+          };
+        in {
+          nixosConfigurations =
+            (mkHost {
+              system = "x86_64-linux";
+              hostName = "andromeda";
+              modules = with inputs; [
+                nixos-hardware.nixosModules.common-cpu-amd-pstate
+                nixos-hardware.nixosModules.common-gpu-amd
+                nixos-hardware.nixosModules.common-pc-ssd
+              ];
+            })
+            // (mkHost {
+              system = "x86_64-linux";
+              hostName = "dyson";
+              modules = [inputs.nixos-hardware.nixosModules.framework-12th-gen-intel];
+            });
         });
-    })
-    // {
-      hmModules = {
-        catppuccin = import ./modules/hm/catppuccin.nix;
-        fish-theme = import ./modules/hm/fish-theme.nix;
-        jellyfin-mpv-shim = import ./modules/hm/jellyfin-mpv-shim.nix;
-        pipewire = import ./modules/hm/pipewire.nix;
+
+      imports = [
+        inputs.pre-commit-hooks.flakeModule
+      ];
+
+      perSystem = {
+        config,
+        inputs',
+        pkgs,
+        ...
+      }: {
+        pre-commit.settings.hooks.alejandra.enable = true;
+        devShells.default = pkgs.mkShell {
+          shellHook = ''
+            ${config.pre-commit.installationScript}
+          '';
+
+          packages = [pkgs.alejandra inputs'.agenix.packages.agenix];
+        };
       };
-      nixosModules = {
-        flatpak-icons-workaround = import ./modules/nixos/flatpak-icons-workaround.nix;
-      };
-      overlays.default = import ./pkgs;
+
+      systems = [
+        "aarch64-linux"
+        "aarch64-darwin"
+        "x86_64-darwin"
+        "x86_64-linux"
+      ];
     };
 }
