@@ -5,6 +5,10 @@
 }: {
   imports = [./fuzzel.nix ./mako.nix ./swayidle.nix ./waybar ./wlogout.nix ./wlsunset.nix ./wob.nix];
 
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
+
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
