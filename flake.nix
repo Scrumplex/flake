@@ -139,6 +139,7 @@
 
           packages = [pkgs.alejandra inputs'.agenix.packages.agenix];
         };
+        formatter = pkgs.alejandra;
       };
 
       systems = [
