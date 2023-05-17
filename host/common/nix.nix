@@ -1,11 +1,4 @@
-{
-  inputs,
-  lib,
-  pkgs,
-  ...
-}: let
-  inherit (lib.attrsets) filterAttrs;
-
+{inputs, ...}: let
   channelPath = "/etc/nix/channels/nixpkgs";
 in {
   nix = {
