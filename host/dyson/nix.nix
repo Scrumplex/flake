@@ -1,7 +1,9 @@
-{...}: {
+{lib, ...}: let
+  mkAfterAfter = lib.mkOrder 2000;
+in {
   nixpkgs.config.allowUnfree = true;
   nix.settings = {
-    substituters = [
+    substituters = mkAfterAfter [
       "http://10.10.10.10:5000" # TODO: make this a bit smarter
     ];
     trusted-public-keys = [
