@@ -3,17 +3,18 @@
     enable = true;
     defaultEditor = true;
     extraPackages = with pkgs; [
-      gcc # treesitter
-      rustc # treesitter
       clang-tools # clangd lsp
-      nodePackages.bash-language-server # bashls lsp
-      shellcheck # shellcheck lsp
+      gcc # treesitter
       gopls # shellcheck lsp
+      nil # nix lsp
+      nodePackages.bash-language-server # bashls lsp
+      nodePackages.typescript-language-server # typescript
       nodePackages.vscode-langservers-extracted # eslint/html/css/json lsp
       nodePackages.yaml-language-server # yaml lsp
-      nil # nix lsp
-      rust-analyzer # rust
       python3Packages.python-lsp-server # python
+      rust-analyzer # rust
+      rustc # treesitter
+      shellcheck # shellcheck lsp
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -197,7 +198,7 @@
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
       end
 
-      local servers = { "bashls", "clangd", "cssls", "eslint", "gopls", "html", "jsonls", "nil_ls", "pylsp", "rust_analyzer", "yamlls" }
+      local servers = { "bashls", "clangd", "cssls", "eslint", "gopls", "html", "jsonls", "nil_ls", "pylsp", "rust_analyzer", "tsserver", "yamlls" }
 
       for _, lsp in pairs(servers) do
         nvim_lsp[lsp].setup({
