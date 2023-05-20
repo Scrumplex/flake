@@ -31,8 +31,6 @@ with self; {
     patch = ./cap_sys_nice_begone.patch;
   };
 
-  livecaptions = callPackage ./applications/misc/livecaptions {};
-
   ncmpcpp = super.ncmpcpp.override {
     visualizerSupport = true;
   };
