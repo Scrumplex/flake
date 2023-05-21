@@ -45,6 +45,7 @@
     qpwgraph
     virt-manager
 
+    discord
     element-desktop
     signal-desktop
     tdesktop
