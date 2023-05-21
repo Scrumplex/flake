@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  imports = [./hardware-configuration.nix ./boot.nix ./nix.nix ./swapfile.nix ./wireguard.nix];
+  imports = [./hardware-configuration.nix ./boot.nix ./specialisation/home-cache.nix ./swapfile.nix ./wireguard.nix];
 
   hardware.enableRedistributableFirmware = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
