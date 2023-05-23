@@ -13,6 +13,7 @@
       monocraft
       fira-code
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+      roboto
     ];
 
     enableDefaultFonts = true;
