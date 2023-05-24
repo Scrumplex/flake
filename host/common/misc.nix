@@ -41,6 +41,10 @@
           command = "${pkgs.systemd}/bin/systemctl";
           options = ["NOPASSWD"];
         }
+        {
+          command = "/run/current-system/sw/bin/podman";
+          options = ["NOPASSWD"];
+        }
       ];
     }
   ];
