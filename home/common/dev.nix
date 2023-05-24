@@ -5,6 +5,11 @@
 }: {
   home.packages = with pkgs; [git-extras];
 
+  programs.gh = {
+    enable = true;
+    settings.git_protocol = "ssh";
+  };
+
   programs.git = {
     enable = true;
     package = pkgs.gitAndTools.gitFull;
