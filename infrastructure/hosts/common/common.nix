@@ -10,7 +10,7 @@
   services.openssh = {
     enable = true;
     ports = [22701];
-    passwordAuthentication = false;
+    settings.PasswordAuthentication = false;
   };
 
   users = {
