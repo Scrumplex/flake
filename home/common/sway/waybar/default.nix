@@ -11,7 +11,7 @@ in {
     cameraBlank = {
       enable = lib.mkEnableOption "camera-blank";
       cameraPath = lib.mkOption {
-        type = lib.str;
+        type = lib.types.str;
       };
     };
   };
