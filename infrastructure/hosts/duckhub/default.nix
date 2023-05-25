@@ -22,8 +22,6 @@
     ];
   };
 
-  services.openssh.listenAddresses = [{addr = "[::]";}];
-
   services.borgbackup.jobs.borgbase.repo = "e629u305@e629u305.repo.borgbase.com:repo";
 
   # This value determines the NixOS release from which the default
