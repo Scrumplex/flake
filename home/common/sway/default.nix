@@ -234,8 +234,8 @@
         "${mod}+m" = "exec ${config.programs.waybar.settings.mainBar."custom/pa-mute".on-click}";
         # TODO: make this nice
         "${mod}+n" =
-          if config.s.waybar.cameraBlank.enable
-          then "exec ${config.programs.waybar.settings.mainBar."custom/camera-blank".on-click}"
+          if config.programs.waybar.extraModules.cameraBlank.enable
+          then "exec ${config.programs.waybar.extraModules.cameraBlank.onClickScript}"
           else "exec echo noop";
 
         "Shift+XF86AudioRaiseVolume" = "exec ${mpc} vol +2 && ${mpc} vol | ${sed} 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
