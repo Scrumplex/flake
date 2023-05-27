@@ -19,6 +19,13 @@
         prefixLength = 64;
       }
     ];
+    interfaces.ens3.ipv6.routes = [
+      {
+        address = "::";
+        prefixLength = 0;
+        via = "fe80::1";
+      }
+    ];
 
     firewall = {
       allowedTCPPorts = [

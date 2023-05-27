@@ -20,6 +20,13 @@
         prefixLength = 64;
       }
     ];
+    interfaces.ens3.ipv6.routes = [
+      {
+        address = "::";
+        prefixLength = 0;
+        via = "fe80::1";
+      }
+    ];
   };
 
   services.borgbackup.jobs.borgbase.repo = "e629u305@e629u305.repo.borgbase.com:repo";
