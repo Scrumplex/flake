@@ -68,11 +68,12 @@
       assigns = {
         "4:mail" = [{app_id = "evolution";}];
         "5:chat" = [
-          {app_id = "org.telegram.desktop";}
           {class = "Signal";}
           {class = "Element";}
-          {app_id = "Element";}
           {class = "discord";}
+          {app_id = "org.telegram.desktop";}
+          {app_id = "Element";}
+          {app_id = "discord";}
         ];
       };
       floating.criteria = [{app_id = "lxqt-policykit-agent";}];
