@@ -3,6 +3,9 @@
   "extends": [
     "config:base"
   ],
+  "helm-values": {
+    "fileMatch": ["(^|/)images\\.json$"]
+  },
   "nix": {
     "enabled": true
   },

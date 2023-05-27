@@ -24,7 +24,9 @@
     nixos-hardware,
     agenix,
     pre-commit-hooks,
-  }:
+  }: let
+    lib = nixpkgs.lib.extend (self: super: {my = import ./lib {inherit (nixpkgs) lib;};});
+  in
     {
       colmena = {
         meta.name = "scrumplex.net";
@@ -47,7 +49,7 @@
           age.secrets."wireguard.key".file = secrets/spacehub/wireguard.key.age;
           age.secrets."hetzner.key".file = secrets/spacehub/hetzner.key.age;
 
-          imports = [./hosts/spacehub];
+          imports = [./modules/oci-image-external.nix ./hosts/spacehub];
         };
 
         duckhub = {

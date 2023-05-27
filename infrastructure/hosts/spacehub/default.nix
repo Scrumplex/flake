@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   imports = [
     ./hardware-configuration.nix
 
@@ -57,6 +57,12 @@
   };
 
   services.borgbackup.jobs.borgbase.repo = "j0b0k0o5@j0b0k0o5.repo.borgbase.com:repo";
+
+  virtualisation.oci-containers.externalImages.imagesFile = ./images.json;
+
+  virtualisation.oci-containers.containers."scrumplex-website" = {
+    image = config.virtualisation.oci-containers.externalImages.images."scrumplex-website".ref;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
