@@ -47,7 +47,7 @@
   mkImageRef = image: let
     inherit (image') registry repository tag;
 
-    image' = defaultImageOpts // image;
+    image' = defaultImageOpts // image.image;
   in
     image' // {ref = "${registry}/${repository}:${tag}";};
 
