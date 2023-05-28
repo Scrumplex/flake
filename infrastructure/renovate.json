@@ -1,11 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:base",
+    "docker:pinDigests"
   ],
-  "helm-values": {
-    "fileMatch": ["(^|/)images\\.json$"]
-  },
   "nix": {
     "enabled": true
   },

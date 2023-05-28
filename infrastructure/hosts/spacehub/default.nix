@@ -58,7 +58,7 @@
 
   services.borgbackup.jobs.borgbase.repo = "j0b0k0o5@j0b0k0o5.repo.borgbase.com:repo";
 
-  virtualisation.oci-containers.externalImages.imagesFile = ./images.json;
+  virtualisation.oci-containers.externalImages.imagesFile = ./values.yaml;
 
   virtualisation.oci-containers.containers."scrumplex-website" = {
     image = config.virtualisation.oci-containers.externalImages.images."scrumplex-website".ref;

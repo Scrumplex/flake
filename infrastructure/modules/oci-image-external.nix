@@ -1,13 +1,13 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
-  inherit (builtins) fromJSON readFile;
   inherit (lib) types;
-  inherit (lib.attrsets) mapAttrs mapAttrsToList;
-  inherit (lib.modules) mkIf mkMerge;
-  inherit (lib.options) mkOption;
+  inherit (lib.attrsets) mapAttrs;
+  inherit (lib.modules) mkIf;
+  inherit (lib.options) literalExpression mkOption;
 
   cfg = config.virtualisation.oci-containers.externalImages;
 
@@ -31,11 +31,34 @@
       };
     };
   };
+
+  readYAML = file: let
+    inherit (builtins) fromJSON readFile;
+    inherit (pkgs) runCommand yj;
+    # convert to json
+    json = runCommand "converted.json" {} ''
+      ${yj}/bin/yj < ${file} > $out
+    '';
+  in
+    fromJSON (readFile json);
+
+  defaultImageOpts = {registry = cfg.defaultRegistry;};
+
+  mkImageRef = image: let
+    inherit (image') registry repository tag;
+
+    image' = defaultImageOpts // image;
+  in
+    image' // {ref = "${registry}/${repository}:${tag}";};
+
+  images = readYAML cfg.imagesFile;
+  images' = mapAttrs (_: v: mkImageRef v) images;
 in {
   options.virtualisation.oci-containers.externalImages = {
     imagesFile = mkOption {
       description = "Path to configuration file containing image references";
       type = types.path;
+      example = literalExpression "./values.yaml";
     };
 
     defaultRegistry = mkOption {
@@ -50,19 +73,7 @@ in {
     };
   };
 
-  config = let
-    defaultImageOpts = {registry = cfg.defaultRegistry;};
-
-    mkImageRef = image: let
-      inherit (image') registry repository tag;
-
-      image' = defaultImageOpts // image;
-    in
-      image' // {ref = "${registry}/${repository}:${tag}";};
-
-    images = fromJSON (readFile cfg.imagesFile);
-    images' = mapAttrs (_: v: mkImageRef v) images;
-  in {
+  config = mkIf (cfg.imagesFile != null) {
     virtualisation.oci-containers.externalImages.images = images';
   };
 }
