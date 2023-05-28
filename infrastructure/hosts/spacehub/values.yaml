@@ -1,4 +1,4 @@
 scrumplex-website:
   registry: codeberg.org
   repository: scrumplex/website
-  tag: latest
+  tag: latest@sha256:aea0b01542ef60756afe8c8b4c077e721224ccc7ef22453ddadbf875e4976bd6
