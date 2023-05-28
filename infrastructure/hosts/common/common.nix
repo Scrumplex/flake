@@ -7,6 +7,8 @@
     };
   };
 
+  virtualisation.oci-containers.externalImages.imagesFile = ../../values.yaml;
+
   services.openssh = {
     enable = true;
     ports = [22701];
