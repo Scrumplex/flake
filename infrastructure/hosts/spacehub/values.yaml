@@ -1,3 +1,11 @@
+caddy:
+  repository: caddy
+  tag: 2.6.4@sha256:5acae6b87b26a591d6d14ec2704b7f2cd94b888ad62af16a02356d3124198ede
+
+nextcloud:
+  repository: nextcloud
+  tag: 24.0.12-fpm@sha256:ba56b896dc3c3a8e535473420867e5f60cb883629df87fbe1210324df1c6f2a2
+
 scrumplex-website:
   registry: codeberg.org
   repository: scrumplex/website
