@@ -6,7 +6,7 @@ caddy:
 nextcloud:
   image:
     repository: nextcloud
-    tag: 24.0.12-fpm@sha256:ba56b896dc3c3a8e535473420867e5f60cb883629df87fbe1210324df1c6f2a2
+    tag: 26.0.1-fpm@sha256:95de6bb5a11626028d541594f793fabe43afb10599400fa7d8512c03d7531cf0
 
 scrumplex-website:
   image:
