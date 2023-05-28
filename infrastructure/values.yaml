@@ -13,3 +13,15 @@ scrumplex-website:
     registry: codeberg.org
     repository: scrumplex/website
     tag: latest@sha256:618cf5c420381f166235d4954b4621d3697c4aaa7d9ad2db3a524ea146597ea3
+
+scrumplex-x:
+  image:
+    registry: codeberg.org
+    repository: scrumplex/prntserve
+    tag: latest@sha256:43ad0f1e9e9014da656d6b5b09c51c5ff007d812398a062248d0be4500f99761
+
+tor:
+  image:
+    repository: goldy/tor-hidden-service
+    tag: v0.4.7.12-54c0e54@sha256:cc682a9036cc560712187413697b0c27fb63af133b5f237562b7317091a0ed1f
+

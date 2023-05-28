@@ -9,6 +9,10 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    arion = {
+      url = "github:hercules-ci/arion";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,10 +27,9 @@
     flake-utils,
     nixos-hardware,
     agenix,
+    arion,
     pre-commit-hooks,
-  }: let
-    lib = nixpkgs.lib.extend (self: super: {my = import ./lib {inherit (nixpkgs) lib;};});
-  in
+  }:
     {
       colmena = {
         meta.name = "scrumplex.net";
@@ -39,7 +42,7 @@
           eclipse = nixpkgs.legacyPackages.x86_64-linux;
         };
 
-        defaults.imports = [agenix.nixosModules.age];
+        defaults.imports = [agenix.nixosModules.age arion.nixosModules.arion];
 
         spacehub = {
           deployment.targetHost = "scrumplex.net";
@@ -48,6 +51,8 @@
           age.secrets.id_borgbase.file = secrets/spacehub/id_borgbase.age;
           age.secrets."wireguard.key".file = secrets/spacehub/wireguard.key.age;
           age.secrets."hetzner.key".file = secrets/spacehub/hetzner.key.age;
+          age.secrets."tor-service.env".file = secrets/spacehub/tor-service.env.age;
+          age.secrets."scrumplex-x-service.env".file = secrets/spacehub/scrumplex-x-service.env.age;
 
           imports = [./modules/oci-image-external.nix ./hosts/spacehub];
         };

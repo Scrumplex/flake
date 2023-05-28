@@ -12,6 +12,8 @@ in {
   "spacehub/id_borgbase.age".publicKeys = scrumplex ++ [spacehub];
   "spacehub/wireguard.key.age".publicKeys = scrumplex ++ [spacehub];
   "spacehub/hetzner.key.age".publicKeys = scrumplex ++ [spacehub];
+  "spacehub/scrumplex-x-service.env.age".publicKeys = scrumplex ++ [spacehub];
+  "spacehub/tor-service.env.age".publicKeys = scrumplex ++ [spacehub];
 
   "duckhub/id_borgbase.age".publicKeys = scrumplex ++ [duckhub];
   "duckhub/wireguard.key.age".publicKeys = scrumplex ++ [duckhub];
