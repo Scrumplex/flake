@@ -1,4 +1,9 @@
 self: super: rec {
+  discord = super.discord.override {
+    withOpenASAR = true;
+    withVencord = true;
+  };
+
   glfwUnstable = super.glfw.overrideAttrs (_: {
     src = self.fetchFromGitHub {
       owner = "glfw";
