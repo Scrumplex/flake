@@ -147,6 +147,77 @@ in {
           "traefik.http.routers.${name}.entrypoints" = "websecure";
         };
       };
+      nextcloud.settings.services = let
+        nextcloudEnv = {
+          MYSQL_HOST = "mariadb";
+          REDIS_HOST = "redis";
+          TRUSTED_PROXIES = "172.18.0.1";
+          PHP_MEMORY_LIMIT = "2048M";
+        };
+      in
+        mkMerge [
+          (mkContainer {
+            name = "caddy";
+            service.depends_on = [
+              "fpm"
+            ];
+            service.volumes = [
+              "${dataPath}/nextcloud-Caddyfile:/etc/caddy/Caddyfile"
+              "${dataPath}/nextcloud-data:/var/www/html"
+            ];
+            service.labels = {
+              "traefik.enable" = "true";
+              "traefik.http.routers.nextcloud.rule" = "Host(`sefa.cloud`)";
+              "traefik.http.routers.nextcloud.entrypoints" = "websecure";
+            };
+          })
+
+          (mkContainer {
+            name = "fpm";
+            externalImage = "nextcloud";
+            environment = nextcloudEnv;
+            service.depends_on = [
+              "redis"
+              "mariadb"
+            ];
+            service.env_file = [
+              config.age.secrets."nextcloud-service.env".path
+            ];
+            service.volumes = [
+              "${dataPath}/nextcloud-data:/var/www/html"
+            ];
+          })
+
+          (mkContainer {
+            name = "cron";
+            externalImage = "nextcloud";
+            environment = nextcloudEnv;
+            service.depends_on = [
+              "fpm"
+            ];
+            service.entrypoint = "/cron.sh";
+            service.env_file = [
+              config.age.secrets."nextcloud-service.env".path
+            ];
+            service.volumes = [
+              "${dataPath}/nextcloud-data:/var/www/html"
+            ];
+          })
+
+          (mkContainer {
+            name = "mariadb";
+            service.env_file = [
+              config.age.secrets."nextcloud-service.env".path
+            ];
+            service.volumes = [
+              "${dataPath}/nextcloud-mysql-data:/config"
+            ];
+          })
+
+          (mkContainer {
+            name = "redis";
+          })
+        ];
     };
   };
 }

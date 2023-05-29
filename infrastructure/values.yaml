@@ -1,13 +1,19 @@
 caddy:
   image:
     repository: caddy
-    tag: 2.6.4@sha256:5acae6b87b26a591d6d14ec2704b7f2cd94b888ad62af16a02356d3124198ede
+    tag: 2.6.4-alpine@sha256:5acae6b87b26a591d6d14ec2704b7f2cd94b888ad62af16a02356d3124198ede
 
 hedgedoc:
   image:
     registry: quay.io
     repository: hedgedoc/hedgedoc
     tag: 1.9.7-debian@sha256:2763471ad097ea6650f7486024aceec0dfd8cdb4850c8c38e4e293f8309ad16d
+
+mariadb:
+  image:
+    registry: lscr.io
+    repository: linuxserver/mariadb
+    tag: 10.11.3@sha256:1d8c605fae2afbea0036f1f5b122316e6492dfe0553d50a5755628f385cac539
 
 murmur:
   image:
@@ -23,6 +29,11 @@ postgres13:
   image:
     repository: postgres
     tag: 13.11-bullseye@sha256:573d0dbcdde4522c6db0a0c50e4f68653c3ba1e70d081cca42d0fee87f67455f
+
+redis:
+  image:
+    repository: redis
+    tag: 7.0.11-bullseye@sha256:a2b5e4899c5c9080c9c2b3c7c5b715e5db85286b9c243b8e5f77c38b8647b6b6
 
 scrumplex-website:
   image:
