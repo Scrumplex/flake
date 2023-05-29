@@ -3,10 +3,26 @@ caddy:
     repository: caddy
     tag: 2.6.4@sha256:5acae6b87b26a591d6d14ec2704b7f2cd94b888ad62af16a02356d3124198ede
 
+hedgedoc:
+  image:
+    registry: quay.io
+    repository: hedgedoc/hedgedoc
+    tag: 1.9.7-debian@sha256:2763471ad097ea6650f7486024aceec0dfd8cdb4850c8c38e4e293f8309ad16d
+
+murmur:
+  image:
+    repository: mumblevoip/mumble-server
+    tag: v1.4.230-6@sha256:42ea734f0a8962cde8c3cd5f0dc5536c9caf6131064093b9ba76ed133b104fc4
+
 nextcloud:
   image:
     repository: nextcloud
     tag: 26.0.1-fpm@sha256:95de6bb5a11626028d541594f793fabe43afb10599400fa7d8512c03d7531cf0
+
+postgres13:
+  image:
+    repository: postgres
+    tag: 13.11-bullseye@sha256:573d0dbcdde4522c6db0a0c50e4f68653c3ba1e70d081cca42d0fee87f67455f
 
 scrumplex-website:
   image:
@@ -20,8 +36,18 @@ scrumplex-x:
     repository: scrumplex/prntserve
     tag: latest@sha256:93717fa2ebc555ea894d807c258a22a7c07e445b68a82076f885c4a8c6739f7b
 
+skinprox:
+  image:
+    registry: codeberg.org
+    repository: scrumplex/skinprox
+    tag: latest@sha256:05f613cfff2daf683548eb53e012a32a46a4770228a5a49463cb3472a1ac81cd
+
 tor:
   image:
     repository: goldy/tor-hidden-service
     tag: v0.4.7.12-54c0e54@sha256:cc682a9036cc560712187413697b0c27fb63af133b5f237562b7317091a0ed1f
 
+ts3:
+  image:
+    repository: teamspeak
+    tag: 3.13.7@sha256:51bccc8495e641012013d8023f28d79ab1ea012c471b1b1b3a0472ba4822ca19

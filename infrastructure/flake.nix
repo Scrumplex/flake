@@ -51,8 +51,9 @@
           age.secrets.id_borgbase.file = secrets/spacehub/id_borgbase.age;
           age.secrets."wireguard.key".file = secrets/spacehub/wireguard.key.age;
           age.secrets."hetzner.key".file = secrets/spacehub/hetzner.key.age;
-          age.secrets."tor-service.env".file = secrets/spacehub/tor-service.env.age;
+          age.secrets."hedgedoc-service.env".file = secrets/spacehub/hedgedoc-service.env.age;
           age.secrets."scrumplex-x-service.env".file = secrets/spacehub/scrumplex-x-service.env.age;
+          age.secrets."tor-service.env".file = secrets/spacehub/tor-service.env.age;
 
           imports = [./hosts/spacehub];
         };
