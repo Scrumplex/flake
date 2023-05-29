@@ -29,6 +29,7 @@
     fluxcd
     kubectl
     libqalculate
+    parallel
     psmisc
     ripgrep
     tree
