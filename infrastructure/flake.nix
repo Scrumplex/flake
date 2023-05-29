@@ -42,7 +42,7 @@
           eclipse = nixpkgs.legacyPackages.x86_64-linux;
         };
 
-        defaults.imports = [agenix.nixosModules.age arion.nixosModules.arion];
+        defaults.imports = [./modules/oci-image-external.nix agenix.nixosModules.age arion.nixosModules.arion];
 
         spacehub = {
           deployment.targetHost = "scrumplex.net";
@@ -54,7 +54,7 @@
           age.secrets."tor-service.env".file = secrets/spacehub/tor-service.env.age;
           age.secrets."scrumplex-x-service.env".file = secrets/spacehub/scrumplex-x-service.env.age;
 
-          imports = [./modules/oci-image-external.nix ./hosts/spacehub];
+          imports = [./hosts/spacehub];
         };
 
         duckhub = {
