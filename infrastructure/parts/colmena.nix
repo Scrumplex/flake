@@ -24,6 +24,7 @@ in {
         age.secrets."hetzner.key".file = ../secrets/spacehub/hetzner.key.age;
         age.secrets."hedgedoc-service.env".file = ../secrets/spacehub/hedgedoc-service.env.age;
         age.secrets."nextcloud-service.env".file = ../secrets/spacehub/nextcloud-service.env.age;
+        age.secrets."refraction-service.env".file = ../secrets/spacehub/refraction-service.env.age;
         age.secrets."scrumplex-x-service.env".file = ../secrets/spacehub/scrumplex-x-service.env.age;
         age.secrets."tor-service.env".file = ../secrets/spacehub/tor-service.env.age;
 

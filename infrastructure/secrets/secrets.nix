@@ -14,6 +14,7 @@ in {
   "spacehub/hetzner.key.age".publicKeys = scrumplex ++ [spacehub];
   "spacehub/hedgedoc-service.env.age".publicKeys = scrumplex ++ [spacehub];
   "spacehub/nextcloud-service.env.age".publicKeys = scrumplex ++ [spacehub];
+  "spacehub/refraction-service.env.age".publicKeys = scrumplex ++ [spacehub];
   "spacehub/scrumplex-x-service.env.age".publicKeys = scrumplex ++ [spacehub];
   "spacehub/tor-service.env.age".publicKeys = scrumplex ++ [spacehub];
 

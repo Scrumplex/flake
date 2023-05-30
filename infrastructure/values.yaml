@@ -25,6 +25,11 @@ nextcloud:
     repository: nextcloud
     tag: 26.0.1-fpm@sha256:95de6bb5a11626028d541594f793fabe43afb10599400fa7d8512c03d7531cf0
 
+ovenmediaengine:
+  image:
+    repository: airensoft/ovenmediaengine
+    tag: 0.15.11@sha256:85dd79a47adcd018c2f74e3c6a868b0737fb4de470adb2b27b0f07e82903b8dd
+
 postgres13:
   image:
     repository: postgres
@@ -34,6 +39,12 @@ redis:
   image:
     repository: redis
     tag: 7.0.11-bullseye@sha256:a2b5e4899c5c9080c9c2b3c7c5b715e5db85286b9c243b8e5f77c38b8647b6b6
+
+refraction:
+  image:
+    registry: ghcr.io
+    repository: prismlauncher/refraction
+    tag: latest@sha256:b3784a4acc446fe32016d9e4fd1e2948939782fe5ec16cc1eb68a2305285461d
 
 scrumplex-website:
   image:

@@ -45,6 +45,30 @@ in {
           };
         })
 
+        (mkContainer rec {
+          name = "ovenmediaengine";
+          environment = {
+            OME_SRT_PROV_PORT = "1935";
+            OME_DISTRIBUTION = "live.scrumplex.net";
+            OME_APPLICATION = "scrumplex";
+          };
+          service.ports = [
+            "3333:3333" # WebRTC Signaling
+            "3478:3478" # WebRTC Relay
+            "1935:1935" # RTMP Ingest
+            "10000-10005:10000-10005/udp" # WebRTC ICE
+          ];
+          service.volumes = [
+            "${dataPath}/ovenmediaengine-Server.xml:/opt/ovenmediaengine/bin/origin_conf/Server.xml"
+          ];
+          service.labels = {
+            "traefik.enable" = "true";
+            "traefik.http.routers.${name}.rule" = "Host(`live.scrumplex.net`)";
+            "traefik.http.routers.${name}.entrypoints" = "websecure";
+            "traefik.http.services.${name}.loadbalancer.server.port" = "3333";
+          };
+        })
+
         (mkContainer {
           name = "tor";
           environment = {
@@ -218,6 +242,16 @@ in {
             name = "redis";
           })
         ];
+      refraction.settings.services = mkContainer {
+        name = "refraction";
+        environment = {
+          DISCORD_APP = "1034470391252521051";
+          SAY_LOGS_CHANNEL = "1112764181012283542";
+        };
+        service.env_file = [
+          config.age.secrets."refraction-service.env".path
+        ];
+      };
     };
   };
 }
