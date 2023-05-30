@@ -26,7 +26,6 @@
     ffmpeg
     file
     flatpak-builder
-    fluxcd
     kubectl
     libqalculate
     parallel
