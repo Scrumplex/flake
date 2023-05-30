@@ -51,7 +51,7 @@ skinprox:
   image:
     registry: codeberg.org
     repository: scrumplex/skinprox
-    tag: latest@sha256:05f613cfff2daf683548eb53e012a32a46a4770228a5a49463cb3472a1ac81cd
+    tag: latest@sha256:7976613d1f41d66ce6123ebe3e5d4d1c5f57b44eccae1385486a9b09606f8d73
 
 tor:
   image:
