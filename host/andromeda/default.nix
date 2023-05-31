@@ -60,6 +60,13 @@
     gtklock.gnupg = config.security.pam.services.login.gnupg;
   };
 
+  networking.firewall.allowedTCPPortRanges = [
+    {
+      from = 2234;
+      to = 2239;
+    }
+  ];
+
   services.logind.extraConfig = ''
     HandlePowerKey=suspend
   '';
