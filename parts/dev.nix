@@ -17,6 +17,7 @@
     pre-commit.settings.hooks = {
       alejandra.enable = true;
       nil.enable = true;
+      prettier.enable = true;
     };
   };
 }
