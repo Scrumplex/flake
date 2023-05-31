@@ -42,11 +42,9 @@
       imports = [
         inputs.pre-commit-hooks.flakeModule
 
-        ./parts/formatter.nix
+        ./parts/dev.nix
         ./parts/modules.nix
         ./parts/overlays.nix
-        ./parts/pre-commit.nix
-        ./parts/shell.nix
         ./parts/systems.nix
       ];
 

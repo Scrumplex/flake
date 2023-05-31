@@ -13,5 +13,7 @@
 
       packages = [self'.formatter inputs'.agenix.packages.agenix];
     };
+    formatter = pkgs.alejandra;
+    pre-commit.settings.hooks.alejandra.enable = true;
   };
 }
