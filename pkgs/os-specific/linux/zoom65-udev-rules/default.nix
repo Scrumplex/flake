@@ -2,7 +2,7 @@
   lib,
   stdenv,
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "zoom65-udev-rules";
   version = "20230210";
 
