@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ "$#" -eq 0 ]; then
-    exec /usr/bin/kitty -1
-fi
-
-/usr/bin/kitty $@
