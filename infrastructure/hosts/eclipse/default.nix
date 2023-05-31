@@ -25,7 +25,7 @@
         6443
 
         # qbittorrent
-        6881
+        6969
 
         # terraria
         7777
@@ -45,7 +45,7 @@
         7777
 
         # qbittorrent
-        6881
+        6969
 
         # syncthing
         22000
