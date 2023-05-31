@@ -254,4 +254,9 @@ in {
       };
     };
   };
+
+  systemd.services."arion-refraction".serviceConfig = {
+    Restart = "always";
+    RestartSec = 2;
+  };
 }
