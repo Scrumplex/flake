@@ -20,11 +20,11 @@ in {
   };
 
   age.secrets."beets-secrets.yaml" = {
-    file = ../secrets/common/beets-secrets.yaml;
+    file = ../secrets/common/beets-secrets.yaml.age;
     owner = username;
   };
   age.secrets."listenbrainz-token" = {
-    file = ../secrets/common/listenbrainz-token;
+    file = ../secrets/common/listenbrainz-token.age;
     owner = username;
   };
 
