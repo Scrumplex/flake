@@ -63,6 +63,7 @@
     prismlauncher
     steam
     steam-run
+    yuzu-early-access
   ];
 
   theme = {
