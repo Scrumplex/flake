@@ -4,6 +4,11 @@ self: super: rec {
     withVencord = true;
   };
 
+  discord-canary = super.discord-canary.override {
+    withOpenASAR = true;
+    withVencord = true;
+  };
+
   glfwUnstable = super.glfw.overrideAttrs (_: {
     src = self.fetchFromGitHub {
       owner = "glfw";

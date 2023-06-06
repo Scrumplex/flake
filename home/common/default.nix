@@ -45,7 +45,7 @@
     qpwgraph
     virt-manager
 
-    discord
+    discord-canary
     element-desktop
     signal-desktop
     tdesktop
