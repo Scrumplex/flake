@@ -71,7 +71,14 @@
     HandlePowerKey=suspend
   '';
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd = {
+    enable = true;
+
+    qemu = {
+      ovmf.packages = [pkgs.OVMFFull.fd];
+      swtpm.enable = true;
+    };
+  };
 
   environment.systemPackages = with pkgs; [vim];
 
