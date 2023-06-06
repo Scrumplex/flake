@@ -13,7 +13,7 @@ mariadb:
   image:
     registry: lscr.io
     repository: linuxserver/mariadb
-    tag: 10.11.3@sha256:1d8c605fae2afbea0036f1f5b122316e6492dfe0553d50a5755628f385cac539
+    tag: 10.11.3@sha256:2db9b856f2c8201dd5067865b8ab05ece76e97869c1d84a64a6330ff87f9fc83
 
 murmur:
   image:
