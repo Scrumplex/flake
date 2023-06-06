@@ -8,6 +8,7 @@
     ./misc.nix
     ./nix.nix
     ./pipewire.nix
+    ./pkgs.nix
     ./regional.nix
     ./utils.nix
   ];

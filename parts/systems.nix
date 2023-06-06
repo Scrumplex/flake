@@ -21,11 +21,7 @@
       modules =
         [
           {
-            nixpkgs = {
-              config.allowUnfree = true;
-
-              inherit overlays;
-            };
+            nixpkgs = {inherit overlays;};
 
             home-manager = {
               useGlobalPkgs = true;
