@@ -92,6 +92,10 @@
             command = "floating enable; sticky enable";
           }
           {
+            criteria.app_id = "net.sapples.LiveCaptions";
+            command = "floating enable; sticky enable";
+          }
+          {
             criteria.title = ".*";
             command = "inhibit_idle fullscreen";
           }
