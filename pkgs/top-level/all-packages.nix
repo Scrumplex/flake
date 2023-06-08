@@ -18,8 +18,6 @@ with pkgs; {
     patch = ../cap_sys_nice_begone.patch;
   };
 
-  qt6ct = qt6Packages.callPackage ../tools/misc/qt6ct {};
-
   run-or-raise = callPackage ../tools/wayland/run-or-raise {};
 
   termapp = callPackage ../tools/wayland/termapp {};
