@@ -22,7 +22,6 @@
 
   home.packages = with pkgs; [
     dig
-    distrobox
     ffmpeg
     file
     flatpak-builder
