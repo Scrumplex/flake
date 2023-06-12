@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./poweralertd.nix];
+  imports = [./poweralertd.nix ./swayidle.nix];
 }
