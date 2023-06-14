@@ -23,7 +23,7 @@ murmur:
 nextcloud:
   image:
     repository: nextcloud
-    tag: 26.0.2-fpm@sha256:6d6533454e6312157464033ad40542b223e412330b37304e109993d2bea3e7bb
+    tag: 27.0.0-fpm@sha256:1775b1390a9843102caa26194116d4ea57091d024cf9604f51636b0a60e7258a
 
 ovenmediaengine:
   image:
