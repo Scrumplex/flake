@@ -249,6 +249,7 @@
         "XF86MonBrightnessUp" = "exec ${brightnessctl} set 5%+ | ${sed} -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
       };
     };
+    systemd.xdgAutostart = true;
   };
 
   home.packages = with pkgs; [wl-clipboard gtklock pulsemixer];
