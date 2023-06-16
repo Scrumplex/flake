@@ -29,25 +29,33 @@
     QML2_IMPORT_PATH = map (qt: "/${qt.qtbase.qtQmlPrefix}") qtVersions;
   };
 
-  security.sudo.extraRules = [
-    {
-      groups = ["wheel"];
-      commands = [
-        {
-          command = "${pkgs.nixos-rebuild}/bin/nixos-rebuild";
-          options = ["NOPASSWD"];
-        }
-        {
-          command = "${pkgs.systemd}/bin/systemctl";
-          options = ["NOPASSWD"];
-        }
-        {
-          command = "/run/current-system/sw/bin/podman";
-          options = ["NOPASSWD"];
-        }
-      ];
-    }
-  ];
+  security.sudo = {
+    extraConfig = ''
+      Defaults lecture = always
+      Defaults lecture_file = ${../../misc/lecture.txt}
+      Defaults pwfeedback
+      Defaults passwd_timeout=0
+    '';
+    extraRules = [
+      {
+        groups = ["wheel"];
+        commands = [
+          {
+            command = "${pkgs.nixos-rebuild}/bin/nixos-rebuild";
+            options = ["NOPASSWD"];
+          }
+          {
+            command = "${pkgs.systemd}/bin/systemctl";
+            options = ["NOPASSWD"];
+          }
+          {
+            command = "/run/current-system/sw/bin/podman";
+            options = ["NOPASSWD"];
+          }
+        ];
+      }
+    ];
+  };
 
   services.udisks2.enable = true;
 
