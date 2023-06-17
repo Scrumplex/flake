@@ -9,6 +9,7 @@
     ../common/traefik.nix
 
     ./containers.nix
+    ./murmur.nix
     ./wireguard.nix
   ];
 
@@ -35,9 +36,6 @@
 
         # ts3
         41144
-
-        # murmur
-        64738
       ];
       allowedUDPPorts = [
         # ts3
@@ -50,9 +48,6 @@
         10003
         10004
         10005
-
-        # murmur
-        64738
       ];
     };
   };

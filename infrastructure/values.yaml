@@ -15,11 +15,6 @@ mariadb:
     repository: linuxserver/mariadb
     tag: 10.11.4@sha256:357e58c11202fe1d974ee6894799e9b26c2b2e8e2896275a6bc7a7c4fb90fab1
 
-murmur:
-  image:
-    repository: mumblevoip/mumble-server
-    tag: v1.4.230-6@sha256:42ea734f0a8962cde8c3cd5f0dc5536c9caf6131064093b9ba76ed133b104fc4
-
 nextcloud:
   image:
     repository: nextcloud

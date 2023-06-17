@@ -10,6 +10,7 @@ let
   eclipse = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEgfjN4xqCCsl+XzvSFFIR4WQ18r4+G7kGcMLkTe4be6";
 in {
   "spacehub/id_borgbase.age".publicKeys = scrumplex ++ [spacehub];
+  "spacehub/murmur.env.age".publicKeys = scrumplex ++ [spacehub];
   "spacehub/wireguard.key.age".publicKeys = scrumplex ++ [spacehub];
   "spacehub/hetzner.key.age".publicKeys = scrumplex ++ [spacehub];
   "spacehub/hedgedoc-service.env.age".publicKeys = scrumplex ++ [spacehub];

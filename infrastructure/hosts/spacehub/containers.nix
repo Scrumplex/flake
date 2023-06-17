@@ -114,14 +114,6 @@ in {
             ];
             service.network_mode = "host";
           })
-          (mkContainer {
-            name = "murmur";
-            environment.MUMBLE_CUSTOM_CONFIG_FILE = "/data/murmur.ini";
-            service.volumes = [
-              "${dataPath}/murmur-data:/data"
-            ];
-            service.network_mode = "host";
-          })
         ];
       };
       hedgedoc.settings.services = mkMerge [

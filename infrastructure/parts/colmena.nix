@@ -20,6 +20,7 @@ in {
         deployment.targetPort = 22701;
 
         age.secrets.id_borgbase.file = ../secrets/spacehub/id_borgbase.age;
+        age.secrets."murmur.env".file = ../secrets/spacehub/murmur.env.age;
         age.secrets."wireguard.key".file = ../secrets/spacehub/wireguard.key.age;
         age.secrets."hetzner.key".file = ../secrets/spacehub/hetzner.key.age;
         age.secrets."hedgedoc-service.env".file = ../secrets/spacehub/hedgedoc-service.env.age;
