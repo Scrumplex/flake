@@ -7,6 +7,7 @@
       gcc # treesitter
       gopls # shellcheck lsp
       nil # nix lsp
+      nixd # nix lsp
       nodePackages.bash-language-server # bashls lsp
       nodePackages.typescript-language-server # typescript
       nodePackages.vscode-langservers-extracted # eslint/html/css/json lsp
@@ -198,7 +199,7 @@
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
       end
 
-      local servers = { "bashls", "clangd", "cssls", "eslint", "gopls", "html", "jsonls", "nil_ls", "pylsp", "rust_analyzer", "tsserver", "yamlls" }
+      local servers = { "bashls", "clangd", "cssls", "eslint", "gopls", "html", "jsonls", "nil_ls", "nixd", "pylsp", "rust_analyzer", "tsserver", "yamlls" }
 
       for _, lsp in pairs(servers) do
         nvim_lsp[lsp].setup({
