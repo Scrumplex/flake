@@ -14,6 +14,8 @@ in {
         discord-canary = mkDiscordOverride prev.discord-canary;
         discord-ptb = mkDiscordOverride prev.discord-ptb;
 
+        element-desktop = prev.element-desktop.override {electron = final.electron_24;};
+
         ncmpcpp = prev.ncmpcpp.override {
           visualizerSupport = true;
         };
