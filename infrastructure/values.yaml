@@ -45,7 +45,7 @@ scrumplex-website:
   image:
     registry: codeberg.org
     repository: scrumplex/website
-    tag: latest@sha256:31ab93cbe719ac439e95ab4bcdb6c78e32d6cac669ef41effd7137e6a69c014e
+    tag: latest@sha256:3a42df382cc97a41d6bff126f3b2476ee3f1aac11d08faf4cb420ccfd1dc23a2
 
 scrumplex-x:
   image:
