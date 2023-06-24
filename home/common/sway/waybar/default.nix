@@ -171,6 +171,7 @@
         min-width: 32px;
         min-height: 32px;
         padding: 0;
+        font-weight: normal;
       }
 
       #workspaces button.urgent, #idle_inhibitor.activated, #custom-pa-mute.muted, #custom-camera-blank.blank {
