@@ -205,8 +205,8 @@ in {
     variantUpper = toUpper (substring 0 1 cfg.variant) + (substring 1 999 cfg.variant);
     gtkVariant =
       if cfg.palette == "latte"
-      then "Light"
-      else "Dark";
+      then "light"
+      else "dark";
   in
     mkIf cfg.enable (mkMerge [
       {
