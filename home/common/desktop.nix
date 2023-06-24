@@ -22,14 +22,18 @@
       name = "Fira Sans";
       size = 11;
     };
+    theme = {
+      name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
+    };
+    gtk3.extraCss = builtins.readFile ./gtk-3.0.css;
+    gtk4.extraCss = builtins.readFile ./gtk-4.0.css;
   };
 
   # Stop apps from generating fontconfig caches and breaking reproducibility
   systemd.user.tmpfiles.rules = [
     "R %C/fontconfig - - - - -"
   ];
-
-  theme.gtk = true;
 
   home.sessionVariables.QT_QPA_PLATFORMTHEME = "qt5ct";
 

@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: let
   inherit (builtins) substring;
@@ -202,11 +201,6 @@ in {
       else mochaColors;
 
     paletteUpper = toUpper (substring 0 1 cfg.palette) + (substring 1 999 cfg.palette);
-    variantUpper = toUpper (substring 0 1 cfg.variant) + (substring 1 999 cfg.variant);
-    gtkVariant =
-      if cfg.palette == "latte"
-      then "light"
-      else "dark";
   in
     mkIf cfg.enable (mkMerge [
       {
@@ -214,17 +208,6 @@ in {
       }
       (mkIf cfg.kitty {
         programs.kitty.theme = "Catppuccin-${paletteUpper}";
-      })
-      (mkIf cfg.gtk {
-        gtk.theme = {
-          name = "Catppuccin-${paletteUpper}-Standard-${variantUpper}-${gtkVariant}";
-          package = pkgs.catppuccin-gtk.override {
-            # TODO: package option
-            accents = [cfg.variant];
-            variant = cfg.palette;
-          };
-        };
-        home.packages = [config.gtk.theme.package];
       })
     ]);
 }
