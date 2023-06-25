@@ -26,8 +26,8 @@
       name = "adw-gtk3-dark";
       package = pkgs.adw-gtk3;
     };
-    gtk3.extraCss = builtins.readFile ./gtk-3.0.css;
-    gtk4.extraCss = builtins.readFile ./gtk-4.0.css;
+    gtk3.extraCss = builtins.readFile ./adwaita.css;
+    gtk4.extraCss = builtins.readFile ./adwaita.css;
   };
 
   # Stop apps from generating fontconfig caches and breaking reproducibility
