@@ -1,25 +1,36 @@
-# Copyright (C) 2023 Sefa Eyeoglu <contact@scrumplex.net>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or (at
-# your option) any later version.
-#
-# This program is distributed in the hope that it will be useful, but
-# WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-# General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
 {
-  writeShellApplication,
+  lib,
+  stdenv,
   fuzzel,
 }:
-writeShellApplication {
-  name = "fuzzel-dmenu-shim";
+stdenv.mkDerivation rec {
+  pname = "fuzzel-dmenu-shim";
+  version = "20230219";
 
-  text = ''
-    exec ${fuzzel} --dmenu "$@"
+  src = [./fuzzel-menu.sh];
+
+  dontUnpack = true;
+
+  buildInputs = [fuzzel];
+
+  installPhase = ''
+    install -Dpm755 $src $out/bin/fuzzel-menu
+    ln -sf fuzzel-menu $out/bin/dmenu
+    ln -sf fuzzel-menu $out/bin/dmenu-wl
+    ln -sf fuzzel-menu $out/bin/bemenu
   '';
+
+  postFixup = let
+    runtimePath = lib.makeBinPath buildInputs;
+  in ''
+    sed -i "2 i export PATH=${runtimePath}:\$PATH" $out/bin/fuzzel-menu
+  '';
+
+  meta = with lib; {
+    homepage = "https://codeberg.org/Scrumplex/dotfiles";
+    description = "A shim that makes it possible to use fuzzel for any dmenu script.";
+    platforms = platforms.linux;
+    license = licenses.gpl3Plus;
+    maintainers = with maintainers; [Scrumplex];
+  };
 }
