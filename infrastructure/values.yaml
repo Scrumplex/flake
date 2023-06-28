@@ -13,7 +13,7 @@ honeylinks:
   image:
     registry: codeberg.org
     repository: scrumplex/honeylinks
-    tag: latest@sha256:8bf609fe8ce8d409b8170189472bed33777b1af9096ed9eb76cd4fa4f3e0c3da
+    tag: latest@sha256:d9cabbc65b24d93cbc4486800081f35b2fc04443c2b69b812564083e7178e7e8
 
 mariadb:
   image:
