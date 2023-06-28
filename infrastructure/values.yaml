@@ -9,6 +9,12 @@ hedgedoc:
     repository: hedgedoc/hedgedoc
     tag: 1.9.8-debian@sha256:88c653a6de5a981adbd460457e2b2674bd6a4268ae2959c516f78c56aca54274
 
+honeylinks:
+  image:
+    registry: codeberg.org
+    repository: scrumplex/honeylinks
+    tag: latest@sha256:8bf609fe8ce8d409b8170189472bed33777b1af9096ed9eb76cd4fa4f3e0c3da
+
 mariadb:
   image:
     registry: lscr.io
