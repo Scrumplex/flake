@@ -23,11 +23,6 @@ in {
         prismlauncher = prev.prismlauncher.override {
           glfw = final.glfwUnstable;
         };
-
-        # https://github.com/NixOS/nixpkgs/pull/240270
-        spdlog = prev.spdlog.override {
-          fmt = final.fmt_9;
-        };
       })
     ];
   };
