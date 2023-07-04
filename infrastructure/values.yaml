@@ -7,7 +7,7 @@ hedgedoc:
   image:
     registry: quay.io
     repository: hedgedoc/hedgedoc
-    tag: 1.9.8-debian@sha256:924e7f42f324bc0d92f50f8051d08f612070b572fb4bc32be542e72e926231b1
+    tag: 1.9.8-debian@sha256:7e7fe062b92d0344daf70f0ab0de21291919b89ce4b83d3c31cc82c1938dd472
 
 honeylinks:
   image:
