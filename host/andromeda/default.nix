@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  imports = [./hardware-configuration.nix ./nix-serve.nix ./wireguard.nix];
+  imports = [./hardware-configuration.nix ./harmonia.nix ./wireguard.nix];
 
   hardware.enableRedistributableFirmware = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
