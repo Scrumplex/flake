@@ -111,7 +111,7 @@
         "clock#other" = {
           format = "{:%I:%M %p}";
           interval = 1;
-          locale = "en_US";
+          locale = "en_US.UTF-8";
           timezone = "America/New_York";
         };
         "custom/pa-mute" = import ./modules/pa-mute.nix pkgs;
