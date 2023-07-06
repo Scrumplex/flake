@@ -1,5 +1,7 @@
 pkgs:
 with pkgs; {
+  bemoji = callPackage ../tools/misc/bemoji {};
+
   fuzzel-dmenu-shim = callPackage ../tools/wayland/fuzzel-dmenu-shim {};
 
   glfw-wayland-minecraft = callPackage ../development/libraries/glfw-wayland-minecraft {};

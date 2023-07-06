@@ -1,4 +1,4 @@
-{...}: let
+{lib, ...}: let
   mkDiscordOverride = p:
     p.override {
       withOpenASAR = true;
@@ -8,8 +8,12 @@ in {
   nixpkgs = {
     config.allowUnfree = true;
 
-    overlays = [
+    overlays = lib.mkAfter [
       (final: prev: {
+        bemoji = prev.bemoji.override {
+          menuTool = final.fuzzel-dmenu-shim;
+        };
+
         discord = mkDiscordOverride prev.discord;
         discord-canary = mkDiscordOverride prev.discord-canary;
         discord-ptb = mkDiscordOverride prev.discord-ptb;

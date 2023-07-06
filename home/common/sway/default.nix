@@ -155,6 +155,7 @@
         "${mod}+Escape" = "kill";
         "${mod}+d" = "exec ${menu}";
         "${mod}+p" = "exec ${config.programs.password-store.package}/bin/passmenu";
+        "${mod}+period" = "exec ${pkgs.bemoji}/bin/bemoji -t";
         "${mod}+Shift+c" = "reload";
         "${mod}+Shift+e" = "exec ${pkgs.wlogout}/bin/wlogout";
         "${mod}+Ctrl+q" = "exec ${pkgs.gtklock}/bin/gtklock -d";
