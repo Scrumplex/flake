@@ -49,8 +49,8 @@
     signal-desktop
     tdesktop
 
-    inkscape
-    gimp
+    inkscape-with-extensions
+    gimp-with-plugins
     krita
     tenacity
     libreoffice-fresh
