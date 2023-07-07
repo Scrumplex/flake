@@ -1,8 +1,47 @@
 {
   config,
+  lib,
   pkgs,
   ...
-}: {
+}: let
+  inherit (builtins) map substring;
+  inherit (lib.attrsets) getBin mapAttrsToList;
+  inherit (lib.lists) singleton;
+  inherit (lib.meta) getExe;
+  inherit (lib.modules) mkIf;
+
+  getExe' = x: y: "${getBin x}/bin/${y}";
+
+  # create exec shortcut for Sway
+  mkExec = keyCombo: exec: {${keyCombo} = "exec ${exec}";};
+
+  # create move/focus shortcuts for Sway
+  mkDirectionKeys = key: direction: {
+    "${mod}+${key}" = "focus ${direction}";
+    "${mod}+Shift+${key}" = "move ${direction}";
+    "${mod}+Ctrl+${key}" = "move workspace output ${direction}";
+  };
+
+  # create move/focus workspace shortcuts for Sway
+  mkWorkspaceKeys = workspace: let
+    key = substring 0 1 workspace;
+  in {
+    "${mod}+${key}" = "workspace ${workspace}";
+    "${mod}+Shift+${key}" = "move container to workspace ${workspace}";
+  };
+
+  swayConf = config.wayland.windowManager.sway.config;
+  cameraBlankConf = config.programs.waybar.extraModules.cameraBlank;
+
+  wobSock = "$XDG_RUNTIME_DIR/wob.sock";
+
+  mod = swayConf.modifier;
+
+  mpc = lib.getExe pkgs.mpc-cli;
+  pamixer = lib.getExe pkgs.pamixer;
+  sed = lib.getExe pkgs.gnused;
+  brightnessctl = lib.getExe pkgs.brightnessctl;
+in {
   imports = [./fuzzel.nix ./mako.nix ./swayidle.nix ./waybar ./wlogout.nix ./wlsunset.nix ./wob.nix];
 
   home.sessionVariables = {
@@ -136,119 +175,64 @@
           text = "#${base}";
         };
       };
-      keybindings = let
-        swayConf = config.wayland.windowManager.sway.config;
-        terminal = swayConf.terminal;
-        menu = swayConf.menu;
-        mod = swayConf.modifier;
-        left = swayConf.left;
-        right = swayConf.right;
-        up = swayConf.up;
-        down = swayConf.down;
+      keybindings = lib.mkMerge (
+        [
+          (mkExec "${mod}+Return" swayConf.terminal)
+          (mkExec "${mod}+d" swayConf.menu)
+          (mkExec "${mod}+p" (getExe' config.programs.password-store.package "passmenu"))
+          (mkExec "${mod}+period" "${getExe pkgs.bemoji} -t")
+          (mkExec "${mod}+Shift+e" (getExe pkgs.wlogout))
+          (mkExec "${mod}+Ctrl+q" "${getExe pkgs.gtklock} -d")
+          (mkExec "${mod}+Backspace" "${getExe' pkgs.mako "makoctl"} dismiss")
+          (mkExec "XF86AudioStop" "${mpc} stop")
+          (mkExec "XF86AudioPlay" "${mpc} toggle")
+          (mkExec "XF86AudioPause" "${mpc} toggle")
+          (mkExec "XF86AudioNext" "${mpc} next")
+          (mkExec "XF86AudioPrev" "${mpc} prev")
+          (mkExec "XF86AudioMute" "${pamixer} -t && ${pamixer} --get-volume > ${wobSock}")
+          (mkExec "XF86AudioRaiseVolume" "${pamixer} -ui 2 && ${pamixer} --get-volume > ${wobSock}")
+          (mkExec "XF86AudioLowerVolume" "${pamixer} -ud 2 && ${pamixer} --get-volume > ${wobSock}")
+          (mkExec "Shift+XF86AudioRaiseVolume" "${mpc} vol +2 && ${mpc} vol | ${sed} 's|n/a|0%|g;s/[^0-9]*//g' > ${wobSock}")
+          (mkExec "Shift+XF86AudioLowerVolume" "${mpc} vol -2 && ${mpc} vol | ${sed} 's|n/a|0%|g;s/[^0-9]*//g' > ${wobSock}")
+          (mkExec "XF86MonBrightnessDown" "${brightnessctl} set 5%- | ${sed} -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > ${wobSock}")
+          (mkExec "XF86MonBrightnessUp" "${brightnessctl} set 5%+ | ${sed} -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > ${wobSock}")
 
-        mpc = "${pkgs.mpc-cli}/bin/mpc";
-        pamixer = "${pkgs.pamixer}/bin/pamixer";
-        sed = "${pkgs.gnused}/bin/sed";
-        brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-      in {
-        "${mod}+Return" = "exec ${terminal}";
-        "${mod}+Escape" = "kill";
-        "${mod}+d" = "exec ${menu}";
-        "${mod}+p" = "exec ${config.programs.password-store.package}/bin/passmenu";
-        "${mod}+period" = "exec ${pkgs.bemoji}/bin/bemoji -t";
-        "${mod}+Shift+c" = "reload";
-        "${mod}+Shift+e" = "exec ${pkgs.wlogout}/bin/wlogout";
-        "${mod}+Ctrl+q" = "exec ${pkgs.gtklock}/bin/gtklock -d";
-        # TODO: Screenshots
-        #"${mod}+Print" = "";
-        "${mod}+Backspace" = "exec ${pkgs.mako}/bin/makoctl dismiss";
-        "${mod}+r" = "mode resize";
+          (mkExec "${mod}+m" config.programs.waybar.settings.mainBar."custom/pa-mute".on-click)
+          (mkIf cameraBlankConf.enable (mkExec "${mod}+n" cameraBlankConf.onClickScript))
+        ]
+        ++ (
+          map mkWorkspaceKeys ["1" "2" "3" "4:mail" "5:chat" "6" "7" "8" "9"]
+        )
+        ++ (
+          mapAttrsToList mkDirectionKeys {
+            ${swayConf.left} = "left";
+            ${swayConf.right} = "right";
+            ${swayConf.up} = "up";
+            ${swayConf.down} = "down";
+            "Left" = "left";
+            "Right" = "right";
+            "Up" = "up";
+            "Down" = "down";
+          }
+        )
+        ++ (singleton {
+          "${mod}+Escape" = "kill";
+          "${mod}+Shift+c" = "reload";
+          "${mod}+r" = "mode resize";
 
-        "${mod}+${left}" = "focus left";
-        "${mod}+${right}" = "focus right";
-        "${mod}+${up}" = "focus up";
-        "${mod}+${down}" = "focus down";
-        "${mod}+Left" = "focus left";
-        "${mod}+Right" = "focus right";
-        "${mod}+Up" = "focus up";
-        "${mod}+Down" = "focus down";
+          "${mod}+s" = "layout stacking";
+          "${mod}+w" = "layout tabbed";
+          "${mod}+e" = "layout toggle split";
 
-        "${mod}+Shift+${left}" = "move left";
-        "${mod}+Shift+${right}" = "move right";
-        "${mod}+Shift+${up}" = "move up";
-        "${mod}+Shift+${down}" = "move down";
-        "${mod}+Shift+Left" = "move left";
-        "${mod}+Shift+Right" = "move right";
-        "${mod}+Shift+Up" = "move up";
-        "${mod}+Shift+Down" = "move down";
+          "${mod}+f" = "fullscreen toggle";
+          "${mod}+Shift+f" = "fullscreen toggle global";
 
-        "${mod}+Ctrl+${left}" = "move workspace output left";
-        "${mod}+Ctrl+${right}" = "move workspace output right";
-        "${mod}+Ctrl+${up}" = "move workspace output up";
-        "${mod}+Ctrl+${down}" = "move workspace output down";
-        "${mod}+Ctrl+Left" = "move workspace output left";
-        "${mod}+Ctrl+Right" = "move workspace output right";
-        "${mod}+Ctrl+Up" = "move workspace output up";
-        "${mod}+Ctrl+Down" = "move workspace output down";
+          "${mod}+Space" = "focus mode_toggle";
+          "${mod}+Shift+Space" = "floating toggle";
 
-        "${mod}+1" = "workspace 1";
-        "${mod}+2" = "workspace 2";
-        "${mod}+3" = "workspace 3";
-        "${mod}+4" = "workspace 4:mail";
-        "${mod}+5" = "workspace 5:chat";
-        "${mod}+6" = "workspace 6";
-        "${mod}+7" = "workspace 7";
-        "${mod}+8" = "workspace 8";
-        "${mod}+9" = "workspace 9";
-
-        "${mod}+Shift+1" = "move container to workspace 1";
-        "${mod}+Shift+2" = "move container to workspace 2";
-        "${mod}+Shift+3" = "move container to workspace 3";
-        "${mod}+Shift+4" = "move container to workspace 4:mail";
-        "${mod}+Shift+5" = "move container to workspace 5:chat";
-        "${mod}+Shift+6" = "move container to workspace 6";
-        "${mod}+Shift+7" = "move container to workspace 7";
-        "${mod}+Shift+8" = "move container to workspace 8";
-        "${mod}+Shift+9" = "move container to workspace 9";
-        "${mod}+Shift+0" = "move container to workspace 0";
-
-        "${mod}+s" = "layout stacking";
-        "${mod}+w" = "layout tabbed";
-        "${mod}+e" = "layout toggle split";
-
-        "${mod}+f" = "fullscreen toggle";
-        "${mod}+Shift+f" = "fullscreen toggle global";
-
-        "${mod}+Shift+Space" = "floating toggle";
-
-        "${mod}+Space" = "focus mode_toggle";
-
-        "${mod}+a" = "focus parent";
-
-        "XF86AudioStop" = "exec ${mpc} stop";
-        "XF86AudioPlay" = "exec ${mpc} toggle";
-        "XF86AudioPause" = "exec ${mpc} toggle";
-        "XF86AudioNext" = "exec ${mpc} next";
-        "XF86AudioPrev" = "exec ${mpc} prev";
-
-        "XF86AudioMute" = "exec ${pamixer} -t && ${pamixer} --get-volume > $XDG_RUNTIME_DIR/wob.sock";
-        "XF86AudioRaiseVolume" = "exec ${pamixer} -ui 2 && ${pamixer} --get-volume > $XDG_RUNTIME_DIR/wob.sock";
-        "XF86AudioLowerVolume" = "exec ${pamixer} -ud 2 && ${pamixer} --get-volume > $XDG_RUNTIME_DIR/wob.sock";
-
-        "${mod}+XF86AudioMute" = "exec ${config.programs.waybar.settings.mainBar."custom/pa-mute".on-click}";
-        "${mod}+m" = "exec ${config.programs.waybar.settings.mainBar."custom/pa-mute".on-click}";
-        # TODO: make this nice
-        "${mod}+n" =
-          if config.programs.waybar.extraModules.cameraBlank.enable
-          then "exec ${config.programs.waybar.extraModules.cameraBlank.onClickScript}"
-          else "exec echo noop";
-
-        "Shift+XF86AudioRaiseVolume" = "exec ${mpc} vol +2 && ${mpc} vol | ${sed} 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
-        "Shift+XF86AudioLowerVolume" = "exec ${mpc} vol -2 && ${mpc} vol | ${sed} 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
-
-        "XF86MonBrightnessDown" = "exec ${brightnessctl} set 5%- | ${sed} -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
-        "XF86MonBrightnessUp" = "exec ${brightnessctl} set 5%+ | ${sed} -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
-      };
+          "${mod}+a" = "focus parent";
+        })
+      );
     };
     systemd.xdgAutostart = true;
   };
