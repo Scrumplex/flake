@@ -1,5 +1,5 @@
 {...}: {
-  imports = [./borg.nix ./dev.nix];
+  imports = [./borg.nix ./dev.nix ./sway];
 
   programs.waybar.extraModules.cameraBlank = {
     enable = true;

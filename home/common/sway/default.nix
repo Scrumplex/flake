@@ -86,23 +86,7 @@ in {
           tap_button_map = "lrm";
         };
       };
-      output = {
-        "LG Electronics LG ULTRAGEAR 104MANJ7FL47" = {
-          mode = "2560x1440@144Hz";
-          position = "0,0";
-          adaptive_sync = "on";
-        };
-        "Samsung Electric Company S24E650 H4ZJ803253" = {
-          mode = "1920x1080@60Hz";
-          position = "2560,0";
-        };
-        "BOE 0x095F Unknown" = {
-          mode = "2256x1504@59.999Hz";
-          position = "0,0";
-          scale = "1.25";
-        };
-        "*" = {bg = "${wallpaper} fill";};
-      };
+      output."*" = {bg = "${wallpaper} fill";};
       assigns = {
         "4:mail" = [{app_id = "evolution";}];
         "5:chat" = [
