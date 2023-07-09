@@ -7,6 +7,7 @@
     ./gaming.nix
     ./misc.nix
     ./nix.nix
+    ./nvd.nix
     ./pipewire.nix
     ./pkgs
     ./regional.nix
