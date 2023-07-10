@@ -40,7 +40,5 @@ in {
 
     programs.home-manager.enable = true;
     systemd.user.startServices = "sd-switch";
-
-    nixpkgs.config.allowUnfree = true;
   };
 }
