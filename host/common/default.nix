@@ -13,4 +13,6 @@
     ./regional.nix
     ./utils.nix
   ];
+
+  users.mutableUsers = false;
 }

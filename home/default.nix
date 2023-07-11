@@ -7,6 +7,8 @@ username: {
   inherit (lib) optional;
 in {
   users.users."${username}" = {
+    hashedPassword = "$6$KNwLE3ngtMcCkmj2$p7DW3bgBEQ5WmcTP48cQJu5OUlPBQqMaGrtHz4jL4w7WAe.GmQsGNIaM2wXc9jHpgmyuC4bSBOgpVDU2GLe7q0";
+
     isNormalUser = true;
     shell = pkgs.fish;
     extraGroups =
