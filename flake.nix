@@ -20,6 +20,10 @@
     };
     # intentionally not following our nixpkgs for cache
     lanzaboote.url = "github:nix-community/lanzaboote";
+    nixpkgs-wayland = {
+      url = "github:nix-community/nixpkgs-wayland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     prismlauncher = {
       url = "github:PrismLauncher/PrismLauncher";
       inputs.nixpkgs.follows = "nixpkgs";
