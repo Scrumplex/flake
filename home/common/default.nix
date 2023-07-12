@@ -45,6 +45,8 @@
     virt-manager
 
     discord-canary
+    webcord
+    armcord
     element-desktop
     signal-desktop
     tdesktop
