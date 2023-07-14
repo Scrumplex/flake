@@ -27,6 +27,8 @@ in {
         prismlauncher = prev.prismlauncher.override {
           glfw = final.glfwUnstable;
         };
+
+        spamassassin = prev.spamassassin.overrideAttrs (prev: {doCheck = false;});
       })
     ];
   };
