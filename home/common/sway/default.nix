@@ -31,7 +31,7 @@
   };
 
   swayConf = config.wayland.windowManager.sway.config;
-  cameraBlankConf = config.programs.waybar.extraModules.cameraBlank;
+  waybarExtraConf = config.programs.waybar.extraModules;
 
   wobSock = "$XDG_RUNTIME_DIR/wob.sock";
 
@@ -181,8 +181,8 @@ in {
           (mkExec "XF86MonBrightnessDown" "${brightnessctl} set 5%- | ${sed} -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > ${wobSock}")
           (mkExec "XF86MonBrightnessUp" "${brightnessctl} set 5%+ | ${sed} -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > ${wobSock}")
 
-          (mkExec "${mod}+m" config.programs.waybar.settings.mainBar."custom/pa-mute".on-click)
-          (mkIf cameraBlankConf.enable (mkExec "${mod}+n" cameraBlankConf.onClickScript))
+          (mkIf waybarExtraConf.cameraBlank.enable (mkExec "${mod}+n" waybarExtraConf.cameraBlank.onClickScript))
+          (mkIf waybarExtraConf.paMute.enable (mkExec "${mod}+m" waybarExtraConf.paMute.onClickScript))
         ]
         ++ (
           map mkWorkspaceKeys ["1" "2" "3" "4:mail" "5:chat" "6" "7" "8" "9"]

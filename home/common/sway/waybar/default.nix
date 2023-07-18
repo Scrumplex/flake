@@ -6,9 +6,16 @@
 }: {
   programs.waybar = {
     enable = true;
-    extraModules.cameraBlank = {
-      blanked.label = "󱜷";
-      unblanked.label = "󰖠";
+    extraModules = {
+      cameraBlank = {
+        blanked.label = "󱜷";
+        unblanked.label = "󰖠";
+      };
+      paMute = {
+        enable = lib.mkDefault true;
+        muted.label = "󰍭";
+        unmuted.label = "󰍬";
+      };
     };
     settings = let
       termapp = "${pkgs.termapp}/bin/termapp";
@@ -22,10 +29,11 @@
             "network"
             "pulseaudio"
             "battery"
-            "custom/pa-mute"
           ]
+          ++ lib.optional config.programs.waybar.extraModules.paMute.enable
+          "custom/${config.programs.waybar.extraModules.paMute.moduleName}"
           ++ lib.optional config.programs.waybar.extraModules.cameraBlank.enable
-          "custom/camera-blank"
+          "custom/${config.programs.waybar.extraModules.cameraBlank.moduleName}"
           ++ [
             "idle_inhibitor"
             "clock#date"
@@ -114,7 +122,6 @@
           locale = "en_US.UTF-8";
           timezone = "America/New_York";
         };
-        "custom/pa-mute" = import ./modules/pa-mute.nix pkgs;
         idle_inhibitor = {
           format = "{icon}";
           format-icons = {
