@@ -314,11 +314,11 @@
         "pre-commit-hooks-nix": "pre-commit-hooks-nix"
       },
       "locked": {
-        "lastModified": 1689810112,
-        "narHash": "sha256-obnbGi7iSvJK77R2ZECgbWwYBFbS8n00czM4iO1zFx0=",
+        "lastModified": 1689845416,
+        "narHash": "sha256-ERkXfeLjDlYliIK6aPZpnlWAhgXAj3t1ppXWJAtFRoA=",
         "owner": "nix-community",
         "repo": "lanzaboote",
-        "rev": "78f00a288f71765045db2c5dfc81165a2c7964f3",
+        "rev": "bf82f823e185fce19a8fb50c336432d7ed95216f",
         "type": "github"
       },
       "original": {
@@ -505,11 +505,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1689797766,
-        "narHash": "sha256-cRWRVpyg7q9US1+WXiOD69rwVSwtGEiaku79j4sJ1/o=",
+        "lastModified": 1689848188,
+        "narHash": "sha256-WL1/3ywLEE/jmL2iIhCuscfuHQQo7MJpDFibjREkJrI=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "2cd0aaaa3f3874dd0186008b8d2f10055ecab6b4",
+        "rev": "3b4758299ae17d01e5f073180cd3be3e6f0c73c8",
         "type": "github"
       },
       "original": {
