@@ -67,6 +67,8 @@
     }
   ];
 
+  services.monado.enable = true;
+
   services.logind.extraConfig = ''
     HandlePowerKey=suspend
   '';
