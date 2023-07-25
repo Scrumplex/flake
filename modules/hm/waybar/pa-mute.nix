@@ -35,11 +35,13 @@ in {
 
     alsaState = {
       card = mkOption {
+        default = null;
         description = "Number of ALSA card. Disabled if null";
         type = lib.types.nullOr lib.types.str;
       };
 
       file = mkOption {
+        default = null;
         description = "Path to ALSA state file to restore when toggling. Disabled if null";
         type = lib.types.nullOr lib.types.path;
       };
