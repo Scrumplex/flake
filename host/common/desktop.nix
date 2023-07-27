@@ -7,7 +7,7 @@
   security.pam.services.gtklock = {};
 
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       noto-fonts-cjk-sans
       fira
       monocraft
@@ -16,7 +16,7 @@
       roboto
     ];
 
-    enableDefaultFonts = true;
+    enableDefaultPackages = true;
 
     fontDir = {
       enable = true;
