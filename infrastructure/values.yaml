@@ -24,7 +24,7 @@ mariadb:
 nextcloud:
   image:
     repository: nextcloud
-    tag: 27.0.1-fpm@sha256:d8ab035d2d97fc83362037a6d2075a88bce38d73e68155a4b8f3d5aec70d8967
+    tag: 27.0.1-fpm@sha256:5bbd95a62a19b2f008fa33e29d20a690f42df466875c23346039345019c0f596
 
 ovenmediaengine:
   image:
