@@ -41,15 +41,11 @@
         groups = ["wheel"];
         commands = [
           {
-            command = "${pkgs.nixos-rebuild}/bin/nixos-rebuild";
+            command = "/run/current-system/sw/bin/nixos-rebuild";
             options = ["NOPASSWD"];
           }
           {
-            command = "${pkgs.systemd}/bin/systemctl";
-            options = ["NOPASSWD"];
-          }
-          {
-            command = "/run/current-system/sw/bin/podman";
+            command = "/run/current-system/sw/bin/systemctl";
             options = ["NOPASSWD"];
           }
         ];
