@@ -111,19 +111,6 @@ in {
           "traefik.http.middlewares.${name}-cors.headers.addvaryheader" = "true";
         };
       };
-      voip.settings = {
-        # We use host networking for these containers!
-        enableDefaultNetwork = false;
-        services = mkMerge [
-          (mkContainer {
-            name = "ts3";
-            service.volumes = [
-              "${dataPath}/ts3-data:/var/ts3server"
-            ];
-            service.network_mode = "host";
-          })
-        ];
-      };
       hedgedoc.settings.services = mkMerge [
         (mkContainer rec {
           name = "hedgedoc";

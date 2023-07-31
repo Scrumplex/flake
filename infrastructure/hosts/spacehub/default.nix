@@ -10,6 +10,7 @@
 
     ./containers.nix
     ./murmur.nix
+    ./teamspeak3.nix
     ./wireguard.nix
   ];
 

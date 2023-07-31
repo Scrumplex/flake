@@ -49,4 +49,6 @@
       filetype plugin on
     '';
   };
+
+  nixpkgs.config.allowUnfree = true;
 }
