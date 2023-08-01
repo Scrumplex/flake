@@ -3,7 +3,7 @@
   hardware.enableRedistributableFirmware = true;
 
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_6_3;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     #kernelParams = [ "console=ttyS0,115200" "console=tty0" ];
 
