@@ -40,6 +40,22 @@
         "type": "github"
       }
     },
+    "catppuccin-qt5ct": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1679416147,
+        "narHash": "sha256-t/uyK0X7qt6qxrScmkTU2TvcVJH97hSQuF0yyvSO/qQ=",
+        "owner": "catppuccin",
+        "repo": "qt5ct",
+        "rev": "89ee948e72386b816c7dad72099855fb0d46d41e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "qt5ct",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -652,6 +668,7 @@
       "inputs": {
         "agenix": "agenix",
         "catppuccin-fish": "catppuccin-fish",
+        "catppuccin-qt5ct": "catppuccin-qt5ct",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
