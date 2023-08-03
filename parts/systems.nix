@@ -1,11 +1,7 @@
-{
-  self,
-  inputs,
-  ...
-}: let
+{inputs, ...}: let
   username = "scrumplex";
 
-  inherit (inputs) agenix home-manager lanzaboote nixpkgs nixpkgs-wayland prismlauncher screenshot-bash;
+  inherit (inputs) agenix home-manager lanzaboote nixpkgs nixpkgs-wayland prismlauncher screenshot-bash scrumpkgs;
 
   inherit (nixpkgs.lib) attrValues;
 
@@ -13,7 +9,7 @@
     hostName,
     system,
     modules,
-    overlays ? [nixpkgs-wayland.overlay prismlauncher.overlays.default screenshot-bash.overlays.default] ++ [self.overlays.default],
+    overlays ? [nixpkgs-wayland.overlay prismlauncher.overlays.default screenshot-bash.overlays.default scrumpkgs.overlays.default],
   }: {
     ${hostName} = nixpkgs.lib.nixosSystem {
       inherit system;
@@ -26,7 +22,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              sharedModules = attrValues self.hmModules;
+              sharedModules = attrValues scrumpkgs.hmModules;
               extraSpecialArgs = {inherit inputs;};
             };
             networking.hostName = hostName;
@@ -40,7 +36,7 @@
           ../host/${hostName}
           (import ../home username)
         ]
-        ++ (attrValues self.nixosModules)
+        ++ (attrValues scrumpkgs.nixosModules)
         ++ modules;
 
       specialArgs = {inherit inputs;};

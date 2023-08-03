@@ -9,6 +9,12 @@
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    scrumpkgs = {
+      url = "github:Scrumplex/pkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,8 +57,6 @@
         inputs.pre-commit-hooks.flakeModule
 
         ./parts/dev.nix
-        ./parts/modules.nix
-        ./parts/overlays.nix
         ./parts/systems.nix
       ];
 

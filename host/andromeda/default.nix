@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   ...
 }: {
@@ -7,7 +8,7 @@
 
   hardware.enableRedistributableFirmware = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-  boot.kernelPatches = [pkgs.kernelPatches.cap_sys_nice_begone];
+  boot.kernelPatches = [inputs.scrumpkgs.kernelPatches.cap_sys_nice_begone];
 
   powerManagement.cpuFreqGovernor = "schedutil";
   hardware.amdgpu.amdvlk = false;
