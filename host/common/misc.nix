@@ -21,14 +21,6 @@
 
   services.udev.packages = with pkgs; [zoom65-udev-rules];
 
-  # Taken from NixOS qt module
-  environment.profileRelativeSessionVariables = let
-    qtVersions = with pkgs; [qt5 qt6];
-  in {
-    QT_PLUGIN_PATH = map (qt: "/${qt.qtbase.qtPluginPrefix}") qtVersions;
-    QML2_IMPORT_PATH = map (qt: "/${qt.qtbase.qtQmlPrefix}") qtVersions;
-  };
-
   security.sudo = {
     extraConfig = ''
       Defaults lecture = always

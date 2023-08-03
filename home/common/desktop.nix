@@ -35,12 +35,7 @@
     "R %C/fontconfig - - - - -"
   ];
 
-  home.sessionVariables.QT_QPA_PLATFORMTHEME = "qt5ct";
-
   home.packages = with pkgs; [
-    qt5ct
-    qt6ct
-
     xdg-user-dirs
     xdg-utils
   ];
