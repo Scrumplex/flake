@@ -27,6 +27,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               sharedModules = attrValues self.hmModules;
+              extraSpecialArgs = {inherit inputs;};
             };
             networking.hostName = hostName;
           }

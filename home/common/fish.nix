@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -80,12 +81,7 @@
     theme = {
       enable = true;
       name = "Catppuccin Mocha";
-      plugin = pkgs.fetchFromGitHub {
-        owner = "catppuccin";
-        repo = "fish";
-        rev = "b90966686068b5ebc9f80e5b90fdf8c02ee7a0ba";
-        sha256 = "wQlYQyqklU/79K2OXRZXg5LvuIugK7vhHgpahpLFaOw=";
-      };
+      plugin = inputs.catppuccin-fish;
     };
   };
 

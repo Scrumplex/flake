@@ -33,6 +33,12 @@
       url = "git+https://codeberg.org/Scrumplex/screenshot-bash";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # assets and more
+    catppuccin-fish = {
+      url = "github:catppuccin/fish";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {flake-parts, ...}:
