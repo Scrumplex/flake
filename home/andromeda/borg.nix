@@ -12,7 +12,7 @@
     enable = true;
     backups.andromeda = {
       location = {
-        repositories = ["obai58wh@obai58wh.repo.borgbase.com:repo"];
+        repositories = ["ssh://obai58wh@obai58wh.repo.borgbase.com/./repo"];
         sourceDirectories = [config.home.homeDirectory "/media/DATA" "/media/DATA2"];
         extraConfig = {
           exclude_caches = true;
