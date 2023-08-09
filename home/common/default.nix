@@ -48,6 +48,7 @@
     webcord
     armcord
     element-desktop
+    quasselClient
     signal-desktop
     tdesktop
 
