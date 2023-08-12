@@ -82,6 +82,7 @@
       swtpm.enable = true;
     };
   };
+  virtualisation.spiceUSBRedirection.enable = true;
 
   environment.systemPackages = with pkgs; [vim];
 
