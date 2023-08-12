@@ -346,11 +346,11 @@
         "pre-commit-hooks-nix": "pre-commit-hooks-nix"
       },
       "locked": {
-        "lastModified": 1689889377,
-        "narHash": "sha256-ChBawisTCY3Cl06CSG+QNC2ES+G0ASiOxtOVif9uP/0=",
+        "lastModified": 1691761621,
+        "narHash": "sha256-xTPifd7/93/bmBEPMhb0zuU9nzRkUIZHr+PJUHoUld8=",
         "owner": "nix-community",
         "repo": "lanzaboote",
-        "rev": "e7246c6bce1733d373059e6342f67fd53f90c198",
+        "rev": "f13848606f5a313c33b9c9ceb34e0ae4d51b6766",
         "type": "github"
       },
       "original": {
@@ -539,11 +539,11 @@
         "nixpkgs_sirula": "nixpkgs_sirula"
       },
       "locked": {
-        "lastModified": 1691707135,
-        "narHash": "sha256-Qp23POFE2U8f+b9xweYJigPMXvClnjfviG2NDYOcZlg=",
+        "lastModified": 1691766947,
+        "narHash": "sha256-V34poSykqhqO2EZrdW65GAUJUy7Q0w1Zh87G0tB801w=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "d2d82978baf833b4afc05aaad86f5496306096c1",
+        "rev": "a755011daf96036b32f76422aa69fb03a14d86e2",
         "type": "github"
       },
       "original": {
@@ -611,11 +611,11 @@
         "nixpkgs-stable": "nixpkgs-stable_2"
       },
       "locked": {
-        "lastModified": 1691397944,
-        "narHash": "sha256-4fa4bX3kPYKpEssgrFRxRCPVXczidArDeSWaUMSzQAU=",
+        "lastModified": 1691747570,
+        "narHash": "sha256-J3fnIwJtHVQ0tK2JMBv4oAmII+1mCdXdpeCxtIsrL2A=",
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "e5588ddffd4c3578547a86ef40ec9a6fbdae2986",
+        "rev": "c5ac3aa3324bd8aebe8622a3fc92eeb3975d317a",
         "type": "github"
       },
       "original": {
@@ -668,11 +668,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1691559131,
-        "narHash": "sha256-fUoOSh4Bk6nQNu1fJZfQGOnDws1y/MWMfoVfA7n0JS8=",
+        "lastModified": 1691763377,
+        "narHash": "sha256-hzxthzqhd29zGE+FeqdnAojnwOljP2dZbE/NxGORycY=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "31ffe79a29318b1aa8256ee2897a45633c1e2c6b",
+        "rev": "7879091ceaac11828de49039e79683143d9e4b8f",
         "type": "github"
       },
       "original": {
@@ -731,11 +731,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1691737398,
-        "narHash": "sha256-xsuoZfFRIfQveMGtPRV9vnaVAnJguwjGYCNkirsm+RU=",
+        "lastModified": 1691823865,
+        "narHash": "sha256-glzpSIrgnJswk7JXCX+0QyL0sZzE+C2fZ44bsv/qevU=",
         "owner": "Scrumplex",
         "repo": "pkgs",
-        "rev": "2a3674ab15cd47fe96efd724e1f307bf44f77d83",
+        "rev": "58bfafb22612c7a980b51601d831303c8ec76eae",
         "type": "github"
       },
       "original": {
