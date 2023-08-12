@@ -76,6 +76,10 @@ in {
           accel_profile = "adaptive";
           pointer_accel = "-1.0";
         };
+        "1008:2967:HP,_Inc_HyperX_Pulsefire_Haste_2" = {
+          accel_profile = "adaptive";
+          pointer_accel = "-1.0";
+        };
         "6127:24717:PixArt_Lenovo_USB_Optical_Mouse" = {
           accel_profile = "adaptive";
           pointer_accel = "-1.0";
