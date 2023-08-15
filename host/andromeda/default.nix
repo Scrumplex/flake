@@ -13,6 +13,8 @@
   powerManagement.cpuFreqGovernor = "schedutil";
   hardware.amdgpu.amdvlk = false;
 
+  hardware.opengl.vdpau.driverName = "radeonsi";
+
   networking.useNetworkd = true;
   systemd.network.wait-online.anyInterface = true;
   services.resolved.dnssec = "false";
