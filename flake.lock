@@ -539,11 +539,11 @@
         "nixpkgs_sirula": "nixpkgs_sirula"
       },
       "locked": {
-        "lastModified": 1692235703,
-        "narHash": "sha256-6DMieMnxNcfLL9W54fIskYsI5YbQ/PGIhdInVAgOh2M=",
+        "lastModified": 1692306813,
+        "narHash": "sha256-4LysotBn3yVhX75NhCVPUaqjKZSFF7hVs6NfJE8118c=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "db905f713471d4066069dd4895a164cfe525b492",
+        "rev": "42c8c45ffd50e4a5bc730a7ddb2dc3e1278a814d",
         "type": "github"
       },
       "original": {
@@ -731,11 +731,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1692257311,
-        "narHash": "sha256-/as4aurHmlKL/Dw2leFgQ6BU3IXALb+gwrUjq8GQLYQ=",
+        "lastModified": 1692342218,
+        "narHash": "sha256-SAv1PL6JYI7snaS6SyecjOqeT7TgQD8b0753f5Bp9XA=",
         "owner": "Scrumplex",
         "repo": "pkgs",
-        "rev": "577a3e0efa992230edc0debd1a7eb4dc5a9d5ad3",
+        "rev": "6c37591e65e515d8d6d3a853bbbf4d383df56f34",
         "type": "github"
       },
       "original": {
