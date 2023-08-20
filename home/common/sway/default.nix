@@ -1,32 +1,16 @@
 {
   config,
   lib,
+  lib',
   pkgs,
   ...
 }: let
-  inherit (builtins) map substring;
+  inherit (builtins) map;
   inherit (lib.attrsets) mapAttrsToList;
   inherit (lib.lists) singleton;
   inherit (lib.meta) getExe getExe';
   inherit (lib.modules) mkIf;
-
-  # create exec shortcut for Sway
-  mkExec = keyCombo: exec: {${keyCombo} = "exec ${exec}";};
-
-  # create move/focus shortcuts for Sway
-  mkDirectionKeys = key: direction: {
-    "${mod}+${key}" = "focus ${direction}";
-    "${mod}+Shift+${key}" = "move ${direction}";
-    "${mod}+Ctrl+${key}" = "move workspace output ${direction}";
-  };
-
-  # create move/focus workspace shortcuts for Sway
-  mkWorkspaceKeys = workspace: let
-    key = substring 0 1 workspace;
-  in {
-    "${mod}+${key}" = "workspace ${workspace}";
-    "${mod}+Shift+${key}" = "move container to workspace ${workspace}";
-  };
+  inherit (lib'.scrumplex.sway) mkDirectionKeys mkExec mkWorkspaceKeys;
 
   swayConf = config.wayland.windowManager.sway.config;
   waybarExtraConf = config.programs.waybar.extraModules;
@@ -187,10 +171,10 @@ in {
           (mkIf waybarExtraConf.paMute.enable (mkExec "${mod}+m" waybarExtraConf.paMute.onClickScript))
         ]
         ++ (
-          map mkWorkspaceKeys ["1" "2" "3" "4:mail" "5:chat" "6" "7" "8" "9"]
+          map (mkWorkspaceKeys mod) ["1" "2" "3" "4:mail" "5:chat" "6" "7" "8" "9"]
         )
         ++ (
-          mapAttrsToList mkDirectionKeys {
+          mapAttrsToList (mkDirectionKeys mod) {
             ${swayConf.left} = "left";
             ${swayConf.right} = "right";
             ${swayConf.up} = "up";

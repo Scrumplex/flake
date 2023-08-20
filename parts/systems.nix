@@ -23,7 +23,10 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               sharedModules = attrValues scrumpkgs.hmModules;
-              extraSpecialArgs = {inherit inputs;};
+              extraSpecialArgs = {
+                inherit inputs;
+                lib' = scrumpkgs.lib;
+              };
             };
             networking.hostName = hostName;
           }
@@ -39,7 +42,10 @@
         ++ (attrValues scrumpkgs.nixosModules)
         ++ modules;
 
-      specialArgs = {inherit inputs;};
+      specialArgs = {
+        inherit inputs;
+        lib' = scrumpkgs.lib;
+      };
     };
   };
 in {
