@@ -5,12 +5,10 @@
   ...
 }: let
   inherit (builtins) map substring;
-  inherit (lib.attrsets) getBin mapAttrsToList;
+  inherit (lib.attrsets) mapAttrsToList;
   inherit (lib.lists) singleton;
-  inherit (lib.meta) getExe;
+  inherit (lib.meta) getExe getExe';
   inherit (lib.modules) mkIf;
-
-  getExe' = x: y: "${getBin x}/bin/${y}";
 
   # create exec shortcut for Sway
   mkExec = keyCombo: exec: {${keyCombo} = "exec ${exec}";};
