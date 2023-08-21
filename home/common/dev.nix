@@ -137,6 +137,7 @@
     defaultCacheTtlSsh = 1209600;
     maxCacheTtl = 1209600;
     maxCacheTtlSsh = 1209600;
+    pinentryFlavor = "qt";
     extraConfig = "allow-preset-passphrase";
   };
 
