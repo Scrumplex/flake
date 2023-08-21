@@ -53,6 +53,7 @@
         inputs.pre-commit-hooks.flakeModule
 
         ./parts/dev.nix
+        ./parts/nixpkgs-dev.nix
         ./parts/systems.nix
       ];
 
