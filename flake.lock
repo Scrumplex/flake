@@ -694,28 +694,7 @@
         "nixpkgs-wayland": "nixpkgs-wayland",
         "pre-commit-hooks": "pre-commit-hooks",
         "prismlauncher": "prismlauncher",
-        "screenshot-bash": "screenshot-bash",
         "scrumpkgs": "scrumpkgs"
-      }
-    },
-    "screenshot-bash": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1677684148,
-        "narHash": "sha256-b5xTm9Gr2F1iFq2WXYLV13HJ4KSnqpzPnurSPI9xJsA=",
-        "ref": "refs/heads/master",
-        "rev": "afe18036aab6eefafa53c005abdbfaf5cd2c290b",
-        "revCount": 46,
-        "type": "git",
-        "url": "https://codeberg.org/Scrumplex/screenshot-bash"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://codeberg.org/Scrumplex/screenshot-bash"
       }
     },
     "scrumpkgs": {

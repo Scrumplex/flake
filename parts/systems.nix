@@ -1,7 +1,7 @@
 {inputs, ...}: let
   username = "scrumplex";
 
-  inherit (inputs) agenix home-manager lanzaboote nixpkgs nixpkgs-wayland prismlauncher screenshot-bash scrumpkgs;
+  inherit (inputs) agenix home-manager lanzaboote nixpkgs nixpkgs-wayland prismlauncher scrumpkgs;
 
   inherit (nixpkgs.lib) attrValues;
 
@@ -9,7 +9,7 @@
     hostName,
     system,
     modules,
-    overlays ? [nixpkgs-wayland.overlay prismlauncher.overlays.default screenshot-bash.overlays.default scrumpkgs.overlays.default],
+    overlays ? [nixpkgs-wayland.overlay prismlauncher.overlays.default scrumpkgs.overlays.default],
   }: {
     ${hostName} = nixpkgs.lib.nixosSystem {
       inherit system;

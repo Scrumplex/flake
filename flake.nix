@@ -35,10 +35,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };
-    screenshot-bash = {
-      url = "git+https://codeberg.org/Scrumplex/screenshot-bash";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     # assets and more
     catppuccin-fish = {
