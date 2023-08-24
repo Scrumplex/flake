@@ -1,8 +1,11 @@
 {
   inputs,
+  lib,
   pkgs,
   ...
-}: {
+}: let
+  inherit (lib) getExe;
+in {
   xdg = {
     enable = true;
     userDirs = {
@@ -54,4 +57,10 @@
     xdg-user-dirs
     xdg-utils
   ];
+
+  systemd.user.services."lxqt-policykit-agent" = {
+    Unit.Description = "LXQt PolicyKit Agent";
+    Service.ExecStart = getExe pkgs.lxqt.lxqt-policykit;
+    Install.WantedBy = ["graphical-session.target"];
+  };
 }
