@@ -416,11 +416,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1692373088,
-        "narHash": "sha256-EPgCecdc9I8aTdmDNoO1l7R72r2WPhZRcesV4nzxBj8=",
+        "lastModified": 1692952286,
+        "narHash": "sha256-TsrtPv3+Q1KR0avZxpiJH+b6fX/R/hEQVHbjl1ebotY=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "7f1836531b126cfcf584e7d7d71bf8758bb58969",
+        "rev": "817e297fc3352fadc15f2c5306909aa9192d7d97",
         "type": "github"
       },
       "original": {
@@ -539,11 +539,11 @@
         "nixpkgs_sirula": "nixpkgs_sirula"
       },
       "locked": {
-        "lastModified": 1692908158,
-        "narHash": "sha256-KombsHdZJLP2dHHmV4eKpbr3rClJk1AChCfembsO5Ao=",
+        "lastModified": 1692961967,
+        "narHash": "sha256-JIOteujCL/noc1X4ydscvvwabkQ303xfhgi3iaIUBd8=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "b9a9cca28083c6e756fa89ef25306fe7ffdd637e",
+        "rev": "29baa2d7e7dd63c3b73cd5acfaee37589ee79ee6",
         "type": "github"
       },
       "original": {
@@ -668,11 +668,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1692857490,
-        "narHash": "sha256-wNzNpv6TPr846NaDZEepq5JUAv/zPqvlItqX3RA5PfU=",
+        "lastModified": 1692950933,
+        "narHash": "sha256-FGV6un1qsk+i991Lxj7Nj85jpBqmaBBy5y3AmpxwIOQ=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "3e448904a363530ab8c260f89c38c7b8c07fe90f",
+        "rev": "094cee8ec61135db4c569a3a72016c9c84c60cdd",
         "type": "github"
       },
       "original": {
