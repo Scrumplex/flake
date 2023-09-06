@@ -1,53 +1,67 @@
-{pkgs, ...}: {
-  programs.adb.enable = true;
-  programs.mtr.enable = true;
-  programs.bandwhich.enable = true;
-  services.openssh.enable = true;
-  virtualisation.podman = {
-    enable = true;
-    dockerSocket.enable = true;
-  };
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  inherit (lib.modules) mkDefault mkIf mkMerge;
+in {
+  config = mkMerge [
+    {
+      users.mutableUsers = false;
 
-  networking.firewall = {
-    allowedTCPPorts = [
-      22000 # syncthing
-      25565 # minecraft
-    ];
-    allowedUDPPorts = [
-      21027 # syncthing
-      22000 # syncthing
-      24727 # AusweisApp2
-      25565 # minecraft
-    ];
-  };
+      services.openssh.enable = true;
+      virtualisation.podman = {
+        enable = mkDefault true;
+        dockerSocket.enable = true;
+      };
 
-  services.udev.packages = with pkgs; [zoom65-udev-rules];
+      security.sudo = {
+        extraConfig = ''
+          Defaults lecture = always
+          Defaults lecture_file = ${../../misc/lecture.txt}
+          Defaults pwfeedback
+          Defaults passwd_timeout=0
+        '';
+      };
 
-  security.sudo = {
-    extraConfig = ''
-      Defaults lecture = always
-      Defaults lecture_file = ${../../misc/lecture.txt}
-      Defaults pwfeedback
-      Defaults passwd_timeout=0
-    '';
-    extraRules = [
-      {
-        groups = ["wheel"];
-        commands = [
-          {
-            command = "/run/current-system/sw/bin/nixos-rebuild";
-            options = ["NOPASSWD"];
-          }
-          {
-            command = "/run/current-system/sw/bin/systemctl";
-            options = ["NOPASSWD"];
-          }
+      security.pki.certificates = [(builtins.readFile ../../misc/root_ca.crt)];
+    }
+    (mkIf config.system.role.desktop {
+      programs.adb.enable = true;
+
+      networking.firewall = {
+        allowedTCPPorts = [
+          22000 # syncthing
+          25565 # minecraft
         ];
-      }
-    ];
-  };
+        allowedUDPPorts = [
+          21027 # syncthing
+          22000 # syncthing
+          24727 # AusweisApp2
+          25565 # minecraft
+        ];
+      };
 
-  services.udisks2.enable = true;
+      services.udev.packages = with pkgs; [zoom65-udev-rules];
 
-  security.pki.certificates = [(builtins.readFile ../../misc/root_ca.crt)];
+      services.udisks2.enable = true;
+
+      security.sudo.extraRules = [
+        {
+          groups = ["wheel"];
+          commands = [
+            {
+              command = "/run/current-system/sw/bin/nixos-rebuild";
+              options = ["NOPASSWD"];
+            }
+            {
+              command = "/run/current-system/sw/bin/systemctl";
+              options = ["NOPASSWD"];
+            }
+          ];
+        }
+      ];
+    })
+  ];
 }

@@ -35,6 +35,10 @@
               };
             };
             networking.hostName = hostName;
+
+            system.role.desktop = true;
+            system.role.home = true;
+            system.role.gaming = true;
           }
 
           agenix.nixosModules.age

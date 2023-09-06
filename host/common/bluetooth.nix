@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  services.blueman.enable = lib.mkDefault config.hardware.bluetooth.enable;
+  services.blueman.enable = lib.mkDefault (config.system.role.desktop && config.hardware.bluetooth.enable);
 
   boot.extraModprobeConfig = ''
     # Fix Nintendo Switch Pro Controller disconnects
