@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.sway.enable = true;
   security.pam.services.gtklock = {};
 
@@ -12,7 +8,6 @@
       fira
       monocraft
       fira-code
-      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
       roboto
     ];
 
@@ -29,33 +24,18 @@
         sansSerif = ["Fira Sans"];
         monospace = ["Fira Code"];
       };
+    };
 
-      localConf = let
-        fonts = [
-          "Fira Code"
-          "Fira Code,Fira Code Light"
-          "Fira Code,Fira Code Medium"
-          "Fira Code,Fira Code Retina"
-          "Fira Code,Fira Code SemiBold"
-          "Monocraft"
-        ];
-
-        mkAlias = font: ''
-          <alias>
-            <family>${font}</family>
-            <prefer><family>Symbols Nerd Font</family></prefer>
-          </alias>
-        '';
-
-        aliases = builtins.map mkAlias fonts;
-        aliases' = lib.strings.concatLines aliases;
-      in ''
-        <?xml version="1.0"?>
-        <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
-        <fontconfig>
-          ${aliases'}
-        </fontconfig>
-      '';
+    symbols = {
+      enable = true;
+      fonts = [
+        "Fira Code"
+        "Fira Code,Fira Code Light"
+        "Fira Code,Fira Code Medium"
+        "Fira Code,Fira Code Retina"
+        "Fira Code,Fira Code SemiBold"
+        "Monocraft"
+      ];
     };
   };
 
