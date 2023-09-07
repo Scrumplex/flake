@@ -56,7 +56,6 @@ in {
   home.packages = with pkgs; [
     xdg-user-dirs
     xdg-utils
-    xwaylandvideobridge
   ];
 
   systemd.user.services."lxqt-policykit-agent" = {

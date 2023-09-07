@@ -1,21 +1,15 @@
 {inputs, ...}: let
   username = "scrumplex";
 
-  inherit (inputs) agenix getchoo home-manager lanzaboote nixpkgs nixpkgs-wayland prismlauncher scrumpkgs;
+  inherit (inputs) agenix home-manager lanzaboote nixpkgs nixpkgs-wayland prismlauncher scrumpkgs;
 
   inherit (nixpkgs.lib) attrValues;
-  inherit (scrumpkgs.lib.scrumplex.pkgs) filterOverlay;
 
   mkHost = {
     hostName,
     system,
     modules,
-    overlays ? [
-      nixpkgs-wayland.overlay
-      prismlauncher.overlays.default
-      (filterOverlay getchoo.overlays.default ["xwaylandvideobridge"])
-      scrumpkgs.overlays.default
-    ],
+    overlays ? [nixpkgs-wayland.overlay prismlauncher.overlays.default scrumpkgs.overlays.default],
   }: {
     ${hostName} = nixpkgs.lib.nixosSystem {
       inherit system;

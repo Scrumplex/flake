@@ -323,29 +323,6 @@
         "type": "github"
       }
     },
-    "getchoo": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "parts": [
-          "flake-parts"
-        ]
-      },
-      "locked": {
-        "lastModified": 1694110137,
-        "narHash": "sha256-+OIbrsE6N+PG4Ghwi1vUpz0Appf8NczDpXGuGDU+JLs=",
-        "owner": "getchoo",
-        "repo": "nix-exprs",
-        "rev": "b6ff623712de61be945da71db1d8ada16778e97c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "getchoo",
-        "repo": "nix-exprs",
-        "type": "github"
-      }
-    },
     "gitignore": {
       "inputs": {
         "nixpkgs": [
@@ -744,7 +721,6 @@
         "catppuccin-fish": "catppuccin-fish",
         "catppuccin-qt5ct": "catppuccin-qt5ct",
         "flake-parts": "flake-parts",
-        "getchoo": "getchoo",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
         "nixos-hardware": "nixos-hardware",
