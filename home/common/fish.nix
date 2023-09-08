@@ -41,8 +41,8 @@
         ip = "ip --color=auto";
         ll = "ls -laFh";
       }
-      (lib.mkIf config.programs.exa.enable {
-        ls = "exa"; # note: we rely on the alias created by exa
+      (lib.mkIf config.programs.eza.enable {
+        ls = "eza"; # note: we rely on the alias created by eza
       })
     ];
     functions.systemctl = ''
@@ -90,7 +90,7 @@
     nix-direnv.enable = true;
   };
 
-  programs.exa = {
+  programs.eza = {
     enable = true;
     icons = true;
     git = true;
