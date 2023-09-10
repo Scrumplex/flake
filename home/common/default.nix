@@ -66,6 +66,7 @@
     steam
     steam-run
     yuzu-early-access
+    dolphinEmu
   ];
 
   theme = {
