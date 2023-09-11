@@ -6,7 +6,14 @@
     };
 in {
   nixpkgs = {
-    config.allowUnfree = true;
+    config.allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [
+        "discord-canary"
+        "samsung-unified-linux-driver"
+        "steam"
+        "steam-original"
+        "steam-run"
+      ];
 
     overlays = lib.mkAfter [
       (final: prev: {
