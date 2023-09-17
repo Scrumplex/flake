@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  inputs,
+  pkgs,
+  ...
+}: let
   channelPath = "/etc/nix/channels/nixpkgs";
 in {
   nix = {
@@ -15,6 +19,7 @@ in {
     nixPath = [
       "nixpkgs=${channelPath}"
     ];
+    registry.n.flake = inputs.nixpkgs;
   };
 
   systemd.tmpfiles.rules = [

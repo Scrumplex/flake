@@ -12,6 +12,7 @@ in {
         cosmos = nixpkgs.legacyPackages.aarch64-linux;
         eclipse = nixpkgs.legacyPackages.x86_64-linux;
       };
+      meta.specialArgs = {inherit inputs;};
 
       defaults.imports = [../modules/oci-image-external.nix agenix.nixosModules.age arion.nixosModules.arion];
 
