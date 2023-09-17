@@ -74,6 +74,7 @@ in {
           group = "step-ca";
         };
         age.secrets.id_borgbase.file = ../secrets/eclipse/id_borgbase.age;
+        age.secrets.paperless-password.file = ../secrets/eclipse/paperless-password.age;
 
         imports = [
           nixos-hardware.nixosModules.common-cpu-amd-pstate

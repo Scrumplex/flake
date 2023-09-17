@@ -11,6 +11,7 @@
     ../common/nix.nix
 
     ./boot.nix
+    ./paperless.nix
     ./step-ca.nix
   ];
 
@@ -76,6 +77,11 @@
     extraFlags = "--disable traefik";
   };
   networking.firewall.trustedInterfaces = ["cni0"];
+
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_15;
+  };
 
   boot.kernel.sysctl = {
     "net.core.rmem_max" = 2500000; # Traefik HTTP3
