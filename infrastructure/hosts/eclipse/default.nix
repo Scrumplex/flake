@@ -82,6 +82,7 @@
     enable = true;
     package = pkgs.postgresql_15;
   };
+  services.postgresqlBackup.enable = true;
 
   boot.kernel.sysctl = {
     "net.core.rmem_max" = 2500000; # Traefik HTTP3
