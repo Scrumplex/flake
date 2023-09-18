@@ -73,4 +73,4 @@ tor:
 ts3:
   image:
     repository: teamspeak
-    tag: 3.13.7@sha256:51bccc8495e641012013d8023f28d79ab1ea012c471b1b1b3a0472ba4822ca19
+    tag: 3.13.7@sha256:796b8d14b82b4d4768f65088c219f946f62496a398b4fcda33d62edaa3b4b351
