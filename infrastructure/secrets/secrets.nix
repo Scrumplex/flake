@@ -31,4 +31,5 @@ in {
   "eclipse/ca_intermediate.pass.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/id_borgbase.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/paperless-password.age".publicKeys = scrumplex ++ [eclipse];
+  "eclipse/transmission-creds.json.age".publicKeys = scrumplex ++ [eclipse];
 }

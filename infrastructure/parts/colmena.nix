@@ -75,6 +75,7 @@ in {
         };
         age.secrets.id_borgbase.file = ../secrets/eclipse/id_borgbase.age;
         age.secrets.paperless-password.file = ../secrets/eclipse/paperless-password.age;
+        age.secrets."transmission-creds.json".file = ../secrets/eclipse/transmission-creds.json.age;
 
         imports = [
           nixos-hardware.nixosModules.common-cpu-amd-pstate

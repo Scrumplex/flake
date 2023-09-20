@@ -13,6 +13,7 @@
     ./boot.nix
     ./paperless.nix
     ./step-ca.nix
+    ./transmission.nix
   ];
 
   networking = {
