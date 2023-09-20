@@ -373,11 +373,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1695149570,
-        "narHash": "sha256-6LrNG9ggW9zPKjEkX/JV8/VASTTk1Ot6xuOhG5skN/0=",
+        "lastModified": 1695191928,
+        "narHash": "sha256-yXUtJZQweg6v9G5fXStqkVNwxT4Xf+cux37yBVpaYCY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f5b920f4d2f920a1982ca844cfd22c8f1e82ed7e",
+        "rev": "0ed5f9786bba801c59fb53eef497438040acd471",
         "type": "github"
       },
       "original": {
@@ -462,6 +462,21 @@
       "original": {
         "owner": "nix-community",
         "repo": "nix-eval-jobs",
+        "type": "github"
+      }
+    },
+    "nix-filter": {
+      "locked": {
+        "lastModified": 1693833173,
+        "narHash": "sha256-hlMABKrGbEiJD5dwUSfnw1CQ3bG7KKwDV+Nx3bEZd7U=",
+        "owner": "numtide",
+        "repo": "nix-filter",
+        "rev": "ac030bd9ba98e318e1f4c4328d60766ade8ebe8b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "nix-filter",
         "type": "github"
       }
     },
@@ -589,11 +604,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1695136570,
-        "narHash": "sha256-JxX2T2WFfFcYdOXojWUBGYa11hkXMeoYqVYy5rhWnxA=",
+        "lastModified": 1695197997,
+        "narHash": "sha256-rbp1/uzHu7x+ePyXVNaKSI4ZErWxSNka3eN0srX2Flc=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "bd5ca9fe70bcdd5a1cebabe5c205a52298216e74",
+        "rev": "8ec9c174f240e4a11cbed4268610135ece87edca",
         "type": "github"
       },
       "original": {
@@ -694,6 +709,7 @@
         "flake-compat": "flake-compat_4",
         "flake-parts": "flake-parts_4",
         "libnbtplusplus": "libnbtplusplus",
+        "nix-filter": "nix-filter",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -702,11 +718,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1694935830,
-        "narHash": "sha256-Wo+Xe/ocSmfJ3Q4AzNatZTJyVt8sBwMSsKmkfs1xeRY=",
+        "lastModified": 1695188842,
+        "narHash": "sha256-W0n9OzYs/Q3z7Mnhr569S46zLauQ/1Sf5wbOedv8SGk=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "d72c3aba80f1828bac3021d37d195c337ddc907f",
+        "rev": "98bc102f5bec14b38c684c219989fc3953dc2f49",
         "type": "github"
       },
       "original": {
