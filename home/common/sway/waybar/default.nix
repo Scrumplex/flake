@@ -50,7 +50,7 @@
             "4:mail" = "󰇮";
             "5:chat" = "󰍩";
           };
-          persistent_workspaces = {
+          persistent-workspaces = {
             "1" = [];
             "2" = [];
           };
