@@ -38,8 +38,9 @@ postgres13:
 
 redis:
   image:
-    repository: redis
-    tag: 7.0.11-bullseye@sha256:462a73c825aaea3f0fc5762fe4d4689343c5b19eb8eabdc70de91518f0fad695
+    registry: docker.io
+    repository: library/redis
+    tag: 7.2.1-alpine3.18@sha256:ff84de0300ff103207d78e777fb007c397974a000ef861c91664bfbbefa56b83
 
 refraction:
   image:
