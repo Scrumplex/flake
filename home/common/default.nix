@@ -34,6 +34,7 @@
     unzip
 
     ark
+    blender
     dolphin
     evince
     gnome.nautilus
