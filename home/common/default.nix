@@ -167,4 +167,6 @@
           (text "Uptime")
         ]);
   };
+
+  programs.nix-index.enable = true;
 }
