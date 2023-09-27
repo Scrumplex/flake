@@ -60,7 +60,7 @@
   };
 
   services.apcupsd = {
-    enable = false;
+    enable = true;
   };
 
   virtualisation.docker = {
