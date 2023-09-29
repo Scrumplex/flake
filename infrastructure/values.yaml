@@ -1,7 +1,7 @@
 caddy:
   image:
     repository: caddy
-    tag: 2.7.4-alpine@sha256:733fe94133c4bd22c6ee8f9b9802bce8fede5e7b766bebde205a45dd4ac04aea
+    tag: 2.7.4-alpine@sha256:3d1bf053476f2415b40e728c37e1112ee7551fa154a63d6f62b275c13fea8166
 
 hedgedoc:
   image:
