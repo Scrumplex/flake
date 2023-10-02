@@ -13,6 +13,7 @@
     ./boot.nix
     ./paperless.nix
     ./step-ca.nix
+    ./syncthing.nix
     ./transmission.nix
   ];
 
@@ -26,14 +27,8 @@
         # k3s
         6443
 
-        # qbittorrent
-        6969
-
         # terraria
         7777
-
-        # syncthing
-        22000
 
         # minecraft
         25565
@@ -45,13 +40,6 @@
 
         # terraria
         7777
-
-        # qbittorrent
-        6969
-
-        # syncthing
-        22000
-        21027
 
         # minecraft
         25565
