@@ -97,7 +97,10 @@
   i18n.defaultLocale = "en_US.UTF-8";
   console.keyMap = "de";
 
-  services.borgbackup.jobs.borgbase.repo = "c8wl3xsp@c8wl3xsp.repo.borgbase.com:repo";
+  services.borgbackup.jobs.borgbase = {
+    repo = "c8wl3xsp@c8wl3xsp.repo.borgbase.com:repo";
+    paths = [config.services.postgresqlBackup.location];
+  };
 
   system.stateVersion = "21.05";
 }

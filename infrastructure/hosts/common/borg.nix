@@ -1,7 +1,7 @@
 {config, ...}: {
   services.borgbackup.jobs.borgbase = {
     environment.BORG_RSH = "ssh -i ${config.age.secrets.id_borgbase.path}";
-    paths = ["/srv" "/var/backup" "/var/lib" "/home" "/root"];
+    paths = ["/srv" "/var/lib" "/home" "/root"];
     exclude = ["/var/lib/docker" "/var/lib/kubelet"];
     startAt = "05:00"; # run later, maybe the servers are overloaded at 00:00 CE(S)T
     compression = "auto,zstd";
@@ -16,5 +16,8 @@
       mode = "keyfile-blake2";
       passphrase = "";
     };
+
+    extraArgs = "-v";
+    extraCreateArgs = "--stats";
   };
 }
