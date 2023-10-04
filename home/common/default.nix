@@ -47,7 +47,6 @@
 
     discord-canary
     webcord
-    armcord
     element-desktop
     quasselClient
     signal-desktop
