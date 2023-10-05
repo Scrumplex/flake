@@ -102,5 +102,5 @@
     paths = [config.services.postgresqlBackup.location];
   };
 
-  system.stateVersion = "21.05";
+  system.stateVersion = "23.05";
 }

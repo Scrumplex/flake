@@ -47,7 +47,6 @@ in {
       cosmos = {
         deployment.targetHost = "cosmos.lan";
         deployment.targetPort = 22701;
-        deployment.buildOnTarget = true;
 
         age.secrets.id_borgbase.file = ../secrets/cosmos/id_borgbase.age;
         age.secrets."wireguard.key".file = ../secrets/cosmos/wireguard.key.age;
