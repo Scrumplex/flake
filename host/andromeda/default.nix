@@ -35,6 +35,8 @@
     };
   };
 
+  boot.binfmt.emulatedSystems = ["aarch64-linux"];
+
   services.flatpak.enable = true;
   xdg.portal = {
     enable = true;
