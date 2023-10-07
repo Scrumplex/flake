@@ -22,13 +22,10 @@
   hardware.bluetooth.enable = true;
   hardware.xpadneo.enable = true;
 
+  programs.partition-manager.enable = true;
+
   fileSystems = {
     "/media/DATA" = {
-      device = "/dev/disk/by-id/ata-KINGSTON_SA400S37960G_50026B768299115B-part1";
-      fsType = "ext4";
-      options = ["defaults" "noauto" "x-systemd.automount"];
-    };
-    "/media/DATA2" = {
       device = "/dev/disk/by-id/ata-SanDisk_SDSSDH3_2T00_213894440406-part1";
       fsType = "ext4";
       options = ["defaults" "noauto" "x-systemd.automount"];
