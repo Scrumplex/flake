@@ -11,6 +11,7 @@
     ../common/nix.nix
 
     ./boot.nix
+    ./jellyfin.nix
     ./paperless.nix
     ./step-ca.nix
     ./syncthing.nix
