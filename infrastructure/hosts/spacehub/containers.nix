@@ -150,7 +150,7 @@ in {
         name = "skinprox";
         environment = {
           SKINPROX_URL = "https://skins.scrumplex.net";
-          SKINPROX_PROVIDERS = "https://skins.ddnet.org/skin/community/ https://skins.tee.world/ https://api.skins.tw/api/resolve/skins/";
+          SKINPROX_PROVIDERS = "https://scrumplex.rocks/skin/ https://skins.ddnet.org/skin/community/ https://skins.tee.world/ https://api.skins.tw/api/resolve/skins/";
         };
         service.labels = {
           "traefik.enable" = "true";
