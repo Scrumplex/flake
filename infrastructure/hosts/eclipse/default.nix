@@ -16,6 +16,7 @@
     ./step-ca.nix
     ./syncthing.nix
     ./transmission.nix
+    ./vaultwarden.nix
   ];
 
   networking = {
