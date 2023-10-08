@@ -48,6 +48,8 @@
     };
   };
 
+  hardware.opengl.enable = true;
+
   services.apcupsd = {
     enable = true;
   };
