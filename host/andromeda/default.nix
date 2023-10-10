@@ -85,7 +85,7 @@
   };
   virtualisation.spiceUSBRedirection.enable = true;
 
-  environment.systemPackages = with pkgs; [vim];
+  environment.systemPackages = with pkgs; [wlx-overlay-x];
 
   system.stateVersion = "23.11";
 }

@@ -39,6 +39,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };
+    wlx-overlay-x = {
+      url = "github:galister/wlx-overlay-x";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # assets and more
     catppuccin-fish = {

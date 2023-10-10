@@ -269,6 +269,27 @@
         "type": "github"
       }
     },
+    "flake-parts_5": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "wlx-overlay-x",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1693611461,
+        "narHash": "sha256-aPODl8vAgGQ0ZYFIRisxYG5MOGSkIczvu2Cd8Gb9+1Y=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "7f53fdb7bdc5bb237da7fefef12d099e4fd611ca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -765,7 +786,8 @@
         "nixpkgs-wayland": "nixpkgs-wayland",
         "pre-commit-hooks": "pre-commit-hooks",
         "prismlauncher": "prismlauncher",
-        "scrumpkgs": "scrumpkgs"
+        "scrumpkgs": "scrumpkgs",
+        "wlx-overlay-x": "wlx-overlay-x"
       }
     },
     "rust-overlay": {
@@ -884,6 +906,27 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "wlx-overlay-x": {
+      "inputs": {
+        "flake-parts": "flake-parts_5",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1695560928,
+        "narHash": "sha256-+pzlEHgUpPqt/w1JVSNJQPJlk6vHHsLVj1kLVtvselM=",
+        "owner": "galister",
+        "repo": "wlx-overlay-x",
+        "rev": "dace93eca983c5eb34b457fd2d0763c5110c602a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "galister",
+        "repo": "wlx-overlay-x",
         "type": "github"
       }
     }
