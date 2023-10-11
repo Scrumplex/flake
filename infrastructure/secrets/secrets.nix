@@ -29,6 +29,7 @@ in {
 
   "eclipse/ca_intermediate.key.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/ca_intermediate.pass.age".publicKeys = scrumplex ++ [eclipse];
+  "eclipse/hetzner-ddns.env.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/id_borgbase.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/paperless-password.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/syncthing-key.pem.age".publicKeys = scrumplex ++ [eclipse];

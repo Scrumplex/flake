@@ -11,6 +11,7 @@
     ../common/nix.nix
 
     ./boot.nix
+    ./dyndns.nix
     ./jellyfin.nix
     ./paperless.nix
     ./step-ca.nix
