@@ -21,6 +21,6 @@ writeShellApplication {
     curl -X PUT "https://dns.hetzner.com/api/v1/records/$recordId" \
       -H "Auth-API-Token: $HETZNER_TOKEN" \
       -H "Content-Type: application/json" \
-      -d "{ \"value\": \"$ipAddress\", \"ttl\": 120, \"type\": \"A\", \"name\": \"$HETZNER_RECORD\", \"zone_id\": \"$zoneId\"}"
+      -d "{ \"value\": \"$ipAddress\", \"ttl\": 300, \"type\": \"A\", \"name\": \"$HETZNER_RECORD\", \"zone_id\": \"$zoneId\"}"
   '';
 }
