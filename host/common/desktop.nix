@@ -7,7 +7,10 @@
   inherit (lib.modules) mkIf;
 in {
   config = mkIf config.system.role.desktop {
-    programs.sway.enable = true;
+    programs.sway = {
+      enable = true;
+      wrapperFeatures.gtk = true;
+    };
     security.pam.services.gtklock = {};
 
     fonts = {

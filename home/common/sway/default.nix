@@ -2,6 +2,7 @@
   config,
   lib,
   lib',
+  nixosConfig,
   pkgs,
   ...
 }: let
@@ -32,7 +33,7 @@ in {
 
   wayland.windowManager.sway = {
     enable = true;
-    wrapperFeatures.gtk = true;
+    package = nixosConfig.programs.sway.package;
 
     config = let
       wallpaper = pkgs.fetchurl {
