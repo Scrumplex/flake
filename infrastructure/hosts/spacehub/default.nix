@@ -6,6 +6,7 @@
     ../common/netcup.nix
     ../common/borg.nix
     ../common/nix.nix
+    ../common/nullmailer.nix
     ../common/traefik.nix
 
     ./containers.nix
@@ -16,6 +17,7 @@
 
   networking = {
     hostName = "spacehub";
+    domain = "scrumplex.net";
     interfaces.ens3.ipv6.addresses = [
       {
         address = "2a03:4000:60:e31:8238:c03b:a699:0288";

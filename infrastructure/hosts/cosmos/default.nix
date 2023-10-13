@@ -9,6 +9,7 @@ in {
     ../common/common.nix
     ../common/borg.nix
     ../common/nix.nix
+    ../common/nullmailer.nix
 
     ./boot.nix
     ./traefik.nix
@@ -17,6 +18,7 @@ in {
 
   networking = {
     hostName = "cosmos";
+    domain = "sefa.cloud";
     useDHCP = false;
     interfaces.eth0.useDHCP = true;
 

@@ -9,6 +9,7 @@
     ../common/common.nix
     ../common/borg.nix
     ../common/nix.nix
+    ../common/nullmailer.nix
 
     ./boot.nix
     ./dyndns.nix
@@ -22,6 +23,7 @@
 
   networking = {
     hostName = "eclipse";
+    domain = "sefa.cloud";
     useDHCP = false;
     interfaces.enp7s0.useDHCP = true;
 

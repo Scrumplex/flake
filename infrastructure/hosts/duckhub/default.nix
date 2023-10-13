@@ -6,6 +6,7 @@
     ../common/netcup.nix
     ../common/borg.nix
     ../common/nix.nix
+    ../common/nullmailer.nix
     ../common/traefik.nix
 
     ./traefik.nix # our overrides
@@ -14,6 +15,7 @@
 
   networking = {
     hostName = "duckhub";
+    domain = "scrumplex.net";
     interfaces.ens3.ipv6.addresses = [
       {
         address = "2a03:4000:60:e42:a85d:7ff:feae:a374";
