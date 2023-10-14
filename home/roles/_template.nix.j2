@@ -6,10 +6,10 @@
   inherit (lib.options) mkEnableOption;
   inherit (lib.modules) mkIf;
 
-  cfg = config.roles._template;
+  cfg = config.roles.{{ name }};
 in {
-  options.roles._template = {
-    enable = mkEnableOption "_template role";
+  options.roles.{{ name }} = {
+    enable = mkEnableOption "{{ name }} role";
   };
 
   config = mkIf cfg.enable {};

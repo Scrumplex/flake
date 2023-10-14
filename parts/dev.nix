@@ -11,7 +11,7 @@
         ${config.pre-commit.installationScript}
       '';
 
-      packages = [self'.formatter inputs'.agenix.packages.agenix];
+      packages = [self'.formatter inputs'.agenix.packages.agenix pkgs.just pkgs.jinja2-cli];
     };
     formatter = pkgs.alejandra;
     pre-commit.settings.hooks = {
