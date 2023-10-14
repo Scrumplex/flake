@@ -1,7 +1,10 @@
 {...}: {
   imports = [./borg.nix ./dev.nix ./sway];
 
-  roles.firefox.enable = true;
+  roles = {
+    firefox.enable = true;
+    htop.enable = true;
+  };
 
   programs.waybar.extraModules.cameraBlank = {
     enable = true;
