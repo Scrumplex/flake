@@ -1,6 +1,5 @@
 {
   lib,
-  config,
   nixosConfig,
   pkgs,
   ...
@@ -73,18 +72,6 @@
     enable = true;
     palette = "mocha";
   };
-
-  programs.mpv = {
-    enable = true;
-    config = {
-      hwdec = "auto";
-      hwdec-codecs = "vaapi";
-      profile = "gpu-hq";
-      video-sync = "display-resample";
-      volume = 50;
-    };
-  };
-  services.jellyfin-mpv-shim.enable = true;
 
   programs.chromium.enable = true;
 

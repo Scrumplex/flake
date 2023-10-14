@@ -4,6 +4,7 @@
   roles = {
     firefox.enable = true;
     htop.enable = true;
+    mpv.enable = true;
   };
 
   programs.waybar.extraModules.cameraBlank = {
