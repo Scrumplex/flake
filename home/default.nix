@@ -33,7 +33,7 @@ in {
   nix.settings.trusted-users = [username];
 
   home-manager.users."${username}" = {
-    imports = [./common ./${config.networking.hostName}];
+    imports = [./roles ./common ./${config.networking.hostName}];
 
     home.username = username;
     home.homeDirectory = "/home/${username}";

@@ -33,10 +33,10 @@
     tree
     unzip
 
-    ark
     blender
     dolphin
     evince
+    gnome.file-roller
     gnome.nautilus
     imv
     livecaptions
@@ -86,9 +86,7 @@
   };
   services.jellyfin-mpv-shim.enable = true;
 
-  programs.firefox.enable = true;
   programs.chromium.enable = true;
-  programs.browserpass.enable = true;
 
   services.syncthing.enable = true;
   programs.mangohud = {
