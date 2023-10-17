@@ -9,9 +9,11 @@
       nil # nix lsp
       nixd # nix lsp
       nodePackages.bash-language-server # bashls lsp
+      nodePackages.pyright # python
       nodePackages.typescript-language-server # typescript
       nodePackages.vscode-langservers-extracted # eslint/html/css/json lsp
       nodePackages.yaml-language-server # yaml lsp
+      pylyzer # python
       python3Packages.python-lsp-server # python
       rust-analyzer # rust
       rustc # treesitter
@@ -199,7 +201,7 @@
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
       end
 
-      local servers = { "bashls", "clangd", "cssls", "eslint", "gopls", "html", "jsonls", "nil_ls", "nixd", "pylsp", "rust_analyzer", "tsserver", "yamlls" }
+      local servers = { "bashls", "clangd", "cssls", "eslint", "gopls", "html", "jsonls", "nil_ls", "nixd", "pylsp", "pylyzer", "pyright", "rust_analyzer", "tsserver", "yamlls" }
 
       for _, lsp in pairs(servers) do
         nvim_lsp[lsp].setup({
