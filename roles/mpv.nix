@@ -12,7 +12,7 @@ in {
     enable = mkEnableOption "mpv role";
   };
 
-  config = mkIf cfg.enable {
+  config.hm = mkIf cfg.enable {
     programs.mpv = {
       enable = true;
       config = {

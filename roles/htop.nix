@@ -12,7 +12,7 @@ in {
     enable = mkEnableOption "htop role";
   };
 
-  config = mkIf cfg.enable {
+  config.hm = mkIf cfg.enable {
     programs.htop = {
       enable = true;
       settings =
@@ -21,13 +21,13 @@ in {
           ".tree_view_always_by_pid" = 1;
           "tree_view" = 1;
         }
-        // (with config.lib.htop;
+        // (with config.hm.lib.htop;
           leftMeters [
             (bar "LeftCPUs2")
             (bar "Memory")
             (bar "Swap")
           ])
-        // (with config.lib.htop;
+        // (with config.hm.lib.htop;
           rightMeters [
             (bar "RightCPUs2")
             (text "Tasks")

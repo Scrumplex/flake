@@ -43,9 +43,10 @@
           home-manager.nixosModules.home-manager
           lanzaboote.nixosModules.lanzaboote
 
+          ../roles
           ../host/common
           ../host/${hostName}
-          (import ../home username)
+          ../home
         ]
         ++ (attrValues scrumpkgs.nixosModules)
         ++ modules;

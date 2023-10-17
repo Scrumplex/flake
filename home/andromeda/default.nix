@@ -1,12 +1,6 @@
 {...}: {
   imports = [./borg.nix ./dev.nix ./sway];
 
-  roles = {
-    firefox.enable = true;
-    htop.enable = true;
-    mpv.enable = true;
-  };
-
   programs.waybar.extraModules.cameraBlank = {
     enable = true;
     device = "/dev/v4l/by-id/usb-046d_Logitech_Webcam_C925e_D8A39E5F-video-index0";

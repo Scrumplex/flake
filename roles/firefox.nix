@@ -12,7 +12,7 @@ in {
     enable = mkEnableOption "firefox role";
   };
 
-  config = mkIf cfg.enable {
+  config.hm = mkIf cfg.enable {
     programs.firefox.enable = true;
 
     xdg.mimeApps.defaultApplications = {
@@ -23,7 +23,7 @@ in {
       "x-scheme-handler/unknown" = ["firefox.desktop"];
     };
 
-    programs.browserpass.enable = mkDefault config.programs.password-store.enable;
+    programs.browserpass.enable = mkDefault config.hm.programs.password-store.enable;
     programs.browserpass.browsers = ["firefox"];
   };
 }
