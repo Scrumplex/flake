@@ -8,7 +8,6 @@ in {
   imports = [
     ./boot.nix
     ./desktop.nix
-    ./fish.nix
     ./misc.nix
     ./nix.nix
     ./nvd.nix

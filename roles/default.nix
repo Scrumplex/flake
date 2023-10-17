@@ -6,5 +6,6 @@
     ./gaming.nix
     ./htop.nix
     ./mpv.nix
+    ./shell.nix
   ];
 }

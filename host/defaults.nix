@@ -13,7 +13,6 @@ in {
       user = {
         hashedPassword = "$y$j9T$.xFZ6PXXwF2ntgjscIIiE/$ck86smefjyF1RPhwaYRYf2rWRgpercSVeTBDnMggsr9";
         # TODO: roles!
-        shell = pkgs.fish;
         extraGroups =
           ["audio" "video" "input"]
           ++ optional config.security.rtkit.enable "rtkit"
@@ -30,5 +29,6 @@ in {
     gaming.enable = true;
     htop.enable = true;
     mpv.enable = true;
+    shell.enable = true;
   };
 }
