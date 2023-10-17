@@ -7,7 +7,6 @@
 in {
   imports = [
     ./boot.nix
-    ./bluetooth.nix
     ./desktop.nix
     ./fish.nix
     ./misc.nix

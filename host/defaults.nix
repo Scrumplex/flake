@@ -25,6 +25,7 @@ in {
       };
     };
 
+    bluetooth.enable = true;
     firefox.enable = true;
     gaming.enable = true;
     htop.enable = true;

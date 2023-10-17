@@ -117,7 +117,6 @@
   xsession.preferStatusNotifierItems = true; # needed for network-manager-applet
   services.network-manager-applet.enable =
     lib.mkDefault nixosConfig.networking.networkmanager.enable;
-  services.blueman-applet.enable = lib.mkDefault nixosConfig.services.blueman.enable;
 
   programs.k9s.enable = true;
   xdg.configFile."k9s/skin.yml".source = let
