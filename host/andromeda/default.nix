@@ -10,7 +10,6 @@
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   boot.kernelPatches = [inputs.scrumpkgs.kernelPatches.cap_sys_nice_begone];
 
-  powerManagement.cpuFreqGovernor = "schedutil";
   hardware.amdgpu.amdvlk = false;
 
   hardware.opengl.vdpau.driverName = "radeonsi";
@@ -30,6 +29,11 @@
       fsType = "ext4";
       options = ["defaults" "noauto" "x-systemd.automount"];
     };
+  };
+
+  roles.gaming = {
+    defaultGovernor = "schedutil";
+    boostGovernor = "performance";
   };
 
   boot.binfmt.emulatedSystems = ["aarch64-linux"];

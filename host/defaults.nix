@@ -26,6 +26,7 @@ in {
     };
 
     firefox.enable = true;
+    gaming.enable = true;
     htop.enable = true;
     mpv.enable = true;
   };
