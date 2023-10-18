@@ -13,7 +13,6 @@
     ./kitty.nix
     ./mpd.nix
     ./neovim.nix
-    ./pipewire
     ./ranger.nix
     ./screenshot-bash.nix
     ./sway

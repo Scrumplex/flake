@@ -6,6 +6,7 @@
     ./gaming.nix
     ./htop.nix
     ./mpv.nix
+    ./pipewire
     ./shell.nix
   ];
 }

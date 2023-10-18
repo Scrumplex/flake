@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: let
   inherit (lib.lists) optional;
@@ -15,7 +14,6 @@ in {
         # TODO: roles!
         extraGroups =
           ["audio" "video" "input"]
-          ++ optional config.security.rtkit.enable "rtkit"
           ++ optional config.networking.networkmanager.enable "networkmanager"
           ++ optional config.programs.adb.enable "adbusers"
           ++ optional config.programs.wireshark.enable "wireshark"
@@ -29,6 +27,7 @@ in {
     gaming.enable = true;
     htop.enable = true;
     mpv.enable = true;
+    pipewire.enable = true;
     shell.enable = true;
   };
 }

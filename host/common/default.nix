@@ -11,7 +11,6 @@ in {
     ./misc.nix
     ./nix.nix
     ./nvd.nix
-    ./pipewire.nix
     ./pkgs
     ./regional.nix
     ./utils.nix
