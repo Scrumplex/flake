@@ -40,7 +40,7 @@ redis:
   image:
     registry: docker.io
     repository: library/redis
-    tag: 7.2.2-alpine3.18@sha256:9b53a3b0da07965a1a684dd26fbeb3c649118de48cd9df7d5fefeba133685088
+    tag: 7.2.2-alpine3.18@sha256:2d44eb73209e5af4118de67e89b01709bfec7cc5a4c1cec29665f6d011c70783
 
 refraction:
   image:
