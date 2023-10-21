@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   inherit (lib.lists) optional;
@@ -29,5 +30,13 @@ in {
     mpv.enable = true;
     pipewire.enable = true;
     shell.enable = true;
+    sway = {
+      enable = true;
+      wallpaper = pkgs.fetchurl {
+        name = "sway-wallpaper.jpg";
+        url = "https://scrumplex.rocks/img/richard-horvath-catppuccin.jpg";
+        hash = "sha256-HQ+ZvNPUCnYkAl21JR6o83OBsAJAvpBt93OUSm0ibLU=";
+      };
+    };
   };
 }

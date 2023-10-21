@@ -8,5 +8,7 @@
     ./mpv.nix
     ./pipewire
     ./shell.nix
+    ./desktop/sway.nix
+    ./desktop/gtklock.nix
   ];
 }

@@ -12,18 +12,30 @@ in {
     enable = mkEnableOption "firefox role";
   };
 
-  config.hm = mkIf cfg.enable {
-    programs.firefox.enable = true;
+  config = mkIf cfg.enable {
+    hm = {
+      programs.firefox.enable = true;
 
-    xdg.mimeApps.defaultApplications = {
-      "text/html" = ["firefox.desktop"];
-      "x-scheme-handler/http" = ["firefox.desktop"];
-      "x-scheme-handler/https" = ["firefox.desktop"];
-      "x-scheme-handler/about" = ["firefox.desktop"];
-      "x-scheme-handler/unknown" = ["firefox.desktop"];
+      xdg.mimeApps.defaultApplications = {
+        "text/html" = ["firefox.desktop"];
+        "x-scheme-handler/http" = ["firefox.desktop"];
+        "x-scheme-handler/https" = ["firefox.desktop"];
+        "x-scheme-handler/about" = ["firefox.desktop"];
+        "x-scheme-handler/unknown" = ["firefox.desktop"];
+      };
+
+      programs.browserpass.enable = mkDefault config.hm.programs.password-store.enable;
+      programs.browserpass.browsers = ["firefox"];
     };
 
-    programs.browserpass.enable = mkDefault config.hm.programs.password-store.enable;
-    programs.browserpass.browsers = ["firefox"];
+    roles.sway.config.window.commands = [
+      {
+        criteria = {
+          app_id = "firefox";
+          title = "Picture-in-Picture";
+        };
+        command = "floating enable; sticky enable";
+      }
+    ];
   };
 }
