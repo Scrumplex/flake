@@ -633,11 +633,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1697834211,
-        "narHash": "sha256-PMSgEML6xs+yhgqytuBIIO98CAjkup9dEHUljnmWJkI=",
+        "lastModified": 1697891223,
+        "narHash": "sha256-pw8aoCDnnEB7E+LvWKpKCmEzMAiNYVYHBVESJVLUy4E=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "95eccd7ecead085fb419309dc9f351a3d252aaa7",
+        "rev": "cd1059d817193ce526b3f617bd5d93c1ea8ba7b7",
         "type": "github"
       },
       "original": {
@@ -747,11 +747,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1697870901,
-        "narHash": "sha256-S51CQtzuVO4gyfFc/ZNahcVqhUFHGUNK7pOyNL4ZvZs=",
+        "lastModified": 1697887936,
+        "narHash": "sha256-tCpLCdPBqu6loy9da5KDBYfcPVxg3Gx8RqeS5KLZYp4=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "f0fd1bd5e5c4f8a503847f76c2ea624093bd861d",
+        "rev": "2c4af7e793ac8f4ff8f283d99f83bba630948db1",
         "type": "github"
       },
       "original": {
