@@ -1,7 +1,5 @@
 {inputs, ...}: let
-  username = "scrumplex";
-
-  inherit (inputs) agenix home-manager lanzaboote nixpkgs nixpkgs-wayland nix-index-database prismlauncher scrumpkgs wlx-overlay-x;
+  inherit (inputs) agenix catppuccin home-manager lanzaboote nixpkgs nixpkgs-wayland nix-index-database prismlauncher scrumpkgs wlx-overlay-x;
 
   inherit (nixpkgs.lib) attrValues;
 
@@ -25,6 +23,7 @@
               sharedModules =
                 attrValues scrumpkgs.hmModules
                 ++ [
+                  catppuccin.homeManagerModules.catppuccin
                   nix-index-database.hmModules.nix-index
                 ];
               extraSpecialArgs = {

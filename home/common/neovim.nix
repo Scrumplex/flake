@@ -27,7 +27,6 @@
       }
       nvim-treesitter.withAllGrammars
       lualine-nvim
-      catppuccin-nvim
       neo-tree-nvim
       bufferline-nvim
 
@@ -81,7 +80,6 @@
       vim.o.spelllang = "en_us"
       vim.o.completeopt = "menu,menuone,noselect"
 
-      local catppuccin = require("catppuccin")
       local lualine = require("lualine")
       local gitsigns = require("gitsigns")
 
@@ -92,19 +90,8 @@
       local luasnip = require("luasnip")
       local bufferline = require("bufferline")
 
-      local cp_path = vim.fn.stdpath("cache") .. "/catppuccin-nvim"
-      vim.fn.mkdir(cp_path, "p")
-      vim.opt.runtimepath:append(cp_path)
-
-
-      catppuccin.setup({
-        transparent_background = true,
-        compile_path = cp_path
-      })
       lualine.setup()
       gitsigns.setup()
-
-      vim.cmd.colorscheme "catppuccin"
 
       treesitter.setup({
         sync_install = false,

@@ -24,6 +24,10 @@ in {
     };
 
     bluetooth.enable = true;
+    catppuccin = {
+      enable = true;
+      flavor = "mocha";
+    };
     firefox.enable = true;
     gaming.enable = true;
     htop.enable = true;

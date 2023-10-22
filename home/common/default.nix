@@ -10,7 +10,6 @@
     ./desktop.nix
     ./dev.nix
     ./fish.nix
-    ./kitty.nix
     ./mpd.nix
     ./neovim.nix
     ./ranger.nix
