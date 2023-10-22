@@ -19,6 +19,7 @@ in {
   config = mkIf cfg.enable {
     hm.programs.bat.catppuccin.enable = true;
     hm.programs.btop.catppuccin.enable = true;
+    hm.programs.fish.catppuccin.enable = true;
     hm.programs.kitty.catppuccin.enable = true;
     hm.programs.neovim.catppuccin.enable = true;
   };

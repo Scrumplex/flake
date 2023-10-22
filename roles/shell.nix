@@ -67,11 +67,6 @@ in {
             inherit (z) src;
           }
         ];
-        theme = {
-          enable = true;
-          name = "Catppuccin Mocha";
-          plugin = inputs.catppuccin-fish;
-        };
       };
 
       programs.eza = {
