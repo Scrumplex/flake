@@ -27,6 +27,7 @@ in {
     firefox.enable = true;
     gaming.enable = true;
     htop.enable = true;
+    kitty.enable = true;
     mpv.enable = true;
     pipewire.enable = true;
     shell.enable = true;

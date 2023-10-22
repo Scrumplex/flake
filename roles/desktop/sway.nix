@@ -46,8 +46,6 @@ in {
     };
 
     roles.sway.config = {
-      # TODO: integrate with kitty role
-      terminal = getExe pkgs.kitty;
       modifier = "Mod4";
       # ugly, but this fixes most issues, until home-manager adopts environment.d
       startup = [{command = "${pkgs.systemd}/bin/systemctl --user import-environment";}];
