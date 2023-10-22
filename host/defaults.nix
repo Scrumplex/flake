@@ -43,5 +43,6 @@ in {
         hash = "sha256-HQ+ZvNPUCnYkAl21JR6o83OBsAJAvpBt93OUSm0ibLU=";
       };
     };
+    v4l2loopback.enable = true;
   };
 }
