@@ -8,6 +8,7 @@
     ./htop.nix
     ./mpv.nix
     ./pipewire
+    ./regional.nix
     ./shell.nix
     ./v4l2loopback.nix
     ./desktop/gtklock.nix

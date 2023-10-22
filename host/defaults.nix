@@ -34,6 +34,7 @@ in {
     kitty.enable = true;
     mpv.enable = true;
     pipewire.enable = true;
+    regional.enable = true;
     shell.enable = true;
     sway = {
       enable = true;

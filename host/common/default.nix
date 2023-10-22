@@ -12,7 +12,6 @@ in {
     ./nix.nix
     ./nvd.nix
     ./pkgs
-    ./regional.nix
     ./utils.nix
   ];
 
