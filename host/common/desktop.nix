@@ -43,15 +43,5 @@ in {
         ];
       };
     };
-
-    qt = {
-      enable = true;
-      platformTheme = "qt5ct";
-    };
-
-    environment.systemPackages = with pkgs; [
-      qt6Packages.qtstyleplugin-kvantum
-      libsForQt5.qtstyleplugin-kvantum
-    ];
   };
 }

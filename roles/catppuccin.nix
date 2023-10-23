@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   ...
 }: let
@@ -17,6 +18,7 @@ in {
   ];
 
   config = mkIf cfg.enable {
+    roles.qt.qt5ctThemePath = "${inputs.catppuccin-qt5ct}/themes/Catppuccin-Mocha.conf";
     hm.programs.bat.catppuccin.enable = true;
     hm.programs.btop.catppuccin.enable = true;
     hm.programs.fish.catppuccin.enable = true;

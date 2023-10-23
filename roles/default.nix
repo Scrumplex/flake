@@ -3,6 +3,10 @@
     ./base.nix
     ./bluetooth.nix
     ./catppuccin.nix
+    ./desktop/gtklock.nix
+    ./desktop/qt
+    ./desktop/kitty.nix
+    ./desktop/sway.nix
     ./firefox.nix
     ./gaming.nix
     ./htop.nix
@@ -11,8 +15,5 @@
     ./regional.nix
     ./shell.nix
     ./v4l2loopback.nix
-    ./desktop/gtklock.nix
-    ./desktop/kitty.nix
-    ./desktop/sway.nix
   ];
 }

@@ -1,5 +1,4 @@
 {
-  inputs,
   lib,
   pkgs,
   ...
@@ -35,17 +34,6 @@ in {
     };
     gtk3.extraCss = builtins.readFile ./adwaita.css;
     gtk4.extraCss = builtins.readFile ./adwaita.css;
-  };
-
-  xdg.configFile = {
-    "qt5ct/qt5ct.conf".source = pkgs.substituteAll {
-      src = ./qt5ct.conf;
-      themePath = "${inputs.catppuccin-qt5ct}/themes/Catppuccin-Mocha.conf";
-    };
-    "qt6ct/qt6ct.conf".source = pkgs.substituteAll {
-      src = ./qt6ct.conf;
-      themePath = "${inputs.catppuccin-qt5ct}/themes/Catppuccin-Mocha.conf";
-    };
   };
 
   # Stop apps from generating fontconfig caches and breaking reproducibility
