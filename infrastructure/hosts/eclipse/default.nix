@@ -14,6 +14,7 @@
     ./boot.nix
     ./dyndns.nix
     ./jellyfin.nix
+    ./minecraft.nix
     ./paperless.nix
     ./step-ca.nix
     ./syncthing.nix
@@ -34,9 +35,6 @@
 
         # terraria
         7777
-
-        # minecraft
-        25565
       ];
       allowedUDPPorts = [
         # jellyfin
@@ -45,9 +43,6 @@
 
         # terraria
         7777
-
-        # minecraft
-        25565
       ];
     };
   };
