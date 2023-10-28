@@ -82,7 +82,11 @@ in {
         modules = [
           home-manager.darwinModules.home-manager
 
-          {
+          ({
+            config,
+            pkgs,
+            ...
+          }: {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
@@ -97,6 +101,28 @@ in {
                 lib' = scrumpkgs.lib;
               };
             };
+            system.activationScripts.applications.text = pkgs.lib.mkForce ''
+                echo "setting up ~/Applications/Nix..."
+                rm -rf /Users/A105227727/Applications/Nix
+                install -d -o A105227727 -g staff /Users/A105227727/Applications/Nix
+                find ${config.system.build.applications}/Applications -maxdepth 1 -type l | while read f; do
+                  src="$(/usr/bin/stat -f%Y $f)"
+                  appname="$(basename $src)"
+                  osascript -e "tell app \"Finder\" to make alias file at POSIX file \"/Users/A105227727/Applications/Nix/\" to POSIX file \"$src\" with properties {name: \"$appname\"}";
+              done
+            '';
+
+            homebrew = {
+              enable = true;
+              casks = ["mac-mouse-fix"];
+            };
+
+            environment.systemPackages = with pkgs; [
+              iterm2
+              rectangle
+              keepassxc
+            ];
+
             # Auto upgrade nix package and the daemon service.
             services.nix-daemon.enable = true;
             # nix.package = pkgs.nix;
@@ -116,7 +142,7 @@ in {
 
             # The platform the configuration will be used on.
             nixpkgs.hostPlatform = "aarch64-darwin";
-          }
+          })
         ];
       };
     };
