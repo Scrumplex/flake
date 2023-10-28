@@ -1,19 +1,26 @@
-{...}: {
-  imports = [
-    ./base.nix
-    ./bluetooth.nix
-    ./catppuccin.nix
-    ./desktop/gtklock.nix
-    ./desktop/qt
-    ./desktop/kitty.nix
-    ./desktop/sway.nix
-    ./firefox.nix
-    ./gaming.nix
-    ./htop.nix
-    ./mpv.nix
-    ./pipewire
-    ./regional.nix
-    ./shell.nix
-    ./v4l2loopback.nix
-  ];
+platform: {lib, ...}: let
+  inherit (builtins) elem;
+  inherit (lib.lists) optionals;
+  inherit (lib) platforms;
+in {
+  imports =
+    [
+      ./base.nix
+      ./htop.nix
+      ./mpv.nix
+      ./shell.nix
+    ]
+    ++ optionals (elem platform [platforms.linux]) [
+      ./bluetooth.nix
+      ./catppuccin.nix
+      ./desktop/gtklock.nix
+      ./desktop/kitty.nix
+      ./desktop/qt
+      ./desktop/sway.nix
+      ./firefox.nix
+      ./gaming.nix
+      ./pipewire
+      ./regional.nix
+      ./v4l2loopback.nix
+    ];
 }

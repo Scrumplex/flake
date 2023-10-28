@@ -46,7 +46,7 @@
           home-manager.nixosModules.home-manager
           lanzaboote.nixosModules.lanzaboote
 
-          ../roles
+          (import ../roles system)
           ../host/common
           ../host/${hostName}
           ../home
@@ -78,73 +78,39 @@ in {
         modules = [inputs.nixos-hardware.nixosModules.framework-12th-gen-intel];
       });
     darwinConfigurations = {
-      work = nix-darwin.lib.darwinSystem {
-        modules = [
-          home-manager.darwinModules.home-manager
+      work = let
+        system = "aarch64-darwin";
+      in
+        nix-darwin.lib.darwinSystem {
+          modules = [
+            home-manager.darwinModules.home-manager
 
-          ({
-            config,
-            pkgs,
-            ...
-          }: {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              sharedModules =
-                attrValues scrumpkgs.hmModules
-                ++ [
-                  catppuccin.homeManagerModules.catppuccin
-                  nix-index-database.hmModules.nix-index
-                ];
-              extraSpecialArgs = {
-                inherit inputs;
-                lib' = scrumpkgs.lib;
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                sharedModules =
+                  attrValues scrumpkgs.hmModules
+                  ++ [
+                    catppuccin.homeManagerModules.catppuccin
+                    nix-index-database.hmModules.nix-index
+                  ];
+                extraSpecialArgs = {
+                  inherit inputs;
+                  lib' = scrumpkgs.lib;
+                };
               };
-            };
-            system.activationScripts.applications.text = pkgs.lib.mkForce ''
-                echo "setting up ~/Applications/Nix..."
-                rm -rf /Users/A105227727/Applications/Nix
-                install -d -o A105227727 -g staff /Users/A105227727/Applications/Nix
-                find ${config.system.build.applications}/Applications -maxdepth 1 -type l | while read f; do
-                  src="$(/usr/bin/stat -f%Y $f)"
-                  appname="$(basename $src)"
-                  osascript -e "tell app \"Finder\" to make alias file at POSIX file \"/Users/A105227727/Applications/Nix/\" to POSIX file \"$src\" with properties {name: \"$appname\"}";
-              done
-            '';
 
-            homebrew = {
-              enable = true;
-              casks = ["mac-mouse-fix"];
-            };
+              system.configurationRevision = self.rev or self.dirtyRev or null;
+              nixpkgs.hostPlatform = system;
+            }
 
-            environment.systemPackages = with pkgs; [
-              iterm2
-              rectangle
-              keepassxc
-            ];
+            (import ../roles system)
+            ../host/T00179100c
+          ];
 
-            # Auto upgrade nix package and the daemon service.
-            services.nix-daemon.enable = true;
-            # nix.package = pkgs.nix;
-
-            # Necessary for using flakes on this system.
-            nix.settings.experimental-features = "nix-command flakes";
-
-            # Create /etc/zshrc that loads the nix-darwin environment.
-            programs.zsh.enable = true; # default shell on catalina
-            # programs.fish.enable = true;
-            # Set Git commit hash for darwin-version.
-            system.configurationRevision = self.rev or self.dirtyRev or null;
-
-            # Used for backwards compatibility, please read the changelog before changing.
-            # $ darwin-rebuild changelog
-            system.stateVersion = 4;
-
-            # The platform the configuration will be used on.
-            nixpkgs.hostPlatform = "aarch64-darwin";
-          })
-        ];
-      };
+          inherit inputs;
+        };
     };
   };
 }
