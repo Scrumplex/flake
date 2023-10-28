@@ -44,7 +44,7 @@ in {
   # We are talking about Minecraft modders here so there are infinite possibilities as to why this happens.
   # To stop the host from OOMing after some time, tell systemd to deal with this early on
   systemd.services."minecraft-server".serviceConfig = {
-    MemoryHigh = "7G";
+    #   MemoryHigh = "7G";
     MemoryMax = "8G"; # kill the server if it sucks up too much
   };
 }
