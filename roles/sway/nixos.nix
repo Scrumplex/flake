@@ -122,6 +122,8 @@ in {
             # TODO: role
             (mkExec "${mod}+p" (getExe' config.hm.programs.password-store.package "passmenu"))
             # TODO: role
+            (mkExec "${mod}+c" "${getExe pkgs.hyprpicker} --autocopy")
+            # TODO: role
             (mkExec "${mod}+period" "${getExe pkgs.bemoji} -t")
             # TODO: role
             (mkExec "${mod}+Shift+e" (getExe pkgs.wlogout))
