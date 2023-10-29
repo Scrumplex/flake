@@ -7,6 +7,13 @@
   roles.base.username = "A105227727";
   hm.home.homeDirectory = lib.mkForce "/Users/A105227727";
 
+  roles.catppuccin = {
+    enable = true;
+    flavor = "mocha";
+  };
+  roles.neovim.enable = true;
+  roles.shell.enable = true;
+
   system.activationScripts.applications.text = pkgs.lib.mkForce ''
       username="${config.roles.base.username}"
       echo "setting up ~/Applications/Nix..."
