@@ -30,6 +30,14 @@ in {
     };
     firefox.enable = true;
     gaming.enable = true;
+    git = {
+      enable = true;
+      author = {
+        name = "Sefa Eyeoglu";
+        email = "contact@scrumplex.net";
+        gpgKey = "E13DFD4B47127951";
+      };
+    };
     htop.enable = true;
     kitty.enable = true;
     mpv.enable = true;
