@@ -46,7 +46,7 @@
           home-manager.nixosModules.home-manager
           lanzaboote.nixosModules.lanzaboote
 
-          (import ../roles system)
+          (import ../roles "nixos")
           ../host/common
           ../host/${hostName}
           ../home
@@ -105,7 +105,7 @@ in {
               nixpkgs.hostPlatform = system;
             }
 
-            (import ../roles system)
+            (import ../roles "darwin")
             ../host/T00179100c
           ];
 

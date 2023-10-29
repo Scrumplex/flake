@@ -5,16 +5,9 @@
   ...
 }: let
   inherit (lib.modules) mkAliasOptionModule mkIf;
-  inherit (lib.options) mkEnableOption;
 
   cfg = config.roles.gaming;
 in {
-  options.roles.gaming = {
-    enable = mkEnableOption "gaming role";
-
-    withGamemode = mkEnableOption "gamemode" // {default = true;};
-  };
-
   imports = [
     (mkAliasOptionModule ["roles" "gaming" "defaultGovernor"] ["powerManagement" "cpuFreqGovernor"])
     (mkAliasOptionModule ["roles" "gaming" "boostGovernor"] ["programs" "gamemode" "settings" "general" "desiredgov"])

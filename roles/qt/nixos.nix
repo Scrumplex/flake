@@ -5,23 +5,9 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (lib.options) mkEnableOption mkOption;
-  inherit (lib) types;
 
   cfg = config.roles.qt;
 in {
-  options.roles.qt = {
-    enable = mkEnableOption "qt role";
-
-    qt5ctThemePath = mkOption {
-      type = with types; path;
-      default = "";
-      description = ''
-        Path to qt5ct color theme
-      '';
-    };
-  };
-
   config = mkIf cfg.enable {
     qt = {
       enable = true;

@@ -4,14 +4,9 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (lib.options) mkEnableOption;
 
   cfg = config.roles.bluetooth;
 in {
-  options.roles.bluetooth = {
-    enable = mkEnableOption "bluetooth role";
-  };
-
   config = mkIf cfg.enable {
     hardware.bluetooth.enable = true;
     services.blueman.enable = true;

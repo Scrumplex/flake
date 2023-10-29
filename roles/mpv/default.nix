@@ -12,8 +12,8 @@ in {
     enable = mkEnableOption "mpv role";
   };
 
-  config.hm = mkIf cfg.enable {
-    programs.mpv = {
+  config = mkIf cfg.enable {
+    hm.programs.mpv = {
       enable = true;
       config = {
         hwdec = "auto";
@@ -23,7 +23,5 @@ in {
         volume = 50;
       };
     };
-
-    services.jellyfin-mpv-shim.enable = true;
   };
 }

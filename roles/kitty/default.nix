@@ -3,7 +3,6 @@
   lib,
   ...
 }: let
-  inherit (lib.meta) getExe;
   inherit (lib.modules) mkAliasOptionModule mkIf;
   inherit (lib.options) mkEnableOption;
 
@@ -18,8 +17,6 @@ in {
   ];
 
   config = mkIf cfg.enable {
-    roles.sway.config.terminal = getExe cfg.package;
-
     hm.programs.kitty = {
       enable = true;
       # TODO: font role

@@ -5,32 +5,14 @@
   pkgs,
   ...
 }: let
-  inherit (lib) types;
   inherit (lib.attrsets) mapAttrsToList;
   inherit (lib.lists) singleton;
   inherit (lib.meta) getExe getExe';
-  inherit (lib.modules) mkAliasOptionModule mkIf;
-  inherit (lib.options) mkEnableOption mkOption;
+  inherit (lib.modules) mkIf;
   inherit (lib'.scrumplex.sway) mkDirectionKeys mkExec mkWorkspaceKeys;
 
   cfg = config.roles.sway;
 in {
-  options.roles.sway = {
-    enable = mkEnableOption "sway role";
-
-    wallpaper = mkOption {
-      type = with types; nullOr path;
-      default = null;
-      description = ''
-        Wallpaper used for all outputs
-      '';
-    };
-  };
-
-  imports = [
-    (mkAliasOptionModule ["roles" "sway" "config"] ["hm" "wayland" "windowManager" "sway" "config"])
-  ];
-
   config = mkIf cfg.enable {
     roles.base.user.extraGroups = ["video" "input"];
     roles.gtklock.enable = true;
