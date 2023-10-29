@@ -24,6 +24,7 @@ in {
 
   imports = [
     (mkAliasOptionModule ["hm"] ["home-manager" "users" cfg.username])
+    (mkAliasOptionModule ["roles" "base" "user"] ["users" "users" cfg.username])
   ];
 
   config = {
