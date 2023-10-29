@@ -1,3 +1,4 @@
 new-role ROLE:
-  jinja2 ./roles/_template.nix.j2 -o ./roles/{{ROLE}}.nix -D name={{ROLE}}
-  nvim ./roles/{{ROLE}}.nix
+  mkdir -p ./roles/{{ROLE}}
+  jinja2 ./roles/_template.nix.j2 -o ./roles/{{ROLE}}/default.nix -D name={{ROLE}}
+  nvim ./roles/{{ROLE}}/default.nix
