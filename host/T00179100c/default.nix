@@ -14,6 +14,35 @@
   roles.neovim.enable = true;
   roles.shell.enable = true;
 
+  system.defaults = {
+    NSGlobalDomain = {
+      AppleInterfaceStyle = "Dark";
+      AppleInterfaceStyleSwitchesAutomatically = false;
+      ApplePressAndHoldEnabled = false;
+      AppleShowAllFiles = true;
+      AppleShowScrollBars = "WhenScrolling";
+      InitialKeyRepeat = 15; # unit is 15ms, so 500ms
+      KeyRepeat = 2; # unit is 15ms, so 30ms
+      NSAutomaticCapitalizationEnabled = false;
+      NSAutomaticDashSubstitutionEnabled = false;
+      NSAutomaticPeriodSubstitutionEnabled = false;
+      NSAutomaticQuoteSubstitutionEnabled = false;
+      NSAutomaticSpellingCorrectionEnabled = false;
+      NSDocumentSaveNewDocumentsToCloud = false;
+    };
+    dock = {
+      autohide = true;
+      autohide-delay = 0.05;
+      minimize-to-application = true;
+      orientation = "left";
+      show-recents = false;
+    };
+    finder = {
+      ShowPathbar = true;
+      ShowStatusBar = true;
+    };
+  };
+
   system.activationScripts.applications.text = pkgs.lib.mkForce ''
       username="${config.roles.base.username}"
       echo "setting up ~/Applications/Nix..."
@@ -38,7 +67,14 @@
   ];
 
   services.nix-daemon.enable = true;
-  nix.settings.experimental-features = "nix-command flakes";
+  nix = {
+    gc.automatic = true;
+    linux-builder = {
+      enable = true;
+      maxJobs = 4;
+    };
+    settings.experimental-features = "nix-command flakes";
+  };
 
   programs.zsh.enable = true; # default shell on catalina
 
