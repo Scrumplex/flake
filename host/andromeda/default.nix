@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   pkgs,
   ...
@@ -54,14 +53,6 @@
   };
 
   services.gnome.gnome-keyring.enable = true;
-  security.pam.services = {
-    login.gnupg = {
-      enable = true;
-      noAutostart = true;
-      storeOnly = true;
-    };
-    gtklock.gnupg = config.security.pam.services.login.gnupg;
-  };
 
   networking.firewall.allowedTCPPortRanges = [
     {
@@ -87,6 +78,8 @@
   virtualisation.spiceUSBRedirection.enable = true;
 
   environment.systemPackages = with pkgs; [wlx-overlay-x];
+
+  roles.gpg.keygrips = ["EA9F43D0C2AEA7D44EDE68FAAAD1776402F99A4E"];
 
   system.stateVersion = "23.11";
 }

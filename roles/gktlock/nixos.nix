@@ -13,6 +13,7 @@
 in {
   config = mkIf cfg.enable {
     security.pam.services.gtklock = {};
+    roles.gpg.pamServices = ["gtklock"];
 
     environment.systemPackages = with pkgs; [gtklock];
 

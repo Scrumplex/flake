@@ -1,4 +1,4 @@
-{config, ...}: {
+{...}: {
   programs.ssh = {
     enable = true;
 
@@ -72,21 +72,6 @@
         identityFile = idFile;
       };
     };
-  };
-
-  programs.gpg = {
-    enable = true;
-    homedir = "${config.xdg.dataHome}/gnupg";
-  };
-  services.gpg-agent = {
-    enable = true;
-    enableSshSupport = true;
-    defaultCacheTtl = 1209600;
-    defaultCacheTtlSsh = 1209600;
-    maxCacheTtl = 1209600;
-    maxCacheTtlSsh = 1209600;
-    pinentryFlavor = "qt";
-    extraConfig = "allow-preset-passphrase";
   };
 
   services.gnome-keyring.enable = true;

@@ -38,6 +38,11 @@ in {
         gpgKey = "E13DFD4B47127951";
       };
     };
+    gpg = {
+      enable = true;
+      pinentryFlavor = "qt";
+      keygrips = ["2622167BDE636A248CE883080EE77D752284FDF4"];
+    };
     htop.enable = true;
     kitty.enable = true;
     mpv.enable = true;
