@@ -31,10 +31,7 @@
     };
   };
 
-  roles.gaming = {
-    defaultGovernor = "schedutil";
-    boostGovernor = "performance";
-  };
+  powerManagement.cpuFreqGovernor = "schedutil";
 
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 

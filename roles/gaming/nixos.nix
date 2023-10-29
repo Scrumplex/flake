@@ -4,15 +4,10 @@
   pkgs,
   ...
 }: let
-  inherit (lib.modules) mkAliasOptionModule mkIf;
+  inherit (lib.modules) mkIf;
 
   cfg = config.roles.gaming;
 in {
-  imports = [
-    (mkAliasOptionModule ["roles" "gaming" "defaultGovernor"] ["powerManagement" "cpuFreqGovernor"])
-    (mkAliasOptionModule ["roles" "gaming" "boostGovernor"] ["programs" "gamemode" "settings" "general" "desiredgov"])
-  ];
-
   config = mkIf cfg.enable {
     programs.steam.enable = true;
 
@@ -20,7 +15,8 @@ in {
       enable = true;
       settings = {
         general = {
-          defaultgov = cfg.defaultGovernor;
+          defaultgov = config.powerManagement.cpuFreqGovernor;
+          desiredgov = "performance";
           softrealtime = "on";
           renice = 10;
           ioprio = 1;
