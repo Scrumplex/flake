@@ -11,7 +11,6 @@
     ./dev.nix
     ./fish.nix
     ./mpd.nix
-    ./neovim.nix
     ./ranger.nix
     ./screenshot-bash.nix
     ./sway

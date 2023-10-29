@@ -33,6 +33,7 @@ in {
     htop.enable = true;
     kitty.enable = true;
     mpv.enable = true;
+    neovim.enable = true;
     pipewire.enable = true;
     qt.enable = true;
     regional.enable = true;
