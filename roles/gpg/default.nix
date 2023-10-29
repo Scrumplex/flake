@@ -43,6 +43,7 @@ in {
 
   config = mkIf cfg.enable {
     hm = {
+      programs.git.signing.signByDefault = true;
       programs.gpg = {
         enable = true;
         homedir = "${config.hm.xdg.dataHome}/gnupg";
