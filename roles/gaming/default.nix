@@ -5,5 +5,6 @@ in {
     enable = mkEnableOption "gaming role";
 
     withGamemode = mkEnableOption "gamemode" // {default = true;};
+    withMangoHud = mkEnableOption "MangoHud" // {default = true;};
   };
 }
