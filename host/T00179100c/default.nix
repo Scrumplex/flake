@@ -11,6 +11,13 @@
     enable = true;
     flavor = "mocha";
   };
+  roles.git = {
+    enable = true;
+    author = {
+      name = "Sefa Eyeoglu";
+      email = "sefa.eyeoglu@telekom.de";
+    };
+  };
   roles.neovim.enable = true;
   roles.shell.enable = true;
 
