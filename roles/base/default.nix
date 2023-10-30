@@ -3,6 +3,7 @@
   lib,
   ...
 }: let
+  inherit (lib) hasAttr;
   inherit (lib.lists) optional;
   inherit (lib.modules) mkAliasOptionModule;
   inherit (lib.options) mkEnableOption mkOption;
@@ -30,7 +31,7 @@ in {
   config = {
     assertions = [
       {
-        assertion = cfg.username != null;
+        assertion = hasAttr "username" cfg;
         message = "base role username has to be set";
       }
     ];
