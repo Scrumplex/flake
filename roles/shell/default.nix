@@ -18,6 +18,13 @@ in {
     roles.base.user.shell = pkgs.fish;
 
     hm = {
+      home.packages = with pkgs; [
+        file
+        libqalculate
+        parallel
+        ripgrep
+        tree
+      ];
       programs.fish = {
         enable = true;
         shellInit = ''

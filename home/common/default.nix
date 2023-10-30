@@ -19,14 +19,9 @@
   home.packages = with pkgs; [
     dig
     ffmpeg
-    file
     flatpak-builder
     kubectl
-    libqalculate
-    parallel
     psmisc
-    ripgrep
-    tree
     unzip
 
     blender
