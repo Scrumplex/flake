@@ -9,6 +9,11 @@
   cfg = config.roles.gaming;
 in {
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      dolphinEmu
+      prismlauncher
+      yuzu-early-access
+    ];
     programs.steam.enable = true;
 
     programs.gamemode = lib.mkIf cfg.withGamemode {

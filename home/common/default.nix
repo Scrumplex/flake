@@ -52,12 +52,6 @@
     evolution
     portfolio
     AusweisApp2
-
-    prismlauncher
-    steam
-    steam-run
-    yuzu-early-access
-    dolphinEmu
   ];
 
   theme = {
