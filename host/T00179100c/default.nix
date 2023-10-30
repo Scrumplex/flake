@@ -64,7 +64,7 @@
 
   homebrew = {
     enable = true;
-    casks = ["mac-mouse-fix"];
+    casks = ["browserosaurus" "mac-mouse-fix"];
   };
 
   environment.systemPackages = with pkgs; [
