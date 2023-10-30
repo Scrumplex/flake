@@ -64,7 +64,12 @@
 
   homebrew = {
     enable = true;
-    casks = ["browserosaurus" "mac-mouse-fix"];
+    casks = [
+      "browserosaurus"
+      # not supported on aarch64-darwin in nixpkgs
+      "caffeine"
+      "mac-mouse-fix"
+    ];
   };
 
   environment.systemPackages = with pkgs; [
