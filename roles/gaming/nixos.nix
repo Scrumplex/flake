@@ -10,7 +10,7 @@
 in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      dolphinEmu
+      # dolphinEmu
       prismlauncher
       yuzu-early-access
     ];
