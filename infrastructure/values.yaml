@@ -34,7 +34,7 @@ ovenmediaengine:
 postgres13:
   image:
     repository: postgres
-    tag: 13.12-bullseye@sha256:5c8b65e08cd87c2abe59efdd99c6bde75e187f56b6cff47cc6068f384bfab41b
+    tag: 13.12-bullseye@sha256:591ab18b6bc98c5fa106eadd7ea5d9ecf6378ac3cccfab22eebd440ec03f0355
 
 redis:
   image:
