@@ -26,7 +26,9 @@
     },
     "catppuccin": {
       "inputs": {
-        "home-manager": "home-manager",
+        "home-manager": [
+          "home-manager"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -397,27 +399,6 @@
       }
     },
     "home-manager": {
-      "inputs": {
-        "nixpkgs": [
-          "catppuccin",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1698873617,
-        "narHash": "sha256-FfGFcfbULwbK1vD+H0rslIOfmy4g8f2hXiPkQG3ZCTk=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "48b0a30202516e25d9885525fbb200a045f23f26",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "home-manager_2": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -829,7 +810,7 @@
         "catppuccin-fish": "catppuccin-fish",
         "catppuccin-qt5ct": "catppuccin-qt5ct",
         "flake-parts": "flake-parts",
-        "home-manager": "home-manager_2",
+        "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
         "nix-darwin": "nix-darwin",
         "nix-index-database": "nix-index-database",
