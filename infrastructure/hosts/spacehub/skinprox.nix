@@ -1,7 +1,6 @@
 {config, ...}: {
   services.skinprox = {
     enable = true;
-    listenHost = "0.0.0.0";
     publicUrl = "https://skins.scrumplex.net";
     providers = [
       "https://scrumplex.rocks/skin/"
