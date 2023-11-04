@@ -396,7 +396,34 @@
         "flake-parts": "flake-parts_4",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
-        "pre-commit-hooks": "pre-commit-hooks"
+        "pre-commit-hooks": "pre-commit-hooks",
+        "skinprox": "skinprox"
+      }
+    },
+    "skinprox": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "pre-commit-hooks": [
+          "pre-commit-hooks"
+        ]
+      },
+      "locked": {
+        "lastModified": 1699128597,
+        "narHash": "sha256-CU+vexQAVl8+OruHjWbpoGql2FR5t6+UJWgpqBFLm+I=",
+        "ref": "refs/heads/main",
+        "rev": "e50e94d1a15ceb0b8bc7f593676d5f1a87bc6969",
+        "revCount": 56,
+        "type": "git",
+        "url": "https://codeberg.org/Scrumplex/skinprox.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/Scrumplex/skinprox.git"
       }
     },
     "systems": {

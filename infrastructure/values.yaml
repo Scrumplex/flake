@@ -60,12 +60,6 @@ scrumplex-x:
     repository: scrumplex/prntserve
     tag: latest@sha256:d155a9a8490f315d89c8de030a9ccbdf1d39673ad224b1b12615d402c5c04d98
 
-skinprox:
-  image:
-    registry: codeberg.org
-    repository: scrumplex/skinprox
-    tag: latest@sha256:e854a5131990b51b4c0ce2b89e5d1f53fd1932878b81d79e570e9aea0756e459
-
 tor:
   image:
     repository: goldy/tor-hidden-service

@@ -1,5 +1,5 @@
 {inputs, ...}: let
-  inherit (inputs) agenix arion nixos-hardware nixpkgs;
+  inherit (inputs) agenix arion nixos-hardware nixpkgs skinprox;
 in {
   flake = {
     colmena = {
@@ -30,7 +30,13 @@ in {
         age.secrets."scrumplex-x-service.env".file = ../secrets/spacehub/scrumplex-x-service.env.age;
         age.secrets."tor-service.env".file = ../secrets/spacehub/tor-service.env.age;
 
-        imports = [../hosts/spacehub];
+        nixpkgs.overlays = [
+          skinprox.overlays.default
+        ];
+        imports = [
+          skinprox.nixosModules.skinprox
+          ../hosts/spacehub
+        ];
       };
 
       duckhub = {

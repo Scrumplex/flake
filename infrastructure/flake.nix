@@ -21,6 +21,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-stable.follows = "nixpkgs";
     };
+    skinprox = {
+      url = "git+https://codeberg.org/Scrumplex/skinprox.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
+    };
   };
 
   outputs = inputs @ {flake-parts, ...}:

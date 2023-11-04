@@ -11,6 +11,7 @@
 
     ./containers.nix
     ./murmur.nix
+    ./skinprox.nix
     ./teamspeak3.nix
     ./wireguard.nix
   ];
