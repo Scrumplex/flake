@@ -300,11 +300,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1699044561,
-        "narHash": "sha256-3uHmbq74CicpBPP40a6NHp830S7Rvh33uFgfIIC+7nw=",
+        "lastModified": 1699159446,
+        "narHash": "sha256-cL63IjsbPl2otS7R4kdXbVOJOXYMpGw5KGZoWgdCuCM=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "87f8403371fa74d9ad21ed677403cc235f37b96c",
+        "rev": "627bc9b88256379578885a7028c9e791c29fb581",
         "type": "github"
       },
       "original": {
@@ -349,11 +349,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1698942558,
-        "narHash": "sha256-/UmnB+mEd6Eg3mJBrAgqRcyZX//RSjHphcCO7Ig9Bpk=",
+        "lastModified": 1699110214,
+        "narHash": "sha256-L2TU4RgtiqF69W8Gacg2jEkEYJrW+Kp0Mp4plwQh5b8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "621f51253edffa1d6f08d5fce4f08614c852d17e",
+        "rev": "78f3a4ae19f0e99d5323dd2e3853916b8ee4afee",
         "type": "github"
       },
       "original": {
@@ -413,11 +413,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1699130126,
-        "narHash": "sha256-zO6flQtF7eq4kdIc0p8QJfc+i8hsqpm4dqcZpOl3/Zc=",
+        "lastModified": 1699139856,
+        "narHash": "sha256-nn9+V2AKfheaDY+t/Er6dhWWTC1Yl+fwogrDCrUjBjY=",
         "ref": "refs/heads/main",
-        "rev": "4c1da322a7cf1eb2fbb539ea3eb6e806b07ba1a3",
-        "revCount": 57,
+        "rev": "23a9872a6d1bc1cbaf76de7c4db87ed41ffe7009",
+        "revCount": 59,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/skinprox.git"
       },
