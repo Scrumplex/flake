@@ -1,13 +1,10 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [../defaults.nix ./hardware-configuration.nix ./harmonia.nix ./wireguard.nix];
+
+  roles.vr.enable = true;
 
   hardware.enableRedistributableFirmware = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-  boot.kernelPatches = [inputs.scrumpkgs.kernelPatches.cap_sys_nice_begone];
 
   hardware.amdgpu.amdvlk = false;
 
@@ -60,8 +57,6 @@
       to = 2239;
     }
   ];
-
-  services.monado.enable = true;
 
   services.logind.extraConfig = ''
     HandlePowerKey=suspend
