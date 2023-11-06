@@ -1,8 +1,14 @@
-{pkgs, ...}: let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (builtins) concatStringsSep;
+  inherit (lib.modules) mkIf;
 in {
   services.minecraft-server = {
-    enable = true;
+    enable = false;
     eula = true;
 
     jvmOpts = concatStringsSep " " [
@@ -43,7 +49,7 @@ in {
   # Some Minecraft servers leak a lot of memory.
   # We are talking about Minecraft modders here so there are infinite possibilities as to why this happens.
   # To stop the host from OOMing after some time, tell systemd to deal with this early on
-  systemd.services."minecraft-server".serviceConfig = {
+  systemd.services."minecraft-server".serviceConfig = mkIf config.services.minecraft-server.enable {
     #   MemoryHigh = "7G";
     MemoryMax = "8G"; # kill the server if it sucks up too much
   };
