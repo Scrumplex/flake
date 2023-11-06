@@ -62,7 +62,7 @@ in {
     openssh.authorizedKeys.keys =
       config.users.users.root.openssh.authorizedKeys.keys
       ++ [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILxDXpfY8O0663Lablk8MKkpzkOC/gCKnkvTM3Yt0lTm"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKUfcVT3WxnuIWGxdmGiZMXZ5wsnQXqL+HO0ZIQS7wKL"
       ];
   };
 
