@@ -6,6 +6,7 @@
 }: {
   roles.base.username = "A105227727";
   hm.home.homeDirectory = lib.mkForce "/Users/A105227727";
+  hm.xdg.enable = true;
 
   roles.catppuccin = {
     enable = true;
