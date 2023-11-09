@@ -17,6 +17,7 @@
     ./minecraft.nix
     ./paperless.nix
     ./step-ca.nix
+    ./swapfile.nix
     ./syncthing.nix
     ./transmission.nix
     ./vaultwarden.nix
