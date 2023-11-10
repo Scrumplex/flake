@@ -1,10 +1,12 @@
 {
   config,
   nixosConfig,
+  pkgs,
   ...
 }: {
   programs.beets = {
     enable = true;
+    package = pkgs.beets-unstable;
     mpdIntegration.enableStats = true;
     mpdIntegration.enableUpdate = true;
     settings = {
