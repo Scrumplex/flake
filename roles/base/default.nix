@@ -1,13 +1,16 @@
 {
   config,
+  inputs,
   lib,
   ...
 }: let
-  inherit (lib) hasAttr;
+  inherit (builtins) attrValues hasAttr;
   inherit (lib.lists) optional;
   inherit (lib.modules) mkAliasOptionModule;
   inherit (lib.options) mkEnableOption mkOption;
   inherit (lib) types;
+
+  inherit (inputs) catppuccin nix-index-database scrumpkgs;
 
   cfg = config.roles.base;
 in {
@@ -37,6 +40,21 @@ in {
     ];
 
     nix.settings.trusted-users = optional cfg.enableAdmin cfg.username;
+
+    home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      sharedModules =
+        attrValues scrumpkgs.hmModules
+        ++ [
+          catppuccin.homeManagerModules.catppuccin
+          nix-index-database.hmModules.nix-index
+        ];
+      extraSpecialArgs = {
+        inherit inputs;
+        lib' = scrumpkgs.lib;
+      };
+    };
 
     hm = {
       home.username = cfg.username;

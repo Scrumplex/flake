@@ -63,9 +63,11 @@
       imports = [
         inputs.pre-commit-hooks.flakeModule
 
+        ./darwinConfigurations
+        ./nixosConfigurations
+
         ./parts/dev.nix
         ./parts/nixpkgs-dev.nix
-        ./parts/systems.nix
       ];
 
       systems = [

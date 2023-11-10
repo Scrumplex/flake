@@ -1,12 +1,18 @@
 {
   config,
+  inputs,
   lib,
   ...
 }: let
+  inherit (inputs) home-manager;
   inherit (lib.lists) optional;
 
   cfg = config.roles.base;
 in {
+  imports = [
+    home-manager.nixosModules.home-manager
+  ];
+
   config = {
     roles.base.user.isNormalUser = true;
 
