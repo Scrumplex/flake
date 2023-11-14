@@ -46,7 +46,7 @@ refraction:
   image:
     registry: ghcr.io
     repository: prismlauncher/refraction
-    tag: latest@sha256:594dd356a287fd462f637884816f9782534955699bbe6a06f9e77f6b202b02cb
+    tag: latest@sha256:b07e042478796390ba601a9b233b96367b53f11fb674c0b4acbdc641dd0c7c43
 
 scrumplex-website:
   image:
