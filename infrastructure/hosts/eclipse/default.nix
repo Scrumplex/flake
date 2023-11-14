@@ -16,6 +16,7 @@
     ./jellyfin.nix
     ./minecraft.nix
     ./paperless.nix
+    ./quassel.nix
     ./step-ca.nix
     ./swapfile.nix
     ./syncthing.nix
