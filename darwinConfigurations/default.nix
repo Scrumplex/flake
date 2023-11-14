@@ -3,7 +3,7 @@
   self,
   ...
 }: let
-  inherit (inputs) nix-darwin;
+  inherit (inputs) nix-darwin scrumpkgs;
 in {
   flake.darwinConfigurations = {
     T00179100c = nix-darwin.lib.darwinSystem {
@@ -14,10 +14,13 @@ in {
         }
 
         (import ../roles "darwin")
-        ../host/T00179100c
+        ./T00179100c
       ];
 
-      inherit inputs;
+      specialArgs = {
+        inherit inputs;
+        lib' = scrumpkgs.lib;
+      };
     };
   };
 }
