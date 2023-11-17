@@ -217,16 +217,25 @@ in {
             name = "redis";
           })
         ];
-      refraction.settings.services = mkContainer {
-        name = "refraction";
-        environment = {
-          DISCORD_APP = "1034470391252521051";
-          SAY_LOGS_CHANNEL = "1112764181012283542";
-        };
-        service.env_file = [
-          config.age.secrets."refraction-service.env".path
-        ];
-      };
+      refraction.settings.services = mkMerge [
+        (mkContainer {
+          name = "redis";
+        })
+        (mkContainer {
+          name = "refraction";
+          environment = {
+            DISCORD_APP = "1034470391252521051";
+            SAY_LOGS_CHANNEL = "1112764181012283542";
+            REDIS_URL = "redis://redis:6379";
+          };
+          service.env_file = [
+            config.age.secrets."refraction-service.env".path
+          ];
+          service.depends_on = [
+            "redis"
+          ];
+        })
+      ];
     };
   };
 
