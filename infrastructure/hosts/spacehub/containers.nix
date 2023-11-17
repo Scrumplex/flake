@@ -220,6 +220,9 @@ in {
       refraction.settings.services = mkMerge [
         (mkContainer {
           name = "redis";
+          service.volumes = [
+            "${dataPath}/refraction-redis-data:/data"
+          ];
         })
         (mkContainer {
           name = "refraction";
