@@ -21,7 +21,7 @@
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJV9lYhi0kcwAAjPTMl6sycwCGkjrI0bvTIwpPuXkW2W scrumplex@andromeda"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHsd6Edr19iTS5QFnCEvMQh0rUZM1mjksaZHlihweLdU scrumplex@dyson"
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDOXynAF50OShHHCcIGuHO133PWo/pjpaYgyOQDTS5Tj termux@void"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJiQEIN+AnXuJFNqw04h/LSGF1bu8cS5PjzgIpn5QTX1 termux@void"
       ];
     };
   };
