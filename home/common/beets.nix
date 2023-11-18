@@ -27,8 +27,6 @@
 
       ui.color = true;
       plugins = [
-        "absubmit"
-        "acousticbrainz"
         "chroma"
         "duplicates"
         "edit"
