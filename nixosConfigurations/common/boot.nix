@@ -1,30 +1,20 @@
-{
-  config,
-  lib,
-  ...
-}: let
-  inherit (lib.modules) mkDefault mkIf mkMerge;
+{lib, ...}: let
+  inherit (lib.modules) mkDefault;
 in {
-  boot = mkMerge [
-    {
-      bootspec.enable = mkDefault true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      timeout = 0;
+    };
 
-      loader = {
-        systemd-boot.enable = true;
-        efi.canTouchEfiVariables = true;
-        timeout = 0;
-      };
-
-      tmp = {
-        useTmpfs = mkDefault true;
-        tmpfsSize = "75%";
-      };
-    }
-    (mkIf config.system.role.desktop {
-      initrd.verbose = false;
-      initrd.systemd.enable = true;
-      consoleLogLevel = 0;
-      kernelParams = ["quiet" "udev.log_level=3"];
-    })
-  ];
+    tmp = {
+      useTmpfs = mkDefault true;
+      tmpfsSize = "75%";
+    };
+    initrd.verbose = false;
+    initrd.systemd.enable = true;
+    consoleLogLevel = 0;
+    kernelParams = ["quiet" "udev.log_level=3"];
+  };
 }
