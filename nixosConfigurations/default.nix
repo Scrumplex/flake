@@ -28,8 +28,8 @@
           lanzaboote.nixosModules.lanzaboote
 
           (import ../roles "nixos")
-          ../host/common
-          ../host/${hostName}
+          ./common
+          ./${hostName}
           ../home
         ]
         ++ (attrValues scrumpkgs.nixosModules)
