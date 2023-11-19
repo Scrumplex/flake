@@ -8,6 +8,6 @@
   cfg = config.roles.kitty;
 in {
   config = mkIf cfg.enable {
-    roles.sway.config.terminal = getExe cfg.package;
+    hm.wayland.windowManager.sway.config.terminal = getExe cfg.package;
   };
 }

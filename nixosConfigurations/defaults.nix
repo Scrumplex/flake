@@ -51,14 +51,14 @@ in {
     qt.enable = true;
     regional.enable = true;
     shell.enable = true;
-    sway = {
-      enable = true;
-      wallpaper = pkgs.fetchurl {
-        name = "sway-wallpaper.jpg";
-        url = "https://scrumplex.rocks/img/richard-horvath-catppuccin.jpg";
-        hash = "sha256-HQ+ZvNPUCnYkAl21JR6o83OBsAJAvpBt93OUSm0ibLU=";
-      };
-    };
     v4l2loopback.enable = true;
+  };
+  profiles.sway = {
+    enable = true;
+    wallpaper = pkgs.fetchurl {
+      name = "sway-wallpaper.jpg";
+      url = "https://scrumplex.rocks/img/richard-horvath-catppuccin.jpg";
+      hash = "sha256-HQ+ZvNPUCnYkAl21JR6o83OBsAJAvpBt93OUSm0ibLU=";
+    };
   };
 }

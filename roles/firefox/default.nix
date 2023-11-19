@@ -28,7 +28,7 @@ in {
       programs.browserpass.browsers = ["firefox"];
     };
 
-    roles.sway.config.window.commands = [
+    hm.wayland.windowManager.sway.config.window.commands = [
       {
         criteria = {
           app_id = "firefox";

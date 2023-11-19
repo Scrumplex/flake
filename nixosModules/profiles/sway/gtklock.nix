@@ -9,7 +9,8 @@
   inherit (lib.modules) mkIf;
   inherit (lib'.scrumplex.sway) mkExec;
 
-  cfg = config.roles.gtklock;
+  cfg = config.profiles.sway;
+  swayCfg = config.hm.wayland.windowManager.sway.config;
 in {
   config = mkIf cfg.enable {
     security.pam.services.gtklock = {};
@@ -17,6 +18,6 @@ in {
 
     environment.systemPackages = with pkgs; [gtklock];
 
-    roles.sway.config.keybindings = mkExec "${config.roles.sway.config.modifier}+Ctrl+q" "${getExe pkgs.gtklock} -d";
+    hm.wayland.windowManager.sway.config.keybindings = mkExec "${swayCfg.modifier}+Ctrl+q" "${getExe pkgs.gtklock} -d";
   };
 }
