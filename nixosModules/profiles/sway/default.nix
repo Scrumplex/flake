@@ -28,6 +28,8 @@ in {
   config = mkIf cfg.enable {
     roles.base.user.extraGroups = ["video" "input"];
 
+    hm.home.sessionVariables."_JAVA_AWT_WM_NONREPARENTING" = "1";
+
     programs.sway = {
       enable = true;
       wrapperFeatures.gtk = true;
