@@ -29,7 +29,7 @@ nextcloud:
 ovenmediaengine:
   image:
     repository: airensoft/ovenmediaengine
-    tag: 0.16.0@sha256:66612b214e157d0c5657c4f35c8fcfdfa26d9b753cf90fd0cb98ac4667fd5219
+    tag: 0.16.1@sha256:ed62507dc1b7fa1343671029d7e1995093f37390441d2374a69a87c2adba1fb4
 
 postgres13:
   image:
