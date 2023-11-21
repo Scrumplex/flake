@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   imports = [
     ./hardware-configuration.nix
 
@@ -61,7 +61,13 @@
   };
 
   # TODO
-  services.borgbackup.jobs.borgbase.repo = "ssh://yekr15ge@yekr15ge.repo.borgbase.com/./repo";
+  services.borgbackup.jobs.borgbase = {
+    repo = "ssh://yekr15ge@yekr15ge.repo.borgbase.com/./repo";
+    encryption = {
+      mode = "repokey-blake2";
+      passCommand = "cat ${config.age.secrets.borgbase_repokey.path}";
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

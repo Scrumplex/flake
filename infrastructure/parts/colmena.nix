@@ -18,7 +18,7 @@ in {
       defaults.imports = [../modules/oci-image-external.nix agenix.nixosModules.age arion.nixosModules.arion];
 
       universe = {
-        deployment.targetHost = "85.209.51.237";
+        deployment.targetHost = "scrumplex.net";
         deployment.targetPort = 22701;
 
         age.secrets.id_borgbase.file = ../secrets/universe/id_borgbase.age;
@@ -42,7 +42,7 @@ in {
       };
 
       spacehub = {
-        deployment.targetHost = "scrumplex.net";
+        deployment.targetHost = "legacy.scrumplex.net";
         deployment.targetPort = 22701;
 
         imports = [

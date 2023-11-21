@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   services.borgbackup.jobs.borgbase = {
     environment.BORG_RSH = "ssh -i ${config.age.secrets.id_borgbase.path}";
     paths = ["/srv" "/var/lib" "/home" "/root"];
@@ -13,8 +17,8 @@
       yearly = 2;
     };
     encryption = {
-      mode = "repokey-blake2";
-      passCommand = "cat ${config.age.secrets.borgbase_repokey.path}";
+      mode = lib.mkDefault "keyfile-blake2";
+      passphrase = "";
     };
 
     extraArgs = "-v";

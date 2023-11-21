@@ -25,6 +25,10 @@
     ];
   };
 
+  users.users.root.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIND05tH+7T3opok0hT3I6JgYvkzl1yoeepGWZotq5vfI root@universe"
+  ];
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
