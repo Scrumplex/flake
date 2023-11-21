@@ -31,6 +31,10 @@
     ];
   };
 
+  users.users.root.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIND05tH+7T3opok0hT3I6JgYvkzl1yoeepGWZotq5vfI root@universe"
+  ];
+
   services.borgbackup.jobs.borgbase.repo = "e629u305@e629u305.repo.borgbase.com:repo";
 
   # This value determines the NixOS release from which the default
