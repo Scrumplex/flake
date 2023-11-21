@@ -13,7 +13,7 @@
     GUID = "1337";
   };
 
-  dataPath = "/srv/spacehub";
+  dataPath = "/srv/containers";
 
   mkContainer = args @ {
     name,

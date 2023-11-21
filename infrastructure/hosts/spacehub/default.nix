@@ -4,16 +4,7 @@
 
     ../common/common.nix
     ../common/netcup.nix
-    ../common/borg.nix
     ../common/nix.nix
-    ../common/nullmailer.nix
-    ../common/traefik.nix
-
-    ./containers.nix
-    ./murmur.nix
-    ./skinprox.nix
-    ./teamspeak3.nix
-    ./wireguard.nix
   ];
 
   networking = {
@@ -32,31 +23,7 @@
         via = "fe80::1";
       }
     ];
-
-    firewall = {
-      allowedTCPPorts = [
-        # OME
-        3478
-
-        # ts3
-        41144
-      ];
-      allowedUDPPorts = [
-        # ts3
-        9987
-
-        # OME
-        10000
-        10001
-        10002
-        10003
-        10004
-        10005
-      ];
-    };
   };
-
-  services.borgbackup.jobs.borgbase.repo = "j0b0k0o5@j0b0k0o5.repo.borgbase.com:repo";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

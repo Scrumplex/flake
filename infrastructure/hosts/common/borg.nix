@@ -13,8 +13,8 @@
       yearly = 2;
     };
     encryption = {
-      mode = "keyfile-blake2";
-      passphrase = "";
+      mode = "repokey-blake2";
+      passCommand = "cat ${config.age.secrets.borgbase_repokey.path}";
     };
 
     extraArgs = "-v";

@@ -7,6 +7,7 @@ in {
       meta.description = "scrumplex.net Network";
       meta.nixpkgs = {inherit (nixpkgs) lib;};
       meta.nodeNixpkgs = {
+        universe = nixpkgs.legacyPackages.x86_64-linux;
         spacehub = nixpkgs.legacyPackages.x86_64-linux;
         duckhub = nixpkgs.legacyPackages.x86_64-linux;
         cosmos = nixpkgs.legacyPackages.aarch64-linux;
@@ -16,11 +17,12 @@ in {
 
       defaults.imports = [../modules/oci-image-external.nix agenix.nixosModules.age arion.nixosModules.arion];
 
-      spacehub = {
-        deployment.targetHost = "scrumplex.net";
+      universe = {
+        deployment.targetHost = "85.209.51.237";
         deployment.targetPort = 22701;
 
-        age.secrets.id_borgbase.file = ../secrets/spacehub/id_borgbase.age;
+        age.secrets.id_borgbase.file = ../secrets/universe/id_borgbase.age;
+        age.secrets.borgbase_repokey.file = ../secrets/universe/borgbase_repokey.age;
         age.secrets."murmur.env".file = ../secrets/spacehub/murmur.env.age;
         age.secrets."wireguard.key".file = ../secrets/spacehub/wireguard.key.age;
         age.secrets."hetzner.key".file = ../secrets/spacehub/hetzner.key.age;
@@ -35,6 +37,15 @@ in {
         ];
         imports = [
           skinprox.nixosModules.skinprox
+          ../hosts/universe
+        ];
+      };
+
+      spacehub = {
+        deployment.targetHost = "scrumplex.net";
+        deployment.targetPort = 22701;
+
+        imports = [
           ../hosts/spacehub
         ];
       };

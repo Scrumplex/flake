@@ -4,22 +4,26 @@ let
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHsd6Edr19iTS5QFnCEvMQh0rUZM1mjksaZHlihweLdU scrumplex@dyson"
   ];
 
+  universe = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPWva83JbLRs2E6oqAP71CARJpdGRLWEUxM524vhfxXr";
   spacehub = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOPLNX2+TkwkR92aSmNw8faKt4DO58EJkJrBk//MEHrf";
   duckhub = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINo54AduiP0MDvRS35SeEV0Wi1Nlszo3enR/xVJtGQaX";
   cosmos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFP1mSnn2jJw4nsRtGdikPlN6Cie+kOo5a1bYctjjapg";
   eclipse = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEgfjN4xqCCsl+XzvSFFIR4WQ18r4+G7kGcMLkTe4be6";
 in {
-  "common/nullmailer-remotes.age".publicKeys = scrumplex ++ [spacehub duckhub cosmos eclipse];
+  "common/nullmailer-remotes.age".publicKeys = scrumplex ++ [universe spacehub duckhub cosmos eclipse];
+
+  "universe/id_borgbase.age".publicKeys = scrumplex ++ [universe];
+  "universe/borgbase_repokey.age".publicKeys = scrumplex ++ [universe];
 
   "spacehub/id_borgbase.age".publicKeys = scrumplex ++ [spacehub];
-  "spacehub/murmur.env.age".publicKeys = scrumplex ++ [spacehub];
-  "spacehub/wireguard.key.age".publicKeys = scrumplex ++ [spacehub];
-  "spacehub/hetzner.key.age".publicKeys = scrumplex ++ [spacehub];
-  "spacehub/hedgedoc-service.env.age".publicKeys = scrumplex ++ [spacehub];
-  "spacehub/nextcloud-service.env.age".publicKeys = scrumplex ++ [spacehub];
-  "spacehub/refraction-service.env.age".publicKeys = scrumplex ++ [spacehub];
-  "spacehub/scrumplex-x-service.env.age".publicKeys = scrumplex ++ [spacehub];
-  "spacehub/tor-service.env.age".publicKeys = scrumplex ++ [spacehub];
+  "spacehub/murmur.env.age".publicKeys = scrumplex ++ [spacehub universe];
+  "spacehub/wireguard.key.age".publicKeys = scrumplex ++ [spacehub universe];
+  "spacehub/hetzner.key.age".publicKeys = scrumplex ++ [spacehub universe];
+  "spacehub/hedgedoc-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
+  "spacehub/nextcloud-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
+  "spacehub/refraction-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
+  "spacehub/scrumplex-x-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
+  "spacehub/tor-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
 
   "duckhub/id_borgbase.age".publicKeys = scrumplex ++ [duckhub];
   "duckhub/wireguard.key.age".publicKeys = scrumplex ++ [duckhub];
