@@ -35,4 +35,6 @@
       ];
     };
   };
+
+  services.gvfs.enable = true;
 }
