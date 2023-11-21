@@ -31,6 +31,26 @@
     ];
   };
 
+  networking.hosts = {
+    "85.209.51.237" = ["duckhub.io" "quack.duckhub.io"];
+    "2a03:4000:41:ef:8238:c03b:a699:288" = ["duckhub.io" "quack.duckhub.io"];
+  };
+
+  services.traefik.dynamicConfigOptions.http = {
+    routers.duckhub = {
+      entryPoints = ["websecure"];
+      service = "duckhub";
+      rule = "Host(`duckhub.io`)";
+    };
+    services.duckhub.loadBalancer.servers = [{url = "https://duckhub.io";}];
+    routers.qduckhub = {
+      entryPoints = ["websecure"];
+      service = "qduckhub";
+      rule = "Host(`quack.duckhub.io`)";
+    };
+    services.qduckhub.loadBalancer.servers = [{url = "https://quack.duckhub.io";}];
+  };
+
   users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIND05tH+7T3opok0hT3I6JgYvkzl1yoeepGWZotq5vfI root@universe"
   ];
