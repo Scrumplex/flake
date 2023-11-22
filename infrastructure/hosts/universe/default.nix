@@ -42,6 +42,9 @@
         # OME
         3478
 
+        # synapse
+        8448
+
         # ts3
         41144
       ];
@@ -59,6 +62,12 @@
       ];
     };
   };
+
+  services.traefik.staticConfigOptions.entryPoints.synapsesecure =
+    config.services.traefik.staticConfigOptions.entryPoints.websecure
+    // {
+      address = ":8448";
+    };
 
   # TODO
   services.borgbackup.jobs.borgbase = {

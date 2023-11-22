@@ -38,16 +38,22 @@
 
   services.traefik.dynamicConfigOptions.http = {
     routers.duckhub = {
-      entryPoints = ["websecure"];
+      entryPoints = ["websecure" "synapsesecure"];
       service = "duckhub";
       rule = "Host(`duckhub.io`)";
     };
-    services.duckhub.loadBalancer.servers = [{url = "https://duckhub.io";}];
+    routers.duckhub2 = {
+      entryPoints = ["synapsesecure"];
+      service = "duckhub2";
+      rule = "Host(`duckhub.io`)";
+    };
     routers.qduckhub = {
-      entryPoints = ["websecure"];
+      entryPoints = ["websecure" "synapsesecure"];
       service = "qduckhub";
       rule = "Host(`quack.duckhub.io`)";
     };
+    services.duckhub.loadBalancer.servers = [{url = "https://duckhub.io";}];
+    services.duckhub2.loadBalancer.servers = [{url = "https://duckhub.io:8448";}];
     services.qduckhub.loadBalancer.servers = [{url = "https://quack.duckhub.io";}];
   };
 
