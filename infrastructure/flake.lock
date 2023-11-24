@@ -32,11 +32,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1692787336,
-        "narHash": "sha256-WabgeYsUiMRbpb1bCT3oY6GJEciZQIf3tYD8RQAUf2c=",
+        "lastModified": 1700828696,
+        "narHash": "sha256-/XW6G0x1xrD2jvSC/69OxW6D3vCSpgTwNxpZZj4BrhI=",
         "owner": "hercules-ci",
         "repo": "arion",
-        "rev": "28902d348807c494115177595f812a3e54cc913b",
+        "rev": "172e69d5632faa173dcbbd4465eec6b91061c4c8",
         "type": "github"
       },
       "original": {
@@ -413,11 +413,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1699949121,
-        "narHash": "sha256-vai1U6kjfmBrMzh5gE3zPeGwkhGw6noxEXpUcfPCej4=",
+        "lastModified": 1700784239,
+        "narHash": "sha256-HvJpY1iIkon5NDNxmQ2+lDk28Xw6nhZ+oORuqTFcLiw=",
         "ref": "refs/heads/main",
-        "rev": "cc1f1a1d5e025bd680487768be9c96c837a78e75",
-        "revCount": 62,
+        "rev": "155691506ad3fbf278f0a6fd8ea87bc6d5f79488",
+        "revCount": 63,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/skinprox.git"
       },
