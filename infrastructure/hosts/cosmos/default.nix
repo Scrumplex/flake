@@ -10,6 +10,7 @@ in {
     ../common/borg.nix
     ../common/nix.nix
     ../common/nullmailer.nix
+    ../common/traefik.nix
 
     ./boot.nix
     ./traefik.nix

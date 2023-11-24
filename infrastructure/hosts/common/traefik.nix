@@ -1,56 +1,74 @@
-{config, ...}: {
-  networking.firewall.allowedTCPPorts = [80 443];
+{
+  config,
+  lib,
+  ...
+}: let
+  inherit (lib.options) mkOption;
+  inherit (lib) types;
 
-  systemd.services.traefik.serviceConfig = {
-    EnvironmentFile = [config.age.secrets."hetzner.key".path];
+  cfg = config.common.traefik;
+in {
+  options.common.traefik = {
+    primaryEntryPoint = mkOption {
+      type = with types; str;
+      default = "websecure";
+    };
   };
 
-  services.traefik = {
-    enable = true;
-    group = "docker";
+  config = {
+    networking.firewall.allowedTCPPorts = [80 443];
 
-    staticConfigOptions = {
-      api.insecure = true;
-      accessLog = {};
-      providers.docker.exposedByDefault = false;
-      entryPoints = {
-        web = {
-          address = ":80";
-          http = {
-            redirections.entryPoint = {
-              to = "websecure";
-              scheme = "https";
-              permanent = true;
-            };
-            middlewares = "security@file";
-          };
-        };
-        websecure = {
-          address = ":443";
-          http = {
-            tls.certResolver = "letsencrypt";
-            middlewares = "security@file";
-          };
-        };
-      };
-      certificatesResolvers.letsencrypt.acme = {
-        email = "contact@scrumplex.net";
-        storage = "/var/lib/traefik/acme-le.json";
-        keyType = "EC384";
-        httpChallenge.entryPoint = "web";
-      };
-      certificatesResolvers.letsencryptDNS.acme = {
-        email = "contact@scrumplex.net";
-        storage = "/var/lib/traefik/acme-le-dns.json";
-        keyType = "EC384";
-        dnsChallenge.provider = "hetzner";
-      };
+    systemd.services.traefik.serviceConfig = {
+      EnvironmentFile = [config.age.secrets."hetzner.key".path];
     };
 
-    dynamicConfigOptions.http.middlewares.security.headers = {
-      stsSeconds = 31536000;
-      stsIncludeSubdomains = true;
-      stsPreload = true;
+    services.traefik = {
+      enable = true;
+      group = "docker";
+
+      staticConfigOptions = {
+        api.insecure = true;
+        accessLog = {};
+        providers.docker.exposedByDefault = false;
+        entryPoints = {
+          web = {
+            address = ":80";
+            http = {
+              redirections.entryPoint = {
+                to = cfg.primaryEntryPoint;
+                scheme = "https";
+                permanent = true;
+              };
+              middlewares = "security@file";
+            };
+          };
+          ${cfg.primaryEntryPoint} = {
+            address = ":443";
+            http = {
+              tls.certResolver = "letsencrypt";
+              middlewares = "security@file";
+            };
+          };
+        };
+        certificatesResolvers.letsencrypt.acme = {
+          email = "contact@scrumplex.net";
+          storage = "/var/lib/traefik/acme-le.json";
+          keyType = "EC384";
+          httpChallenge.entryPoint = "web";
+        };
+        certificatesResolvers.letsencryptDNS.acme = {
+          email = "contact@scrumplex.net";
+          storage = "/var/lib/traefik/acme-le-dns.json";
+          keyType = "EC384";
+          dnsChallenge.provider = "hetzner";
+        };
+      };
+
+      dynamicConfigOptions.http.middlewares.security.headers = {
+        stsSeconds = 31536000;
+        stsIncludeSubdomains = true;
+        stsPreload = true;
+      };
     };
   };
 }
