@@ -16,6 +16,7 @@
         ensurePermissions = {
           "DATABASE ${config.services.paperless.user}" = "ALL PRIVILEGES";
         };
+        ensureDBOwnership = true;
       }
     ];
   };

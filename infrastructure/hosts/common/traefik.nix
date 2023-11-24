@@ -2,7 +2,7 @@
   networking.firewall.allowedTCPPorts = [80 443];
 
   systemd.services.traefik.serviceConfig = {
-    EnvironmentFile = config.age.secrets."hetzner.key".path;
+    EnvironmentFile = [config.age.secrets."hetzner.key".path];
   };
 
   services.traefik = {
