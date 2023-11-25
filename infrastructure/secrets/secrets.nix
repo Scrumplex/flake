@@ -14,6 +14,8 @@ in {
 
   "universe/id_borgbase.age".publicKeys = scrumplex ++ [universe];
   "universe/borgbase_repokey.age".publicKeys = scrumplex ++ [universe];
+  "universe/synapse.signing.key.age".publicKeys = scrumplex ++ [universe];
+  "universe/synapse-secrets.yaml.age".publicKeys = scrumplex ++ [universe];
 
   "spacehub/id_borgbase.age".publicKeys = scrumplex ++ [spacehub];
   "spacehub/murmur.env.age".publicKeys = scrumplex ++ [spacehub universe];

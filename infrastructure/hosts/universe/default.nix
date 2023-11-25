@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
 
@@ -12,6 +16,7 @@
     ./containers.nix
     ./murmur.nix
     ./skinprox.nix
+    ./synapse.nix
     ./teamspeak3.nix
     ./wireguard.nix
   ];
@@ -42,9 +47,6 @@
         # OME
         3478
 
-        # synapse
-        8448
-
         # ts3
         41144
       ];
@@ -63,11 +65,11 @@
     };
   };
 
-  services.traefik.staticConfigOptions.entryPoints.synapsesecure =
-    config.services.traefik.staticConfigOptions.entryPoints.websecure
-    // {
-      address = ":8448";
-    };
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_16;
+  };
+  services.postgresqlBackup.enable = true;
 
   # TODO
   services.borgbackup.jobs.borgbase = {
