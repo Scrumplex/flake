@@ -16,9 +16,6 @@
     cert = config.age.secrets."syncthing-cert.pem".path;
     openDefaultPorts = true;
 
-    # enable once auth params can be set using secrets
-    #guiAddress = "0.0.0.0:8384";  # temporary
-
     settings = {
       devices = {
         "andromeda".id = "PUP74AL-VXGLRML-MLMUZIJ-5SZCUCK-A3H2VKD-HNB5X7Z-HHDI244-O7KU5AL";
@@ -43,5 +40,14 @@
         };
       };
     };
+  };
+
+  services.traefik.dynamicConfigOptions.http = {
+    routers.syncthing = {
+      entryPoints = ["localsecure"];
+      service = "syncthing";
+      rule = "Host(`syncthing.eclipse.lan`)";
+    };
+    services.syncthing.loadBalancer.servers = [{url = "http://localhost:8384";}];
   };
 }

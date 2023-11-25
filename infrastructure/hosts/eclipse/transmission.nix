@@ -13,4 +13,13 @@
     };
     credentialsFile = config.age.secrets."transmission-creds.json".path;
   };
+
+  services.traefik.dynamicConfigOptions.http = {
+    routers.torrent = {
+      entryPoints = ["localsecure"];
+      service = "torrent";
+      rule = "Host(`torrent.eclipse.lan`)";
+    };
+    services.torrent.loadBalancer.servers = [{url = "http://localhost:${toString config.services.transmission.settings.rpc-port}";}];
+  };
 }

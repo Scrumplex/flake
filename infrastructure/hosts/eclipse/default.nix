@@ -10,9 +10,11 @@
     ../common/borg.nix
     ../common/nix.nix
     ../common/nullmailer.nix
+    ../common/traefik.nix
 
     ./boot.nix
     ./dyndns.nix
+    ./influx.nix
     ./jellyfin.nix
     ./minecraft.nix
     ./paperless.nix
@@ -21,6 +23,7 @@
     ./swapfile.nix
     ./syncthing.nix
     ./transmission.nix
+    ./traefik.nix
     ./vaultwarden.nix
   ];
 
@@ -76,8 +79,6 @@
     package = pkgs.postgresql_15;
   };
   services.postgresqlBackup.enable = true;
-
-  services.influxdb2.enable = true;
 
   boot.kernel.sysctl = {
     "net.core.rmem_max" = 2500000; # Traefik HTTP3

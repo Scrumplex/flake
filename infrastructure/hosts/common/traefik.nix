@@ -13,6 +13,11 @@ in {
       type = with types; str;
       default = "websecure";
     };
+
+    primaryCertResolver = mkOption {
+      type = with types; str;
+      default = "letsencrypt";
+    };
   };
 
   config = {
@@ -45,7 +50,7 @@ in {
           ${cfg.primaryEntryPoint} = {
             address = ":443";
             http = {
-              tls.certResolver = "letsencrypt";
+              tls.certResolver = cfg.primaryCertResolver;
               middlewares = "security@file";
             };
           };

@@ -7,15 +7,10 @@
   ];
 
   services.postgresql = {
-    # TODO: This needs manual changes. The database owner needs to be `paperless`.
-    # Run `echo "ALTER DATABASE paperless OWNER TO paperless" | sudo -u postgres psql`
     ensureDatabases = [config.services.paperless.user];
     ensureUsers = [
       {
         name = config.services.paperless.user;
-        ensurePermissions = {
-          "DATABASE ${config.services.paperless.user}" = "ALL PRIVILEGES";
-        };
         ensureDBOwnership = true;
       }
     ];
@@ -24,10 +19,7 @@
   services.paperless = {
     enable = true;
 
-    address = "0.0.0.0"; # not allowed in firewall!
-
     passwordFile = config.age.secrets.paperless-password.path;
-
     extraConfig = {
       PAPERLESS_DBHOST = "/run/postgresql";
       PAPERLESS_TIME_ZONE = config.time.timeZone;
@@ -35,5 +27,14 @@
       PAPERLESS_ADMIN_USER = "Scrumplex";
       PAPERLESS_URL = "https://paperless.eclipse.lan";
     };
+  };
+
+  services.traefik.dynamicConfigOptions.http = {
+    routers.paperless = {
+      entryPoints = ["localsecure"];
+      service = "paperless";
+      rule = "Host(`paperless.eclipse.lan`)";
+    };
+    services.paperless.loadBalancer.servers = [{url = "http://localhost:${toString config.services.paperless.port}";}];
   };
 }

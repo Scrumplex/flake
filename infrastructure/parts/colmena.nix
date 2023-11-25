@@ -69,6 +69,7 @@ in {
           owner = "step-ca";
           group = "step-ca";
         };
+        age.secrets."hetzner.key".file = ../secrets/eclipse/hetzner.key.age;
         age.secrets.id_borgbase.file = ../secrets/eclipse/id_borgbase.age;
         age.secrets.paperless-password.file = ../secrets/eclipse/paperless-password.age;
         age.secrets."transmission-creds.json".file = ../secrets/eclipse/transmission-creds.json.age;

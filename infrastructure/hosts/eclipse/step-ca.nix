@@ -33,6 +33,15 @@ in {
     };
   };
 
+  services.traefik.dynamicConfigOptions.http = {
+    routers.step-ca = {
+      entryPoints = ["localsecure"];
+      service = "step-ca";
+      rule = "Host(`tls.eclipse.lan`)";
+    };
+    services.step-ca.loadBalancer.servers = [{url = "http://localhost:${toString config.services.step-ca.port}";}];
+  };
+
   security.pki.certificates = [
     (readFile config.services.step-ca.settings.root)
   ];

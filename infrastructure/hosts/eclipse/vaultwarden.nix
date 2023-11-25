@@ -10,14 +10,33 @@
       DOMAIN = "https://vault.sefa.cloud";
       SIGNUPS_ALLOWED = false;
 
-      ROCKET_ADDRESS = "0.0.0.0";
+      ROCKET_PORT = 8222;
+
       WEBSOCKET_ENABLED = true;
-      WEBSOCKET_ADDRESS = "0.0.0.0";
       WEBSOCKET_PORT = 3012;
     };
     environmentFile = config.age.secrets."vaultwarden.env".path;
 
     backupDir = "/var/backup/vaultwarden";
+  };
+
+  services.traefik.dynamicConfigOptions.http = {
+    routers = {
+      vaultwarden = {
+        entryPoints = ["websecure"];
+        service = "vaultwarden";
+        rule = "Host(`vault.sefa.cloud`)";
+      };
+      vaultwardenWS = {
+        entryPoints = ["websecure"];
+        service = "vaultwardenWS";
+        rule = "Host(`vault.sefa.cloud`) && Path(`/notifications/hub/`)";
+      };
+    };
+    services = {
+      vaultwarden.loadBalancer.servers = [{url = "http://localhost:${toString config.services.vaultwarden.config.ROCKET_PORT}";}];
+      vaultwardenWS.loadBalancer.servers = [{url = "http://localhost:${toString config.services.vaultwarden.config.WEBSOCKET_PORT}";}];
+    };
   };
 
   systemd.tmpfiles.rules = [
