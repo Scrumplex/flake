@@ -3,7 +3,9 @@
   pkgs,
   ...
 }: {
+  disabledModules = ["services/backup/postgresql-backup.nix"];
   imports = [
+    ../../postgresql-backup.nix
     ./hardware-configuration.nix
 
     ../common/common.nix
@@ -69,7 +71,10 @@
     enable = true;
     package = pkgs.postgresql_16;
   };
-  services.postgresqlBackup.enable = true;
+  services.postgresqlBackup = {
+    enable = true;
+    compressionRsyncable = true;
+  };
 
   # TODO
   services.borgbackup.jobs.borgbase = {
@@ -78,6 +83,7 @@
       mode = "repokey-blake2";
       passCommand = "cat ${config.age.secrets.borgbase_repokey.path}";
     };
+    paths = [config.services.postgresqlBackup.location];
   };
 
   # This value determines the NixOS release from which the default
