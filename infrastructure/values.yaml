@@ -58,7 +58,7 @@ scrumplex-x:
   image:
     registry: codeberg.org
     repository: scrumplex/prntserve
-    tag: latest@sha256:c762f940bd5a4b9bab5c3b660c98bea6062db9a611960de4f6a43ae153226737
+    tag: latest@sha256:63d24e9fd65e9b54ddffcf81542441a366fe87ab92297298d686b454c18cfbf9
 
 tor:
   image:
