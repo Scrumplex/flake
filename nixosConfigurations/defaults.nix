@@ -14,7 +14,7 @@ in {
         hashedPassword = "$y$j9T$.xFZ6PXXwF2ntgjscIIiE/$ck86smefjyF1RPhwaYRYf2rWRgpercSVeTBDnMggsr9";
         # TODO: roles!
         extraGroups =
-          ["audio" "video" "input"]
+          ["audio" "video" "input" "dialout"]
           ++ optional config.networking.networkmanager.enable "networkmanager"
           ++ optional config.programs.adb.enable "adbusers"
           ++ optional config.programs.wireshark.enable "wireshark"
