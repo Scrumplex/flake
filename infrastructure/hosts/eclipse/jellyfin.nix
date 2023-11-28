@@ -1,7 +1,13 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   services.jellyfin.enable = true;
 
-  users.users.${config.services.jellyfin.user}.extraGroups = ["video" "render"];
+  users.users.${config.services.jellyfin.user}.extraGroups =
+    ["video" "render"]
+    ++ lib.optional config.services.syncthing.enable config.services.syncthing.group;
 
   services.traefik.dynamicConfigOptions.http = {
     routers.jellyfin = {
