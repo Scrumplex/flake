@@ -8,8 +8,6 @@ in {
       meta.nixpkgs = {inherit (nixpkgs) lib;};
       meta.nodeNixpkgs = {
         universe = nixpkgs.legacyPackages.x86_64-linux;
-        spacehub = nixpkgs.legacyPackages.x86_64-linux;
-        duckhub = nixpkgs.legacyPackages.x86_64-linux;
         cosmos = nixpkgs.legacyPackages.aarch64-linux;
         eclipse = nixpkgs.legacyPackages.x86_64-linux;
       };
@@ -23,14 +21,14 @@ in {
 
         age.secrets.id_borgbase.file = ../secrets/universe/id_borgbase.age;
         age.secrets.borgbase_repokey.file = ../secrets/universe/borgbase_repokey.age;
-        age.secrets."murmur.env".file = ../secrets/spacehub/murmur.env.age;
-        age.secrets."wireguard.key".file = ../secrets/spacehub/wireguard.key.age;
-        age.secrets."hetzner.key".file = ../secrets/spacehub/hetzner.key.age;
-        age.secrets."hedgedoc-service.env".file = ../secrets/spacehub/hedgedoc-service.env.age;
-        age.secrets."nextcloud-service.env".file = ../secrets/spacehub/nextcloud-service.env.age;
-        age.secrets."refraction-service.env".file = ../secrets/spacehub/refraction-service.env.age;
-        age.secrets."scrumplex-x-service.env".file = ../secrets/spacehub/scrumplex-x-service.env.age;
-        age.secrets."tor-service.env".file = ../secrets/spacehub/tor-service.env.age;
+        age.secrets."murmur.env".file = ../secrets/universe/murmur.env.age;
+        age.secrets."wireguard.key".file = ../secrets/universe/wireguard.key.age;
+        age.secrets."hetzner.key".file = ../secrets/universe/hetzner.key.age;
+        age.secrets."hedgedoc-service.env".file = ../secrets/universe/hedgedoc-service.env.age;
+        age.secrets."nextcloud-service.env".file = ../secrets/universe/nextcloud-service.env.age;
+        age.secrets."refraction-service.env".file = ../secrets/universe/refraction-service.env.age;
+        age.secrets."scrumplex-x-service.env".file = ../secrets/universe/scrumplex-x-service.env.age;
+        age.secrets."tor-service.env".file = ../secrets/universe/tor-service.env.age;
 
         nixpkgs.overlays = [
           skinprox.overlays.default

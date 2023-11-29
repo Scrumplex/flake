@@ -14,22 +14,16 @@ in {
 
   "universe/id_borgbase.age".publicKeys = scrumplex ++ [universe];
   "universe/borgbase_repokey.age".publicKeys = scrumplex ++ [universe];
+  "universe/murmur.env.age".publicKeys = scrumplex ++ [spacehub universe];
+  "universe/hetzner.key.age".publicKeys = scrumplex ++ [spacehub universe];
+  "universe/hedgedoc-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
+  "universe/nextcloud-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
+  "universe/refraction-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
+  "universe/scrumplex-x-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
   "universe/synapse.signing.key.age".publicKeys = scrumplex ++ [universe];
   "universe/synapse-secrets.yaml.age".publicKeys = scrumplex ++ [universe];
-
-  "spacehub/id_borgbase.age".publicKeys = scrumplex ++ [spacehub];
-  "spacehub/murmur.env.age".publicKeys = scrumplex ++ [spacehub universe];
-  "spacehub/wireguard.key.age".publicKeys = scrumplex ++ [spacehub universe];
-  "spacehub/hetzner.key.age".publicKeys = scrumplex ++ [spacehub universe];
-  "spacehub/hedgedoc-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
-  "spacehub/nextcloud-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
-  "spacehub/refraction-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
-  "spacehub/scrumplex-x-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
-  "spacehub/tor-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
-
-  "duckhub/id_borgbase.age".publicKeys = scrumplex ++ [duckhub];
-  "duckhub/wireguard.key.age".publicKeys = scrumplex ++ [duckhub];
-  "duckhub/hetzner.key.age".publicKeys = scrumplex ++ [duckhub];
+  "universe/tor-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
+  "universe/wireguard.key.age".publicKeys = scrumplex ++ [spacehub universe];
 
   "cosmos/id_borgbase.age".publicKeys = scrumplex ++ [cosmos];
   "cosmos/wireguard.key.age".publicKeys = scrumplex ++ [cosmos];
