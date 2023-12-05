@@ -81,6 +81,7 @@
 
     lima
     colima
+    docker-client
   ];
 
   services.nix-daemon.enable = true;
