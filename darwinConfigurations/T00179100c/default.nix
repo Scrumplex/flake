@@ -78,6 +78,9 @@
     iterm2
     rectangle
     keepassxc
+
+    lima
+    colima
   ];
 
   services.nix-daemon.enable = true;
