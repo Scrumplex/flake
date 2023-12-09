@@ -9,7 +9,6 @@
     ./beets.nix
     ./desktop.nix
     ./dev.nix
-    ./fish.nix
     ./mpd.nix
     ./ranger.nix
     ./screenshot-bash.nix

@@ -62,5 +62,7 @@
         tag.gpgSign = false;
       };
     };
+
+    programs.eza.git = true;
   };
 }
