@@ -30,9 +30,6 @@ in {
         age.secrets."scrumplex-x-service.env".file = ../secrets/universe/scrumplex-x-service.env.age;
         age.secrets."tor-service.env".file = ../secrets/universe/tor-service.env.age;
 
-        nixpkgs.overlays = [
-          skinprox.overlays.default
-        ];
         imports = [
           skinprox.nixosModules.skinprox
           ../hosts/universe
