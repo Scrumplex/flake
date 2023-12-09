@@ -1,8 +1,4 @@
-{
-  inputs,
-  self,
-  ...
-}: let
+{inputs, ...}: let
   inherit (inputs) agenix lanzaboote nixos-hardware nixpkgs nixpkgs-wayland prismlauncher scrumpkgs wlx-overlay-x;
 
   inherit (nixpkgs.lib) attrValues;
@@ -27,12 +23,10 @@
           agenix.nixosModules.age
           lanzaboote.nixosModules.lanzaboote
 
-          (import ../roles "nixos")
           ./common
           ./${hostName}
           ../home
         ]
-        ++ (attrValues self.nixosModules)
         ++ (attrValues scrumpkgs.nixosModules)
         ++ modules;
 

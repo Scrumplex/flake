@@ -3,11 +3,13 @@
   lib,
   pkgs,
   ...
-}: {
-  roles.base.username = "A105227727";
+}: let
+  username = "A105227727";
+in {
   hm.home.homeDirectory = lib.mkForce "/Users/A105227727";
   hm.xdg.enable = true;
 
+  # refactor?
   roles.catppuccin = {
     enable = true;
     flavor = "mocha";
@@ -52,7 +54,7 @@
   };
 
   system.activationScripts.applications.text = pkgs.lib.mkForce ''
-      username="${config.roles.base.username}"
+      username="${username}"
       echo "setting up ~/Applications/Nix..."
       rm -rf "/Users/$username/Applications/Nix"
       install -d -o "$username" -g staff "/Users/$username/Applications/Nix"

@@ -1,7 +1,5 @@
 {pkgs, ...}: {
-  imports = [../defaults.nix ./hardware-configuration.nix ./harmonia.nix ./wireguard.nix];
-
-  roles.vr.enable = true;
+  imports = [./hardware-configuration.nix ./harmonia.nix ./wireguard.nix];
 
   hardware.enableRedistributableFirmware = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
@@ -74,7 +72,7 @@
 
   environment.systemPackages = with pkgs; [wlx-overlay-x];
 
-  roles.gpg.keygrips = ["EA9F43D0C2AEA7D44EDE68FAAAD1776402F99A4E"];
+  profile.gpg.keygrips = ["EA9F43D0C2AEA7D44EDE68FAAAD1776402F99A4E"];
 
   system.stateVersion = "23.11";
 }

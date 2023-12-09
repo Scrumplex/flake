@@ -65,7 +65,6 @@
 
         ./darwinConfigurations
         ./nixosConfigurations
-        ./nixosModules
 
         ./parts/dev.nix
         ./parts/nixpkgs-dev.nix

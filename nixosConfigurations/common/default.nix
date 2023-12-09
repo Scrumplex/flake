@@ -1,11 +1,29 @@
 {...}: {
   imports = [
+    ./bluetooth.nix
     ./boot.nix
-    ./desktop.nix
+    ./desktop
+    ./desktop/firefox.nix
+    ./desktop/gaming.nix
+    ./desktop/gtklock.nix
+    ./desktop/kitty.nix
+    ./desktop/pipewire
+    ./desktop/qt
+    ./desktop/sway
+    ./desktop/vr.nix
+    ./fish.nix
+    ./git.nix
+    ./gpg.nix
+    ./home.nix
+    ./htop.nix
     ./misc.nix
+    ./mpv.nix
+    ./neovim.nix
     ./nix.nix
     ./nvd.nix
     ./pkgs
+    ./regional.nix
     ./utils.nix
+    ./v4l2loopback.nix
   ];
 }

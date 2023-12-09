@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  imports = [./hardware-configuration.nix ./boot.nix ./specialisation/home-cache.nix ./swapfile.nix ./wireguard.nix ../defaults.nix];
+  imports = [./hardware-configuration.nix ./boot.nix ./specialisation/home-cache.nix ./swapfile.nix ./wireguard.nix];
 
   hardware.enableRedistributableFirmware = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
@@ -37,7 +37,7 @@
 
   environment.systemPackages = with pkgs; [vim];
 
-  roles.gpg.keygrips = ["BF9C6D61344A624956EB93594834D4D2AF5BD8C1"];
+  profile.gpg.keygrips = ["BF9C6D61344A624956EB93594834D4D2AF5BD8C1"];
 
   system.stateVersion = "23.11";
 }
