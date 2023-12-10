@@ -243,6 +243,21 @@
         "type": "github"
       }
     },
+    "nix-filter": {
+      "locked": {
+        "lastModified": 1701697642,
+        "narHash": "sha256-L217WytWZHSY8GW9Gx1A64OnNctbuDbfslaTEofXXRw=",
+        "owner": "numtide",
+        "repo": "nix-filter",
+        "rev": "c843418ecfd0344ecb85844b082ff5675e02c443",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "nix-filter",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1701656485,
@@ -316,6 +331,7 @@
         "flake-parts": [
           "flake-parts"
         ],
+        "nix-filter": "nix-filter",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -324,11 +340,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1702127780,
-        "narHash": "sha256-b3oo/0YmhSrxMH/rlxN8KHrmxMDyFMpjBdU3Y32fqZI=",
+        "lastModified": 1702226025,
+        "narHash": "sha256-fbb+NgsY9pX1bhWI5Rh59dAPbhwcIbTLQG763iD599o=",
         "ref": "refs/heads/main",
-        "rev": "51514d059c88c621ae8d8bd8d43dfc0d96a9de98",
-        "revCount": 70,
+        "rev": "5abcf03344431950d6150d42b8dab93164be3792",
+        "revCount": 79,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/skinprox.git"
       },
