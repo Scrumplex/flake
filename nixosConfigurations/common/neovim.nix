@@ -6,6 +6,7 @@
       clang-tools # clangd lsp
       gcc # treesitter
       gopls # shellcheck lsp
+      jdt-language-server # java
       nil # nix lsp
       nixd # nix lsp
       nodePackages.bash-language-server # bashls lsp
@@ -196,6 +197,9 @@
           on_attach = on_attach,
         })
       end
+      nvim_lsp.jdtls.setup{
+        cmd = {'jdt-language-server'}
+      }
 
       bufferline.setup()
 
