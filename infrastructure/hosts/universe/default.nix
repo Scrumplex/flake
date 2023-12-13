@@ -17,6 +17,7 @@
 
     ./containers.nix
     ./murmur.nix
+    ./renovate.nix
     ./skinprox.nix
     ./synapse.nix
     ./teamspeak3.nix

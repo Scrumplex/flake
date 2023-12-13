@@ -19,6 +19,7 @@ in {
   "universe/hedgedoc-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
   "universe/nextcloud-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
   "universe/refraction-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
+  "universe/renovate.env.age".publicKeys = scrumplex ++ [spacehub universe];
   "universe/scrumplex-x-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
   "universe/synapse.signing.key.age".publicKeys = scrumplex ++ [universe];
   "universe/synapse-secrets.yaml.age".publicKeys = scrumplex ++ [universe];

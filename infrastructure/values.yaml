@@ -48,6 +48,12 @@ refraction:
     repository: prismlauncher/refraction
     tag: main@sha256:6d90bab3b4d9a5b20dbb1e75bfb14855008c5078a8cd7e805c50d4fa74458438
 
+renovate:
+  image:
+    registry: ghcr.io
+    repository: renovatebot/renovate
+    tag: 37.92.1@sha256:e6caf2bfbaa45da2b5a4d4399bf387053ead16b161c4d1efc9e86aa51512e9bb
+
 scrumplex-website:
   image:
     registry: codeberg.org
