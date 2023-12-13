@@ -84,7 +84,7 @@
           {name = "luasnip";}
           {name = "path";}
           {name = "buffer";}
-          {name = "cmdlist";}
+          {name = "cmdline";}
         ];
       };
       lsp = {
