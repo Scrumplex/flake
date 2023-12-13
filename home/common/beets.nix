@@ -5,7 +5,7 @@
   ...
 }: {
   programs.beets = {
-    enable = true;
+    enable = false;
     package = pkgs.beets-unstable;
     mpdIntegration.enableStats = true;
     mpdIntegration.enableUpdate = true;

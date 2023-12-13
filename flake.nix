@@ -23,6 +23,11 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
+    };
     catppuccin = {
       url = "github:Stonks3141/ctp-nix";
       inputs.nixpkgs.follows = "nixpkgs";
