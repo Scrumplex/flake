@@ -35,9 +35,6 @@
 
     firewall = {
       allowedTCPPorts = [
-        # k3s
-        6443
-
         # terraria
         7777
       ];
@@ -67,12 +64,6 @@
       ];
     };
   };
-
-  services.k3s = {
-    enable = true;
-    extraFlags = "--disable traefik";
-  };
-  networking.firewall.trustedInterfaces = ["cni0"];
 
   services.postgresql = {
     enable = true;
