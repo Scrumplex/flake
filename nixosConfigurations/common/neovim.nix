@@ -56,6 +56,7 @@
       neo-tree.enable = true;
       nvim-cmp = {
         enable = true;
+        mappingPresets = ["insert" "cmdline"];
         mapping = {
           "<C-b>" = {
             action = "cmp.mapping.scroll_docs(-4)";
@@ -81,11 +82,18 @@
         };
         snippet.expand = "luasnip";
         sources = [
-          {name = "nvim_lsp";}
-          {name = "luasnip";}
-          {name = "path";}
-          {name = "buffer";}
-          {name = "cmdline";}
+          {
+            name = "nvim_lsp";
+            groupIndex = 1;
+          }
+          {
+            name = "luasnip";
+            groupIndex = 1;
+          }
+          {
+            name = "buffer";
+            groupIndex = 2;
+          }
         ];
       };
       lsp = {
