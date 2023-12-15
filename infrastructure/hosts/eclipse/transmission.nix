@@ -1,4 +1,6 @@
 {config, ...}: {
+  age.secrets."transmission-creds.json".file = ../../secrets/eclipse/transmission-creds.json.age;
+
   services.transmission = {
     enable = true;
     openPeerPorts = true;

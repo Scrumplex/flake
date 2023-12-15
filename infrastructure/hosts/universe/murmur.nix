@@ -1,4 +1,6 @@
 {config, ...}: {
+  age.secrets."murmur.env".file = ../../secrets/universe/murmur.env.age;
+
   services.murmur = {
     enable = true;
     openFirewall = true;

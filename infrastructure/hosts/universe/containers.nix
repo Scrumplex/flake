@@ -32,6 +32,12 @@
     ];
   };
 in {
+  age.secrets."hedgedoc-service.env".file = ../../secrets/universe/hedgedoc-service.env.age;
+  age.secrets."nextcloud-service.env".file = ../../secrets/universe/nextcloud-service.env.age;
+  age.secrets."refraction-service.env".file = ../../secrets/universe/refraction-service.env.age;
+  age.secrets."scrumplex-x-service.env".file = ../../secrets/universe/scrumplex-x-service.env.age;
+  age.secrets."tor-service.env".file = ../../secrets/universe/tor-service.env.age;
+
   virtualisation.arion = {
     backend = "docker";
     projects = {

@@ -1,80 +1,28 @@
 {
-  config,
-  pkgs,
+  inputs,
+  self,
   ...
 }: let
-  inherit (builtins) readFile;
+  inherit (inputs) agenix arion deploy-rs nixpkgs nixos-hardware;
 in {
-  imports = [
-    ../common/common.nix
-    ../common/borg.nix
-    ../common/nix.nix
-    ../common/nullmailer.nix
-    ../common/traefik.nix
-
-    ./boot.nix
-    ./traefik.nix
-    ./wireguard.nix
-  ];
-
-  networking = {
-    hostName = "cosmos";
-    domain = "sefa.cloud";
-    useDHCP = false;
-    interfaces.eth0.useDHCP = true;
-
-    firewall = {
-      allowedTCPPorts = [
-        4242
+  flake = {
+    nixosConfigurations.cosmos = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [
+        ../../modules/oci-image-external.nix
+        agenix.nixosModules.age
+        arion.nixosModules.arion
+        nixos-hardware.nixosModules.raspberry-pi-4
+        ./configuration.nix
       ];
+      specialArgs = {inherit inputs;};
+    };
+    deploy.nodes.cosmos = {
+      hostname = "cosmos.lan";
+      sshUser = "root";
+      sshOpts = ["-p" "22701"];
+      fastConnection = true;
+      profiles.system.path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.cosmos;
     };
   };
-
-  security.pki.certificates = [
-    (readFile ../../extra/ca_root.crt)
-  ];
-
-  virtualisation.docker = {
-    enable = true;
-    autoPrune = {
-      enable = true;
-      flags = [
-        "--all"
-      ];
-    };
-  };
-
-  environment.systemPackages = with pkgs; [
-    git
-    stow
-  ];
-
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-label/NIXOS_SD";
-      fsType = "ext4";
-      options = ["noatime"];
-    };
-  };
-
-  users.users.scrumplex = {
-    isNormalUser = true;
-    extraGroups = ["wheel"];
-    openssh.authorizedKeys.keys =
-      config.users.users.root.openssh.authorizedKeys.keys
-      ++ [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKUfcVT3WxnuIWGxdmGiZMXZ5wsnQXqL+HO0ZIQS7wKL"
-      ];
-  };
-
-  time.timeZone = "Europe/Berlin";
-  i18n.defaultLocale = "en_US.UTF-8";
-  console.keyMap = "de";
-
-  services.borgbackup.jobs.borgbase = {
-    repo = "gils6l68@gils6l68.repo.borgbase.com:repo";
-    encryption.mode = "keyfile-blake2";
-  };
-
-  system.stateVersion = "23.05";
 }

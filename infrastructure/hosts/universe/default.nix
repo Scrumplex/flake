@@ -1,98 +1,27 @@
 {
-  config,
-  pkgs,
+  inputs,
+  self,
   ...
-}: {
-  disabledModules = ["services/backup/postgresql-backup.nix"];
-  imports = [
-    ../../postgresql-backup.nix
-    ./hardware-configuration.nix
-
-    ../common/common.nix
-    ../common/netcup.nix
-    ../common/borg.nix
-    ../common/nix.nix
-    ../common/nullmailer.nix
-    ../common/traefik.nix
-
-    ./containers.nix
-    ./murmur.nix
-    ./renovate.nix
-    ./skinprox.nix
-    ./synapse.nix
-    ./teamspeak3.nix
-    ./wireguard.nix
-  ];
-
-  netcup.bootMode = "uefi";
-
-  networking = {
-    hostName = "universe";
-    domain = "scrumplex.net";
-    interfaces.ens3.ipv6 = {
-      addresses = [
-        {
-          address = "2a03:4000:41:ef:8238:c03b:a699:0288";
-          prefixLength = 64;
-        }
+}: let
+  inherit (inputs) agenix arion deploy-rs nixpkgs skinprox;
+in {
+  flake = {
+    nixosConfigurations.universe = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ../../modules/oci-image-external.nix
+        agenix.nixosModules.age
+        arion.nixosModules.arion
+        skinprox.nixosModules.skinprox
+        ./configuration.nix
       ];
-      routes = [
-        {
-          address = "::";
-          prefixLength = 0;
-          via = "fe80::1";
-        }
-      ];
+      specialArgs = {inherit inputs;};
     };
-
-    firewall = {
-      allowedTCPPorts = [
-        # OME
-        3478
-
-        # ts3
-        41144
-      ];
-      allowedUDPPorts = [
-        # ts3
-        9987
-
-        # OME
-        10000
-        10001
-        10002
-        10003
-        10004
-        10005
-      ];
+    deploy.nodes.universe = {
+      hostname = "scrumplex.net";
+      sshUser = "root";
+      sshOpts = ["-p" "22701"];
+      profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.universe;
     };
   };
-
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_16;
-    extraPlugins = [config.services.postgresql.package.pkgs.pg_repack];
-  };
-  services.postgresqlBackup = {
-    enable = true;
-    compressionRsyncable = true;
-  };
-
-  # TODO
-  services.borgbackup.jobs.borgbase = {
-    repo = "ssh://yekr15ge@yekr15ge.repo.borgbase.com/./repo";
-    encryption = {
-      mode = "repokey-blake2";
-      passCommand = "cat ${config.age.secrets.borgbase_repokey.path}";
-    };
-    paths = [config.services.postgresqlBackup.location];
-  };
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
 }

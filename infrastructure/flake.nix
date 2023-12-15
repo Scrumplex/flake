@@ -7,6 +7,10 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     agenix = {
       url = "github:ryantm/agenix";
@@ -33,8 +37,12 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
         inputs.pre-commit-hooks.flakeModule
+        ./deploy-flake-module.nix
 
-        ./parts/colmena.nix
+        ./hosts/cosmos
+        ./hosts/eclipse
+        ./hosts/universe
+
         ./parts/dev.nix
       ];
 

@@ -1,4 +1,6 @@
 {config, ...}: {
+  age.secrets.paperless-password.file = ../../secrets/eclipse/paperless-password.age;
+
   assertions = [
     {
       assertion = config.services.postgresql.enable;
