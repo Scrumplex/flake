@@ -2,6 +2,7 @@
   config,
   inputs,
   lib,
+  pkgs,
   ...
 }: let
   inherit (lib.modules) mkIf;
@@ -15,5 +16,7 @@ in {
     boot.kernelPatches = mkIf cfg.enableHighPrioKernelPatch [inputs.scrumpkgs.kernelPatches.cap_sys_nice_begone];
 
     services.monado.enable = true;
+
+    environment.systemPackages = [pkgs.opencomposite-helper];
   };
 }
