@@ -7,6 +7,8 @@
     # dolphinEmu
     prismlauncher
     yuzu-early-access
+
+    protontricks
   ];
 
   programs.steam.enable = true;
