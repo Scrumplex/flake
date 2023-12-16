@@ -47,7 +47,6 @@ in {
           ${config.virtualisation.oci-containers.externalImages.images."renovate".ref}
       '';
       NotifyAccess = "all";
-      RemainAfterExit = true;
       RestartSec = "10s";
       Restart = "on-abnormal";
     };
