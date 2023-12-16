@@ -1,10 +1,13 @@
 {
   config,
+  modulesPath,
   pkgs,
   ...
 }: {
   disabledModules = ["services/backup/postgresql-backup.nix"];
   imports = [
+    "${modulesPath}/profiles/qemu-guest.nix"
+
     ../../postgresql-backup.nix
     ./hardware-configuration.nix
 
