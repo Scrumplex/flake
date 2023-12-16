@@ -12,7 +12,7 @@
     gitAuthor = "Skippy <renovate@scrumplex.net>";
     onboardingConfig = {
       "$schema" = "https://docs.renovatebot.com/renovate-schema.json";
-      extends = ["config:base"];
+      extends = ["config:recommended"];
     };
     onboardingNoDep = true;
 
