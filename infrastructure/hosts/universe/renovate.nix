@@ -17,9 +17,8 @@
     onboardingNoDep = true;
 
     repositories = [
-      "Scrumplex/dotfiles"
+      "Scrumplex/flake"
       "Scrumplex/duckhub-static"
-      "Scrumplex/homelab"
       "Scrumplex/honeylinks"
       "Scrumplex/infrastructure"
       "Scrumplex/inhibridge"
