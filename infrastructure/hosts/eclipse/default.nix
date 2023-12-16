@@ -11,6 +11,7 @@ in {
       modules = [
         ../../modules/oci-image-external.nix
         srvos.nixosModules.server
+        srvos.nixosModules.mixins-systemd-boot
         agenix.nixosModules.age
         arion.nixosModules.arion
         nixos-hardware.nixosModules.common-cpu-amd-pstate

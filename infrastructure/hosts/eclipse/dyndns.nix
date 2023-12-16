@@ -26,7 +26,6 @@ in {
       MemoryDenyWriteExecute = true;
       LockPersonality = true;
     };
-    wantedBy = ["multi-user.target"];
   };
   systemd.timers."hetzner-ddns" = {
     timerConfig = {
