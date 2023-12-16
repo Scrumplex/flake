@@ -4,11 +4,9 @@
   pkgs,
   ...
 }: {
-  disabledModules = ["services/backup/postgresql-backup.nix"];
   imports = [
     "${modulesPath}/profiles/qemu-guest.nix"
 
-    ../../postgresql-backup.nix
     ./hardware-configuration.nix
 
     ../common/common.nix
@@ -81,10 +79,7 @@
     package = pkgs.postgresql_16;
     extraPlugins = [config.services.postgresql.package.pkgs.pg_repack];
   };
-  services.postgresqlBackup = {
-    enable = true;
-    compressionRsyncable = true;
-  };
+  services.postgresqlBackup.enable = true;
 
   # TODO
   services.borgbackup.jobs.borgbase = {
