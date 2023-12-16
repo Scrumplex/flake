@@ -3,13 +3,14 @@
   self,
   ...
 }: let
-  inherit (inputs) agenix arion deploy-rs nixpkgs nixos-hardware;
+  inherit (inputs) agenix arion deploy-rs nixpkgs nixos-hardware srvos;
 in {
   flake = {
     nixosConfigurations.cosmos = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
         ../../modules/oci-image-external.nix
+        srvos.nixosModules.server
         agenix.nixosModules.age
         arion.nixosModules.arion
         nixos-hardware.nixosModules.raspberry-pi-4

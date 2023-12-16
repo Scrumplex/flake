@@ -12,6 +12,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    srvos = {
+      url = "github:nix-community/srvos";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixos-stable.follows = "nixpkgs";
+    };
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";

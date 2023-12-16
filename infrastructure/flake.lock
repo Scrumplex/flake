@@ -362,7 +362,8 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "pre-commit-hooks": "pre-commit-hooks",
-        "skinprox": "skinprox"
+        "skinprox": "skinprox",
+        "srvos": "srvos"
       }
     },
     "skinprox": {
@@ -390,6 +391,29 @@
       "original": {
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/skinprox.git"
+      }
+    },
+    "srvos": {
+      "inputs": {
+        "nixos-stable": [
+          "nixpkgs"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1702518612,
+        "narHash": "sha256-AGqIpvEMqo0FKXslmKL8ydt01pJFs8q3nUtz7gksoig=",
+        "owner": "nix-community",
+        "repo": "srvos",
+        "rev": "cd802e2933c567ea91de48dbe8968f41a5d9a642",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "srvos",
+        "type": "github"
       }
     },
     "systems": {
