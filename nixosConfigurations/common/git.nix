@@ -21,7 +21,11 @@
 
     programs.gh = {
       enable = true;
-      settings.git_protocol = "ssh";
+      settings = {
+        # Workaround for https://github.com/nix-community/home-manager/issues/4744
+        version = "1";
+        git_protocol = "ssh";
+      };
     };
 
     programs.git = {
