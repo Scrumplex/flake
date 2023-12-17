@@ -7,7 +7,6 @@
     ./hardware-configuration.nix
 
     ../common/common.nix
-    ../common/borg.nix
     ../common/nix.nix
     ../common/nullmailer.nix
     ../common/traefik.nix
@@ -29,6 +28,12 @@
 
   age.secrets."hetzner.key".file = ../../secrets/eclipse/hetzner.key.age;
   age.secrets.id_borgbase.file = ../../secrets/eclipse/id_borgbase.age;
+
+  infra.borgbase = {
+    enable = true;
+    repo = "ssh://c8wl3xsp@c8wl3xsp.repo.borgbase.com/./repo";
+    sshKeyFile = config.age.secrets.id_borgbase.path;
+  };
 
   networking = {
     hostName = "eclipse";
@@ -97,11 +102,6 @@
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";
   console.keyMap = "de";
-
-  services.borgbackup.jobs.borgbase = {
-    repo = "c8wl3xsp@c8wl3xsp.repo.borgbase.com:repo";
-    paths = [config.services.postgresqlBackup.location];
-  };
 
   system.stateVersion = "23.05";
 }

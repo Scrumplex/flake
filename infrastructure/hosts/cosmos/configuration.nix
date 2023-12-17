@@ -7,7 +7,6 @@
 in {
   imports = [
     ../common/common.nix
-    ../common/borg.nix
     ../common/nix.nix
     ../common/nullmailer.nix
     ../common/traefik.nix
@@ -20,6 +19,12 @@ in {
   age.secrets.id_borgbase.file = ../../secrets/cosmos/id_borgbase.age;
   age.secrets."wireguard.key".file = ../../secrets/cosmos/wireguard.key.age;
   age.secrets."hetzner.key".file = ../../secrets/cosmos/hetzner.key.age;
+
+  infra.borgbase = {
+    enable = true;
+    repo = "ssh://gils6l68@gils6l68.repo.borgbase.com/./repo";
+    sshKeyFile = config.age.secrets.id_borgbase.path;
+  };
 
   networking = {
     hostName = "cosmos";
@@ -74,11 +79,6 @@ in {
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";
   console.keyMap = "de";
-
-  services.borgbackup.jobs.borgbase = {
-    repo = "gils6l68@gils6l68.repo.borgbase.com:repo";
-    encryption.mode = "keyfile-blake2";
-  };
 
   system.stateVersion = "23.05";
 }

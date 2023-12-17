@@ -44,6 +44,8 @@
         inputs.pre-commit-hooks.flakeModule
         ./deploy-flake-module.nix
 
+        ./modules
+
         ./hosts/cosmos
         ./hosts/eclipse
         ./hosts/universe

@@ -11,7 +11,6 @@
 
     ../common/common.nix
     ../common/netcup.nix
-    ../common/borg.nix
     ../common/nix.nix
     ../common/nullmailer.nix
     ../common/traefik.nix
@@ -29,6 +28,13 @@
   age.secrets.borgbase_repokey.file = ../../secrets/universe/borgbase_repokey.age;
   age.secrets."wireguard.key".file = ../../secrets/universe/wireguard.key.age;
   age.secrets."hetzner.key".file = ../../secrets/universe/hetzner.key.age;
+
+  infra.borgbase = {
+    enable = true;
+    repo = "ssh://yekr15ge@yekr15ge.repo.borgbase.com/./repo";
+    sshKeyFile = config.age.secrets.id_borgbase.path;
+    repokeyPasswordFile = config.age.secrets.borgbase_repokey.path;
+  };
 
   netcup.bootMode = "uefi";
 
@@ -80,16 +86,6 @@
     extraPlugins = [config.services.postgresql.package.pkgs.pg_repack];
   };
   services.postgresqlBackup.enable = true;
-
-  # TODO
-  services.borgbackup.jobs.borgbase = {
-    repo = "ssh://yekr15ge@yekr15ge.repo.borgbase.com/./repo";
-    encryption = {
-      mode = "repokey-blake2";
-      passCommand = "cat ${config.age.secrets.borgbase_repokey.path}";
-    };
-    paths = [config.services.postgresqlBackup.location];
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
