@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: let
+  inherit (lib) getExe;
+in {
   hardware.mcelog.enable = true;
   hardware.enableRedistributableFirmware = true;
 
@@ -42,10 +48,11 @@
     };
   };
   powerManagement = {
-    cpuFreqGovernor = "schedutil";
+    cpuFreqGovernor = "powersave";
+    powertop.enable = true;
     powerUpCommands = let
-      hdparm = "${pkgs.hdparm}/sbin/hdparm";
-      sleep = toString 240;
+      hdparm = getExe pkgs.hdparm;
+      sleep = toString 60;
     in ''
       ${hdparm} -S ${sleep} /dev/disk/by-id/ata-WDC_WD20EFZX-68AWUN0_WD-WX32DC0HKLT1
       ${hdparm} -S ${sleep} /dev/disk/by-id/ata-WDC_WD20EFZX-68AWUN0_WD-WX32DC08D8PA
