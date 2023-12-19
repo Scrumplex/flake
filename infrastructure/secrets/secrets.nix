@@ -29,6 +29,7 @@ in {
   "cosmos/id_borgbase.age".publicKeys = scrumplex ++ [cosmos];
   "cosmos/wireguard.key.age".publicKeys = scrumplex ++ [cosmos];
   "cosmos/hetzner.key.age".publicKeys = scrumplex ++ [cosmos];
+  "cosmos/root-password.age".publicKeys = scrumplex ++ [cosmos];
 
   "eclipse/ca_intermediate.key.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/ca_intermediate.pass.age".publicKeys = scrumplex ++ [eclipse];
