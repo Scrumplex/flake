@@ -30,8 +30,7 @@ in {
   networking = {
     hostName = "cosmos";
     domain = "sefa.cloud";
-    useDHCP = false;
-    interfaces.eth0.useDHCP = true;
+    interfaces.end0.useDHCP = true;
 
     firewall = {
       allowedTCPPorts = [
