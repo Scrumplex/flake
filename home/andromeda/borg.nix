@@ -78,9 +78,8 @@
       ];
       retention = {
         keepDaily = 7;
-        keepWeekly = 6;
+        keepWeekly = 4;
         keepMonthly = 6;
-        keepYearly = 2;
       };
       storage = {
         encryptionPasscommand = "${config.programs.password-store.package}/bin/pass show borgbase/andromeda";
