@@ -48,6 +48,9 @@
       service = "syncthing";
       rule = "Host(`syncthing.eclipse.lan`)";
     };
-    services.syncthing.loadBalancer.servers = [{url = "http://localhost:8384";}];
+    services.syncthing.loadBalancer = {
+      servers = [{url = "http://localhost:8384";}];
+      passHostHeader = false;
+    };
   };
 }
