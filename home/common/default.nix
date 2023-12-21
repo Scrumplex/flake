@@ -6,7 +6,6 @@
 }: {
   imports = [
     ./autostart.nix
-    ./beets.nix
     ./desktop.nix
     ./dev.nix
     ./ranger.nix

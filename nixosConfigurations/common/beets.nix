@@ -1,17 +1,21 @@
 {
   config,
-  nixosConfig,
   pkgs,
   ...
 }: {
-  programs.beets = {
+  age.secrets."beets-secrets.yaml" = {
+    file = ../../secrets/common/beets-secrets.yaml.age;
+    owner = config.primaryUser.name;
+  };
+
+  hm.programs.beets = {
     enable = false;
     package = pkgs.beets-unstable;
     mpdIntegration.enableStats = true;
     mpdIntegration.enableUpdate = true;
     settings = {
-      directory = config.xdg.userDirs.music;
-      library = "${config.xdg.userDirs.music}/musiclibrary.db";
+      directory = config.hm.xdg.userDirs.music;
+      library = "${config.hm.xdg.userDirs.music}/musiclibrary.db";
       clutter = [
         "Thumbs.DB"
         ".DS_Store"
@@ -38,7 +42,7 @@
       ];
       replaygain.backend = "gstreamer";
 
-      include = [nixosConfig.age.secrets."beets-secrets.yaml".path];
+      include = [config.age.secrets."beets-secrets.yaml".path];
     };
   };
 }

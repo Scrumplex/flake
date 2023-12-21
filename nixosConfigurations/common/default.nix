@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./beets.nix
     ./bluetooth.nix
     ./boot.nix
     ./desktop
