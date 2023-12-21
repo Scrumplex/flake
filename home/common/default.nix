@@ -24,13 +24,11 @@
     unzip
 
     blender
-    dolphin
     evince
     gnome.file-roller
     gnome.nautilus
     imv
     livecaptions
-    okular
 
     qpwgraph
     virt-manager
