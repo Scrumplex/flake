@@ -17,6 +17,7 @@
     ./home.nix
     ./htop.nix
     ./misc.nix
+    ./mpd.nix
     ./mpv.nix
     ./neovim.nix
     ./nix.nix
