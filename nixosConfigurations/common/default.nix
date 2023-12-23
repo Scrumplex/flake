@@ -28,4 +28,6 @@
     ./utils.nix
     ./v4l2loopback.nix
   ];
+
+  programs.partition-manager.enable = true;
 }
