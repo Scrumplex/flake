@@ -102,7 +102,7 @@
       routers.synapse = {
         entryPoints = ["websecure" "synapsesecure"];
         service = "synapse";
-        rule = "Host(`duckhub.io`, `quack.duckhub.io`) && PathPrefix(`/_matrix`, `/_synapse`)";
+        rule = "Host(`duckhub.io`, `quack.duckhub.io`) && PathPrefix(`/_matrix`)";
       };
       services.synapse.loadBalancer.servers = [{url = "http://localhost:8008";}];
     };
