@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     # dolphinEmu
     prismlauncher
+    r2modman
     yuzu-early-access
 
     protontricks
