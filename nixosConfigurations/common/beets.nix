@@ -9,7 +9,7 @@
   };
 
   hm.programs.beets = {
-    enable = false;
+    enable = true;
     package = pkgs.beets-unstable;
     mpdIntegration.enableStats = true;
     mpdIntegration.enableUpdate = true;
