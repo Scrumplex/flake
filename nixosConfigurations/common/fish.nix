@@ -8,6 +8,7 @@
 
   hm = {
     home.packages = with pkgs; [
+      fd
       file
       libqalculate
       parallel

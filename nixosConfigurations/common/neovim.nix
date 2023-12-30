@@ -1,9 +1,18 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [inputs.nixvim.nixosModules.nixvim];
 
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
+
+    extraPackages = with pkgs; [
+      fd
+      ripgrep
+    ];
 
     globals = {
       mapleader = " ";
@@ -147,6 +156,15 @@
       };
       luasnip.enable = true;
       lualine.enable = true;
+      telescope = {
+        enable = true;
+        keymaps = {
+          "<leader>fb" = "buffers";
+          "<leader> " = "git_files";
+          "<leader>ff" = "find_files";
+          "<leader>fg" = "live_grep";
+        };
+      };
       treesitter = {
         enable = true;
         indent = true;
