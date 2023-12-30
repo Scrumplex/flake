@@ -52,7 +52,7 @@ renovate:
   image:
     registry: ghcr.io
     repository: renovatebot/renovate
-    tag: 37.112.1@sha256:3fa2b74438044a8f79ee5d5fa817cf1a21a8a4ebc3434865a62093ecffea99cf
+    tag: 37.115.0@sha256:3d4c446947c810960e118c22865d6aad7be470481b8dc1aaa8b9ffe2c475064f
 
 scrumplex-website:
   image:
