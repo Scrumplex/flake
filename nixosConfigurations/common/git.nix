@@ -40,6 +40,8 @@
         options.navigate = true;
       };
 
+      lfs.enable = true;
+
       signing.key = null;
 
       extraConfig = {
