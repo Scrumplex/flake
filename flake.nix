@@ -44,6 +44,10 @@
       url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpkgs-xr = {
+      url = "github:Scrumplex/nixpkgs-xr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     prismlauncher = {
       url = "github:PrismLauncher/PrismLauncher";
       inputs.nixpkgs.follows = "nixpkgs";
