@@ -714,11 +714,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1704267310,
-        "narHash": "sha256-sFzi8TR8S+VDrixcUswE5LNIrdxJWIRw1+qsp1Zm9iI=",
+        "lastModified": 1704304012,
+        "narHash": "sha256-LSuIVQKaphdolfuZg8ieTHc0/WbOdT/Z3694hr0PwhE=",
         "owner": "Scrumplex",
         "repo": "nixpkgs-xr",
-        "rev": "3b25e2245816750ac429146f4ff6e9eb4c4ef6bb",
+        "rev": "04bb80fb9bd7daef0cb9bf9153c29a41d945f87e",
         "type": "github"
       },
       "original": {

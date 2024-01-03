@@ -10,6 +10,7 @@
     overlays ? [
       nixpkgs-wayland.overlays.default
       nixpkgs-xr.overlays.default
+      nixpkgs-xr.overlays.unstripped
       prismlauncher.overlays.default
       wlx-overlay-x.overlays.default
       scrumpkgs.overlays.default
