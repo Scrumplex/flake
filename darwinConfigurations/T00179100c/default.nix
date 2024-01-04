@@ -71,6 +71,7 @@
       "caffeine"
       "jabra-direct"
       "mac-mouse-fix"
+      "signal"
       "visual-studio-code"
     ];
   };
