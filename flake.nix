@@ -26,6 +26,9 @@
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.home-manager.follows = "home-manager";
+      inputs.nix-darwin.follows = "nix-darwin";
       inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };
     catppuccin.url = "github:Stonks3141/ctp-nix";
@@ -39,7 +42,11 @@
       inputs.home-manager.follows = "home-manager";
     };
     # intentionally not following our nixpkgs for cache
-    lanzaboote.url = "github:nix-community/lanzaboote";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.pre-commit-hooks-nix.follows = "pre-commit-hooks";
+    };
     nixpkgs-wayland = {
       url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,11 +58,13 @@
     prismlauncher = {
       url = "github:PrismLauncher/PrismLauncher";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
       inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };
     wlx-overlay-x = {
       url = "github:galister/wlx-overlay-x";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
     catppuccin-qt5ct = {
       url = "github:catppuccin/qt5ct";
