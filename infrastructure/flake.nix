@@ -24,6 +24,7 @@
     arion = {
       url = "github:hercules-ci/arion";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
