@@ -8,7 +8,7 @@
     pwgen = "${pkgs.pwgen}/bin/pwgen";
     swaymsg = "${pkgs.sway}/bin/swaymsg";
     jq = "${pkgs.jq}/bin/jq";
-    slurp = "${pkgs.slurp}/bin/slurp";
+    slurp = "${pkgs.slurp}/bin/slurp -b '#00000080' -c '#ffffffff' -B '#00000040'";
     grim = "${pkgs.grim}/bin/grim";
   in ''
     #!/usr/bin/env bash
