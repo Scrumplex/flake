@@ -34,6 +34,7 @@
     discord-canary
     webcord
     vesktop
+    cinny-desktop
     element-desktop
     quasselClient
     signal-desktop

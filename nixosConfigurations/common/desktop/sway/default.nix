@@ -65,9 +65,11 @@ in {
         "4:mail" = [{app_id = "evolution";}];
         "5:chat" = [
           {class = "Signal";}
+          {class = "cinny";}
           {class = "Element";}
           {class = "discord";}
           {app_id = "org.telegram.desktop";}
+          {app_id = "cinny";}
           {app_id = "Element";}
           {app_id = "discord";}
         ];
