@@ -1,0 +1,13 @@
+default: deploy-all
+
+deploy-all:
+    deploy . -sk --magic-rollback false -- -vL
+
+deploy host:
+    deploy .#{{host}} -sk --magic-rollback false -- -vL
+
+update:
+    nix flake update --commit-lock-file
+
+lock name ref:
+    nix flake lock --update-input {{name}} --override-input {{name}} {{ref}}
