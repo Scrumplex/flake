@@ -35,7 +35,15 @@
         "VRC" = {
           enable = true;
           id = "byk2l-xga7c";
+          type = "receiveonly";
           path = "/media/syncthing/VRC";
+          devices = ["andromeda" "antares"];
+        };
+        "VRCX Data" = {
+          enable = true;
+          id = "tfbtt-sgbyw";
+          type = "receiveonly";
+          path = "/media/syncthing/VRCX Data";
           devices = ["andromeda" "antares"];
         };
       };
