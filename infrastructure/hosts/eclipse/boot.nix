@@ -11,6 +11,8 @@ in {
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
 
+    binfmt.emulatedSystems = ["aarch64-linux"];
+
     #kernelParams = [ "console=ttyS0,115200" "console=tty0" ];
 
     loader.systemd-boot.enable = true;
