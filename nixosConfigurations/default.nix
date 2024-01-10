@@ -29,9 +29,7 @@
           lanzaboote.nixosModules.lanzaboote
 
           nixpkgs-xr.nixosModules.nixpkgs-xr
-          {
-            nixpkgs.overlays = [nixpkgs-xr.overlays.unstripped];
-          }
+          {nixpkgs.xr.enableUnstripped = true;}
 
           ./common
           ./${hostName}

@@ -54,6 +54,7 @@
     nixpkgs-xr = {
       url = "github:Scrumplex/nixpkgs-xr";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
     prismlauncher = {
       url = "github:PrismLauncher/PrismLauncher";

@@ -594,16 +594,19 @@
     "nixpkgs-xr": {
       "inputs": {
         "flake-compat": "flake-compat_3",
+        "flake-parts": [
+          "flake-parts"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1704898176,
-        "narHash": "sha256-btYeqHJSppLs7lyUq0aQdnGYvzFUITDZ5pf26YQ8eR8=",
+        "lastModified": 1704911108,
+        "narHash": "sha256-0bkPqZg5aMPpLG2nFdFtbbj6ghWgYvrhgOalPSKlUx0=",
         "owner": "Scrumplex",
         "repo": "nixpkgs-xr",
-        "rev": "f74c3dcfccedb4534fffbd7ce853343d40c6a0ab",
+        "rev": "aca5a9c8da2fcb9ae2850619a10bacbca7cbc7a5",
         "type": "github"
       },
       "original": {
