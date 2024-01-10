@@ -9,8 +9,6 @@
     modules,
     overlays ? [
       nixpkgs-wayland.overlays.default
-      nixpkgs-xr.overlays.default
-      nixpkgs-xr.overlays.unstripped
       prismlauncher.overlays.default
       wlx-overlay-x.overlays.default
       scrumpkgs.overlays.default
@@ -29,6 +27,11 @@
 
           agenix.nixosModules.age
           lanzaboote.nixosModules.lanzaboote
+
+          nixpkgs-xr.nixosModules.nixpkgs-xr
+          {
+            nixpkgs.overlays = [nixpkgs-xr.overlays.unstripped];
+          }
 
           ./common
           ./${hostName}
