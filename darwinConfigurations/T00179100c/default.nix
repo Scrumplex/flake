@@ -65,6 +65,10 @@
 
   homebrew = {
     enable = true;
+    brews = [
+      "lima"
+      "colima"
+    ];
     casks = [
       "browserosaurus"
       # not supported on aarch64-darwin in nixpkgs
@@ -81,8 +85,6 @@
     rectangle
     keepassxc
 
-    lima
-    colima
     docker-client
   ];
 
