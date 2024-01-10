@@ -79,6 +79,7 @@
       "visual-studio-code"
     ];
   };
+  environment.systemPath = [config.homebrew.brewPrefix];
 
   environment.systemPackages = with pkgs; [
     iterm2
