@@ -52,7 +52,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs-xr = {
-      url = "github:Scrumplex/nixpkgs-xr";
+      url = "github:nix-community/nixpkgs-xr";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };

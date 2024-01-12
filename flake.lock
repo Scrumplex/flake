@@ -604,13 +604,13 @@
       "locked": {
         "lastModified": 1705052846,
         "narHash": "sha256-De/wY2TkL9KCBxFa3stIMwEjITVE8e5JhxRAy82R5Ww=",
-        "owner": "Scrumplex",
+        "owner": "nix-community",
         "repo": "nixpkgs-xr",
         "rev": "4d6e76787c512f456b18a9c6f5b5580862eb6a40",
         "type": "github"
       },
       "original": {
-        "owner": "Scrumplex",
+        "owner": "nix-community",
         "repo": "nixpkgs-xr",
         "type": "github"
       }
