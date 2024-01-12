@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   hm = {
-    home.packages = with pkgs; [git-extras];
+    home.packages = with pkgs; [git-extras glab];
 
     programs.fish.shellAbbrs = {
       g = "git";
