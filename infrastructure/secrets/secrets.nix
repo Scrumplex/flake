@@ -33,8 +33,6 @@ in {
 
   "eclipse/ca_intermediate.key.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/ca_intermediate.pass.age".publicKeys = scrumplex ++ [eclipse];
-  "eclipse/hercules-caches.json.age".publicKeys = scrumplex ++ [eclipse];
-  "eclipse/hercules-token.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/hetzner-ddns.env.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/hetzner.key.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/id_borgbase.age".publicKeys = scrumplex ++ [eclipse];

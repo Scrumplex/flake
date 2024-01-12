@@ -13,7 +13,6 @@
 
     ./boot.nix
     ./dyndns.nix
-    ./hercules-ci.nix
     ./influx.nix
     ./jellyfin.nix
     ./minecraft.nix
