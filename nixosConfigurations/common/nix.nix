@@ -2,6 +2,9 @@
   channelPath = "/etc/nix/channels/nixpkgs";
 in {
   nix = {
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
+    daemonIOSchedPriority = 6;
     settings = {
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes" "repl-flake" "no-url-literals"];
