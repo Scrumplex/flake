@@ -1,5 +1,8 @@
 {...}: {
-  common.traefik.primaryEntryPoint = "localsecure";
+  common.traefik = {
+    primaryEntryPoint = "localsecure";
+    primaryCertResolver = "local";
+  };
 
   services.traefik.staticConfigOptions.certificatesResolvers.local.acme = {
     email = "contact@scrumplex.net";

@@ -50,7 +50,7 @@ in {
       service = "step-ca";
       rule = "Host(`tls.eclipse.lan`)";
     };
-    services.step-ca.loadBalancer.servers = [{url = "http://localhost:${toString config.services.step-ca.port}";}];
+    services.step-ca.loadBalancer.servers = [{url = "https://localhost:${toString config.services.step-ca.port}";}];
   };
 
   security.pki.certificates = [
