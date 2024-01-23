@@ -23,6 +23,7 @@ in {
 
   programs.sway = {
     enable = true;
+    extraOptions = ["-Dlegacy-wl-drm"];
     wrapperFeatures.gtk = true;
   };
   hm.wayland.windowManager.sway = {
