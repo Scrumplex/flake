@@ -26,7 +26,6 @@
     gnome.file-roller
     gnome.nautilus
     imv
-    livecaptions
 
     qpwgraph
     virt-manager
