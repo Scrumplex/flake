@@ -14,40 +14,8 @@
   ];
 
   home.packages = with pkgs; [
-    dig
-    ffmpeg
     flatpak-builder
     kubectl
-    psmisc
-    unzip
-
-    blender
-    evince
-    gnome.file-roller
-    gnome.nautilus
-    imv
-
-    qpwgraph
-    virt-manager
-
-    discord-canary
-    webcord
-    vesktop
-    cinny-desktop
-    element-desktop
-    quasselClient
-    signal-desktop
-    tdesktop
-
-    inkscape-with-extensions
-    gimp-with-plugins
-    krita
-    tenacity
-    libreoffice-fresh
-
-    evolution
-    portfolio
-    AusweisApp2
   ];
 
   theme = {

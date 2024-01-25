@@ -1,4 +1,33 @@
 {pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    blender
+    evince
+    gnome.file-roller
+    gnome.nautilus
+    imv
+
+    qpwgraph
+    virt-manager
+
+    discord-canary
+    webcord
+    vesktop
+    cinny-desktop
+    element-desktop
+    quasselClient
+    signal-desktop
+    tdesktop
+
+    inkscape-with-extensions
+    gimp-with-plugins
+    krita
+    tenacity
+    libreoffice-fresh
+
+    evolution
+    portfolio
+    AusweisApp2
+  ];
   fonts = {
     packages = with pkgs; [
       noto-fonts-cjk-sans
