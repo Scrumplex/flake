@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  imports = [./hardware-configuration.nix ./harmonia.nix ./wireguard.nix];
+  imports = [./hardware-configuration.nix ./harmonia.nix ./sway ./wireguard.nix];
 
   hardware.enableRedistributableFirmware = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;

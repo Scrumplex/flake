@@ -1,6 +1,6 @@
 {...}: {
   imports = [./waybar];
-  wayland.windowManager.sway.config.output = {
+  hm.wayland.windowManager.sway.config.output = {
     "LG Electronics LG ULTRAGEAR 104MANJ7FL47" = {
       mode = "2560x1440@144Hz";
       position = "0,0";
