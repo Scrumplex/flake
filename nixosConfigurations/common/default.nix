@@ -7,6 +7,7 @@
     ./desktop/firefox.nix
     ./desktop/gaming.nix
     ./desktop/gtklock.nix
+    ./desktop/image-viewer.nix
     ./desktop/kitty.nix
     ./desktop/pipewire
     ./desktop/qt

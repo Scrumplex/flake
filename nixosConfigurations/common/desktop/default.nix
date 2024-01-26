@@ -5,6 +5,7 @@
     gnome.file-roller
     gnome.nautilus
     imv
+    loupe
 
     qpwgraph
     virt-manager
