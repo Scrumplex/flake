@@ -10,12 +10,6 @@
         publicKey = "1FEGWV0GPVjc4NUprtuwg/bO0jUsUJbE74T6J4tgdVM=";
         persistentKeepalive = 60;
       }
-      {
-        allowedIPs = ["10.255.255.2" "fd69:5efa:5efa:5efa::2"];
-        endpoint = "duckhub.io:22701";
-        publicKey = "Ny2jkcZzKjKpEnZeUGDv98B2trGqARLsKlhFGkZX7x4=";
-        persistentKeepalive = 60;
-      }
     ];
     privateKeyFile = config.age.secrets.wg-scrumplex.path;
   };

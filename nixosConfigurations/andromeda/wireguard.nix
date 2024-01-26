@@ -11,12 +11,6 @@
         persistentKeepalive = 60;
       }
       {
-        allowedIPs = ["10.255.255.2" "fd69:5efa:5efa:5efa::2"];
-        endpoint = "duckhub.io:22701";
-        publicKey = "Ny2jkcZzKjKpEnZeUGDv98B2trGqARLsKlhFGkZX7x4=";
-        persistentKeepalive = 60;
-      }
-      {
         allowedIPs = ["10.255.255.11" "fd69:5efa:5efa:5efa::11"];
         endpoint = "10.10.10.11:22701";
         publicKey = "SpTbip3iTqRM4qPFy4PtXI2WE9VmRVnfV931LPl3IWs=";
