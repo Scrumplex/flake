@@ -17,15 +17,6 @@
         persistentKeepalive = 60;
       }
       {
-        publicKey = "Ny2jkcZzKjKpEnZeUGDv98B2trGqARLsKlhFGkZX7x4=";
-        allowedIPs = [
-          "10.255.255.2"
-          "fd69:5efa:5efa:5efa::2"
-        ];
-        endpoint = "duckhub.io:22701";
-        persistentKeepalive = 60;
-      }
-      {
         publicKey = "K/4AY/YimYKo2a8rufk0ygMp4dCRBfRQrrkLD36K5zI=";
         allowedIPs = [
           "10.255.255.10"

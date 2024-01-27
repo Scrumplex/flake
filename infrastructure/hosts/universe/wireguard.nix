@@ -40,12 +40,6 @@ in {
 
       peers = [
         {
-          publicKey = "Ny2jkcZzKjKpEnZeUGDv98B2trGqARLsKlhFGkZX7x4=";
-          allowedIPs = ["10.255.255.2" "fd69:5efa:5efa:5efa::2"];
-          endpoint = "duckhub.io:22701";
-          persistentKeepalive = 60;
-        }
-        {
           publicKey = "nqA7cdeR7JztKE+DFhBN1NIxXYafBOQypNHNP+/osAE=";
           allowedIPs = ["10.255.255.3" "fd69:5efa:5efa:5efa::3"];
         }
