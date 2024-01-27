@@ -8,7 +8,6 @@
     ./autostart.nix
     ./desktop.nix
     ./dev.nix
-    ./ranger.nix
     ./screenshot-bash.nix
     ./sway
   ];

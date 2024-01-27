@@ -24,6 +24,7 @@
     ./nix.nix
     ./nvd.nix
     ./pkgs
+    ./ranger.nix
     ./regional.nix
     ./utils.nix
     ./v4l2loopback.nix
