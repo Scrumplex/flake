@@ -12,6 +12,7 @@
     ./desktop/pipewire
     ./desktop/qt
     ./desktop/sway
+    ./desktop/sway/wob.nix
     ./fish.nix
     ./git.nix
     ./gpg.nix
