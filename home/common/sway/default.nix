@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  imports = [./fuzzel.nix ./mako.nix ./swayidle.nix ./waybar ./wlogout.nix ./wlsunset.nix ./wob.nix];
+  imports = [./fuzzel.nix ./mako.nix ./swayidle.nix ./waybar ./wlogout.nix ./wlsunset.nix];
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
