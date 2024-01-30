@@ -22,6 +22,7 @@
     krita
     tenacity
     libreoffice-fresh
+    livecaptions
 
     evolution
     portfolio
