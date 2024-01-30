@@ -1,8 +1,6 @@
 {
-  description = "Home Manager configuration of Jane Doe";
-
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     pre-commit-hooks = {
