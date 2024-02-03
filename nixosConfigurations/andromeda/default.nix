@@ -7,13 +7,7 @@
   imports = [./hardware-configuration.nix ./harmonia.nix ./sway ./wireguard.nix];
 
   hardware.enableRedistributableFirmware = true;
-  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_6_7.override (_: {
-    argsOverride = {
-      src = lib.cleanSource inputs.linux;
-      version = "6.7.2-scrumplex";
-      modDirVersion = "6.7.2";
-    };
-  }));
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_testing;
 
   hardware.amdgpu.amdvlk = false;
 
