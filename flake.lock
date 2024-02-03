@@ -586,11 +586,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1706965675,
-        "narHash": "sha256-kTTBhL2qdpx3Qw8bWlWzCL2o0uWQpVNg5RSHOvmCGhM=",
+        "lastModified": 1706998452,
+        "narHash": "sha256-Hc9ckPXp83k3BsO2GbH+7trWF40UBoaPL7830cgX6q0=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "9deb012acc895b182e2479a6d2d7a72852aa047b",
+        "rev": "ad0aca51b8ca20e5e69ce15de8dd497373484acd",
         "type": "github"
       },
       "original": {
@@ -817,11 +817,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1706947841,
-        "narHash": "sha256-NzELrMEqe0+cpPdyvnZqV/Hf9AkHGg/kmAmFKbo26Rc=",
+        "lastModified": 1707001511,
+        "narHash": "sha256-9LwkWHV1erPBXfUNUiPPB6Rl+bYAhfSZuO0xK5BPMkg=",
         "owner": "Scrumplex",
         "repo": "pkgs",
-        "rev": "9a432df55e2e8a75db8a74b87ae8d210e06fce04",
+        "rev": "e0daeca408a44878ec507acfd25acc73c3a84bfb",
         "type": "github"
       },
       "original": {
