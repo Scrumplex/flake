@@ -12,9 +12,9 @@ in {
       useTmpfs = mkDefault true;
       tmpfsSize = "75%";
     };
-    initrd.verbose = false;
+    initrd.verbose = true;
     initrd.systemd.enable = true;
-    consoleLogLevel = 0;
-    kernelParams = ["quiet" "udev.log_level=3"];
+    #consoleLogLevel = 0;
+    #kernelParams = ["quiet" "udev.log_level=3"];
   };
 }

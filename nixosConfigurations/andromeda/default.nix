@@ -1,8 +1,19 @@
-{pkgs, ...}: {
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [./hardware-configuration.nix ./harmonia.nix ./sway ./wireguard.nix];
 
   hardware.enableRedistributableFirmware = true;
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_6_7.override (_: {
+    argsOverride = {
+      src = lib.cleanSource inputs.linux;
+      version = "6.7.2-scrumplex";
+      modDirVersion = "6.7.2";
+    };
+  }));
 
   hardware.amdgpu.amdvlk = false;
 
@@ -24,6 +35,11 @@
       options = ["defaults" "noauto" "x-systemd.automount"];
     };
   };
+
+  boot.kernelParams = [
+    "no_console_suspend"
+    "console=ttyS0,115200"
+  ];
 
   powerManagement.cpuFreqGovernor = "schedutil";
 

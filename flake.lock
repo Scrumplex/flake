@@ -413,6 +413,22 @@
         "type": "github"
       }
     },
+    "linux": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1706885835,
+        "narHash": "sha256-YD0h8i7ONDBeBzPrtPO6ZShhMBHTazqljZo5mmN4vfc=",
+        "ref": "b6175f0bcc8c37b19316de321999fd789b42ca3a",
+        "rev": "b6175f0bcc8c37b19316de321999fd789b42ca3a",
+        "revCount": 1236321,
+        "type": "git",
+        "url": "file:///home/scrumplex/Projects/linux"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/scrumplex/Projects/linux"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -748,6 +764,7 @@
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
+        "linux": "linux",
         "nix-darwin": "nix-darwin",
         "nix-index-database": "nix-index-database",
         "nixos-hardware": "nixos-hardware",

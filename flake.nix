@@ -69,6 +69,11 @@
       url = "github:catppuccin/qt5ct";
       flake = false;
     };
+
+    linux = {
+      url = "git+file:///home/scrumplex/Projects/linux";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {flake-parts, ...}:
