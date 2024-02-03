@@ -8,7 +8,7 @@
   }: {
     pre-commit.settings.hooks.alejandra.enable = true;
 
-    devShells.default = pkgs.mkShell {
+    devShells.default = pkgs.mkShellNoCC {
       shellHook = ''
         ${config.pre-commit.installationScript}
       '';
