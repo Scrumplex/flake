@@ -5,6 +5,7 @@
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   hardware.amdgpu.amdvlk = false;
+  profile.vr.enableHighPrioKernelPatch = true;
 
   hardware.opengl.vdpau.driverName = "radeonsi";
 

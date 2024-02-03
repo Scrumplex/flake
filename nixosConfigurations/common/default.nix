@@ -13,7 +13,7 @@
     ./desktop/qt
     ./desktop/sway
     ./desktop/sway/wob.nix
-    ./desktop/vr.nix
+    ./desktop/vr
     ./fish.nix
     ./git.nix
     ./gpg.nix
