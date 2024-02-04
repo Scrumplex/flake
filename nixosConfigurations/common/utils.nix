@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     dig
     ffmpeg
+    flatpak-builder
     nload
 
     pciutils

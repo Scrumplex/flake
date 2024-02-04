@@ -27,6 +27,9 @@
     evolution
     portfolio
     AusweisApp2
+
+    xdg-user-dirs
+    xdg-utils
   ];
   fonts = {
     packages = with pkgs; [
@@ -66,4 +69,26 @@
   };
 
   services.gvfs.enable = true;
+
+  hm = {
+    xsession.preferStatusNotifierItems = true;
+
+    xdg = {
+      enable = true;
+      userDirs = {
+        enable = true;
+        createDirectories = true;
+      };
+    };
+
+    home.pointerCursor = {
+      name = "Adwaita";
+      package = pkgs.gnome.gnome-themes-extra;
+    };
+
+    # Stop apps from generating fontconfig caches and breaking reproducibility
+    systemd.user.tmpfiles.rules = [
+      "R %C/fontconfig - - - - -"
+    ];
+  };
 }
