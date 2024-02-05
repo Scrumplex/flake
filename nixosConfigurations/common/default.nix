@@ -5,6 +5,7 @@
     ./boot.nix
     ./desktop
     ./desktop/chromium.nix
+    ./desktop/evolution.nix
     ./desktop/firefox.nix
     ./desktop/gaming.nix
     ./desktop/gtk

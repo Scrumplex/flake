@@ -1,0 +1,3 @@
+{...}: {
+  programs.evolution.enable = true;
+}

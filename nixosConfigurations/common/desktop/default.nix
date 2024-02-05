@@ -24,7 +24,6 @@
     libreoffice-fresh
     #livecaptions
 
-    evolution
     portfolio
     AusweisApp2
 
