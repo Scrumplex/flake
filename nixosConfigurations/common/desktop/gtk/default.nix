@@ -3,6 +3,13 @@
   pkgs,
   ...
 }: {
+  programs.dconf.enable = true;
+  services.accounts-daemon.enable = true;
+  services.gnome.at-spi2-core.enable = true;
+  services.gnome.tracker-miners.enable = true;
+  services.gnome.tracker.enable = true;
+  services.gvfs.enable = true;
+
   hm = {
     gtk = {
       enable = true;

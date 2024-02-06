@@ -67,8 +67,6 @@
     };
   };
 
-  services.gvfs.enable = true;
-
   hm = {
     xsession.preferStatusNotifierItems = true;
 
