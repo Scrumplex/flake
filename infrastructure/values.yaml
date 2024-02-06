@@ -19,7 +19,7 @@ mariadb:
   image:
     registry: lscr.io
     repository: linuxserver/mariadb
-    tag: 10.11.6@sha256:9a6999f720de20d66cf4a848a0d756de5d09f92d340b284a1aa5cfec69714b0b
+    tag: 10.11.6@sha256:c5ed329352a25a18c9a2275837a966390a2e81957826773a585ae810c3ba6c10
 
 nextcloud:
   image:
