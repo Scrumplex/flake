@@ -7,19 +7,27 @@
     ./desktop/chromium.nix
     ./desktop/evolution.nix
     ./desktop/firefox.nix
+    ./desktop/fuzzel.nix
     ./desktop/gaming.nix
     ./desktop/gtk
     ./desktop/gtklock.nix
+    ./desktop/hyprland.nix
     ./desktop/image-viewer.nix
     ./desktop/kitty.nix
+    ./desktop/mako.nix
     ./desktop/nextcloud-client.nix
     ./desktop/obs.nix
     ./desktop/pipewire
     ./desktop/polkit-agent.nix
     ./desktop/qt
+    ./desktop/screenshot-bash.nix
     ./desktop/sway
-    ./desktop/sway/wob.nix
+    ./desktop/swayidle.nix
     ./desktop/vr
+    ./desktop/waybar.nix
+    ./desktop/wlogout.nix
+    ./desktop/wlsunset.nix
+    ./desktop/wob.nix
     ./fish.nix
     ./git.nix
     ./gpg.nix

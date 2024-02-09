@@ -27,6 +27,9 @@
     portfolio
     AusweisApp2
 
+    wl-clipboard
+    pulsemixer
+
     xdg-user-dirs
     xdg-utils
   ];

@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  programs.waybar = {
+  hm.programs.waybar = {
     enable = true;
     extraModules = {
       cameraBlank = {
@@ -22,7 +22,8 @@
     in {
       mainBar = {
         position = "top";
-        modules-left = ["sway/workspaces" "mpd"];
+        layer = "top";
+        modules-left = ["hyprland/workspaces" "mpd"];
         modules-center = ["clock" "clock#other"];
         modules-right =
           [
@@ -30,16 +31,16 @@
             "pulseaudio"
             "battery"
           ]
-          ++ lib.optional config.programs.waybar.extraModules.paMute.enable
-          "custom/${config.programs.waybar.extraModules.paMute.moduleName}"
-          ++ lib.optional config.programs.waybar.extraModules.cameraBlank.enable
-          "custom/${config.programs.waybar.extraModules.cameraBlank.moduleName}"
+          ++ lib.optional config.hm.programs.waybar.extraModules.paMute.enable
+          "custom/${config.hm.programs.waybar.extraModules.paMute.moduleName}"
+          ++ lib.optional config.hm.programs.waybar.extraModules.cameraBlank.enable
+          "custom/${config.hm.programs.waybar.extraModules.cameraBlank.moduleName}"
           ++ [
             "idle_inhibitor"
             "clock#date"
             "tray"
           ];
-        "sway/workspaces" = {
+        "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = false;
           format = "{icon}";
@@ -47,8 +48,8 @@
             "1" = ""; # this is not a material design circle like the other icons
             "2" = "󰝤";
             "3" = "󰔶";
-            "4:mail" = "󰇮";
-            "5:chat" = "󰍩";
+            "4" = "󰇮";
+            "5" = "󰍩";
           };
           persistent-workspaces = {
             "1" = [];
@@ -67,7 +68,7 @@
           tooltip-format-disconnected = "MPD (disconnected)";
           on-scroll-up = "${pkgs.mpc-cli}/bin/mpc vol +2 > /dev/null && ${pkgs.mpc-cli}/bin/mpc vol | ${pkgs.gnused}/bin/sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
           on-scroll-down = "${pkgs.mpc-cli}/bin/mpc vol -2 > /dev/null && ${pkgs.mpc-cli}/bin/mpc vol | ${pkgs.gnused}/bin/sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
-          on-click = "${termapp} ${config.programs.ncmpcpp.package}/bin/ncmpcpp";
+          on-click = "${termapp} ${config.hm.programs.ncmpcpp.package}/bin/ncmpcpp";
           on-click-middle = "${pkgs.mpc-cli}/bin/mpc toggle";
           on-click-right = "";
           smooth-scrolling-threshold = 0.16;
@@ -137,7 +138,7 @@
       };
     };
     systemd.enable = true;
-    style = with config.theme.colors; ''
+    style = with config.hm.theme.colors; ''
       window#waybar {
         font-family: "Monocraft";
         font-size: 10pt;
@@ -203,12 +204,12 @@
         text-shadow: none; /* Adwaita? */
       }
 
-      #workspaces button.focused {
+      #workspaces button.active {
         background-color: #${blue};
         color: #${crust};
       }
 
-      #workspaces button.focused:hover {
+      #workspaces button.active:hover {
         background-color: #${sky};
       }
 

@@ -1,5 +1,12 @@
-{config, ...}: {
-  services.mako = with config.theme.colors; {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  inherit (lib) getExe';
+in {
+  hm.services.mako = with config.hm.theme.colors; {
     enable = true;
     font = "Monocraft 10";
     borderRadius = 12;
@@ -18,4 +25,7 @@
       invisible=1
     '';
   };
+  hm.wayland.windowManager.hyprland.settings.bind = [
+    "$mod, Backspace, exec, ${getExe' pkgs.mako "makoctl"} dismiss"
+  ];
 }

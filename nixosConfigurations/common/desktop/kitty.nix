@@ -2,9 +2,7 @@
   config,
   lib,
   ...
-}: let
-  inherit (lib.meta) getExe;
-in {
+}: {
   hm.programs.kitty = {
     enable = true;
     catppuccin.enable = true;
@@ -55,5 +53,10 @@ in {
     '';
   };
 
-  hm.wayland.windowManager.sway.config.terminal = getExe config.hm.programs.kitty.package;
+  hm.wayland.windowManager.hyprland.settings = {
+    bind = [
+      "$mod, Return, exec, ${lib.getExe config.hm.programs.kitty.package}"
+    ];
+    misc.swallow_regex = "^kitty$";
+  };
 }

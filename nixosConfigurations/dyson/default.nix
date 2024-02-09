@@ -2,7 +2,9 @@
   imports = [
     ./hardware-configuration.nix
     ./boot.nix
-    ./desktop/sway
+    ./desktop/hyprland.nix
+    ./desktop/poweralertd.nix
+    ./desktop/swayidle.nix
     ./networkmanager.nix
     ./specialisation/home-cache.nix
     ./swapfile.nix
@@ -22,7 +24,6 @@
   services.flatpak.enable = true;
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 

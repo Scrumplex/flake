@@ -1,9 +1,10 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
-  programs.wlogout = {
+  hm.programs.wlogout = {
     enable = true;
     layout = let
       swaymsg = "${pkgs.sway}/bin/swaymsg";
@@ -47,7 +48,7 @@
         keybind = "l";
       }
     ];
-    style = with config.theme.colors; let
+    style = with config.hm.theme.colors; let
       icons = pkgs.fetchzip {
         name = "power-icons.zip";
         url = "https://scrumplex.rocks/cloud/power-icons.zip";
@@ -108,4 +109,8 @@
       }
     '';
   };
+
+  hm.wayland.windowManager.hyprland.settings.bind = [
+    "$mod SHIFT, E, exec, ${lib.getExe config.hm.programs.wlogout.package}"
+  ];
 }

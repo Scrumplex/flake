@@ -1,5 +1,5 @@
 {...}: {
-  services.wlsunset = {
+  hm.services.wlsunset = {
     enable = true;
     latitude = "51.6";
     longitude = "10.1";

@@ -1,5 +1,11 @@
 {pkgs, ...}: {
-  imports = [./hardware-configuration.nix ./harmonia.nix ./sway ./wireguard.nix];
+  imports = [
+    ./hardware-configuration.nix
+    ./desktop/hyprland
+    ./harmonia.nix
+    ./sway
+    ./wireguard.nix
+  ];
 
   hardware.enableRedistributableFirmware = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
@@ -33,7 +39,6 @@
   services.flatpak.enable = true;
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
