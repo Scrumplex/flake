@@ -28,6 +28,7 @@
     ./desktop/wlogout.nix
     ./desktop/wlsunset.nix
     ./desktop/wob.nix
+    ./desktop/xwaylandvideobridge.nix
     ./fish.nix
     ./git.nix
     ./gpg.nix
