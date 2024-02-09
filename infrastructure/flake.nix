@@ -33,7 +33,7 @@
     };
     skinprox = {
       url = "git+https://codeberg.org/Scrumplex/skinprox.git";
-      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };

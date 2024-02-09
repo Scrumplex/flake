@@ -1,6 +1,12 @@
-{config, ...}: {
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}: {
   services.skinprox = {
     enable = true;
+    package = inputs.skinprox.packages.${pkgs.system}.skinprox;
     publicUrl = "https://skins.scrumplex.net";
     providers = [
       #"https://scrumplex.rocks/skin/"
