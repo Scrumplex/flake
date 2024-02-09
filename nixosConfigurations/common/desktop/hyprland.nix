@@ -58,8 +58,8 @@ in {
         border_size = 4;
         gaps_in = 0;
         gaps_out = 0;
-        "col.inactive_border" = "0xff1e1e2e";
-        "col.active_border" = "0xff89b4fa";
+        "col.inactive_border" = "0xff1e1e2e"; # base
+        "col.active_border" = "0xff89b4fa"; # blue
       };
       input = {
         kb_layout = "us";
@@ -81,6 +81,9 @@ in {
 
         "tile,^DDNet$"
         "fullscreen,^DDNet$"
+      ];
+      windowrulev2 = [
+        "bordercolor 0xffa6e3a1,fullscreen:1" # green
       ];
       misc = {
         disable_hyprland_logo = true;
