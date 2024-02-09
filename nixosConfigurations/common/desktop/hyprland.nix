@@ -82,9 +82,6 @@ in {
         "tile,^DDNet$"
         "fullscreen,^DDNet$"
       ];
-      debug = {
-        disable_logs = false;
-      };
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
