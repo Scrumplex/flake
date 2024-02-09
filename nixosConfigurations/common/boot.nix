@@ -16,5 +16,7 @@ in {
     initrd.systemd.enable = true;
     consoleLogLevel = 0;
     kernelParams = ["quiet" "udev.log_level=3"];
+
+    kernel.sysctl."kernel.sysrq" = 1;
   };
 }
