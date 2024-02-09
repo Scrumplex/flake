@@ -1,6 +1,4 @@
 {...}: {
-  imports = [./poweralertd.nix ./swayidle.nix];
-
   hm.wayland.windowManager.hyprland.settings = {
     "device:hp,-inc-hyperx-pulsefire-haste-2".sensitivity = -1.0;
     "monitor" = [

@@ -3,7 +3,9 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  cfg = config.hm.programs.waybar;
+in {
   hm.programs.waybar = {
     enable = true;
     extraModules = {
@@ -239,4 +241,9 @@
       }
     '';
   };
+
+  hm.wayland.windowManager.hyprland.settings.bind = lib.mkMerge [
+    (lib.mkIf cfg.extraModules.cameraBlank.enable ["$mod, N, exec, ${cfg.extraModules.cameraBlank.onClickScript}"])
+    (lib.mkIf cfg.extraModules.paMute.enable ["$mod, M, exec, ${cfg.extraModules.paMute.onClickScript}"])
+  ];
 }

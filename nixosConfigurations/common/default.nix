@@ -21,7 +21,6 @@
     ./desktop/polkit-agent.nix
     ./desktop/qt
     ./desktop/screenshot-bash.nix
-    ./desktop/sway
     ./desktop/swayidle.nix
     ./desktop/vr
     ./desktop/waybar.nix
@@ -41,6 +40,7 @@
     ./nix.nix
     ./nix-index.nix
     ./nvd.nix
+    ./password-store.nix
     ./pkgs
     ./ranger.nix
     ./regional.nix

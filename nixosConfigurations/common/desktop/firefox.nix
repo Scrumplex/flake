@@ -19,14 +19,9 @@ in {
     programs.browserpass.enable = mkDefault config.hm.programs.password-store.enable;
     programs.browserpass.browsers = ["firefox"];
 
-    wayland.windowManager.sway.config.window.commands = [
-      {
-        criteria = {
-          app_id = "firefox";
-          title = "Picture-in-Picture";
-        };
-        command = "floating enable; sticky enable";
-      }
+    wayland.windowManager.hyprland.settings.windowrulev2 = [
+      "float, class:^firefox$, title:^Picture-in-Picture$"
+      "pin, class:^firefox$, title:^Picture-in-Picture$"
     ];
   };
 }

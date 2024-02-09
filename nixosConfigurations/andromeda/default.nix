@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
-    ./desktop/hyprland
+    ./desktop/hyprland.nix
+    ./desktop/waybar.nix
     ./harmonia.nix
-    ./sway
     ./wireguard.nix
   ];
 

@@ -7,9 +7,10 @@
   hm.programs.wlogout = {
     enable = true;
     layout = let
-      swaymsg = "${pkgs.sway}/bin/swaymsg";
-      gtklock = "${pkgs.gtklock}/bin/gtklock -d";
-      systemctl = "${pkgs.systemd}/bin/systemctl";
+      inherit (lib) getExe getExe';
+      hyprctl = getExe' config.hm.wayland.windowManager.hyprland.finalPackage "hyprctl";
+      gtklock = "${getExe pkgs.gtklock} -d";
+      systemctl = getExe' pkgs.systemd "systemctl";
     in [
       {
         label = "shutdown";
@@ -31,7 +32,7 @@
       }
       {
         label = "exit";
-        action = "${swaymsg} exit";
+        action = "${hyprctl} dispatch quit";
         text = "Exit";
         keybind = "e";
       }
