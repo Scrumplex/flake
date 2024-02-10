@@ -19,6 +19,9 @@
 
   mkWorkspaceKeys' = workspace: mkWorkspaceKeys workspace workspace;
 
+  mkWindowRule = window: map (rule: "${rule}, ${window}");
+  mkAssignWindow = window: workspace: mkWindowRule window ["workspace ${workspace}"];
+
   wallpaper = pkgs.fetchurl {
     name = "sway-wallpaper.jpg";
     url = "https://scrumplex.rocks/img/richard-horvath-catppuccin.jpg";
@@ -71,27 +74,16 @@ in {
         kb_layout = "us";
         kb_variant = "altgr-intl";
       };
-      windowrule = [
-        "float,^popup_pulsemixer$"
-        "pin,^popup_pulsemixer$"
-        "size 800 600,^popup_pulsemixer$"
-        "center 1,^popup_pulsemixer$"
-        "rounding 8,^popup_pulsemixer$"
-        "animation slide,^popup_pulsemixer$"
-
-        "workspace 4,^evolution$"
-        "workspace 5,^Signal$"
-        "workspace 5,^cinny$"
-        "workspace 5,^Element$"
-        "workspace 5,^discord$"
-        "workspace 5,^org.telegram.desktop$"
-
-        "tile,^DDNet$"
-        "fullscreen,^DDNet$"
-        "noanim,^DDNet$"
-      ];
-      windowrulev2 = [
-        "bordercolor 0xffa6e3a1,fullscreen:1" # green
+      windowrulev2 = flatten [
+        (mkAssignWindow "class:^evolution$" "4")
+        (mkAssignWindow "class:^Signal$" "5")
+        (mkAssignWindow "class:^cinny$" "5")
+        (mkAssignWindow "class:^Element$" "5")
+        (mkAssignWindow "class:^discord$" "5")
+        (mkAssignWindow "class:^org.telegram.desktop$" "5")
+        (mkWindowRule "class:^popup_pulsemixer$" ["float" "pin" "size 800 600" "center 1" "rounding 8" "animation slide"])
+        (mkWindowRule "class:^DDNet$" ["tile" "fullscreen" "noanim"])
+        (mkWindowRule "fullscreen:1" ["bordercolor 0xffa6e3a1"])
       ];
       misc = {
         disable_hyprland_logo = true;
@@ -100,6 +92,7 @@ in {
       };
       "$mod" = "SUPER";
       bind =
+        flatten
         [
           "$mod, W, fullscreen, 1"
           "$mod, Escape, killactive"
@@ -118,20 +111,14 @@ in {
           "SHIFT, XF86AudioLowerVolume, exec, ${programs.mpc} vol -2 && ${programs.mpc} vol | ${programs.sed} 's|n/a|0%|g;s/[^0-9]*//g' > ${wobSock}"
           ", XF86MonBrightnessDown, exec, ${programs.brightnessctl} set 5%- | ${programs.sed} -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > ${wobSock}"
           ", XF86MonBrightnessUp, exec, ${programs.brightnessctl} set 5%+ | ${programs.sed} -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > ${wobSock}"
-        ]
-        ++ (
-          flatten (
-            mapAttrsToList mkDirectionKeys {
-              "Left" = "l";
-              "Right" = "r";
-              "Up" = "u";
-              "Down" = "d";
-            }
-          )
-        )
-        ++ (
-          flatten (map mkWorkspaceKeys' ["1" "2" "3" "4" "5" "6" "7" "8" "9" "0"])
-        );
+          (mapAttrsToList mkDirectionKeys {
+            "Left" = "l";
+            "Right" = "r";
+            "Up" = "u";
+            "Down" = "d";
+          })
+          (map mkWorkspaceKeys' ["1" "2" "3" "4" "5" "6" "7" "8" "9" "0"])
+        ];
       bindm = [
         "$mod,mouse:272,movewindow"
         "$mod,mouse:273,resizewindow"
