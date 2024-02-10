@@ -10,6 +10,7 @@
     ../common/nix.nix
     ../common/nullmailer.nix
     ../common/traefik.nix
+    ../common/upgrade.nix
 
     ./boot.nix
     ./dyndns.nix
