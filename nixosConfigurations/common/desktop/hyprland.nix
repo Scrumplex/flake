@@ -59,8 +59,14 @@ in {
         gaps_in = 0;
         gaps_out = 0;
         "col.inactive_border" = "0xff1e1e2e"; # base
-        "col.active_border" = "0xff89b4fa"; # blue
+        "col.active_border" = "0xff89dceb 0xffcba6f7"; # blue mauve
       };
+      bezier = [
+        "linear, 0.0, 0.0, 1.0, 1.0"
+      ];
+      animation = [
+        "borderangle, 1, 100, linear, loop"
+      ];
       input = {
         kb_layout = "us";
         kb_variant = "altgr-intl";
@@ -71,6 +77,7 @@ in {
         "size 800 600,^popup_pulsemixer$"
         "center 1,^popup_pulsemixer$"
         "rounding 8,^popup_pulsemixer$"
+        "animation slide,^popup_pulsemixer$"
 
         "workspace 4,^evolution$"
         "workspace 5,^Signal$"
