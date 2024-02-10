@@ -53,10 +53,6 @@ in {
             "4" = "󰇮";
             "5" = "󰍩";
           };
-          persistent-workspaces = {
-            "1" = [];
-            "2" = [];
-          };
         };
         mpd = {
           format = "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ({volume}%) 󰎈";
