@@ -88,6 +88,7 @@ in {
 
         "tile,^DDNet$"
         "fullscreen,^DDNet$"
+        "noanim,^DDNet$"
       ];
       windowrulev2 = [
         "bordercolor 0xffa6e3a1,fullscreen:1" # green
