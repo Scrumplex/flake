@@ -82,7 +82,6 @@ in {
         (mkAssignWindow "class:^discord$" "5")
         (mkAssignWindow "class:^org.telegram.desktop$" "5")
         (mkWindowRule "class:^popup_pulsemixer$" ["float" "pin" "size 800 600" "center 1" "rounding 8" "animation slide"])
-        (mkWindowRule "class:^DDNet$" ["tile" "fullscreen" "noanim"])
         (mkWindowRule "fullscreen:1" ["bordercolor 0xffa6e3a1"])
       ];
       misc = {
