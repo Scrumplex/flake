@@ -1,5 +1,5 @@
 {inputs, ...}: let
-  inherit (inputs) agenix lanzaboote nixos-hardware nixpkgs nixpkgs-wayland nixpkgs-xr prismlauncher scrumpkgs wlx-overlay-x;
+  inherit (inputs) agenix lanzaboote nixos-hardware nixpkgs nixpkgs-wayland nixpkgs-xr prismlauncher scrumpkgs;
 
   inherit (nixpkgs.lib) attrValues;
 
@@ -10,7 +10,6 @@
     overlays ? [
       nixpkgs-wayland.overlays.default
       prismlauncher.overlays.default
-      wlx-overlay-x.overlays.default
       scrumpkgs.overlays.default
     ],
   }: {

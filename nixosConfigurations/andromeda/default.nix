@@ -76,8 +76,6 @@
   };
   virtualisation.spiceUSBRedirection.enable = true;
 
-  environment.systemPackages = with pkgs; [wlx-overlay-x];
-
   profile.gpg.keygrips = ["EA9F43D0C2AEA7D44EDE68FAAAD1776402F99A4E"];
 
   system.stateVersion = "23.11";

@@ -64,11 +64,6 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };
-    wlx-overlay-x = {
-      url = "github:galister/wlx-overlay-x";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-    };
     catppuccin-qt5ct = {
       url = "github:catppuccin/qt5ct";
       flake = false;
