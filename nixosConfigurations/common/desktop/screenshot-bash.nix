@@ -42,13 +42,18 @@
           fi
       fi
     '';
-    wayland.windowManager.hyprland.settings.bind = let
-      screenshot-bash = "${pkgs.screenshot-bash}/bin/screenshot-bash";
-    in [
-      ",Print,exec,${screenshot-bash}"
-      "SHIFT,Print,exec,${screenshot-bash} active_window"
-      "$mod,Print,exec,${screenshot-bash} active_output"
-    ];
+    wayland.windowManager.hyprland.settings = {
+      layerrule = [
+        "noanim, ^selection$"
+      ];
+      bind = let
+        screenshot-bash = "${pkgs.screenshot-bash}/bin/screenshot-bash";
+      in [
+        ",Print,exec,${screenshot-bash}"
+        "SHIFT,Print,exec,${screenshot-bash} active_window"
+        "$mod,Print,exec,${screenshot-bash} active_output"
+      ];
+    };
   };
 
   environment.systemPackages = with pkgs; [screenshot-bash];
