@@ -22,7 +22,7 @@
     krita
     tenacity
     libreoffice-fresh
-    #livecaptions
+    livecaptions
 
     portfolio
     AusweisApp2
