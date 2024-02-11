@@ -17,6 +17,7 @@
     ./influx.nix
     ./jellyfin.nix
     ./minecraft.nix
+    ./miniflux.nix
     ./paperless.nix
     ./quassel.nix
     ./step-ca.nix
