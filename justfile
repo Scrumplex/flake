@@ -1,10 +1,12 @@
 default: switch
 
-rebuild:
-    nixos-rebuild --flake . --verbose --print-build-logs --show-trace build
+rebuild goal:
+    sudo nixos-rebuild --flake . --verbose --print-build-logs --show-trace {{goal}}
 
-switch: rebuild
-    sudo nixos-rebuild --flake . switch
+build: (rebuild "build")
+boot: (rebuild "boot")
+test: (rebuild "test")
+switch: (rebuild "switch")
 
 update:
     nix flake update --commit-lock-file
