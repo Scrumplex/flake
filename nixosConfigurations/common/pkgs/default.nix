@@ -25,10 +25,6 @@ in {
         discord-canary = mkDiscordOverride prev.discord-canary;
         discord-ptb = mkDiscordOverride prev.discord-ptb;
 
-        monado = prev.monado.override {
-          # HACK HACK HACK HACK
-          onnxruntime = final.hello;
-        };
         ncmpcpp = prev.ncmpcpp.override {
           visualizerSupport = true;
         };
