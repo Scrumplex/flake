@@ -25,6 +25,10 @@ in {
 
     services.monado.enable = true;
 
-    environment.systemPackages = [pkgs.opencomposite-helper];
+    environment.systemPackages = with pkgs; [
+      index_camera_passthrough
+      opencomposite-helper
+      wlx-overlay-s
+    ];
   };
 }
