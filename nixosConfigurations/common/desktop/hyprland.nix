@@ -73,6 +73,9 @@ in {
       input = {
         kb_layout = "us";
         kb_variant = "altgr-intl";
+
+        follow_mouse = 1;
+        mouse_refocus = false;
       };
       windowrulev2 = flatten [
         (mkAssignWindow "class:^evolution$" "4")
