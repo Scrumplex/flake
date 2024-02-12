@@ -51,6 +51,11 @@
         push.followTags = true;
         pull.rebase = true;
         init.defaultBranch = "main";
+
+        # Thanks Scott! https://www.youtube.com/watch?v=aolI_Rz0ZqY
+        rerere.enabled = true;
+        core.fsmonitor = true;
+
         url = {
           "https://github.com/".insteadOf = "github:";
           "ssh://git@github.com/".pushInsteadOf = "github:";
