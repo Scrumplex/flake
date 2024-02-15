@@ -1,5 +1,5 @@
 {config, ...}: let
-  fqdn = "miniflux.eclipse.lan";
+  fqdn = "miniflux.sefa.cloud";
 in {
   age.secrets."miniflux.env".file = ../../secrets/eclipse/miniflux.env.age;
 
@@ -14,7 +14,7 @@ in {
 
   services.traefik.dynamicConfigOptions.http = {
     routers.miniflux = {
-      entryPoints = ["localsecure"];
+      entryPoints = ["websecure"];
       service = "miniflux";
       rule = "Host(`${fqdn}`)";
     };
