@@ -44,6 +44,7 @@
     ./pkgs
     ./ranger.nix
     ./regional.nix
+    ./rtl-sdr.nix
     ./ssh.nix
     ./syncthing.nix
     ./utils.nix
