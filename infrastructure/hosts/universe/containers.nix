@@ -38,8 +38,18 @@ in {
   age.secrets."scrumplex-x-service.env".file = ../../secrets/universe/scrumplex-x-service.env.age;
   age.secrets."tor-service.env".file = ../../secrets/universe/tor-service.env.age;
 
+  virtualisation.docker.enable = false;
+  virtualisation.podman = {
+    enable = true;
+    dockerSocket.enable = true;
+    dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true;
+  };
+
+  networking.firewall.trustedInterfaces = ["podman+"];
+
   virtualisation.arion = {
-    backend = "docker";
+    backend = "podman-socket";
     projects = {
       scrumplex-website.settings.services = mkMerge [
         (mkContainer rec {

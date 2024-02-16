@@ -1,6 +1,10 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   virtualisation.docker = {
-    enable = true;
+    enable = lib.mkDefault true;
     autoPrune = {
       enable = true;
       flags = ["--all"];

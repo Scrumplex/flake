@@ -29,7 +29,10 @@ in {
 
     services.traefik = {
       enable = true;
-      group = "docker";
+      group =
+        if config.virtualisation.docker.enable
+        then "docker"
+        else "podman";
 
       staticConfigOptions = {
         api.insecure = true;
