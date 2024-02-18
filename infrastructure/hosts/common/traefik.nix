@@ -3,8 +3,7 @@
   lib,
   ...
 }: let
-  inherit (lib.options) mkOption;
-  inherit (lib) types;
+  inherit (lib) mkOption types;
 
   cfg = config.common.traefik;
 in {
