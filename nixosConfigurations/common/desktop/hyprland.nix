@@ -46,9 +46,10 @@ in {
 
   programs.hyprland.enable = true;
 
-  hm.home.sessionVariables = {
+  environment.variables = {
     "_JAVA_AWT_WM_NONREPARENTING" = "1";
     "NIXOS_OZONE_WL" = "1";
+    "WLR_DRM_NO_ATOMIC" = "1";
   };
 
   hm.wayland.windowManager.hyprland = {
@@ -63,6 +64,7 @@ in {
         gaps_out = 0;
         "col.inactive_border" = "0xff1e1e2e"; # base
         "col.active_border" = "0xff89dceb 0xffcba6f7"; # blue mauve
+        allow_tearing = true;
       };
       bezier = [
         "linear, 0.0, 0.0, 1.0, 1.0"
@@ -86,6 +88,7 @@ in {
         (mkAssignWindow "class:^org.telegram.desktop$" "5")
         (mkWindowRule "class:^popup_pulsemixer$" ["float" "pin" "size 800 600" "center 1" "rounding 8" "animation slide"])
         (mkWindowRule "fullscreen:1" ["bordercolor 0xffa6e3a1"])
+        (mkWindowRule "class:^DDNet$" ["immediate"])
       ];
       misc = {
         disable_hyprland_logo = true;
