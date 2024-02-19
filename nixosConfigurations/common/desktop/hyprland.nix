@@ -55,6 +55,7 @@ in {
   hm.wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      debug.disable_logs = false;
       exec-once = [
         "${programs.swaybg} --image ${wallpaper}"
       ];
@@ -66,6 +67,7 @@ in {
         "col.active_border" = "0xff89dceb 0xffcba6f7"; # blue mauve
         allow_tearing = true;
       };
+      decoration.drop_shadow = false;
       bezier = [
         "linear, 0.0, 0.0, 1.0, 1.0"
       ];
