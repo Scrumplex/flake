@@ -57,6 +57,8 @@ in {
         cmp_luasnip
         nvim-cmp
         indent-blankline-nvim
+
+        copilot-vim
       ];
 
       extraConfig = ''
