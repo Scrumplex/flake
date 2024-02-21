@@ -15,7 +15,6 @@
     srvos = {
       url = "github:nix-community/srvos";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
     };
     agenix = {
       url = "github:ryantm/agenix";
