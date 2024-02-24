@@ -16,7 +16,13 @@
 in {
   options.profile.vr.enableHighPrioKernelPatch = mkEnableOption "kernel patch to allow high priority graphics for all clients";
 
+  imports = [
+    inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
+  ];
+
   config = {
+    nixpkgs.xr.enableUnstripped = true;
+
     boot.extraModulePackages = mkIf cfg.enableHighPrioKernelPatch [
       (amdgpu-kernel-module.overrideAttrs (prev: {
         patches = (prev.patches or []) ++ [inputs.scrumpkgs.kernelPatches.cap_sys_nice_begone.patch];

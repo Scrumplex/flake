@@ -1,8 +1,12 @@
 {
   config,
+  inputs,
   pkgs,
   ...
 }: {
+  nixpkgs.overlays = [
+    inputs.prismlauncher.overlays.default
+  ];
   environment.systemPackages = with pkgs; [
     # dolphinEmu
     prismlauncher

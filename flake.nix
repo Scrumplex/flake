@@ -71,8 +71,11 @@
       imports = [
         inputs.pre-commit-hooks.flakeModule
 
+        ./lib
+
         ./darwinConfigurations
-        ./nixosConfigurations
+        ./nixosConfigurations/andromeda
+        ./nixosConfigurations/dyson
 
         ./parts/dev.nix
         ./parts/nixpkgs-dev.nix

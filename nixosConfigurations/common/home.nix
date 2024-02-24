@@ -55,7 +55,6 @@ in {
         ];
       extraSpecialArgs = {
         inherit inputs;
-        lib' = scrumpkgs.lib;
       };
     };
   };

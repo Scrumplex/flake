@@ -1,6 +1,12 @@
-{lib, ...}: let
-  inherit (lib.modules) mkDefault;
-in {
+{
+  inputs,
+  lib,
+  ...
+}: {
+  imports = [
+    inputs.lanzaboote.nixosModules.lanzaboote
+  ];
+
   boot = {
     loader = {
       systemd-boot.enable = true;
@@ -9,7 +15,7 @@ in {
     };
 
     tmp = {
-      useTmpfs = mkDefault true;
+      useTmpfs = lib.mkDefault true;
       tmpfsSize = "75%";
     };
     initrd.verbose = false;
