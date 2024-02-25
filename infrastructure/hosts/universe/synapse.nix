@@ -93,11 +93,10 @@
   networking.firewall.allowedTCPPorts = [8448];
 
   services.traefik = {
-    staticConfigOptions.entryPoints.synapsesecure =
-      config.services.traefik.staticConfigOptions.entryPoints.websecure
-      // {
-        address = ":8448";
-      };
+    staticConfigOptions.entryPoints.synapsesecure = {
+      address = ":8448";
+      http = config.services.traefik.staticConfigOptions.entryPoints.websecure.http;
+    };
     dynamicConfigOptions.http = {
       routers.synapse = {
         entryPoints = ["websecure" "synapsesecure"];

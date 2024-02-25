@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: let
-  inherit (lib) mkForce mkMerge;
-in {
+{config, ...}: {
   common.traefik = {
     primaryEntryPoint = "localsecure";
     primaryCertResolver = "local";
@@ -13,13 +7,10 @@ in {
   networking.firewall.allowedTCPPorts = [8443];
 
   services.traefik.staticConfigOptions = {
-    entryPoints.websecure = mkMerge [
-      config.services.traefik.staticConfigOptions.entryPoints.localsecure
-      {
-        address = mkForce ":8443";
-        http.tls.certResolver = mkForce "letsencrypt";
-      }
-    ];
+    entryPoints.websecure = {
+      address = ":8443";
+      http = config.services.traefik.staticConfigOptions.entryPoints.localsecure.http // {tls.certResolver = "letsencrypt";};
+    };
     certificatesResolvers.local.acme = {
       email = "contact@scrumplex.net";
       storage = "/var/lib/traefik/acme-local.json";
