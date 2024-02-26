@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  lib,
+  ...
+}: {
   imports =
     [
       ./beets.nix
@@ -55,7 +59,7 @@
     ]
     ++ builtins.attrValues inputs.scrumpkgs.nixosModules;
 
-  nixpkgs.overlays = [
+  nixpkgs.overlays = lib.mkBefore [
     inputs.scrumpkgs.overlays.default
   ];
 

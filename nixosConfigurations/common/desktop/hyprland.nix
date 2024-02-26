@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   pkgs,
@@ -40,6 +41,13 @@
 in {
   nixpkgs.overlays = [
     inputs.hyprland.overlays.default
+
+    (final: prev: {
+      run-or-raise = prev.run-or-raise.override {
+        backend = "hyprland";
+        hyprland = config.hm.wayland.windowManager.hyprland.finalPackage;
+      };
+    })
   ];
 
   primaryUser.extraGroups = ["video" "input"];
