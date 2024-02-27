@@ -13,6 +13,7 @@ in {
     ../common/upgrade.nix
 
     ./boot.nix
+    ./home-assistant.nix
     ./traefik.nix
     ./wireguard.nix
   ];

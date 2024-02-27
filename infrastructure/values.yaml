@@ -9,6 +9,12 @@ hedgedoc:
     repository: hedgedoc/hedgedoc
     tag: 1.9.9-debian@sha256:c29606e2a143a9b02bde6e159727e6ac3206b18d19eeba5c17e911e492a0911c
 
+home-assistant:
+  image:
+    registry: ghcr.io
+    repository: home-assistant/home-assistant
+    tag: 2024.2.4
+
 honeylinks:
   image:
     registry: codeberg.org
