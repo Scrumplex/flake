@@ -23,6 +23,12 @@
       entryPoints = ["websecure"];
       service = "skinprox";
       rule = "Host(`skins.scrumplex.net`)";
+      middlewares = ["skinprox"];
+    };
+    middlewares.skinprox.headers = {
+      accessControlAllowMethods = ["GET"];
+      accessControlAllowOriginList = ["*"];
+      accessControlMaxAge = 100;
     };
     services.skinprox.loadBalancer.servers = [{url = "http://localhost:${toString config.services.skinprox.listenPort}";}];
   };
