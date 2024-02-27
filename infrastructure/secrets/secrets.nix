@@ -42,5 +42,6 @@ in {
   "eclipse/syncthing-key.pem.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/syncthing-cert.pem.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/transmission-creds.json.age".publicKeys = scrumplex ++ [eclipse];
+  "eclipse/typhon-admin.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/vaultwarden.env.age".publicKeys = scrumplex ++ [eclipse];
 }

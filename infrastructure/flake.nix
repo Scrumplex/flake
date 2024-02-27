@@ -36,6 +36,10 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };
+    typhon-ci = {
+      url = "github:typhon-ci/typhon";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {flake-parts, ...}:
@@ -51,6 +55,7 @@
         ./hosts/universe
 
         ./parts/dev.nix
+        ./parts/typhon
       ];
 
       systems = [
