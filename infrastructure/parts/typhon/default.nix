@@ -1,5 +1,6 @@
 {
   inputs,
+  lib,
   self,
   ...
 }: let
@@ -13,7 +14,10 @@ in {
     typhonUrl = "https://typhon.sefa.cloud";
     secrets = ./secrets.age;
   };
-  flake.typhonJobs.x86_64-linux = {
-    eclipse = self.nixosConfigurations.eclipse.config.system.build.toplevel;
+  flake.typhonJobs = {
+    x86_64-linux =
+      lib.genAttrs
+      ["eclipse" "universe"]
+      (m: self.nixosConfigurations.${m}.config.system.build.toplevel);
   };
 }
