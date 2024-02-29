@@ -29,7 +29,10 @@ in {
       }))
     ];
 
-    services.monado.enable = true;
+    services.monado = {
+      enable = true;
+      defaultRuntime = true;
+    };
 
     environment.systemPackages = with pkgs; [
       index_camera_passthrough
