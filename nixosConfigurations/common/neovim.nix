@@ -9,6 +9,8 @@
     enable = true;
     defaultEditor = true;
 
+    enableMan = false;
+
     extraPackages = with pkgs; [
       fd
       ripgrep
@@ -43,6 +45,16 @@
       spell = false;
       spelllang = "en_us";
       completeopt = "menu,menuone,noselect";
+    };
+
+    files = {
+      "ftplugin/nix.lua" = {
+        options = {
+          shiftwidth = 2;
+          softtabstop = 2;
+          tabstop = 2;
+        };
+      };
     };
 
     clipboard = {
