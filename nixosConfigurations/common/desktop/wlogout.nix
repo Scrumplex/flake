@@ -9,7 +9,6 @@
     layout = let
       inherit (lib) getExe getExe';
       hyprctl = getExe' config.hm.wayland.windowManager.hyprland.finalPackage "hyprctl";
-      gtklock = "${getExe pkgs.gtklock} -d";
       systemctl = getExe' pkgs.systemd "systemctl";
     in [
       {
@@ -32,7 +31,7 @@
       }
       {
         label = "exit";
-        action = "${hyprctl} dispatch quit";
+        action = "${hyprctl} dispatch exit";
         text = "Exit";
         keybind = "e";
       }
@@ -44,7 +43,7 @@
       }
       {
         label = "lock";
-        action = gtklock;
+        action = "${getExe pkgs.waylock} -fork-on-lock";
         text = "Lock";
         keybind = "l";
       }

@@ -6,14 +6,14 @@
 }: {
   hm.services.swayidle = let
     hyprctl = lib.getExe' config.hm.wayland.windowManager.hyprland.finalPackage "hyprctl";
-    gtklock = "${lib.getExe pkgs.gtklock} -d";
+    waylock = "${lib.getExe pkgs.waylock} -fork-on-lock";
   in {
     enable = true;
     extraArgs = ["-d"];
     events = [
       {
         event = "before-sleep";
-        command = "${gtklock}; ${hyprctl} dispatch dpms off";
+        command = "${waylock}; ${hyprctl} dispatch dpms off";
       }
       {
         event = "after-resume";

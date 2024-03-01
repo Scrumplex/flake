@@ -15,7 +15,6 @@
       ./desktop/fuzzel.nix
       ./desktop/gaming.nix
       ./desktop/gtk
-      ./desktop/gtklock.nix
       ./desktop/hyprland.nix
       ./desktop/image-viewer.nix
       ./desktop/kitty.nix
@@ -26,6 +25,7 @@
       ./desktop/polkit-agent.nix
       ./desktop/qt
       ./desktop/screenshot-bash.nix
+      ./desktop/session-lock.nix
       ./desktop/swayidle.nix
       ./desktop/vr
       ./desktop/waybar.nix

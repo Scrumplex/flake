@@ -50,7 +50,7 @@ in {
       '';
     };
 
-    security.pam.services = genAttrs ["login" "gtklock"] (_: {
+    security.pam.services = genAttrs ["login" "waylock"] (_: {
       gnupg = {
         enable = true;
         noAutostart = true;
