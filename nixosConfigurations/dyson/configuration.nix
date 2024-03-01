@@ -27,14 +27,6 @@
 
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
-  services.flatpak.enable = true;
-  xdg.portal = {
-    enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  };
-
-  services.gnome.gnome-keyring.enable = true;
-
   services.logind = {
     lidSwitch = "suspend-then-hibernate";
     extraConfig = ''

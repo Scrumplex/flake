@@ -10,6 +10,8 @@
   services.gnome.tracker.enable = true;
   services.gvfs.enable = true;
 
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+
   hm = {
     gtk = {
       enable = true;

@@ -28,7 +28,6 @@
   services.resolved.dnssec = "false";
 
   hardware.bluetooth.enable = true;
-  hardware.xpadneo.enable = true;
 
   programs.partition-manager.enable = true;
 
@@ -44,24 +43,12 @@
 
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
-  services.flatpak.enable = true;
-  xdg.portal = {
-    enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  };
-
-  services.printing = {
-    enable = true;
-    drivers = with pkgs; [samsung-unified-linux-driver_1_00_37];
-  };
   services.avahi.enable = true;
 
   programs.wireshark = {
     enable = true;
     package = pkgs.wireshark;
   };
-
-  services.gnome.gnome-keyring.enable = true;
 
   networking.firewall.allowedTCPPortRanges = [
     {

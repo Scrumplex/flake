@@ -17,6 +17,7 @@
       ../common/desktop/gtk
       ../common/desktop/hyprland.nix
       ../common/desktop/image-viewer.nix
+      ../common/desktop/keyring.nix
       ../common/desktop/kitty.nix
       ../common/desktop/mako.nix
       ../common/desktop/nextcloud-client.nix
@@ -34,6 +35,7 @@
       ../common/desktop/wob.nix
       ../common/desktop/xwaylandvideobridge.nix
       ../common/fish.nix
+      ../common/flatpak.nix
       ../common/git.nix
       ../common/gpg.nix
       ../common/home.nix
@@ -47,6 +49,7 @@
       ../common/nvd.nix
       ../common/password-store.nix
       ../common/pkgs
+      ../common/printing.nix
       ../common/ranger.nix
       ../common/regional.nix
       ../common/rtl-sdr.nix

@@ -7,6 +7,7 @@
   nixpkgs.overlays = [
     inputs.prismlauncher.overlays.default
   ];
+
   environment.systemPackages = with pkgs; [
     # dolphinEmu
     prismlauncher
@@ -35,6 +36,8 @@
       };
     };
   };
+
+  hardware.xpadneo.enable = true;
 
   hm.programs.mangohud = {
     enable = true;
