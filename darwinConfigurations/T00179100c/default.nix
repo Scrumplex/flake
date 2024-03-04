@@ -87,6 +87,12 @@
     keepassxc
 
     docker-client
+    k9s
+    kubectl
+    kubectx
+    awscli2
+    cosign
+    skopeo
   ];
 
   services.nix-daemon.enable = true;

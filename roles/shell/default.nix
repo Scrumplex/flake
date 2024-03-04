@@ -22,6 +22,7 @@ in {
         file
         libqalculate
         parallel
+        fzf
         ripgrep
         tree
       ];
