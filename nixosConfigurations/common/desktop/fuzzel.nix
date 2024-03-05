@@ -31,8 +31,5 @@
     wayland.windowManager.hyprland.settings.bind = [
       "$mod, D, exec, ${lib.getExe config.hm.programs.fuzzel.package}"
     ];
-
-    programs.password-store.package =
-      pkgs.pass-wayland.override {dmenu-wayland = pkgs.fuzzel-dmenu-shim;};
   };
 }

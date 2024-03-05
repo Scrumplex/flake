@@ -3,9 +3,13 @@
   pkgs,
   ...
 }: {
+  age.secrets."screenshot-bash" = {
+    file = ../../../secrets/andromeda/screenshot-bash.age;
+    owner = "scrumplex";
+    inherit (config.users.users.scrumplex) group;
+  };
   hm = {
     xdg.configFile."screenshot-bash.conf".text = let
-      pass = "${config.hm.programs.password-store.package}/bin/pass";
       pwgen = "${pkgs.pwgen}/bin/pwgen";
       hyprctl = "${config.hm.wayland.windowManager.hyprland.finalPackage}/bin/hyprctl";
       jq = "${pkgs.jq}/bin/jq";
@@ -19,7 +23,7 @@
       TARGET_HOST="https://scrumplex.rocks"
 
       # The password defined in the endpointd
-      PASSWORD="$(${pass} show "servers/x" | head -n 1)"
+      PASSWORD="$(cat ${config.age.secrets."screenshot-bash".path})"
 
       # change screenshot tool depending on parameter
       do_screenshot() {

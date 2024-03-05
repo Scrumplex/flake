@@ -46,7 +46,6 @@
       ../common/nix.nix
       ../common/nix-index.nix
       ../common/nvd.nix
-      ../common/password-store.nix
       ../common/pkgs
       ../common/printing.nix
       ../common/ranger.nix

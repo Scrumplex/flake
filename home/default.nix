@@ -1,3 +1,3 @@
-{config, ...}: {
-  hm.imports = [./common ./${config.networking.hostName}];
+{...}: {
+  hm.imports = [./common];
 }

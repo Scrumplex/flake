@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ./borg.nix
     ./desktop/hyprland.nix
     ./desktop/waybar.nix
     ./harmonia.nix
