@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   inherit (builtins) elem hasAttr;
@@ -45,6 +46,9 @@ in {
     dockerCompat = true;
     defaultNetwork.settings.dns_enabled = true;
   };
+  environment.systemPackages = with pkgs; [
+    docker-compose
+  ];
 
   networking.firewall.trustedInterfaces = ["podman+"];
 
