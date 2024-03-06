@@ -138,8 +138,7 @@ in {
             "${mod}+Shift+c" = "reload";
             "${mod}+r" = "mode resize";
 
-            "${mod}+s" = "layout stacking";
-            "${mod}+w" = "layout tabbed";
+            "${mod}+w" = "layout toggle tabbed split";
             "${mod}+e" = "layout toggle split";
 
             "${mod}+f" = "fullscreen toggle";
