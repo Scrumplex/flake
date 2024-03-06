@@ -14,6 +14,9 @@
 
       WEBSOCKET_ENABLED = true;
       WEBSOCKET_PORT = 3012;
+
+      # key, id and endpoints set in .env
+      PUSH_ENABLED = true;
     };
     environmentFile = config.age.secrets."vaultwarden.env".path;
 
