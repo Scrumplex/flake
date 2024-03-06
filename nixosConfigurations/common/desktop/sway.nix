@@ -151,6 +151,36 @@ in {
             "${mod}+a" = "focus parent";
           })
         );
+      colors = with config.hm.theme.colors; {
+        focused = {
+          background = "#${blue}";
+          border = "#${blue}";
+          childBorder = "#${blue}";
+          indicator = "#${blue}";
+          text = "#${base}";
+        };
+        focusedInactive = {
+          background = "#${surface0}";
+          border = "#${surface0}";
+          childBorder = "#${surface0}";
+          indicator = "#${surface0}";
+          text = "#${pink}";
+        };
+        unfocused = {
+          background = "#${base}";
+          border = "#${base}";
+          childBorder = "#${base}";
+          indicator = "#${base}";
+          text = "#${text}";
+        };
+        urgent = {
+          background = "#${peach}";
+          border = "#${peach}";
+          childBorder = "#${peach}";
+          indicator = "#${peach}";
+          text = "#${base}";
+        };
+      };
     };
   };
 
