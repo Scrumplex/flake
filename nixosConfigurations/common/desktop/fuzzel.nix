@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  pkgs,
+  lib',
   ...
 }: {
   hm = {
@@ -9,10 +9,7 @@
       enable = true;
 
       settings = {
-        main = {
-          font = "Monocraft:size=13";
-          terminal = "${pkgs.kitty}/bin/kitty";
-        };
+        main.font = "Monocraft:size=13";
         colors = with config.hm.theme.colors; {
           background = "${surface0}ff";
           text = "${text}ff";
@@ -31,5 +28,6 @@
     wayland.windowManager.hyprland.settings.bind = [
       "$mod, D, exec, ${lib.getExe config.hm.programs.fuzzel.package}"
     ];
+    wayland.windowManager.sway.config.menu = lib.getExe config.hm.programs.fuzzel.package;
   };
 }

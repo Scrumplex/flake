@@ -7,6 +7,7 @@
     ./hardware-configuration.nix
     ./borg.nix
     ./desktop/hyprland.nix
+    ./desktop/sway.nix
     ./desktop/waybar.nix
     ./harmonia.nix
     ./wireguard.nix

@@ -14,5 +14,14 @@
       "float, class:^firefox$, title:^Picture-in-Picture$"
       "pin, class:^firefox$, title:^Picture-in-Picture$"
     ];
+    wayland.windowManager.sway.config.window.commands = [
+      {
+        criteria = {
+          app_id = "firefox";
+          title = "Picture-in-Picture";
+        };
+        command = "floating enable; sticky enable";
+      }
+    ];
   };
 }

@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  lib',
   pkgs,
   ...
 }: let
@@ -23,9 +24,7 @@ in {
       termapp = "${pkgs.termapp}/bin/termapp";
     in {
       mainBar = {
-        position = "top";
-        layer = "top";
-        modules-left = ["hyprland/workspaces" "mpd"];
+        modules-left = ["sway/workspaces" "mpd"];
         modules-center = ["clock" "clock#other"];
         modules-right =
           [
@@ -42,7 +41,7 @@ in {
             "clock#date"
             "tray"
           ];
-        "hyprland/workspaces" = {
+        "sway/workspaces" = {
           disable-scroll = true;
           all-outputs = false;
           format = "{icon}";
@@ -202,12 +201,12 @@ in {
         text-shadow: none; /* Adwaita? */
       }
 
-      #workspaces button.active {
+      #workspaces button.focused {
         background-color: #${blue};
         color: #${crust};
       }
 
-      #workspaces button.active:hover {
+      #workspaces button.focused:hover {
         background-color: #${sky};
       }
 
@@ -241,5 +240,9 @@ in {
   hm.wayland.windowManager.hyprland.settings.bind = lib.mkMerge [
     (lib.mkIf cfg.extraModules.cameraBlank.enable ["$mod, N, exec, ${cfg.extraModules.cameraBlank.onClickScript}"])
     (lib.mkIf cfg.extraModules.paMute.enable ["$mod, M, exec, ${cfg.extraModules.paMute.onClickScript}"])
+  ];
+  hm.wayland.windowManager.sway.config.keybindings = lib.mkMerge [
+    (lib.mkIf cfg.extraModules.cameraBlank.enable (lib'.sway.mkExec "${config.hm.wayland.windowManager.sway.config.modifier}+n" cfg.extraModules.cameraBlank.onClickScript))
+    (lib.mkIf cfg.extraModules.paMute.enable (lib'.sway.mkExec "${config.hm.wayland.windowManager.sway.config.modifier}+m" cfg.extraModules.paMute.onClickScript))
   ];
 }

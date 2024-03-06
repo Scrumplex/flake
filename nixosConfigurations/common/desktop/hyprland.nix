@@ -137,10 +137,4 @@ in {
       ];
     };
   };
-
-  hm.programs.fish.interactiveShellInit = lib.mkOrder 2000 ''
-    test -n "$XDG_SESSION_TYPE" -a "$XDG_SESSION_TYPE" = "tty" -a -n "$XDG_VTNR" -a "$XDG_VTNR" -eq 1; and begin
-        Hyprland
-    end
-  '';
 }

@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  lib',
   pkgs,
   ...
 }: {
@@ -8,7 +9,7 @@
     enable = true;
     layout = let
       inherit (lib) getExe getExe';
-      hyprctl = getExe' config.hm.wayland.windowManager.hyprland.finalPackage "hyprctl";
+      swaymsg = getExe' config.hm.wayland.windowManager.sway.package "swaymsg";
       systemctl = getExe' pkgs.systemd "systemctl";
     in [
       {
@@ -31,7 +32,7 @@
       }
       {
         label = "exit";
-        action = "${hyprctl} dispatch exit";
+        action = "${swaymsg} exit";
         text = "Exit";
         keybind = "e";
       }
@@ -113,4 +114,5 @@
   hm.wayland.windowManager.hyprland.settings.bind = [
     "$mod SHIFT, E, exec, ${lib.getExe config.hm.programs.wlogout.package}"
   ];
+  hm.wayland.windowManager.sway.config.keybindings = lib'.sway.mkExec "${config.hm.wayland.windowManager.sway.config.modifier}+Shift+E" (lib.getExe config.hm.programs.wlogout.package);
 }

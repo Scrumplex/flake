@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -11,7 +12,7 @@
   hm = {
     xdg.configFile."screenshot-bash.conf".text = let
       pwgen = "${pkgs.pwgen}/bin/pwgen";
-      hyprctl = "${config.hm.wayland.windowManager.hyprland.finalPackage}/bin/hyprctl";
+      swaymsg = "${config.hm.wayland.windowManager.sway.package}/bin/swaymsg";
       jq = "${pkgs.jq}/bin/jq";
       slurp = "${pkgs.slurp}/bin/slurp -b '#00000080' -c '#ffffffff' -B '#00000040'";
       grim = "${pkgs.grim}/bin/grim";
@@ -27,20 +28,19 @@
 
       # change screenshot tool depending on parameter
       do_screenshot() {
-          active_workspaces=$(${hyprctl} -j monitors | ${jq} -r 'map(.activeWorkspace.id) | join(",")')
-          area=$(${hyprctl} -j clients | ${jq} --arg active_workspaces "$active_workspaces" -r '.[] | select(.workspace.id | tostring | inside($active_workspaces)) | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1]) \(.title)"' | ${slurp})
+          area=$(${swaymsg} -t get_tree | ${jq} -r '.. | select(.pid? and .visible?) | "\(.rect.x),\(.rect.y-."deco_rect".height) \(.rect.width)x\(.rect.height+."deco_rect".height)"' | ${slurp})
           ${grim} -g "$area" "$1"
       }
 
       if [ $# -gt 0 ]; then
           if [ "$1" == "active_window" ]; then
               do_screenshot() {
-                  area=$(${hyprctl} -j activewindow | ${jq} -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')
+                  area=$(${swaymsg} -t get_tree | ${jq} -j '.. | select(.type?) | select(.focused) | "\(.rect.x),\(.rect.y-."deco_rect".height) \(.rect.width)x\(.rect.height+."deco_rect".height)"')
                   ${grim} -g "$area" "$1"
               }
           elif [ "$1" == "active_output" ]; then
               do_screenshot() {
-                  output=$(${hyprctl} -j monitors | ${jq} -r "first(.[] | select(.focused)).name")
+                  output=$(${swaymsg} -t get_outputs | ${jq} -j '.. | select(.focused?) | .name')
                   ${grim} -o "$output" "$1"
               }
           fi
@@ -57,6 +57,14 @@
         "SHIFT,Print,exec,${screenshot-bash} active_window"
         "$mod,Print,exec,${screenshot-bash} active_output"
       ];
+    };
+
+    wayland.windowManager.sway.config.keybindings = let
+      screenshot-bash = lib.getExe pkgs.screenshot-bash;
+    in {
+      "Print" = "exec ${screenshot-bash}";
+      "Shift+Print" = "exec ${screenshot-bash} active_window";
+      "${config.hm.wayland.windowManager.sway.config.modifier}+Print" = "exec ${screenshot-bash} active_output";
     };
   };
 

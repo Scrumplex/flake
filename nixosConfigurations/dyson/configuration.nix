@@ -8,6 +8,7 @@
     ./boot.nix
     ./desktop/hyprland.nix
     ./desktop/poweralertd.nix
+    ./desktop/sway.nix
     ./desktop/swayidle.nix
     ./networkmanager.nix
     ./specialisation/home-cache.nix

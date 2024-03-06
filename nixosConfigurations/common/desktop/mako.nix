@@ -1,10 +1,10 @@
 {
   config,
   lib,
-  pkgs,
+  lib',
   ...
 }: let
-  inherit (lib) getExe';
+  dismissCmd = "${lib.getExe' config.hm.services.mako.package "makoctl"} dismiss";
 in {
   hm.services.mako = with config.hm.theme.colors; {
     enable = true;
@@ -26,6 +26,7 @@ in {
     '';
   };
   hm.wayland.windowManager.hyprland.settings.bind = [
-    "$mod, Backspace, exec, ${getExe' pkgs.mako "makoctl"} dismiss"
+    "$mod, Backspace, exec, ${dismissCmd}"
   ];
+  hm.wayland.windowManager.sway.config.keybindings = lib'.sway.mkExec "${config.hm.wayland.windowManager.sway.config.modifier}+Backspace" dismissCmd;
 }

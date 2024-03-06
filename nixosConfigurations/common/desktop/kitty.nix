@@ -59,4 +59,6 @@
     ];
     misc.swallow_regex = "^kitty$";
   };
+  hm.wayland.windowManager.sway.config.terminal = lib.getExe config.hm.programs.kitty.package;
+  hm.programs.fuzzel.settings.main.terminal = lib.getExe config.hm.programs.kitty.package;
 }

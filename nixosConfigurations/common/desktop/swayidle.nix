@@ -5,7 +5,7 @@
   ...
 }: {
   hm.services.swayidle = let
-    hyprctl = lib.getExe' config.hm.wayland.windowManager.hyprland.finalPackage "hyprctl";
+    swaymsg = "${config.hm.wayland.windowManager.sway.package}/bin/swaymsg";
     waylock = "${lib.getExe pkgs.waylock} -fork-on-lock";
   in {
     enable = true;
@@ -13,18 +13,18 @@
     events = [
       {
         event = "before-sleep";
-        command = "${waylock}; ${hyprctl} dispatch dpms off";
+        command = "${waylock}; ${swaymsg} 'output * power on'";
       }
       {
         event = "after-resume";
-        command = "${hyprctl} dispatch dpms on";
+        command = "${swaymsg} 'output * power on'";
       }
     ];
     timeouts = [
       {
         timeout = 120;
-        command = "${hyprctl} dispatch dpms off";
-        resumeCommand = "${hyprctl} dispatch dpms on";
+        command = "${swaymsg} 'output * power off'";
+        resumeCommand = "${swaymsg} 'output * power on'";
       }
     ];
   };
