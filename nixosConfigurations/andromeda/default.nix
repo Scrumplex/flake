@@ -15,7 +15,6 @@
       ../common/desktop/fuzzel.nix
       ../common/desktop/gaming.nix
       ../common/desktop/gtk
-      ../common/desktop/hyprland.nix
       ../common/desktop/image-viewer.nix
       ../common/desktop/keyring.nix
       ../common/desktop/kitty.nix

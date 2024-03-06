@@ -111,8 +111,5 @@
     '';
   };
 
-  hm.wayland.windowManager.hyprland.settings.bind = [
-    "$mod SHIFT, E, exec, ${lib.getExe config.hm.programs.wlogout.package}"
-  ];
   hm.wayland.windowManager.sway.config.keybindings = lib'.sway.mkExec "${config.hm.wayland.windowManager.sway.config.modifier}+Shift+E" (lib.getExe config.hm.programs.wlogout.package);
 }

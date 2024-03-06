@@ -6,7 +6,6 @@
   imports = [
     ./hardware-configuration.nix
     ./boot.nix
-    ./desktop/hyprland.nix
     ./desktop/poweralertd.nix
     ./desktop/sway.nix
     ./desktop/swayidle.nix

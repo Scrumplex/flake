@@ -10,10 +10,6 @@
       "x-scheme-handler/unknown" = ["firefox.desktop"];
     };
 
-    wayland.windowManager.hyprland.settings.windowrulev2 = [
-      "float, class:^firefox$, title:^Picture-in-Picture$"
-      "pin, class:^firefox$, title:^Picture-in-Picture$"
-    ];
     wayland.windowManager.sway.config.window.commands = [
       {
         criteria = {

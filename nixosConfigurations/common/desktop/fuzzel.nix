@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  lib',
   ...
 }: {
   hm = {
@@ -25,9 +24,6 @@
       };
     };
 
-    wayland.windowManager.hyprland.settings.bind = [
-      "$mod, D, exec, ${lib.getExe config.hm.programs.fuzzel.package}"
-    ];
     wayland.windowManager.sway.config.menu = lib.getExe config.hm.programs.fuzzel.package;
   };
 }

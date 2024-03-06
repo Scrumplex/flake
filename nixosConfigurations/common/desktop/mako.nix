@@ -3,9 +3,7 @@
   lib,
   lib',
   ...
-}: let
-  dismissCmd = "${lib.getExe' config.hm.services.mako.package "makoctl"} dismiss";
-in {
+}: {
   hm.services.mako = with config.hm.theme.colors; {
     enable = true;
     font = "Monocraft 10";
@@ -25,8 +23,5 @@ in {
       invisible=1
     '';
   };
-  hm.wayland.windowManager.hyprland.settings.bind = [
-    "$mod, Backspace, exec, ${dismissCmd}"
-  ];
-  hm.wayland.windowManager.sway.config.keybindings = lib'.sway.mkExec "${config.hm.wayland.windowManager.sway.config.modifier}+Backspace" dismissCmd;
+  hm.wayland.windowManager.sway.config.keybindings = lib'.sway.mkExec "${config.hm.wayland.windowManager.sway.config.modifier}+Backspace" "${lib.getExe' config.hm.services.mako.package "makoctl"} dismiss";
 }

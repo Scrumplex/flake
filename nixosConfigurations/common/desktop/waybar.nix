@@ -237,10 +237,6 @@ in {
     '';
   };
 
-  hm.wayland.windowManager.hyprland.settings.bind = lib.mkMerge [
-    (lib.mkIf cfg.extraModules.cameraBlank.enable ["$mod, N, exec, ${cfg.extraModules.cameraBlank.onClickScript}"])
-    (lib.mkIf cfg.extraModules.paMute.enable ["$mod, M, exec, ${cfg.extraModules.paMute.onClickScript}"])
-  ];
   hm.wayland.windowManager.sway.config.keybindings = lib.mkMerge [
     (lib.mkIf cfg.extraModules.cameraBlank.enable (lib'.sway.mkExec "${config.hm.wayland.windowManager.sway.config.modifier}+n" cfg.extraModules.cameraBlank.onClickScript))
     (lib.mkIf cfg.extraModules.paMute.enable (lib'.sway.mkExec "${config.hm.wayland.windowManager.sway.config.modifier}+m" cfg.extraModules.paMute.onClickScript))
