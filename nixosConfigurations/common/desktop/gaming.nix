@@ -12,7 +12,6 @@
     # dolphinEmu
     prismlauncher
     r2modman
-    yuzu-early-access
 
     protontricks
   ];
