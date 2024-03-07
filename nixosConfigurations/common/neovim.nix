@@ -1,5 +1,6 @@
 {
   inputs,
+  lib,
   pkgs,
   ...
 }: {
@@ -69,54 +70,56 @@
 
     plugins = {
       bufferline.enable = true;
+      cmp = {
+        enable = true;
+        cmdline = {
+          "/" = {
+            sources = [{name = "buffer";}];
+          };
+          ":" = {
+            sources = lib.warn "TODO: path and cmdline are in separate groups" [
+              {name = "path";}
+              {name = "cmdline";}
+            ];
+          };
+        };
+        settings = {
+          sources = lib.warn "TODO: groupIndex is not a thing anymore" [
+            {
+              name = "nvim_lsp";
+              groupIndex = 1;
+            }
+            {
+              name = "luasnip";
+              groupIndex = 1;
+            }
+            {
+              name = "buffer";
+              groupIndex = 2;
+            }
+          ];
+          mappingPresets = ["insert" "cmdline"];
+          mapping = {
+            "<C-b>" = "cmp.mapping.scroll_docs(-4)";
+            "<C-f>" = "cmp.mapping.scroll_docs(4)";
+            "<C-Space>" = "cmp.mapping.complete()";
+            "<C-e>" = ''
+              cmp.mapping({
+                i = cmp.mapping.abort(),
+                c = cmp.mapping.close(),
+              })
+            '';
+            "<CR>" = "cmp.mapping.confirm({ select = true })";
+          };
+          snippet.expand = "luasnip";
+        };
+      };
       gitsigns.enable = true;
       indent-blankline = {
         enable = true;
         scope.enabled = false;
       };
       neo-tree.enable = true;
-      nvim-cmp = {
-        enable = true;
-        mappingPresets = ["insert" "cmdline"];
-        mapping = {
-          "<C-b>" = {
-            action = "cmp.mapping.scroll_docs(-4)";
-            modes = ["i" "c"];
-          };
-          "<C-f>" = {
-            action = "cmp.mapping.scroll_docs(4)";
-            modes = ["i" "c"];
-          };
-          "<C-Space>" = {
-            action = "cmp.mapping.complete()";
-            modes = ["i" "c"];
-          };
-          "<C-e>" = ''
-            cmp.mapping({
-              i = cmp.mapping.abort(),
-              c = cmp.mapping.close(),
-            })
-          '';
-          "<CR>" = {
-            action = "cmp.mapping.confirm({ select = true })";
-          };
-        };
-        snippet.expand = "luasnip";
-        sources = [
-          {
-            name = "nvim_lsp";
-            groupIndex = 1;
-          }
-          {
-            name = "luasnip";
-            groupIndex = 1;
-          }
-          {
-            name = "buffer";
-            groupIndex = 2;
-          }
-        ];
-      };
       lsp = {
         enable = true;
         keymaps = {
