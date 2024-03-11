@@ -11,6 +11,7 @@
       inherit (lib) getExe getExe';
       swaymsg = getExe' config.hm.wayland.windowManager.sway.package "swaymsg";
       systemctl = getExe' pkgs.systemd "systemctl";
+      loginctl = getExe' pkgs.systemd "loginctl";
     in [
       {
         label = "shutdown";
@@ -44,7 +45,7 @@
       }
       {
         label = "lock";
-        action = "${getExe pkgs.waylock} -fork-on-lock";
+        action = "${loginctl} lock-session";
         text = "Lock";
         keybind = "l";
       }

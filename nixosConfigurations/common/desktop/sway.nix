@@ -101,6 +101,7 @@ in {
           [
             (mkExec "${mod}+Return" swayConf.terminal)
             (mkExec "${mod}+d" swayConf.menu)
+            (mkExec "${mod}+Ctrl+q" "loginctl lock-session")
             # TODO: role
             (mkExec "XF86AudioStop" "${mpc} stop")
             (mkExec "XF86AudioPlay" "${mpc} toggle")

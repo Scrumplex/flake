@@ -6,14 +6,14 @@
 }: {
   hm.services.swayidle = let
     swaymsg = "${config.hm.wayland.windowManager.sway.package}/bin/swaymsg";
-    waylock = "${lib.getExe pkgs.waylock} -fork-on-lock";
+    loginctl = lib.getExe' pkgs.systemd "loginctl";
   in {
     enable = true;
     extraArgs = ["-d"];
     events = [
       {
         event = "before-sleep";
-        command = "${waylock}; ${swaymsg} 'output * power on'";
+        command = "${loginctl} lock-session; ${swaymsg} 'output * power on'";
       }
       {
         event = "after-resume";
