@@ -14,7 +14,6 @@
       "https://skins.tee.world/"
       "https://assets.ddstats.org/skins/"
       "https://api.skins.tw/api/resolve/skins/"
-      "https://raw.githubusercontent.com/TeeworldsDB/skins/master/06/"
     ];
   };
 
