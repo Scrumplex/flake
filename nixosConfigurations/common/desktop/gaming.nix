@@ -9,7 +9,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    # dolphinEmu
+    dolphin-emu
     prismlauncher
     r2modman
 
