@@ -75,6 +75,9 @@
       enable = true;
       icons = true;
 
+      # We have custom ll and ls aliases
+      enableFishIntegration = false;
+
       extraOptions = [
         "--group"
         "--smart-group"
