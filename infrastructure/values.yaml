@@ -17,7 +17,7 @@ duckhub-static:
 element-web:
   image:
     repository: vectorim/element-web
-    tag: v1.11.60@sha256:d567f0daafa7ad8c262754ae197fb739449cc1f1dd90707a491abaedaa849d06
+    tag: v1.11.61@sha256:1bf278a40e8827fcb370bb8473a98170c83e81e39b8278a0b90c760a9b05d255
 
 hedgedoc:
   image:
