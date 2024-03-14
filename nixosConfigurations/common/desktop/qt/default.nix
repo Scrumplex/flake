@@ -16,7 +16,7 @@ in {
   ];
 
   hm = {
-    services.gpg-agent.pinentryFlavor = "qt";
+    services.gpg-agent.pinentryPackage = pkgs.pinentry-qt;
 
     xdg.configFile = {
       "qt5ct/qt5ct.conf".source = pkgs.substituteAll {
