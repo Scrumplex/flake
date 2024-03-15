@@ -40,6 +40,8 @@
 
   hm.programs.mangohud = {
     enable = true;
+    enableSessionWide = true;
+
     settings = {
       fps_limit = "150,60,0";
       vsync = 1;
@@ -51,7 +53,6 @@
       fps = true;
       frametime = true;
       frame_timing = true;
-      enableSessionWide = true;
       font_size = 24;
       position = "top-left";
       engine_version = true;
