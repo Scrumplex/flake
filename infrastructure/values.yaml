@@ -12,7 +12,7 @@ duckhub-static:
   image:
     registry: codeberg.org
     repository: scrumplex/duckhub-static
-    tag: latest@sha256:fa728b7accb36bf3657a5a381a089fb0535d4098ff00c5095420658fd9dc74d0
+    tag: latest@sha256:57d8b2d5241fd387f330460f8ca0f750fcee31223f0ac247996390ac730d7253
 
 element-web:
   image:
