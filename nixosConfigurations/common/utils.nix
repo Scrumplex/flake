@@ -14,5 +14,7 @@
 
     p7zip
     unzip
+
+    man-pages
   ];
 }
