@@ -14,6 +14,7 @@
 
     ./boot.nix
     ./dyndns.nix
+    ./frigate.nix
     ./influx.nix
     ./jellyfin.nix
     ./minecraft.nix
@@ -37,6 +38,8 @@
     repo = "ssh://c8wl3xsp@c8wl3xsp.repo.borgbase.com/./repo";
     sshKeyFile = config.age.secrets.id_borgbase.path;
   };
+
+  virtualisation.oci-containers.backend = "docker";
 
   networking = {
     hostName = "eclipse";

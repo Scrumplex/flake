@@ -19,6 +19,12 @@ element-web:
     repository: vectorim/element-web
     tag: v1.11.61@sha256:1bf278a40e8827fcb370bb8473a98170c83e81e39b8278a0b90c760a9b05d255
 
+frigate:
+  image:
+    registry: ghcr.io
+    repository: blakeblackshear/frigate
+    tag: stable
+
 hedgedoc:
   image:
     registry: quay.io
