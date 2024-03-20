@@ -24,7 +24,7 @@
     tdesktop
 
     inkscape-with-extensions
-    gimp-with-plugins
+    gimp
     krita
     tenacity
     libreoffice-fresh
