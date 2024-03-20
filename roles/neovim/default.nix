@@ -21,7 +21,6 @@ in {
         gcc # treesitter
         gopls # shellcheck lsp
         nil # nix lsp
-        nixd # nix lsp
         nodePackages."@prisma/language-server" # prisma lsp
         nodePackages.bash-language-server # bashls lsp
         nodePackages.pyright # python
