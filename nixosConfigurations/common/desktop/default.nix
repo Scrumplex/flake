@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  nixpkgs.overlays = [inputs.nixpkgs-wayland.overlays.default];
+
   environment.systemPackages = with pkgs; [
     blender
     evince
