@@ -47,13 +47,19 @@
     };
     environment_vars.LIBVA_DRIVER_NAME = "radeonsi";
     ffmpeg.hwaccel_args = "preset-vaapi";
-    go2rtc.streams = {
-      front = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.210:554/Streaming/Channels/101";
-      front_sub = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.210:554/Streaming/Channels/102";
-      back = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.211:554/Streaming/Channels/101";
-      back_sub = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.211:554/Streaming/Channels/102";
-      door = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.212:554/Streaming/Channels/101";
-      door_sub = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.212:554/Streaming/Channels/102";
+    go2rtc = {
+      rtsp = {
+        username = "stream";
+        password = "{FRIGATE_RTSP_PASSWORD}";
+      };
+      streams = {
+        front = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.210:554/Streaming/Channels/101";
+        front_sub = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.210:554/Streaming/Channels/102";
+        door = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.211:554/Streaming/Channels/101";
+        door_sub = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.211:554/Streaming/Channels/102";
+        back = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.212:554/Streaming/Channels/101";
+        back_sub = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.212:554/Streaming/Channels/102";
+      };
     };
     model = {
       width = 300;
