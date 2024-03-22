@@ -19,6 +19,7 @@
     ./jellyfin.nix
     ./minecraft.nix
     ./miniflux.nix
+    ./mosquitto.nix
     ./paperless.nix
     ./quassel.nix
     ./step-ca.nix

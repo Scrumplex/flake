@@ -68,7 +68,13 @@
       input_pixel_format = "bgr";
       labelmap_path = "/openvino-model/coco_91cl_bkgr.txt";
     };
-    mqtt.enabled = false;
+    motion.mask = "0,0,0,54,371,54,371,0";
+    mqtt = {
+      enabled = config.services.mosquitto.enable;
+      host = "eclipse.lan";
+      user = "user";
+      password = "{FRIGATE_MQTT_PASSWORD}";
+    };
     record = {
       enabled = true;
       retain = {
@@ -101,6 +107,8 @@ in {
       "${configFile}:/config/config.yml"
     ];
     ports = [
+      "1935:1935" # RTMP
+      "5000:5000" # API
       "8554:8554" # RTSP feeds
       "8555:8555/tcp" # WebRTC
       "8555:8555/udp" # WebRTC
@@ -122,6 +130,8 @@ in {
 
   networking.firewall = {
     allowedTCPPorts = [
+      1935
+      5000
       8554
       8555
     ];

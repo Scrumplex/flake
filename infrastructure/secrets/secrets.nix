@@ -11,6 +11,7 @@ let
   eclipse = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEgfjN4xqCCsl+XzvSFFIR4WQ18r4+G7kGcMLkTe4be6";
 in {
   "common/nullmailer-remotes.age".publicKeys = scrumplex ++ [universe spacehub duckhub cosmos eclipse];
+  "common/mqtt-password.age".publicKeys = scrumplex ++ [universe cosmos eclipse];
 
   "universe/id_borgbase.age".publicKeys = scrumplex ++ [universe];
   "universe/borgbase_repokey.age".publicKeys = scrumplex ++ [universe];
