@@ -90,11 +90,6 @@
   configFile = (pkgs.formats.yaml {}).generate "frigate.yml" settings;
 in {
   age.secrets."frigate.env".file = ../../secrets/eclipse/frigate.env.age;
-  age.secrets."frigate-users" = {
-    file = ../../secrets/eclipse/frigate-users.age;
-    owner = "traefik";
-    group = "traefik";
-  };
 
   virtualisation.oci-containers.containers."frigate" = {
     image = config.virtualisation.oci-containers.externalImages.images."frigate".ref;
@@ -121,9 +116,8 @@ in {
     ];
     labels = {
       "traefik.enable" = "true";
-      "traefik.http.routers.frigate.rule" = "Host(`view.sefa.cloud`)";
-      "traefik.http.routers.frigate.entrypoints" = "websecure";
-      "traefik.http.routers.frigate.middlewares" = "frigate-auth@file";
+      "traefik.http.routers.frigate.rule" = "Host(`view.eclipse.lan`)";
+      "traefik.http.routers.frigate.entrypoints" = "localsecure";
       "traefik.http.services.frigate.loadbalancer.server.port" = "5000";
     };
   };
@@ -139,6 +133,4 @@ in {
       8555
     ];
   };
-
-  services.traefik.dynamicConfigOptions.http.middlewares.frigate-auth.basicAuth.usersFile = config.age.secrets."frigate-users".path;
 }
