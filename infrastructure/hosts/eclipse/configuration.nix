@@ -27,7 +27,6 @@
     ./syncthing.nix
     ./transmission.nix
     ./traefik.nix
-    ./typhon-ci.nix
     ./vaultwarden.nix
   ];
 
