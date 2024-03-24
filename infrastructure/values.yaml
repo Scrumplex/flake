@@ -6,7 +6,7 @@ caddy:
 draupnir:
   image:
     repository: gnuxie/draupnir
-    tag: v1.86.2@sha256:e9f483810ec6db324c44de97a7207c49b0f0b1fc44469027765bc0265adf1edb
+    tag: v1.87.0@sha256:9689909d8deb3498fcc77304ec2dc2ef8a7dfba3ecefd7bb7f9ec2375fb9c67a
 
 duckhub-static:
   image:
