@@ -5,36 +5,53 @@
 }: let
   settings = {
     cameras = {
-      front.ffmpeg.inputs = [
-        {
-          path = "rtsp://127.0.0.1:8554/front";
-          roles = ["record"];
-        }
-        {
-          path = "rtsp://127.0.0.1:8554/front_sub";
-          roles = ["detect"];
-        }
-      ];
-      back.ffmpeg.inputs = [
-        {
-          path = "rtsp://127.0.0.1:8554/back";
-          roles = ["record"];
-        }
-        {
-          path = "rtsp://127.0.0.1:8554/back_sub";
-          roles = ["detect"];
-        }
-      ];
-      door.ffmpeg.inputs = [
-        {
-          path = "rtsp://127.0.0.1:8554/door";
-          roles = ["record"];
-        }
-        {
-          path = "rtsp://127.0.0.1:8554/door_sub";
-          roles = ["detect"];
-        }
-      ];
+      front = {
+        ffmpeg.inputs = [
+          {
+            path = "rtsp://127.0.0.1:8554/front";
+            roles = ["record"];
+          }
+          {
+            path = "rtsp://127.0.0.1:8554/front_sub";
+            roles = ["detect"];
+          }
+        ];
+        motion.mask = [
+          "1280,0,1280,720,1077,720,1065,476,1280,445,1086,160,941,127,697,171,494,208,293,259,119,302,0,417,0,0" # Himmel
+        ];
+      };
+      back = {
+        ffmpeg.inputs = [
+          {
+            path = "rtsp://127.0.0.1:8554/back";
+            roles = ["record"];
+          }
+          {
+            path = "rtsp://127.0.0.1:8554/back_sub";
+            roles = ["detect"];
+          }
+        ];
+        motion.mask = [
+          "1280,0,1280,307,1068,277,528,246,0,278,0,0" # Vordach
+        ];
+      };
+      door = {
+        ffmpeg.inputs = [
+          {
+            path = "rtsp://127.0.0.1:8554/door";
+            roles = ["record"];
+          }
+          {
+            path = "rtsp://127.0.0.1:8554/door_sub";
+            roles = ["detect"];
+          }
+        ];
+        motion.mask = [
+          "516,68,503,167,797,232,831,88" # Fenster links
+          "1258,189,1206,354,1009,284,1056,129" # Fenster rechts
+          "464,0,447,125,347,155,228,131,183,222,126,245,0,255,0,0" # Himmel
+        ];
+      };
     };
     detect = {
       width = 1280;
@@ -68,6 +85,7 @@
       input_pixel_format = "bgr";
       labelmap_path = "/openvino-model/coco_91cl_bkgr.txt";
     };
+    # camera feed timestamp
     motion.mask = "0,0,0,54,371,54,371,0";
     mqtt = {
       enabled = config.services.mosquitto.enable;
