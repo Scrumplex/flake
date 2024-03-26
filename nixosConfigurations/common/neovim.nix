@@ -117,7 +117,7 @@
       gitsigns.enable = true;
       indent-blankline = {
         enable = true;
-        scope.enabled = false;
+        settings.scope.enabled = false;
       };
       neo-tree.enable = true;
       lsp = {
