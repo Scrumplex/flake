@@ -17,7 +17,7 @@ duckhub-static:
 element-web:
   image:
     repository: vectorim/element-web
-    tag: v1.11.61@sha256:1bf278a40e8827fcb370bb8473a98170c83e81e39b8278a0b90c760a9b05d255
+    tag: v1.11.62@sha256:b385421c6b6c88ce78179d5bc0ec14350b9bacf2dcc0f700625fb963cb31ecae
 
 frigate:
   image:
