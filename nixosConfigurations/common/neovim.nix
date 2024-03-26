@@ -69,6 +69,10 @@
     };
 
     plugins = {
+      alpha = {
+        enable = true;
+        theme = "startify";
+      };
       bufferline.enable = true;
       cmp = {
         enable = true;
@@ -119,7 +123,10 @@
         enable = true;
         settings.scope.enabled = false;
       };
-      neo-tree.enable = true;
+      neo-tree = {
+        enable = true;
+        closeIfLastWindow = true;
+      };
       lsp = {
         enable = true;
         keymaps = {
@@ -168,7 +175,13 @@
         };
       };
       luasnip.enable = true;
-      lualine.enable = true;
+      lualine = {
+        enable = true;
+        ignoreFocus = [
+          "alpha"
+          "neo-tree"
+        ];
+      };
       telescope = {
         enable = true;
         keymaps = {
