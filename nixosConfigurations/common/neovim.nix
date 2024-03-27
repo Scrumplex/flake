@@ -180,6 +180,7 @@
         ignoreFocus = [
           "alpha"
           "neo-tree"
+          "Trouble"
         ];
       };
       telescope = {
@@ -195,6 +196,7 @@
         enable = true;
         indent = true;
       };
+      trouble.enable = true;
     };
 
     keymaps = let
@@ -212,6 +214,10 @@
       (mkNMap "T" "<cmd>BufferLineCyclePrev<CR>")
       (mkNMap "t" "<cmd>BufferLineCycleNext<CR>")
       (mkNMap "<leader>t" "<cmd>Neotree reveal<CR>")
+      (mkNMap "<leader>xx" "<cmd>TroubleToggle<CR>")
+      (mkNMap "<leader>xw" "<cmd>TroubleToggle workspace_diagnostics<CR>")
+      (mkNMap "<leader>xd" "<cmd>TroubleToggle document_diagnostics<CR>")
+      (mkNMap "gR" "<cmd>TroubleToggle lsp_references<CR>")
     ];
   };
 }
