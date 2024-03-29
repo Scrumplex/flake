@@ -49,11 +49,6 @@ mariadb:
     repository: linuxserver/mariadb
     tag: 10.11.6@sha256:ee8b15282e8b934e2a54ad04c9e9d574e7ac51c0894232b11079f73dc855e24d
 
-nextcloud:
-  image:
-    repository: nextcloud
-    tag: 28.0.4-fpm@sha256:595b9b37bc2b88c7d93dbd99bf2fe501ffe71590a17b3c2b1ee22638a431f95e
-
 ovenmediaengine:
   image:
     repository: airensoft/ovenmediaengine

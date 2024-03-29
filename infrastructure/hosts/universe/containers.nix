@@ -34,7 +34,6 @@
   };
 in {
   age.secrets."hedgedoc-service.env".file = ../../secrets/universe/hedgedoc-service.env.age;
-  age.secrets."nextcloud-service.env".file = ../../secrets/universe/nextcloud-service.env.age;
   age.secrets."refraction-service.env".file = ../../secrets/universe/refraction-service.env.age;
   age.secrets."scrumplex-x-service.env".file = ../../secrets/universe/scrumplex-x-service.env.age;
   age.secrets."tor-service.env".file = ../../secrets/universe/tor-service.env.age;
@@ -167,77 +166,6 @@ in {
           ];
         })
       ];
-      nextcloud.settings.services = let
-        nextcloudEnv = {
-          MYSQL_HOST = "mariadb";
-          REDIS_HOST = "redis";
-          TRUSTED_PROXIES = "172.18.0.1";
-          PHP_MEMORY_LIMIT = "2048M";
-        };
-      in
-        mkMerge [
-          (mkContainer {
-            name = "caddy";
-            service.depends_on = [
-              "fpm"
-            ];
-            service.volumes = [
-              "${dataPath}/nextcloud-Caddyfile:/etc/caddy/Caddyfile"
-              "${dataPath}/nextcloud-data:/var/www/html"
-            ];
-            service.labels = {
-              "traefik.enable" = "true";
-              "traefik.http.routers.nextcloud.rule" = "Host(`sefa.cloud`)";
-              "traefik.http.routers.nextcloud.entrypoints" = "websecure";
-            };
-          })
-
-          (mkContainer {
-            name = "fpm";
-            externalImage = "nextcloud";
-            environment = nextcloudEnv;
-            service.depends_on = [
-              "redis"
-              "mariadb"
-            ];
-            service.env_file = [
-              config.age.secrets."nextcloud-service.env".path
-            ];
-            service.volumes = [
-              "${dataPath}/nextcloud-data:/var/www/html"
-            ];
-          })
-
-          (mkContainer {
-            name = "cron";
-            externalImage = "nextcloud";
-            environment = nextcloudEnv;
-            service.depends_on = [
-              "fpm"
-            ];
-            service.entrypoint = "/cron.sh";
-            service.env_file = [
-              config.age.secrets."nextcloud-service.env".path
-            ];
-            service.volumes = [
-              "${dataPath}/nextcloud-data:/var/www/html"
-            ];
-          })
-
-          (mkContainer {
-            name = "mariadb";
-            service.env_file = [
-              config.age.secrets."nextcloud-service.env".path
-            ];
-            service.volumes = [
-              "${dataPath}/nextcloud-mysql-data:/config"
-            ];
-          })
-
-          (mkContainer {
-            name = "redis";
-          })
-        ];
       refraction.settings.services = mkMerge [
         (mkContainer {
           name = "redis";
