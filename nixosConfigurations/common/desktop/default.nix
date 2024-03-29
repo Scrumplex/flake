@@ -14,7 +14,7 @@
     qpwgraph
     virt-manager
 
-    discord-canary
+    discord
     webcord
     vesktop
     cinny-desktop

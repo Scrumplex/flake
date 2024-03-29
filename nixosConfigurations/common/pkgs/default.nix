@@ -8,7 +8,7 @@ in {
   nixpkgs = {
     config.allowUnfreePredicate = pkg:
       builtins.elem (lib.getName pkg) [
-        "discord-canary"
+        "discord"
         "samsung-unified-linux-driver"
         "steam"
         "steam-original"
