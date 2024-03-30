@@ -36,7 +36,6 @@ in {
         }
       '';
     };
-    services.mpd-discord-rpc.enable = true;
     services.listenbrainz-mpd = {
       enable = true;
       settings.submission.token_file = config.age.secrets."listenbrainz-token".path;
