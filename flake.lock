@@ -731,11 +731,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1711745924,
-        "narHash": "sha256-ZYVrOg12pWNbY1hx1lOu3cwER6xalEHUUIXnfbkCtUY=",
+        "lastModified": 1711809391,
+        "narHash": "sha256-/nGV6P8nB/R/ysbl1KQIKIwp1mQPXxtnoEd+pf3X+nw=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "4f83bcf2906c1c933316396221024f3482a7b086",
+        "rev": "0c16f59202c5062d12ef9cd4560cc9fca9d99f9a",
         "type": "github"
       },
       "original": {
@@ -783,11 +783,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1711630143,
-        "narHash": "sha256-Q/z+zCvDvUSKzb0pvoXkvnzVqcbZoUAgusLf8H8SNOE=",
+        "lastModified": 1711796601,
+        "narHash": "sha256-r2JspFvK7usbqZnJytS7NnxsmYCZngwDAJMusAWz6B4=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "2012b2c243dcfad8860847c0d85f184b6dd24504",
+        "rev": "b7835036d4b4f392ea97cc6b021c152f00cd8e69",
         "type": "github"
       },
       "original": {
