@@ -7,6 +7,7 @@
       ga = "git add";
       gap = "git add -p";
       gca = "git commit -s --amend";
+      gcf = "git commit -s --fixup";
       gcm = "git commit -sm";
       gco = "git checkout";
       gd = "git diff";
@@ -14,6 +15,8 @@
       gl = "git log";
       gp = "git push";
       gpl = "git pull";
+      gr = "git rebase";
+      gra = "git rebase --autosquash";
       gri = "git rebase --interactive";
       grc = "git rebase --continue";
       gs = "git status";
