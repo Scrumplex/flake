@@ -36,6 +36,13 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };
+    scrumplex-website = {
+      url = "git+https://codeberg.org/Scrumplex/website.git";
+      # Needs unstable/24.05
+      #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
+    };
   };
 
   outputs = inputs @ {flake-parts, ...}:

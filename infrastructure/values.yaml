@@ -66,22 +66,11 @@ renovate:
     repository: renovatebot/renovate
     tag: 37.278.0@sha256:f46a627c730010d9bcfcb236c1da5aa9c2e76d359ef0d824b8a586c2fdcb72f2
 
-scrumplex-website:
-  image:
-    registry: codeberg.org
-    repository: scrumplex/website
-    tag: latest@sha256:4749771948ff55156e1422d735a6891c83005ae319ab0c86600c7aca34e19cfb
-
 scrumplex-x:
   image:
     registry: codeberg.org
     repository: scrumplex/prntserve
     tag: latest@sha256:adb5fda2a9ad9a0bf07d626b46e39e364e02268533981944eb5f2d77313affc0
-
-tor:
-  image:
-    repository: goldy/tor-hidden-service
-    tag: v0.4.7.12-54c0e54@sha256:cc682a9036cc560712187413697b0c27fb63af133b5f237562b7317091a0ed1f
 
 ts3:
   image:

@@ -18,7 +18,9 @@
 
     ./containers.nix
     ./murmur.nix
+    ./nginx.nix
     ./renovate.nix
+    ./scrumplex-website.nix
     ./skinprox.nix
     ./synapse.nix
     ./teamspeak3.nix

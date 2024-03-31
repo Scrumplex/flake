@@ -22,7 +22,7 @@ in {
   "universe/scrumplex-x-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
   "universe/synapse.signing.key.age".publicKeys = scrumplex ++ [universe];
   "universe/synapse-secrets.yaml.age".publicKeys = scrumplex ++ [universe];
-  "universe/tor-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
+  "universe/scrumplex-hs_ed25519_secret_key.age".publicKeys = scrumplex ++ [universe];
   "universe/wireguard.key.age".publicKeys = scrumplex ++ [spacehub universe];
 
   "cosmos/id_borgbase.age".publicKeys = scrumplex ++ [cosmos];

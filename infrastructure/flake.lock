@@ -311,6 +311,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1711703276,
+        "narHash": "sha256-iMUFArF0WCatKK6RzfUJknjem0H9m4KgorO/p3Dopkk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d8fe5e6c92d0d190646fb9f1056741a229980089",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1708093448,
         "narHash": "sha256-gohEm3/NVyu7WINFhRf83yJH8UM2ie/KY9Iw3VN6fiE=",
         "owner": "nixos",
@@ -360,8 +376,33 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "pre-commit-hooks": "pre-commit-hooks",
+        "scrumplex-website": "scrumplex-website",
         "skinprox": "skinprox",
         "srvos": "srvos"
+      }
+    },
+    "scrumplex-website": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": "nixpkgs_2",
+        "pre-commit-hooks": [
+          "pre-commit-hooks"
+        ]
+      },
+      "locked": {
+        "lastModified": 1711915038,
+        "narHash": "sha256-W6kv/W/rRsx6NDIfqYy0Y3k+iL9OsFh6Ak5jB/+K9I4=",
+        "ref": "refs/heads/main",
+        "rev": "0f3372f09d1360e6a1127b28470efce7ae184db2",
+        "revCount": 703,
+        "type": "git",
+        "url": "https://codeberg.org/Scrumplex/website.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/Scrumplex/website.git"
       }
     },
     "skinprox": {
@@ -370,7 +411,7 @@
           "flake-parts"
         ],
         "nix-filter": "nix-filter",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "pre-commit-hooks": [
           "pre-commit-hooks"
         ]

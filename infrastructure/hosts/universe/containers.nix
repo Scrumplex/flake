@@ -35,7 +35,6 @@
 in {
   age.secrets."refraction-service.env".file = ../../secrets/universe/refraction-service.env.age;
   age.secrets."scrumplex-x-service.env".file = ../../secrets/universe/scrumplex-x-service.env.age;
-  age.secrets."tor-service.env".file = ../../secrets/universe/tor-service.env.age;
 
   virtualisation.docker.enable = false;
   virtualisation.podman = {
@@ -54,51 +53,6 @@ in {
   virtualisation.arion = {
     backend = "podman-socket";
     projects = {
-      scrumplex-website.settings.services = mkMerge [
-        (mkContainer rec {
-          name = "scrumplex-website";
-          service.labels = {
-            "traefik.enable" = "true";
-            "traefik.http.routers.${name}.rule" = "Host(`scrumplex.net`)";
-            "traefik.http.routers.${name}.entrypoints" = "websecure";
-          };
-        })
-
-        (mkContainer rec {
-          name = "ovenmediaengine";
-          environment = {
-            OME_SRT_PROV_PORT = "1935";
-            OME_DISTRIBUTION = "live.scrumplex.net";
-            OME_APPLICATION = "scrumplex";
-          };
-          service.ports = [
-            "3333:3333" # WebRTC Signaling
-            "3478:3478" # WebRTC Relay
-            "1935:1935" # RTMP Ingest
-            "10000-10005:10000-10005/udp" # WebRTC ICE
-          ];
-          service.volumes = [
-            "${dataPath}/ovenmediaengine-Server.xml:/opt/ovenmediaengine/bin/origin_conf/Server.xml"
-          ];
-          service.labels = {
-            "traefik.enable" = "true";
-            "traefik.http.routers.${name}.rule" = "Host(`live.scrumplex.net`)";
-            "traefik.http.routers.${name}.entrypoints" = "websecure";
-            "traefik.http.services.${name}.loadbalancer.server.port" = "3333";
-          };
-        })
-
-        (mkContainer {
-          name = "tor";
-          environment = {
-            SERVICE1_TOR_SERVICE_HOSTS = "80:scrumplex-website:80";
-            SERVICE1_TOR_SERVICE_VERSION = "3";
-          };
-          service.env_file = [
-            config.age.secrets."tor-service.env".path
-          ];
-        })
-      ];
       honeylinks.settings.services = mkContainer rec {
         name = "honeylinks";
         service.labels = {
