@@ -33,7 +33,6 @@
     ];
   };
 in {
-  age.secrets."hedgedoc-service.env".file = ../../secrets/universe/hedgedoc-service.env.age;
   age.secrets."refraction-service.env".file = ../../secrets/universe/refraction-service.env.age;
   age.secrets."scrumplex-x-service.env".file = ../../secrets/universe/scrumplex-x-service.env.age;
   age.secrets."tor-service.env".file = ../../secrets/universe/tor-service.env.age;
@@ -131,41 +130,6 @@ in {
           "traefik.http.middlewares.${name}-cors.headers.addvaryheader" = "true";
         };
       };
-      hedgedoc.settings.services = mkMerge [
-        (mkContainer rec {
-          name = "hedgedoc";
-          environment = {
-            CMD_DB_HOST = "postgres";
-            CMD_DOMAIN = "doc.scrumplex.net";
-            CMD_PROTOCOL_USESSL = "true";
-            CMD_HSTS_ENABLE = "false";
-            CMD_ALLOW_EMAIL_REGISTER = "false";
-          };
-          service.depends_on = ["postgres"];
-          service.env_file = [
-            config.age.secrets."hedgedoc-service.env".path
-          ];
-          service.volumes = [
-            "${dataPath}/hedgedoc-data:/hedgedoc/public/uploads"
-          ];
-          service.labels = {
-            "traefik.enable" = "true";
-            "traefik.http.routers.${name}.rule" = "Host(`doc.scrumplex.net`)";
-            "traefik.http.routers.${name}.entrypoints" = "websecure";
-          };
-        })
-
-        (mkContainer {
-          name = "postgres";
-          externalImage = "postgres13";
-          service.env_file = [
-            config.age.secrets."hedgedoc-service.env".path
-          ];
-          service.volumes = [
-            "${dataPath}/hedgedoc-postgres-data:/var/lib/postgresql/data"
-          ];
-        })
-      ];
       refraction.settings.services = mkMerge [
         (mkContainer {
           name = "redis";

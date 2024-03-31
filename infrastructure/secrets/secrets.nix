@@ -17,7 +17,6 @@ in {
   "universe/borgbase_repokey.age".publicKeys = scrumplex ++ [universe];
   "universe/murmur.env.age".publicKeys = scrumplex ++ [spacehub universe];
   "universe/hetzner.key.age".publicKeys = scrumplex ++ [spacehub universe];
-  "universe/hedgedoc-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
   "universe/refraction-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
   "universe/renovate.env.age".publicKeys = scrumplex ++ [spacehub universe];
   "universe/scrumplex-x-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
