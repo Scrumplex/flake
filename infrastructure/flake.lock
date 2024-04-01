@@ -263,6 +263,33 @@
         "type": "github"
       }
     },
+    "honeylinks-website": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "scrumplex-website",
+          "nixpkgs"
+        ],
+        "pre-commit-hooks": [
+          "pre-commit-hooks"
+        ]
+      },
+      "locked": {
+        "lastModified": 1711979582,
+        "narHash": "sha256-nudPx+5YOVf+7utBuFxcuy++0qfhJ7OisFq/cNDY0eY=",
+        "ref": "refs/heads/main",
+        "rev": "cc5b19d39c0ffa5adc8db23c7486dd809d05a356",
+        "revCount": 145,
+        "type": "git",
+        "url": "https://codeberg.org/Scrumplex/honeylinks.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/Scrumplex/honeylinks.git"
+      }
+    },
     "nix-filter": {
       "locked": {
         "lastModified": 1705332318,
@@ -373,6 +400,7 @@
         "arion": "arion",
         "deploy-rs": "deploy-rs",
         "flake-parts": "flake-parts_2",
+        "honeylinks-website": "honeylinks-website",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "pre-commit-hooks": "pre-commit-hooks",

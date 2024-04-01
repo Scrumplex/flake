@@ -17,6 +17,7 @@
     ../common/upgrade.nix
 
     ./containers.nix
+    ./honeylinks-website.nix
     ./murmur.nix
     ./nginx.nix
     ./renovate.nix

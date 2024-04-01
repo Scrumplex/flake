@@ -53,14 +53,6 @@ in {
   virtualisation.arion = {
     backend = "podman-socket";
     projects = {
-      honeylinks.settings.services = mkContainer rec {
-        name = "honeylinks";
-        service.labels = {
-          "traefik.enable" = "true";
-          "traefik.http.routers.${name}.rule" = "Host(`honeyarcus.art`)";
-          "traefik.http.routers.${name}.entrypoints" = "websecure";
-        };
-      };
       scrumplex-x.settings.services = mkContainer rec {
         name = "scrumplex-x";
         environment.PRNT_PATH = "/data";

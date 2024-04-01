@@ -31,12 +31,6 @@ home-assistant:
     repository: home-assistant/home-assistant
     tag: 2024.3.3@sha256:48773146b3b7f7d4811426a33044a322e8e4fcda97b9ed9a6b37d7e5b649af0b
 
-honeylinks:
-  image:
-    registry: codeberg.org
-    repository: scrumplex/honeylinks
-    tag: latest@sha256:0da32f01d652936aab51ab369f360c6703fdae0bc53aee1e4caa40b8232c5fdd
-
 mariadb:
   image:
     registry: lscr.io
