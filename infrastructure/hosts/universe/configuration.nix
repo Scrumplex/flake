@@ -18,6 +18,7 @@
 
     ./containers.nix
     ./honeylinks-website.nix
+    ./monitoring.nix
     ./murmur.nix
     ./nginx.nix
     ./renovate.nix

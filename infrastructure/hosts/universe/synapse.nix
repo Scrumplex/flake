@@ -54,10 +54,17 @@
             }
           ];
         }
-        #{
-        #  port = 9000;
-        #  type = "metrics";
-        #}
+        {
+          port = 9008;
+          tls = false;
+          type = "http";
+          resources = [
+            {
+              compress = false;
+              names = ["metrics"];
+            }
+          ];
+        }
       ];
 
       admin_contact = "mailto:contact@scrumplex.net";
@@ -78,7 +85,7 @@
         "#general:duckhub.io"
       ];
 
-      #enable_metrics = true;
+      enable_metrics = true;
 
       signing_key_path = config.age.secrets."synapse.signing.key".path;
 
@@ -139,6 +146,18 @@
   };
 
   networking.firewall.allowedTCPPorts = [8448];
+
+  services.prometheus.scrapeConfigs = [
+    {
+      job_name = "synapse";
+      metrics_path = "/_synapse/metrics";
+      static_configs = [
+        {
+          targets = ["localhost:9008"];
+        }
+      ];
+    }
+  ];
 
   services.traefik = {
     staticConfigOptions.entryPoints.synapsesecure = {
