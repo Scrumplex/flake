@@ -152,11 +152,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1709336216,
-        "narHash": "sha256-Dt/wOWeW6Sqm11Yh+2+t0dfEWxoMxGBvv3JpIocFl9E=",
+        "lastModified": 1712014858,
+        "narHash": "sha256-sB4SWl2lX95bExY2gMFG5HIzvva5AVMJd4Igm+GpZNw=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "f7b3c975cf067e56e7cda6cb098ebe3fb4d74ca2",
+        "rev": "9126214d0a59633752a136528f5f3b9aa8565b7d",
         "type": "github"
       },
       "original": {
@@ -381,11 +381,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1711957905,
-        "narHash": "sha256-8aEIBDbVyntFs0yzfo3uJ7SpvFoMABhAp4URoD8daZ0=",
+        "lastModified": 1712033542,
+        "narHash": "sha256-werD6WtgYo+ZGopbLENP0phwoWyd73CWz01VgrFOSL0=",
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "ffbf46949fcf41378498141341998b60fdbb2a32",
+        "rev": "642dce09c85b1478b509416f83e72bd59b6b3ac2",
         "type": "github"
       },
       "original": {
@@ -420,11 +420,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1711915038,
-        "narHash": "sha256-W6kv/W/rRsx6NDIfqYy0Y3k+iL9OsFh6Ak5jB/+K9I4=",
+        "lastModified": 1711979316,
+        "narHash": "sha256-lr8gWn9GLsbWwInwxVltFsxm2kXayGPjBEjEXX8jc+w=",
         "ref": "refs/heads/main",
-        "rev": "0f3372f09d1360e6a1127b28470efce7ae184db2",
-        "revCount": 703,
+        "rev": "a5cf7406e722f020d411608cc2b63ddfe9210ea7",
+        "revCount": 704,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/website.git"
       },
