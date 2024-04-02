@@ -74,7 +74,7 @@
       # not supported on aarch64-darwin in nixpkgs
       "caffeine"
       "jabra-direct"
-      "mac-mouse-fix"
+      "linearmouse"
       "signal"
       "visual-studio-code"
     ];
