@@ -89,6 +89,7 @@
     package = pkgs.postgresql_16;
     extraPlugins = [config.services.postgresql.package.pkgs.pg_repack];
   };
+  services.borgbackup.jobs.borgbase.exclude = ["/var/lib/postgresql"];
   services.postgresqlBackup.enable = true;
 
   # This value determines the NixOS release from which the default
