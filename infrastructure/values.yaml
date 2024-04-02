@@ -35,7 +35,7 @@ mariadb:
   image:
     registry: lscr.io
     repository: linuxserver/mariadb
-    tag: 10.11.6@sha256:ee8b15282e8b934e2a54ad04c9e9d574e7ac51c0894232b11079f73dc855e24d
+    tag: 10.11.6@sha256:b6f4109d5c50fbad4b29266a7fe0118622ac9f15a8ac7cda6d2af99d52ab9182
 
 ovenmediaengine:
   image:
