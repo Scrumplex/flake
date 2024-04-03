@@ -16,7 +16,19 @@
     protontricks
   ];
 
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+      (proton-ge-bin.overrideAttrs (finalAttrs: _: {
+        version = "GE-Proton9-1-rtsp5";
+        src = pkgs.fetchzip {
+          url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}/${finalAttrs.version}.tar.gz";
+          hash = "sha256-14cmc1Yi5Ysd2q6AB6M2jWVBiv94/7uE1J/dGixfP0s=";
+        };
+      }))
+    ];
+  };
 
   programs.gamemode = {
     enable = true;
