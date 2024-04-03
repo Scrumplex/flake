@@ -20,7 +20,7 @@
     globals = {
       mapleader = " ";
     };
-    options = {
+    opts = {
       title = true;
       termguicolors = true; # Use true colors, required for some plugins
       number = true;
