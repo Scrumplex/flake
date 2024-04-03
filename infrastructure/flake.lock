@@ -183,10 +183,36 @@
         "type": "github"
       }
     },
+    "git-hooks": {
+      "inputs": {
+        "flake-compat": "flake-compat_2",
+        "flake-utils": "flake-utils",
+        "gitignore": "gitignore",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nixpkgs-stable": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1712055707,
+        "narHash": "sha256-4XLvuSIDZJGS17xEwSrNuJLL7UjDYKGJSbK1WWX2AK8=",
+        "owner": "cachix",
+        "repo": "git-hooks.nix",
+        "rev": "e35aed5fda3cc79f88ed7f1795021e559582093a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cachix",
+        "repo": "git-hooks.nix",
+        "type": "github"
+      }
+    },
     "gitignore": {
       "inputs": {
         "nixpkgs": [
-          "pre-commit-hooks",
+          "git-hooks",
           "nixpkgs"
         ]
       },
@@ -273,7 +299,7 @@
           "nixpkgs"
         ],
         "pre-commit-hooks": [
-          "pre-commit-hooks"
+          "git-hooks"
         ]
       },
       "locked": {
@@ -368,42 +394,16 @@
         "type": "github"
       }
     },
-    "pre-commit-hooks": {
-      "inputs": {
-        "flake-compat": "flake-compat_2",
-        "flake-utils": "flake-utils",
-        "gitignore": "gitignore",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "nixpkgs-stable": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1712055707,
-        "narHash": "sha256-4XLvuSIDZJGS17xEwSrNuJLL7UjDYKGJSbK1WWX2AK8=",
-        "owner": "cachix",
-        "repo": "pre-commit-hooks.nix",
-        "rev": "e35aed5fda3cc79f88ed7f1795021e559582093a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cachix",
-        "repo": "pre-commit-hooks.nix",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "agenix": "agenix",
         "arion": "arion",
         "deploy-rs": "deploy-rs",
         "flake-parts": "flake-parts_2",
+        "git-hooks": "git-hooks",
         "honeylinks-website": "honeylinks-website",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
-        "pre-commit-hooks": "pre-commit-hooks",
         "scrumplex-website": "scrumplex-website",
         "skinprox": "skinprox",
         "srvos": "srvos"
@@ -416,7 +416,7 @@
         ],
         "nixpkgs": "nixpkgs_2",
         "pre-commit-hooks": [
-          "pre-commit-hooks"
+          "git-hooks"
         ]
       },
       "locked": {
@@ -441,7 +441,7 @@
         "nix-filter": "nix-filter",
         "nixpkgs": "nixpkgs_3",
         "pre-commit-hooks": [
-          "pre-commit-hooks"
+          "git-hooks"
         ]
       },
       "locked": {

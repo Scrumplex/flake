@@ -25,8 +25,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
-    pre-commit-hooks = {
-      url = "github:cachix/pre-commit-hooks.nix";
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-stable.follows = "nixpkgs";
     };
@@ -34,28 +34,28 @@
       url = "git+https://codeberg.org/Scrumplex/skinprox.git";
       #inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
+      inputs.pre-commit-hooks.follows = "git-hooks";
     };
     scrumplex-website = {
       url = "git+https://codeberg.org/Scrumplex/website.git";
       # Needs unstable/24.05
       #inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
+      inputs.pre-commit-hooks.follows = "git-hooks";
     };
     honeylinks-website = {
       url = "git+https://codeberg.org/Scrumplex/honeylinks.git";
       # Needs unstable/24.05
       inputs.nixpkgs.follows = "scrumplex-website/nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
+      inputs.pre-commit-hooks.follows = "git-hooks";
     };
   };
 
   outputs = inputs @ {flake-parts, ...}:
     flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
-        inputs.pre-commit-hooks.flakeModule
+        inputs.git-hooks.flakeModule
         ./deploy-flake-module.nix
 
         ./modules
