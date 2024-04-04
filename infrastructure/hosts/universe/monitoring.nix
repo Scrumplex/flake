@@ -1,6 +1,11 @@
 {config, ...}: let
   fqdn = "grafana.scrumplex.net";
 in {
+  age.secrets."grafana-smtp-password" = {
+    file = ../../secrets/universe/grafana-smtp-password.age;
+    owner = config.systemd.services.grafana.serviceConfig.User;
+  };
+
   common.traefik.enableMetrics = true;
 
   services.prometheus = {
@@ -32,9 +37,18 @@ in {
 
   services.grafana = {
     enable = true;
-    settings.server = {
-      http_port = 3050;
-      root_url = "https://${fqdn}/";
+    settings = {
+      server = {
+        http_port = 3050;
+        root_url = "https://${fqdn}/";
+      };
+      smtp = {
+        enabled = true;
+        host = "smtp-relay.brevo.com:587";
+        user = "contact@scrumplex.net";
+        password = "$__file{${config.age.secrets."grafana-smtp-password".path}}";
+        from_address = "notify@sefa.cloud";
+      };
     };
 
     provision = {
