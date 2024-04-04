@@ -50,7 +50,7 @@
 
     files = {
       "ftplugin/nix.lua" = {
-        options = {
+        opts = {
           shiftwidth = 2;
           softtabstop = 2;
           tabstop = 2;
