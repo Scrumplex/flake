@@ -45,6 +45,7 @@ in {
           {
             name = "Prometheus@universe";
             type = "prometheus";
+            uid = "prom_universe";
             url = "http://localhost:${toString config.services.prometheus.port}";
             isDefault = true;
           }
