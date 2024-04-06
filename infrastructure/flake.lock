@@ -303,11 +303,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1712243009,
-        "narHash": "sha256-sRE8OAN4GhK4ilEC459ZfquwSd4IAGDREGD66W7VdAM=",
+        "lastModified": 1712395778,
+        "narHash": "sha256-0f5HxU2NpJ92wFR83JIufyH9m2pGcJ5sBjPaTiH58nw=",
         "ref": "refs/heads/main",
-        "rev": "fbfa5a540638cd67019195ea88d52c5a111e3c14",
-        "revCount": 147,
+        "rev": "dce34e92710b74191d168d406a9566d35ea61137",
+        "revCount": 149,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/honeylinks.git"
       },
@@ -420,11 +420,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1712244214,
-        "narHash": "sha256-DL2qLpGQzvSSnuwNYqR1o2PP1YSA+iKlPYbt+Kj/KMQ=",
+        "lastModified": 1712395771,
+        "narHash": "sha256-YfmKC5sLQSQ50OfZBbKlK6QVw8pXbts2r/xVK8f/ZVE=",
         "ref": "refs/heads/main",
-        "rev": "e341c0717991c881e21687bfa0be6916231e1dd8",
-        "revCount": 706,
+        "rev": "3c18cc5701cac47ac711e45b87a903507dc33551",
+        "revCount": 708,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/website.git"
       },
