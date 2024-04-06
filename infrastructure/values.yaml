@@ -1,8 +1,3 @@
-caddy:
-  image:
-    repository: caddy
-    tag: 2.7.6-alpine@sha256:a6054d207060158cd0f019d6a35907bf47d1f8dacf58cdb63075a930d8ebca38
-
 draupnir:
   image:
     repository: gnuxie/draupnir
@@ -19,12 +14,6 @@ home-assistant:
     registry: ghcr.io
     repository: home-assistant/home-assistant
     tag: 2024.4.1@sha256:36cdb5fcea8924272bca906f9ef5a3245af1c2e9f0cbcfd344737774adbc9063
-
-mariadb:
-  image:
-    registry: lscr.io
-    repository: linuxserver/mariadb
-    tag: 10.11.6@sha256:b6f4109d5c50fbad4b29266a7fe0118622ac9f15a8ac7cda6d2af99d52ab9182
 
 ovenmediaengine:
   image:
@@ -54,8 +43,3 @@ scrumplex-x:
     registry: codeberg.org
     repository: scrumplex/prntserve
     tag: latest@sha256:adb5fda2a9ad9a0bf07d626b46e39e364e02268533981944eb5f2d77313affc0
-
-ts3:
-  image:
-    repository: teamspeak
-    tag: 3.13.7@sha256:1796089007b3a1ee43519fe825351e6789113fa2bc7a492b31a274963372285c
