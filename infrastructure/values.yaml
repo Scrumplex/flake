@@ -8,17 +8,6 @@ draupnir:
     repository: gnuxie/draupnir
     tag: v1.87.0@sha256:9689909d8deb3498fcc77304ec2dc2ef8a7dfba3ecefd7bb7f9ec2375fb9c67a
 
-duckhub-static:
-  image:
-    registry: codeberg.org
-    repository: scrumplex/duckhub-static
-    tag: latest@sha256:dfd03c7d0eabb8d7c6f93d56e463f46f7b000b6f9a0c58c5e6b26f0ea9240217
-
-element-web:
-  image:
-    repository: vectorim/element-web
-    tag: v1.11.63@sha256:b7e82d0f20d8082fed314061e90ce6c34e0231a1b9c73176f1a87d5da84524da
-
 frigate:
   image:
     registry: ghcr.io
