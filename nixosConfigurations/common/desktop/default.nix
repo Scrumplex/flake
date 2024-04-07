@@ -13,6 +13,7 @@
 
     qpwgraph
     virt-manager
+    bottles
 
     discord
     webcord
