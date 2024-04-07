@@ -11,7 +11,9 @@ in {
   services.openssh.enable = true;
   virtualisation.podman = {
     enable = mkDefault true;
+    dockerCompat = true;
     dockerSocket.enable = true;
+    defaultNetwork.settings.dns_enabled = true;
   };
 
   security.sudo = {
