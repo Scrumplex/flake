@@ -21,10 +21,10 @@
     extraCompatPackages = with pkgs; [
       proton-ge-bin
       (proton-ge-bin.overrideAttrs (finalAttrs: _: {
-        version = "GE-Proton9-1-rtsp5";
+        version = "GE-Proton9-1-rtsp6";
         src = pkgs.fetchzip {
-          url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}/${finalAttrs.version}.tar.gz";
-          hash = "sha256-14cmc1Yi5Ysd2q6AB6M2jWVBiv94/7uE1J/dGixfP0s=";
+          url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}-fix/${finalAttrs.version}.tar.gz";
+          hash = "sha256-ZjOWib2qFUkkqBM0FfD7In+tbPYmrdYeb5ihzG0i/J8=";
         };
       }))
     ];
