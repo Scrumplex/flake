@@ -25,8 +25,6 @@ in {
         discord-canary = mkDiscordOverride prev.discord-canary;
         discord-ptb = mkDiscordOverride prev.discord-ptb;
 
-        gamescope = prev.gamescope.override {wlroots = final.wlroots_0_17;};
-
         ncmpcpp = prev.ncmpcpp.override {
           visualizerSupport = true;
         };
