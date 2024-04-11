@@ -333,11 +333,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1712739139,
-        "narHash": "sha256-I8fw3ot29H9TXClIJHmPfQXaq2dEXHs2VmZeMEw7sb4=",
+        "lastModified": 1712760404,
+        "narHash": "sha256-4zhaEW1nB+nGbCNMjOggWeY5nXs/H0Y71q0+h+jdxoU=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "805adee81c82efbe50cac7398c4de05769488ed9",
+        "rev": "e1c4bac14beb8c409d0534382cf967171706b9d9",
         "type": "github"
       },
       "original": {
@@ -420,11 +420,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1712395771,
-        "narHash": "sha256-YfmKC5sLQSQ50OfZBbKlK6QVw8pXbts2r/xVK8f/ZVE=",
+        "lastModified": 1712814815,
+        "narHash": "sha256-CNO0vwogzInMCIU9bgCzNlhzQwjM1M8BcqDzXpaJVt0=",
         "ref": "refs/heads/main",
-        "rev": "3c18cc5701cac47ac711e45b87a903507dc33551",
-        "revCount": 708,
+        "rev": "b663690ec1a64986cd8a15646658e038c8810482",
+        "revCount": 710,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/website.git"
       },
