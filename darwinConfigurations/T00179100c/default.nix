@@ -87,6 +87,7 @@
     keepassxc
 
     docker-client
+    fluxcd
     k9s
     kubectl
     kubectx
