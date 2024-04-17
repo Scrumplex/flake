@@ -8,10 +8,10 @@
 
   # TODO: use overlay once we are on 24.05
   services.nginx.virtualHosts."scrumplex.net" = {
-    serverAliases = ["ihl5s2myi572rm75sv6apoalj4h3nuhymjz2xkfg655yki7pnrtaumyd.onion"];
+    serverAliases = ["oysap5oclxaouxpuyykckncptwvt5cfwqyyckolly3hy5aq5poyvilid.onion"];
     root = inputs.scrumplex-website.packages.${pkgs.system}.scrumplex-website;
     extraConfig = ''
-      add_header Onion-Location http://ihl5s2myi572rm75sv6apoalj4h3nuhymjz2xkfg655yki7pnrtaumyd.onion$request_uri;
+      add_header Onion-Location http://oysap5oclxaouxpuyykckncptwvt5cfwqyyckolly3hy5aq5poyvilid.onion$request_uri;
 
       location ~* \.html$ {
         expires 1h;
