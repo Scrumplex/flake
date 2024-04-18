@@ -10,7 +10,7 @@
     font.name = "Fira Code";
     settings = {
       disable_ligatures = "cursor";
-      paste_actions = ""; # removes all actions
+      paste_actions = "quote-urls-at-prompt";
       placement_strategy = "top-left";
       tab_bar_style = "powerline";
       background_opacity = "0.975";
