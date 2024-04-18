@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -104,6 +105,11 @@
       maxJobs = 4;
     };
     settings.experimental-features = "nix-command flakes";
+
+    nixPath = [
+      "nixpkgs=${inputs.nixpkgs}"
+    ];
+    registry.n.flake = inputs.nixpkgs;
   };
 
   programs.zsh.enable = true; # default shell on catalina

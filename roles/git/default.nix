@@ -20,12 +20,6 @@ in {
   ];
 
   config = mkIf cfg.enable {
-    assertions = [
-      {
-        assertion = config.roles.gpg.enable -> (builtins.hasAttr "gpgKey" cfg.author);
-        message = "As roles.gpg is enabled a value for the Git signing key must be set";
-      }
-    ];
     hm = {
       home.packages = with pkgs; [git-extras];
 

@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,11 +22,15 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    catppuccin = {
-      url = "github:Stonks3141/ctp-nix";
+    nixvim = {
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
       inputs.home-manager.follows = "home-manager";
+      inputs.nix-darwin.follows = "nix-darwin";
+      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };
+    catppuccin.url = "github:catppuccin/nix";
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,25 +40,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    # intentionally not following our nixpkgs for cache
-    lanzaboote.url = "github:nix-community/lanzaboote";
-    nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    prismlauncher = {
-      url = "github:PrismLauncher/PrismLauncher";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
-    };
-    wlx-overlay-x = {
-      url = "github:galister/wlx-overlay-x";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    catppuccin-qt5ct = {
-      url = "github:catppuccin/qt5ct";
-      flake = false;
-    };
   };
 
   outputs = inputs @ {flake-parts, ...}:
@@ -64,18 +48,13 @@
         inputs.pre-commit-hooks.flakeModule
 
         ./darwinConfigurations
-        ./nixosConfigurations
-        ./nixosModules
 
         ./parts/dev.nix
-        ./parts/nixpkgs-dev.nix
       ];
 
       systems = [
-        "aarch64-linux"
         "aarch64-darwin"
         "x86_64-darwin"
-        "x86_64-linux"
       ];
     };
 }

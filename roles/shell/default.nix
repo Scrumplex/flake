@@ -37,7 +37,7 @@ in {
         shellAliases = lib.mkMerge [
           {
             ip = "ip --color=auto";
-            ll = "ls -laFh";
+            ll = "ls --long --all --classify=always";
             ls = "eza"; # note: we rely on the alias created by eza
           }
         ];
