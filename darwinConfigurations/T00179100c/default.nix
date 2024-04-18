@@ -5,6 +5,7 @@
   pkgs,
   ...
 }: {
+  imports = [./neovim.nix];
   roles.base.username = "A105227727";
   hm.home.homeDirectory = lib.mkForce "/Users/A105227727";
   hm.xdg.enable = true;
@@ -20,7 +21,6 @@
       email = "sefa.eyeoglu@telekom.de";
     };
   };
-  roles.neovim.enable = true;
   roles.shell.enable = true;
 
   system.defaults = {
