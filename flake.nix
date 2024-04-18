@@ -17,16 +17,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-darwin = {
-      url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.home-manager.follows = "home-manager";
-      inputs.nix-darwin.follows = "nix-darwin";
       inputs.pre-commit-hooks.follows = "git-hooks";
     };
     catppuccin.url = "github:Stonks3141/ctp-nix";
@@ -73,7 +68,6 @@
 
         ./lib
 
-        ./darwinConfigurations
         ./nixosConfigurations/andromeda
         ./nixosConfigurations/dyson
 
@@ -83,8 +77,6 @@
 
       systems = [
         "aarch64-linux"
-        "aarch64-darwin"
-        "x86_64-darwin"
         "x86_64-linux"
       ];
     };
