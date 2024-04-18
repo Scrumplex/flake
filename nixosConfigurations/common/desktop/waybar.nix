@@ -46,7 +46,7 @@ in {
           all-outputs = false;
           format = "{icon}";
           format-icons = {
-            "1" = ""; # this is not a material design circle like the other icons
+            "1" = ""; # this is not a material design circle like the other icons
             "2" = "󰝤";
             "3" = "󰔶";
             "4" = "󰇮";
