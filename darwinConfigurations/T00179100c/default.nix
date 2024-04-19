@@ -71,11 +71,15 @@
       "colima"
     ];
     casks = [
+      "boop"
       "browserosaurus"
       # not supported on aarch64-darwin in nixpkgs
       "caffeine"
+      "hoppscotch"
       "jabra-direct"
       "linearmouse"
+      "pgadmin4"
+      "postman"
       "signal"
       "visual-studio-code"
     ];
@@ -85,7 +89,6 @@
   environment.systemPackages = with pkgs; [
     iterm2
     rectangle
-    keepassxc
 
     docker-client
     fluxcd
