@@ -66,14 +66,8 @@
       allowedTCPPorts = [
         # OME
         3478
-
-        # ts3
-        41144
       ];
       allowedUDPPorts = [
-        # ts3
-        9987
-
         # OME
         10000
         10001
