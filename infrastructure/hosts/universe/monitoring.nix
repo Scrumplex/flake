@@ -1,12 +1,11 @@
 {config, ...}: let
   fqdn = "grafana.scrumplex.net";
+  addr = with config.services.grafana.settings.server; "${http_addr}:${toString http_port}";
 in {
   age.secrets."grafana-smtp-password" = {
     file = ../../secrets/universe/grafana-smtp-password.age;
     owner = config.systemd.services.grafana.serviceConfig.User;
   };
-
-  common.traefik.enableMetrics = true;
 
   services.prometheus = {
     enable = true;
@@ -68,12 +67,14 @@ in {
     };
   };
 
-  services.traefik.dynamicConfigOptions.http = {
-    routers.grafana = {
-      entryPoints = ["websecure"];
-      service = "grafana";
-      rule = "Host(`${fqdn}`)";
+  services.nginx = {
+    upstreams.grafana.servers."${addr}" = {};
+    virtualHosts."${fqdn}" = {
+      forceSSL = true;
+      enableACME = true;
+      quic = true;
+      http3_hq = true;
+      locations."/".proxyPass = "http://grafana";
     };
-    services.grafana.loadBalancer.servers = [{url = with config.services.grafana.settings.server; "http://${http_addr}:${toString http_port}";}];
   };
 }

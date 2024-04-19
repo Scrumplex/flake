@@ -104,47 +104,79 @@
     ];
   };
 
-  services.nginx.virtualHosts = {
-    "duckhub.io" = {
-      root = pkgs.fetchFromGitea {
-        domain = "codeberg.org";
-        owner = "Scrumplex";
-        repo = "duckhub-static";
-        rev = "f5fa8a372d12f6dfeeb925cbf4fa87967b4808cc";
-        hash = "sha256-+snAi7qmP2N/Svhosi84A4s8GAi4fz4coW7JsWY/NAE=";
-      };
-      locations = {
-        "/.well-known/matrix".extraConfig = ''
-          default_type "application/json";
-          add_header Access-Control-Allow-Origin *;
+  services.nginx = {
+    upstreams.synapse.servers."localhost:8008" = {};
+    virtualHosts = {
+      "duckhub.io" = {
+        extraConfig = ''
+          listen 0.0.0.0:8448 ssl default_server;
+          listen [::0]:8448 ssl default_server;
         '';
-        "~* \\.html$".extraConfig = ''
-          expires max;
-        '';
-        "~* \\.(css|js|svg|png|eot|woff2?)$".extraConfig = ''
-          expires max;
-        '';
-      };
-    };
-    "quack.duckhub.io" = {
-      root = pkgs.element-web;
-      locations."= /config.json".alias = pkgs.writeText "element-web-config.json" (builtins.toJSON {
-        default_server_name = "duckhub.io";
-        default_server_config = {
-          "m.homeserver".base_url = "https://quack.duckhub.io";
-          "m.identity_server".base_url = "https://vector.im";
+
+        forceSSL = true;
+        enableACME = true;
+        quic = true;
+        http3_hq = true;
+        root = pkgs.fetchFromGitea {
+          domain = "codeberg.org";
+          owner = "Scrumplex";
+          repo = "duckhub-static";
+          rev = "f5fa8a372d12f6dfeeb925cbf4fa87967b4808cc";
+          hash = "sha256-+snAi7qmP2N/Svhosi84A4s8GAi4fz4coW7JsWY/NAE=";
         };
-        default_country_code = "DE";
-        room_directory.servers = ["matrix.org" "gitter.im" "libera.chat"];
-        default_device_display_name = "Duckhub Web";
-        brand = "Duckhub";
-        terms_and_conditions_links = [
-          {
-            text = "Privacy Policy";
-            url = "https://scrumplex.net/#privacy";
-          }
-        ];
-      });
+        locations = {
+          "~ ^(/_matrix|/_synapse/client)" = {
+            proxyPass = "http://synapse";
+            extraConfig = ''
+              client_max_body_size 50M;
+              proxy_http_version 1.1;
+            '';
+          };
+          "/.well-known/matrix".extraConfig = ''
+            default_type "application/json";
+            add_header Access-Control-Allow-Origin *;
+          '';
+          "~* \\.html$".extraConfig = ''
+            expires max;
+          '';
+          "~* \\.(css|js|svg|png|eot|woff2?)$".extraConfig = ''
+            expires max;
+          '';
+        };
+      };
+      "quack.duckhub.io" = {
+        forceSSL = true;
+        enableACME = true;
+        quic = true;
+        http3_hq = true;
+        root = pkgs.element-web;
+        locations = {
+          "~ ^(/_matrix|/_synapse/client)" = {
+            proxyPass = "http://synapse";
+            extraConfig = ''
+              client_max_body_size 50M;
+              proxy_http_version 1.1;
+            '';
+          };
+          "= /config.json".alias = pkgs.writeText "element-web-config.json" (builtins.toJSON {
+            default_server_name = "duckhub.io";
+            default_server_config = {
+              "m.homeserver".base_url = "https://quack.duckhub.io";
+              "m.identity_server".base_url = "https://vector.im";
+            };
+            default_country_code = "DE";
+            room_directory.servers = ["matrix.org" "gitter.im" "libera.chat"];
+            default_device_display_name = "Duckhub Web";
+            brand = "Duckhub";
+            terms_and_conditions_links = [
+              {
+                text = "Privacy Policy";
+                url = "https://scrumplex.net/#privacy";
+              }
+            ];
+          });
+        };
+      };
     };
   };
 
@@ -161,32 +193,4 @@
       ];
     }
   ];
-
-  services.traefik = {
-    staticConfigOptions.entryPoints.synapsesecure = {
-      address = ":8448";
-      http = config.services.traefik.staticConfigOptions.entryPoints.websecure.http;
-    };
-    dynamicConfigOptions.http = {
-      routers = {
-        synapse = {
-          entryPoints = ["websecure" "synapsesecure"];
-          service = "synapse";
-          rule = "Host(`duckhub.io`, `quack.duckhub.io`) && PathPrefix(`/_matrix`)";
-        };
-        duckhub = {
-          entryPoints = ["websecure"];
-          service = "nginx";
-          rule = "Host(`duckhub.io`)";
-        };
-        element = {
-          entryPoints = ["websecure"];
-          service = "nginx";
-          rule = "Host(`quack.duckhub.io`)";
-        };
-      };
-
-      services.synapse.loadBalancer.servers = [{url = "http://localhost:8008";}];
-    };
-  };
 }

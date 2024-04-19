@@ -62,19 +62,9 @@ in {
         service.volumes = [
           "${dataPath}/x-data:${environment.PRNT_PATH}"
         ];
-        service.labels = {
-          "traefik.enable" = "true";
-          "traefik.http.routers.${name}.rule" = "Host(`scrumplex.rocks`) || Host(`x.scrumplex.rocks`) || Host(`x.scrumplex.net`)";
-          "traefik.http.routers.${name}.entrypoints" = "websecure";
-          "traefik.http.routers.${name}.middlewares" = "redirect_x,${name}-cors";
-          "traefik.http.middlewares.redirect_x.redirectRegex.regex" = "^https?:\\/\\/x\\.scrumplex\\.(rocks|net)(.*)";
-          "traefik.http.middlewares.redirect_x.redirectRegex.replacement" = "https://scrumplex.rocks$${2}";
-          "traefik.http.middlewares.redirect_x.redirectRegex.permanent" = "true";
-          "traefik.http.middlewares.${name}-cors.headers.accesscontrolallowmethods" = "GET,OPTIONS";
-          "traefik.http.middlewares.${name}-cors.headers.accesscontrolalloworiginlist" = "*";
-          "traefik.http.middlewares.${name}-cors.headers.accesscontrolmaxage" = "300";
-          "traefik.http.middlewares.${name}-cors.headers.addvaryheader" = "true";
-        };
+        service.ports = [
+          "3001:8080"
+        ];
       };
       refraction.settings.services = mkMerge [
         (mkContainer {
@@ -98,6 +88,32 @@ in {
           ];
         })
       ];
+    };
+  };
+
+  services.nginx = {
+    upstreams.scrumplex-x.servers."localhost:3001" = {};
+    virtualHosts = {
+      "scrumplex.rocks" = {
+        forceSSL = true;
+        enableACME = true;
+        quic = true;
+        http3_hq = true;
+        locations."/" = {
+          proxyPass = "http://scrumplex-x";
+          extraConfig = ''
+            add_header Access-Control-Allow-Origin *;
+          '';
+        };
+      };
+      "x.scrumplex.rocks" = {
+        forceSSL = true;
+        enableACME = true;
+        quic = true;
+        http3_hq = true;
+        serverAliases = ["x.scrumplex.net"];
+        globalRedirect = "$scheme://x.scrumplex.rocks$request_uri";
+      };
     };
   };
 

@@ -2,6 +2,9 @@
   services.nginx = {
     enable = true;
     enableReload = true;
+    enableQuicBPF = true;
+
+    package = pkgs.nginxQuic;
 
     additionalModules = with pkgs.nginxModules; [
       brotli
@@ -14,14 +17,23 @@
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
     recommendedZstdSettings = true;
+  };
 
-    defaultListen = [
-      {
-        addr = "127.0.0.1";
-        port = 81;
-      }
+  networking.firewall = {
+    allowedUDPPorts = [
+      80
+      443
+    ];
+    allowedTCPPorts = [
+      80
+      443
     ];
   };
 
-  services.traefik.dynamicConfigOptions.http.services.nginx.loadBalancer.servers = [{url = "http://localhost:81";}];
+  security.acme = {
+    acceptTerms = true;
+    defaults = {
+      email = "contact@scrumplex.net";
+    };
+  };
 }

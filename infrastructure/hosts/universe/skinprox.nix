@@ -17,18 +17,17 @@
     ];
   };
 
-  services.traefik.dynamicConfigOptions.http = {
-    routers.skinprox = {
-      entryPoints = ["websecure"];
-      service = "skinprox";
-      rule = "Host(`skins.scrumplex.net`)";
-      middlewares = ["skinprox"];
+  services.nginx = {
+    upstreams.skinprox.servers."localhost:${toString config.services.skinprox.listenPort}" = {};
+    virtualHosts."skins.scrumplex.net" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+        proxyPass = "http://skinprox";
+        extraConfig = ''
+          add_header Access-Control-Allow-Origin *;
+        '';
+      };
     };
-    middlewares.skinprox.headers = {
-      accessControlAllowMethods = ["GET"];
-      accessControlAllowOriginList = ["*"];
-      accessControlMaxAge = 100;
-    };
-    services.skinprox.loadBalancer.servers = [{url = "http://localhost:${toString config.services.skinprox.listenPort}";}];
   };
 }

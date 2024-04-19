@@ -1,14 +1,14 @@
 {
   config,
   inputs,
+  lib,
   pkgs,
   ...
-}: {
-  age.secrets."scrumplex-hs_ed25519_secret_key".file = ../../secrets/universe/scrumplex-hs_ed25519_secret_key.age;
-
-  # TODO: use overlay once we are on 24.05
-  services.nginx.virtualHosts."scrumplex.net" = {
-    serverAliases = ["oysap5oclxaouxpuyykckncptwvt5cfwqyyckolly3hy5aq5poyvilid.onion"];
+}: let
+  inherit (lib) mkMerge;
+  commonVHost = {
+    quic = true;
+    http3_hq = true;
     root = inputs.scrumplex-website.packages.${pkgs.system}.scrumplex-website;
     extraConfig = ''
       add_header Onion-Location http://oysap5oclxaouxpuyykckncptwvt5cfwqyyckolly3hy5aq5poyvilid.onion$request_uri;
@@ -20,6 +20,30 @@
         expires max;
       }
     '';
+  };
+in {
+  age.secrets."scrumplex-hs_ed25519_secret_key".file = ../../secrets/universe/scrumplex-hs_ed25519_secret_key.age;
+
+  # TODO: use overlay once we are on 24.05
+  services.nginx.virtualHosts = {
+    "scrumplex.net" = mkMerge [
+      commonVHost
+      {
+        forceSSL = true;
+        enableACME = true;
+      }
+    ];
+    "oysap5oclxaouxpuyykckncptwvt5cfwqyyckolly3hy5aq5poyvilid.onion" = mkMerge [
+      commonVHost
+    ];
+    "live.scrumplex.net" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+        proxyPass = "http://localhost:3333";
+        proxyWebsockets = true;
+      };
+    };
   };
 
   services.tor = {
@@ -54,12 +78,6 @@
     volumes = [
       "${./scrumplex-live-Server.xml}:/opt/ovenmediaengine/bin/origin_conf/Server.xml"
     ];
-    labels = {
-      "traefik.enable" = "true";
-      "traefik.http.routers.ovenmediaengine.rule" = "Host(`live.scrumplex.net`)";
-      "traefik.http.routers.ovenmediaengine.entrypoints" = "websecure";
-      "traefik.http.services.ovenmediaengine.loadbalancer.server.port" = "3333";
-    };
   };
 
   networking.firewall = {
@@ -72,13 +90,5 @@
         to = 10005;
       }
     ];
-  };
-
-  services.traefik.dynamicConfigOptions.http = {
-    routers.scrumplex-website = {
-      entryPoints = ["websecure"];
-      service = "nginx";
-      rule = "Host(`scrumplex.net`)";
-    };
   };
 }
