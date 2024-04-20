@@ -7,18 +7,17 @@
 }: let
   inherit (lib) mkMerge;
   commonVHost = {
-    quic = true;
-    http3_hq = true;
     root = inputs.scrumplex-website.packages.${pkgs.system}.scrumplex-website;
+    locations = {
+      "~* \.html$".extraConfig = ''
+        expires 1h;
+      '';
+      "~* \.(css|js|svg|png|eot|woff2?)$".extraConfig = ''
+        expires max;
+      '';
+    };
     extraConfig = ''
       add_header Onion-Location http://oysap5oclxaouxpuyykckncptwvt5cfwqyyckolly3hy5aq5poyvilid.onion$request_uri;
-
-      location ~* \.html$ {
-        expires 1h;
-      }
-      location ~* \.(css|js|svg|png|eot|woff2?)$ {
-        expires max;
-      }
     '';
   };
 in {
@@ -27,23 +26,24 @@ in {
   # TODO: use overlay once we are on 24.05
   services.nginx.virtualHosts = {
     "scrumplex.net" = mkMerge [
+      config.common.nginx.vHost
+      config.common.nginx.sslVHost
       commonVHost
-      {
-        forceSSL = true;
-        enableACME = true;
-      }
     ];
     "oysap5oclxaouxpuyykckncptwvt5cfwqyyckolly3hy5aq5poyvilid.onion" = mkMerge [
+      config.common.nginx.vHost
       commonVHost
     ];
-    "live.scrumplex.net" = {
-      forceSSL = true;
-      enableACME = true;
-      locations."/" = {
-        proxyPass = "http://localhost:3333";
-        proxyWebsockets = true;
-      };
-    };
+    "live.scrumplex.net" = mkMerge [
+      config.common.nginx.vHost
+      config.common.nginx.sslVHost
+      {
+        locations."/" = {
+          proxyPass = "http://localhost:3333";
+          proxyWebsockets = true;
+        };
+      }
+    ];
   };
 
   services.tor = {

@@ -1,4 +1,8 @@
-{config, ...}: let
+{
+  config,
+  lib,
+  ...
+}: let
   fqdn = "grafana.scrumplex.net";
   addr = with config.services.grafana.settings.server; "${http_addr}:${toString http_port}";
 in {
@@ -69,12 +73,12 @@ in {
 
   services.nginx = {
     upstreams.grafana.servers."${addr}" = {};
-    virtualHosts."${fqdn}" = {
-      forceSSL = true;
-      enableACME = true;
-      quic = true;
-      http3_hq = true;
-      locations."/".proxyPass = "http://grafana";
-    };
+    virtualHosts."${fqdn}" = lib.mkMerge [
+      config.common.nginx.vHost
+      config.common.nginx.sslVHost
+      {
+        locations."/".proxyPass = "http://grafana";
+      }
+    ];
   };
 }

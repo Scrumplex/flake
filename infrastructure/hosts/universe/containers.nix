@@ -94,26 +94,24 @@ in {
   services.nginx = {
     upstreams.scrumplex-x.servers."localhost:3001" = {};
     virtualHosts = {
-      "scrumplex.rocks" = {
-        forceSSL = true;
-        enableACME = true;
-        quic = true;
-        http3_hq = true;
-        locations."/" = {
-          proxyPass = "http://scrumplex-x";
+      "scrumplex.rocks" = lib.mkMerge [
+        config.common.nginx.vHost
+        config.common.nginx.sslVHost
+        {
+          locations."/".proxyPass = "http://scrumplex-x";
           extraConfig = ''
             add_header Access-Control-Allow-Origin *;
           '';
-        };
-      };
-      "x.scrumplex.rocks" = {
-        forceSSL = true;
-        enableACME = true;
-        quic = true;
-        http3_hq = true;
-        serverAliases = ["x.scrumplex.net"];
-        globalRedirect = "$scheme://x.scrumplex.rocks$request_uri";
-      };
+        }
+      ];
+      "x.scrumplex.rocks" = lib.mkMerge [
+        config.common.nginx.vHost
+        config.common.nginx.sslVHost
+        {
+          serverAliases = ["x.scrumplex.net"];
+          globalRedirect = "scrumplex.rocks";
+        }
+      ];
     };
   };
 

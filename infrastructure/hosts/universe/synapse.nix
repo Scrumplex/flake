@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -107,76 +108,76 @@
   services.nginx = {
     upstreams.synapse.servers."localhost:8008" = {};
     virtualHosts = {
-      "duckhub.io" = {
-        extraConfig = ''
-          listen 0.0.0.0:8448 ssl default_server;
-          listen [::0]:8448 ssl default_server;
-        '';
+      "duckhub.io" = lib.mkMerge [
+        config.common.nginx.vHost
+        config.common.nginx.sslVHost
+        {
+          extraConfig = ''
+            listen 0.0.0.0:8448 ssl default_server;
+            listen [::0]:8448 ssl default_server;
+          '';
 
-        forceSSL = true;
-        enableACME = true;
-        quic = true;
-        http3_hq = true;
-        root = pkgs.fetchFromGitea {
-          domain = "codeberg.org";
-          owner = "Scrumplex";
-          repo = "duckhub-static";
-          rev = "f5fa8a372d12f6dfeeb925cbf4fa87967b4808cc";
-          hash = "sha256-+snAi7qmP2N/Svhosi84A4s8GAi4fz4coW7JsWY/NAE=";
-        };
-        locations = {
-          "~ ^(/_matrix|/_synapse/client)" = {
-            proxyPass = "http://synapse";
-            extraConfig = ''
-              client_max_body_size 50M;
-              proxy_http_version 1.1;
-            '';
+          root = pkgs.fetchFromGitea {
+            domain = "codeberg.org";
+            owner = "Scrumplex";
+            repo = "duckhub-static";
+            rev = "f5fa8a372d12f6dfeeb925cbf4fa87967b4808cc";
+            hash = "sha256-+snAi7qmP2N/Svhosi84A4s8GAi4fz4coW7JsWY/NAE=";
           };
-          "/.well-known/matrix".extraConfig = ''
-            default_type "application/json";
-            add_header Access-Control-Allow-Origin *;
-          '';
-          "~* \\.html$".extraConfig = ''
-            expires max;
-          '';
-          "~* \\.(css|js|svg|png|eot|woff2?)$".extraConfig = ''
-            expires max;
-          '';
-        };
-      };
-      "quack.duckhub.io" = {
-        forceSSL = true;
-        enableACME = true;
-        quic = true;
-        http3_hq = true;
-        root = pkgs.element-web;
-        locations = {
-          "~ ^(/_matrix|/_synapse/client)" = {
-            proxyPass = "http://synapse";
-            extraConfig = ''
-              client_max_body_size 50M;
-              proxy_http_version 1.1;
-            '';
-          };
-          "= /config.json".alias = pkgs.writeText "element-web-config.json" (builtins.toJSON {
-            default_server_name = "duckhub.io";
-            default_server_config = {
-              "m.homeserver".base_url = "https://quack.duckhub.io";
-              "m.identity_server".base_url = "https://vector.im";
+          locations = {
+            "~ ^(/_matrix|/_synapse/client)" = {
+              proxyPass = "http://synapse";
+              extraConfig = ''
+                client_max_body_size 50M;
+                proxy_http_version 1.1;
+              '';
             };
-            default_country_code = "DE";
-            room_directory.servers = ["matrix.org" "gitter.im" "libera.chat"];
-            default_device_display_name = "Duckhub Web";
-            brand = "Duckhub";
-            terms_and_conditions_links = [
-              {
-                text = "Privacy Policy";
-                url = "https://scrumplex.net/#privacy";
-              }
-            ];
-          });
-        };
-      };
+            "/.well-known/matrix".extraConfig = ''
+              default_type "application/json";
+              add_header Access-Control-Allow-Origin *;
+            '';
+            "~* \\.html$".extraConfig = ''
+              expires max;
+            '';
+            "~* \\.(css|js|svg|png|eot|woff2?)$".extraConfig = ''
+              expires max;
+            '';
+          };
+        }
+      ];
+      "quack.duckhub.io" = lib.mkMerge [
+        config.common.nginx.vHost
+        config.common.nginx.sslVHost
+        {
+          root = pkgs.element-web;
+          locations = {
+            "~ ^(/_matrix|/_synapse/client)" = {
+              proxyPass = "http://synapse";
+              extraConfig = ''
+                client_max_body_size 50M;
+                proxy_http_version 1.1;
+              '';
+            };
+            "= /config.json".alias = pkgs.writeText "element-web-config.json" (builtins.toJSON {
+              default_server_name = "duckhub.io";
+              default_server_config = {
+                "m.homeserver".base_url = "https://quack.duckhub.io";
+                "m.identity_server".base_url = "https://vector.im";
+              };
+              default_country_code = "DE";
+              room_directory.servers = ["matrix.org" "gitter.im" "libera.chat"];
+              default_device_display_name = "Duckhub Web";
+              brand = "Duckhub";
+              terms_and_conditions_links = [
+                {
+                  text = "Privacy Policy";
+                  url = "https://scrumplex.net/#privacy";
+                }
+              ];
+            });
+          };
+        }
+      ];
     };
   };
 

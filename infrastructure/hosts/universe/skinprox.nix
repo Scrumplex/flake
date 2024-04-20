@@ -1,6 +1,7 @@
 {
   config,
   inputs,
+  lib,
   pkgs,
   ...
 }: {
@@ -19,15 +20,15 @@
 
   services.nginx = {
     upstreams.skinprox.servers."localhost:${toString config.services.skinprox.listenPort}" = {};
-    virtualHosts."skins.scrumplex.net" = {
-      forceSSL = true;
-      enableACME = true;
-      locations."/" = {
-        proxyPass = "http://skinprox";
+    virtualHosts."skins.scrumplex.net" = lib.mkMerge [
+      config.common.nginx.vHost
+      config.common.nginx.sslVHost
+      {
+        locations."/".proxyPass = "http://skinprox";
         extraConfig = ''
           add_header Access-Control-Allow-Origin *;
         '';
-      };
-    };
+      }
+    ];
   };
 }
