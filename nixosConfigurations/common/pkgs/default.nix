@@ -25,6 +25,8 @@ in {
         discord-canary = mkDiscordOverride prev.discord-canary;
         discord-ptb = mkDiscordOverride prev.discord-ptb;
 
+        evolution = prev.evolution.override {spamassassin = final.hello;};
+
         ncmpcpp = prev.ncmpcpp.override {
           visualizerSupport = true;
         };
