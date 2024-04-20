@@ -303,11 +303,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1713599459,
-        "narHash": "sha256-CFw4KN8tadl/zu38Mebsb8UH5zPKwW8bcTY3seMzUDA=",
+        "lastModified": 1713639632,
+        "narHash": "sha256-rL7N9FLW6mUeVjORMryCSp0VAOfMoFdl3Zh3RADUnL8=",
         "ref": "refs/heads/main",
-        "rev": "f56b79ca3d31e8ed9bd97de80bd5c9b27d50c2fe",
-        "revCount": 153,
+        "rev": "9c479d292c9f8e532f16331de0e244aa17d9009a",
+        "revCount": 155,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/honeylinks.git"
       },
@@ -348,11 +348,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1713344939,
-        "narHash": "sha256-jpHkAt0sG2/J7ueKnG7VvLLkBYUMQbXQ2L8OBpVG53s=",
+        "lastModified": 1713564160,
+        "narHash": "sha256-YguPZpiejgzLEcO36/SZULjJQ55iWcjAmf3lYiyV1Fo=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e402c3eb6d88384ca6c52ef1c53e61bdc9b84ddd",
+        "rev": "bc194f70731cc5d2b046a6c1b3b15f170f05999c",
         "type": "github"
       },
       "original": {
@@ -420,11 +420,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1713599471,
-        "narHash": "sha256-bR5l9JdtbZi52BDyaSbgGODLhn30/ePq3EI18MW4vE4=",
+        "lastModified": 1713639625,
+        "narHash": "sha256-98+1bX8fdvzhlZ7OK4RW84FEQfdeayr2/Dv5hoNRS1o=",
         "ref": "refs/heads/main",
-        "rev": "8c93b33c7833c1d5eb15be86d8733634ebcb3356",
-        "revCount": 714,
+        "rev": "ae92f539c7eb736f577c97a2fc6b1ae42c94d6d6",
+        "revCount": 716,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/website.git"
       },
