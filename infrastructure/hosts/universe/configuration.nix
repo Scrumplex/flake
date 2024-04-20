@@ -11,6 +11,7 @@
 
     ../common/common.nix
     ../common/netcup.nix
+    ../common/nginx.nix
     ../common/nix.nix
     ../common/nullmailer.nix
     ../common/upgrade.nix
@@ -19,7 +20,6 @@
     ./honeylinks-website.nix
     ./monitoring.nix
     ./murmur.nix
-    ./nginx.nix
     ./renovate.nix
     ./scrumplex-website.nix
     ./skinprox.nix
