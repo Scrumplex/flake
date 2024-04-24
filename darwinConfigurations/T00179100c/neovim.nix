@@ -6,6 +6,8 @@
 }: {
   imports = [inputs.nixvim.nixDarwinModules.nixvim];
 
+  environment.variables.EDITOR = "nvim";
+
   programs.nixvim = {
     enable = true;
 
