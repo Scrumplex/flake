@@ -20,6 +20,7 @@
     ./honeylinks-website.nix
     ./monitoring.nix
     ./murmur.nix
+    ./prism-meta.nix
     ./renovate.nix
     ./scrumplex-website.nix
     ./skinprox.nix

@@ -361,6 +361,32 @@
         "type": "github"
       }
     },
+    "prism-meta": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "git-hooks": [
+          "git-hooks"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1713970641,
+        "narHash": "sha256-qbrZ+6TrA8YzoxrKLL7rx8ohkaegfA+NK81kosJMnFA=",
+        "owner": "PrismLauncher",
+        "repo": "meta",
+        "rev": "d50fb88d37d38d9a1cf53583319ac2c73d6009fc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "PrismLauncher",
+        "repo": "meta",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -371,6 +397,7 @@
         "honeylinks-website": "honeylinks-website",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
+        "prism-meta": "prism-meta",
         "scrumplex-website": "scrumplex-website",
         "skinprox": "skinprox",
         "srvos": "srvos"
