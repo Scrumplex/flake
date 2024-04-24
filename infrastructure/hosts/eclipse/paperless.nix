@@ -22,7 +22,7 @@
     enable = true;
 
     passwordFile = config.age.secrets.paperless-password.path;
-    extraConfig = {
+    settings = {
       PAPERLESS_DBHOST = "/run/postgresql";
       PAPERLESS_TIME_ZONE = config.time.timeZone;
       PAPERLESS_OCR_LANGUAGE = "deu+eng";

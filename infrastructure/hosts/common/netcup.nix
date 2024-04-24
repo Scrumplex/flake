@@ -18,6 +18,8 @@
       time.timeZone = "Europe/Berlin";
       i18n.defaultLocale = "en_US.UTF-8";
       console.keyMap = "de";
+
+      services.qemuGuest.enable = true;
     }
 
     (lib.mkIf (config.netcup.bootMode == "uefi") {

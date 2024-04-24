@@ -32,21 +32,19 @@
     };
     skinprox = {
       url = "git+https://codeberg.org/Scrumplex/skinprox.git";
-      #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.pre-commit-hooks.follows = "git-hooks";
     };
     scrumplex-website = {
       url = "git+https://codeberg.org/Scrumplex/website.git";
-      # Needs unstable/24.05
-      #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.pre-commit-hooks.follows = "git-hooks";
     };
     honeylinks-website = {
       url = "git+https://codeberg.org/Scrumplex/honeylinks.git";
-      # Needs unstable/24.05
-      inputs.nixpkgs.follows = "scrumplex-website/nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.pre-commit-hooks.follows = "git-hooks";
     };

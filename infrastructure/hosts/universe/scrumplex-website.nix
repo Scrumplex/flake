@@ -7,7 +7,7 @@
 }: let
   inherit (lib) mkMerge;
   commonVHost = {
-    root = inputs.scrumplex-website.packages.${pkgs.system}.scrumplex-website;
+    root = pkgs.scrumplex-website;
     locations = {
       "~* \.html$".extraConfig = ''
         expires 1h;
@@ -23,7 +23,8 @@
 in {
   age.secrets."scrumplex-hs_ed25519_secret_key".file = ../../secrets/universe/scrumplex-hs_ed25519_secret_key.age;
 
-  # TODO: use overlay once we are on 24.05
+  nixpkgs.overlays = [inputs.scrumplex-website.overlays.default];
+
   services.nginx.virtualHosts = {
     "scrumplex.net" = mkMerge [
       config.common.nginx.vHost
