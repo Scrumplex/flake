@@ -13,7 +13,7 @@
         ${config.pre-commit.installationScript}
       '';
 
-      packages = [self'.formatter inputs'.agenix.packages.agenix inputs'.deploy-rs.packages.deploy-rs];
+      packages = [self'.formatter inputs'.agenix.packages.agenix];
     };
 
     formatter = pkgs.alejandra;

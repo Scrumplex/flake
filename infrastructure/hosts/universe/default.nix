@@ -4,7 +4,7 @@
   ...
 }: let
   inherit (builtins) attrValues;
-  inherit (inputs) agenix arion deploy-rs nixpkgs skinprox srvos;
+  inherit (inputs) agenix arion nixpkgs skinprox srvos;
 in {
   flake = {
     nixosConfigurations.universe = nixpkgs.lib.nixosSystem {
@@ -21,11 +21,6 @@ in {
         ++ attrValues self.nixosModules;
       specialArgs = {inherit inputs;};
     };
-    deploy.nodes.universe = {
-      hostname = "scrumplex.net";
-      sshUser = "root";
-      sshOpts = ["-p" "22701"];
-      profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.universe;
-    };
+    nixosHosts.universe = "scrumplex.net";
   };
 }

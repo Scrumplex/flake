@@ -4,7 +4,7 @@
   ...
 }: let
   inherit (builtins) attrValues;
-  inherit (inputs) agenix arion deploy-rs nixpkgs nixos-hardware srvos;
+  inherit (inputs) agenix arion nixpkgs nixos-hardware srvos;
 in {
   flake = {
     nixosConfigurations.eclipse = nixpkgs.lib.nixosSystem {
@@ -23,12 +23,6 @@ in {
         ++ attrValues self.nixosModules;
       specialArgs = {inherit inputs;};
     };
-    deploy.nodes.eclipse = {
-      hostname = "eclipse.lan";
-      sshUser = "root";
-      sshOpts = ["-p" "22701"];
-      fastConnection = true;
-      profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.eclipse;
-    };
+    nixosHosts.eclipse = "eclipse.lan";
   };
 }
