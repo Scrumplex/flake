@@ -22,6 +22,7 @@
     ./mosquitto.nix
     ./paperless.nix
     ./quassel.nix
+    ./sabnzbd.nix
     ./step-ca.nix
     ./swapfile.nix
     ./syncthing.nix
