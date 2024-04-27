@@ -1,6 +1,7 @@
 {
   config,
   inputs,
+  lib,
   ...
 }: {
   imports = [inputs.prism-meta.nixosModules.default];
@@ -21,5 +22,16 @@
       GIT_COMMITTER_EMAIL = "gitbot@scrumplex.net";
       GIT_SSH_COMMAND = "ssh -i ${config.age.secrets."prism-meta.key".path}";
     };
+  };
+
+  services.nginx = {
+    upstreams.prismlogs.servers."localhost:4180" = {};
+    virtualHosts."logs.prismlauncher.org" = lib.mkMerge [
+      config.common.nginx.vHost
+      config.common.nginx.sslVHost
+      {
+        locations."/".proxyPass = "http://prismlogs";
+      }
+    ];
   };
 }
