@@ -20,4 +20,5 @@ in {
 
   "common/beets-secrets.yaml.age".publicKeys = andromeda ++ dyson ++ scrumplex;
   "common/listenbrainz-token.age".publicKeys = andromeda ++ dyson ++ scrumplex;
+  "common/passwd.age".publicKeys = andromeda ++ dyson ++ scrumplex;
 }

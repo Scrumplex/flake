@@ -20,9 +20,11 @@ in {
   ];
 
   config = {
+    age.secrets."passwd".file = ../../secrets/common/passwd.age;
+
     primaryUser = {
       isNormalUser = true;
-      hashedPassword = "$y$j9T$.xFZ6PXXwF2ntgjscIIiE/$ck86smefjyF1RPhwaYRYf2rWRgpercSVeTBDnMggsr9";
+      hashedPasswordFile = config.age.secrets."passwd".path;
       # TODO: roles!
       extraGroups =
         ["wheel" "audio" "video" "input" "dialout"]
