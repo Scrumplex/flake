@@ -21,7 +21,6 @@ in {
   age.secrets.id_borgbase.file = ../../secrets/cosmos/id_borgbase.age;
   age.secrets."wireguard.key".file = ../../secrets/cosmos/wireguard.key.age;
   age.secrets."hetzner.key".file = ../../secrets/cosmos/hetzner.key.age;
-  age.secrets.root-password.file = ../../secrets/cosmos/root-password.age;
 
   infra.borgbase = {
     enable = true;
@@ -67,8 +66,6 @@ in {
       options = ["noatime"];
     };
   };
-
-  users.users.root.hashedPasswordFile = config.age.secrets.root-password.path;
 
   users.users.scrumplex = {
     isNormalUser = true;
