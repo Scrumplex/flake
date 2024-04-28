@@ -32,7 +32,6 @@ in {
       commonVHost
     ];
     "oysap5oclxaouxpuyykckncptwvt5cfwqyyckolly3hy5aq5poyvilid.onion" = mkMerge [
-      config.common.nginx.vHost
       commonVHost
     ];
     "live.scrumplex.net" = mkMerge [
@@ -55,7 +54,7 @@ in {
           port = 80;
           target = {
             addr = "localhost";
-            port = 81;
+            port = 80;
           };
         }
       ];
