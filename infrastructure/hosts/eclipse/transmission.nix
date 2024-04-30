@@ -9,7 +9,7 @@
     settings = {
       rpc-bind-address = "0.0.0.0";
       rpc-host-whitelist = "torrent.eclipse.lan";
-      rpc-whitelist = "10.*.*.*";
+      rpc-whitelist = "127.0.0.1,10.*.*.*";
       rpc-authentication-required = true;
       umask = 7;
     };
