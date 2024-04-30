@@ -349,6 +349,26 @@
         "type": "github"
       }
     },
+    "refraction": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1714509112,
+        "narHash": "sha256-4iUOIxVvxKqejenqjY2Zv0YkhUXf1YP7dqDF3AW38Jw=",
+        "owner": "PrismLauncher",
+        "repo": "refraction",
+        "rev": "4d12cccec7784c0ce3b79f2ddb6dbb8a656b5259",
+        "type": "github"
+      },
+      "original": {
+        "owner": "PrismLauncher",
+        "repo": "refraction",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -359,6 +379,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "prism-meta": "prism-meta",
+        "refraction": "refraction",
         "scrumplex-website": "scrumplex-website",
         "skinprox": "skinprox",
         "srvos": "srvos"

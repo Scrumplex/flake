@@ -33,7 +33,6 @@
     ];
   };
 in {
-  age.secrets."refraction-service.env".file = ../../secrets/universe/refraction-service.env.age;
   age.secrets."scrumplex-x-service.env".file = ../../secrets/universe/scrumplex-x-service.env.age;
 
   virtualisation.docker.enable = false;
@@ -66,28 +65,6 @@ in {
           "3001:8080"
         ];
       };
-      refraction.settings.services = mkMerge [
-        (mkContainer {
-          name = "redis";
-          service.volumes = [
-            "${dataPath}/refraction-redis-data:/data"
-          ];
-        })
-        (mkContainer {
-          name = "refraction";
-          environment = {
-            DISCORD_APP = "1034470391252521051";
-            SAY_LOGS_CHANNEL = "1112764181012283542";
-            REDIS_URL = "redis://redis:6379";
-          };
-          service.env_file = [
-            config.age.secrets."refraction-service.env".path
-          ];
-          service.depends_on = [
-            "redis"
-          ];
-        })
-      ];
     };
   };
 

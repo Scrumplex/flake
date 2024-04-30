@@ -2,14 +2,26 @@
   config,
   inputs,
   lib,
+  pkgs,
   ...
 }: {
-  imports = [inputs.prism-meta.nixosModules.default];
+  imports = [
+    inputs.prism-meta.nixosModules.default
+    inputs.refraction.nixosModules.default
+  ];
+
+  nixpkgs.overlays = [inputs.refraction.overlays.default];
 
   age.secrets."prism-meta.key" = {
     file = ../../secrets/universe/prism-meta.key.age;
     owner = "blockgame-meta";
     group = "blockgame-meta";
+  };
+
+  age.secrets."prism-refraction.env" = {
+    file = ../../secrets/universe/prism-refraction.env.age;
+    owner = config.services.refraction.user;
+    inherit (config.services.refraction) group;
   };
 
   services.blockgame-meta = {
@@ -33,5 +45,11 @@
         locations."/".proxyPass = "http://prismlogs";
       }
     ];
+  };
+
+  services.refraction = {
+    enable = true;
+    package = pkgs.refraction; # overlay
+    environmentFile = config.age.secrets."prism-refraction.env".path;
   };
 }

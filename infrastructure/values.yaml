@@ -20,18 +20,6 @@ ovenmediaengine:
     repository: airensoft/ovenmediaengine
     tag: 0.16.5@sha256:887e991c7dd51a3f408a81269ad023b70dd2a0e037a00abfd4e2869c1fa6b53b
 
-redis:
-  image:
-    registry: docker.io
-    repository: library/redis
-    tag: 7.2.3-alpine3.18@sha256:3ce533b2b057f74b235d1d8697ae08b1b6ff0a5e16827ea6a377b6365693c7ed
-
-refraction:
-  image:
-    registry: ghcr.io
-    repository: prismlauncher/refraction
-    tag: main@sha256:6d90bab3b4d9a5b20dbb1e75bfb14855008c5078a8cd7e805c50d4fa74458438
-
 renovate:
   image:
     registry: ghcr.io

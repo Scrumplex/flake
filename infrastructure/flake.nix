@@ -50,6 +50,10 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.git-hooks.follows = "git-hooks";
     };
+    refraction = {
+      url = "github:PrismLauncher/refraction";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {flake-parts, ...}:

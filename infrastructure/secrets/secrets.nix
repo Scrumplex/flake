@@ -19,7 +19,7 @@ in {
   "universe/murmur.env.age".publicKeys = scrumplex ++ [spacehub universe];
   "universe/hetzner.key.age".publicKeys = scrumplex ++ [spacehub universe];
   "universe/prism-meta.key.age".publicKeys = scrumplex ++ [universe];
-  "universe/refraction-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
+  "universe/prism-refraction.env.age".publicKeys = scrumplex ++ [universe];
   "universe/renovate.env.age".publicKeys = scrumplex ++ [spacehub universe];
   "universe/scrumplex-x-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
   "universe/synapse.signing.key.age".publicKeys = scrumplex ++ [universe];
