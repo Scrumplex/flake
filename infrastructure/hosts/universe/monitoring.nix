@@ -15,15 +15,18 @@ in {
     enable = true;
 
     listenAddress = "127.0.0.1";
-    retentionTime = "30d";
+    globalConfig.scrape_interval = "15s";
 
-    exporters.node = {
-      enable = true;
-      enabledCollectors = [
-        "processes"
-        "systemd"
-      ];
-      listenAddress = "127.0.0.1";
+    exporters = {
+      node = {
+        enable = true;
+        enabledCollectors = [
+          "processes"
+          "systemd"
+        ];
+        listenAddress = "127.0.0.1";
+      };
+      systemd.enable = true;
     };
 
     scrapeConfigs = [
@@ -32,6 +35,14 @@ in {
         static_configs = [
           {
             targets = ["localhost:${toString config.services.prometheus.exporters.node.port}"];
+          }
+        ];
+      }
+      {
+        job_name = "systemd";
+        static_configs = [
+          {
+            targets = ["localhost:${toString config.services.prometheus.exporters.systemd.port}"];
           }
         ];
       }

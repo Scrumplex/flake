@@ -14,12 +14,14 @@
     ../common/nginx.nix
     ../common/nix.nix
     ../common/nullmailer.nix
+    ../common/postgres.nix
     ../common/upgrade.nix
 
     ./containers.nix
     ./honeylinks-website.nix
     ./monitoring.nix
     ./murmur.nix
+    ./postgres.nix
     ./prismlauncher.nix
     ./renovate.nix
     ./scrumplex-website.nix
@@ -78,14 +80,6 @@
       ];
     };
   };
-
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_16;
-    extraPlugins = [config.services.postgresql.package.pkgs.pg_repack];
-  };
-  services.borgbackup.jobs.borgbase.exclude = ["/var/lib/postgresql"];
-  services.postgresqlBackup.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

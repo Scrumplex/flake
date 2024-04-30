@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   ...
@@ -36,6 +37,8 @@
         zstd
       ];
 
+      statusPage = true;
+
       recommendedBrotliSettings = true;
       recommendedGzipSettings = true;
       recommendedOptimisation = true;
@@ -54,6 +57,20 @@
       defaults = {
         email = "contact@scrumplex.net";
       };
+    };
+
+    services.prometheus = {
+      exporters.nginx.enable = true;
+      scrapeConfigs = [
+        {
+          job_name = "nginx";
+          static_configs = [
+            {
+              targets = ["localhost:${toString config.services.prometheus.exporters.nginx.port}"];
+            }
+          ];
+        }
+      ];
     };
   };
 }
