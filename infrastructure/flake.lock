@@ -158,11 +158,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1713954846,
-        "narHash": "sha256-RWFafuSb5nkWGu8dDbW7gVb8FOQOPqmX/9MlxUUDguw=",
+        "lastModified": 1714478972,
+        "narHash": "sha256-q//cgb52vv81uOuwz1LaXElp3XAe1TqrABXODAEF6Sk=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "6fb82e44254d6a0ece014ec423cb62d92435336f",
+        "rev": "2849da033884f54822af194400f8dff435ada242",
         "type": "github"
       },
       "original": {
@@ -294,11 +294,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1714201532,
-        "narHash": "sha256-nk0W4rH7xYdDeS7k1SqqNtBaNrcgIBYNmOVc8P2puEY=",
+        "lastModified": 1714465198,
+        "narHash": "sha256-ySkEJvS0gPz2UhXm0H3P181T8fUxvDVcoUyGn0Kc5AI=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "53db5e1070d07e750030bf65f1b9963df8f0c678",
+        "rev": "68d680c1b7c0e67a9b2144d6776583ee83664ef4",
         "type": "github"
       },
       "original": {
@@ -356,11 +356,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1714509112,
-        "narHash": "sha256-4iUOIxVvxKqejenqjY2Zv0YkhUXf1YP7dqDF3AW38Jw=",
+        "lastModified": 1714512912,
+        "narHash": "sha256-DNNTm/pwvjua4hI6h0c495aOc0VyAiwOaJpn1aSuDp4=",
         "owner": "PrismLauncher",
         "repo": "refraction",
-        "rev": "4d12cccec7784c0ce3b79f2ddb6dbb8a656b5259",
+        "rev": "a4197bc5af08047b0f6822628b373d37463b5ed4",
         "type": "github"
       },
       "original": {
