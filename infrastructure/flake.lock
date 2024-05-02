@@ -129,11 +129,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1712014858,
-        "narHash": "sha256-sB4SWl2lX95bExY2gMFG5HIzvva5AVMJd4Igm+GpZNw=",
+        "lastModified": 1714606777,
+        "narHash": "sha256-bMkNmAXLj8iyTvxaaD/StcLSadbj1chPcJOjtuVnLmA=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "9126214d0a59633752a136528f5f3b9aa8565b7d",
+        "rev": "4d34ce6412bc450b1d4208c953dc97c7fc764f1a",
         "type": "github"
       },
       "original": {
@@ -391,11 +391,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1714555580,
-        "narHash": "sha256-qlV2ImpUzGVUS/ssZznraH+6AmDn1AxjvlaB9pKAFDc=",
+        "lastModified": 1714590214,
+        "narHash": "sha256-F2iKeyk0tTTDgqHjRcqFrUH8n1zAPZsmNJWspulsR3U=",
         "owner": "PrismLauncher",
         "repo": "refraction",
-        "rev": "1b8366f9b1fabf469a3bd6718f49f27047594094",
+        "rev": "f0780ce81eb4b417cff27fe9f410c51d664ca42a",
         "type": "github"
       },
       "original": {
@@ -502,11 +502,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1714444742,
-        "narHash": "sha256-FOWYXEEtwYKAGmXgKVYli/VsA8XpeR+4wNKt+3M/9b4=",
+        "lastModified": 1714611022,
+        "narHash": "sha256-Cneh2G54TO1eVQBxLZp0JlW8LWbTE/N1WjcE2W+F3pI=",
         "owner": "nix-community",
         "repo": "srvos",
-        "rev": "b18e74f2245eaae150bc753821079c2512fe1516",
+        "rev": "1fa90a0a81fec38c117397fde79733cc78f12815",
         "type": "github"
       },
       "original": {
