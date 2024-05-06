@@ -16,7 +16,7 @@ writeShellApplication {
       -H "Auth-API-Token: $HETZNER_TOKEN"  | jq -r ".zones[0].id")
 
     recordId=$(curl "https://dns.hetzner.com/api/v1/records?zone_id=$zoneId" \
-      -H "Auth-API-Token: $HETZNER_TOKEN" | jq -r "(.records[] | select( .name == \"$HETZNER_RECORD\" )).id")
+      -H "Auth-API-Token: $HETZNER_TOKEN" | jq -r "(.records[] | select( .name == \"$HETZNER_RECORD\" and .type == \"A\" )).id")
 
     curl -X PUT "https://dns.hetzner.com/api/v1/records/$recordId" \
       -H "Auth-API-Token: $HETZNER_TOKEN" \
