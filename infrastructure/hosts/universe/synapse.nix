@@ -70,11 +70,6 @@
 
       admin_contact = "mailto:contact@scrumplex.net";
 
-      limit_remote_rooms = {
-        enabled = true;
-        complexity = 2.0;
-      };
-
       url_preview_enabled = true;
       url_preview_url_blacklist = [
         {username = "*";}
