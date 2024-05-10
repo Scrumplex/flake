@@ -18,13 +18,16 @@
 
   programs.steam = {
     enable = true;
+    localNetworkGameTransfers.openFirewall = true;
+    remotePlay.openFirewall = true;
+
     extraCompatPackages = with pkgs; [
       proton-ge-bin
       (proton-ge-bin.overrideAttrs (finalAttrs: _: {
-        version = "GE-Proton9-1-rtsp6";
+        version = "GE-Proton9-4-rtsp7";
         src = pkgs.fetchzip {
-          url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}-fix/${finalAttrs.version}.tar.gz";
-          hash = "sha256-ZjOWib2qFUkkqBM0FfD7In+tbPYmrdYeb5ihzG0i/J8=";
+          url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}/${finalAttrs.version}.tar.gz";
+          hash = "sha256-l/zt/Kv6g1ZrAzcxDNENByHfUp/fce3jOHVAORc5oy0=";
         };
       }))
     ];
