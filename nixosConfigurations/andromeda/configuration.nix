@@ -68,6 +68,7 @@
     qemu = {
       ovmf.packages = [pkgs.OVMFFull.fd];
       swtpm.enable = true;
+      vhostUserPackages = with pkgs; [virtiofsd];
     };
   };
   virtualisation.spiceUSBRedirection.enable = true;
