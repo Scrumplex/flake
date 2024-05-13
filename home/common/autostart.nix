@@ -26,8 +26,8 @@
       desktopFile = "signal-desktop.desktop";
     }
     {
-      pkg = pkgs.cinny-desktop;
-      desktopFile = "cinny.desktop";
+      pkg = pkgs.element-desktop;
+      desktopFile = "element-desktop.desktop";
     }
     {
       pkg = pkgs.evolution;
