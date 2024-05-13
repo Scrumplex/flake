@@ -5,7 +5,7 @@
   ...
 }: {
   age.secrets."screenshot-bash" = {
-    file = ../../../secrets/andromeda/screenshot-bash.age;
+    file = ../../../secrets/common/screenshot-bash.age;
     owner = "scrumplex";
     inherit (config.users.users.scrumplex) group;
   };
