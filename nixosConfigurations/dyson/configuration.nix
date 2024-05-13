@@ -10,7 +10,6 @@
     ./desktop/sway.nix
     ./desktop/swayidle.nix
     ./networkmanager.nix
-    ./specialisation/home-cache.nix
     ./swapfile.nix
     ./wireguard.nix
 

@@ -7,7 +7,7 @@
       ../common
       ../common/beets.nix
       ../common/bluetooth.nix
-      ../common/boot.nix
+      ../common/boot
       ../common/desktop
       ../common/desktop/chromium.nix
       ../common/desktop/evolution.nix

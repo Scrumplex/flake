@@ -5,6 +5,8 @@
 }: {
   imports = [
     inputs.lanzaboote.nixosModules.lanzaboote
+
+    ./quiet.nix
   ];
 
   boot = {
@@ -18,11 +20,14 @@
       useTmpfs = lib.mkDefault true;
       tmpfsSize = "75%";
     };
-    initrd.verbose = false;
     initrd.systemd.enable = true;
-    consoleLogLevel = 0;
-    kernelParams = ["quiet" "udev.log_level=3"];
 
     kernel.sysctl."kernel.sysrq" = 1;
+  };
+
+  profile.boot.quiet = lib.mkDefault true;
+
+  specialisation."verbose".configuration = {
+    profile.boot.quiet = false;
   };
 }
