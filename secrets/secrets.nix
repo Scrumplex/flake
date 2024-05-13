@@ -13,7 +13,6 @@ let
 in {
   "andromeda/borgbase-repokey.age".publicKeys = andromeda ++ scrumplex;
   "andromeda/cache-key.age".publicKeys = andromeda ++ scrumplex;
-  "andromeda/screenshot-bash.age".publicKeys = andromeda ++ scrumplex;
   "andromeda/wg.age".publicKeys = andromeda ++ scrumplex;
 
   "dyson/wg.age".publicKeys = dyson ++ scrumplex;
@@ -21,4 +20,5 @@ in {
   "common/beets-secrets.yaml.age".publicKeys = andromeda ++ dyson ++ scrumplex;
   "common/listenbrainz-token.age".publicKeys = andromeda ++ dyson ++ scrumplex;
   "common/passwd.age".publicKeys = andromeda ++ dyson ++ scrumplex;
+  "common/screenshot-bash.age".publicKeys = andromeda ++ dyson ++ scrumplex;
 }
