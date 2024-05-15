@@ -119,6 +119,7 @@
           '';
         };
       };
+      copilot-vim.enable = true;
       gitsigns.enable = true;
       indent-blankline = {
         enable = true;
