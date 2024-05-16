@@ -91,6 +91,13 @@
       };
     };
     extraConfigFiles = [config.age.secrets."synapse-secrets.yaml".path];
+
+    log = {
+      loggers = {
+        "synapse.access.http.8008".level = "WARNING";
+        "synapse.federation.transport.server.federation".level = "WARNING";
+      };
+    };
   };
 
   virtualisation.oci-containers.containers."draupnir" = {
