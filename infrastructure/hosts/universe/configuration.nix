@@ -22,7 +22,7 @@
     ./monitoring.nix
     ./murmur.nix
     ./postgres.nix
-    ./prismlauncher.nix
+    ./prismlauncher
     ./renovate.nix
     ./scrumplex-website.nix
     ./skinprox.nix

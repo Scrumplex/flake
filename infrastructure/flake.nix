@@ -63,6 +63,7 @@
         ./nixosHosts-flake-module.nix
 
         ./modules
+        ./pkgs
 
         ./hosts/cosmos
         ./hosts/eclipse
