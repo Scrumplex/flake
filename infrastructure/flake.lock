@@ -278,11 +278,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1715579212,
-        "narHash": "sha256-egG6mBnm/HhdyH5Q6DX8VU1njcalsU6u9QSnIoXk5dU=",
+        "lastModified": 1715980216,
+        "narHash": "sha256-7qOghw0uY7aurf3DL+pjwyDmSjVf12Vg5dJ3VRc+qE4=",
         "ref": "refs/heads/main",
-        "rev": "ae9b7fb59b18d7bfe4f923b03e203096cef983ff",
-        "revCount": 167,
+        "rev": "f8588a308cc7b4283132ea273dd244bfdf355c06",
+        "revCount": 169,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/honeylinks.git"
       },
@@ -372,11 +372,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1715786352,
-        "narHash": "sha256-iKx9K3i8jdoj3tK7hBvoLNllWOM7CGFvKT1mY16x6+0=",
+        "lastModified": 1715956410,
+        "narHash": "sha256-D2eA8LuXAzUD4aUuI4PmBF1qc2wITa+3S+Tp2QgGy3w=",
         "owner": "PrismLauncher",
         "repo": "refraction",
-        "rev": "3ca77120c541cb9148567a5dbf8e8af240ea58af",
+        "rev": "ca08474eb286cc0a7bdd2619f726713268e9e96a",
         "type": "github"
       },
       "original": {
@@ -436,11 +436,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1715579217,
-        "narHash": "sha256-9YxkAntNWWybpT7L43kmltD7jKWQvf6jjmqwQyTq7zo=",
+        "lastModified": 1715980411,
+        "narHash": "sha256-YZhhxb2eCStk7eiEHUQwSgz2vkV/2dSZ4RE54y5yzJ8=",
         "ref": "refs/heads/main",
-        "rev": "22e77f0e6f510e0ba99b0789c0d701b2382ebbab",
-        "revCount": 728,
+        "rev": "c5d0b7aa62d57758b6f48bed39de5cfc76654fea",
+        "revCount": 730,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/website.git"
       },
@@ -463,11 +463,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1713877673,
-        "narHash": "sha256-XpvJaLCkTG2URjcxvgo6foYI8PcqQPF4a6O9P0aHhAU=",
+        "lastModified": 1715980139,
+        "narHash": "sha256-TKSjIniplQNyCVpkHDCKafQOQrsbbAKwYGJnumswWkI=",
         "ref": "refs/heads/main",
-        "rev": "f1141b748e211b94b780338c1b5792a55a14ef8e",
-        "revCount": 192,
+        "rev": "61a1a710200da00d68074fd413e1cb2683b11d6e",
+        "revCount": 193,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/skinprox.git"
       },
