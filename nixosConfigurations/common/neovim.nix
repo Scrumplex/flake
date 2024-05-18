@@ -65,7 +65,7 @@
 
     colorschemes.catppuccin = {
       enable = true;
-      flavour = "mocha";
+      settings.flavour = "mocha";
     };
 
     plugins = {
