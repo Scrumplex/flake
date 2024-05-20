@@ -16,6 +16,7 @@
       ../common/desktop/gaming.nix
       ../common/desktop/gtk
       ../common/desktop/image-viewer.nix
+      ../common/desktop/inhibridge.nix
       ../common/desktop/keyring.nix
       ../common/desktop/kitty.nix
       ../common/desktop/mako.nix

@@ -369,6 +369,32 @@
         "type": "github"
       }
     },
+    "inhibridge": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "pre-commit-hooks": [
+          "git-hooks"
+        ]
+      },
+      "locked": {
+        "lastModified": 1716214998,
+        "narHash": "sha256-42GqQ9AIgWLrhdNEGGo0FVg38fN+T+WJAtN3M+BPfF4=",
+        "ref": "refs/heads/main",
+        "rev": "b8bdaaad802622a3372c5e2cd5d9dcbaa041b64d",
+        "revCount": 41,
+        "type": "git",
+        "url": "https://codeberg.org/Scrumplex/inhibridge.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/Scrumplex/inhibridge.git"
+      }
+    },
     "lanzaboote": {
       "inputs": {
         "crane": "crane",
@@ -624,6 +650,7 @@
         "flake-parts": "flake-parts",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager",
+        "inhibridge": "inhibridge",
         "lanzaboote": "lanzaboote",
         "nix-index-database": "nix-index-database",
         "nixos-hardware": "nixos-hardware",

@@ -51,6 +51,12 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.pre-commit-hooks.follows = "git-hooks";
     };
+    inhibridge = {
+      url = "git+https://codeberg.org/Scrumplex/inhibridge.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.pre-commit-hooks.follows = "git-hooks";
+    };
     catppuccin-qt5ct = {
       url = "github:catppuccin/qt5ct";
       flake = false;
