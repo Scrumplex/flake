@@ -76,6 +76,7 @@
       # not supported on aarch64-darwin in nixpkgs
       "caffeine"
       "hoppscotch"
+      "inkscape"
       "jabra-direct"
       "linearmouse"
       "pgadmin4"
