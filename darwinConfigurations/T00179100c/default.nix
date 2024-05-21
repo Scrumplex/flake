@@ -82,6 +82,7 @@
       "pgadmin4"
       "postman"
       "signal"
+      "syncthing"
       "visual-studio-code"
     ];
   };
