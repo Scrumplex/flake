@@ -3,14 +3,14 @@
   pkgs,
   ...
 }: {
-  security.pam.services.waylock = {};
+  security.pam.services.gtklock = {};
 
-  environment.systemPackages = with pkgs; [waylock];
+  environment.systemPackages = with pkgs; [gtklock];
 
   hm.services.swayidle.events = [
     {
       event = "lock";
-      command = "${lib.getExe pkgs.waylock} -fork-on-lock";
+      command = "${lib.getExe pkgs.gtklock} --daemonize";
     }
   ];
 }
