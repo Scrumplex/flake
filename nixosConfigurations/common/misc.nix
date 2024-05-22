@@ -5,7 +5,7 @@
 }: let
   inherit (lib.modules) mkDefault;
 in {
-  hm.catppuccin.flavour = "mocha";
+  hm.catppuccin.flavor = "mocha";
   users.mutableUsers = false;
 
   services.openssh.enable = true;
