@@ -24,7 +24,7 @@
       inputs.home-manager.follows = "home-manager";
       inputs.pre-commit-hooks.follows = "git-hooks";
     };
-    catppuccin.url = "github:Stonks3141/ctp-nix";
+    catppuccin.url = "github:catppuccin/nix";
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
