@@ -78,6 +78,7 @@
       "hoppscotch"
       "inkscape"
       "jabra-direct"
+      "jellyfin-media-player"
       "linearmouse"
       "pgadmin4"
       "postman"
