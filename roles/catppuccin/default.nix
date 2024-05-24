@@ -13,7 +13,7 @@ in {
   };
 
   imports = [
-    (mkAliasOptionModule ["roles" "catppuccin" "flavor"] ["hm" "catppuccin" "flavour"])
+    (mkAliasOptionModule ["roles" "catppuccin" "flavor"] ["hm" "catppuccin" "flavor"])
   ];
 
   config = mkIf cfg.enable {
