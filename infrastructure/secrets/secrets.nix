@@ -23,6 +23,7 @@ in {
   "universe/prism-refraction.env.age".publicKeys = scrumplex ++ [universe];
   "universe/renovate.env.age".publicKeys = scrumplex ++ [spacehub universe];
   "universe/scrumplex-x-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
+  "universe/searx.env.age".publicKeys = scrumplex ++ [universe];
   "universe/synapse.signing.key.age".publicKeys = scrumplex ++ [universe];
   "universe/synapse-secrets.yaml.age".publicKeys = scrumplex ++ [universe];
   "universe/scrumplex-hs_ed25519_secret_key.age".publicKeys = scrumplex ++ [universe];

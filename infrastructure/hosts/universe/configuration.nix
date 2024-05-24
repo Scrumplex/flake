@@ -25,6 +25,7 @@
     ./prismlauncher
     ./renovate.nix
     ./scrumplex-website.nix
+    ./searx.nix
     ./skinprox.nix
     ./synapse.nix
     ./teamspeak3.nix
