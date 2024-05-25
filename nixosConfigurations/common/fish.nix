@@ -6,15 +6,16 @@
   programs.fish.enable = true;
   primaryUser.shell = pkgs.fish;
 
+  environment.systemPackages = with pkgs; [
+    fd
+    file
+    libqalculate
+    parallel
+    ripgrep
+    tree
+  ];
+
   hm = {
-    home.packages = with pkgs; [
-      fd
-      file
-      libqalculate
-      parallel
-      ripgrep
-      tree
-    ];
     programs.fish = {
       enable = true;
       shellInit = ''
