@@ -1,7 +1,6 @@
 {
   config,
   modulesPath,
-  pkgs,
   ...
 }: {
   imports = [
@@ -18,6 +17,7 @@
     ../common/upgrade.nix
 
     ./containers.nix
+    ./email.nix
     ./honeylinks-website.nix
     ./monitoring.nix
     ./murmur.nix
