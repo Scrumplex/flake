@@ -323,11 +323,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1716330097,
-        "narHash": "sha256-8BO3B7e3BiyIDsaKA0tY8O88rClYRTjvAp66y+VBUeU=",
+        "lastModified": 1716509168,
+        "narHash": "sha256-4zSIhSRRIoEBwjbPm3YiGtbd8HDWzFxJjw5DYSDy1n8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5710852ba686cc1fd0d3b8e22b3117d43ba374c2",
+        "rev": "bfb7a882678e518398ce9a31a881538679f6f092",
         "type": "github"
       },
       "original": {
@@ -372,11 +372,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1715956410,
-        "narHash": "sha256-D2eA8LuXAzUD4aUuI4PmBF1qc2wITa+3S+Tp2QgGy3w=",
+        "lastModified": 1716662017,
+        "narHash": "sha256-9NFOb+zBB1IfJIHpEllQQW6FjleK56XlLn6lTK3n+ho=",
         "owner": "PrismLauncher",
         "repo": "refraction",
-        "rev": "ca08474eb286cc0a7bdd2619f726713268e9e96a",
+        "rev": "6984edddf966b7cc9d152761ee5b065ceb33d8fd",
         "type": "github"
       },
       "original": {
