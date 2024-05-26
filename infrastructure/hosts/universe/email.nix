@@ -5,6 +5,18 @@
   ...
 }: let
   fqdn = "mail.scrumplex.rocks";
+  credDir = "/run/credentials/stalwart-mail.service";
+
+  mkIfS = cond: value: {
+    "if" = cond;
+    "then" = value;
+  };
+
+  mkElseS = value: {
+    "else" = value;
+  };
+
+  mkIfLocal = mkIfS "listener == 'smtp-local'";
 in {
   age.secrets."stalwart.env".file = ../../secrets/universe/stalwart.env.age;
 
@@ -12,11 +24,16 @@ in {
     enable = true;
     package = pkgs.stalwart-mail;
     settings = {
+      config.local-keys = ["session.*"];
       lookup.default.hostname = fqdn;
 
       server.listener = {
         smtp = {
           bind = ["[::]:25"];
+          protocol = "smtp";
+        };
+        smtp-local = {
+          bind = ["127.0.0.1:1025"];
           protocol = "smtp";
         };
         submissions = {
@@ -35,20 +52,37 @@ in {
         };
       };
 
+      session.auth.require = [
+        (mkIfLocal false) # Allow unauthenticated SMTP for localhost
+        (mkElseS true)
+      ];
+      session.rcpt.relay = [
+        (mkIfS "!is_empty(authenticated_as)" true) # Allow relay for authenticated SMTP
+        (mkIfLocal true) # Allow relay for localhost
+        (mkElseS false)
+      ];
+
       certificate.default = {
-        cert = "%{file:/run/credentials/stalwart-mail.service/cert.pem}%";
-        private-key = "%{file:/run/credentials/stalwart-mail.service/key.pem}%";
+        cert = "%{file:${credDir}/cert.pem}%";
+        private-key = "%{file:${credDir}/key.pem}%";
       };
 
       directory.default = {
         type = "internal";
         store = "db";
       };
+
       storage.directory = "default";
 
       authentication.fallback-admin = {
         user = "admin";
         secret = "%{env:ADMIN_SECRET}%";
+      };
+
+      tracer.stdout = {
+        enable = true;
+        type = "stdout";
+        level = "info";
       };
     };
   };

@@ -89,6 +89,15 @@
         system_mxid_localpart = "notices";
         system_mxid_display_name = "Server Notices";
       };
+
+      email = {
+        smtp_host = "localhost";
+        smtp_port = "1025";
+        notif_from = "%(app)s <synapse@scrumplex.rocks>";
+        app_name = "Duckhub Matrix";
+        enable_tls = false;
+        enable_notifs = true;
+      };
     };
     extraConfigFiles = [config.age.secrets."synapse-secrets.yaml".path];
 
