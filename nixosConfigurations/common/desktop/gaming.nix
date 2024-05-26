@@ -12,6 +12,7 @@
     dolphin-emu
     prismlauncher
     r2modman
+    ryujinx
 
     protontricks
   ];
