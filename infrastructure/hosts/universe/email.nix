@@ -16,7 +16,7 @@
     "else" = value;
   };
 
-  mkIfLocal = mkIfS "listener == 'smtp-local'";
+  mkIfLocal = mkIfS "remote_ip == '127.0.0.1' || remote_ip == '::1'";
 in {
   age.secrets."stalwart.env".file = ../../secrets/universe/stalwart.env.age;
 
@@ -32,10 +32,6 @@ in {
           bind = ["[::]:25"];
           protocol = "smtp";
         };
-        smtp-local = {
-          bind = ["127.0.0.1:1025"];
-          protocol = "smtp";
-        };
         submissions = {
           bind = ["[::]:465"];
           protocol = "smtp";
@@ -46,7 +42,7 @@ in {
           protocol = "imap";
           tls.implicit = true;
         };
-        server.listener.management = {
+        web = {
           bind = ["127.0.0.1:3010"];
           protocol = "http";
         };
@@ -101,7 +97,14 @@ in {
       config.common.nginx.vHost
       config.common.nginx.sslVHost
       {
-        locations."/".proxyPass = "http://stalwart-mail";
+        serverAliases = [
+          "autoconfig.scrumplex.rocks"
+          "autodiscover.scrumplex.rocks"
+        ];
+        locations."/" = {
+          proxyPass = "http://stalwart-mail";
+          proxyWebsockets = true;
+        };
       }
     ];
   };

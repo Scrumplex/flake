@@ -91,8 +91,6 @@
       };
 
       email = {
-        smtp_host = "localhost";
-        smtp_port = "1025";
         notif_from = "%(app)s <synapse@scrumplex.rocks>";
         app_name = "Duckhub Matrix";
         enable_tls = false;
