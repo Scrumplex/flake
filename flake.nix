@@ -22,7 +22,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.home-manager.follows = "home-manager";
-      inputs.pre-commit-hooks.follows = "git-hooks";
+      inputs.git-hooks.follows = "git-hooks";
     };
     catppuccin.url = "github:catppuccin/nix";
     nix-index-database = {
