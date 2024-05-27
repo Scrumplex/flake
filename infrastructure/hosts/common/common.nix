@@ -30,7 +30,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [kitty.terminfo htop nload];
+  environment.systemPackages = with pkgs; [kitty.terminfo htop nload tcpdump];
 
   programs.neovim = {
     enable = true;
