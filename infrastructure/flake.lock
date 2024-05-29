@@ -350,11 +350,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716996806,
-        "narHash": "sha256-UvwE0IIjpdTtEbwztPDrtBH9Q0YWQs/uaIOUFyLMByQ=",
+        "lastModified": 1717010572,
+        "narHash": "sha256-gQdR3nATEeaIayWNkyQ+detYn8qS8LTTZwLbjnT/wo4=",
         "owner": "PrismLauncher",
         "repo": "meta",
-        "rev": "ef6aaf0718ff076ab3e2ba8add31d0d0ce0020b2",
+        "rev": "2f27ad8aa10f5151e3eb996f44630cc4e3897725",
         "type": "github"
       },
       "original": {
@@ -436,11 +436,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1715980411,
-        "narHash": "sha256-YZhhxb2eCStk7eiEHUQwSgz2vkV/2dSZ4RE54y5yzJ8=",
+        "lastModified": 1717013031,
+        "narHash": "sha256-hvuQMMuSKvbEmyvbK1oHbHZXKUT7rscYd7KE5P4PJFY=",
         "ref": "refs/heads/main",
-        "rev": "c5d0b7aa62d57758b6f48bed39de5cfc76654fea",
-        "revCount": 730,
+        "rev": "ac488fa78d1c2d5027b308c40e06c49ab54f8e3e",
+        "revCount": 731,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/website.git"
       },
