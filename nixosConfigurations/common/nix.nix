@@ -1,7 +1,12 @@
-{inputs, ...}: let
+{
+  inputs,
+  pkgs,
+  ...
+}: let
   channelPath = "/etc/nix/channels/nixpkgs";
 in {
   nix = {
+    package = pkgs.lix;
     daemonCPUSchedPolicy = "idle";
     daemonIOSchedClass = "idle";
     daemonIOSchedPriority = 6;
