@@ -22,6 +22,7 @@ in {
     };
     settings = let
       termapp = "${pkgs.termapp}/bin/termapp";
+      run-or-raise = lib.getExe pkgs.run-or-raise;
     in {
       mainBar = {
         modules-left = ["sway/workspaces" "mpd"];
@@ -109,6 +110,7 @@ in {
           format = "{capacity}% {icon}";
           format-icons = ["󱃍" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
           max-length = 25;
+          on-click = "${run-or-raise} powersupply ${lib.getExe pkgs.powersupply}";
         };
         clock = {
           format = "{:%T}";
