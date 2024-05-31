@@ -73,6 +73,7 @@
         ./nixosConfigurations/andromeda
         ./nixosConfigurations/dyson
 
+        ./parts/checks.nix
         ./parts/dev.nix
         ./parts/nixpkgs-dev.nix
       ];
