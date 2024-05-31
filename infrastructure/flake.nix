@@ -54,6 +54,11 @@
       url = "github:PrismLauncher/refraction";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    buildbot-nix = {
+      url = "github:Mic92/buildbot-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
   };
 
   outputs = inputs @ {flake-parts, ...}:

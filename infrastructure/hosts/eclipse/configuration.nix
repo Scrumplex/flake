@@ -13,6 +13,7 @@
     ../common/upgrade.nix
 
     ./boot.nix
+    ./buildbot.nix
     ./dyndns.nix
     ./frigate.nix
     ./influx.nix

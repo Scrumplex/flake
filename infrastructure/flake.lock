@@ -48,6 +48,30 @@
         "type": "github"
       }
     },
+    "buildbot-nix": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "treefmt-nix": "treefmt-nix"
+      },
+      "locked": {
+        "lastModified": 1717033539,
+        "narHash": "sha256-vWQLnmZSipvaosXnGze8aSqlEzaAF9PhA5sh2QYNvTc=",
+        "owner": "Mic92",
+        "repo": "buildbot-nix",
+        "rev": "ad165ae64f877adc6156b8f21c31fc74144dc8e4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "buildbot-nix",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -389,6 +413,7 @@
       "inputs": {
         "agenix": "agenix",
         "arion": "arion",
+        "buildbot-nix": "buildbot-nix",
         "flake-parts": "flake-parts_2",
         "git-hooks": "git-hooks",
         "honeylinks-website": "honeylinks-website",
@@ -523,6 +548,27 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "treefmt-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "buildbot-nix",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1715940852,
+        "narHash": "sha256-wJqHMg/K6X3JGAE9YLM0LsuKrKb4XiBeVaoeMNlReZg=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "2fba33a182602b9d49f0b2440513e5ee091d838b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
         "type": "github"
       }
     }
