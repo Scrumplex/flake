@@ -35,6 +35,7 @@
       topic = "use-buildbot";
     };
     useHTTPS = true;
+    buildSystems = ["x86_64-linux" "aarch64-linux"];
   };
   services.buildbot-nix.worker = {
     enable = true;
