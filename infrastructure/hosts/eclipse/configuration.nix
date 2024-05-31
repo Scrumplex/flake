@@ -9,6 +9,7 @@
     ../common/common.nix
     ../common/nix.nix
     ../common/nullmailer.nix
+    ../common/postgres.nix
     ../common/traefik.nix
     ../common/upgrade.nix
 
@@ -22,6 +23,7 @@
     ./miniflux.nix
     ./mosquitto.nix
     ./paperless.nix
+    ./postgres.nix
     ./quassel.nix
     ./sabnzbd.nix
     ./step-ca.nix
@@ -80,12 +82,6 @@
       ];
     };
   };
-
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_15;
-  };
-  services.postgresqlBackup.enable = true;
 
   boot.kernel.sysctl = {
     "net.core.rmem_max" = 2500000; # Traefik HTTP3
