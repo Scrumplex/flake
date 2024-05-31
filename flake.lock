@@ -382,11 +382,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716214998,
-        "narHash": "sha256-42GqQ9AIgWLrhdNEGGo0FVg38fN+T+WJAtN3M+BPfF4=",
+        "lastModified": 1717140147,
+        "narHash": "sha256-XtfbLYuwGPlDcL1tW3y028sN7ev36yJ1xjCkdF49R0A=",
         "ref": "refs/heads/main",
-        "rev": "b8bdaaad802622a3372c5e2cd5d9dcbaa041b64d",
-        "revCount": 41,
+        "rev": "45363dad4a9c03bd5f7d80847e5a6d68eafb7aa2",
+        "revCount": 43,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/inhibridge.git"
       },
@@ -601,11 +601,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1717100844,
-        "narHash": "sha256-cKEGHGLaZoiNroMd34RrDgVDB7xgfff7HBShMz7cEy8=",
+        "lastModified": 1717171287,
+        "narHash": "sha256-wXHGKRw5Qjk2mFJQWYR2VpFyUt+vddf5wUQJsRpcacY=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "6ff3493c9bc85063ae829f0c25c21be3bde5c5b3",
+        "rev": "db32a4ebdae0a84c07098c6d2b585033e51eb7e5",
         "type": "github"
       },
       "original": {
@@ -629,11 +629,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1717136227,
-        "narHash": "sha256-YMt9R+exxDjUsxTbsPQZmElJA7Oic9HUi/Y2rb1dYYQ=",
+        "lastModified": 1717138712,
+        "narHash": "sha256-fBVpknPBWDVbpQbuGoCe1hmW/DRQQbl8VOMtojdhqe0=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "7ab8f8ef540bc4728021234aa91e41f985df92cd",
+        "rev": "2145f9f0ac9890f3f091f61b502b0f087fce1354",
         "type": "github"
       },
       "original": {
@@ -717,11 +717,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1717086351,
-        "narHash": "sha256-f6JuqNLdk/RtIiFvzKeXnUfv962FX3QD7g1mvkUZoeg=",
+        "lastModified": 1717139775,
+        "narHash": "sha256-A47QqFKZ98RhkESudTqU0YiriuzCyygymoY0CpjRKIo=",
         "owner": "Scrumplex",
         "repo": "pkgs",
-        "rev": "c76e3e6c8070c00674c2ccb01c85ebc72286653a",
+        "rev": "25c7221ba7103ebd6340ff92c607e7a8e07bf6b6",
         "type": "github"
       },
       "original": {
