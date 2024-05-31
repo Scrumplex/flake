@@ -74,6 +74,7 @@
         ./hosts/eclipse
         ./hosts/universe
 
+        ./parts/checks.nix
         ./parts/dev.nix
       ];
 
