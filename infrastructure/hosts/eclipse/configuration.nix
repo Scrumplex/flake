@@ -17,6 +17,7 @@
     ./buildbot.nix
     ./dyndns.nix
     ./frigate.nix
+    ./harmonia.nix
     ./influx.nix
     ./jellyfin.nix
     ./minecraft.nix

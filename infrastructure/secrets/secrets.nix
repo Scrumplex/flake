@@ -40,6 +40,7 @@ in {
   "eclipse/codeberg-webhook-secret.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/codeberg-token.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/frigate.env.age".publicKeys = scrumplex ++ [eclipse];
+  "eclipse/harmonia-signing.key.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/hetzner-ddns.env.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/hetzner.key.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/id_borgbase.age".publicKeys = scrumplex ++ [eclipse];
