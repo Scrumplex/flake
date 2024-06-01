@@ -8,7 +8,6 @@
     ./borg.nix
     ./desktop/sway.nix
     ./desktop/waybar.nix
-    ./harmonia.nix
     ./wireguard.nix
 
     inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
