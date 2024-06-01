@@ -8,10 +8,10 @@
 
   services.traefik.dynamicConfigOptions.http = {
     routers.harmonia = {
-      entryPoints = ["localsecure"];
+      entryPoints = ["websecure"];
       service = "harmonia";
       middlewares = "harmonia-compress";
-      rule = "Host(`cache.eclipse.lan`)";
+      rule = "Host(`cache.sefa.cloud`)";
     };
     services.harmonia.loadBalancer.servers = [{url = "http://${config.services.harmonia.settings.bind}";}];
     middlewares.harmonia-compress.compress = {};
