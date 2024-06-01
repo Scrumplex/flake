@@ -21,7 +21,7 @@ in {
         "https://nixpkgs-wayland.cachix.org"
       ];
       trusted-public-keys = [
-        "cache.sefa.cloud-1:0Rb9m4ybd5cD/09gOIOxQq1OwZurrzg8iH8tUPlcd8o="
+        "cache.sefa.cloud-1:Mxw+jeVRlZ4yJVGP+az80RjlUEqCUlX+M7vwGAq9drA="
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
