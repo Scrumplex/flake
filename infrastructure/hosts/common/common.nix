@@ -3,13 +3,6 @@
   pkgs,
   ...
 }: {
-  # TODO: use ng once following PR hits unstable
-  # https://github.com/NixOS/nixpkgs/pull/3156801
-  system.switch = {
-    enable = true;
-    enableNg = false;
-  };
-
   virtualisation.docker = {
     enable = lib.mkDefault true;
     autoPrune = {
