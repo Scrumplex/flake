@@ -8,6 +8,11 @@ in {
   hm.catppuccin.flavor = "mocha";
   users.mutableUsers = false;
 
+  system.switch = {
+    enable = false;
+    enableNg = true;
+  };
+
   services.openssh.enable = true;
   virtualisation.podman = {
     enable = mkDefault true;
