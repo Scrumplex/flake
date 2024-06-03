@@ -8,6 +8,7 @@
     ./borg.nix
     ./desktop/sway.nix
     ./desktop/waybar.nix
+    ./disks.nix
     ./wireguard.nix
 
     inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
@@ -30,14 +31,6 @@
   hardware.bluetooth.enable = true;
 
   programs.partition-manager.enable = true;
-
-  fileSystems = {
-    "/media/DATA" = {
-      device = "/dev/disk/by-id/ata-SanDisk_SDSSDH3_2T00_213894440406-part1";
-      fsType = "ext4";
-      options = ["defaults" "noauto" "x-systemd.automount"];
-    };
-  };
 
   powerManagement.cpuFreqGovernor = "schedutil";
 
