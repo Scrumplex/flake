@@ -4,15 +4,15 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    pre-commit-hooks = {
-      url = "github:cachix/pre-commit-hooks.nix";
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     scrumpkgs = {
       url = "github:Scrumplex/pkgs";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
+      inputs.pre-commit-hooks.follows = "git-hooks";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -28,7 +28,7 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.home-manager.follows = "home-manager";
       inputs.nix-darwin.follows = "nix-darwin";
-      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
+      inputs.git-hooks.follows = "git-hooks";
     };
     catppuccin.url = "github:catppuccin/nix";
     nix-index-database = {
@@ -45,7 +45,7 @@
   outputs = inputs @ {flake-parts, ...}:
     flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
-        inputs.pre-commit-hooks.flakeModule
+        inputs.git-hooks.flakeModule
 
         ./darwinConfigurations
 
