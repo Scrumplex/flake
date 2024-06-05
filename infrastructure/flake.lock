@@ -302,11 +302,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1717337507,
-        "narHash": "sha256-0wmmXknp/U8uIz94jni1HzlrmYqTnmgoKbVkctcyyW4=",
+        "lastModified": 1717581726,
+        "narHash": "sha256-MBJQMZz0Tx0HBgbRCntGqpqE8BKb1pDO7xhhC/ioRJ0=",
         "ref": "refs/heads/main",
-        "rev": "f3a6c0877e3e5b9927d0355c63036223f76daf0d",
-        "revCount": 175,
+        "rev": "05e7b09c75477b11e98eb49d23f59a80492fa335",
+        "revCount": 176,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/honeylinks.git"
       },
@@ -332,11 +332,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1717515267,
-        "narHash": "sha256-3d/rDckP583688YqVPc6SyXTy2gHpma0HzCv3idi1OE=",
+        "lastModified": 1717574423,
+        "narHash": "sha256-cz3P5MZffAHwL2IQaNzsqUBsJS+u0J/AAwArHMAcCa0=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "82b2e20fbffe6a5f0555701af136ad3e734a5faa",
+        "rev": "d6c6cf6f5fead4057d8fb2d5f30aa8ac1727f177",
         "type": "github"
       },
       "original": {
@@ -374,11 +374,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1717010572,
-        "narHash": "sha256-gQdR3nATEeaIayWNkyQ+detYn8qS8LTTZwLbjnT/wo4=",
+        "lastModified": 1717588911,
+        "narHash": "sha256-SNdPqfjdVyYdn2m2w7eA91+AcjrgXaacK3ZdLRInwsc=",
         "owner": "PrismLauncher",
         "repo": "meta",
-        "rev": "2f27ad8aa10f5151e3eb996f44630cc4e3897725",
+        "rev": "b9a98bc2439296f96fb2e766e7a66be989d24585",
         "type": "github"
       },
       "original": {
@@ -461,11 +461,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1717527906,
-        "narHash": "sha256-eJpcu+PCy9OgYVQa4B1zM3y1THYK5yC0EEYrC/r/ABg=",
+        "lastModified": 1717581978,
+        "narHash": "sha256-2FEWZKJ8ZleeNyewLs2eWS53nxTW3gPVzXquRVzI+FE=",
         "ref": "refs/heads/main",
-        "rev": "b1ba073de21cb3176771183ce8331e72865e4df3",
-        "revCount": 739,
+        "rev": "92b0ad032440cf4acd76cb1a18c982d56913809c",
+        "revCount": 740,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/website.git"
       },
