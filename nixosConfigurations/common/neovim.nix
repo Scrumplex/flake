@@ -162,7 +162,8 @@
           gopls.enable = true;
           html.enable = true;
           jsonls.enable = true;
-          nil_ls.enable = true;
+          nil-ls.enable = true;
+          nixd.enable = true;
           pylsp.enable = true;
           pyright.enable = true;
           rust-analyzer = {
