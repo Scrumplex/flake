@@ -35,11 +35,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1714877287,
-        "narHash": "sha256-mf1/RfkyhzwLLeqU8AdosbBfRQuQzuVMX7XL7GejoRI=",
+        "lastModified": 1717555938,
+        "narHash": "sha256-sVsJ48fKnIylxXbAIsdTJixkUxA8p2WvYRlyfo0KQos=",
         "owner": "hercules-ci",
         "repo": "arion",
-        "rev": "e9945eb6cdaf5c946bacd5a330e7b5ac7b3b2fdd",
+        "rev": "c24c185e67f093298a081900b49ca18716077dec",
         "type": "github"
       },
       "original": {
@@ -332,11 +332,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1717248095,
-        "narHash": "sha256-e8X2eWjAHJQT82AAN+mCI0B68cIDBJpqJ156+VRrFO0=",
+        "lastModified": 1717515267,
+        "narHash": "sha256-3d/rDckP583688YqVPc6SyXTy2gHpma0HzCv3idi1OE=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "7b49d3967613d9aacac5b340ef158d493906ba79",
+        "rev": "82b2e20fbffe6a5f0555701af136ad3e734a5faa",
         "type": "github"
       },
       "original": {
@@ -396,11 +396,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1717227247,
-        "narHash": "sha256-mPOe0sREwxAI4+oI3YcRZRfk9T5DWtj/qJjuK0Xl7Yk=",
+        "lastModified": 1717443520,
+        "narHash": "sha256-N/XDQuCebKR5IDU9+IkT6X5fRfDfNU9KCjAhOnqPUFc=",
         "owner": "PrismLauncher",
         "repo": "refraction",
-        "rev": "cc562a95d2881651164de09e225ecc68911b6ec5",
+        "rev": "41c0354344ca60840094d70b8d65029ac4d12337",
         "type": "github"
       },
       "original": {
@@ -461,11 +461,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1717337431,
-        "narHash": "sha256-p2bEdTNk1TiH7U3un+3OwqkbmEQaHsfL6SI4dQ0symc=",
+        "lastModified": 1717527906,
+        "narHash": "sha256-eJpcu+PCy9OgYVQa4B1zM3y1THYK5yC0EEYrC/r/ABg=",
         "ref": "refs/heads/main",
-        "rev": "33ee5e4393ac23fefcf17007ecac5f67ad883c40",
-        "revCount": 737,
+        "rev": "b1ba073de21cb3176771183ce8331e72865e4df3",
+        "revCount": 739,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/website.git"
       },
