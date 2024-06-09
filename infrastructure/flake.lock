@@ -452,11 +452,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1717828661,
-        "narHash": "sha256-zbmz/5de3qTAvFWYTQaWKWSKzDJvUUA85VU39J+8tmU=",
+        "lastModified": 1717935385,
+        "narHash": "sha256-ehaK8rnRbV3adbzjJbr4Y0OUauFZx4aXuQJHQfW5HxQ=",
         "owner": "PrismLauncher",
         "repo": "refraction",
-        "rev": "b3fd78639011cea32e9b557d00d3811f73c3678b",
+        "rev": "fc6b8f5c5223f3609341d4950c5aa233ddc79ffc",
         "type": "github"
       },
       "original": {
@@ -545,11 +545,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1717711557,
-        "narHash": "sha256-+8Mjnicy7VO/3rJ4b3RD2NeXEBc2fU6XNdSSNZHIMTA=",
+        "lastModified": 1717934614,
+        "narHash": "sha256-4zrJT1Iv8lJG+u2AGK03ESKwpJLRz0glKPPoLn44O4M=",
         "ref": "refs/heads/main",
-        "rev": "ed320eddc83aaed714b8e9d0e0d7da2e140d63bf",
-        "revCount": 197,
+        "rev": "bf18ac51cf6f175a7781e871d6ca66522896d1c0",
+        "revCount": 198,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/skinprox.git"
       },
