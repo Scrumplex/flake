@@ -9,6 +9,7 @@ in {
     config.allowUnfreePredicate = pkg:
       builtins.elem (lib.getName pkg) [
         "discord"
+        "libXNVCtrl"
         "samsung-unified-linux-driver"
         "steam"
         "steam-original"
