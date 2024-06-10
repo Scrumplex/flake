@@ -722,11 +722,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1718035689,
-        "narHash": "sha256-pPilaZztlSpp/EjH67DlEuzV2AqezASVzHZhJopYqDg=",
+        "lastModified": 1718039102,
+        "narHash": "sha256-yDn1RqefACf3ELNAoz3TlrxKkCVsrtl6NOSs14EAOFM=",
         "owner": "Scrumplex",
         "repo": "pkgs",
-        "rev": "5865cc6145c72ad3bc5ec0f83cec78b3c923ba2f",
+        "rev": "60c0d74db38a04a983d8345156295e21a14fd063",
         "type": "github"
       },
       "original": {
