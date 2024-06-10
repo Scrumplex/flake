@@ -20,13 +20,9 @@
       #!/usr/bin/env bash
       TARGET_FILENAME="${config.hm.home.homeDirectory}/Pictures/Screenshots/$(date +%s)_$(${pwgen} 6).png"
 
-      # The url to the endpoint
       TARGET_HOST="https://scrumplex.rocks"
+      BASIC_AUTH="$(cat ${config.age.secrets."screenshot-bash".path})"
 
-      # The password defined in the endpointd
-      PASSWORD="$(cat ${config.age.secrets."screenshot-bash".path})"
-
-      # change screenshot tool depending on parameter
       do_screenshot() {
           area=$(${swaymsg} -t get_tree | ${jq} -r '.. | select(.pid? and .visible?) | "\(.rect.x),\(.rect.y-."deco_rect".height) \(.rect.width)x\(.rect.height+."deco_rect".height)"' | ${slurp})
           ${grim} -g "$area" "$1"
