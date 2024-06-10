@@ -22,7 +22,6 @@
       "Scrumplex/honeylinks"
       "Scrumplex/infrastructure"
       "Scrumplex/inhibridge"
-      "Scrumplex/prntserve"
       "Scrumplex/skinprox"
       "Scrumplex/website"
     ];
