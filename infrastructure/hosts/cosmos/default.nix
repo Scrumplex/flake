@@ -4,7 +4,7 @@
   ...
 }: let
   inherit (builtins) attrValues;
-  inherit (inputs) agenix arion nixpkgs nixos-hardware srvos;
+  inherit (inputs) agenix nixpkgs nixos-hardware srvos;
 in {
   flake = {
     nixosConfigurations.cosmos = nixpkgs.lib.nixosSystem {
@@ -13,7 +13,6 @@ in {
         [
           srvos.nixosModules.server
           agenix.nixosModules.age
-          arion.nixosModules.arion
           nixos-hardware.nixosModules.raspberry-pi-4
           ./configuration.nix
         ]

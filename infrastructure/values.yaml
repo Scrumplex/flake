@@ -25,9 +25,3 @@ renovate:
     registry: ghcr.io
     repository: renovatebot/renovate
     tag: 37.401.1@sha256:4bfa4c3ec7c3ddf695283a6b22c3019ac77503597e5ad836ab3b34288a8cc961
-
-scrumplex-x:
-  image:
-    registry: codeberg.org
-    repository: scrumplex/prntserve
-    tag: latest@sha256:cc42d8539ec73244c7163169f6ee4c9dfefa1722bce4d5583d8f7fc1c81b15a9

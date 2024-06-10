@@ -4,7 +4,7 @@
   ...
 }: let
   inherit (builtins) attrValues;
-  inherit (inputs) agenix arion nixpkgs nixos-hardware srvos;
+  inherit (inputs) agenix nixpkgs nixos-hardware srvos;
 in {
   flake = {
     nixosConfigurations.eclipse = nixpkgs.lib.nixosSystem {
@@ -14,7 +14,6 @@ in {
           srvos.nixosModules.server
           srvos.nixosModules.mixins-systemd-boot
           agenix.nixosModules.age
-          arion.nixosModules.arion
           nixos-hardware.nixosModules.common-cpu-amd-pstate
           nixos-hardware.nixosModules.common-gpu-amd
           nixos-hardware.nixosModules.common-pc-ssd
