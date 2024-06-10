@@ -59,11 +59,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1717897980,
-        "narHash": "sha256-CR85YGXFUaskmVRLa3WbAnD9+PgYle0TGkQMnEshuHQ=",
+        "lastModified": 1717983619,
+        "narHash": "sha256-HUv3M9M2YX1ynL3Mhvd1IitsGqFLvkLnfu87X+07zC8=",
         "owner": "Mic92",
         "repo": "buildbot-nix",
-        "rev": "0d88c6776110ecf6705e9bfe1b777e6be6277da2",
+        "rev": "2058d5e8ca47f69b204fe2ddd07bc1ea417ffdba",
         "type": "github"
       },
       "original": {
@@ -388,11 +388,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1717828156,
-        "narHash": "sha256-YvstO0lobf3JWQuAfZCLYRTROC2ZDEgtWeQtWbO49p4=",
+        "lastModified": 1717995329,
+        "narHash": "sha256-lQJXEFHHVsFdFLx0bvoRbZH3IXUBsle6EWj9JroTJ/s=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "057a7996d012f342a38a26261ee529cebb1755ef",
+        "rev": "58b52b0dd191af70f538c707c66c682331cfdffc",
         "type": "github"
       },
       "original": {
