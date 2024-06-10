@@ -1,6 +1,7 @@
 {
   config,
   modulesPath,
+  pkgs,
   ...
 }: {
   imports = [
@@ -16,7 +17,6 @@
     ../common/postgres.nix
     ../common/upgrade.nix
 
-    ./containers.nix
     ./email.nix
     ./honeylinks-website.nix
     ./monitoring.nix
@@ -25,6 +25,7 @@
     ./prismlauncher
     ./renovate.nix
     ./scrumplex-website.nix
+    ./scrumplex-x.nix
     ./searx.nix
     ./skinprox.nix
     ./synapse.nix
@@ -81,6 +82,19 @@
       ];
     };
   };
+
+  virtualisation.docker.enable = false;
+  virtualisation.podman = {
+    enable = true;
+    dockerSocket.enable = true;
+    dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true;
+    autoPrune.enable = true;
+  };
+  environment.systemPackages = with pkgs; [
+    podman-compose
+  ];
+  networking.firewall.trustedInterfaces = ["podman+"];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

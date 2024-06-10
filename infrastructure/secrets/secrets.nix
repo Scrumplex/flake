@@ -22,7 +22,7 @@ in {
   "universe/prism-modmail.env.age".publicKeys = scrumplex ++ [universe];
   "universe/prism-refraction.env.age".publicKeys = scrumplex ++ [universe];
   "universe/renovate.env.age".publicKeys = scrumplex ++ [spacehub universe];
-  "universe/scrumplex-x-service.env.age".publicKeys = scrumplex ++ [spacehub universe];
+  "universe/scrumplex-x.htaccess.age".publicKeys = scrumplex ++ [universe];
   "universe/searx.env.age".publicKeys = scrumplex ++ [universe];
   "universe/stalwart.env.age".publicKeys = scrumplex ++ [universe];
   "universe/synapse.signing.key.age".publicKeys = scrumplex ++ [universe];
