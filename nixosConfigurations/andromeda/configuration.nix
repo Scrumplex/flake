@@ -38,11 +38,6 @@
 
   services.avahi.enable = true;
 
-  programs.wireshark = {
-    enable = true;
-    package = pkgs.wireshark;
-  };
-
   networking.firewall.allowedTCPPortRanges = [
     {
       from = 2234;

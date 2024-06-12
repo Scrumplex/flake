@@ -57,6 +57,7 @@
       ../common/syncthing.nix
       ../common/utils.nix
       ../common/v4l2loopback.nix
+      ../common/wireshark.nix
       ../../home
 
       ./configuration.nix
