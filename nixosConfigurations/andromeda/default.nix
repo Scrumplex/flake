@@ -28,7 +28,6 @@
       ../common/desktop/screenshot-bash.nix
       ../common/desktop/session-lock.nix
       ../common/desktop/sway.nix
-      ../common/desktop/sway-cgroups.nix
       ../common/desktop/swayidle.nix
       ../common/desktop/vr
       ../common/desktop/waybar.nix

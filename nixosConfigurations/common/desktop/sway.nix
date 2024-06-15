@@ -34,7 +34,10 @@ in {
     config = {
       modifier = "Mod4";
       # ugly, but this fixes most issues, until home-manager adopts environment.d
-      startup = [{command = "${getExe' config.systemd.package "systemctl"} --user import-environment";}];
+      startup = [
+        {command = "${getExe' config.systemd.package "systemctl"} --user import-environment";}
+        {command = lib.getExe pkgs.sway-assign-cgroups;}
+      ];
 
       input."type:keyboard" = {
         xkb_layout = "us";
