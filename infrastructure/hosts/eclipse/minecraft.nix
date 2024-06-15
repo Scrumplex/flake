@@ -23,10 +23,10 @@ in {
 
     servers.alex = {
       enable = true;
-      package = pkgs.fabricServers.fabric-1_20_6;
-      symlinks = {
-        "mods" = "${modpack}/mods";
-      };
+      package = pkgs.fabricServers.fabric-1_21;
+      #symlinks = {
+      #  "mods" = "${modpack}/mods";
+      #};
 
       jvmOpts = concatStringsSep " " [
         "-Xmx6G"
@@ -50,10 +50,9 @@ in {
         "-XX:MaxTenuringThreshold=1"
       ];
 
-      whitelist = {
-        "AreakAD" = "aa7f45e8-d962-4f29-a4e3-c1f14ca7bb43";
-        "Scrumplex" = "f2873756-429d-413a-b22d-6a976ed0d3f2";
-      };
+      #whitelist = {
+      #  "Scrumplex" = "f2873756-429d-413a-b22d-6a976ed0d3f2";
+      #};
 
       serverProperties = {
         difficulty = "normal";
