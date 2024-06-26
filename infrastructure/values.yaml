@@ -24,4 +24,4 @@ renovate:
   image:
     registry: ghcr.io
     repository: renovatebot/renovate
-    tag: 37.417.2@sha256:157e5f514c3669dbb5df24b09bc23ed418cf9ec79fb5983bae040c818e7770f0
+    tag: 37.418.0@sha256:556761dfdff158cba9175597fb5935c3fd2f212f84a694741849492ffae95e99
