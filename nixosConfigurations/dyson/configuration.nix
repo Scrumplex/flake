@@ -15,6 +15,8 @@
     inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
   ];
 
+  time.timeZone = "America/New_York";
+
   hardware.enableRedistributableFirmware = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
