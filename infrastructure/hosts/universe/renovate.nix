@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   age.secrets."renovate.env".file = ../../secrets/universe/renovate.env.age;
 
   services.renovate = {
@@ -24,6 +28,11 @@
         "Scrumplex/website"
       ];
     };
+    runtimePackages = with pkgs; [
+      config.nix.package
+      nodejs
+      corepack
+    ];
   };
 
   systemd.services."renovate".serviceConfig.EnvironmentFile = [
