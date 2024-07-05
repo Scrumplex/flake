@@ -23,14 +23,13 @@
   powerManagement.cpuFreqGovernor = "powersave";
   services.fwupd.enable = true;
 
-  hardware.bluetooth.enable = true;
-
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
   services.logind = {
+    powerKey = "suspend-then-hibernate";
     lidSwitch = "suspend-then-hibernate";
+    lidSwitchExternalPower = "suspend";
     extraConfig = ''
-      HandlePowerKey=suspend-then-hibernate
       PowerKeyIgnoreInhibited=yes
       LidSwitchIgnoreInhibited=no
     '';
@@ -39,8 +38,6 @@
   systemd.sleep.extraConfig = ''
     HibernateDelaySec=10m
   '';
-
-  environment.systemPackages = with pkgs; [vim];
 
   system.stateVersion = "23.11";
 }

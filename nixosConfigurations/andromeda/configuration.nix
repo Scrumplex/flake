@@ -44,9 +44,7 @@
     }
   ];
 
-  services.logind.extraConfig = ''
-    HandlePowerKey=suspend
-  '';
+  services.logind.powerKey = "suspend";
 
   virtualisation.libvirtd = {
     enable = true;
