@@ -1,7 +1,6 @@
 {...}: {
   imports = [
     ./autostart.nix
-    ./dev.nix
   ];
 
   theme = {

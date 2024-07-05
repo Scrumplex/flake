@@ -2,8 +2,8 @@
   environment.systemPackages = with pkgs; [
     blender
     evince
-    gnome.file-roller
-    gnome.nautilus
+    file-roller
+    nautilus
 
     qpwgraph
     virt-manager
@@ -84,7 +84,7 @@
 
     home.pointerCursor = {
       name = "Adwaita";
-      package = pkgs.gnome.gnome-themes-extra;
+      package = pkgs.gnome-themes-extra;
     };
 
     # Stop apps from generating fontconfig caches and breaking reproducibility
