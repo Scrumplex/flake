@@ -42,7 +42,5 @@
 
   environment.systemPackages = with pkgs; [vim];
 
-  profile.gpg.keygrips = ["BF9C6D61344A624956EB93594834D4D2AF5BD8C1"];
-
   system.stateVersion = "23.11";
 }
