@@ -1,12 +1,5 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
-  services.influxdb2 = {
-    enable = true;
-    package = inputs.nixpkgs-prev.legacyPackages.${pkgs.system}.influxdb2;
-  };
+{...}: {
+  services.influxdb2.enable = true;
 
   services.traefik.dynamicConfigOptions.http = {
     routers.influx = {
