@@ -73,6 +73,7 @@
     casks = [
       "boop"
       "browserosaurus"
+      "bruno"
       # not supported on aarch64-darwin in nixpkgs
       "caffeine"
       "hoppscotch"
