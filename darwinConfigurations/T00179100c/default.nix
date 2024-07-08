@@ -23,6 +23,8 @@
   };
   roles.shell.enable = true;
 
+  nixpkgs.config.allowUnfree = true;
+
   system.defaults = {
     NSGlobalDomain = {
       AppleInterfaceStyle = "Dark";
