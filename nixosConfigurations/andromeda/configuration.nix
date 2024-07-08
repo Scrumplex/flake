@@ -21,6 +21,10 @@
 
   profile.vr.enableHighPrioKernelPatch = true;
 
+  hardware.amdgpu = {
+    initrd.enable = true;
+    opencl.enable = true;
+  };
   hardware.opengl.vdpau.driverName = "radeonsi";
 
   networking.useNetworkd = true;
