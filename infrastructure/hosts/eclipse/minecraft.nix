@@ -29,7 +29,7 @@ in {
       #};
 
       jvmOpts = concatStringsSep " " [
-        "-Xmx6G"
+        "-Xmx2G"
         "-XX:+UseG1GC"
         "-XX:+ParallelRefProcEnabled"
         "-XX:MaxGCPauseMillis=200"
@@ -57,6 +57,49 @@ in {
       serverProperties = {
         difficulty = "normal";
         motd = "scrumplex.net";
+        spawn-protection = 0;
+        white-list = true;
+      };
+    };
+
+    servers.bee = {
+      enable = true;
+      package = pkgs.writeShellApplication {
+        name = "minecraft-server";
+
+        runtimeInputs = [pkgs.jdk17];
+
+        text = ''
+          exec java "$@" @libraries/net/minecraftforge/forge/1.20.1-47.2.20/unix_args.txt nogui
+        '';
+      };
+
+      jvmOpts = concatStringsSep " " [
+        "-Xmx6G"
+        "-XX:+UseG1GC"
+        "-XX:+ParallelRefProcEnabled"
+        "-XX:MaxGCPauseMillis=200"
+        "-XX:+UnlockExperimentalVMOptions"
+        "-XX:+DisableExplicitGC"
+        "-XX:+AlwaysPreTouch"
+        "-XX:G1NewSizePercent=30"
+        "-XX:G1MaxNewSizePercent=40"
+        "-XX:G1HeapRegionSize=8M"
+        "-XX:G1ReservePercent=20"
+        "-XX:G1HeapWastePercent=5"
+        "-XX:G1MixedGCCountTarget=4"
+        "-XX:InitiatingHeapOccupancyPercent=15"
+        "-XX:G1MixedGCLiveThresholdPercent=90"
+        "-XX:G1RSetUpdatingPauseTimePercent=5"
+        "-XX:SurvivorRatio=32"
+        "-XX:+PerfDisableSharedMem"
+        "-XX:MaxTenuringThreshold=1"
+      ];
+
+      serverProperties = {
+        difficulty = "normal";
+        motd = "scrumplex.net";
+        server-port = 25566;
         spawn-protection = 0;
         white-list = true;
       };
