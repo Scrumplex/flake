@@ -13,6 +13,7 @@
     prismlauncher
     r2modman
     ryujinx
+    shipwright
 
     protontricks
   ];
