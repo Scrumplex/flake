@@ -97,6 +97,8 @@ in {
       ];
 
       serverProperties = {
+        # False positives
+        allow-flight = true;
         difficulty = "normal";
         motd = "scrumplex.net";
         server-port = 25566;
