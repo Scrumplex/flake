@@ -107,6 +107,7 @@ buildPythonApplication rec {
 
   pythonRelaxDeps = [
     "packaging"
+    "defusedxml"
   ];
 
   pythonImportsCheck = ["modmail"];

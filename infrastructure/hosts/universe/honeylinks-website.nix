@@ -5,13 +5,12 @@
   pkgs,
   ...
 }: {
-  nixpkgs.overlays = [inputs.honeylinks-website.overlays.default];
-
   services.nginx.virtualHosts."honeyarcus.art" = lib.mkMerge [
     config.common.nginx.vHost
     config.common.nginx.sslVHost
     {
-      root = pkgs.honeylinks-website;
+      # TODO: use overlay once Nixpkgs Node.js tooling works again
+      root = inputs.honeylinks-website.packages.${pkgs.system}.honeylinks-website;
       locations = {
         "~* \.html$".extraConfig = ''
           expires 1h;
