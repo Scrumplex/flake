@@ -1,8 +1,13 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   age.secrets."transmission-creds.json".file = ../../secrets/eclipse/transmission-creds.json.age;
 
   services.transmission = {
     enable = true;
+    package = pkgs.transmission_3.override {miniupnpc = pkgs.hello;};
     openPeerPorts = true;
     home = "/media/transmission";
     downloadDirPermissions = "770";
