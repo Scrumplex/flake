@@ -11,6 +11,7 @@ in {
         "discord"
         "libXNVCtrl"
         "samsung-unified-linux-driver"
+        "shipwright"
         "steam"
         "steam-original"
         "steam-run"

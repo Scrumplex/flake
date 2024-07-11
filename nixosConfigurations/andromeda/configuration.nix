@@ -23,7 +23,8 @@
 
   hardware.amdgpu = {
     initrd.enable = true;
-    opencl.enable = true;
+    # TODO: ROCm broken as of 2024/07/11
+    #opencl.enable = true;
   };
   hardware.opengl.vdpau.driverName = "radeonsi";
 
