@@ -1,5 +1,9 @@
 {...}: {
-  services.sabnzbd.enable = true;
+  services.sabnzbd = {
+    enable = true;
+    user = "media";
+    group = "media";
+  };
 
   services.traefik.dynamicConfigOptions.http = {
     routers.sabnzbd = {

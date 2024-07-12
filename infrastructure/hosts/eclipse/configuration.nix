@@ -19,14 +19,13 @@
     ./frigate.nix
     ./harmonia.nix
     ./influx.nix
-    ./jellyfin.nix
+    ./media
     ./minecraft.nix
     ./miniflux.nix
     ./mosquitto.nix
     ./paperless.nix
     ./postgres.nix
     ./quassel.nix
-    ./sabnzbd.nix
     ./step-ca.nix
     ./swapfile.nix
     ./syncthing.nix

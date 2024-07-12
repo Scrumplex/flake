@@ -3,7 +3,11 @@
   lib,
   ...
 }: {
-  services.jellyfin.enable = true;
+  services.jellyfin = {
+    enable = true;
+    user = "media";
+    group = "media";
+  };
 
   users.users.${config.services.jellyfin.user}.extraGroups =
     ["video" "render"]
