@@ -34,11 +34,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1720723809,
-        "narHash": "sha256-ishK1fXRIQy3OqjgMaltmAz/+vOvejWT+QRUQA3wmaU=",
+        "lastModified": 1720763748,
+        "narHash": "sha256-KHNUflFH8edFy6I6Jog+1MNeuMiMuSxqui4MNYihOEc=",
         "owner": "Mic92",
         "repo": "buildbot-nix",
-        "rev": "7b35dfe0a700e7fc65e88c0228c77ea208fb8521",
+        "rev": "d6ae979a91084883791d1fb9ef90ca7599247ffa",
         "type": "github"
       },
       "original": {
@@ -289,11 +289,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1720661267,
-        "narHash": "sha256-E/dvuJ71aufrZBifHRA7HBGpZUlmwcGjzu8MGi+0PSU=",
+        "lastModified": 1720747592,
+        "narHash": "sha256-FoO2u4siLSCssocLtITZe9WzsQkccjlP2YVn/KTEd04=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "d468e63fc0b01794d95367de70e578cfebcef87c",
+        "rev": "3161bdf550acc3f43f04350c5a46c978b85c7693",
         "type": "github"
       },
       "original": {
@@ -304,11 +304,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1720515935,
-        "narHash": "sha256-8b+fzR4W2hI5axwB+4nBwoA15awPKkck4ghhCt8v39M=",
+        "lastModified": 1720737798,
+        "narHash": "sha256-G/OtEAts7ZUvW5lrGMXSb8HqRp2Jr9I7reBuvCOL54w=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "a111ce6b537df12a39874aa9672caa87f8677eda",
+        "rev": "c5013aa7ce2c7ec90acee5d965d950c8348db751",
         "type": "github"
       },
       "original": {
@@ -335,11 +335,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1720553833,
-        "narHash": "sha256-IXMiHQMtdShDXcBW95ctA+m5Oq2kLxnBt7WlMxvDQXA=",
+        "lastModified": 1720691131,
+        "narHash": "sha256-CWT+KN8aTPyMIx8P303gsVxUnkinIz0a/Cmasz1jyIM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "249fbde2a178a2ea2638b65b9ecebd531b338cf9",
+        "rev": "a046c1202e11b62cbede5385ba64908feb7bfac4",
         "type": "github"
       },
       "original": {
@@ -384,11 +384,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1720567987,
-        "narHash": "sha256-IlYgPVwIF9h2ul91XGuXZxQDRVPzKttfR/0wg3FSgSs=",
+        "lastModified": 1720728183,
+        "narHash": "sha256-NQHdFl/58bpk284vG7FKo/gSDBdH4ImVH9r0cyFX76c=",
         "owner": "PrismLauncher",
         "repo": "refraction",
-        "rev": "adc6b347becfa19ef987384a9fb3006a8ecdae7d",
+        "rev": "19ad98dda0e2e647cdae164b975de5f06e0f9de6",
         "type": "github"
       },
       "original": {
