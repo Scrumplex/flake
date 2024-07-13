@@ -19,9 +19,3 @@ ovenmediaengine:
   image:
     repository: airensoft/ovenmediaengine
     tag: 0.16.6@sha256:965cf0abc3311bed0c3c35c7c2e0b61d1e52fd477c23d0191c922e4d30cd5b89
-
-renovate:
-  image:
-    registry: ghcr.io
-    repository: renovatebot/renovate
-    tag: 37.431.2@sha256:838bdb41b61003b02e2532d9ca1c3b7ee617f9497d133b366cb02fc689069a47
