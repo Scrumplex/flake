@@ -34,11 +34,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1720783890,
-        "narHash": "sha256-tSorrlwXNn4IvyIe1aNC4WJzdo5IGQ1MzUMPb6qrZmg=",
+        "lastModified": 1720829164,
+        "narHash": "sha256-Bs5WXcCa0YS8n13r1Xzwz3lAn2j8scfeD1yeR3XWdHY=",
         "owner": "Mic92",
         "repo": "buildbot-nix",
-        "rev": "8678bdf73bc8668817fc986635013a7ce285e105",
+        "rev": "6c7b3b1a1ccbed93961fd6ad0faac04302023503",
         "type": "github"
       },
       "original": {
@@ -252,11 +252,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1719828079,
-        "narHash": "sha256-M7VoRTxV8V0c07RTLibAi8Vq7wri6x/OzaS17bHZeus=",
+        "lastModified": 1720818222,
+        "narHash": "sha256-RGm6CbsgnASPbHriQBMmmZptnL03uidKM9MvQiTF2Pk=",
         "ref": "refs/heads/main",
-        "rev": "c5e8469a3316f3281a93aedb76acffc5fc692bdb",
-        "revCount": 180,
+        "rev": "ab569ca044047faa19990df4dfaa41c2642685fe",
+        "revCount": 181,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/honeylinks.git"
       },
@@ -289,11 +289,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1720747592,
-        "narHash": "sha256-FoO2u4siLSCssocLtITZe9WzsQkccjlP2YVn/KTEd04=",
+        "lastModified": 1720834054,
+        "narHash": "sha256-gpUgy1XJGw8PZuRQlGwxoriIP+8jgUf2Ho9/g6meQHQ=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "3161bdf550acc3f43f04350c5a46c978b85c7693",
+        "rev": "526acd22f4ac06182ad4ec6346f5c6008590dbab",
         "type": "github"
       },
       "original": {
@@ -450,11 +450,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1720073195,
-        "narHash": "sha256-tO3YLq0k3knqmRIv8Qgp+TBMeVMVsHHbfYTl2wjRY9E=",
+        "lastModified": 1720818347,
+        "narHash": "sha256-/09isZxfbVCSjKuV+peNPnYTDU4lN6KlF1U3OeAIeMQ=",
         "ref": "refs/heads/main",
-        "rev": "157f2dbc8803804ced9bb3ed9547ab5473361cbb",
-        "revCount": 747,
+        "rev": "ec144993f55759f870e094a9282d9265ef8b497c",
+        "revCount": 748,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/website.git"
       },
