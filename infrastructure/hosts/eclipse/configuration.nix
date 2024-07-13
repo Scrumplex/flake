@@ -28,7 +28,6 @@
     ./quassel.nix
     ./step-ca.nix
     ./swapfile.nix
-    ./syncthing.nix
     ./transmission.nix
     ./traefik.nix
     ./vaultwarden.nix

@@ -1,17 +1,20 @@
 {config, ...}: {
   age.secrets."syncthing-key.pem" = {
-    file = ../../secrets/eclipse/syncthing-key.pem.age;
+    file = ../../../secrets/eclipse/syncthing-key.pem.age;
     owner = config.services.syncthing.user;
     group = config.services.syncthing.group;
   };
   age.secrets."syncthing-cert.pem" = {
-    file = ../../secrets/eclipse/syncthing-cert.pem.age;
+    file = ../../../secrets/eclipse/syncthing-cert.pem.age;
     owner = config.services.syncthing.user;
     group = config.services.syncthing.group;
   };
 
   services.syncthing = {
     enable = true;
+    user = "media";
+    group = "media";
+
     key = config.age.secrets."syncthing-key.pem".path;
     cert = config.age.secrets."syncthing-cert.pem".path;
     openDefaultPorts = true;
