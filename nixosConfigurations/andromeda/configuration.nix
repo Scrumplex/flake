@@ -20,6 +20,13 @@
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   profile.vr.enableHighPrioKernelPatch = true;
+  profile.amdgpu.patches = [
+    (pkgs.fetchpatch2 {
+      name = "fix-amdgpu-crash.patch";
+      url = "https://gitlab.freedesktop.org/agd5f/linux/-/commit/334b56cea5d9df5989be6cf1a5898114fa70ad98.patch";
+      hash = "";
+    })
+  ];
 
   hardware.amdgpu = {
     initrd.enable = true;

@@ -5,6 +5,7 @@
 
     modules = [
       ../common
+      ../common/amdgpu
       ../common/beets.nix
       ../common/bluetooth.nix
       ../common/boot
@@ -29,7 +30,7 @@
       ../common/desktop/session-lock.nix
       ../common/desktop/sway.nix
       ../common/desktop/swayidle.nix
-      ../common/desktop/vr
+      ../common/desktop/vr.nix
       ../common/desktop/waybar.nix
       ../common/desktop/wlogout.nix
       ../common/desktop/wlsunset.nix
