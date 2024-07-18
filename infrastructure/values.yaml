@@ -18,4 +18,4 @@ home-assistant:
 ovenmediaengine:
   image:
     repository: airensoft/ovenmediaengine
-    tag: 0.16.6@sha256:965cf0abc3311bed0c3c35c7c2e0b61d1e52fd477c23d0191c922e4d30cd5b89
+    tag: 0.16.7@sha256:8b716d4bdc92b042a43e4b5e42bbb7867fa32eb2ef9595228909208bdcb5758b
