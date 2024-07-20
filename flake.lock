@@ -415,11 +415,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1719818887,
-        "narHash": "sha256-Bogl1pJlgby7OpR16jp8zwOWV7FHRxCsnNxHcisyIq0=",
+        "lastModified": 1721499979,
+        "narHash": "sha256-e4uZd/Foc7t2GPqs476iO1SqcwZlys3BYGvtpwzYT/I=",
         "owner": "nix-community",
         "repo": "lanzaboote",
-        "rev": "0e6457c98547ec8866714d4222545e7e8c1ae429",
+        "rev": "1e0fe44409447999194c533dfd9174449757eba9",
         "type": "github"
       },
       "original": {
@@ -633,11 +633,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1721393232,
-        "narHash": "sha256-7cvbIoswTvUm6P9EB37fDaLsGEzyGChxAw/CvLmZPb8=",
+        "lastModified": 1721464791,
+        "narHash": "sha256-RRnCX3zvo3ar/7/s+NQAxGaKPXzIQCf8qqj7IHc0M+w=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "0041d2a126ae6f35ce1ca2bb5c793ec5853c4343",
+        "rev": "6352362907149d297684473f3d606b08ce1b93f5",
         "type": "github"
       },
       "original": {
@@ -722,11 +722,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1721375676,
-        "narHash": "sha256-CqSMEd1wH0++l68H4wqO6+C1FEAAds0O+Ovh+eyi8PI=",
+        "lastModified": 1721462815,
+        "narHash": "sha256-+TQGPbK9LqRED/ppTG3dwCfQ3i39gdldgKtQ3rSx83o=",
         "owner": "Scrumplex",
         "repo": "pkgs",
-        "rev": "1e285ea41305f5c4efa69baf3d8af7e828fdfc88",
+        "rev": "7f3597371dba0d04945d936a9b9936252795f1f4",
         "type": "github"
       },
       "original": {
