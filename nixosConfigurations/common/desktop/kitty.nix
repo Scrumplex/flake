@@ -2,7 +2,9 @@
   config,
   lib,
   ...
-}: {
+}: let
+  staticBinPath = "/etc/nix/programs/kitty";
+in {
   hm.programs.kitty = {
     enable = true;
     catppuccin.enable = true;
@@ -53,6 +55,15 @@
     '';
   };
 
-  hm.wayland.windowManager.sway.config.terminal = lib.getExe config.hm.programs.kitty.package;
-  hm.programs.fuzzel.settings.main.terminal = lib.getExe config.hm.programs.kitty.package;
+  # Set xdg-terminal-exec target
+  xdg.terminal-exec.enable = lib.mkDefault true;
+  hm.xdg.configFile."xdg-terminals.list".text = ''
+    kitty.desktop
+  '';
+
+  systemd.tmpfiles.settings."10-kitty".${staticBinPath}."L+".argument = lib.getExe config.hm.programs.kitty.package;
+
+  hm.wayland.windowManager.sway.config.terminal = staticBinPath;
+  hm.programs.fuzzel.settings.main.terminal = staticBinPath;
+  environment.sessionVariables."TERMINAL" = staticBinPath;
 }
