@@ -31,8 +31,8 @@ buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "Scrumplex";
     repo = "logviewer";
-    rev = "2c9c80c323f4481fb2d0c78bc043b7933a955be8";
-    hash = "sha256-FUoQFUXXtQljT3bKOZTmnW8CeXqqPD1v4WzUc/x1vNM=";
+    rev = "f7d15d26b5ee2be1bc1c888b81d4f1b9c7d32d05";
+    hash = "sha256-1lfB04ffuy8pqECtQGomPZE+KrBDYrWNLnaGqUbJhcM=";
   };
 
   nativeBuildInputs = [

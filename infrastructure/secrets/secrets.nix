@@ -20,6 +20,7 @@ in {
   "universe/hetzner.key.age".publicKeys = scrumplex ++ [spacehub universe];
   "universe/prism-meta.key.age".publicKeys = scrumplex ++ [universe];
   "universe/prism-modmail.env.age".publicKeys = scrumplex ++ [universe];
+  "universe/prism-oauth2-proxy.env.age".publicKeys = scrumplex ++ [universe];
   "universe/prism-refraction.env.age".publicKeys = scrumplex ++ [universe];
   "universe/renovate.env.age".publicKeys = scrumplex ++ [spacehub universe];
   "universe/scrumplex-x.htaccess.age".publicKeys = scrumplex ++ [universe];
