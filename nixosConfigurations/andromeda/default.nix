@@ -25,6 +25,7 @@
       ../common/desktop/obs.nix
       ../common/desktop/pipewire
       ../common/desktop/polkit-agent.nix
+      ../common/desktop/poweralertd.nix
       ../common/desktop/qt
       ../common/desktop/screenshot-bash.nix
       ../common/desktop/session-lock.nix
