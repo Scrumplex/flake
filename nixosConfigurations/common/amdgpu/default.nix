@@ -19,7 +19,7 @@ in {
   config = mkIf (cfg.patches != []) {
     boot.extraModulePackages = [
       (amdgpu-kernel-module.overrideAttrs (prev: {
-        patches = (prev.patches or []) ++ [];
+        patches = (prev.patches or []) ++ cfg.patches;
       }))
     ];
   };
