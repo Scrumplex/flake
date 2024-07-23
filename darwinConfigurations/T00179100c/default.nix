@@ -93,6 +93,7 @@
   environment.systemPath = [config.homebrew.brewPrefix];
 
   environment.systemPackages = with pkgs; [
+    htop
     iterm2
     rectangle
 
