@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   services.radarr = {
     enable = true;
     user = "media";
@@ -9,6 +9,8 @@
     user = "media";
     group = "media";
   };
+
+  services.jellyseerr.enable = true;
 
   services.traefik.dynamicConfigOptions.http = {
     routers.radarr = {
@@ -21,7 +23,13 @@
       service = "sonarr";
       rule = "Host(`sonarr.eclipse.lan`)";
     };
+    routers.jellyseerr = {
+      entryPoints = ["websecure"];
+      service = "jellyseerr";
+      rule = "Host(`request.sefa.cloud`)";
+    };
     services.radarr.loadBalancer.servers = [{url = "http://localhost:7878";}];
     services.sonarr.loadBalancer.servers = [{url = "http://localhost:8989";}];
+    services.jellyseerr.loadBalancer.servers = [{url = "http://localhost:${toString config.services.jellyseerr.port}";}];
   };
 }
