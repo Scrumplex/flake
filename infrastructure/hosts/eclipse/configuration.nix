@@ -66,7 +66,7 @@
     };
   };
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   services.apcupsd = {
     enable = true;
