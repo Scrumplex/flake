@@ -10,7 +10,7 @@
     package = inputs.skinprox.packages.${pkgs.system}.skinprox;
     publicUrl = "https://skins.scrumplex.net";
     providers = [
-      #"https://scrumplex.rocks/skin/"
+      "https://scrumplex.rocks/skin/"
       "https://skins.ddnet.org/skin/community/"
       "https://skins.tee.world/"
       "https://assets.ddstats.org/skins/"
