@@ -26,7 +26,6 @@
     ./renovate.nix
     ./scrumplex-website.nix
     ./scrumplex-x.nix
-    ./searx.nix
     ./skinprox.nix
     ./synapse.nix
     ./teamspeak3.nix
