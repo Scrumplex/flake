@@ -34,11 +34,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1722089663,
-        "narHash": "sha256-vy17W1jjnQG6OsSWPJOhkuOIgJJ/OwBa4IY/Ct4nNd4=",
+        "lastModified": 1722182422,
+        "narHash": "sha256-NUG5CcCP0LiPilS8kFo3tSo67fYD/nsyK+ipFebHGKk=",
         "owner": "Mic92",
         "repo": "buildbot-nix",
-        "rev": "62e7fc4d889ea711f79dfc345b279e268216aac5",
+        "rev": "be21cda4410d02d0905f8c912b626b7325c97be8",
         "type": "github"
       },
       "original": {
@@ -384,11 +384,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1722088108,
-        "narHash": "sha256-0aRjz2VUnanxpe/cDnEqZZHn/GWhJvad26WrH1VIUwA=",
+        "lastModified": 1722202109,
+        "narHash": "sha256-b97RvrF4gX4Vwy6qLthKvbS7e7Yo7+1nJJXmHH+oHiA=",
         "owner": "PrismLauncher",
         "repo": "refraction",
-        "rev": "b75ccbd5279b1f14cfa990b08e2ed9497fd6d500",
+        "rev": "fac355d57674e184cef494fffd84fc5e5d5c3037",
         "type": "github"
       },
       "original": {
