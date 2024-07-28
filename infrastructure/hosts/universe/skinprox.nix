@@ -5,6 +5,8 @@
   pkgs,
   ...
 }: {
+  imports = [inputs.skinprox.nixosModules.skinprox];
+
   services.skinprox = {
     enable = true;
     package = inputs.skinprox.packages.${pkgs.system}.skinprox;

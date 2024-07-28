@@ -4,7 +4,7 @@
   ...
 }: let
   inherit (builtins) attrValues;
-  inherit (inputs) agenix nixpkgs skinprox srvos;
+  inherit (inputs) agenix nixpkgs srvos;
 in {
   flake = {
     nixosConfigurations.universe = nixpkgs.lib.nixosSystem {
@@ -14,7 +14,6 @@ in {
           srvos.nixosModules.server
           srvos.nixosModules.mixins-systemd-boot
           agenix.nixosModules.age
-          skinprox.nixosModules.skinprox
           ./configuration.nix
         ]
         ++ attrValues self.nixosModules;
