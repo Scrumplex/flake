@@ -63,7 +63,7 @@ in {
     };
 
     servers.bee = {
-      enable = true;
+      enable = false;
       package = pkgs.writeShellApplication {
         name = "minecraft-server";
 
