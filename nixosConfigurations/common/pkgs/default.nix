@@ -32,10 +32,6 @@ in {
         ncmpcpp = prev.ncmpcpp.override {
           visualizerSupport = true;
         };
-
-        prismlauncher = prev.prismlauncher.override {
-          glfw = final.glfwUnstable;
-        };
       })
     ];
   };
