@@ -47,6 +47,7 @@
               "~/.local/share/Steam/config/htmlcache"
               "~/.local/share/Steam/depotcache"
               "~/.local/share/Steam/steamapps"
+              "~/.local/share/Steam/ubuntu12_64"
               "~/.local/share/Steam/userdata/*/gamerecordings"
               "~/.local/share/Trash"
               "~/.local/share/virtualenv"
