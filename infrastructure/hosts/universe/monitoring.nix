@@ -77,6 +77,12 @@ in {
             url = "http://localhost:${toString config.services.prometheus.port}";
             isDefault = true;
           }
+          {
+            name = "Prometheus@eclipse";
+            type = "prometheus";
+            uid = "prom_eclipse";
+            url = "http://10.255.255.12:9090";
+          }
         ];
       };
     };

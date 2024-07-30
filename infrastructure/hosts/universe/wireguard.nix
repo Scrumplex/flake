@@ -52,6 +52,10 @@ in {
           allowedIPs = ["10.255.255.11" "fd69:5efa:5efa:5efa::11"];
         }
         {
+          publicKey = "UKWQwi7cb6JfaxyGI3QIEOlIPzVNCihP+xqPvbv70nI=";
+          allowedIPs = ["10.255.255.12" "fd69:5efa:5efa:5efa::12"];
+        }
+        {
           publicKey = "W/9mR39AqBBOc1eyWZe9qbZGEuhuQqCUPKHUNymsmWo=";
           allowedIPs = ["10.255.255.20" "fd69:5efa:5efa:5efa::20"];
         }

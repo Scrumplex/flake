@@ -1,7 +1,9 @@
 {config, ...}: {
+  age.secrets."wireguard.key".file = ../../secrets/eclipse/wireguard.key.age;
+
   networking.firewall.allowedUDPPorts = [22701];
   networking.wireguard.interfaces.wg-scrumplex = {
-    ips = ["10.255.255.11/24" "fd69:5efa:5efa:5efa::11/64"];
+    ips = ["10.255.255.12/24" "fd69:5efa:5efa:5efa::12/64"];
     listenPort = 22701;
 
     privateKeyFile = config.age.secrets."wireguard.key".path;
@@ -24,12 +26,12 @@
         ];
       }
       {
-        publicKey = "UKWQwi7cb6JfaxyGI3QIEOlIPzVNCihP+xqPvbv70nI=";
+        publicKey = "SpTbip3iTqRM4qPFy4PtXI2WE9VmRVnfV931LPl3IWs=";
         allowedIPs = [
-          "10.255.255.12"
-          "fd69:5efa:5efa:5efa::12"
+          "10.255.255.11"
+          "fd69:5efa:5efa:5efa::11"
         ];
-        endpoint = "10.10.10.12:22701";
+        endpoint = "10.10.10.11:22701";
         persistentKeepalive = 60;
       }
       {

@@ -14,6 +14,7 @@ in {
 
     ./boot.nix
     ./home-assistant.nix
+    ./otel.nix
     ./traefik.nix
     ./wireguard.nix
   ];

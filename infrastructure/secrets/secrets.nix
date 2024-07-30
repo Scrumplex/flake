@@ -34,6 +34,7 @@ in {
   "cosmos/id_borgbase.age".publicKeys = scrumplex ++ [cosmos];
   "cosmos/wireguard.key.age".publicKeys = scrumplex ++ [cosmos];
   "cosmos/hetzner.key.age".publicKeys = scrumplex ++ [cosmos];
+  "cosmos/otel-hass-token.env.age".publicKeys = scrumplex ++ [cosmos];
 
   "eclipse/ca_intermediate.key.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/ca_intermediate.pass.age".publicKeys = scrumplex ++ [eclipse];
@@ -52,4 +53,5 @@ in {
   "eclipse/syncthing-cert.pem.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/transmission-creds.json.age".publicKeys = scrumplex ++ [eclipse];
   "eclipse/vaultwarden.env.age".publicKeys = scrumplex ++ [eclipse];
+  "eclipse/wireguard.key.age".publicKeys = scrumplex ++ [eclipse];
 }

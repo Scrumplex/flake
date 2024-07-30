@@ -23,6 +23,7 @@
     ./minecraft.nix
     ./miniflux.nix
     ./mosquitto.nix
+    ./otel.nix
     ./paperless.nix
     ./postgres.nix
     ./quassel.nix
@@ -31,6 +32,7 @@
     ./transmission.nix
     ./traefik.nix
     ./vaultwarden.nix
+    ./wireguard.nix
   ];
 
   age.secrets."hetzner.key".file = ../../secrets/eclipse/hetzner.key.age;
