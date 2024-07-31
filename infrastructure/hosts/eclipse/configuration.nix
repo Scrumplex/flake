@@ -76,6 +76,7 @@
 
   virtualisation.docker = {
     enable = true;
+    package = pkgs.docker_27;
     autoPrune = {
       enable = true;
       flags = [
