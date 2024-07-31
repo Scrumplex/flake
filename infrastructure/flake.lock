@@ -289,11 +289,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722303290,
-        "narHash": "sha256-xyKGDHa1BcNaOaMnuTND5UQ1SLP5WtwWQgdAmvPF9XE=",
+        "lastModified": 1722388449,
+        "narHash": "sha256-h7NHy70TCUT/tSYw1Iiul6LFTvk8piWlHhUpl3b++TM=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "ab2e879bd3f76dfd1c436196d9bc7c9fb260b11c",
+        "rev": "1243135b7a628ff51c866d530be8f614d2f1f17d",
         "type": "github"
       },
       "original": {
@@ -384,11 +384,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1722202109,
-        "narHash": "sha256-b97RvrF4gX4Vwy6qLthKvbS7e7Yo7+1nJJXmHH+oHiA=",
+        "lastModified": 1722399190,
+        "narHash": "sha256-ewmiaTqHfFOWPTmjEuIsy9J3qnSCzi5iQpRrvTwZL4M=",
         "owner": "PrismLauncher",
         "repo": "refraction",
-        "rev": "fac355d57674e184cef494fffd84fc5e5d5c3037",
+        "rev": "ad7acc10074325a3b914f444c42f72bea2aa4adf",
         "type": "github"
       },
       "original": {
