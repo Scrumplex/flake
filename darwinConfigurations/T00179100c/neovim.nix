@@ -185,6 +185,7 @@
           "Trouble"
         ];
       };
+      nvim-colorizer.enable = true;
       telescope = {
         enable = true;
         keymaps = {
