@@ -86,6 +86,7 @@
       "pgadmin4"
       "postman"
       "signal"
+      "core-tunnel"
       "syncthing"
       "visual-studio-code"
     ];
