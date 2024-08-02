@@ -9,6 +9,7 @@
     user = "media";
     group = "media";
   };
+  services.prowlarr.enable = true;
 
   services.jellyseerr.enable = true;
 
@@ -23,6 +24,11 @@
       service = "sonarr";
       rule = "Host(`sonarr.eclipse.lan`)";
     };
+    routers.prowlarr = {
+      entryPoints = ["localsecure"];
+      service = "prowlarr";
+      rule = "Host(`prowlarr.eclipse.lan`)";
+    };
     routers.jellyseerr = {
       entryPoints = ["websecure"];
       service = "jellyseerr";
@@ -30,6 +36,7 @@
     };
     services.radarr.loadBalancer.servers = [{url = "http://localhost:7878";}];
     services.sonarr.loadBalancer.servers = [{url = "http://localhost:8989";}];
+    services.prowlarr.loadBalancer.servers = [{url = "http://localhost:9696";}];
     services.jellyseerr.loadBalancer.servers = [{url = "http://localhost:${toString config.services.jellyseerr.port}";}];
   };
 }
