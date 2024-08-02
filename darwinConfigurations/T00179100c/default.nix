@@ -5,7 +5,8 @@
   pkgs,
   ...
 }: {
-  imports = [./neovim.nix];
+  imports = [inputs.mac-app-util.darwinModules.default ./neovim.nix];
+  home-manager.sharedModules = [inputs.mac-app-util.homeManagerModules.default];
   roles.base.username = "A105227727";
   hm.home.homeDirectory = lib.mkForce "/Users/A105227727";
   hm.xdg.enable = true;
@@ -53,18 +54,6 @@
       ShowStatusBar = true;
     };
   };
-
-  system.activationScripts.applications.text = pkgs.lib.mkForce ''
-      username="${config.roles.base.username}"
-      echo "setting up ~/Applications/Nix..."
-      rm -rf "/Users/$username/Applications/Nix"
-      install -d -o "$username" -g staff "/Users/$username/Applications/Nix"
-      find ${config.system.build.applications}/Applications -maxdepth 1 -type l | while read f; do
-        src="$(/usr/bin/stat -f%Y $f)"
-        appname="$(basename $src)"
-        osascript -e "tell app \"Finder\" to make alias file at POSIX file \"/Users/$username/Applications/Nix/\" to POSIX file \"$src\" with properties {name: \"$appname\"}";
-    done
-  '';
 
   homebrew = {
     enable = true;
