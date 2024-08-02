@@ -3,10 +3,12 @@
   pkgs,
   ...
 }: {
-  age.secrets."transmission-creds.json".file = ../../secrets/eclipse/transmission-creds.json.age;
+  age.secrets."transmission-creds.json".file = ../../../secrets/eclipse/transmission-creds.json.age;
 
   services.transmission = {
     enable = true;
+    user = "media";
+    group = "media";
     package = pkgs.transmission_3.override {miniupnpc = pkgs.hello;};
     openPeerPorts = true;
     home = "/media/transmission";

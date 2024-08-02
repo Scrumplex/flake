@@ -4,6 +4,7 @@
     ./sabnzbd.nix
     ./servarr.nix
     ./syncthing.nix
+    ./transmission.nix
   ];
 
   users.groups.media = {
