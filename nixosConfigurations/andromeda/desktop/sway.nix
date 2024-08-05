@@ -1,8 +1,14 @@
 {...}: {
   hm.wayland.windowManager.sway.config = {
-    input."13652:62728:pulsar_X2_V2" = {
-      accel_profile = "adaptive";
-      pointer_accel = "-1.0";
+    input = {
+      "13652:62728:pulsar_X2_V2" = {
+        accel_profile = "adaptive";
+        pointer_accel = "-1.0";
+      };
+      "13652:62727:pulsar_X2_V2" = {
+        accel_profile = "adaptive";
+        pointer_accel = "-1.0";
+      };
     };
 
     output = {
