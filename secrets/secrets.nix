@@ -13,6 +13,7 @@ let
 in {
   "andromeda/borgbase-repokey.age".publicKeys = andromeda ++ scrumplex;
   "andromeda/cache-key.age".publicKeys = andromeda ++ scrumplex;
+  "andromeda/id_borgbase.age".publicKeys = andromeda ++ scrumplex;
   "andromeda/wg.age".publicKeys = andromeda ++ scrumplex;
 
   "dyson/wg.age".publicKeys = dyson ++ scrumplex;

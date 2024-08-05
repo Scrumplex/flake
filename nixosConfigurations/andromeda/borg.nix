@@ -1,100 +1,84 @@
 {config, ...}: {
-  age.secrets."borgbase-repokey" = {
-    file = ../../secrets/andromeda/borgbase-repokey.age;
-    owner = "scrumplex";
-    inherit (config.users.users.scrumplex) group;
+  age.secrets."id_borgbase".file = ../../secrets/andromeda/id_borgbase.age;
+  age.secrets."borgbase-repokey".file = ../../secrets/andromeda/borgbase-repokey.age;
+
+  services.borgbackup.jobs."borgbase" = {
+    repo = "ssh://obai58wh@obai58wh.repo.borgbase.com/./repo";
+    environment.BORG_RSH = "ssh -i ${config.age.secrets."id_borgbase".path}";
+    paths = [
+      config.hm.home.homeDirectory
+      "/media/DATA"
+    ];
+    inhibitsSleep = true;
+    startAt = "13:00";
+    exclude = [
+      "/home/*/.cargo"
+      "/home/*/.config/discord"
+      "/home/*/.config/.android"
+      "/home/*/.config/unity3d/cache"
+      "/home/*/.dotnet"
+      "/home/*/.gradle"
+      "/home/*/.local/share/containers"
+      "/home/*/.local/share/flatpak"
+      "/home/*/.local/share/JetBrains"
+      "/home/*/.local/share/lutris/runners"
+      "/home/*/.local/share/lutris/runtime"
+      "/home/*/.local/share/pnpm"
+      "/home/*/.local/share/PrismLauncher/assets"
+      "/home/*/.local/share/PrismLauncher/cache"
+      "/home/*/.local/share/PrismLauncher/libraries"
+      "/home/*/.local/share/PrismLauncher/meta"
+      "/home/*/.local/share/PrismLauncher/metacache"
+      "/home/*/.local/share/PrismLauncher/translations"
+      "/home/*/.local/share/Steam/appcache"
+      "/home/*/.local/share/Steam/compatibilitytools.d"
+      "/home/*/.local/share/Steam/config/htmlcache"
+      "/home/*/.local/share/Steam/depotcache"
+      "/home/*/.local/share/Steam/steamapps"
+      "/home/*/.local/share/Steam/ubuntu12_64"
+      "/home/*/.local/share/Steam/userdata/*/gamerecordings"
+      "/home/*/.local/share/Trash"
+      "/home/*/.local/share/virtualenv"
+      "/home/*/.local/share/virtualenvs"
+      "/home/*/.local/share/yarn"
+      "/home/*/.m2"
+      "/home/*/.mono"
+      "/home/*/.net"
+      "/home/*/.npm"
+      "/home/*/.paradoxlauncher"
+      "/home/*/.platformio"
+      "/home/*/.steam"
+      "/home/*/.wine"
+      "/media/DATA/SteamLibrary"
+      "*/.cache"
+      "*/.pnpm-store"
+      "*/.snapshots"
+      "*/.Trash-*"
+    ];
+    # TODO: Upstream bug https://github.com/NixOS/nixpkgs/issues/323262
+    preHook = ''
+      extraCreateArgs="$extraCreateArgs --exclude-caches"
+      extraCreateArgs="$extraCreateArgs --exclude-if-present .nobackup"
+      extraCreateArgs="$extraCreateArgs --stats"
+    '';
+    compression = "auto,zstd";
+    prune.keep = {
+      daily = 7;
+      weekly = 4;
+      monthly = 6;
+      yearly = 1;
+    };
+    encryption = {
+      mode = "repokey-blake2";
+      passphrase = "";
+      passCommand = "cat ${config.age.secrets."borgbase-repokey".path}";
+    };
+
+    extraArgs = "-v";
   };
 
-  hm = {
-    services.borgmatic = {
-      enable = true;
-      frequency = "daily";
-    };
-
-    # Hacky workaround missing env var for SSH Agent
-    # d.bhxq1zzygp4wsptpawmb9am4 is stable as long as programs.gpg.homedir doesn't change!
-    systemd.user.services.borgmatic.Service.Environment = "SSH_AUTH_SOCK=%t/gnupg/d.bhxq1zzygp4wsptpawmb9am4/S.gpg-agent.ssh";
-
-    programs.borgmatic = {
-      enable = true;
-      backups.andromeda = {
-        location = {
-          repositories = ["ssh://obai58wh@obai58wh.repo.borgbase.com/./repo"];
-          sourceDirectories = [config.hm.home.homeDirectory "/media/DATA" "/media/DATA2"];
-          extraConfig = {
-            exclude_caches = true;
-            exclude_if_present = [".nobackup"];
-            exclude_patterns = [
-              "~/.android"
-              "~/.ccache"
-              "~/.cargo"
-              "~/.chroot"
-              "~/.conan"
-              "~/.gradle"
-              "~/.local/share/baloo"
-              "~/.local/share/containers"
-              "~/.local/share/JetBrains"
-              "~/.local/share/lutris/runners"
-              "~/.local/share/lutris/runtime"
-              "~/.local/share/PrismLauncher/assets"
-              "~/.local/share/PrismLauncher/cache"
-              "~/.local/share/PrismLauncher/libraries"
-              "~/.local/share/PrismLauncher/meta"
-              "~/.local/share/PrismLauncher/metacache"
-              "~/.local/share/PrismLauncher/translations"
-              "~/.local/share/Steam/appcache"
-              "~/.local/share/Steam/compatibilitytools.d"
-              "~/.local/share/Steam/config/htmlcache"
-              "~/.local/share/Steam/depotcache"
-              "~/.local/share/Steam/steamapps"
-              "~/.local/share/Steam/ubuntu12_64"
-              "~/.local/share/Steam/userdata/*/gamerecordings"
-              "~/.local/share/Trash"
-              "~/.local/share/virtualenv"
-              "~/.local/share/virtualenvs"
-              "~/.m2"
-              "~/.node-gyp"
-              "~/.npm"
-              "~/.nvm"
-              "~/.rbenv"
-              "~/.rustup"
-              "~/.steam"
-              "~/.tmp"
-              "~/.wine"
-              "~/.yarn"
-              "~/kde"
-              "~/Lutris"
-              "/media/DATA/Games"
-              "/media/DATA/ItchLibrary"
-              "/media/DATA/Torrents"
-              "/media/DATA2/SteamLibrary"
-              "*/.cache"
-              "*/.pnpm-store"
-              "*/.snapshots"
-              "*/.Trash-*"
-            ];
-          };
-        };
-        consistency.checks = [
-          {
-            name = "repository";
-            frequency = "2 weeks";
-          }
-          {
-            name = "archives";
-            frequency = "4 weeks";
-          }
-        ];
-        retention = {
-          keepDaily = 7;
-          keepWeekly = 4;
-          keepMonthly = 6;
-        };
-        storage = {
-          encryptionPasscommand = "cat ${config.age.secrets."borgbase-repokey".path}";
-          extraConfig.compression = "zstd";
-        };
-      };
-    };
+  programs.ssh.knownHosts."borgbase" = {
+    hostNames = ["obai58wh.repo.borgbase.com"];
+    publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMS3185JdDy7ffnr0nLWqVy8FaAQeVh1QYUSiNpW5ESq";
   };
 }
