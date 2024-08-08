@@ -154,6 +154,7 @@
         };
 
         servers = {
+          astro.enable = true;
           bashls.enable = false;
           clangd.enable = true;
           cmake.enable = true;
