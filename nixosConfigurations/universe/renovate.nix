@@ -22,7 +22,6 @@
         "Scrumplex/flake"
         "Scrumplex/duckhub-static"
         "Scrumplex/honeylinks"
-        "Scrumplex/infrastructure"
         "Scrumplex/inhibridge"
         "Scrumplex/skinprox"
         "Scrumplex/website"
