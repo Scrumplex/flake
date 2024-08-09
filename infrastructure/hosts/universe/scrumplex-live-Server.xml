@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Server version="8">
+	<Name>OvenMediaEngine</Name>
+	<!-- Host type (origin/edge) -->
+	<Type>origin</Type>
+	<!-- Specify IP address to bind (* means all IPs) -->
+	<IP>*</IP>
+	<PrivacyProtection>false</PrivacyProtection>
+	<!-- 
+	To get the public IP address(mapped address of stun) of the local server. 
+	This is useful when OME cannot obtain a public IP from an interface, such as AWS or docker environment. 
+	If this is successful, you can use ${PublicIP} in your settings.
+	-->
+	<StunServer>stun.l.google.com:19302</StunServer>
+
+	<Modules>
+		<!-- 
+		Currently OME only supports h2 like all browsers do. Therefore, HTTP/2 only works on TLS ports.			
+		-->
+		<HTTP2>
+			<Enable>true</Enable>
+		</HTTP2>
+
+		<LLHLS>
+			<Enable>true</Enable>
+		</LLHLS>
+
+		<!-- P2P works only in WebRTC and is experiment feature -->
+		<P2P>
+			<!-- disabled by default -->
+			<Enable>false</Enable>
+			<MaxClientPeersPerHostPeer>2</MaxClientPeersPerHostPeer>
+		</P2P>
+	</Modules>
+
+	<!-- Settings for the ports to bind -->
+	<Bind>
+		<!-- Enable this configuration if you want to use API Server -->
+		<!--
+		<Managers>
+			<API>
+				<Port>${env:OME_API_PORT:8081}</Port>
+				<WorkerCount>1</WorkerCount>
+			</API>
+		</Managers>
+		-->
+		<Providers>
+			<!-- Pull providers -->
+			<RTSPC>
+				<WorkerCount>1</WorkerCount>
+			</RTSPC>
+			<OVT>
+				<WorkerCount>1</WorkerCount>
+			</OVT>
+			<!-- Push providers -->
+			<RTMP>
+				<Port>${env:OME_RTMP_PROV_PORT:1935}</Port>
+				<WorkerCount>1</WorkerCount>
+			</RTMP>
+			<SRT>
+				<Port>${env:OME_SRT_PROV_PORT:9999}</Port>
+				<WorkerCount>1</WorkerCount>
+			</SRT>
+			<MPEGTS>
+				<!--
+					Listen on port 4000
+					This is just a demonstration to show that you can configure the port in several ways
+					<Port>${env:OME_MPEGTS_PROV_PORT:4000-4001,4004,4005/udp}</Port>
+				-->
+				<Port>${env:OME_MPEGTS_PROV_PORT:4000/udp}</Port>
+			</MPEGTS>
+			<WebRTC>
+				<Signalling>
+					<Port>${env:OME_WEBRTC_SIGNALLING_PORT:3333}</Port>
+					<TLSPort>${env:OME_WEBRTC_SIGNALLING_TLS_PORT:3334}</TLSPort>
+					<WorkerCount>1</WorkerCount>
+				</Signalling>
+				<IceCandidates>
+					<TcpRelay>${env:OME_WEBRTC_TCP_RELAY_ADDRESS:*:3478}</TcpRelay>
+					<TcpForce>true</TcpForce>
+					<TcpRelayWorkerCount>1</TcpRelayWorkerCount>
+					<IceCandidate>*:10006/udp</IceCandidate>
+				</IceCandidates>
+			</WebRTC>
+		</Providers>
+
+		<Publishers>
+			<!-- The OVT is protocol for ORIGIN-EDGE -->
+			<OVT>
+				<Port>${env:OME_ORIGIN_PORT:9000}</Port>
+				<WorkerCount>1</WorkerCount>
+			</OVT>
+			<LLHLS>
+				<!-- 
+				OME only supports h2, so LLHLS works over HTTP/1.1 on non-TLS port. 
+				Note that LLHLS runs higher performance over HTTP/2.
+				Therefore, it is recommended to use TLS Port.
+				-->
+				<Port>${env:OME_LLHLS_STREAM_PORT:3333}</Port>
+				<TLSPort>${env:OME_LLHLS_STREAM_TLS_PORT:3334}</TLSPort>
+				<WorkerCount>1</WorkerCount>
+			</LLHLS>
+			<WebRTC>
+				<Signalling>
+					<Port>${env:OME_WEBRTC_SIGNALLING_PORT:3333}</Port>
+					<TLSPort>${env:OME_WEBRTC_SIGNALLING_TLS_PORT:3334}</TLSPort>
+					<WorkerCount>1</WorkerCount>
+				</Signalling>
+				<IceCandidates>
+					<IceCandidate>*:10000-10005/udp</IceCandidate>
+					<TcpRelay>${env:OME_WEBRTC_TCP_RELAY_ADDRESS:*:3478}</TcpRelay>
+					<TcpForce>true</TcpForce>
+					<TcpRelayWorkerCount>1</TcpRelayWorkerCount>
+				</IceCandidates>
+      </WebRTC>
+      <Thumbnail>
+        <Port>${env:OME_THUMBNAIL_PORT:3333}</Port>
+      </Thumbnail>
+		</Publishers>
+	</Bind>
+
+	<VirtualHosts>
+		<!--
+			You can include multiple XML files by doing the following:
+			<VirtualHost include="sites-enabled/*.xml" />
+		-->
+		<VirtualHost include="VHost*.xml" />
+		<VirtualHost>
+			<Name>default</Name>
+			<!--Distribution is a value that can be used when grouping the same vhost distributed across multiple servers. This value is output to the events log, so you can use it to aggregate statistics. -->
+                        <Distribution>${env:OME_DISTRIBUTION:ovenmediaengine.com}</Distribution>
+			
+			<!-- Settings for multi ip/domain and TLS -->
+			<Host>
+				<Names>
+					<!-- Host names
+						<Name>stream1.airensoft.com</Name>
+						<Name>stream2.airensoft.com</Name>
+						<Name>*.sub.airensoft.com</Name>
+						<Name>192.168.0.1</Name>
+					-->
+					<Name>*</Name>
+				</Names>
+				<!--
+				<TLS>
+					<CertPath>path/to/file.crt</CertPath>
+					<KeyPath>path/to/file.key</KeyPath>
+					<ChainCertPath>path/to/file.crt</ChainCertPath>
+				</TLS>
+				-->
+			</Host>
+
+			<!-- Refer https://airensoft.gitbook.io/ovenmediaengine/signedpolicy
+			<SignedPolicy>
+				<PolicyQueryKeyName>policy</PolicyQueryKeyName>
+				<SignatureQueryKeyName>signature</SignatureQueryKeyName>
+				<SecretKey>aKq#1kj</SecretKey>
+
+				<Enables>
+					<Providers>rtmp,webrtc,srt</Providers>
+					<Publishers>webrtc,hls,llhls,dash,lldash</Publishers>
+				</Enables>
+			</SignedPolicy>
+			-->
+
+			<!-- Settings for applications -->
+			<Applications>
+				<Application>
+					<Name>${env:OME_APPLICATION:app}</Name>
+					<!-- Application type (live/vod) -->
+					<Type>live</Type>
+					<OutputProfiles>
+						<OutputProfile>
+							<Name>source</Name>
+              <OutputStreamName>${OriginStreamName}</OutputStreamName>
+							<Encodes>
+								<Audio>
+									<Name>bypass_audio</Name>
+									<Bypass>true</Bypass>
+								</Audio>
+								<Video>
+									<Name>bypass_video</Name>
+									<Bypass>true</Bypass>
+								</Video>
+								<Audio>
+									<Codec>opus</Codec>
+									<Bitrate>128000</Bitrate>
+									<Samplerate>48000</Samplerate>
+									<Channel>2</Channel>
+                </Audio>
+                <Image>
+                  <Codec>png</Codec>
+                  <Framerate>1</Framerate>
+                  <Width>1280</Width>
+                  <Height>729</Height>
+                </Image>
+							</Encodes>
+						</OutputProfile>
+					</OutputProfiles>
+					<Providers>
+						<OVT />
+						<RTMP />
+						<SRT />
+					</Providers>
+					<Publishers>
+						<AppWorkerCount>1</AppWorkerCount>
+						<StreamWorkerCount>8</StreamWorkerCount>
+						<OVT />
+						<WebRTC>
+							<Timeout>30000</Timeout>
+							<Rtx>false</Rtx>
+							<Ulpfec>false</Ulpfec>
+							<JitterBuffer>false</JitterBuffer>
+						</WebRTC>
+						<LLHLS>
+							<ChunkDuration>0.5</ChunkDuration>
+							<SegmentDuration>6</SegmentDuration>
+							<SegmentCount>10</SegmentCount>
+							<CrossDomains>
+								<Url>*</Url>
+							</CrossDomains>
+            </LLHLS>
+            <Thumbnail>
+              <CrossDomains>
+                <Url>*</Url>
+              </CrossDomains>
+            </Thumbnail>
+					</Publishers>
+				</Application>
+				<Application>
+					<Name>public</Name>
+					<!-- Application type (live/vod) -->
+					<Type>live</Type>
+					<OutputProfiles>
+						<OutputProfile>
+							<Name>source</Name>
+              <OutputStreamName>${OriginStreamName}</OutputStreamName>
+							<Encodes>
+								<Audio>
+									<Name>bypass_audio</Name>
+									<Bypass>true</Bypass>
+								</Audio>
+								<Video>
+									<Name>bypass_video</Name>
+									<Bypass>true</Bypass>
+								</Video>
+								<Audio>
+									<Codec>opus</Codec>
+									<Bitrate>128000</Bitrate>
+									<Samplerate>48000</Samplerate>
+									<Channel>2</Channel>
+								</Audio>
+                <Image>
+                  <Codec>png</Codec>
+                  <Framerate>1</Framerate>
+                  <Width>1280</Width>
+                  <Height>729</Height>
+                </Image>
+							</Encodes>
+						</OutputProfile>
+					</OutputProfiles>
+					<Providers>
+						<OVT />
+						<RTMP />
+						<SRT />
+					</Providers>
+					<Publishers>
+						<AppWorkerCount>1</AppWorkerCount>
+						<StreamWorkerCount>8</StreamWorkerCount>
+						<OVT />
+						<WebRTC>
+							<Timeout>30000</Timeout>
+							<Rtx>false</Rtx>
+							<Ulpfec>false</Ulpfec>
+							<JitterBuffer>false</JitterBuffer>
+						</WebRTC>
+						<LLHLS>
+							<ChunkDuration>0.5</ChunkDuration>
+							<SegmentDuration>6</SegmentDuration>
+							<SegmentCount>10</SegmentCount>
+							<CrossDomains>
+								<Url>*</Url>
+							</CrossDomains>
+						</LLHLS>
+            <Thumbnail>
+              <CrossDomains>
+                <Url>*</Url>
+              </CrossDomains>
+            </Thumbnail>
+					</Publishers>
+				</Application>
+			</Applications>
+		</VirtualHost>
+	</VirtualHosts>
+</Server>

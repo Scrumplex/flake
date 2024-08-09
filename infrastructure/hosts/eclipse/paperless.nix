@@ -1,0 +1,42 @@
+{config, ...}: {
+  age.secrets.paperless-password.file = ../../secrets/eclipse/paperless-password.age;
+
+  assertions = [
+    {
+      assertion = config.services.postgresql.enable;
+      message = "Postgres must be enabled for Paperless to function.";
+    }
+  ];
+
+  services.postgresql = {
+    ensureDatabases = [config.services.paperless.user];
+    ensureUsers = [
+      {
+        name = config.services.paperless.user;
+        ensureDBOwnership = true;
+      }
+    ];
+  };
+
+  services.paperless = {
+    enable = true;
+
+    passwordFile = config.age.secrets.paperless-password.path;
+    settings = {
+      PAPERLESS_DBHOST = "/run/postgresql";
+      PAPERLESS_TIME_ZONE = config.time.timeZone;
+      PAPERLESS_OCR_LANGUAGE = "deu+eng";
+      PAPERLESS_ADMIN_USER = "Scrumplex";
+      PAPERLESS_URL = "https://paperless.eclipse.lan";
+    };
+  };
+
+  services.traefik.dynamicConfigOptions.http = {
+    routers.paperless = {
+      entryPoints = ["localsecure"];
+      service = "paperless";
+      rule = "Host(`paperless.eclipse.lan`)";
+    };
+    services.paperless.loadBalancer.servers = [{url = "http://localhost:${toString config.services.paperless.port}";}];
+  };
+}

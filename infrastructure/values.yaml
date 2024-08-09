@@ -1,0 +1,21 @@
+draupnir:
+  image:
+    repository: gnuxie/draupnir
+    tag: v1.87.0@sha256:9689909d8deb3498fcc77304ec2dc2ef8a7dfba3ecefd7bb7f9ec2375fb9c67a
+
+frigate:
+  image:
+    registry: ghcr.io
+    repository: blakeblackshear/frigate
+    tag: stable@sha256:416fa4cc44fd1e40abf522ddb01defa83f2fefeca2337425c1fe1574b7f4bb14
+
+home-assistant:
+  image:
+    registry: ghcr.io
+    repository: home-assistant/home-assistant
+    tag: 2024.8.0@sha256:dcc3d4c582848593db1e3f049fc7269222c340693be5c799e0bddf1f1c61a102
+
+ovenmediaengine:
+  image:
+    repository: airensoft/ovenmediaengine
+    tag: 0.16.8@sha256:717fc6a5099f17cb3c23fe138405964ebce6d666d1e50839e73916627e4c36f0

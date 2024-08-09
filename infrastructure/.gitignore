@@ -1,0 +1,7 @@
+.directory
+
+# this is managed by our Flake
+/.pre-commit-config.yaml
+
+/.direnv/
+/.deploy-gc/

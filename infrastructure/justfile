@@ -1,0 +1,14 @@
+default: deploy-all
+
+deploy-all: (deploy "universe") (deploy "eclipse") (deploy "cosmos")
+
+deploy name: (rebuild name "switch")
+
+rebuild name goal:
+    nixos-rebuild --flake .#{{name}} --target-host `nix eval --raw .#nixosHosts.{{name}}` --verbose --print-build-logs --show-trace {{goal}}
+
+update:
+    nix flake update --commit-lock-file
+
+lock name ref:
+    nix flake lock --update-input {{name}} --override-input {{name}} {{ref}}
