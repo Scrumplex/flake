@@ -8,7 +8,7 @@
   inherit (lib) mkMerge;
   commonVHost = {
     # TODO: use overlay once Nixpkgs Node.js tooling works again
-    root = inputs.scrumplex-website.packages.${pkgs.system}.scrumplex-website;
+    root = pkgs.scrumplex-website;
     locations = {
       "~* \.html$".extraConfig = ''
         expires 1h;
@@ -23,6 +23,8 @@
   };
 in {
   age.secrets."scrumplex-hs_ed25519_secret_key".file = ../../secrets/universe/scrumplex-hs_ed25519_secret_key.age;
+
+  nixpkgs.overlays = [inputs.scrumplex-website.overlays.default];
 
   services.nginx.virtualHosts = {
     "scrumplex.net" = mkMerge [
