@@ -9,12 +9,12 @@
 
     ./hardware-configuration.nix
 
-    ../common/common.nix
     ../common/netcup.nix
     ../common/nginx.nix
     ../common/nix.nix
     ../common/nullmailer.nix
     ../common/postgres.nix
+    ../common/server.nix
     ../common/upgrade.nix
 
     ./email.nix

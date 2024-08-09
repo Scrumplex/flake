@@ -10,6 +10,6 @@ This repository contains my [NixOS](https://nixos.org/) and [home-manager](https
 
 ## License
 
-All files in this repository are licensed under the terms of the GNU General Public License 3.0 or newer, **unless otherwise stated**.
+All files in this repository are licensed under the terms of the GNU Affero General Public License 3.0 or newer, **unless otherwise stated**.
 
 Read the license text in [LICENSE](LICENSE)

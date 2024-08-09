@@ -6,6 +6,7 @@
     ips = ["10.255.255.12/24" "fd69:5efa:5efa:5efa::12/64"];
     listenPort = 22701;
 
+    # TODO: rotate
     privateKeyFile = config.age.secrets."wireguard.key".path;
 
     peers = [

@@ -6,10 +6,10 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../common/common.nix
     ../common/nix.nix
     ../common/nullmailer.nix
     ../common/postgres.nix
+    ../common/server.nix
     ../common/traefik.nix
     ../common/upgrade.nix
 

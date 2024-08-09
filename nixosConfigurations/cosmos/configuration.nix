@@ -6,9 +6,9 @@
   inherit (builtins) readFile;
 in {
   imports = [
-    ../common/common.nix
     ../common/nix.nix
     ../common/nullmailer.nix
+    ../common/server.nix
     ../common/traefik.nix
     ../common/upgrade.nix
 
@@ -28,6 +28,8 @@ in {
     repo = "ssh://gils6l68@gils6l68.repo.borgbase.com/./repo";
     sshKeyFile = config.age.secrets.id_borgbase.path;
   };
+
+  profile.nix.enableMyCache = true;
 
   networking = {
     hostName = "cosmos";

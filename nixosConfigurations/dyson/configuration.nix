@@ -18,6 +18,8 @@
   hardware.enableRedistributableFirmware = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
+  profile.nix.enableMyCache = true;
+
   powerManagement.cpuFreqGovernor = "powersave";
   services.fwupd.enable = true;
 

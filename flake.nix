@@ -1,8 +1,21 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    srvos = {
+      url = "github:nix-community/srvos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,11 +46,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
     # intentionally not following our nixpkgs for cache
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
@@ -65,17 +73,61 @@
       url = "github:catppuccin/qt5ct";
       flake = false;
     };
+    skinprox = {
+      url = "git+https://codeberg.org/Scrumplex/skinprox.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.pre-commit-hooks.follows = "git-hooks";
+    };
+    scrumplex-website = {
+      url = "git+https://codeberg.org/Scrumplex/website.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.pre-commit-hooks.follows = "git-hooks";
+    };
+    honeylinks-website = {
+      url = "git+https://codeberg.org/Scrumplex/honeylinks.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.pre-commit-hooks.follows = "git-hooks";
+    };
+    prism-meta = {
+      url = "github:PrismLauncher/meta";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.git-hooks.follows = "git-hooks";
+    };
+    refraction = {
+      url = "github:PrismLauncher/refraction";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    buildbot-nix = {
+      url = "github:Mic92/buildbot-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {flake-parts, ...}:
     flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
         inputs.git-hooks.flakeModule
+        ./flakeDeploy.nix
 
         ./lib
+        ./nixosModules
+        ./pkgs
 
         ./nixosConfigurations/andromeda
         ./nixosConfigurations/dyson
+
+        ./nixosConfigurations/cosmos
+        ./nixosConfigurations/eclipse
+        ./nixosConfigurations/universe
 
         ./parts/checks.nix
         ./parts/dev.nix

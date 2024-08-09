@@ -24,6 +24,7 @@
     # https://gitlab.freedesktop.org/drm/amd/-/issues/3142
     ./02-fix-amdgpu-freezes.patch
   ];
+  profile.nix.enableMyCache = true;
 
   hardware.amdgpu = {
     initrd.enable = true;
