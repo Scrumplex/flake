@@ -17,7 +17,7 @@ in {
     flakeUrl = mkOption {
       type = types.str;
       description = "URL of flake containing NixOS configurations";
-      default = "git+https://codeberg.org/Scrumplex/infrastructure.git";
+      default = "git+https://codeberg.org/Scrumplex/flake.git";
     };
 
     flakeConfiguration = mkOption {
