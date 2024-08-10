@@ -154,7 +154,10 @@
         };
 
         servers = {
-          astro.enable = true;
+          astro = {
+            enable = true;
+            package = pkgs.astro-language-server;
+          };
           bashls.enable = false;
           clangd.enable = true;
           cmake.enable = true;
