@@ -59,8 +59,7 @@
     };
     detectors.ov = {
       type = "openvino";
-      device = "AUTO";
-      model.path = "/openvino-model/ssdlite_mobilenet_v2.xml";
+      device = "CPU";
     };
     environment_vars.LIBVA_DRIVER_NAME = "radeonsi";
     ffmpeg.hwaccel_args = "preset-vaapi";
@@ -81,8 +80,9 @@
     model = {
       width = 300;
       height = 300;
-      input_tensor = "nchw";
+      input_tensor = "nhwc";
       input_pixel_format = "bgr";
+      path = "/openvino-model/ssdlite_mobilenet_v2.xml";
       labelmap_path = "/openvino-model/coco_91cl_bkgr.txt";
     };
     # camera feed timestamp
