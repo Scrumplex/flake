@@ -12,11 +12,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1722339003,
-        "narHash": "sha256-ZeS51uJI30ehNkcZ4uKqT4ZDARPyqrHADSKAwv5vVCU=",
+        "lastModified": 1723293904,
+        "narHash": "sha256-b+uqzj+Wa6xgMS9aNbX4I+sXeb5biPDi39VgvSFqFvU=",
         "owner": "ryantm",
         "repo": "agenix",
-        "rev": "3f1dae074a12feb7327b4bf43cbac0d124488bb7",
+        "rev": "f6291c5935fdc4e0bef208cfc0dcab7e3f7a1c41",
         "type": "github"
       },
       "original": {
@@ -941,11 +941,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1723103167,
-        "narHash": "sha256-Iso7mz6GSCtp1BD4EXFgbWvwvG6EDMb1e1HmW/2yK6w=",
+        "lastModified": 1723273616,
+        "narHash": "sha256-cwUiJqLUdLl4ZSmkXw/rZZMr+ywOqfRsZ8Fr58NHqe8=",
         "owner": "Scrumplex",
         "repo": "pkgs",
-        "rev": "bcc26b78429282b85cbbaf48f9b5bd0325b3c6de",
+        "rev": "f02f6a33ed5c54b1d5f20ba74508bee37deb751c",
         "type": "github"
       },
       "original": {
