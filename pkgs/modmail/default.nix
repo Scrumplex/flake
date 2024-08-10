@@ -53,8 +53,8 @@ buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "Scrumplex";
     repo = "Modmail";
-    rev = "8a8c1c53eb25b5ef8603274335ac94a0bf1ffd1e";
-    hash = "sha256-TY95aXcL3v/gvPBSW7UZx3acXFxjpRuwoBqqGDEHJxI=";
+    rev = "f01a5dab41c024cba0226185ad3eee704ffaec59";
+    hash = "sha256-7shUWde1glPWRHx++D4j1edAAbDzqggnYmp1mGvzeMw=";
   };
 
   nativeBuildInputs = [
