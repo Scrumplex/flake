@@ -8,6 +8,7 @@
     ./boot.nix
     ./desktop/sway.nix
     ./desktop/swayidle.nix
+    ./keyd.nix
     ./networkmanager.nix
     ./swapfile.nix
     ./wireguard.nix
