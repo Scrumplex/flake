@@ -74,11 +74,14 @@
       extraCreateArgs="$extraCreateArgs --stats"
     '';
     compression = "auto,zstd";
-    prune.keep = {
-      daily = 7;
-      weekly = 4;
-      monthly = 6;
-      yearly = 1;
+    prune = {
+      keep = {
+        daily = 7;
+        weekly = 4;
+        monthly = 6;
+        yearly = 1;
+      };
+      prefix = null;
     };
     encryption = {
       mode = "repokey-blake2";
