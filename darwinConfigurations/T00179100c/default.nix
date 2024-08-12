@@ -60,6 +60,8 @@
     brews = [
       "lima"
       "colima"
+      "docker"
+      "docker-compose"
     ];
     casks = [
       "boop"
@@ -87,7 +89,6 @@
     iterm2
     rectangle
 
-    docker-client
     fluxcd
     k9s
     kubectl
