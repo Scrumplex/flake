@@ -32,6 +32,7 @@ in {
             "network"
             "pulseaudio"
             "battery"
+            "backlight"
           ]
           ++ lib.optional config.hm.programs.waybar.extraModules.paMute.enable
           "custom/${config.hm.programs.waybar.extraModules.paMute.moduleName}"
@@ -112,6 +113,10 @@ in {
           max-length = 25;
           on-click = "${run-or-raise} powersupply ${lib.getExe pkgs.powersupply}";
         };
+        backlight = {
+          format = "{percent}% {icon}";
+          format-icons = ["󰃞" "󰃟" "󰃠"];
+        };
         clock = {
           format = "{:%T}";
           interval = 1;
@@ -152,7 +157,7 @@ in {
         background-color: #${base};
       }
 
-      #workspaces, #mpd, #clock, #network, #pulseaudio, #battery, #custom-pa-mute, #custom-camera-blank, #idle_inhibitor, #tray {
+      #workspaces, #mpd, #clock, #network, #pulseaudio, #battery, #backlight, #custom-pa-mute, #custom-camera-blank, #idle_inhibitor, #tray {
         margin: 0 8px;
       }
 
