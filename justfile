@@ -20,4 +20,4 @@ update:
     nix flake update --commit-lock-file
 
 lock name ref:
-    nix flake lock --update-input {{name}} --override-input {{name}} {{ref}}
+    nix flake lock --override-input {{name}} {{ref}}
