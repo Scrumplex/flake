@@ -469,11 +469,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1721557142,
-        "narHash": "sha256-h0i7Tu4zVeL3ZWBWpYH/a+sYbDn3B0iOC3l6pHrG9kk=",
+        "lastModified": 1723624562,
+        "narHash": "sha256-DYMWBmL8My0n58hveYE3AdZsE1KzTawSxDVrmpaoSrQ=",
         "ref": "refs/heads/main",
-        "rev": "ade6763df9937226c7ca1f316acf19ef74d2fe04",
-        "revCount": 50,
+        "rev": "70a639c2dbba72c13f58f568ebacbed7862a409c",
+        "revCount": 58,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/inhibridge.git"
       },
@@ -728,11 +728,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1723481641,
-        "narHash": "sha256-9djT72/Ab2E3SpUbB3l0WmqZQ5mj05+LIVoorcjCWgE=",
+        "lastModified": 1723591559,
+        "narHash": "sha256-zHipVBLNpHrynWD/HejkKXV+c4uXGvPR9q4qaEeyC3M=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "dbf6f7bc997dc3a9ab1f014ea075600357226950",
+        "rev": "4eb2ad7db7ff0cb76a296b5af23b072418ad5be7",
         "type": "github"
       },
       "original": {
@@ -994,11 +994,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1719594221,
-        "narHash": "sha256-xz2mNzDn7Fj89+lFTbtkdm7HQUVZqesdB25YfgF7HtA=",
+        "lastModified": 1723624530,
+        "narHash": "sha256-YQbvszTZ3yF7JCYhmXZ7f0woA9kHygRLhFDcQvLF2YA=",
         "ref": "refs/heads/main",
-        "rev": "07677b193b788345f16fde610831a8059913512a",
-        "revCount": 204,
+        "rev": "92251f1865070421f244e4f8e0a23bc94132d58f",
+        "revCount": 217,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/skinprox.git"
       },
