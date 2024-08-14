@@ -31,6 +31,8 @@
       config.nix.package
       nodejs
       corepack
+      rustc
+      cargo
     ];
   };
 
