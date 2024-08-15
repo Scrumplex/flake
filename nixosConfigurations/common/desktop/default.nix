@@ -23,6 +23,7 @@
     tenacity
     libreoffice-fresh
     livecaptions
+    orca-slicer
 
     portfolio
     AusweisApp2
