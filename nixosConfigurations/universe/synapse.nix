@@ -187,6 +187,10 @@
     };
   };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "jitsi-meet-1.0.8043"
+  ];
+
   networking.firewall.allowedTCPPorts = [8448];
 
   services.prometheus.scrapeConfigs = [
