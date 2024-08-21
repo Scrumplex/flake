@@ -154,20 +154,21 @@
         };
 
         servers = {
-          astro = {
-            enable = true;
-            package = pkgs.astro-language-server;
-          };
+          astro.enable = true;
           bashls.enable = false;
           clangd.enable = true;
           cmake.enable = true;
           #cssls.enable = true;
           #eslint.enable = true;
           gopls.enable = true;
+          helm-ls.enable = true;
           #html.enable = true;
           #jsonls.enable = true;
+          marksman.enable = true;
           nil-ls.enable = true;
           nixd.enable = true;
+          openscad-lsp.enable = true;
+          prismals.enable = true;
           pylsp.enable = true;
           pyright.enable = true;
           rust-analyzer = {
@@ -175,7 +176,10 @@
             installRustc = false;
             installCargo = false;
           };
+          tailwindcss.enable = true;
+          terraformls.enable = true;
           tsserver.enable = true;
+          typos-lsp.enable = true;
           yamlls.enable = true;
         };
       };
