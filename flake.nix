@@ -60,8 +60,6 @@
     prismlauncher = {
       url = "github:PrismLauncher/PrismLauncher";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.pre-commit-hooks.follows = "git-hooks";
     };
     inhibridge = {
       url = "git+https://codeberg.org/Scrumplex/inhibridge.git";
