@@ -19,12 +19,14 @@
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "";
     };
     scrumpkgs = {
       url = "github:Scrumplex/pkgs";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.pre-commit-hooks.follows = "git-hooks";
+      inputs.flake-compat.follows = "";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -36,6 +38,7 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.home-manager.follows = "home-manager";
       inputs.git-hooks.follows = "git-hooks";
+      inputs.flake-compat.follows = "";
     };
     catppuccin.url = "github:catppuccin/nix";
     nix-index-database = {
@@ -51,15 +54,18 @@
       url = "github:nix-community/lanzaboote";
       inputs.flake-parts.follows = "flake-parts";
       inputs.pre-commit-hooks-nix.follows = "git-hooks";
+      inputs.flake-compat.follows = "";
     };
     nixpkgs-xr = {
       url = "github:nix-community/nixpkgs-xr";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
+      inputs.flake-compat.follows = "";
     };
     prismlauncher = {
       url = "github:PrismLauncher/PrismLauncher";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "";
     };
     inhibridge = {
       url = "git+https://codeberg.org/Scrumplex/inhibridge.git";
@@ -112,6 +118,7 @@
     nix-minecraft = {
       url = "github:Infinidoge/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "";
     };
   };
 
