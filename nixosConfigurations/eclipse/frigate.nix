@@ -127,6 +127,7 @@ in {
       "8555:8555/udp" # WebRTC
     ];
     extraOptions = [
+      "--mount=type=tmpfs,destination=/tmp/cache,tmpfs-size=2G"
       "--device=/dev/bus/usb:/dev/bus/usb"
       "--device=/dev/dri:/dev/dri"
       "--privileged"
