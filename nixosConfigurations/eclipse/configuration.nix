@@ -34,6 +34,8 @@
     ./wireguard.nix
   ];
 
+  boot.crashDump.enable = true;
+
   age.secrets."hetzner.key".file = ../../secrets/eclipse/hetzner.key.age;
   age.secrets.id_borgbase.file = ../../secrets/eclipse/id_borgbase.age;
 
