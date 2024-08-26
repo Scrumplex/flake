@@ -68,6 +68,6 @@ in {
   "common/listenbrainz-token.age".publicKeys = andromeda ++ dyson ++ scrumplex;
   "common/mqtt-password.age".publicKeys = scrumplex ++ universe ++ cosmos ++ eclipse;
   "common/nullmailer-remotes.age".publicKeys = scrumplex ++ universe ++ cosmos ++ eclipse;
-  "common/passwd.age".publicKeys = andromeda ++ dyson ++ scrumplex;
+  "common/passwd.age".publicKeys = andromeda ++ dyson ++ eclipse ++ scrumplex;
   "common/screenshot-bash.age".publicKeys = andromeda ++ dyson ++ scrumplex;
 }

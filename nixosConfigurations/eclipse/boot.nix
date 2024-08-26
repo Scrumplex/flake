@@ -9,11 +9,9 @@ in {
   hardware.enableRedistributableFirmware = true;
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages;
 
     binfmt.emulatedSystems = ["aarch64-linux"];
-
-    #kernelParams = [ "console=ttyS0,115200" "console=tty0" ];
 
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
