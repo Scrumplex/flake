@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: {
-  imports = [inputs.mac-app-util.darwinModules.default ./neovim.nix ./kitty.nix];
+  imports = [inputs.mac-app-util.darwinModules.default ./neovim.nix];
   home-manager.sharedModules = [inputs.mac-app-util.homeManagerModules.default];
   roles.base.username = "A105227727";
   hm.home.homeDirectory = lib.mkForce "/Users/A105227727";
