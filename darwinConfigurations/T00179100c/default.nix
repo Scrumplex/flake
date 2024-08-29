@@ -61,6 +61,7 @@
       "lima"
       "colima"
       "docker"
+      "docker-buildx"
       "docker-compose"
     ];
     casks = [
