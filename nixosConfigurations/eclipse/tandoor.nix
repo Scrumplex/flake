@@ -1,10 +1,34 @@
-{config, ...}: {
+{config, ...}: let
+  user = "tandoor_recipes";
+in {
+  assertions = [
+    {
+      assertion = config.services.postgresql.enable;
+      message = "Postgres must be enabled for Paperless to function.";
+    }
+  ];
+
+  services.postgresql = {
+    ensureDatabases = [user];
+    ensureUsers = [
+      {
+        name = user;
+        ensureDBOwnership = true;
+      }
+    ];
+  };
+
   services.tandoor-recipes = {
     enable = true;
     port = 22001;
     extraConfig = {
       # TODO: use something better
       GUNICORN_MEDIA = true;
+
+      DB_ENGINE = "django.db.backends.postgresql";
+      POSTGRES_HOST = "/run/postgresql";
+      POSTGRES_USER = user;
+      POSTGRES_DB = user;
     };
   };
 
