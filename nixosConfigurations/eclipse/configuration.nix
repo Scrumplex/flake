@@ -29,6 +29,7 @@
     ./quassel.nix
     ./step-ca.nix
     ./swapfile.nix
+    ./tandoor.nix
     ./traefik.nix
     ./vaultwarden.nix
     ./wireguard.nix
