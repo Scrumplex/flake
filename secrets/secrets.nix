@@ -63,6 +63,7 @@ in {
   "eclipse/transmission-creds.json.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/vaultwarden.env.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/wireguard.key.age".publicKeys = scrumplex ++ eclipse;
+  "eclipse/yt-dlp-targets.age".publicKeys = scrumplex ++ eclipse;
 
   "common/beets-secrets.yaml.age".publicKeys = andromeda ++ dyson ++ scrumplex;
   "common/listenbrainz-token.age".publicKeys = andromeda ++ dyson ++ scrumplex;
