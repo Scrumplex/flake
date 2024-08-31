@@ -34,6 +34,7 @@
       "org/gnome/desktop/interface" = {
         gtk-theme = config.hm.gtk.theme.name;
         color-scheme = "prefer-dark";
+        font-name = "${config.hm.gtk.font.name} ${toString config.hm.gtk.font.size}";
       };
     };
   };

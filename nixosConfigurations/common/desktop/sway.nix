@@ -35,7 +35,7 @@ in {
       modifier = "Mod4";
       # ugly, but this fixes most issues, until home-manager adopts environment.d
       startup = [
-        {command = "${getExe' config.systemd.package "systemctl"} --user import-environment";}
+        {command = "dbus-update-activation-environment --systemd --all";}
         {command = lib.getExe pkgs.sway-assign-cgroups;}
       ];
 
