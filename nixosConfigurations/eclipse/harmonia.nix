@@ -2,7 +2,7 @@
   age.secrets."harmonia-signing.key".file = ../../secrets/eclipse/harmonia-signing.key.age;
   services.harmonia = {
     enable = true;
-    signKeyPath = config.age.secrets."harmonia-signing.key".path;
+    signKeyPaths = [config.age.secrets."harmonia-signing.key".path];
     settings.bind = "127.0.0.1:5050";
   };
 
