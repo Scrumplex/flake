@@ -21,7 +21,6 @@
       ../common/desktop/keyring.nix
       ../common/desktop/kitty.nix
       ../common/desktop/mako.nix
-      ../common/desktop/nextcloud-client.nix
       ../common/desktop/obs.nix
       ../common/desktop/pipewire
       ../common/desktop/polkit-agent.nix

@@ -4,6 +4,7 @@
     evince
     file-roller
     nautilus
+    nextcloud-client
 
     qpwgraph
     virt-manager
