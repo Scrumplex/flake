@@ -11,4 +11,8 @@
   };
 
   hm.services.jellyfin-mpv-shim.enable = true;
+  hm.systemd.user.services."jellyfin-mpv-shim" = {
+    Unit.After = ["graphical-session.target"];
+    Service.Slice = ["background-graphical.slice"];
+  };
 }

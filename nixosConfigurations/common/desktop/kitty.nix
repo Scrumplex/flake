@@ -63,7 +63,5 @@ in {
 
   systemd.tmpfiles.settings."10-kitty".${staticBinPath}."L+".argument = lib.getExe config.hm.programs.kitty.package;
 
-  hm.wayland.windowManager.sway.config.terminal = staticBinPath;
-  hm.programs.fuzzel.settings.main.terminal = staticBinPath;
   environment.sessionVariables."TERMINAL" = staticBinPath;
 }

@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) getExe getExe' mapAttrsToList singleton;
+  inherit (lib) getExe mapAttrsToList singleton;
   inherit (lib'.sway) mkDirectionKeys mkExec mkWorkspaceKeys;
 
   wallpaper = pkgs.fetchurl {
@@ -30,13 +30,12 @@ in {
   hm.wayland.windowManager.sway = {
     enable = true;
     package = config.programs.sway.package;
-    systemd.xdgAutostart = true;
+    systemd.enable = false;
     config = {
+      terminal = "uwsm app -T";
       modifier = "Mod4";
-      # ugly, but this fixes most issues, until home-manager adopts environment.d
       startup = [
-        {command = "dbus-update-activation-environment --systemd --all";}
-        {command = lib.getExe pkgs.sway-assign-cgroups;}
+        {command = "uwsm finalize";}
       ];
 
       input."type:keyboard" = {
@@ -185,9 +184,24 @@ in {
     };
   };
 
+  services.dbus.implementation = "broker";
+
+  services.displayManager.enable = true;
+  programs.uwsm = {
+    enable = true;
+    waylandCompositors.sway = {
+      prettyName = "Sway";
+      comment = "Sway with systemd";
+      binPath = getExe config.hm.wayland.windowManager.sway.package;
+    };
+  };
+  hm.xdg.configFile."uwsm-default-id".text = ''
+    sway-uwsm.desktop
+  '';
+
   hm.programs.fish.interactiveShellInit = lib.mkOrder 2000 ''
-    test -n "$XDG_SESSION_TYPE" -a "$XDG_SESSION_TYPE" = "tty" -a -n "$XDG_VTNR" -a "$XDG_VTNR" -eq 1; and begin
-        sway
+    test -n "$XDG_SESSION_TYPE" -a "$XDG_SESSION_TYPE" = "tty" -a -n "$XDG_VTNR" -a "$XDG_VTNR" -eq 1; and uwsm check may-start; and begin
+      exec systemd-cat -t uwsm-start uwsm start -S -F default
     end
   '';
 }

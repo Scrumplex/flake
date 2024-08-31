@@ -244,6 +244,11 @@ in {
     '';
   };
 
+  hm.systemd.user.services."waybar" = {
+    Unit.After = ["graphical-session.target"];
+    Service.Slice = ["app-graphical.slice"];
+  };
+
   hm.wayland.windowManager.sway.config.keybindings = lib.mkMerge [
     (lib.mkIf cfg.extraModules.cameraBlank.enable (lib'.sway.mkExec "${config.hm.wayland.windowManager.sway.config.modifier}+n" cfg.extraModules.cameraBlank.onClickScript))
     (lib.mkIf cfg.extraModules.paMute.enable (lib'.sway.mkExec "${config.hm.wayland.windowManager.sway.config.modifier}+m" cfg.extraModules.paMute.onClickScript))

@@ -8,7 +8,11 @@
       enable = true;
 
       settings = {
-        main.font = "Monocraft:size=13";
+        main = {
+          font = "Monocraft:size=13";
+          terminal = config.hm.wayland.windowManager.sway.config.terminal;
+          launch-prefix = "uwsm app --";
+        };
         colors = with config.hm.theme.colors; {
           background = "${surface0}ff";
           text = "${text}ff";

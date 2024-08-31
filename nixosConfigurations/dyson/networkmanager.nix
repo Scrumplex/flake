@@ -11,6 +11,10 @@
   hm = {
     xsession.preferStatusNotifierItems = true; # needed for network-manager-applet
     services.network-manager-applet.enable = true;
+    systemd.user.services."network-manager-applet" = {
+      Unit.After = ["graphical-session.target"];
+      Service.Slice = ["background-graphical.slice"];
+    };
   };
 
   networking.firewall = {

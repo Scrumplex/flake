@@ -6,4 +6,8 @@
     temperature.day = 5700;
     temperature.night = 3000;
   };
+  hm.systemd.user.services."wlsunset" = {
+    Unit.After = ["graphical-session.target"];
+    Service.Slice = ["background-graphical.slice"];
+  };
 }
