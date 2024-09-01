@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{...}: {
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
@@ -14,12 +10,5 @@
     };
   };
 
-  hm = {
-    programs.git.signing.signByDefault = true;
-    programs.gpg = {
-      enable = true;
-      inherit (config.programs.gnupg) package;
-      homedir = "${config.hm.xdg.dataHome}/gnupg";
-    };
-  };
+  hm.programs.git.signing.signByDefault = true;
 }
