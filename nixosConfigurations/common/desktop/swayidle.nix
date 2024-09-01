@@ -28,4 +28,8 @@
       }
     ];
   };
+  hm.systemd.user.services."swayidle" = {
+    Unit.After = ["graphical-session.target"];
+    Service.Slice = ["background-graphical.target"];
+  };
 }
