@@ -16,9 +16,6 @@ in {
         "steam-original"
         "steam-run"
       ];
-    config.permittedInsecurePackages = [
-      "jitsi-meet-1.0.8043"
-    ];
 
     overlays = lib.mkAfter [
       (final: prev: {
