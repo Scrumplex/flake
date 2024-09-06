@@ -17,8 +17,6 @@ in {
   ];
 
   config = {
-    nixpkgs.xr.enableUnstripped = true;
-
     profile.amdgpu.patches = mkIf cfg.enableHighPrioKernelPatch [
       inputs.scrumpkgs.kernelPatches.cap_sys_nice_begone.patch
     ];
