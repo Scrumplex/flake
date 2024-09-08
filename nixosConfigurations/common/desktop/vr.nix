@@ -28,7 +28,6 @@ in {
 
     environment.systemPackages = with pkgs; [
       index_camera_passthrough
-      opencomposite-helper
       wlx-overlay-s
     ];
 
