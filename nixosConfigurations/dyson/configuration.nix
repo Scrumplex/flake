@@ -6,6 +6,7 @@
   imports = [
     ./hardware-configuration.nix
     ./boot.nix
+    ./borg.nix
     ./desktop/sway.nix
     ./desktop/swayidle.nix
     ./keyd.nix

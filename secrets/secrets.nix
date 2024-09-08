@@ -20,6 +20,8 @@ in {
   "andromeda/id_borgbase.age".publicKeys = andromeda ++ scrumplex;
   "andromeda/wg.age".publicKeys = andromeda ++ scrumplex;
 
+  "dyson/borgbase-repokey.age".publicKeys = dyson ++ scrumplex;
+  "dyson/id_borgbase.age".publicKeys = dyson ++ scrumplex;
   "dyson/wg.age".publicKeys = dyson ++ scrumplex;
 
   "universe/id_borgbase.age".publicKeys = scrumplex ++ universe;
