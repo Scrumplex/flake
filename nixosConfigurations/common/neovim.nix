@@ -206,7 +206,16 @@
         folding = false;
         settings.indent.enable = true;
       };
-      trouble.enable = true;
+      trouble = {
+        enable = true;
+        settings = {
+          use_diagnostic_signs = true;
+          modes."diagnostics" = {
+            auto_open = true;
+            auto_close = true;
+          };
+        };
+      };
     };
 
     keymaps = let
@@ -223,6 +232,7 @@
     in [
       (mkNMap "T" "<cmd>BufferLineCyclePrev<CR>")
       (mkNMap "t" "<cmd>BufferLineCycleNext<CR>")
+      (mkNMap "<leader>n" "<cmd>Trouble diagnostics open focus=true<CR>")
       (mkNMap "<leader>t" "<cmd>Neotree reveal<CR>")
       (mkNMap "<leader>xx" "<cmd>TroubleToggle<CR>")
       (mkNMap "<leader>xw" "<cmd>TroubleToggle workspace_diagnostics<CR>")
