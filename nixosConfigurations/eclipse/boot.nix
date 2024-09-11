@@ -9,7 +9,7 @@ in {
   hardware.enableRedistributableFirmware = true;
 
   boot = {
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     binfmt.emulatedSystems = ["aarch64-linux"];
 
