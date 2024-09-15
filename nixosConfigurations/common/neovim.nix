@@ -186,7 +186,7 @@
       luasnip.enable = true;
       lualine = {
         enable = true;
-        ignoreFocus = [
+        settings.ignore_focus = [
           "alpha"
           "neo-tree"
           "Trouble"
