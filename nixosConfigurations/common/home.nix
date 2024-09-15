@@ -58,5 +58,7 @@ in {
         inherit inputs;
       };
     };
+
+    services.userborn.enable = true;
   };
 }
