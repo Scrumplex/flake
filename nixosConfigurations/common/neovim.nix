@@ -178,7 +178,7 @@
           };
           tailwindcss.enable = true;
           terraformls.enable = true;
-          tsserver.enable = true;
+          ts-ls.enable = true;
           typos-lsp.enable = true;
           yamlls.enable = true;
         };
