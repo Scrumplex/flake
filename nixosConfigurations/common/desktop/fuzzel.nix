@@ -16,6 +16,8 @@
         colors = with config.hm.theme.colors; {
           background = "${surface0}ff";
           text = "${text}ff";
+          prompt = "${text}ff";
+          input = "${text}ff";
           match = "${blue}ff";
           selection = "${peach}ff";
           selection-text = "${base}ff";
