@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [inputs.nixvim.nixDarwinModules.nixvim];
-
   environment.variables.EDITOR = "nvim";
 
   programs.nixvim = {
@@ -66,7 +65,7 @@
 
     colorschemes.catppuccin = {
       enable = true;
-      flavour = "mocha";
+      settings.flavour = "mocha";
     };
 
     plugins = {
@@ -156,15 +155,21 @@
         };
 
         servers = {
-          bashls.enable = true;
+          astro.enable = true;
+          bashls.enable = false;
           clangd.enable = true;
           cmake.enable = true;
           cssls.enable = true;
           eslint.enable = true;
           gopls.enable = true;
+          helm-ls.enable = true;
           html.enable = true;
           jsonls.enable = true;
-          nil_ls.enable = true;
+          marksman.enable = true;
+          nil-ls.enable = true;
+          nixd.enable = true;
+          openscad-lsp.enable = true;
+          prismals.enable = true;
           pylsp.enable = true;
           pyright.enable = true;
           rust-analyzer = {
@@ -172,20 +177,22 @@
             installRustc = false;
             installCargo = false;
           };
-          tsserver.enable = true;
+          tailwindcss.enable = true;
+          terraformls.enable = true;
+          ts-ls.enable = true;
+          typos-lsp.enable = true;
           yamlls.enable = true;
         };
       };
       luasnip.enable = true;
       lualine = {
         enable = true;
-        ignoreFocus = [
+        settings.ignore_focus = [
           "alpha"
           "neo-tree"
           "Trouble"
         ];
       };
-      nvim-colorizer.enable = true;
       telescope = {
         enable = true;
         keymaps = {
@@ -197,9 +204,19 @@
       };
       treesitter = {
         enable = true;
-        indent = true;
+        folding = false;
+        settings.indent.enable = true;
       };
-      trouble.enable = true;
+      trouble = {
+        enable = true;
+        settings = {
+          use_diagnostic_signs = true;
+          modes."diagnostics" = {
+            auto_open = true;
+            auto_close = true;
+          };
+        };
+      };
     };
 
     keymaps = let
@@ -216,6 +233,7 @@
     in [
       (mkNMap "T" "<cmd>BufferLineCyclePrev<CR>")
       (mkNMap "t" "<cmd>BufferLineCycleNext<CR>")
+      (mkNMap "<leader>n" "<cmd>Trouble diagnostics open focus=true<CR>")
       (mkNMap "<leader>t" "<cmd>Neotree reveal<CR>")
       (mkNMap "<leader>xx" "<cmd>TroubleToggle<CR>")
       (mkNMap "<leader>xw" "<cmd>TroubleToggle workspace_diagnostics<CR>")
