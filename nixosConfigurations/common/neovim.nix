@@ -216,6 +216,7 @@
           };
         };
       };
+      web-devicons.enable = true;
     };
 
     keymaps = let
