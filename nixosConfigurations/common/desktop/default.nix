@@ -3,6 +3,7 @@
     blender
     evince
     file-roller
+    flatpak-builder
     nautilus
     nextcloud-client
 
@@ -35,6 +36,14 @@
     xdg-user-dirs
     xdg-utils
   ];
+
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
+  programs.partition-manager.enable = true;
+
   fonts = {
     packages = with pkgs; [
       noto-fonts-cjk-sans

@@ -1,22 +1,21 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: let
   inherit (builtins) readFile;
+  inherit (inputs) srvos nixos-hardware;
 in {
   imports = [
-    ../common/nix.nix
-    ../common/nullmailer.nix
-    ../common/server.nix
-    ../common/traefik.nix
-    ../common/upgrade.nix
-
     ./boot.nix
     ./home-assistant.nix
     ./otel.nix
     ./traefik.nix
     ./wireguard.nix
+
+    srvos.nixosModules.server
+    nixos-hardware.nixosModules.raspberry-pi-4
   ];
 
   age.secrets.id_borgbase.file = ../../secrets/cosmos/id_borgbase.age;

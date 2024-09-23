@@ -1,18 +1,13 @@
 {
   config,
   pkgs,
+  inputs,
   ...
-}: {
+}: let
+  inherit (inputs) nixos-hardware srvos;
+in {
   imports = [
     ./hardware-configuration.nix
-
-    ../common/nix.nix
-    ../common/nullmailer.nix
-    ../common/postgres.nix
-    ../common/server.nix
-    ../common/traefik.nix
-    ../common/upgrade.nix
-
     ./boot.nix
     ./buildbot.nix
     ./dyndns.nix
@@ -33,6 +28,12 @@
     ./traefik.nix
     ./vaultwarden.nix
     ./wireguard.nix
+
+    nixos-hardware.nixosModules.common-cpu-amd-pstate
+    nixos-hardware.nixosModules.common-gpu-amd
+    nixos-hardware.nixosModules.common-pc-ssd
+    srvos.nixosModules.server
+    srvos.nixosModules.mixins-systemd-boot
   ];
 
   age.secrets."hetzner.key".file = ../../secrets/eclipse/hetzner.key.age;

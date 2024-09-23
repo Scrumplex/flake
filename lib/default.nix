@@ -18,5 +18,13 @@
         };
       };
     };
+    mkDeploy = {
+      targetHost,
+      extraFlags,
+    }: {
+      _module.args.deploy = {
+        inherit targetHost extraFlags;
+      };
+    };
   };
 }

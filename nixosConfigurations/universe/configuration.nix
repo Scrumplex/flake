@@ -1,22 +1,16 @@
 {
   config,
+  inputs,
   modulesPath,
   pkgs,
   ...
-}: {
+}: let
+  inherit (inputs) srvos;
+in {
   imports = [
     "${modulesPath}/profiles/qemu-guest.nix"
 
     ./hardware-configuration.nix
-
-    ../common/netcup.nix
-    ../common/nginx.nix
-    ../common/nix.nix
-    ../common/nullmailer.nix
-    ../common/postgres.nix
-    ../common/server.nix
-    ../common/upgrade.nix
-
     ./email.nix
     ./honeylinks-website.nix
     ./monitoring.nix
@@ -30,6 +24,9 @@
     ./synapse.nix
     ./teamspeak3.nix
     ./wireguard.nix
+
+    srvos.nixosModules.server
+    srvos.nixosModules.mixins-systemd-boot
   ];
 
   age.secrets.id_borgbase.file = ../../secrets/universe/id_borgbase.age;

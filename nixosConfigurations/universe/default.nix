@@ -1,27 +1,33 @@
 {
-  inputs,
+  lib',
   self,
   ...
 }: let
   inherit (builtins) attrValues;
-  inherit (inputs) agenix nixpkgs srvos;
 in {
-  flake.nixosConfigurations.universe = nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations = lib'.mkHost {
+    hostName = "universe";
     system = "x86_64-linux";
     modules =
       [
-        {
-          _module.args.deploy = {
-            targetHost = "scrumplex.net";
-            extraFlags = ["--verbose" "--print-build-logs" "--use-substitutes"];
-          };
-        }
-        srvos.nixosModules.server
-        srvos.nixosModules.mixins-systemd-boot
-        agenix.nixosModules.age
+        (lib'.mkDeploy {
+          targetHost = "scrumplex.net";
+          extraFlags = ["--verbose" "--print-build-logs" "--use-substitutes"];
+        })
+
+        ../common
+        ../common/netcup.nix
+        ../common/nginx.nix
+        ../common/nix.nix
+        ../common/nix-index.nix
+        ../common/nullmailer.nix
+        ../common/postgres.nix
+        ../common/server.nix
+        ../common/upgrade.nix
+        ../common/utils.nix
+
         ./configuration.nix
       ]
       ++ attrValues self.nixosModules;
-    specialArgs = {inherit inputs;};
   };
 }

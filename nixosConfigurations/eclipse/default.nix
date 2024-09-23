@@ -1,30 +1,32 @@
 {
-  inputs,
+  lib',
   self,
   ...
 }: let
   inherit (builtins) attrValues;
-  inherit (inputs) agenix nixpkgs nixos-hardware srvos;
 in {
-  flake.nixosConfigurations.eclipse = nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations = lib'.mkHost {
+    hostName = "eclipse";
     system = "x86_64-linux";
     modules =
       [
-        {
-          _module.args.deploy = {
-            targetHost = "eclipse.lan";
-            extraFlags = ["--verbose" "--print-build-logs"];
-          };
-        }
-        srvos.nixosModules.server
-        srvos.nixosModules.mixins-systemd-boot
-        agenix.nixosModules.age
-        nixos-hardware.nixosModules.common-cpu-amd-pstate
-        nixos-hardware.nixosModules.common-gpu-amd
-        nixos-hardware.nixosModules.common-pc-ssd
+        (lib'.mkDeploy {
+          targetHost = "eclipse.lan";
+          extraFlags = ["--verbose" "--print-build-logs"];
+        })
+
+        ../common
+        ../common/nix.nix
+        ../common/nix-index.nix
+        ../common/nullmailer.nix
+        ../common/postgres.nix
+        ../common/server.nix
+        ../common/traefik.nix
+        ../common/upgrade.nix
+        ../common/utils.nix
+
         ./configuration.nix
       ]
       ++ attrValues self.nixosModules;
-    specialArgs = {inherit inputs;};
   };
 }
