@@ -13,6 +13,7 @@ in {
     ./dyndns.nix
     ./frigate.nix
     ./harmonia.nix
+    ./immich.nix
     ./influx.nix
     ./media
     ./minecraft.nix

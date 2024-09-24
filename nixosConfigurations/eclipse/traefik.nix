@@ -31,16 +31,10 @@
       service = "nextcloud";
       rule = "Host(`box.sefa.cloud`)";
     };
-    routers.immich = {
-      entryPoints = ["websecure"];
-      service = "immich";
-      rule = "Host(`immich.sefa.cloud`)";
-    };
     services.hass.loadBalancer = {
       servers = [{url = "https://hass.cosmos.lan";}];
       passHostHeader = false;
     };
     services.nextcloud.loadBalancer.servers = [{url = "http://localhost:7701";}];
-    services.immich.loadBalancer.servers = [{url = "http://localhost:2283";}];
   };
 }
