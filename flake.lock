@@ -685,6 +685,26 @@
         "type": "github"
       }
     },
+    "openwrt-imagebuilder": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1727256971,
+        "narHash": "sha256-GCKdJzwIRE6yAF6c3I08f7yuD6Eyu5ZX5+wtf9299Qc=",
+        "owner": "astro",
+        "repo": "nix-openwrt-imagebuilder",
+        "rev": "4f6fbb41b6f39da944507416012ad56aef9d2317",
+        "type": "github"
+      },
+      "original": {
+        "owner": "astro",
+        "repo": "nix-openwrt-imagebuilder",
+        "type": "github"
+      }
+    },
     "prism-meta": {
       "inputs": {
         "flake-parts": [
@@ -778,6 +798,7 @@
         "nixpkgs-stable": "nixpkgs-stable_2",
         "nixpkgs-xr": "nixpkgs-xr",
         "nixvim": "nixvim",
+        "openwrt-imagebuilder": "openwrt-imagebuilder",
         "prism-meta": "prism-meta",
         "prismlauncher": "prismlauncher",
         "refraction": "refraction",

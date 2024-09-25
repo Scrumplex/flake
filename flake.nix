@@ -121,6 +121,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "";
     };
+    openwrt-imagebuilder = {
+      url = "github:astro/nix-openwrt-imagebuilder";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {flake-parts, ...}:
@@ -139,6 +143,8 @@
         ./nixosConfigurations/cosmos
         ./nixosConfigurations/eclipse
         ./nixosConfigurations/universe
+
+        ./openwrt
 
         ./parts/checks.nix
         ./parts/dev.nix
