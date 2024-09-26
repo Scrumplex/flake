@@ -195,7 +195,7 @@ in {
       binPath = getExe config.hm.wayland.windowManager.sway.package;
     };
   };
-  hm.xdg.configFile."uwsm-default-id".text = ''
+  hm.xdg.configFile."uwsm/default-id".text = ''
     sway-uwsm.desktop
   '';
 
