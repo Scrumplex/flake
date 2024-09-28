@@ -497,11 +497,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1727401554,
-        "narHash": "sha256-nIPhzGSpuFcgioWwQZUk44skwvQmKXStAPOa7aLpJys=",
+        "lastModified": 1727487901,
+        "narHash": "sha256-m+QPmso7l/SVPgrQz72PicSQgaaLs/Iyy+9eAyHY3+c=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "89701b43c72a4641eda77f4e03dc4d7c4b0860f9",
+        "rev": "39983d066b08107165ba5757d03f414abb4e52c9",
         "type": "github"
       },
       "original": {
@@ -600,11 +600,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1727399831,
-        "narHash": "sha256-oHuCzw9YXoEDoBqyqf/OxneY33U87dhC71rXYb71iPU=",
+        "lastModified": 1727486211,
+        "narHash": "sha256-Pu2xBBz056dEUH4w5F2mNhD/KlQZ9tQWGwK6UN3EH8w=",
         "owner": "nix-community",
         "repo": "nixpkgs-xr",
-        "rev": "7d7bc9d6e6033f369e72f04bfe17c1f192a11512",
+        "rev": "51561ce078382f0f57681a9cfb3d68545a917cdb",
         "type": "github"
       },
       "original": {
@@ -650,11 +650,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1727447274,
-        "narHash": "sha256-Z/l2VSccO+gSDYp9fIg3q2sn4zjNlwTeFU0rC55CsAA=",
+        "lastModified": 1727471696,
+        "narHash": "sha256-3r/VNQp5aJK9Gj8hKdfSYqeXcc0kqpfFYhEg8ioWttE=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "ae2b9bd445ebe5d5342172c66ecbf60028070d32",
+        "rev": "b5c19b6abb0fb0156b1cb76793b363e430e2cb47",
         "type": "github"
       },
       "original": {
@@ -917,11 +917,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1727334749,
-        "narHash": "sha256-vXjAkshMfeZlrITnMISkg/dXzTAWPAIbIwodg4LJXG4=",
+        "lastModified": 1727471129,
+        "narHash": "sha256-Kt2ItrfWIYWndrE4Yi11Y8AKxMZRU/0AMsZ5mw4kSC8=",
         "ref": "refs/heads/main",
-        "rev": "9f359066c33550d0e290fa6002ead67acdd3d30b",
-        "revCount": 224,
+        "rev": "3d07e48ce10d7b0decf613f8a1942245f06aefa5",
+        "revCount": 225,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/skinprox.git"
       },
@@ -937,11 +937,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1727312898,
-        "narHash": "sha256-PRCWFc/RN5LxNarKMsieSixrwGLm1nJNVxU0MFFBISc=",
+        "lastModified": 1727491384,
+        "narHash": "sha256-km86bDL46XmO4gkfvCfhCXfZDZPg/O72A65fF+hUPJM=",
         "owner": "nix-community",
         "repo": "srvos",
-        "rev": "edc1d31ba4a92afd475cc32bae722dad547464cb",
+        "rev": "e1f0d6e42d9ea0cf031fd3469f35d78c3af21b85",
         "type": "github"
       },
       "original": {
