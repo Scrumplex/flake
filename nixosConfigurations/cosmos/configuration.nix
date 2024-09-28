@@ -22,6 +22,9 @@ in {
   age.secrets."wireguard.key".file = ../../secrets/cosmos/wireguard.key.age;
   age.secrets."hetzner.key".file = ../../secrets/cosmos/hetzner.key.age;
 
+  systemd.tpm2.enable = false;
+  boot.initrd.systemd.tpm2.enable = false;
+
   infra.borgbase = {
     enable = true;
     repo = "ssh://gils6l68@gils6l68.repo.borgbase.com/./repo";
