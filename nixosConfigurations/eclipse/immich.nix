@@ -1,14 +1,6 @@
-{
-  config,
-  inputs,
-  ...
-}: {
-  imports = [
-    "${inputs.nixpkgs-immich}/nixos/modules/services/web-apps/immich.nix"
-  ];
+{config, ...}: {
   services.immich = {
     enable = true;
-    package = inputs.nixpkgs-immich.legacyPackages.x86_64-linux.immich;
     mediaLocation = "/media/immich-library";
     port = 9121;
   };
