@@ -19,10 +19,6 @@ in {
 
     overlays = lib.mkAfter [
       (final: prev: {
-        bemoji = prev.bemoji.override {
-          menuTool = final.fuzzel-dmenu-shim;
-        };
-
         discord = mkDiscordOverride prev.discord;
         discord-canary = mkDiscordOverride prev.discord-canary;
         discord-ptb = mkDiscordOverride prev.discord-ptb;
