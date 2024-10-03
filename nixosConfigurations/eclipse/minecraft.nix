@@ -22,7 +22,7 @@ in {
     openFirewall = true;
 
     servers.alex = {
-      enable = true;
+      enable = false;
       package = pkgs.fabricServers.fabric-1_21;
       #symlinks = {
       #  "mods" = "${modpack}/mods";

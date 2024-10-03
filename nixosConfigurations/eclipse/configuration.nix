@@ -93,10 +93,6 @@ in {
     "fs.inotify.max_user_instances" = 8192;
   };
 
-  environment.systemPackages = with pkgs; [
-    git
-  ];
-
   users.users.scrumplex = {
     isNormalUser = true;
     extraGroups = ["wheel"];
@@ -110,7 +106,6 @@ in {
 
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";
-  console.keyMap = "de";
 
   system.stateVersion = "23.05";
 }
