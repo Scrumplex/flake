@@ -7,7 +7,6 @@
 in {
   flake.nixosConfigurations = lib'.mkHost {
     hostName = "universe";
-    system = "x86_64-linux";
     modules =
       [
         (lib'.mkDeploy {

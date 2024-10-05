@@ -9,6 +9,7 @@
 in {
   imports = [
     ./boot.nix
+    ./hardware-configuration.nix
     ./home-assistant.nix
     ./otel.nix
     ./traefik.nix
@@ -63,14 +64,6 @@ in {
     git
     stow
   ];
-
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-label/NIXOS_SD";
-      fsType = "ext4";
-      options = ["noatime"];
-    };
-  };
 
   users.users.scrumplex = {
     isNormalUser = true;
