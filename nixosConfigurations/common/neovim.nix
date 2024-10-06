@@ -161,6 +161,7 @@
           cssls.enable = true;
           eslint.enable = true;
           gopls.enable = true;
+          harper-ls.enable = true;
           helm-ls.enable = true;
           html.enable = true;
           jsonls.enable = true;
@@ -179,7 +180,6 @@
           tailwindcss.enable = true;
           terraformls.enable = true;
           ts-ls.enable = true;
-          typos-lsp.enable = true;
           yamlls.enable = true;
         };
       };
