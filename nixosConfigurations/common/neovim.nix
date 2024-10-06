@@ -196,7 +196,7 @@
         enable = true;
         keymaps = {
           "<leader>fb" = "buffers";
-          "<leader> " = "git_files";
+          "<leader> " = "resume";
           "<leader>ff" = "find_files";
           "<leader>fg" = "live_grep";
         };
