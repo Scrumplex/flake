@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [inputs.nixvim.nixDarwinModules.nixvim];
-  environment.variables.EDITOR = "nvim";
 
   programs.nixvim = {
     enable = true;
@@ -16,36 +15,13 @@
       fd
       ripgrep
     ];
-
-    globals = {
-      mapleader = " ";
-    };
     opts = {
       title = true;
-      termguicolors = true; # Use true colors, required for some plugins
-      number = true;
-      signcolumn = "yes";
-
-      hlsearch = true;
-      ignorecase = true; # Ignore case when using lowercase in search
-      smartcase = true; # But don't ignore it when using upper case
-
-      autoindent = true;
-      smartindent = true;
 
       expandtab = true; # Convert tabs to spaces.
       tabstop = 4;
       softtabstop = 4;
       shiftwidth = 4;
-
-      splitbelow = true;
-      splitright = true;
-      mouse = "a";
-
-      fileencoding = "utf-8";
-      spell = false;
-      spelllang = "en_us";
-      completeopt = "menu,menuone,noselect";
     };
 
     files = {
@@ -69,11 +45,6 @@
     };
 
     plugins = {
-      alpha = {
-        enable = true;
-        theme = "startify";
-      };
-      bufferline.enable = true;
       cmp = {
         enable = true;
         cmdline = {
@@ -118,11 +89,59 @@
           '';
         };
       };
-      copilot-vim.enable = true;
-      gitsigns.enable = true;
       indent-blankline = {
         enable = true;
         settings.scope.enabled = false;
+      };
+      mini = {
+        enable = true;
+        mockDevIcons = true;
+        modules = {
+          basics = {
+            options.extra_ui = true;
+            mappings.windows = true;
+            autocommands.relnum_in_visual_mode = true;
+          };
+          diff = {
+            view.style = "sign";
+          };
+          icons = {};
+          jump = {};
+          map = {};
+          move = {};
+          pairs = {};
+          splitjoin = {};
+          starter = {
+            content_hooks = {
+              "__unkeyed-1.adding_bullet" = {
+                __raw = "require('mini.starter').gen_hook.adding_bullet()";
+              };
+              "__unkeyed-2.indexing" = {
+                __raw = "require('mini.starter').gen_hook.indexing('all', { 'Builtin actions' })";
+              };
+              "__unkeyed-3.padding" = {
+                __raw = "require('mini.starter').gen_hook.aligning('center', 'center')";
+              };
+            };
+            evaluate_single = true;
+            items = {
+              "__unkeyed-1.buildtin_actions" = {
+                __raw = "require('mini.starter').sections.builtin_actions()";
+              };
+              "__unkeyed-2.recent_files_current_directory" = {
+                __raw = "require('mini.starter').sections.recent_files(10, false)";
+              };
+              "__unkeyed-3.recent_files" = {
+                __raw = "require('mini.starter').sections.recent_files(10, true)";
+              };
+              "__unkeyed-4.sessions" = {
+                __raw = "require('mini.starter').sections.sessions(5, true)";
+              };
+            };
+          };
+          tabline = {};
+          trailspace = {};
+        };
       };
       neo-tree = {
         enable = true;
@@ -162,6 +181,7 @@
           cssls.enable = true;
           eslint.enable = true;
           gopls.enable = true;
+          harper-ls.enable = true;
           helm-ls.enable = true;
           html.enable = true;
           jsonls.enable = true;
@@ -180,7 +200,6 @@
           tailwindcss.enable = true;
           terraformls.enable = true;
           ts-ls.enable = true;
-          typos-lsp.enable = true;
           yamlls.enable = true;
         };
       };
@@ -196,10 +215,10 @@
       telescope = {
         enable = true;
         keymaps = {
-          "<leader>fb" = "buffers";
-          "<leader> " = "git_files";
-          "<leader>ff" = "find_files";
-          "<leader>fg" = "live_grep";
+          "<leader>b" = "buffers";
+          "<leader> " = "resume";
+          "<leader>f" = "git_files";
+          "<leader>g" = "live_grep";
         };
       };
       treesitter = {
@@ -217,7 +236,6 @@
           };
         };
       };
-      web-devicons.enable = true;
     };
 
     keymaps = let
@@ -232,8 +250,6 @@
         options = defaultOpts;
       };
     in [
-      (mkNMap "T" "<cmd>BufferLineCyclePrev<CR>")
-      (mkNMap "t" "<cmd>BufferLineCycleNext<CR>")
       (mkNMap "<leader>n" "<cmd>Trouble diagnostics open focus=true<CR>")
       (mkNMap "<leader>t" "<cmd>Neotree reveal<CR>")
       (mkNMap "<leader>xx" "<cmd>TroubleToggle<CR>")
