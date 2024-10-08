@@ -35,6 +35,18 @@
           "1,0,0.994,0.282,0.58,0.149,0.421,0.119,0.29,0.163,0.273,0.33,0.166,0.436,0,0.758,0,0"
         ];
       };
+      back2 = {
+        ffmpeg.inputs = [
+          {
+            path = "rtsp://127.0.0.1:8554/back2";
+            roles = ["record"];
+          }
+          {
+            path = "rtsp://127.0.0.1:8554/back2_sub";
+            roles = ["detect"];
+          }
+        ];
+      };
       door = {
         ffmpeg.inputs = [
           {
@@ -75,6 +87,8 @@
         door_sub = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.211:554/Streaming/Channels/102";
         back = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.212:554/Streaming/Channels/101";
         back_sub = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.212:554/Streaming/Channels/102";
+        back2 = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.213:554/Streaming/Channels/101";
+        back2_sub = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.213:554/Streaming/Channels/102";
       };
     };
     model = {
