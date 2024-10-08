@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [inputs.nixvim.nixDarwinModules.nixvim];
+  environment.variables.EDITOR = "nvim";
 
   programs.nixvim = {
     enable = true;
@@ -22,6 +23,8 @@
       tabstop = 4;
       softtabstop = 4;
       shiftwidth = 4;
+
+      wrap = true; # Override mini-basics
     };
 
     files = {
@@ -89,6 +92,7 @@
           '';
         };
       };
+      copilot-vim.enable = true;
       indent-blankline = {
         enable = true;
         settings.scope.enabled = false;
