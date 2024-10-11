@@ -48,6 +48,13 @@
     };
 
     plugins = {
+      barbar = {
+        enable = true;
+        keymaps = {
+          next.key = "t";
+          previous.key = "T";
+        };
+      };
       cmp = {
         enable = true;
         cmdline = {
@@ -109,7 +116,6 @@
             view.style = "sign";
           };
           icons = {};
-          jump = {};
           map = {};
           move = {};
           pairs = {};
@@ -142,7 +148,6 @@
               };
             };
           };
-          tabline = {};
           trailspace = {};
         };
       };
