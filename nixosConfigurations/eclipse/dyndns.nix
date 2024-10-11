@@ -9,27 +9,30 @@
     ({
       writeShellApplication,
       curl,
+      iproute2,
       jq,
+      lexicon,
     }:
       writeShellApplication {
         name = "update-hetzner-dns";
 
-        runtimeInputs = [curl jq];
+        runtimeInputs = [curl iproute2 jq lexicon];
 
         text = ''
-          ipLookupAddress="https://checkip.amazonaws.com"
-          ipAddress=$(curl -L "$ipLookupAddress")
+          v4Address=$(curl -4sSL "https://myip.wtf/text")
+          v6Address=$(ip -j -6 address show mngtmpaddr dynamic | jq -r '.[0].addr_info[] | select(.local) | .local')
 
-          zoneId=$(curl "https://dns.hetzner.com/api/v1/zones?search_name=$HETZNER_ZONE" \
-            -H "Auth-API-Token: $HETZNER_TOKEN"  | jq -r ".zones[0].id")
+          echo "Setting records to"
+          echo " $v4Address"
+          echo " $v6Address"
 
-          recordId=$(curl "https://dns.hetzner.com/api/v1/records?zone_id=$zoneId" \
-            -H "Auth-API-Token: $HETZNER_TOKEN" | jq -r "(.records[] | select( .name == \"$HETZNER_RECORD\" and .type == \"A\" )).id")
+          if [ -z "$LEXICON_HETZNER_TOKEN" ]; then
+            echo "No auth token set. Please set LEXICON_HETZNER_TOKEN." 1>&2
+            exit 1
+          fi
 
-          curl -X PUT "https://dns.hetzner.com/api/v1/records/$recordId" \
-            -H "Auth-API-Token: $HETZNER_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d "{ \"value\": \"$ipAddress\", \"ttl\": 300, \"type\": \"A\", \"name\": \"$HETZNER_RECORD\", \"zone_id\": \"$zoneId\"}"
+          lexicon hetzner update "$HETZNER_ZONE" A --name "$HETZNER_RECORD" --ttl 300 --content "$v4Address"
+          lexicon hetzner update "$HETZNER_ZONE" AAAA --name "$HETZNER_RECORD" --ttl 300 --content "$v6Address"
         '';
       })
     {};
