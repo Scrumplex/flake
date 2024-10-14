@@ -48,6 +48,13 @@
     };
 
     plugins = {
+      barbar = {
+        enable = true;
+        keymaps = {
+          next.key = "t";
+          previous.key = "T";
+        };
+      };
       cmp = {
         enable = true;
         cmdline = {
@@ -110,7 +117,6 @@
             view.style = "sign";
           };
           icons = {};
-          jump = {};
           map = {};
           move = {};
           pairs = {};
@@ -143,7 +149,6 @@
               };
             };
           };
-          tabline = {};
           trailspace = {};
         };
       };
@@ -185,25 +190,23 @@
           cssls.enable = true;
           eslint.enable = true;
           gopls.enable = true;
-          harper-ls.enable = true;
-          helm-ls.enable = true;
+          harper_ls.enable = true;
+          helm_ls.enable = true;
           html.enable = true;
           jsonls.enable = true;
           marksman.enable = true;
-          nil-ls.enable = true;
+          nil_ls.enable = true;
           nixd.enable = true;
-          openscad-lsp.enable = true;
-          prismals.enable = true;
           pylsp.enable = true;
           pyright.enable = true;
-          rust-analyzer = {
+          rust_analyzer = {
             enable = true;
             installRustc = false;
             installCargo = false;
           };
           tailwindcss.enable = true;
           terraformls.enable = true;
-          ts-ls.enable = true;
+          ts_ls.enable = true;
           yamlls.enable = true;
         };
       };
@@ -233,10 +236,8 @@
       trouble = {
         enable = true;
         settings = {
-          use_diagnostic_signs = true;
           modes."diagnostics" = {
             auto_open = true;
-            auto_close = true;
           };
         };
       };
