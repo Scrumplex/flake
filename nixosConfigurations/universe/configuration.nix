@@ -21,7 +21,6 @@ in {
     ./scrumplex-website.nix
     ./scrumplex-x.nix
     ./skinprox.nix
-    ./starbound
     ./synapse.nix
     ./teamspeak3.nix
     ./wireguard.nix
