@@ -747,11 +747,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1728609283,
-        "narHash": "sha256-EfntzaFArqGBqEMqh4r+BcdqGnOsASwtZ8e9cAN9GQw=",
+        "lastModified": 1728867734,
+        "narHash": "sha256-DKYkUYai4zmeyUAbvgvfDCTYkDfpaG52HZq4StKj2mU=",
         "owner": "PrismLauncher",
         "repo": "refraction",
-        "rev": "6ecc8d72b4a7633df2d56f7278a5ec7af869ffa1",
+        "rev": "eec257fbd4ed30e05971712fa66d12e5b78f7336",
         "type": "github"
       },
       "original": {
