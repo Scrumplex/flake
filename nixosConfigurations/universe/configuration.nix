@@ -11,7 +11,6 @@ in {
     "${modulesPath}/profiles/qemu-guest.nix"
 
     ./hardware-configuration.nix
-    ./email.nix
     ./honeylinks-website.nix
     ./monitoring.nix
     ./murmur.nix
