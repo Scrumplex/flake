@@ -41,6 +41,14 @@ in {
   age.secrets.id_borgbase.file = ../../secrets/eclipse/id_borgbase.age;
   age.secrets."passwd".file = ../../secrets/common/passwd.age;
 
+  systemd.services."planned-shutdown" = {
+    script = ''
+      systemctl poweroff
+    '';
+    serviceConfig.Type = "oneshot";
+    startAt = "Fri 2024-10-18 08:00:00 CEST";
+  };
+
   infra.borgbase = {
     enable = true;
     repo = "ssh://c8wl3xsp@c8wl3xsp.repo.borgbase.com/./repo";
