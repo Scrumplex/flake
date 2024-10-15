@@ -50,7 +50,7 @@ in {
         ],
         "runtime" :
         [
-          "${pkgs.opencomposite}/lib/opencomposite",
+          "${pkgs.opencomposite-vendored}/lib/opencomposite",
           "${config.hm.xdg.dataHome}/Steam/steamapps/common/SteamVR"
         ],
         "version" : 1
