@@ -26,6 +26,11 @@ in {
       defaultRuntime = true;
     };
 
+    systemd.user.services."monado".environment = {
+      STEAMVR_LH_ENABLE = "true";
+      XRT_COMPOSITOR_COMPUTE = "1";
+    };
+
     environment.systemPackages = with pkgs; [
       index_camera_passthrough
       wlx-overlay-s
@@ -51,5 +56,6 @@ in {
         "version" : 1
       }
     '';
+    hm.xdg.configFile."openxr/1/active_runtime.json".source = config.environment.etc."xdg/openxr/1/active_runtime.json".source;
   };
 }
