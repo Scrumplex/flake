@@ -20,7 +20,7 @@ in {
       daemonIOSchedPriority = 6;
       settings = {
         auto-optimise-store = true;
-        experimental-features = ["nix-command" "flakes" "repl-flake" "no-url-literals"];
+        experimental-features = ["nix-command" "flakes" "no-url-literals"];
         substituters =
           (optionals cfg.enableMyCache [
             "https://cache.sefa.cloud"
