@@ -5,7 +5,6 @@
     ./servarr.nix
     ./syncthing.nix
     ./transmission.nix
-    ./yt-dlp.nix
   ];
 
   users.groups.media = {
