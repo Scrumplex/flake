@@ -1,6 +1,12 @@
-{config, ...}: {
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}: {
   services.immich = {
     enable = true;
+    package = inputs.nixpkgs-pre.legacyPackages.${pkgs.system}.immich;
     mediaLocation = "/media/immich-library";
     port = 9121;
   };
