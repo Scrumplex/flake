@@ -145,11 +145,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1729010169,
-        "narHash": "sha256-AjgIlXcreagCs6ltT8mzI1UYEiYgfhlwe4Tl3taxQSU=",
+        "lastModified": 1729099656,
+        "narHash": "sha256-VftVIg7UXTy1bq+tzi1aVYOWl7PQ35IpjW88yMYjjpc=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "9ab6ae4e632016caac1c7e82e15b12b8c672ed76",
+        "rev": "d7d57edb72e54891fa67a6f058a46b2bb405663b",
         "type": "github"
       },
       "original": {
@@ -239,11 +239,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1728778939,
-        "narHash": "sha256-WybK5E3hpGxtCYtBwpRj1E9JoiVxe+8kX83snTNaFHE=",
+        "lastModified": 1729104314,
+        "narHash": "sha256-pZRZsq5oCdJt3upZIU4aslS9XwFJ+/nVtALHIciX/BI=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "ff68f91754be6f3427e4986d7949e6273659be1d",
+        "rev": "3c3e88f0f544d6bb54329832616af7eb971b6be6",
         "type": "github"
       },
       "original": {
@@ -644,11 +644,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1729015933,
-        "narHash": "sha256-raKxsI2SGe/vF2PvzFatd/Sl9eVUCuCUUVg7cINFVbQ=",
+        "lastModified": 1729093974,
+        "narHash": "sha256-gQ0Zb0YN5+wqzq5v8vh0ssWZgyYzoiiT7La6WWOFiXM=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "429f2e8d1aa61181c0ec72bdafe022fbb6a092d6",
+        "rev": "717e7060fafa2c3822a64e3f5bbfd4895577fdbf",
         "type": "github"
       },
       "original": {
@@ -686,11 +686,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1728981897,
-        "narHash": "sha256-6J6BidbFE2VktwSNInXNB2fpKyxjo6Nx5aQzmxIptZM=",
+        "lastModified": 1729068229,
+        "narHash": "sha256-ahkXn09j4V3RwgYMsQMz/+Bu1GnTaINQohjGh24HtKs=",
         "owner": "astro",
         "repo": "nix-openwrt-imagebuilder",
-        "rev": "7fb887cc39024a36325bc60ba615e2f473a612cf",
+        "rev": "532cda8be4f95db6f959463fbc60f24f7ef8771f",
         "type": "github"
       },
       "original": {
@@ -757,11 +757,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1728867734,
-        "narHash": "sha256-DKYkUYai4zmeyUAbvgvfDCTYkDfpaG52HZq4StKj2mU=",
+        "lastModified": 1729097931,
+        "narHash": "sha256-Cecu6ACqNxPTL+rBK8mdCRe3I8OH4kw/D4Y7Sbt8PGc=",
         "owner": "PrismLauncher",
         "repo": "refraction",
-        "rev": "eec257fbd4ed30e05971712fa66d12e5b78f7336",
+        "rev": "bc93d74e1d4e1571b2b8ae5e4c5646f61544203a",
         "type": "github"
       },
       "original": {
