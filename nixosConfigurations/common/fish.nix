@@ -74,7 +74,7 @@
 
     programs.eza = {
       enable = true;
-      icons = true;
+      icons = "auto";
 
       # We have custom ll and ls aliases
       enableFishIntegration = false;
