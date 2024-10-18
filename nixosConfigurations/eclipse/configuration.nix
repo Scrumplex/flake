@@ -14,7 +14,6 @@ in {
     ./frigate.nix
     ./harmonia.nix
     ./immich.nix
-    ./influx.nix
     ./media
     ./minecraft.nix
     ./miniflux.nix
