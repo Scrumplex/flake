@@ -51,6 +51,7 @@
       monocraft
       fira-code
       roboto
+      google-fonts
     ];
 
     enableDefaultPackages = true;
