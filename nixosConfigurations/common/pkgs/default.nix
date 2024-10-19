@@ -13,8 +13,7 @@ in {
         "samsung-unified-linux-driver"
         "shipwright"
         "steam"
-        "steam-original"
-        "steam-run"
+        "steam-unwrapped"
       ];
 
     overlays = lib.mkAfter [

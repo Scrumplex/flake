@@ -20,13 +20,6 @@
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   profile.vr.enableHighPrioKernelPatch = true;
-  profile.amdgpu.patches = [
-    # https://gitlab.freedesktop.org/drm/amd/-/issues/3142#note_2547420
-    (pkgs.fetchpatch {
-      url = "https://gitlab.freedesktop.org/-/project/4522/uploads/d5efc5831caa89538f5e68ab1905e73f/0001-drm-amd-display-Avoid-race-between-dcn10_set_drr-and.patch";
-      hash = "sha256-KkKEFnM+YavdmFOszZEh528uC0mzUvNG+4uI/R4vUPU=";
-    })
-  ];
   profile.nix.enableMyCache = true;
 
   hardware.amdgpu = {
