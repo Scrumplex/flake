@@ -798,6 +798,7 @@
         "refraction": "refraction",
         "scrumpkgs": "scrumpkgs",
         "scrumplex-website": "scrumplex-website",
+        "scrumplex-website-ng": "scrumplex-website-ng",
         "skinprox": "skinprox",
         "srvos": "srvos"
       }
@@ -893,6 +894,33 @@
         "url": "https://codeberg.org/Scrumplex/website.git"
       },
       "original": {
+        "type": "git",
+        "url": "https://codeberg.org/Scrumplex/website.git"
+      }
+    },
+    "scrumplex-website-ng": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "pre-commit-hooks": [
+          "git-hooks"
+        ]
+      },
+      "locked": {
+        "lastModified": 1729448315,
+        "narHash": "sha256-ujxw+S0e3sZlka4rAYAQ05ps2SPj3YRAKppQNtl451I=",
+        "ref": "astro",
+        "rev": "848281f0b765da3519294b61e5690aea97aac7f3",
+        "revCount": 3,
+        "type": "git",
+        "url": "https://codeberg.org/Scrumplex/website.git"
+      },
+      "original": {
+        "ref": "astro",
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/website.git"
       }

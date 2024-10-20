@@ -90,6 +90,12 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.pre-commit-hooks.follows = "git-hooks";
     };
+    scrumplex-website-ng = {
+      url = "git+https://codeberg.org/Scrumplex/website.git?ref=astro";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.pre-commit-hooks.follows = "git-hooks";
+    };
     honeylinks-website = {
       url = "git+https://codeberg.org/Scrumplex/honeylinks.git";
       inputs.nixpkgs.follows = "nixpkgs";
