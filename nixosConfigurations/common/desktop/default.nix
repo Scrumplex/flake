@@ -46,12 +46,12 @@
 
   fonts = {
     packages = with pkgs; [
+      noto-fonts
       noto-fonts-cjk-sans
       fira
       monocraft
       fira-code
       roboto
-      google-fonts
     ];
 
     enableDefaultPackages = true;
