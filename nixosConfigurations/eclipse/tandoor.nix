@@ -1,9 +1,4 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}: let
+{config, ...}: let
   user = "tandoor_recipes";
 in {
   assertions = [
@@ -25,7 +20,6 @@ in {
 
   services.tandoor-recipes = {
     enable = true;
-    package = inputs.nixpkgs-stable.legacyPackages.${pkgs.system}.tandoor-recipes;
     port = 22001;
     extraConfig = {
       # TODO: use something better

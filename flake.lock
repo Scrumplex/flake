@@ -535,22 +535,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-pre": {
-      "locked": {
-        "lastModified": 1729535501,
-        "narHash": "sha256-SekUJCblThjYXHv92h2K4CGN87gB0UjMtD61+a6ysyg=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "2d88282897c0e74b7ef8d042059212c5703adc4e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable-small",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1720386169,
@@ -788,7 +772,6 @@
         "nix-minecraft": "nix-minecraft",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs-pre": "nixpkgs-pre",
         "nixpkgs-stable": "nixpkgs-stable_2",
         "nixpkgs-xr": "nixpkgs-xr",
         "nixvim": "nixvim",

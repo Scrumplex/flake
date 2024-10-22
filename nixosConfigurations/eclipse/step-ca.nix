@@ -1,9 +1,4 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}: let
+{config, ...}: let
   inherit (builtins) readFile;
 in {
   age.secrets."ca_intermediate.key" = {
@@ -21,7 +16,6 @@ in {
   # step certificate create --profile intermediate-ca --ca ./root_ca.crt --ca-key ./root_ca.key "Home Intermediate CA 1" intermediate_ca.crt intermediate_ca.key
   services.step-ca = {
     enable = true;
-    package = inputs.nixpkgs-stable.legacyPackages.${pkgs.system}.step-ca;
     address = "0.0.0.0";
     port = 9443;
     intermediatePasswordFile = config.age.secrets."ca_intermediate.pass".path;
