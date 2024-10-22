@@ -50,16 +50,6 @@ in {
     (readFile ../../extra/ca_root.crt)
   ];
 
-  virtualisation.docker = {
-    enable = true;
-    autoPrune = {
-      enable = true;
-      flags = [
-        "--all"
-      ];
-    };
-  };
-
   environment.systemPackages = with pkgs; [
     git
     stow

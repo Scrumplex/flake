@@ -5,6 +5,7 @@
 }: {
   virtualisation.docker = {
     enable = lib.mkDefault true;
+    liveRestore = false;
     autoPrune = {
       enable = true;
       flags = ["--all"];

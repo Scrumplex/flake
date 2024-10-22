@@ -84,17 +84,6 @@ in {
     enable = true;
   };
 
-  virtualisation.docker = {
-    enable = true;
-    package = pkgs.docker_27;
-    autoPrune = {
-      enable = true;
-      flags = [
-        "--all"
-      ];
-    };
-  };
-
   boot.kernel.sysctl = {
     "net.core.rmem_max" = 2500000; # Traefik HTTP3
     "fs.inotify.max_user_instances" = 8192;
