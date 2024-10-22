@@ -15,6 +15,7 @@
     ./wireguard.nix
 
     inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
+    inputs.srvos.nixosModules.desktop
   ];
 
   hardware.enableRedistributableFirmware = true;

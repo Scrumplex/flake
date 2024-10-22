@@ -6,6 +6,7 @@
     };
 in {
   nixpkgs = {
+    # TODO: split this out into an option
     config.allowUnfreePredicate = pkg:
       builtins.elem (lib.getName pkg) [
         "discord"
@@ -14,6 +15,8 @@ in {
         "shipwright"
         "steam"
         "steam-unwrapped"
+        "teamspeak-server" # universe TS3 Server
+        "unrar" # eclipse sabnzbd
       ];
 
     overlays = lib.mkAfter [

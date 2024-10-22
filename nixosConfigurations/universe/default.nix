@@ -20,6 +20,9 @@ in {
         ../common/nix.nix
         ../common/nix-index.nix
         ../common/nullmailer.nix
+        ../common/openssh.nix
+        ../common/pkgs
+        ../common/podman.nix
         ../common/postgres.nix
         ../common/server.nix
         ../common/upgrade.nix

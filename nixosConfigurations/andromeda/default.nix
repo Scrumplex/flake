@@ -45,8 +45,9 @@
       ../common/neovim.nix
       ../common/nix.nix
       ../common/nix-index.nix
-      ../common/nvd.nix
+      ../common/openssh.nix
       ../common/pkgs
+      ../common/podman.nix
       ../common/printing.nix
       ../common/ranger.nix
       ../common/regional.nix

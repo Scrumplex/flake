@@ -54,8 +54,6 @@ in {
     sshKeyFile = config.age.secrets.id_borgbase.path;
   };
 
-  virtualisation.oci-containers.backend = "docker";
-
   networking = {
     hostName = "eclipse";
     domain = "sefa.cloud";
