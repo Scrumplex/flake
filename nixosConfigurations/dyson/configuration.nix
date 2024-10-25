@@ -4,11 +4,12 @@
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
     ./boot.nix
     ./borg.nix
     ./desktop/sway.nix
     ./desktop/swayidle.nix
+    ./disks.nix
+    ./facter.nix
     ./keyd.nix
     ./networkmanager.nix
     ./swapfile.nix

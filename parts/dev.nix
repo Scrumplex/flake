@@ -2,10 +2,8 @@
   perSystem = {
     config,
     inputs',
-    lib,
     pkgs,
     self',
-    system,
     ...
   }: {
     devShells.default = pkgs.mkShellNoCC {
@@ -21,7 +19,7 @@
       nil.enable = true;
       prettier = {
         enable = true;
-        excludes = ["flake.lock"];
+        excludes = ["flake.lock" "facter.json"];
       };
     };
   };
