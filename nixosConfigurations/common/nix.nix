@@ -2,7 +2,6 @@
   config,
   inputs,
   lib,
-  pkgs,
   ...
 }: let
   inherit (lib) mkEnableOption optionals;
@@ -14,7 +13,6 @@ in {
   options.profile.nix.enableMyCache = mkEnableOption "cache.sefa.cloud cache";
   config = {
     nix = {
-      package = pkgs.lix;
       daemonCPUSchedPolicy = "idle";
       daemonIOSchedClass = "idle";
       daemonIOSchedPriority = 6;
