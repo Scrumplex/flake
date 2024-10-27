@@ -16,6 +16,8 @@
   ];
 
   hm = {
+    # allow apps like uwsm to read HM vars
+    programs.bash.enable = true;
     programs.fish = {
       enable = true;
       shellInit = ''
