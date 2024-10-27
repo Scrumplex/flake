@@ -40,6 +40,7 @@
       inputs.home-manager.follows = "home-manager";
       inputs.git-hooks.follows = "git-hooks";
       inputs.flake-compat.follows = "";
+      inputs.nuschtosSearch.follows = "";
     };
     catppuccin.url = "github:catppuccin/nix";
     nix-index-database = {
