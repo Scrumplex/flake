@@ -50,6 +50,10 @@
 
       signing.key = null;
 
+      aliases = {
+        unpushed = "log --branches --not --remotes --no-walk --decorate --oneline";
+      };
+
       extraConfig = {
         core.autocrlf = "input";
         color.ui = "auto";
