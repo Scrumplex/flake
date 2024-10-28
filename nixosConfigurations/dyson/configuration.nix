@@ -9,16 +9,17 @@
     ./desktop/sway.nix
     ./desktop/swayidle.nix
     ./disks.nix
-    ./facter.nix
     ./keyd.nix
     ./networkmanager.nix
     ./swapfile.nix
     ./wireguard.nix
 
+    inputs.nixos-facter-modules.nixosModules.facter
     inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
     inputs.srvos.nixosModules.desktop
   ];
 
+  facter.reportPath = ./facter.json;
   hardware.enableRedistributableFirmware = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 

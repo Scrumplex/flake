@@ -4,19 +4,20 @@
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
     ./borg.nix
     ./desktop/sway.nix
     ./desktop/waybar.nix
     ./disks.nix
     ./wireguard.nix
 
+    inputs.nixos-facter-modules.nixosModules.facter
     inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
     inputs.nixos-hardware.nixosModules.common-gpu-amd
     inputs.nixos-hardware.nixosModules.common-pc-ssd
     inputs.srvos.nixosModules.desktop
   ];
 
+  facter.reportPath = ./facter.json;
   hardware.enableRedistributableFirmware = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
