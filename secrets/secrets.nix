@@ -28,7 +28,6 @@ in {
   "universe/borgbase_repokey.age".publicKeys = scrumplex ++ universe;
   "universe/grafana-smtp-password.age".publicKeys = scrumplex ++ universe;
   "universe/murmur.env.age".publicKeys = scrumplex ++ universe;
-  "universe/hetzner.key.age".publicKeys = scrumplex ++ universe;
   "universe/prism-meta.key.age".publicKeys = scrumplex ++ universe;
   "universe/prism-modmail.env.age".publicKeys = scrumplex ++ universe;
   "universe/prism-oauth2-proxy.env.age".publicKeys = scrumplex ++ universe;
@@ -44,7 +43,6 @@ in {
 
   "cosmos/id_borgbase.age".publicKeys = scrumplex ++ cosmos;
   "cosmos/wireguard.key.age".publicKeys = scrumplex ++ cosmos;
-  "cosmos/hetzner.key.age".publicKeys = scrumplex ++ cosmos;
   "cosmos/otel-hass-token.env.age".publicKeys = scrumplex ++ cosmos;
 
   "eclipse/ca_intermediate.key.age".publicKeys = scrumplex ++ eclipse;
@@ -55,7 +53,7 @@ in {
   "eclipse/frigate.env.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/harmonia-signing.key.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/hetzner-ddns.env.age".publicKeys = scrumplex ++ eclipse;
-  "eclipse/hetzner.key.age".publicKeys = scrumplex ++ eclipse;
+  "eclipse/hetzner-traefik.env.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/id_borgbase.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/miniflux.env.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/paperless-password.age".publicKeys = scrumplex ++ eclipse;

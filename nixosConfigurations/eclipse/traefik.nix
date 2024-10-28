@@ -1,4 +1,6 @@
 {config, ...}: {
+  age.secrets."hetzner-traefik.env".file = ../../secrets/eclipse/hetzner-traefik.env.age;
+
   common.traefik = {
     primaryEntryPoint = "localsecure";
     primaryCertResolver = "local";
@@ -37,4 +39,6 @@
     };
     services.nextcloud.loadBalancer.servers = [{url = "http://localhost:7701";}];
   };
+
+  systemd.services.traefik.serviceConfig.EnvironmentFile = [config.age.secrets."hetzner-traefik.env".path];
 }

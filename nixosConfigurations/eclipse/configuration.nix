@@ -36,7 +36,6 @@ in {
     srvos.nixosModules.mixins-systemd-boot
   ];
 
-  age.secrets."hetzner.key".file = ../../secrets/eclipse/hetzner.key.age;
   age.secrets.id_borgbase.file = ../../secrets/eclipse/id_borgbase.age;
   age.secrets."passwd".file = ../../secrets/common/passwd.age;
 

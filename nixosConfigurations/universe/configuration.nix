@@ -31,7 +31,6 @@ in {
   age.secrets.id_borgbase.file = ../../secrets/universe/id_borgbase.age;
   age.secrets.borgbase_repokey.file = ../../secrets/universe/borgbase_repokey.age;
   age.secrets."wireguard.key".file = ../../secrets/universe/wireguard.key.age;
-  age.secrets."hetzner.key".file = ../../secrets/universe/hetzner.key.age;
 
   infra.borgbase = {
     enable = true;
