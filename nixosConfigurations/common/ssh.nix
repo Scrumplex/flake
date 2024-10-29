@@ -33,35 +33,20 @@ in {
           identityFile = identityFile;
         };
 
-        "voyager.lan" = {
-          user = "root";
-          hostname = "10.10.10.8";
-          identityFile = identityFile;
-        };
-
         "cosmos.lan" = {
           user = "root";
           hostname = "10.10.10.11";
-          port = 22701;
           identityFile = identityFile;
         };
 
         "eclipse.lan" = {
           user = "root";
           hostname = "10.10.10.12";
-          port = 22701;
           identityFile = identityFile;
         };
 
         "scrumplex.net" = {
           user = "root";
-          port = 22701;
-          identityFile = identityFile;
-        };
-
-        "duckhub.io" = {
-          user = "root";
-          port = 22701;
           identityFile = identityFile;
         };
       }
