@@ -27,6 +27,7 @@ in {
         "steam-unwrapped"
         "teamspeak-server" # universe TS3 Server
         "unrar" # eclipse sabnzbd
+        "anydesk"
       ];
 
     overlays = lib.mkAfter [

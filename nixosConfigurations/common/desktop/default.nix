@@ -27,6 +27,7 @@
     livecaptions
     orca-slicer
 
+    anydesk
     portfolio
     AusweisApp2
 
