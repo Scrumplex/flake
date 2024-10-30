@@ -23,6 +23,9 @@
   hardware.enableRedistributableFirmware = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
+  security.pam.services.login.fprintAuth = false;
+  security.pam.services.sudo.fprintAuth = false;
+
   profile.nix.enableMyCache = true;
 
   powerManagement.cpuFreqGovernor = "powersave";
