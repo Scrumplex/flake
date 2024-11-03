@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    blender
     evince
     file-roller
     flatpak-builder
