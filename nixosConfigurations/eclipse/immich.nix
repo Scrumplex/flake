@@ -1,4 +1,15 @@
 {config, ...}: {
+  nixpkgs.overlays = [
+    (final: prev: {
+      jellyfin-ffmpeg = prev.jellyfin-ffmpeg.override {
+        ffmpeg_7-full = final.ffmpeg_7-full.override {
+          withXevd = false;
+          withXeve = false;
+        };
+      };
+    })
+  ];
+
   services.immich = {
     enable = true;
     mediaLocation = "/media/immich-library";
