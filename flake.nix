@@ -33,6 +33,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -150,6 +154,8 @@
         ./nixosConfigurations/cosmos
         ./nixosConfigurations/eclipse
         ./nixosConfigurations/universe
+
+        ./darwinConfigurations/builder
 
         ./openwrt
 

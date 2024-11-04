@@ -117,6 +117,26 @@
         "type": "github"
       }
     },
+    "darwin_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1730698801,
+        "narHash": "sha256-sq68bCmk4tCXSt5CoRNimfigIZSLJSpNi/gjFtNLjRE=",
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "rev": "189d2d422c773fa065cc9c72e6806f007ebb9be0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
     "devshell": {
       "inputs": {
         "nixpkgs": [
@@ -735,6 +755,7 @@
         "buildbot-nix": "buildbot-nix",
         "catppuccin": "catppuccin",
         "catppuccin-qt5ct": "catppuccin-qt5ct",
+        "darwin": "darwin_2",
         "disko": "disko",
         "flake-parts": "flake-parts",
         "git-hooks": "git-hooks",
