@@ -6,8 +6,8 @@
   programs.dconf.enable = true;
   services.accounts-daemon.enable = true;
   services.gnome.at-spi2-core.enable = true;
-  services.gnome.tracker-miners.enable = true;
-  services.gnome.tracker.enable = true;
+  services.gnome.localsearch.enable = true;
+  services.gnome.tinysparql.enable = true;
   services.gvfs.enable = true;
 
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
