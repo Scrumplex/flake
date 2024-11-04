@@ -421,11 +421,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1730448474,
-        "narHash": "sha256-qE/cYKBhzxHMtKtLK3hlSR3uzO1pWPGLrBuQK7r0CHc=",
+        "lastModified": 1730600078,
+        "narHash": "sha256-BoyFmE59HDF3uybBySsWVoyjNuHvz3Wv8row/mSb958=",
         "owner": "lnl7",
         "repo": "nix-darwin",
-        "rev": "683d0c4cd1102dcccfa3f835565378c7f3cbe05e",
+        "rev": "4652874d014b82cb746173ffc64f6a70044daa7e",
         "type": "github"
       },
       "original": {
@@ -508,11 +508,11 @@
     },
     "nixos-facter-modules": {
       "locked": {
-        "lastModified": 1730026316,
-        "narHash": "sha256-AzP+trH/ykBJGTx3twkpuwbkhFSmsY1PJDQtRmK4k4c=",
+        "lastModified": 1730727009,
+        "narHash": "sha256-RfiSD9V2gjOdAcayE026lLUcvGCrRqiPLiSXQeUV4Iw=",
         "owner": "numtide",
         "repo": "nixos-facter-modules",
-        "rev": "15b6531d44aa6f0bbd2fd8309cd2a6d7f183ba32",
+        "rev": "14bf524019437458933c93dd5c1a9b524c608c25",
         "type": "github"
       },
       "original": {
@@ -645,11 +645,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1730569492,
-        "narHash": "sha256-NByr7l7JetL9kIrdCOcRqBu+lAkruYXETp1DMiDHNQs=",
+        "lastModified": 1730731617,
+        "narHash": "sha256-W7FNEe+gewzTSx0lykzZ3XUKmJ8uKk/SpIPblZIfYc0=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "6f210158b03b01a1fd44bf3968165e6da80635ce",
+        "rev": "aa06b176e78c9ae9e779e605cab61c9d8681a54e",
         "type": "github"
       },
       "original": {
@@ -919,11 +919,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1730138687,
-        "narHash": "sha256-78+p8ioYgYzbIVV9tTnK44QKvIJCvb6Wfnk1fQxmMdk=",
+        "lastModified": 1730718236,
+        "narHash": "sha256-rMV7BuHSYn0TXATKwoMj5uhNqBDEDct/a6ImMvPo9Hs=",
         "ref": "refs/heads/main",
-        "rev": "081a456e77a0bcfdbb6d77205c538ab1435be914",
-        "revCount": 237,
+        "rev": "2c1a1717a606f99f339d47d12c2cf6902476799a",
+        "revCount": 238,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/skinprox.git"
       },
