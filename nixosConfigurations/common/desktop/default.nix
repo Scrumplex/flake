@@ -24,7 +24,7 @@
     tenacity
     libreoffice-fresh
     livecaptions
-    orca-slicer
+    #orca-slicer
 
     anydesk
     portfolio
