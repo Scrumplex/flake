@@ -4,16 +4,6 @@
   nix = {
     buildMachines = [
       {
-        hostName = "cosmos.lan";
-        sshUser = "bob-the-builder";
-        sshKey = config.age.secrets."bob-the-builder.key".path;
-        system = "aarch64-linux";
-        protocol = "ssh-ng";
-        maxJobs = 2;
-        speedFactor = 2; # much faster than our arm64 emulation!
-        supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm" "gccarch-armv8-a"];
-      }
-      {
         hostName = "eclipse.lan";
         sshUser = "bob-the-builder";
         sshKey = config.age.secrets."bob-the-builder.key".path;

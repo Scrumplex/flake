@@ -21,7 +21,6 @@ in {
         ../common/nullmailer.nix
         ../common/openssh.nix
         ../common/pkgs
-        ../common/remote-build-provider.nix
         ../common/server.nix
         ../common/traefik.nix
         ../common/upgrade.nix
