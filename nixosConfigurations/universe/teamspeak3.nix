@@ -4,6 +4,8 @@
     openFirewall = true;
   };
 
+  networking.firewall.allowedTCPPorts = [41144];
+
   systemd.services."teamspeak3-server".serviceConfig = {
     # Hardening
     CapabilityBoundingSet = "";
