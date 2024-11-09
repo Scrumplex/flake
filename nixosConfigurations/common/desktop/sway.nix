@@ -48,7 +48,7 @@ in {
       output."*" = {bg = "${wallpaper} fill";};
       assigns = {
         # TODO: other roles
-        "4" = [{app_id = "evolution";}];
+        "4" = [{app_id = "org.gnome.Evolution";}];
         "5" = [
           {class = "Signal";}
           {class = "Element";}
