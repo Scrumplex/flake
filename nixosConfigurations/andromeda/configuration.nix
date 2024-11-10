@@ -8,6 +8,7 @@
     ./desktop/sway.nix
     ./desktop/waybar.nix
     ./disks.nix
+    ./networking.nix
     ./wireguard.nix
 
     inputs.nixos-facter-modules.nixosModules.facter
@@ -30,39 +31,11 @@
   };
   hardware.opengl.vdpau.driverName = "radeonsi";
 
-  networking.useNetworkd = true;
-  systemd.network.wait-online.anyInterface = true;
-  services.resolved.dnssec = "false";
-
-  hardware.bluetooth.enable = true;
-
-  programs.partition-manager.enable = true;
-
   powerManagement.cpuFreqGovernor = "schedutil";
 
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
-  services.avahi.enable = true;
-
-  networking.firewall.allowedTCPPortRanges = [
-    {
-      from = 2234;
-      to = 2239;
-    }
-  ];
-
   services.logind.powerKey = "suspend";
-
-  virtualisation.libvirtd = {
-    enable = true;
-
-    qemu = {
-      ovmf.packages = [pkgs.OVMFFull.fd];
-      swtpm.enable = true;
-      vhostUserPackages = with pkgs; [virtiofsd];
-    };
-  };
-  virtualisation.spiceUSBRedirection.enable = true;
 
   system.stateVersion = "23.11";
 }

@@ -39,6 +39,7 @@
       ../common/gpg.nix
       ../common/home.nix
       ../common/htop.nix
+      ../common/libvirtd.nix
       ../common/misc.nix
       ../common/mpd.nix
       ../common/mpv.nix
