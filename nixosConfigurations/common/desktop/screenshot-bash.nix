@@ -24,14 +24,14 @@
       BASIC_AUTH="$(cat ${config.age.secrets."screenshot-bash".path})"
 
       do_screenshot() {
-          area=$(${swaymsg} -t get_tree | ${jq} -r '.. | select(.pid? and .visible?) | "\(.rect.x),\(.rect.y-."deco_rect".height) \(.rect.width)x\(.rect.height+."deco_rect".height)"' | ${slurp})
+          area=$(${swaymsg} -t get_tree | ${jq} -r '.. | select(.pid? and .visible?) | "\(.rect.x),\(.rect.y - .deco_rect.height) \(.rect.width)x\(.rect.height + .deco_rect.height)"' | ${slurp})
           ${grim} -g "$area" "$1"
       }
 
       if [ $# -gt 0 ]; then
           if [ "$1" == "active_window" ]; then
               do_screenshot() {
-                  area=$(${swaymsg} -t get_tree | ${jq} -j '.. | select(.type?) | select(.focused) | "\(.rect.x),\(.rect.y-."deco_rect".height) \(.rect.width)x\(.rect.height+."deco_rect".height)"')
+                  area=$(${swaymsg} -t get_tree | ${jq} -j '.. | select(.type? and .focused) | "\(.rect.x),\(.rect.y - .deco_rect.height) \(.rect.width)x\(.rect.height + .deco_rect.height)"')
                   ${grim} -g "$area" "$1"
               }
           elif [ "$1" == "active_output" ]; then
