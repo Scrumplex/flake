@@ -39,6 +39,7 @@ in {
           ++ lib.optional config.hm.programs.waybar.extraModules.cameraBlank.enable
           "custom/${config.hm.programs.waybar.extraModules.cameraBlank.moduleName}"
           ++ [
+            "power-profiles-daemon"
             "idle_inhibitor"
             "clock#date"
             "tray"
@@ -134,6 +135,14 @@ in {
             deactivated = "󰾪";
           };
         };
+        power-profiles-daemon = {
+          format-icons = {
+            "default" = "";
+            "performance" = "";
+            "balanced" = "";
+            "power-saver" = "";
+          };
+        };
         "clock#date" = {
           format = "{:%a, %d. %b %Y}";
           interval = 1;
@@ -173,7 +182,7 @@ in {
         margin-left: 0;
       }
 
-      #workspaces button, #idle_inhibitor, #custom-pa-mute, #custom-camera-blank {
+      #workspaces button, #idle_inhibitor, #custom-pa-mute, #custom-camera-blank, #power-profiles-daemon {
         border: none;
         background-color: transparent;
         box-shadow: none;  /* dunno why this is set */

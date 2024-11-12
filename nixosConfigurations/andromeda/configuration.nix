@@ -31,9 +31,9 @@
   };
   hardware.opengl.vdpau.driverName = "radeonsi";
 
-  powerManagement.cpuFreqGovernor = "schedutil";
-
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
+
+  services.power-profiles-daemon.enable = true;
 
   services.logind.powerKey = "suspend";
 
