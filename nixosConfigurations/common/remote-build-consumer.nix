@@ -17,7 +17,7 @@
         hostName = "mini.scrumplex.net";
         sshUser = "bob-the-builder";
         sshKey = config.age.secrets."bob-the-builder.key".path;
-        system = "aarch64-darwin";
+        system = "aarch64-darwin,x86_64-darwin";
         protocol = "ssh-ng";
         maxJobs = 8;
         speedFactor = 1;
