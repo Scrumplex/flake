@@ -1,20 +1,16 @@
-{config, ...}: {
-  nixpkgs.overlays = [
-    (final: prev: {
-      jellyfin-ffmpeg = prev.jellyfin-ffmpeg.override {
-        ffmpeg_7-full = final.ffmpeg_7-full.override {
-          withXevd = false;
-          withXeve = false;
-        };
-      };
-    })
-  ];
-
+{
+  config,
+  pkgs,
+  ...
+}: {
   services.immich = {
     enable = true;
     mediaLocation = "/media/immich-library";
     port = 9121;
   };
+
+  # Workaround patch for https://github.com/NixOS/nixpkgs/pull/355266
+  systemd.services."immich-server".path = [pkgs.perl];
 
   users.users.immich.extraGroups = ["video" "render"];
 
