@@ -2,9 +2,10 @@
   _module.args.lib' = {
     mkHost = {
       hostName,
+      attrName ? hostName,
       modules,
     }: {
-      "${hostName}" = inputs.nixpkgs.lib.nixosSystem {
+      "${attrName}" = inputs.nixpkgs.lib.nixosSystem {
         modules =
           [
             {networking = {inherit hostName;};}

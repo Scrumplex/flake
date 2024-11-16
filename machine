@@ -1,0 +1,1 @@
+ssh-ng://bob-the-builder@cosmos.lan aarch64-linux /run/agenix/bob-the-builder.key 4 1 nixos-test,benchmark,big-parallel,kvm - -

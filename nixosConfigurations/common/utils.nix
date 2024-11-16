@@ -4,7 +4,6 @@
 
   environment.systemPackages = with pkgs; [
     dig
-    ffmpeg
     lsof
     nload
     tree

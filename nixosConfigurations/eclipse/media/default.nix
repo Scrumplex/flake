@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [
     ./jellyfin.nix
     ./sabnzbd.nix
@@ -15,4 +15,8 @@
     isSystemUser = true;
     uid = 976;
   };
+
+  environment.systemPackages = with pkgs; [
+    ffmpeg
+  ];
 }
