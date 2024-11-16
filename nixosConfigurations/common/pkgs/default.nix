@@ -11,6 +11,7 @@ in {
       builtins.elem (lib.getName pkg) [
         "discord"
         "libXNVCtrl"
+        "minecraft-server"
         "samsung-unified-linux-driver"
         "shipwright"
         "steam"
