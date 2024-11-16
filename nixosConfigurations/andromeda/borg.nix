@@ -59,6 +59,7 @@
       "/home/*/.steam"
       "/home/*/.wine"
       "/media/DATA/SteamLibrary"
+      "/media/DATA/SteamRecording"
       "*/.cache"
       "*/.git/objects"
       "*/.pnpm-store"
