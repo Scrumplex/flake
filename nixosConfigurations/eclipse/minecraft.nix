@@ -6,7 +6,6 @@
   ...
 }: let
   inherit (builtins) concatStringsSep;
-  inherit (lib) mkIf;
 in {
   imports = [inputs.nix-minecraft.nixosModules.minecraft-servers];
   nixpkgs.overlays = [inputs.nix-minecraft.overlays.default];
@@ -54,41 +53,39 @@ in {
       };
     };
 
-    servers.winter-rescue = {
+    servers.atm10 = {
       enable = true;
       package = pkgs.writeShellApplication {
         name = "minecraft-server";
 
-        runtimeInputs = [pkgs.jdk8];
+        runtimeInputs = [pkgs.jdk21];
 
         text = ''
-          exec java -jar forge-1.16.5-36.2.39.jar nogui
+          exec java "$@" @libraries/net/neoforged/neoforge/21.1.77/unix_args.txt nogui
         '';
       };
 
       jvmOpts = concatStringsSep " " [
-        "-Xms4096M"
-        "-Xmx4096M"
-        "-XX:+AlwaysPreTouch"
-        "-XX:+DisableExplicitGC"
-        "-XX:+ParallelRefProcEnabled"
-        "-XX:+PerfDisableSharedMem"
-        "-XX:+UnlockExperimentalVMOptions"
+        "-Xms4G"
+        "-Xmx8G"
         "-XX:+UseG1GC"
-        "-XX:G1HeapRegionSize=8M"
-        "-XX:G1HeapWastePercent=5"
-        "-XX:G1MaxNewSizePercent=40"
-        "-XX:G1MixedGCCountTarget=4"
-        "-XX:G1MixedGCLiveThresholdPercent=90"
-        "-XX:G1NewSizePercent=30"
-        "-XX:G1RSetUpdatingPauseTimePercent=5"
-        "-XX:G1ReservePercent=20"
-        "-XX:InitiatingHeapOccupancyPercent=15"
+        "-XX:+ParallelRefProcEnabled"
         "-XX:MaxGCPauseMillis=200"
-        "-XX:MaxTenuringThreshold=1"
+        "-XX:+UnlockExperimentalVMOptions"
+        "-XX:+DisableExplicitGC"
+        "-XX:+AlwaysPreTouch"
+        "-XX:G1NewSizePercent=30"
+        "-XX:G1MaxNewSizePercent=40"
+        "-XX:G1HeapRegionSize=8M"
+        "-XX:G1ReservePercent=20"
+        "-XX:G1HeapWastePercent=5"
+        "-XX:G1MixedGCCountTarget=4"
+        "-XX:InitiatingHeapOccupancyPercent=15"
+        "-XX:G1MixedGCLiveThresholdPercent=90"
+        "-XX:G1RSetUpdatingPauseTimePercent=5"
         "-XX:SurvivorRatio=32"
-        "-Dusing.aikars.flags=https://mcflags.emc.gs"
-        "-Daikars.new.flags=true"
+        "-XX:+PerfDisableSharedMem"
+        "-XX:MaxTenuringThreshold=1"
       ];
 
       serverProperties = {
@@ -99,6 +96,7 @@ in {
         server-port = 25566;
         spawn-protection = 0;
         white-list = true;
+        max-tick-time = 180000;
       };
     };
   };
@@ -106,7 +104,8 @@ in {
   # Some Minecraft servers leak a lot of memory.
   # We are talking about Minecraft modders here so there are infinite possibilities as to why this happens.
   # To stop the host from OOMing after some time, tell systemd to deal with this early on
-  systemd.services."minecraft-server-winter-rescue".serviceConfig = mkIf config.services.minecraft-server.enable {
-    MemoryMax = "10G"; # kill the server if it sucks up too much
-  };
+  systemd.services = lib.mapAttrs' (name: _:
+    lib.nameValuePair "minecraft-server-${name}" {
+      serviceConfig.MemoryMax = "10G"; # kill the server if it sucks up too much
+    }) (lib.filterAttrs (_: v: v.enable) config.services.minecraft-servers.servers);
 }
