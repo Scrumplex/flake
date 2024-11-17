@@ -385,11 +385,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1730627479,
-        "narHash": "sha256-YFLu7hkwvFl1RCxySuCnwyB2rJNB0KqmsSJzTl+ZXUE=",
+        "lastModified": 1731843898,
+        "narHash": "sha256-7cwcBFEuLgwUezhtbG2gApM5cxSkcRMxVewCRNESwuk=",
         "owner": "Scrumplex",
         "repo": "Modmail",
-        "rev": "27124f3bb5c806e9e2e3c6edbb7a9b392fb4df1b",
+        "rev": "d9e0c827db219e7b1ecded987cc1ba1852968289",
         "type": "github"
       },
       "original": {
@@ -493,11 +493,11 @@
     },
     "nixos-facter-modules": {
       "locked": {
-        "lastModified": 1731425281,
-        "narHash": "sha256-azk9oxzHkfYZcgBzAK3J9qdUQG0UjLSOjt8KzJ9rb8g=",
+        "lastModified": 1731843871,
+        "narHash": "sha256-aIy8m4jjr/BFXzniNzoH16sF7HEFV/01/5b3FhtUHrw=",
         "owner": "numtide",
         "repo": "nixos-facter-modules",
-        "rev": "505386dda29452140f93734509b03de57986af57",
+        "rev": "5a1c2a28589e34f8a44d46dd1909cfacf928cb1a",
         "type": "github"
       },
       "original": {
