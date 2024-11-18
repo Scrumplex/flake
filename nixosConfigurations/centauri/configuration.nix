@@ -62,30 +62,23 @@ in {
 
   nixpkgs.hostPlatform.system = "aarch64-linux";
 
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-label/nixos";
-      fsType = "ext4";
-      options = ["noatime"];
-    };
-  };
+  boot.postBootCommands = ''
+    # On the first boot do some maintenance tasks
+    if [ -f "/nix-path-registration" ]; then
+      set -euo pipefail
+      set -x
 
-  system.build = {
-    sdImage = import "${inputs.nixpkgs}/nixos/lib/make-disk-image.nix" {
-      name = "bpi-r4-sd-image";
-      copyChannel = false;
-      partitionTableType = "none";
-      inherit config lib pkgs;
-    };
-    uboot = pkgs.runCommand "uboot.img" {} ''
-      dd if=${pkgs.banana-pi-r4-firmware}/bl2.img of=uboot.img
-      # magic offset hardcoded in BL2 by default
-      dd if=${pkgs.banana-pi-r4-firmware}/fip.bin of=uboot.img conv=notrunc bs=512 seek=$((0x580000 / 512))
+      # Register the contents of the initial Nix store
+      ${config.nix.package.out}/bin/nix-store --load-db < "/nix-path-registration"
 
-      mkdir $out
-      mv uboot.img $out/
-    '';
-  };
+      # nixos-rebuild also requires a "system" profile and an /etc/NIXOS tag.
+      touch /etc/NIXOS
+      ${config.nix.package.out}/bin/nix-env -p /nix/var/nix/profiles/system --set /run/current-system
+
+      # Prevents this from running on later boots.
+      rm -f "/nix-path-registration"
+    fi
+  '';
 
   system.stateVersion = "24.11";
 }

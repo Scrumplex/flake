@@ -5,14 +5,14 @@
   ...
 } @ args: (buildLinux (args
   // {
-    version = "6.12.0-rc7";
-    modDirVersion = "6.12.0-rc7";
+    version = "6.12";
+    modDirVersion = "6.12.0";
 
     src = fetchFromGitHub {
       owner = "K900";
       repo = "linux";
-      rev = "46cbdf232ac80bbb65e0bd136d559d7928274829";
-      hash = "sha256-fTkUTLFMI0szDkhiGe+1OPCdqs9WPaDhItwzUHRm62o=";
+      rev = "b9810763c25c72e1ffc8a676e3436c1576a95059";
+      hash = "sha256-YY4fve8hpJoxciroOjfCgFvVsw4H8HbSXCGrhseqzNY=";
     };
 
     defconfig = "mt7988a_bpi-r4_defconfig";
@@ -20,9 +20,6 @@
     autoModules = false;
 
     structuredExtraConfig = with lib.kernel; {
-      BTRFS_FS = module;
-      BTRFS_FS_POSIX_ACL = yes;
-
       AUTOFS_FS = module;
 
       # Used by system.etc.overlay.enable as part of a perl-less build.

@@ -21,7 +21,7 @@ in {
         ../common/utils.nix
 
         ./configuration.nix
-        #./disks.nix
+        ./disks.nix
       ]
       ++ attrValues self.nixosModules;
   };

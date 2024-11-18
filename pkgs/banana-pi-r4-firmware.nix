@@ -26,7 +26,7 @@ buildArmTrustedFirmware {
 
   extraMakeFlags = [
     "BL33=${uboot}/u-boot.bin" # FIP-ify our uboot
-    "BOOT_DEVICE=sdmmc" # boot from NAND flash
+    "BOOT_DEVICE=sdmmc" # boot from SD card
     "DRAM_USE_COMB=1" # you're supposed to use this one, sayeth mediatek
     "DDR4_4BG_MODE=0" # disable large RAM support, for some reason this breaks things
     "USE_MKIMAGE=1" # use uboot mkimage instead of vendor mtk tool
