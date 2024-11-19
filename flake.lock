@@ -55,6 +55,21 @@
         "type": "github"
       }
     },
+    "crane": {
+      "locked": {
+        "lastModified": 1730652660,
+        "narHash": "sha256-+XVYfmVXAiYA0FZT7ijHf555dxCe+AoAT5A6RU+6vSo=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "a4ca93905455c07cb7e3aca95d4faf7601cba458",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -95,6 +110,28 @@
       "original": {
         "owner": "numtide",
         "repo": "devshell",
+        "type": "github"
+      }
+    },
+    "fenix": {
+      "inputs": {
+        "nixpkgs": [
+          "flox",
+          "nixpkgs"
+        ],
+        "rust-analyzer-src": "rust-analyzer-src"
+      },
+      "locked": {
+        "lastModified": 1730702146,
+        "narHash": "sha256-a657FU8MS5m0Y4pQvcmQPfvXYOPpxih7u2hU57Bn2i4=",
+        "owner": "nix-community",
+        "repo": "fenix",
+        "rev": "fa3610f841725c8e20fc0fab070ee60609fdd5ee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "fenix",
         "type": "github"
       }
     },
@@ -211,6 +248,32 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flox": {
+      "inputs": {
+        "crane": "crane",
+        "fenix": "fenix",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "pre-commit-hooks": [
+          "git-hooks"
+        ],
+        "sqlite3pp": "sqlite3pp"
+      },
+      "locked": {
+        "lastModified": 1732012830,
+        "narHash": "sha256-bo0oYAftMJJsBWKykknNnXkQZTHxde5vRJR0GWuOmcw=",
+        "owner": "flox",
+        "repo": "flox",
+        "rev": "b650a711aa8672b3cce96c74ec7909abeb1d16ca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "flox",
+        "repo": "flox",
         "type": "github"
       }
     },
@@ -491,6 +554,7 @@
         "agenix": "agenix",
         "catppuccin": "catppuccin",
         "flake-parts": "flake-parts",
+        "flox": "flox",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager",
         "mac-app-util": "mac-app-util",
@@ -499,6 +563,23 @@
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
         "scrumpkgs": "scrumpkgs"
+      }
+    },
+    "rust-analyzer-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1730645367,
+        "narHash": "sha256-RnmBO+9zmZ3NpU6+NfYUDRg31dsPZ17xUqXVw/ZOKZ8=",
+        "owner": "rust-lang",
+        "repo": "rust-analyzer",
+        "rev": "e44691a60443f1246a077df659607ca89f2ddc58",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rust-lang",
+        "ref": "nightly",
+        "repo": "rust-analyzer",
+        "type": "github"
       }
     },
     "scrumpkgs": {
@@ -525,6 +606,27 @@
       "original": {
         "owner": "Scrumplex",
         "repo": "pkgs",
+        "type": "github"
+      }
+    },
+    "sqlite3pp": {
+      "inputs": {
+        "nixpkgs": [
+          "flox",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1691154329,
+        "narHash": "sha256-nMtwh/G1/Zt70rl540jn+nFVJuju0NdXJwk2Y3pNB+k=",
+        "owner": "aakropotkin",
+        "repo": "sqlite3pp",
+        "rev": "775e48a6c7a63a51585cd628f6c9816ba634a246",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aakropotkin",
+        "repo": "sqlite3pp",
         "type": "github"
       }
     },

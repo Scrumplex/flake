@@ -67,17 +67,11 @@
     casks = [
       "boop"
       "browserosaurus"
-      "bruno"
       # not supported on aarch64-darwin in nixpkgs
       "caffeine"
-      "hoppscotch"
-      "inkscape"
       "jabra-direct"
       "jellyfin-media-player"
       "linearmouse"
-      "pgadmin4"
-      "postman"
-      "signal"
       "core-tunnel"
       "syncthing"
       "visual-studio-code"
@@ -87,9 +81,16 @@
 
   environment.systemPackages = with pkgs; [
     htop
+    bruno
+    hoppscotch
+    inkscape
     iterm2
+    pgadmin4-desktopmode
     rectangle
+    signal-desktop
+    zoom-us
 
+    inputs.flox.packages.${pkgs.system}.flox
     fluxcd
     k9s
     kubectl
@@ -113,6 +114,9 @@
       maxJobs = 4;
     };
     settings.experimental-features = "nix-command flakes";
+
+    settings.trusted-substituters = ["https://cache.flox.dev"];
+    settings.trusted-public-keys = ["flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="];
 
     nixPath = [
       "nixpkgs=${inputs.nixpkgs}"

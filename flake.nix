@@ -41,6 +41,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    flox = {
+      url = "github:flox/flox";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.pre-commit-hooks.follows = "git-hooks";
+    };
   };
 
   outputs = inputs @ {flake-parts, ...}:
