@@ -25,10 +25,6 @@ in {
   boot.kernelParams = [
     "console=ttyS0,115200n8"
     "earlycon=uart8250,mmio32,0x11000000"
-    "pci=pcie_bus_perf"
-    "pstore_blk.blkdev=/dev/nvme0n1p2"
-    "pstore_blk.kmsg_size=128"
-    "best_effort=y"
   ];
 
   boot.initrd.includeDefaultModules = false;
@@ -36,7 +32,8 @@ in {
   hardware.enableRedistributableFirmware = false;
   hardware.firmware = [pkgs.linux-firmware];
   boot.kernelPackages = crossPkgs.linuxPackagesFor crossPkgs.linux-bpir4;
-  hardware.deviceTree.name = "mediatek/mt7988a-bananapi-bpi-r4.dtb";
+
+  #hardware.deviceTree.name = "mediatek/mt7988a-bananapi-bpi-r4.dtb";
   hardware.deviceTree.overlays = [
     {
       name = "mt7988a-bananapi-bpi-r4-sd.dtso";
