@@ -88,6 +88,7 @@
     pgadmin4-desktopmode
     rectangle
     signal-desktop
+    slack
     zoom-us
 
     inputs.flox.packages.${pkgs.system}.flox
