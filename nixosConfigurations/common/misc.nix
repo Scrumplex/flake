@@ -1,10 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: let
-  inherit (lib.modules) mkDefault;
-in {
+{pkgs, ...}: {
   hm.catppuccin.flavor = "mocha";
   users.mutableUsers = false;
 
@@ -43,7 +37,7 @@ in {
     ];
   };
 
-  services.udev.packages = with pkgs; [zoom65-udev-rules];
+  services.udev.packages = with pkgs; [meletrix-udev-rules];
 
   services.udisks2.enable = true;
 
