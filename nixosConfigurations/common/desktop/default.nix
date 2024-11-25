@@ -22,7 +22,7 @@
     gimp
     krita
     tenacity
-    libreoffice-fresh
+    # libreoffice-fresh
     livecaptions
     orca-slicer
 
