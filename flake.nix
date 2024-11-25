@@ -113,10 +113,6 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.git-hooks.follows = "git-hooks";
     };
-    refraction = {
-      url = "github:PrismLauncher/refraction";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     modmail = {
       url = "github:Scrumplex/Modmail";
       inputs.nixpkgs.follows = "nixpkgs";
