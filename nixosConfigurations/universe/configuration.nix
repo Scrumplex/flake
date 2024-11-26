@@ -1,16 +1,10 @@
 {
   config,
   inputs,
-  modulesPath,
-  pkgs,
   ...
-}: let
-  inherit (inputs) srvos;
-in {
+}: {
   imports = [
-    "${modulesPath}/profiles/qemu-guest.nix"
-
-    ./hardware-configuration.nix
+    ./disks.nix
     ./honeylinks-website.nix
     ./monitoring.nix
     ./murmur.nix
@@ -24,9 +18,12 @@ in {
     ./teamspeak3.nix
     ./wireguard.nix
 
-    srvos.nixosModules.server
-    srvos.nixosModules.mixins-systemd-boot
+    inputs.nixos-facter-modules.nixosModules.facter
+    inputs.srvos.nixosModules.server
+    inputs.srvos.nixosModules.mixins-systemd-boot
   ];
+
+  facter.reportPath = ./facter.json;
 
   age.secrets.id_borgbase.file = ../../secrets/universe/id_borgbase.age;
   age.secrets.borgbase_repokey.file = ../../secrets/universe/borgbase_repokey.age;
@@ -47,7 +44,7 @@ in {
     interfaces.ens3.ipv6 = {
       addresses = [
         {
-          address = "2a03:4000:41:ef:8238:c03b:a699:0288";
+          address = "2a0a:4cc0:c0:335:8238:c03b:a699:0288";
           prefixLength = 64;
         }
       ];
