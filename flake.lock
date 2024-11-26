@@ -689,32 +689,6 @@
         "type": "github"
       }
     },
-    "prism-meta": {
-      "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "git-hooks": [
-          "git-hooks"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1730792470,
-        "narHash": "sha256-2eMm4LYtg5Dhot0xB4kq9K7evOlksG3NEZQUAVprufY=",
-        "owner": "PrismLauncher",
-        "repo": "meta",
-        "rev": "e1b69a003bd95d49dfc402f31bc1db92348fe915",
-        "type": "github"
-      },
-      "original": {
-        "owner": "PrismLauncher",
-        "repo": "meta",
-        "type": "github"
-      }
-    },
     "prismlauncher": {
       "inputs": {
         "flake-compat": [],
@@ -762,7 +736,6 @@
         "nixpkgs-xr": "nixpkgs-xr",
         "nixvim": "nixvim",
         "openwrt-imagebuilder": "openwrt-imagebuilder",
-        "prism-meta": "prism-meta",
         "prismlauncher": "prismlauncher",
         "scrumpkgs": "scrumpkgs",
         "scrumplex-website": "scrumplex-website",

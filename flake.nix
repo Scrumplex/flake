@@ -107,12 +107,6 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.pre-commit-hooks.follows = "git-hooks";
     };
-    prism-meta = {
-      url = "github:PrismLauncher/meta";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.git-hooks.follows = "git-hooks";
-    };
     modmail = {
       url = "github:Scrumplex/Modmail";
       inputs.nixpkgs.follows = "nixpkgs";
