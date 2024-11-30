@@ -1,0 +1,3 @@
+#!/bin/sh
+
+export TF_VAR_hetznerdns_token=foo

@@ -11,7 +11,7 @@
         ${config.pre-commit.installationScript}
       '';
 
-      packages = [self'.formatter inputs'.agenix.packages.agenix pkgs.just pkgs.nix-fast-build pkgs.nix-output-monitor];
+      packages = [self'.formatter inputs'.agenix.packages.agenix pkgs.just pkgs.nix-fast-build pkgs.nix-output-monitor pkgs.opentofu];
     };
     formatter = pkgs.alejandra;
     pre-commit.settings.hooks = {
@@ -21,6 +21,7 @@
         enable = true;
         excludes = ["flake.lock" "facter.json"];
       };
+      terraform-format.enable = true;
     };
   };
 }
