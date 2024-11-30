@@ -10,7 +10,7 @@
     virt-manager
     bottles
 
-    discord
+    discord-canary
     webcord
     vesktop
     element-desktop

@@ -9,7 +9,7 @@ in {
     # TODO: split this out into an option
     config.allowUnfreePredicate = pkg:
       builtins.elem (lib.getName pkg) [
-        "discord"
+        "discord-canary"
         "libXNVCtrl"
         "minecraft-server"
         "samsung-unified-linux-driver"
