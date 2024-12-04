@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  qt5ctThemePath = "${inputs.catppuccin-qt5ct}/themes/Catppuccin-Mocha.conf";
+  qt5ctThemePath = "${inputs.catppuccin-qt5ct}/themes/catppuccin-mocha-blue.conf";
 in {
   qt = {
     enable = true;
