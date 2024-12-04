@@ -61,7 +61,7 @@ in {
         runtimeInputs = [pkgs.jdk21];
 
         text = ''
-          exec java "$@" @libraries/net/neoforged/neoforge/21.1.77/unix_args.txt nogui
+          exec java "$@" @libraries/net/neoforged/neoforge/21.1.83/unix_args.txt nogui
         '';
       };
 
