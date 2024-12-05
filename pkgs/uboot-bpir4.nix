@@ -8,8 +8,8 @@ buildUBoot {
   src = fetchFromGitHub {
     owner = "K900";
     repo = "u-boot";
-    rev = "32ef47da794d49c812cbb1f0a1b8b94df4e4bb19";
-    hash = "sha256-xXkY1RkQLCUZ8BP3A/GwFdAwKqvz7YEIpP8iQnIZMZc=";
+    rev = "7ae5ffe139d5fe466e087d3238ca1fd77d02b632";
+    hash = "sha256-1p/jmduLRv76TyVswfY0+yEebm9ugEfguvvAkvdnh88=";
   };
 
   defconfig = "mt7988a_bananapi_bpi-r4-bootstd_defconfig";
