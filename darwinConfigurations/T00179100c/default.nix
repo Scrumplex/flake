@@ -91,7 +91,7 @@
     slack
     zoom-us
 
-    inputs.flox.packages.${pkgs.system}.flox
+    #inputs.flox.packages.${pkgs.system}.flox
     fluxcd
     k9s
     kubectl
