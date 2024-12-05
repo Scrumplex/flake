@@ -10,8 +10,8 @@ linuxManualConfig rec {
   src = fetchFromGitHub {
     owner = "K900";
     repo = "linux";
-    rev = "fd7b607fcc673865baf2c29f22735407d6f4f7d7";
-    hash = "sha256-U0KZBZTTsa13+BmdkU0G3OZFSUKWpDKBZBkl15D1pAQ=";
+    rev = "5e59ce1897fb2fc3886d8ae14f23f8857632ccfd";
+    hash = "sha256-s403wWAGyONsrVPLuCjLAr+30RfKqLqzJs6Y4F7VzR0=";
   };
 
   configfile = "${src}/arch/arm64/configs/mt7988a_bpi-r4_defconfig";
