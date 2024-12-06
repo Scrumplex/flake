@@ -65,7 +65,6 @@
     nixpkgs-xr = {
       url = "github:nix-community/nixpkgs-xr";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
       inputs.flake-compat.follows = "";
     };
     prismlauncher = {
