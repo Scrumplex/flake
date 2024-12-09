@@ -37,11 +37,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1733663126,
-        "narHash": "sha256-hsmuCRS1eCEL5/V06thNje/GVDcnogefkcrK3v1cTSk=",
+        "lastModified": 1733748928,
+        "narHash": "sha256-yR3NW2oEodvqbElKQ0WaNZmSTkIYNM5oGSp7AHFzFxA=",
         "owner": "Mic92",
         "repo": "buildbot-nix",
-        "rev": "00b597260df14f06997f0ab86b3ba1610bb7e37c",
+        "rev": "ccf8c03fa8f845b6195a2cf92c341fb76d7cc785",
         "type": "github"
       },
       "original": {
@@ -312,11 +312,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1730903510,
-        "narHash": "sha256-mnynlrPeiW0nUQ8KGZHb3WyxAxA3Ye/BH8gMjdoKP6E=",
+        "lastModified": 1733333617,
+        "narHash": "sha256-nMMQXREGvLOLvUa0ByhYFdaL0Jov0t1wzLbKjr05P2w=",
         "owner": "hercules-ci",
         "repo": "hercules-ci-effects",
-        "rev": "b89ac4d66d618b915b1f0a408e2775fe3821d141",
+        "rev": "56f8ea8d502c87cf62444bec4ee04512e8ea24ea",
         "type": "github"
       },
       "original": {
@@ -332,11 +332,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1733484277,
-        "narHash": "sha256-i5ay20XsvpW91N4URET/nOc0VQWOAd4c4vbqYtcH8Rc=",
+        "lastModified": 1733754861,
+        "narHash": "sha256-3JKzIou54yjiMVmvgdJwopekEvZxX3JDT8DpKZs4oXY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d00c6f6d0ad16d598bf7e2956f52c1d9d5de3c3a",
+        "rev": "9ebaa80a227eaca9c87c53ed515ade013bc2bca9",
         "type": "github"
       },
       "original": {
@@ -716,11 +716,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1733649297,
-        "narHash": "sha256-ChaGFWADd7fmQqDnTNt+YYwOy4imR4Qsf3dZXhV1rnQ=",
+        "lastModified": 1733734839,
+        "narHash": "sha256-WrDF6QhC5mnBsGa2/pExJ2vXyKHi7hyysYG9HRwWU+w=",
         "owner": "astro",
         "repo": "nix-openwrt-imagebuilder",
-        "rev": "d97dfae8884eb05d5d7632ef40fabc8902a72c90",
+        "rev": "1a5412d7a65a4881a1ea1d62c0c576bfc666897b",
         "type": "github"
       },
       "original": {
@@ -1000,11 +1000,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1730321837,
-        "narHash": "sha256-vK+a09qq19QNu2MlLcvN4qcRctJbqWkX7ahgPZ/+maI=",
+        "lastModified": 1733662930,
+        "narHash": "sha256-9qOp6jNdezzLMxwwXaXZWPXosHbNqno+f7Ii/xftqZ8=",
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "rev": "746901bb8dba96d154b66492a29f5db0693dbfcc",
+        "rev": "357cda84af1d74626afb7fb3bc12d6957167cda9",
         "type": "github"
       },
       "original": {
