@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{config, ...}: let
   ifName = "wg-scrumplex";
   port = 22701;
 
@@ -11,6 +7,11 @@
 
   extIfName = "ens3";
 in {
+  age.secrets."wireguard.key" = {
+    file = ../../secrets/universe/wireguard.key.age;
+    owner = "systemd-network";
+  };
+
   networking = {
     nat = {
       enable = true;
@@ -22,19 +23,6 @@ in {
     wireguard.interfaces.${ifName} = {
       ips = [ip4 ip6];
       listenPort = port;
-
-      postSetup = ''
-        ${pkgs.iptables}/bin/iptables -A FORWARD -i ${ifName} -j ACCEPT
-        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s ${ip4} -o ${extIfName} -j MASQUERADE
-        ${pkgs.iptables}/bin/ip6tables -A FORWARD -i ${ifName} -j ACCEPT
-        ${pkgs.iptables}/bin/ip6tables -t nat -A POSTROUTING -s ${ip6} -o ${extIfName} -j MASQUERADE
-      '';
-      postShutdown = ''
-        ${pkgs.iptables}/bin/iptables -D FORWARD -i ${ifName} -j ACCEPT
-        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s ${ip4} -o ${extIfName} -j MASQUERADE
-        ${pkgs.iptables}/bin/ip6tables -D FORWARD -i ${ifName} -j ACCEPT
-        ${pkgs.iptables}/bin/ip6tables -t nat -D POSTROUTING -s ${ip6} -o ${extIfName} -j MASQUERADE
-      '';
 
       privateKeyFile = config.age.secrets."wireguard.key".path;
 

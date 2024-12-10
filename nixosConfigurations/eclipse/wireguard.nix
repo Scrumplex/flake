@@ -1,5 +1,8 @@
 {config, ...}: {
-  age.secrets."wireguard.key".file = ../../secrets/eclipse/wireguard.key.age;
+  age.secrets."wireguard.key" = {
+    file = ../../secrets/eclipse/wireguard.key.age;
+    owner = "systemd-network";
+  };
 
   networking.firewall.allowedUDPPorts = [22701];
   networking.wireguard.interfaces.wg-scrumplex = {

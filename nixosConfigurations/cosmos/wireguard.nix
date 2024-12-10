@@ -1,4 +1,9 @@
 {config, ...}: {
+  age.secrets."wireguard.key" = {
+    file = ../../secrets/${config.networking.hostName}/wireguard.key.age;
+    owner = "systemd-network";
+  };
+
   networking.firewall.allowedUDPPorts = [22701];
   networking.wireguard.interfaces.wg-scrumplex = {
     ips = ["10.255.255.11/24" "fd69:5efa:5efa:5efa::11/64"];

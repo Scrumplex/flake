@@ -20,7 +20,6 @@ in {
   ];
 
   age.secrets.id_borgbase.file = ../../secrets/cosmos/id_borgbase.age;
-  age.secrets."wireguard.key".file = ../../secrets/cosmos/wireguard.key.age;
 
   systemd.tpm2.enable = false;
   boot.initrd.systemd.tpm2.enable = false;

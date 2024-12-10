@@ -1,6 +1,9 @@
 {config, ...}: {
-  age.secrets.wg-scrumplex.file =
-    ../../secrets/${config.networking.hostName}/wg.age;
+  age.secrets.wg-scrumplex = {
+    file = ../../secrets/${config.networking.hostName}/wg.age;
+    owner = "systemd-network";
+  };
+
   networking.wireguard.interfaces.wg-scrumplex = {
     ips = ["10.255.255.21/24" "fd69:5efa:5efa:5efa::21/64"];
     peers = [
