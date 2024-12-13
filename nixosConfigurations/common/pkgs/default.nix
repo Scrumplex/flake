@@ -22,6 +22,11 @@ in {
       ])
       || builtins.any (lib.flip lib.hasPrefix (lib.getName pkg)) ["cuda" "libcu" "libn"];
 
+    config.permittedInsecurePackages = [
+      "aspnetcore-runtime-6.0.36"
+      "dotnet-sdk-6.0.428"
+    ];
+
     overlays = lib.mkAfter [
       (final: prev: {
         discord = mkDiscordOverride prev.discord;
