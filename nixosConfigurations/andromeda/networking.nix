@@ -8,11 +8,11 @@
     DHCP = "ipv4";
     networkConfig = {
       IPv6PrivacyExtensions = "kernel";
-      MulticastDNS = true;
+      #MulticastDNS = true;
     };
   };
 
-  services.avahi.enable = false;
+  services.avahi.enable = true;
 
   # allow mdns
   networking.firewall.allowedUDPPorts = [5353];

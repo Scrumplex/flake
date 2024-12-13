@@ -8,7 +8,7 @@ in {
   nixpkgs = {
     # TODO: split this out into an option
     config.allowUnfreePredicate = pkg:
-      builtins.elem (lib.getName pkg) [
+      (builtins.elem (lib.getName pkg) [
         "discord-canary"
         "libXNVCtrl"
         "minecraft-server"
@@ -19,7 +19,8 @@ in {
         "teamspeak-server" # universe TS3 Server
         "unrar" # eclipse sabnzbd
         "anydesk"
-      ];
+      ])
+      || builtins.any (lib.flip lib.hasPrefix (lib.getName pkg)) ["cuda" "libcu" "libn"];
 
     overlays = lib.mkAfter [
       (final: prev: {
