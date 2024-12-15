@@ -384,11 +384,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1733243049,
-        "narHash": "sha256-i2Vpci4v9rukYxu9szyUtstQjyoZEPqWmSgnDUdTWks=",
+        "lastModified": 1734295344,
+        "narHash": "sha256-NcupL0dVLcRHV1sDrkAhowWpMCb1TzR/05ZNE3VSUYQ=",
         "ref": "refs/heads/main",
-        "rev": "522209543ef86e840ea1a820f23bcac794f7360f",
-        "revCount": 70,
+        "rev": "b7ac36ffeba0bc7d4e0ca03c03006a349eef6f15",
+        "revCount": 72,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/inhibridge.git"
       },
@@ -694,11 +694,11 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1734289969,
-        "narHash": "sha256-DuX4fL9tdT6GrqeAimIh9gUbGF0907eJqV9v4YdlG1M=",
+        "lastModified": 1734296255,
+        "narHash": "sha256-P+JPq0vlSUWsW5WLmmyG4zsg0aWPfjE941epyHxuy/k=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "dc7bca6d8c5ca0a56cec0c42a74819b8caca3b25",
+        "rev": "ea26af3ee98f6f6c0c4c61534d2174ceb6ade767",
         "type": "github"
       },
       "original": {
