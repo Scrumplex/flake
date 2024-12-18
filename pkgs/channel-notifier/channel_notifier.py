@@ -7,6 +7,7 @@ from typing import Tuple
 from sys import exit
 from urllib.request import Request, urlopen
 
+
 def commit_url(rev: str):
     return f"https://github.com/NixOS/nixpkgs/commit/{rev}"
 
@@ -14,7 +15,9 @@ def commit_url(rev: str):
 def fetch_latest_revision(url: str, channel: str) -> str | None:
     prom = PrometheusConnect(url)
 
-    metrics = prom.get_current_metric_value("channel_revision", label_config={"channel": channel})
+    metrics = prom.get_current_metric_value(
+        "channel_revision", label_config={"channel": channel}
+    )
     latest_metric = metrics[-1]
 
     return latest_metric.get("metric", {}).get("revision")
@@ -35,21 +38,19 @@ def read_cached_revision(data_path: Path) -> Tuple[str, datetime] | None:
 
 def write_cache(data_path: Path, revision: str, timestamp: datetime):
     with open(data_path, "w") as f:
-        data = {
-            "revision": revision,
-            "timestamp": timestamp.isoformat()
-        }
+        data = {"revision": revision, "timestamp": timestamp.isoformat()}
         dump(data, f)
 
 
 def send_webhook(webhook_url: str, content: str):
-    payload = {
-        "username": "NixOS Notifier",
-        "content": content
-    }
+    payload = {"username": "NixOS Notifier", "content": content}
     encoded = dumps(payload).encode("utf-8")
-    req = Request(webhook_url, data=encoded, headers={"User-Agent": "Channel-Notifier/1.0.0 contact@scrumplex.net"})
-    req.add_header('Content-Type', "application/json; charset=utf-8")
+    req = Request(
+        webhook_url,
+        data=encoded,
+        headers={"User-Agent": "Channel-Notifier/1.0.0 contact@scrumplex.net"},
+    )
+    req.add_header("Content-Type", "application/json; charset=utf-8")
 
     print(webhook_url)
 
@@ -76,7 +77,10 @@ def main():
             rev_url = commit_url(latest_revision)
 
             print(f"Sending webhook for new {channel} revision {latest_revision}")
-            send_webhook(webhook_url, f"# Nixpkgs `{channel}` Channel Update\nThe channel {channel} has been updated to revision [{latest_revision}](<{rev_url}>).\n[**NixOS Status**](https://status.nixos.org/)")
+            send_webhook(
+                webhook_url,
+                f"# Nixpkgs `{channel}` Channel Update\nThe channel {channel} has been updated to revision [{latest_revision}](<{rev_url}>).\n[**NixOS Status**](https://status.nixos.org/)",
+            )
 
     write_cache(data_path, latest_revision, now)
     return 0
