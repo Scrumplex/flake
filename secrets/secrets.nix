@@ -26,6 +26,7 @@ in {
 
   "universe/id_borgbase.age".publicKeys = scrumplex ++ universe;
   "universe/borgbase_repokey.age".publicKeys = scrumplex ++ universe;
+  "universe/channel-notifier.env.age".publicKeys = scrumplex ++ universe;
   "universe/grafana-smtp-password.age".publicKeys = scrumplex ++ universe;
   "universe/murmur.env.age".publicKeys = scrumplex ++ universe;
   "universe/prism-modmail.env.age".publicKeys = scrumplex ++ universe;

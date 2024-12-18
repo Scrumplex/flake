@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./channel-notifier.nix
     ./disks.nix
     ./honeylinks-website.nix
     ./monitoring.nix

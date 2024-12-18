@@ -5,6 +5,7 @@
     ...
   }: {
     packages = {
+      channel-notifier = pkgs.python3.pkgs.callPackage ./channel-notifier {};
       logviewer = pkgs.python311.pkgs.callPackage ./logviewer {};
 
       linux-bpir4 = pkgs.callPackage ./linux-bpir4.nix {};
@@ -15,6 +16,7 @@
     };
   };
   flake.overlays.default = final: prev: {
+    channel-notifier = final.python3.pkgs.callPackage ./channel-notifier {};
     logviewer = final.python311.pkgs.callPackage ./logviewer {};
 
     linux-bpir4 = final.callPackage ./linux-bpir4.nix {};

@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools"]
+
+[project]
+name = "channel_notifier"
+version = "1"
+dependencies = [
+  "prometheus_api_client",
+]
+
+[project.scripts]
+channel-notifier = "channel_notifier:main"
