@@ -1,3 +1,4 @@
+from argparse import ArgumentParser
 from datetime import datetime, timezone
 from json import dump, dumps, load
 from os import environ
@@ -6,6 +7,9 @@ from prometheus_api_client import PrometheusConnect
 from typing import Tuple
 from sys import exit
 from urllib.request import Request, urlopen
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def commit_url(rev: str):
@@ -52,31 +56,44 @@ def send_webhook(webhook_url: str, content: str):
     )
     req.add_header("Content-Type", "application/json; charset=utf-8")
 
-    print(webhook_url)
-
     urlopen(req)
 
 
 def main():
+    parser = ArgumentParser()
+    parser.add_argument("-v", "--verbose", action="store_true")
+    args = parser.parse_args()
+
+    logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO)
+
     data_path = Path(environ.get("STATE_DIRECTORY", ".")) / "cached.json"
     webhook_url = environ.get("WEBHOOK_URL", "")
     channel = environ.get("NIXOS_CHANNEL", "nixos-unstable")
 
+    logger.debug(f"Data path resolved to {data_path}")
+
     latest_revision = fetch_latest_revision("https://prometheus.nixos.org", channel)
     now = datetime.now(tz=timezone.utc)
 
+    logger.info(f"Fetched latest revision {latest_revision} for {channel} at {now}")
+
     if not latest_revision:
+        logger.error("Fetched data does not contain revision")
         return 1
 
     cached = read_cached_revision(data_path)
 
     if cached:
-        cached_revision, _ = cached
+        cached_revision, cached_datetime = cached
+        logger.info(
+            f"Read cached revision {cached_revision} for {channel} from {cached_datetime}"
+        )
 
         if cached_revision != latest_revision:
+            logger.info("Cached and fetched revisions differ")
+
             rev_url = commit_url(latest_revision)
 
-            print(f"Sending webhook for new {channel} revision {latest_revision}")
             send_webhook(
                 webhook_url,
                 f"# Nixpkgs `{channel}` Channel Update\nThe channel {channel} has been updated to revision [{latest_revision}](<{rev_url}>).\n[**NixOS Status**](https://status.nixos.org/)",
