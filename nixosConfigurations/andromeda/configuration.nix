@@ -9,6 +9,7 @@
     ./desktop/waybar.nix
     ./disks.nix
     ./networking.nix
+    ./ustreamer.nix
     ./wireguard.nix
 
     inputs.nixos-facter-modules.nixosModules.facter
@@ -16,6 +17,7 @@
     inputs.nixos-hardware.nixosModules.common-gpu-amd
     inputs.nixos-hardware.nixosModules.common-pc-ssd
     inputs.srvos.nixosModules.desktop
+    inputs.self.nixosModules.ustreamer
   ];
 
   facter.reportPath = ./facter.json;
