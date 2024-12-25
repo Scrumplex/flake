@@ -16,6 +16,7 @@
   ];
 
   hm = {
+    catppuccin.fish.enable = true;
     # allow apps like uwsm to read HM vars
     programs.bash.enable = true;
     programs.fish = {
@@ -66,7 +67,6 @@
           inherit (z) src;
         }
       ];
-      catppuccin.enable = true;
     };
 
     programs.direnv = {

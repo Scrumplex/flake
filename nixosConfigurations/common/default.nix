@@ -4,8 +4,13 @@
   ...
 }: {
   imports =
-    [inputs.agenix.nixosModules.age]
+    [inputs.agenix.nixosModules.age inputs.catppuccin.nixosModules.catppuccin]
     ++ builtins.attrValues inputs.scrumpkgs.nixosModules;
+
+  catppuccin = {
+    flavor = "mocha";
+    accent = "blue";
+  };
 
   nixpkgs.overlays = lib.mkBefore [
     inputs.scrumpkgs.overlays.default

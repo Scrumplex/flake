@@ -1,4 +1,5 @@
 {...}: {
+  hm.catppuccin.mpv.enable = true;
   hm.programs.mpv = {
     enable = true;
     config = {

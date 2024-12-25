@@ -1,0 +1,3 @@
+{...}: {
+  catppuccin.tty.enable = true;
+}

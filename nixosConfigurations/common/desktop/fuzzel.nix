@@ -4,6 +4,10 @@
   ...
 }: {
   hm = {
+    catppuccin.fuzzel = {
+      enable = true;
+      accent = "peach";
+    };
     programs.fuzzel = {
       enable = true;
 
@@ -12,16 +16,6 @@
           font = "Monocraft:size=13";
           terminal = config.hm.wayland.windowManager.sway.config.terminal;
           launch-prefix = "uwsm app --";
-        };
-        colors = with config.hm.theme.colors; {
-          background = "${surface0}ff";
-          text = "${text}ff";
-          prompt = "${text}ff";
-          input = "${text}ff";
-          match = "${blue}ff";
-          selection = "${peach}ff";
-          selection-text = "${base}ff";
-          border = "${peach}ff";
         };
         border = {
           width = 2;

@@ -5,9 +5,9 @@
 }: let
   staticBinPath = "/etc/nix/programs/kitty";
 in {
+  hm.catppuccin.kitty.enable = true;
   hm.programs.kitty = {
     enable = true;
-    catppuccin.enable = true;
     # TODO: font role
     font.name = "Fira Code";
     settings = {

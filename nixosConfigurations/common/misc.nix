@@ -1,5 +1,11 @@
-{pkgs, ...}: {
-  hm.catppuccin.flavor = "mocha";
+{
+  config,
+  pkgs,
+  ...
+}: {
+  hm.catppuccin = {
+    inherit (config.catppuccin) flavor accent;
+  };
   users.mutableUsers = false;
 
   system.switch = {

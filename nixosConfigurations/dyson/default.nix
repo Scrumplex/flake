@@ -53,6 +53,7 @@
       ../common/rtl-sdr.nix
       ../common/ssh.nix
       ../common/syncthing.nix
+      ../common/tty.nix
       ../common/utils.nix
       ../common/v4l2loopback.nix
       ../common/wireshark.nix
