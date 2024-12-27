@@ -9,7 +9,7 @@
   systemd.services."channel-notifier" = {
     after = ["network.target"];
     wantedBy = ["multi-user.target"];
-    startAt = "5m";
+    startAt = "*-*-* *:00/5:00";
     serviceConfig = {
       ExecStart = lib.getExe pkgs.channel-notifier;
       EnvironmentFile = [config.age.secrets."channel-notifier.env".path];
