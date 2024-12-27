@@ -12,8 +12,6 @@
       banana-pi-r4-firmware = pkgs.callPackage ./banana-pi-r4-firmware.nix {
         uboot = config.packages.uboot-bpir4;
       };
-
-      ustreamer = pkgs.callPackage ./ustreamer.nix {};
     };
   };
   flake.overlays.default = final: prev: {
@@ -24,7 +22,5 @@
     banana-pi-r4-firmware = final.callPackage ./banana-pi-r4-firmware.nix {
       uboot = final.uboot-bpir4;
     };
-
-    ustreamer = final.callPackage ./ustreamer.nix {};
   };
 }
