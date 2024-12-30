@@ -113,11 +113,6 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.pre-commit-hooks.follows = "git-hooks";
     };
-    modmail = {
-      url = "github:Scrumplex/Modmail";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-    };
     buildbot-nix = {
       url = "github:Mic92/buildbot-nix";
       inputs.nixpkgs.follows = "nixpkgs";

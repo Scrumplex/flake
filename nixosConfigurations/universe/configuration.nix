@@ -10,7 +10,6 @@
     ./monitoring.nix
     ./murmur.nix
     ./postgres.nix
-    ./prismlauncher
     ./renovate.nix
     ./scrumplex-website.nix
     ./scrumplex-x.nix

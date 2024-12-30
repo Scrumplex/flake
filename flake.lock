@@ -485,29 +485,6 @@
         "type": "github"
       }
     },
-    "modmail": {
-      "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1731843898,
-        "narHash": "sha256-7cwcBFEuLgwUezhtbG2gApM5cxSkcRMxVewCRNESwuk=",
-        "owner": "Scrumplex",
-        "repo": "Modmail",
-        "rev": "d9e0c827db219e7b1ecded987cc1ba1852968289",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Scrumplex",
-        "repo": "Modmail",
-        "type": "github"
-      }
-    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -811,7 +788,6 @@
         "honeylinks-website": "honeylinks-website",
         "inhibridge": "inhibridge",
         "lanzaboote": "lanzaboote",
-        "modmail": "modmail",
         "nix-index-database": "nix-index-database",
         "nix-minecraft": "nix-minecraft",
         "nixos-facter-modules": "nixos-facter-modules",
