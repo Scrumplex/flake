@@ -13,7 +13,6 @@ in {
         "libXNVCtrl"
         "minecraft-server"
         "samsung-unified-linux-driver"
-        "shipwright"
         "steam"
         "steam-unwrapped"
         "teamspeak-server" # universe TS3 Server

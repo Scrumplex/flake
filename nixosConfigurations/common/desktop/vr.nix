@@ -27,7 +27,7 @@ in {
     };
 
     services.wivrn = {
-      enable = true;
+      enable = false;
       openFirewall = true;
     };
 
