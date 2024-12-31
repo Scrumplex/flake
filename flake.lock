@@ -716,11 +716,11 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1735600249,
-        "narHash": "sha256-7W5v98B2cQfvtsv42YsDM+6rk0hvLRz6IzUhE6NvPgw=",
+        "lastModified": 1735639220,
+        "narHash": "sha256-WveMlpmtNAdM6LY40X2z1RzDrl/MfMKiJI+blHq5UWY=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "c04dda021b18a192c421ee79b877b341db5b2d69",
+        "rev": "caef39133f187a9ba138c5779a6c33307caaf149",
         "type": "github"
       },
       "original": {
@@ -738,11 +738,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1735548723,
-        "narHash": "sha256-EPaOC2kAGugO0ONDGlJ59WW7OBx9vFQOrb41ROD7N8E=",
+        "lastModified": 1735636300,
+        "narHash": "sha256-aRNFN2Fiv6belpCydFz0s0kQ5dBIjlc7DGkRMOIS7GE=",
         "owner": "astro",
         "repo": "nix-openwrt-imagebuilder",
-        "rev": "b8072b696e4aaead1582c0b1518da1e4fe426c93",
+        "rev": "bb3edb12aa1f78b820ca6b0fe5c11e3158138353",
         "type": "github"
       },
       "original": {
