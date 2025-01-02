@@ -1,7 +1,6 @@
-{pkgs, ...}: {
+{
   services.ustreamer = {
     enable = true;
-    package = pkgs.ustreamer.override {withJanus = false;};
     autoStart = false;
     device = "/dev/v4l/by-id/usb-046d_Logitech_Webcam_C925e_D8A39E5F-video-index0";
     extraArgs = [
