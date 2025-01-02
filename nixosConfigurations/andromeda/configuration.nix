@@ -28,7 +28,7 @@
 
   hardware.amdgpu = {
     initrd.enable = true;
-    opencl.enable = true;
+    #opencl.enable = true;
   };
   hardware.opengl.vdpau.driverName = "radeonsi";
 
