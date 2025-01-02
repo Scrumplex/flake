@@ -10,7 +10,7 @@ in {
     modules =
       [
         (lib'.mkDeploy {
-          targetHost = "eclipse.lan";
+          targetHost = "eclipse.sefa.cloud";
           extraFlags = ["--verbose" "--print-build-logs"];
         })
 

@@ -34,7 +34,7 @@
       rule = "Host(`box.sefa.cloud`)";
     };
     services.hass.loadBalancer = {
-      servers = [{url = "https://hass.cosmos.lan";}];
+      servers = [{url = "https://hass.cosmos.sefa.cloud";}];
       passHostHeader = false;
     };
     services.nextcloud.loadBalancer.servers = [{url = "http://localhost:7701";}];

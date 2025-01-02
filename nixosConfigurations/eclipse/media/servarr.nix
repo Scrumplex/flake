@@ -16,17 +16,17 @@
     routers.radarr = {
       entryPoints = ["localsecure"];
       service = "radarr";
-      rule = "Host(`radarr.eclipse.lan`)";
+      rule = "Host(`radarr.eclipse.sefa.cloud`)";
     };
     routers.sonarr = {
       entryPoints = ["localsecure"];
       service = "sonarr";
-      rule = "Host(`sonarr.eclipse.lan`)";
+      rule = "Host(`sonarr.eclipse.sefa.cloud`)";
     };
     routers.prowlarr = {
       entryPoints = ["localsecure"];
       service = "prowlarr";
-      rule = "Host(`prowlarr.eclipse.lan`)";
+      rule = "Host(`prowlarr.eclipse.sefa.cloud`)";
     };
     routers.jellyseerr = {
       entryPoints = ["websecure"];

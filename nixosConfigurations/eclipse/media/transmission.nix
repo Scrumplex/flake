@@ -15,7 +15,7 @@
     downloadDirPermissions = "770";
     settings = {
       rpc-bind-address = "0.0.0.0";
-      rpc-host-whitelist = "torrent.eclipse.lan";
+      rpc-host-whitelist = "torrent.eclipse.sefa.cloud";
       rpc-whitelist = "127.0.0.1,10.*.*.*";
       rpc-authentication-required = true;
       umask = 7;
@@ -27,7 +27,7 @@
     routers.torrent = {
       entryPoints = ["localsecure"];
       service = "torrent";
-      rule = "Host(`torrent.eclipse.lan`)";
+      rule = "Host(`torrent.eclipse.sefa.cloud`)";
     };
     services.torrent.loadBalancer.servers = [{url = "http://localhost:${toString config.services.transmission.settings.rpc-port}";}];
   };

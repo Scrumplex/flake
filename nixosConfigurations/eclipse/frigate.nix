@@ -103,7 +103,7 @@
     motion.mask = "0,0,0,54,371,54,371,0";
     mqtt = {
       enabled = config.services.mosquitto.enable;
-      host = "eclipse.lan";
+      host = "eclipse.sefa.cloud";
       user = "user";
       password = "{FRIGATE_MQTT_PASSWORD}";
     };
@@ -149,7 +149,7 @@ in {
     ];
     labels = {
       "traefik.enable" = "true";
-      "traefik.http.routers.frigate.rule" = "Host(`view.eclipse.lan`)";
+      "traefik.http.routers.frigate.rule" = "Host(`view.sefa.cloud`)";
       "traefik.http.routers.frigate.entrypoints" = "localsecure";
       "traefik.http.services.frigate.loadbalancer.server.port" = "5000";
     };
