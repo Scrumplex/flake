@@ -57,7 +57,7 @@
     routers.syncthing = {
       entryPoints = ["localsecure"];
       service = "syncthing";
-      rule = "Host(`syncthing.eclipse.lan`)";
+      rule = "Host(`syncthing.eclipse.sefa.cloud`)";
     };
     services.syncthing.loadBalancer = {
       servers = [{url = "http://localhost:8384";}];

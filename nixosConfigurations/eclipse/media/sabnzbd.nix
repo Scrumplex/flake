@@ -9,7 +9,7 @@
     routers.sabnzbd = {
       entryPoints = ["localsecure"];
       service = "sabnzbd";
-      rule = "Host(`nzb.eclipse.lan`)";
+      rule = "Host(`nzb.eclipse.sefa.cloud`)";
     };
     services.sabnzbd.loadBalancer.servers = [{url = "http://localhost:8888";}];
   };

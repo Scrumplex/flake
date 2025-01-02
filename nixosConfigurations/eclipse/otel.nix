@@ -27,7 +27,7 @@
     routers.otel = {
       entryPoints = ["localsecure"];
       service = "otel";
-      rule = "Host(`otel.eclipse.lan`)";
+      rule = "Host(`otel.sefa.cloud`)";
     };
     services.otel.loadBalancer.servers = [{url = "http://${config.services.opentelemetry-collector.settings.receivers.otlp.protocols.http.endpoint}";}];
   };

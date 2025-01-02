@@ -20,7 +20,7 @@ in {
     port = 9443;
     intermediatePasswordFile = config.age.secrets."ca_intermediate.pass".path;
     settings = {
-      dnsNames = ["eclipse.lan" "localhost" "127.0.0.1" "10.10.10.12"];
+      dnsNames = ["sefa.cloud" "localhost" "127.0.0.1" "10.10.10.12"];
       root = ../../extra/ca_root.crt;
       crt = ../../extra/ca_intermediate.crt;
       key = config.age.secrets."ca_intermediate.key".path;
@@ -48,7 +48,7 @@ in {
     routers.step-ca = {
       entryPoints = ["localsecure"];
       service = "step-ca";
-      rule = "Host(`tls.eclipse.lan`)";
+      rule = "Host(`tls.sefa.cloud`)";
     };
     services.step-ca.loadBalancer.servers = [{url = "https://localhost:${toString config.services.step-ca.port}";}];
   };

@@ -10,7 +10,7 @@ in {
     modules =
       [
         (lib'.mkDeploy {
-          targetHost = "eclipse.lan";
+          targetHost = "eclipse.fritz.box";
           extraFlags = ["--verbose" "--print-build-logs"];
         })
 

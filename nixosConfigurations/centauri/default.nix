@@ -10,7 +10,7 @@ in {
     modules =
       [
         (lib'.mkDeploy {
-          targetHost = "centauri.lan";
+          targetHost = "centauri.sefa.cloud";
           extraFlags = ["--verbose" "--print-build-logs"];
         })
         ../common

@@ -4,7 +4,7 @@
   nix = {
     buildMachines = [
       {
-        hostName = "eclipse.lan";
+        hostName = "eclipse.sefa.cloud";
         sshUser = "bob-the-builder";
         sshKey = config.age.secrets."bob-the-builder.key".path;
         system = "x86_64-linux";

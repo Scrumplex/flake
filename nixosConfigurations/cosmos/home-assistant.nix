@@ -24,7 +24,7 @@
     routers.hass = {
       entryPoints = ["localsecure"];
       service = "hass";
-      rule = "Host(`hass.cosmos.lan`)";
+      rule = "Host(`hass.cosmos.sefa.cloud`)";
     };
     services.hass.loadBalancer.servers = [{url = "http://localhost:8123";}];
   };
@@ -44,7 +44,7 @@
       scheme = "https";
       static_configs = [
         {
-          targets = ["hass.cosmos.lan"];
+          targets = ["hass.cosmos.sefa.cloud"];
         }
       ];
     }

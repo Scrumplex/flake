@@ -27,19 +27,19 @@ in {
       (mkGitAlias "codeberg.org")
       (mkGitAlias "gitlab.freedesktop.org")
       {
-        "iss.lan" = {
+        "iss.sefa.cloud" = {
           user = "root";
           hostname = "10.10.10.1";
           identityFile = identityFile;
         };
 
-        "cosmos.lan" = {
+        "cosmos.sefa.cloud" = {
           user = "root";
           hostname = "10.10.10.11";
           identityFile = identityFile;
         };
 
-        "eclipse.lan" = {
+        "eclipse.sefa.cloud" = {
           user = "root";
           hostname = "10.10.10.12";
           identityFile = identityFile;

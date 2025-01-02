@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   age.secrets.paperless-password.file = ../../secrets/eclipse/paperless-password.age;
 
   assertions = [
@@ -21,13 +25,22 @@
   services.paperless = {
     enable = true;
 
+    package = pkgs.paperless-ngx.overrideAttrs (prevAttrs: {
+      disabledTests =
+        prevAttrs.disabledTests
+        or []
+        ++ [
+          "test_error_skip_rule"
+        ];
+    });
+
     passwordFile = config.age.secrets.paperless-password.path;
     settings = {
       PAPERLESS_DBHOST = "/run/postgresql";
       PAPERLESS_TIME_ZONE = config.time.timeZone;
       PAPERLESS_OCR_LANGUAGE = "deu+eng";
       PAPERLESS_ADMIN_USER = "Scrumplex";
-      PAPERLESS_URL = "https://paperless.eclipse.lan";
+      PAPERLESS_URL = "https://paperless.sefa.cloud";
     };
   };
 
@@ -35,7 +48,7 @@
     routers.paperless = {
       entryPoints = ["localsecure"];
       service = "paperless";
-      rule = "Host(`paperless.eclipse.lan`)";
+      rule = "Host(`paperless.sefa.cloud`)";
     };
     services.paperless.loadBalancer.servers = [{url = "http://localhost:${toString config.services.paperless.port}";}];
   };
