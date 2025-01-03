@@ -5,8 +5,6 @@ profiles.identifyProfile "ubnt_unifiac-lr"
     "-dnsmasq"
     "-wpad-basic-mbedtls"
     "wpad-openssl"
-    "dawn"
     "luci"
-    "luci-app-dawn"
   ];
 }
