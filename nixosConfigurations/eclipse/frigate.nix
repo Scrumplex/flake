@@ -149,7 +149,7 @@ in {
     ];
     labels = {
       "traefik.enable" = "true";
-      "traefik.http.routers.frigate.rule" = "Host(`view.sefa.cloud`)";
+      "traefik.http.routers.frigate.rule" = "Host(`view.eclipse.sefa.cloud`)";
       "traefik.http.routers.frigate.entrypoints" = "localsecure";
       "traefik.http.services.frigate.loadbalancer.server.port" = "5000";
     };
