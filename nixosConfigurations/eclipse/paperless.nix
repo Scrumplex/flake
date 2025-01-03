@@ -25,15 +25,6 @@
   services.paperless = {
     enable = true;
 
-    package = pkgs.paperless-ngx.overrideAttrs (prevAttrs: {
-      disabledTests =
-        prevAttrs.disabledTests
-        or []
-        ++ [
-          "test_error_skip_rule"
-        ];
-    });
-
     passwordFile = config.age.secrets.paperless-password.path;
     settings = {
       PAPERLESS_DBHOST = "/run/postgresql";

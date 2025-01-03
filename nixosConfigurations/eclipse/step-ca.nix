@@ -48,7 +48,7 @@ in {
     routers.step-ca = {
       entryPoints = ["localsecure"];
       service = "step-ca";
-      rule = "Host(`tls.sefa.cloud`)";
+      rule = "Host(`tls.eclipse.sefa.cloud`)";
     };
     services.step-ca.loadBalancer.servers = [{url = "https://localhost:${toString config.services.step-ca.port}";}];
   };

@@ -118,6 +118,7 @@
         mode = "motion";
       };
     };
+    tls.enabled = false;
   };
   configFile = (pkgs.formats.yaml {}).generate "frigate.yml" settings;
 in {
@@ -151,7 +152,7 @@ in {
       "traefik.enable" = "true";
       "traefik.http.routers.frigate.rule" = "Host(`view.eclipse.sefa.cloud`)";
       "traefik.http.routers.frigate.entrypoints" = "localsecure";
-      "traefik.http.services.frigate.loadbalancer.server.port" = "5000";
+      "traefik.http.services.frigate.loadbalancer.server.port" = "8971";
     };
   };
 
