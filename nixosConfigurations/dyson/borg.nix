@@ -66,12 +66,7 @@
       "*/node_modules"
       "*.mega"
     ];
-    # TODO: Upstream bug https://github.com/NixOS/nixpkgs/issues/323262
-    preHook = ''
-      extraCreateArgs="$extraCreateArgs --exclude-caches"
-      extraCreateArgs="$extraCreateArgs --exclude-if-present .nobackup"
-      extraCreateArgs="$extraCreateArgs --stats"
-    '';
+    extraCreateArgs = ["--exclude-caches" "--exclude-if-present" ".nobackup" "--stats"];
     compression = "auto,zstd";
     prune = {
       keep = {
