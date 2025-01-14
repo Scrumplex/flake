@@ -23,19 +23,10 @@
   };
 
   services.traefik.dynamicConfigOptions.http = {
-    routers.hass = {
-      entryPoints = ["websecure"];
-      service = "hass";
-      rule = "Host(`hass.sefa.cloud`)";
-    };
     routers.skinprox = {
       entryPoints = ["websecure"];
       service = "nextcloud";
       rule = "Host(`box.sefa.cloud`)";
-    };
-    services.hass.loadBalancer = {
-      servers = [{url = "https://hass.cosmos.sefa.cloud";}];
-      passHostHeader = false;
     };
     services.nextcloud.loadBalancer.servers = [{url = "http://localhost:7701";}];
   };

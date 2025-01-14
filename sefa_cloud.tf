@@ -25,20 +25,6 @@ resource "hetznerdns_record" "eclipse6_sefa_cloud" {
   type    = "AAAA"
 }
 
-resource "hetznerdns_record" "cosmos4_sefa_cloud" {
-  zone_id = hetznerdns_zone.sefa_cloud.id
-  name    = "cosmos"
-  value   = "10.10.10.11"
-  type    = "A"
-}
-
-resource "hetznerdns_record" "cosmos6_sefa_cloud" {
-  zone_id = hetznerdns_zone.sefa_cloud.id
-  name    = "cosmos"
-  value   = "fdcc:546e:5cf:0:dea6:32ff:fe54:1a61"
-  type    = "AAAA"
-}
-
 resource "hetznerdns_record" "eclipsecnames_sefa_cloud" {
   for_each = toset([
     "nzb",
@@ -58,24 +44,12 @@ resource "hetznerdns_record" "eclipsecnames_sefa_cloud" {
   type    = "CNAME"
 }
 
-resource "hetznerdns_record" "cosmoscnames_sefa_cloud" {
-  for_each = toset([
-    "asf",
-    "hass",
-  ])
-  zone_id = hetznerdns_zone.sefa_cloud.id
-  name    = "${each.key}.cosmos"
-  value   = "cosmos.sefa.cloud."
-  type    = "CNAME"
-}
-
 resource "hetznerdns_record" "cnames_sefa_cloud" {
   for_each = toset([
     "box",
     "buildbot",
     "cache",
     "cook",
-    "hass",
     "home",
     "immich",
     "jellyfin",
@@ -86,6 +60,16 @@ resource "hetznerdns_record" "cnames_sefa_cloud" {
   zone_id = hetznerdns_zone.sefa_cloud.id
   name    = each.key
   value   = "${hetznerdns_zone.sefa_cloud.name}."
+  type    = "CNAME"
+}
+
+resource "hetznerdns_record" "cnames_arson_sefa_cloud" {
+  for_each = toset([
+    "hass",
+  ])
+  zone_id = hetznerdns_zone.sefa_cloud.id
+  name    = each.key
+  value   = "arson.${hetznerdns_zone.sefa_cloud.name}."
   type    = "CNAME"
 }
 

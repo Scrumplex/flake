@@ -1,7 +1,9 @@
-{...}: {
+{config, ...}: {
+  age.secrets."hetzner-traefik.env".file = ../../secrets/cosmos/hetzner-traefik.env.age;
+
   common.traefik = {
-    primaryEntryPoint = "localsecure";
-    primaryCertResolver = "local";
+    primaryEntryPoint = "websecure";
+    primaryCertResolver = "letsencrypt";
   };
 
   services.traefik.staticConfigOptions.certificatesResolvers.local.acme = {
@@ -11,4 +13,6 @@
     httpChallenge.entryPoint = "web";
     caServer = "https://tls.eclipse.sefa.cloud/acme/acme/directory";
   };
+
+  systemd.services.traefik.serviceConfig.EnvironmentFile = [config.age.secrets."hetzner-traefik.env".path];
 }

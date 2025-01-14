@@ -9,6 +9,7 @@
 in {
   imports = [
     ./boot.nix
+    ./dyndns.nix
     ./hardware-configuration.nix
     ./home-assistant.nix
     ./otel.nix

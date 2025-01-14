@@ -38,6 +38,8 @@ in {
   "universe/scrumplex-hs_ed25519_secret_key.age".publicKeys = scrumplex ++ universe;
   "universe/wireguard.key.age".publicKeys = scrumplex ++ universe;
 
+  "cosmos/hetzner-ddns.env.age".publicKeys = scrumplex ++ cosmos;
+  "cosmos/hetzner-traefik.env.age".publicKeys = scrumplex ++ cosmos;
   "cosmos/id_borgbase.age".publicKeys = scrumplex ++ cosmos;
   "cosmos/wireguard.key.age".publicKeys = scrumplex ++ cosmos;
   "cosmos/otel-hass-token.env.age".publicKeys = scrumplex ++ cosmos;

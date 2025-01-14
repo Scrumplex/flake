@@ -22,9 +22,9 @@
 
   services.traefik.dynamicConfigOptions.http = {
     routers.hass = {
-      entryPoints = ["localsecure"];
+      entryPoints = ["websecure"];
       service = "hass";
-      rule = "Host(`hass.cosmos.sefa.cloud`)";
+      rule = "Host(`hass.sefa.cloud`)";
     };
     services.hass.loadBalancer.servers = [{url = "http://localhost:8123";}];
   };
@@ -44,7 +44,7 @@
       scheme = "https";
       static_configs = [
         {
-          targets = ["hass.cosmos.sefa.cloud"];
+          targets = ["hass.sefa.cloud"];
         }
       ];
     }
