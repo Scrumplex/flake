@@ -10,7 +10,7 @@ in {
     modules =
       [
         (lib'.mkDeploy {
-          targetHost = "cosmos.sefa.cloud";
+          targetHost = "root@cosmos.lan";
           extraFlags = ["--verbose" "--print-build-logs"];
         })
 

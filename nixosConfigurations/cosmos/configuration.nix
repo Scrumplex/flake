@@ -36,6 +36,8 @@ in {
     hostName = "cosmos";
     domain = "sefa.cloud";
     interfaces.end0.useDHCP = true;
+    interfaces.wlan0.useDHCP = true;
+    wireless.iwd.enable = true;
 
     firewall = {
       allowedTCPPorts = [
