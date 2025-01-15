@@ -579,11 +579,11 @@
     },
     "nixos-facter-modules": {
       "locked": {
-        "lastModified": 1736877249,
-        "narHash": "sha256-zsBwbF7J5cy96+9/IoxJVxSB22lSyHpwqWjMSRJB6ZU=",
+        "lastModified": 1736931726,
+        "narHash": "sha256-aY55yiifyo1XPPpbpH0kWlV1g2dNGBlx6622b7OK8ks=",
         "owner": "numtide",
         "repo": "nixos-facter-modules",
-        "rev": "8c92c91e7cc449796bedf772ec6373f61df38c07",
+        "rev": "fa11d87b61b2163efbb9aed7b7a5ae0299e5ab9c",
         "type": "github"
       },
       "original": {
@@ -721,11 +721,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1736844833,
-        "narHash": "sha256-zVa8pLoSfT1mXoAhWQUwB3aWZimHSy+OV5Y6RMfvBT4=",
+        "lastModified": 1736932516,
+        "narHash": "sha256-0cEM3YnwZzMwO4T/KX1R1NbQq/3/RFeSNHJlyDR5DBM=",
         "owner": "astro",
         "repo": "nix-openwrt-imagebuilder",
-        "rev": "4063d5029bf1d5de8329151826ce36b2f33e8844",
+        "rev": "60d0599511d97a5691856eead58f71a6211e9137",
         "type": "github"
       },
       "original": {
