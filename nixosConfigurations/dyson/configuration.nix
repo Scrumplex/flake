@@ -7,7 +7,6 @@
     ./boot.nix
     ./borg.nix
     ./desktop/sway.nix
-    ./desktop/swayidle.nix
     ./disks.nix
     ./keyd.nix
     ./networkmanager.nix

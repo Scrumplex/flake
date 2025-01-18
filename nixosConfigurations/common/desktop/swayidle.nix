@@ -26,6 +26,10 @@
         command = "${swaymsg} 'output * power off'";
         resumeCommand = "${swaymsg} 'output * power on'";
       }
+      {
+        timeout = 600;
+        command = "${pkgs.systemd}/bin/systemctl suspend";
+      }
     ];
   };
   hm.systemd.user.services."swayidle" = {
