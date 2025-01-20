@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
@@ -23,12 +22,6 @@
       LC_COLLATE = "C"
       LC_CTYPE = "C";
   '';
-
-  nixpkgs.overlays = [
-    (self: super: {
-      inherit (inputs.nixpkgs-stable.legacyPackages.${pkgs.system}) matrix-synapse-unwrapped;
-    })
-  ];
 
   services.matrix-synapse = {
     enable = true;
