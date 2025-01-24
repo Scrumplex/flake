@@ -49,10 +49,6 @@
     catppuccin = {
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
-      inputs.home-manager.follows = "home-manager";
-      inputs.home-manager-stable.follows = "home-manager";
-      inputs.nuscht-search.follows = "";
     };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
