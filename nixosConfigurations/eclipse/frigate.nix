@@ -69,9 +69,9 @@
       width = 1280;
       height = 720;
     };
-    detectors.ov = {
-      type = "openvino";
-      device = "CPU";
+    detectors.coral = {
+      type = "edgetpu";
+      device = "usb";
     };
     environment_vars.LIBVA_DRIVER_NAME = "radeonsi";
     ffmpeg.hwaccel_args = "preset-vaapi";
@@ -90,14 +90,6 @@
         back2 = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.213:554/Streaming/Channels/101";
         back2_sub = "rtsp://stream:{FRIGATE_RTSP_PASSWORD}@10.10.10.213:554/Streaming/Channels/102";
       };
-    };
-    model = {
-      width = 300;
-      height = 300;
-      input_tensor = "nhwc";
-      input_pixel_format = "bgr";
-      path = "/openvino-model/ssdlite_mobilenet_v2.xml";
-      labelmap_path = "/openvino-model/coco_91cl_bkgr.txt";
     };
     # camera feed timestamp
     motion.mask = "0,0,0,54,371,54,371,0";
