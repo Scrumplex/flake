@@ -362,11 +362,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1738965665,
-        "narHash": "sha256-ZjeDZDPisGAesghCds2GhXSRdwycUgbnSRfjUiO8hIY=",
+        "lastModified": 1739102684,
+        "narHash": "sha256-2jjLC+hbxSB0Joe3lz2ephl9fCSABDjdJzA3rlCfTz4=",
         "ref": "refs/heads/main",
-        "rev": "ab65c7d2e659ef565babfda3707c0a8c5cd183c9",
-        "revCount": 212,
+        "rev": "8f790d46626b2d8751ae8183fd459446fe487a59",
+        "revCount": 213,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/honeylinks.git"
       },
@@ -524,11 +524,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1739065785,
-        "narHash": "sha256-8qcpuFcVvdjc5Iy08qOafOE3xnfsjqPXDUvcy7Q+9nA=",
+        "lastModified": 1739152024,
+        "narHash": "sha256-9lPbbaZfltXnkATkqBETzonhW8T4zQKgCs+BqLWt1n4=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "315bbe105922f54ce152c6681f1cdffdab0e60eb",
+        "rev": "a5890fd3546723e386f2e485bc37e1bd56c4f623",
         "type": "github"
       },
       "original": {
@@ -659,11 +659,11 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1738966895,
-        "narHash": "sha256-OXOh35rTEnFSO4vj/SDMIlDvFPGW0ba1XhZkfx+AlL0=",
+        "lastModified": 1739121491,
+        "narHash": "sha256-BEmyAozR3Pc2qwPtC4rgUglzi3cw4nv4fXEY23NxOrQ=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "e7f20a602f6e08a70045f36c531bc44ba1baed07",
+        "rev": "13341a4c1238b7974e7bad9c7a6d5c51ca3cf81a",
         "type": "github"
       },
       "original": {
@@ -809,11 +809,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1738965717,
-        "narHash": "sha256-UBXRY+VTBiTmahnZAAEnajW8E8r2YvjH69jMiIWY5ug=",
+        "lastModified": 1739102836,
+        "narHash": "sha256-6Bd1EGfnoqutYBRdm6ihAYLGZtQxjFqHXxQ51UtCjlE=",
         "ref": "refs/heads/main",
-        "rev": "36590128b2f991c9d145c9174accf7458a947f96",
-        "revCount": 786,
+        "rev": "4a990c016cd3bc54e6ab2bbefa7eee1053bef7f3",
+        "revCount": 787,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/website.git"
       },
@@ -883,11 +883,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1738803210,
-        "narHash": "sha256-28/+C9I0z/R1Z64rTn25biIHZ9QEt4rlGr7tYb0186A=",
+        "lastModified": 1739149457,
+        "narHash": "sha256-777RrYhdblwYBDruc5xaRdheTGyBMOdjcJmc67d98es=",
         "owner": "nix-community",
         "repo": "srvos",
-        "rev": "9c9423e8f947af2ec80b1d9da677e1dd166e3377",
+        "rev": "8e257cc0810b5aa0f1a8841d8bdbb10eda07ae16",
         "type": "github"
       },
       "original": {
