@@ -107,8 +107,8 @@
     hash = "sha256-YlKmFPUNG+v3YK2tbZMMNO//qJNSgmMIDdj+31A4t/8=";
   };
 
-  services.nix-daemon.enable = true;
   nix = {
+    enable = true;
     gc.automatic = true;
     linux-builder = {
       enable = true;
@@ -126,6 +126,8 @@
   };
 
   programs.zsh.enable = true; # default shell on catalina
+
+  ids.gids.nixbld = 305;
 
   system.stateVersion = 4;
   hm.home.stateVersion = "23.05";
