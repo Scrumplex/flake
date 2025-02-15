@@ -24,6 +24,7 @@ in {
         ../common/pkgs
         ../common/podman.nix
         ../common/postgres.nix
+        ../common/regional.nix
         ../common/server.nix
         ../common/upgrade.nix
         ../common/utils.nix

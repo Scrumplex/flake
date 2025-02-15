@@ -27,7 +27,7 @@
 
   profile.nix.enableMyCache = true;
 
-  powerManagement.cpuFreqGovernor = "powersave";
+  services.power-profiles-daemon.enable = true;
   services.fwupd.enable = true;
 
   boot.binfmt.emulatedSystems = ["aarch64-linux"];

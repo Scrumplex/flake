@@ -22,6 +22,7 @@ in {
         ../common/openssh.nix
         ../common/pkgs
         ../common/postgres.nix
+        ../common/regional.nix
         ../common/remote-build-provider.nix
         ../common/server.nix
         ../common/traefik.nix
