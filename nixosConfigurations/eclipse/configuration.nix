@@ -11,7 +11,6 @@ in {
     ./buildbot.nix
     ./dyndns.nix
     ./frigate.nix
-    ./harmonia.nix
     ./immich.nix
     ./media
     ./minecraft.nix

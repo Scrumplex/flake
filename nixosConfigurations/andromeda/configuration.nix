@@ -24,7 +24,6 @@
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   profile.vr.enableHighPrioKernelPatch = true;
-  profile.nix.enableMyCache = true;
 
   hardware.amdgpu = {
     initrd.enable = true;

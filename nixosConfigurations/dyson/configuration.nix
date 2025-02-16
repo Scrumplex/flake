@@ -25,8 +25,6 @@
   security.pam.services.login.fprintAuth = false;
   security.pam.services.sudo.fprintAuth = false;
 
-  profile.nix.enableMyCache = true;
-
   services.power-profiles-daemon.enable = true;
   services.fwupd.enable = true;
 

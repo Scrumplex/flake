@@ -157,13 +157,4 @@
         "x86_64-linux"
       ];
     };
-
-  nixConfig = {
-    extra-substituters = [
-      "https://cache.sefa.cloud"
-    ];
-    extra-trusted-public-keys = [
-      "cache.sefa.cloud-1:Mxw+jeVRlZ4yJVGP+az80RjlUEqCUlX+M7vwGAq9drA="
-    ];
-  };
 }

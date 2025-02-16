@@ -26,8 +26,6 @@ in {
     sshKeyFile = config.age.secrets.id_borgbase.path;
   };
 
-  profile.nix.enableMyCache = true;
-
   networking = {
     hostName = "cosmos";
     domain = "lan";
