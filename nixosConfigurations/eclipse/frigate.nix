@@ -105,8 +105,8 @@
         days = 7;
         mode = "all";
       };
-      events.retain = {
-        default = 30;
+      detections.retain = {
+        days = 30;
         mode = "motion";
       };
     };
