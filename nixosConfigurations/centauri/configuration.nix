@@ -40,12 +40,95 @@ in {
       dtsFile = "${config.boot.kernelPackages.kernel.src}/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-sd.dtso";
     }
     {
-      name = "mt7988a-bananapi-bpi-r4-rtc.dtso";
-      dtsFile = "${config.boot.kernelPackages.kernel.src}/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-rtc.dtso";
-    }
-    {
-      name = "mt7988a-bananapi-bpi-r4-wifi-mt7996a.dtso";
-      dtsFile = "${config.boot.kernelPackages.kernel.src}/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-wifi-mt7996a.dtso";
+      name = "bpi-r4-wireless";
+      dtsText = ''
+        /dts-v1/;
+        /plugin/;
+
+        / {
+          compatible = "bananapi,bpi-r4";
+        };
+
+        &{/} {
+          wifi_12v: regulator-wifi-12v {
+            compatible = "regulator-fixed";
+            regulator-name = "wifi";
+            regulator-min-microvolt = <12000000>;
+            regulator-max-microvolt = <12000000>;
+            gpio = <&pio 4 0>; // GPIO_ACTIVE_HIGH = 0
+            enable-active-high;
+            regulator-always-on;
+          };
+        };
+
+        &i2c_wifi {
+          status = "okay";
+
+          // 5G WIFI MAC Address EEPROM
+          wifi_eeprom@51 {
+            compatible = "atmel,24c02";
+            reg = <0x51>;
+            address-bits = <8>;
+            page-size = <8>;
+            size = <256>;
+
+            nvmem-layout {
+              compatible = "fixed-layout";
+              #address-cells = <1>;
+              #size-cells = <1>;
+
+              macaddr_5g: macaddr@0 {
+                  reg = <0x0 0x6>;
+              };
+            };
+          };
+
+          // 6G WIFI MAC Address EEPROM
+          wifi_eeprom@52 {
+            compatible = "atmel,24c02";
+            reg = <0x52>;
+            address-bits = <8>;
+            page-size = <8>;
+            size = <256>;
+
+            nvmem-layout {
+              compatible = "fixed-layout";
+              #address-cells = <1>;
+              #size-cells = <1>;
+
+              macaddr_6g: macaddr@0 {
+                  reg = <0x0 0x6>;
+              };
+            };
+          };
+        };
+
+        &pcie0 {
+          pcie@0,0 {
+            reg = <0x0000 0 0 0 0>;
+
+            wifi@0,0 {
+              compatible = "mediatek,mt76";
+              reg = <0x0000 0 0 0 0>;
+              nvmem-cell-names = "mac-address";
+              nvmem-cells = <&macaddr_5g>;
+            };
+          };
+        };
+
+        &pcie1 {
+          pcie@0,0 {
+            reg = <0x0000 0 0 0 0>;
+
+            wifi@0,0 {
+              compatible = "mediatek,mt76";
+              reg = <0x0000 0 0 0 0>;
+              nvmem-cell-names = "mac-address";
+              nvmem-cells = <&macaddr_6g>;
+            };
+          };
+        };
+      '';
     }
   ];
 
@@ -53,6 +136,8 @@ in {
 
   networking.useDHCP = false;
   networking.interfaces."lan1".useDHCP = true;
+
+  networking.wireless.enable = true;
 
   systemd.tpm2.enable = false;
   boot.initrd.systemd.tpm2.enable = false;
