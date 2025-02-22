@@ -7,6 +7,7 @@
   ];
 
   networking.networkmanager.enable = true;
+  services.avahi.enable = true;
 
   hm = {
     xsession.preferStatusNotifierItems = true; # needed for network-manager-applet
