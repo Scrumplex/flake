@@ -34,5 +34,5 @@ in {
     registry.n.flake = inputs.nixpkgs;
   };
 
-  systemd.tmpfiles.settings."10-nixpkgs"."L+".${channelPath}.argument = inputs.nixpkgs.outPath;
+  systemd.tmpfiles.settings."10-nixpkgs".${channelPath}."L+".argument = inputs.nixpkgs.outPath;
 }
