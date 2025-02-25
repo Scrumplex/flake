@@ -41,9 +41,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.home-manager.follows = "home-manager";
-      inputs.git-hooks.follows = "git-hooks";
-      inputs.flake-compat.follows = "";
       inputs.nuschtosSearch.follows = "";
     };
     catppuccin = {
