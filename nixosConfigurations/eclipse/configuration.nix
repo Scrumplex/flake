@@ -10,6 +10,7 @@ in {
     ./boot.nix
     ./buildbot.nix
     ./dyndns.nix
+    ./firefly-iii.nix
     ./frigate.nix
     ./immich.nix
     ./media

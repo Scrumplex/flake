@@ -31,6 +31,8 @@ resource "hetznerdns_record" "eclipsecnames_sefa_cloud" {
     "otel",
     "paperless",
     "prowlarr",
+    "money",
+    "money-import",
     "radarr",
     "sonarr",
     "syncthing",

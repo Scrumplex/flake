@@ -105,6 +105,10 @@
         days = 7;
         mode = "all";
       };
+      alerts.retain = {
+        days = 30;
+        mode = "motion";
+      };
       detections.retain = {
         days = 30;
         mode = "motion";
