@@ -1,6 +1,4 @@
-{config, ...}: let
-  user = "tandoor_recipes";
-in {
+{config, ...}: {
   assertions = [
     {
       assertion = config.services.postgresql.enable;
@@ -9,10 +7,10 @@ in {
   ];
 
   services.postgresql = {
-    ensureDatabases = [user];
+    ensureDatabases = [config.services.tandoor-recipes.user];
     ensureUsers = [
       {
-        name = user;
+        name = config.services.tandoor-recipes.user;
         ensureDBOwnership = true;
       }
     ];
@@ -27,8 +25,8 @@ in {
 
       DB_ENGINE = "django.db.backends.postgresql";
       POSTGRES_HOST = "/run/postgresql";
-      POSTGRES_USER = user;
-      POSTGRES_DB = user;
+      POSTGRES_USER = config.services.tandoor-recipes.user;
+      POSTGRES_DB = config.services.tandoor-recipes.user;
     };
   };
 
