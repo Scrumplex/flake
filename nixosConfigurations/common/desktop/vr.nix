@@ -37,6 +37,7 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
+      bs-manager
       index_camera_passthrough
       wlx-overlay-s
     ];
