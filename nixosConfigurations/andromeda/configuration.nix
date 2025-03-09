@@ -37,7 +37,5 @@
 
   services.logind.powerKey = "suspend";
 
-  systemd.services."systemd-networkd".environment.SYSTEMD_LOG_LEVEL = "debug";
-
   system.stateVersion = "23.11";
 }
