@@ -17,6 +17,8 @@ in {
     inputs.srvos.nixosModules.server
   ];
 
+  age.secrets."passwd".file = ../../secrets/common/passwd.age;
+
   nixpkgs.overlays = [inputs.self.overlays.default];
 
   boot.loader.grub.enable = false;
@@ -135,10 +137,20 @@ in {
   networking.hostName = "centauri";
 
   networking.useDHCP = false;
-  networking.interfaces."lan1".useDHCP = true;
 
   systemd.tpm2.enable = false;
   boot.initrd.systemd.tpm2.enable = false;
+
+  users.users.scrumplex = {
+    isNormalUser = true;
+    extraGroups = ["wheel"];
+    openssh.authorizedKeys.keys =
+      config.users.users.root.openssh.authorizedKeys.keys
+      ++ [
+        "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCCHT3y+oaFf/ZkKDd8dqwYsgzA8OIViDkeA9vGAHNjyJPoXwnbR2d9p+pI+WW+jIFxIbCz7ho9zUAFRxFkksxA= pass@blackeye"
+      ];
+    hashedPasswordFile = config.age.secrets."passwd".path;
+  };
 
   nixpkgs.hostPlatform.system = "aarch64-linux";
 

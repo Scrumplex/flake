@@ -21,6 +21,8 @@ in {
 
         ./configuration.nix
         ./disks.nix
+        ./lan.nix
+        ./wifi.nix
       ]
       ++ attrValues self.nixosModules;
   };

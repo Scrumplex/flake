@@ -13,6 +13,7 @@ let
 
   universe = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPWva83JbLRs2E6oqAP71CARJpdGRLWEUxM524vhfxXr"];
   cosmos = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFP1mSnn2jJw4nsRtGdikPlN6Cie+kOo5a1bYctjjapg"];
+  centauri = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIY8VwneXuBfB88eQqz48LFkfCgIghlBNzbeqyL99EcP"];
   eclipse = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEgfjN4xqCCsl+XzvSFFIR4WQ18r4+G7kGcMLkTe4be6"];
 in {
   "andromeda/borgbase-repokey.age".publicKeys = andromeda ++ scrumplex;
@@ -37,6 +38,8 @@ in {
   "universe/synapse-secrets.yaml.age".publicKeys = scrumplex ++ universe;
   "universe/scrumplex-hs_ed25519_secret_key.age".publicKeys = scrumplex ++ universe;
   "universe/wireguard.key.age".publicKeys = scrumplex ++ universe;
+
+  "centauri/wifi-password.age".publicKeys = scrumplex ++ centauri;
 
   "cosmos/hetzner-ddns.env.age".publicKeys = scrumplex ++ cosmos;
   "cosmos/hetzner-traefik.env.age".publicKeys = scrumplex ++ cosmos;
@@ -72,6 +75,6 @@ in {
   "common/mqtt-password.age".publicKeys = scrumplex ++ universe ++ cosmos ++ eclipse;
   "common/bob-the-builder.key.age".publicKeys = scrumplex ++ andromeda;
   "common/nullmailer-remotes.age".publicKeys = scrumplex ++ universe ++ cosmos ++ eclipse;
-  "common/passwd.age".publicKeys = andromeda ++ dyson ++ eclipse ++ scrumplex;
+  "common/passwd.age".publicKeys = andromeda ++ centauri ++ dyson ++ eclipse ++ scrumplex;
   "common/screenshot-bash.age".publicKeys = andromeda ++ dyson ++ scrumplex;
 }
