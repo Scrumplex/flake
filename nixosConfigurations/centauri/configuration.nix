@@ -137,8 +137,6 @@ in {
   networking.useDHCP = false;
   networking.interfaces."lan1".useDHCP = true;
 
-  networking.wireless.enable = true;
-
   systemd.tpm2.enable = false;
   boot.initrd.systemd.tpm2.enable = false;
 

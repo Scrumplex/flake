@@ -17,7 +17,6 @@ in {
         ../common/nix.nix
         ../common/openssh.nix
         ../common/server.nix
-        ../common/upgrade.nix
         ../common/utils.nix
 
         ./configuration.nix
