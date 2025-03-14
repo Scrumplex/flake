@@ -33,10 +33,10 @@
   services.logind = {
     powerKey = "suspend-then-hibernate";
     lidSwitch = "suspend-then-hibernate";
-    lidSwitchExternalPower = "suspend";
+    lidSwitchExternalPower = "suspend-then-hibernate";
     extraConfig = ''
       PowerKeyIgnoreInhibited=yes
-      LidSwitchIgnoreInhibited=no
+      LidSwitchIgnoreInhibited=yes
     '';
   };
 
