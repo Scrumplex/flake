@@ -54,7 +54,7 @@ in {
     };
 
     servers.atm10 = {
-      enable = true;
+      enable = false;
       package = pkgs.writeShellApplication {
         name = "minecraft-server";
 
