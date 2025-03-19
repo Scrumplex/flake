@@ -102,7 +102,7 @@
     record = {
       enabled = true;
       retain = {
-        days = 7;
+        days = 14;
         mode = "all";
       };
       alerts.retain = {
