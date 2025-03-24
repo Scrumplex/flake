@@ -6,6 +6,7 @@
   imports = [
     ./borg.nix
     ./desktop/sway.nix
+    ./desktop/swayidle.nix
     ./desktop/waybar.nix
     ./disks.nix
     ./networking.nix
