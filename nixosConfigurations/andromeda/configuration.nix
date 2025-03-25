@@ -11,6 +11,7 @@
     ./disks.nix
     ./networking.nix
     ./ustreamer.nix
+    ./wayvnc.nix
     ./wireguard.nix
 
     inputs.nixos-facter-modules.nixosModules.facter
