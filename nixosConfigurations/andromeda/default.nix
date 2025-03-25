@@ -20,6 +20,7 @@
       ../common/desktop/keyring.nix
       ../common/desktop/kitty.nix
       ../common/desktop/mako.nix
+      ../common/desktop/nicotine-plus.nix
       ../common/desktop/obs.nix
       ../common/desktop/pipewire
       ../common/desktop/polkit-agent.nix
