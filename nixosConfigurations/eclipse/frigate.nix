@@ -24,11 +24,11 @@
         ffmpeg.inputs = [
           {
             path = "rtsp://127.0.0.1:8554/back";
-            roles = ["record"];
+            roles = [];
           }
           {
             path = "rtsp://127.0.0.1:8554/back_sub";
-            roles = ["detect"];
+            roles = ["detect" "record"];
           }
         ];
         motion.mask = [
@@ -39,11 +39,11 @@
         ffmpeg.inputs = [
           {
             path = "rtsp://127.0.0.1:8554/back2";
-            roles = ["record"];
+            roles = [];
           }
           {
             path = "rtsp://127.0.0.1:8554/back2_sub";
-            roles = ["detect"];
+            roles = ["detect" "record"];
           }
         ];
       };
@@ -51,11 +51,11 @@
         ffmpeg.inputs = [
           {
             path = "rtsp://127.0.0.1:8554/door";
-            roles = ["record"];
+            roles = [];
           }
           {
             path = "rtsp://127.0.0.1:8554/door_sub";
-            roles = ["detect"];
+            roles = ["detect" "record"];
           }
         ];
         motion.mask = [
@@ -107,11 +107,11 @@
       };
       alerts.retain = {
         days = 30;
-        mode = "motion";
+        mode = "active_objects";
       };
       detections.retain = {
         days = 30;
-        mode = "motion";
+        mode = "active_objects";
       };
     };
     tls.enabled = false;
