@@ -629,11 +629,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1743239793,
-        "narHash": "sha256-TUOgPMv+O7Wj7+Ub0msDqK/NewO16BkzGX8qNs5gA2E=",
+        "lastModified": 1743327719,
+        "narHash": "sha256-lZQfLiErFCiPBKAbaoSbIOW12htVBYJOnsyoqMYwaiA=",
         "owner": "astro",
         "repo": "nix-openwrt-imagebuilder",
-        "rev": "a9bdd284bdd3d034e8c0af0a8a19a6a746b29995",
+        "rev": "33a8c418d475f34ed7581047560d080eb56ba543",
         "type": "github"
       },
       "original": {
@@ -652,11 +652,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1743292473,
-        "narHash": "sha256-PZXKDwY+OEqPm+iBc1pK09j4Y3TzJ4bNtn/YSFYvHHo=",
+        "lastModified": 1743321182,
+        "narHash": "sha256-In4v/SeQII2SKcZg2PKf9WWsui7YS46lPRLLJZuXnQw=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "6b93e7aa62dcd2c0447388cbd65580a7a79ec5c8",
+        "rev": "070947911076325d1bd5ccc5e3269db7722b2ea5",
         "type": "github"
       },
       "original": {
