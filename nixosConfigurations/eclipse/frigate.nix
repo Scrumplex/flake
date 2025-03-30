@@ -146,8 +146,8 @@ in {
     ];
     labels = {
       "traefik.enable" = "true";
-      "traefik.http.routers.frigate.rule" = "Host(`view.eclipse.sefa.cloud`)";
-      "traefik.http.routers.frigate.entrypoints" = "localsecure";
+      "traefik.http.routers.frigate.rule" = "Host(`view.sefa.cloud`)";
+      "traefik.http.routers.frigate.entrypoints" = "websecure";
       "traefik.http.services.frigate.loadbalancer.server.port" = "8971";
     };
   };

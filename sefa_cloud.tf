@@ -38,7 +38,6 @@ resource "hetznerdns_record" "eclipsecnames_sefa_cloud" {
     "syncthing",
     "tls",
     "torrent",
-    "view",
   ])
   zone_id = hetznerdns_zone.sefa_cloud.id
   name    = "${each.key}.eclipse"
@@ -58,6 +57,7 @@ resource "hetznerdns_record" "cnames_sefa_cloud" {
     "miniflux",
     "request",
     "vault",
+    "view",
   ])
   zone_id = hetznerdns_zone.sefa_cloud.id
   name    = each.key

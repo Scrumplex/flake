@@ -40,7 +40,7 @@ in {
         # "just" work...
         $out/bin/pdata_tools cache_check -V
       '';
-      availableKernelModules = ["dm_persistent_data" "dm_bio_prison" "dm_bufio" "libcrc32c" "crc32c_generic" "dm_cache_smq"];
+      availableKernelModules = ["dm_persistent_data" "dm_bio_prison" "dm_bufio" "crc32c_generic" "dm_cache_smq"];
       kernelModules = [
         "dm-raid"
         "dm-cache"
