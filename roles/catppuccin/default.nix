@@ -17,10 +17,9 @@ in {
   ];
 
   config = mkIf cfg.enable {
-    hm.programs.bat.catppuccin.enable = true;
-    hm.programs.btop.catppuccin.enable = true;
-    hm.programs.fish.catppuccin.enable = true;
-    hm.programs.kitty.catppuccin.enable = true;
-    hm.programs.neovim.catppuccin.enable = true;
+    hm.catppuccin.bat.enable = true;
+    hm.catppuccin.btop.enable = true;
+    hm.catppuccin.fish.enable = true;
+    hm.catppuccin.kitty.enable = true;
   };
 }
