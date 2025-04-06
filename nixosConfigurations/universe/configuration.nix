@@ -34,6 +34,7 @@
     sshKeyFile = config.age.secrets.id_borgbase.path;
     repokeyPasswordFile = config.age.secrets.borgbase_repokey.path;
   };
+  srvos.boot.consoles = ["tty0"];
 
   netcup.bootMode = "uefi";
 
