@@ -1,6 +1,9 @@
 {config, ...}: {
   age.secrets."otel-hass-token.env".file = ../../secrets/cosmos/otel-hass-token.env.age;
 
+  hardware.bluetooth.enable = true;
+  hardware.raspberry-pi."4".bluetooth.enable = true;
+
   virtualisation.oci-containers.containers.home-assistant = {
     image = config.virtualisation.oci-containers.externalImages.images."home-assistant".ref;
     environment = {
@@ -12,6 +15,7 @@
       "/srv/home-assistant:/config"
       "/etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro"
       "/dev/serial:/dev/serial"
+      "/run/dbus:/run/dbus:ro"
     ];
     extraOptions = [
       "--device=/dev/ttyUSB0"
