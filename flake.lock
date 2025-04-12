@@ -130,11 +130,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1744224272,
-        "narHash": "sha256-cqePj5nuC7flJWNncaVAFq1YZncU0PSyO0DEqGn+vYc=",
+        "lastModified": 1744478979,
+        "narHash": "sha256-dyN+teG9G82G+m+PX/aSAagkC+vUv0SgUw3XkPhQodQ=",
         "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "113883e37d985d26ecb65282766e5719f2539103",
+        "rev": "43975d782b418ebf4969e9ccba82466728c2851b",
         "type": "github"
       },
       "original": {
@@ -367,11 +367,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742280843,
-        "narHash": "sha256-ZJXc338s6Xs+rEL0QZf7q+dR2IhblW6eNvxbH6a96ic=",
+        "lastModified": 1744484305,
+        "narHash": "sha256-/jlqpLhhucVcbuH8Ij86lyk7WjkJueL6a/FaOolL/3E=",
         "ref": "refs/heads/main",
-        "rev": "64b75fd4a896c68927601633203584328b2ca9a4",
-        "revCount": 84,
+        "rev": "a64f6d22cc030621aa92e06bc1adc122e2bbf368",
+        "revCount": 86,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/inhibridge.git"
       },
@@ -740,11 +740,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1743800652,
-        "narHash": "sha256-/yrRpdX+n1+WHUGz0sqAsUyOlVV61HphlDNxjmk7z0E=",
+        "lastModified": 1744484253,
+        "narHash": "sha256-Dos93PVJjG2jgJQlTK0nY/0swLpODL8MaluezR17CI8=",
         "ref": "refs/heads/main",
-        "rev": "d61afc41b3f78cc9c417e8586286f4b9caf82397",
-        "revCount": 804,
+        "rev": "3bd6d551fd89daa014d67c569f2f22a844fd9ec2",
+        "revCount": 806,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/website.git"
       },
@@ -794,11 +794,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742387244,
-        "narHash": "sha256-h/ebGziqgdMcnBNCKxR9Xnr+WPi+1v0l3MqIjRp3WGc=",
+        "lastModified": 1744484528,
+        "narHash": "sha256-EapfvDViSOtr6qQbqtJNIojzctC5bC8Y6UQiFpbHSYI=",
         "ref": "refs/heads/main",
-        "rev": "a2f589a46d6e03cd6726499ebacf2e8d47f36aca",
-        "revCount": 296,
+        "rev": "f145556d621694eff579249200eae56428b96b1a",
+        "revCount": 310,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/skinprox.git"
       },
