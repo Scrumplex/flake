@@ -24,11 +24,24 @@
 
   networking.networkmanager.enable = true;
 
-  jovian.devices.steamdeck.enable = true;
-  jovian.steam.enable = true;
-  jovian.steam.autoStart = true;
-  jovian.steam.user = "scrumplex";
-  jovian.decky-loader.enable = true;
+  jovian = {
+    devices.steamdeck = {
+      enable = true;
+      autoUpdate = true;
+    };
+    steam = {
+      enable = true;
+      autoStart = true;
+      user = "scrumplex";
+    };
+    decky-loader.enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    dolphin-emu
+    ryujinx
+    torzu
+  ];
 
   system.stateVersion = "24.11";
 }
