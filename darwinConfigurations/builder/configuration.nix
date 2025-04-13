@@ -16,8 +16,6 @@
   programs.bash.enable = true;
   programs.bash.completion.enable = true;
 
-  services.nix-daemon.enable = true;
-
   nix = {
     package = pkgs.nix;
     settings = {
@@ -31,7 +29,6 @@
 
     gc = {
       automatic = true;
-      user = "";
       interval = {
         Minute = 15;
       };
