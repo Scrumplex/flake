@@ -51,7 +51,7 @@ in {
       sharedModules =
         attrValues scrumpkgs.hmModules
         ++ [
-          catppuccin.homeManagerModules.catppuccin
+          catppuccin.homeModules.catppuccin
           nix-index-database.hmModules.nix-index
         ];
       extraSpecialArgs = {
