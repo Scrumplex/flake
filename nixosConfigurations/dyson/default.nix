@@ -51,6 +51,7 @@
       ../common/printing.nix
       ../common/ranger.nix
       ../common/regional.nix
+      ../common/remote-build-consumer.nix
       ../common/rtl-sdr.nix
       ../common/ssh.nix
       ../common/syncthing.nix

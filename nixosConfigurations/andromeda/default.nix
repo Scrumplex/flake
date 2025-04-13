@@ -55,6 +55,7 @@
       ../common/ranger.nix
       ../common/regional.nix
       ../common/remote-build-consumer.nix
+      ../common/remote-build-provider.nix
       ../common/rtl-sdr.nix
       ../common/ssh.nix
       ../common/syncthing.nix

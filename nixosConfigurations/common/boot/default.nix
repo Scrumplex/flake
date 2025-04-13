@@ -15,11 +15,6 @@
       efi.canTouchEfiVariables = true;
       timeout = 0;
     };
-
-    tmp = {
-      useTmpfs = lib.mkDefault true;
-      tmpfsSize = "75%";
-    };
     initrd.systemd.enable = true;
 
     kernel.sysctl."kernel.sysrq" = 1;

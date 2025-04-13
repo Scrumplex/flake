@@ -17,8 +17,6 @@ in {
     inputs.srvos.nixosModules.server
   ];
 
-  age.secrets."passwd".file = ../../secrets/common/passwd.age;
-
   nixpkgs.overlays = [inputs.self.overlays.default];
 
   boot.loader.grub.enable = false;
@@ -149,7 +147,7 @@ in {
       ++ [
         "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCCHT3y+oaFf/ZkKDd8dqwYsgzA8OIViDkeA9vGAHNjyJPoXwnbR2d9p+pI+WW+jIFxIbCz7ho9zUAFRxFkksxA= pass@blackeye"
       ];
-    hashedPasswordFile = config.age.secrets."passwd".path;
+    hashedPassword = "$y$j9T$JbosTEvX3uH6.mFV/Sz071$6vVkITFq4INQFdf51.guqaD68JWp6ZcVNGVfPqqIzL/";
   };
 
   nixpkgs.hostPlatform.system = "aarch64-linux";

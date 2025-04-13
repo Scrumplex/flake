@@ -36,7 +36,6 @@ in {
   ];
 
   age.secrets.id_borgbase.file = ../../secrets/eclipse/id_borgbase.age;
-  age.secrets."passwd".file = ../../secrets/common/passwd.age;
 
   infra.borgbase = {
     enable = true;
@@ -85,7 +84,7 @@ in {
       ++ [
         "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCCHT3y+oaFf/ZkKDd8dqwYsgzA8OIViDkeA9vGAHNjyJPoXwnbR2d9p+pI+WW+jIFxIbCz7ho9zUAFRxFkksxA= pass@blackeye"
       ];
-    hashedPasswordFile = config.age.secrets."passwd".path;
+    hashedPassword = "$y$j9T$JbosTEvX3uH6.mFV/Sz071$6vVkITFq4INQFdf51.guqaD68JWp6ZcVNGVfPqqIzL/";
   };
 
   system.stateVersion = "23.05";

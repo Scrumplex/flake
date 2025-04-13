@@ -11,7 +11,7 @@
         ${config.pre-commit.installationScript}
       '';
 
-      packages = [self'.formatter inputs'.agenix.packages.agenix pkgs.just pkgs.nix-fast-build pkgs.nix-output-monitor pkgs.opentofu];
+      packages = [self'.formatter inputs'.agenix.packages.agenix pkgs.just pkgs.nix-fast-build pkgs.nix-output-monitor pkgs.opentofu pkgs.nixos-facter];
     };
     formatter = pkgs.alejandra;
     pre-commit.settings.hooks = {

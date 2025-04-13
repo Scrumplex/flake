@@ -12,6 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
+    jovian = {
+      url = "github:Jovian-Experiments/Jovian-NixOS";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -134,6 +138,7 @@
 
         ./nixosConfigurations/andromeda
         ./nixosConfigurations/dyson
+        ./nixosConfigurations/fornax
 
         ./nixosConfigurations/cosmos
         ./nixosConfigurations/eclipse

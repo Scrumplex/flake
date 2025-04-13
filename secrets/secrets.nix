@@ -75,6 +75,5 @@ in {
   "common/mqtt-password.age".publicKeys = scrumplex ++ universe ++ cosmos ++ eclipse;
   "common/bob-the-builder.key.age".publicKeys = scrumplex ++ andromeda ++ dyson;
   "common/nullmailer-remotes.age".publicKeys = scrumplex ++ universe ++ cosmos ++ eclipse;
-  "common/passwd.age".publicKeys = andromeda ++ centauri ++ dyson ++ eclipse ++ scrumplex;
   "common/screenshot-bash.age".publicKeys = andromeda ++ dyson ++ scrumplex;
 }
