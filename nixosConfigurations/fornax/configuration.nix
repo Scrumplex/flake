@@ -6,9 +6,12 @@
   imports = [
     ../common
     ../common/boot
+    ../common/fish.nix
     ../common/home.nix
+    ../common/neovim.nix
     ../common/nix.nix
     ../common/openssh.nix
+    ../common/regional.nix
     ../common/utils.nix
 
     ./disks.nix
