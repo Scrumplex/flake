@@ -22,7 +22,7 @@
       desktopFile = "org.telegram.desktop.desktop";
     }
     {
-      pkg = pkgs.signal-desktop;
+      pkg = pkgs.signal-desktop-bin;
       desktopFile = "signal-desktop.desktop";
     }
     {

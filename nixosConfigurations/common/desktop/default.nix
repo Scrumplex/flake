@@ -15,7 +15,7 @@
     vesktop
     element-desktop
     quasselClient
-    signal-desktop
+    signal-desktop-bin
     tdesktop
 
     inkscape-with-extensions
