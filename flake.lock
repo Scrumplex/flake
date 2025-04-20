@@ -315,11 +315,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1745033012,
-        "narHash": "sha256-KjBMsjCzIOWgDqTZMYIriPFmHiQcCb2RhuDh5JF0VVc=",
+        "lastModified": 1745128386,
+        "narHash": "sha256-xnNxL9lZC5Ez8AxTgHZZu8pYSNM34+5GD5jGSs8Vq4M=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ae84885d9b6b62dc58ccd300e9ab321a3fd9f9c7",
+        "rev": "f98314bb064cf8f8446c44afbadaaad2505875a7",
         "type": "github"
       },
       "original": {
@@ -431,11 +431,11 @@
     "libnbtplusplus": {
       "flake": false,
       "locked": {
-        "lastModified": 1699286814,
-        "narHash": "sha256-yy0q+bky80LtK1GWzz7qpM+aAGrOqLuewbid8WT1ilk=",
+        "lastModified": 1744811532,
+        "narHash": "sha256-qhmjaRkt+O7A+gu6HjUkl7QzOEb4r8y8vWZMG2R/C6o=",
         "owner": "PrismLauncher",
         "repo": "libnbtplusplus",
-        "rev": "23b955121b8217c1c348a9ed2483167a6f3ff4ad",
+        "rev": "531449ba1c930c98e0bcf5d332b237a8566f9d78",
         "type": "github"
       },
       "original": {
@@ -488,11 +488,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1744518957,
-        "narHash": "sha256-RLBSWQfTL0v+7uyskC5kP6slLK1jvIuhaAh8QvB75m4=",
+        "lastModified": 1745120797,
+        "narHash": "sha256-owQ0VQ+7cSanTVPxaZMWEzI22Q4bGnuvhVjLAJBNQ3E=",
         "owner": "nix-community",
         "repo": "nix-index-database",
-        "rev": "4fc9ea78c962904f4ea11046f3db37c62e8a02fd",
+        "rev": "69716041f881a2af935021c1182ed5b0cc04d40e",
         "type": "github"
       },
       "original": {
@@ -510,11 +510,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1744941245,
-        "narHash": "sha256-tIfmf4UYcbhCtV0CwJkB7S1zrWzodtB/jYyoMvKSvug=",
+        "lastModified": 1745114634,
+        "narHash": "sha256-gB63YTgfrX2zH2zFIruRrOrLltjSBoYm2L56yaGo5XM=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "556c14e59b53c7c1d70823919d8a02c763e8a9f1",
+        "rev": "92120cad3f2b7c1c326b6ca0b9beda171d6ee6a3",
         "type": "github"
       },
       "original": {
@@ -635,11 +635,11 @@
         "nuschtosSearch": []
       },
       "locked": {
-        "lastModified": 1744874965,
-        "narHash": "sha256-eOnMgAWsjqOhGRoY9smkKlNQcCz9R89mgiKwLrCIYBE=",
+        "lastModified": 1745099712,
+        "narHash": "sha256-fj/S+L9nQyJYdWFk3+8BGPp4tg5rY3uaF6jGADm7OA0=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "500b56f023e0f095ffee2d4f79e58aa09e6b0719",
+        "rev": "710f9cbd520b8e78fa95d4c5d255891e2b14a277",
         "type": "github"
       },
       "original": {
@@ -657,11 +657,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1744969934,
-        "narHash": "sha256-BYFTlFbAsBgM8II8wpiRhJ84z3Q6g0+j5W91V5x791w=",
+        "lastModified": 1745053369,
+        "narHash": "sha256-mmx59FocmH3ucoHuI7lrkk5bsRUU2XLaJkXMJ8u5YEQ=",
         "owner": "astro",
         "repo": "nix-openwrt-imagebuilder",
-        "rev": "e3f1b47fd48c502cfad73767163aba27499fc522",
+        "rev": "e8a9c5d5608dbcb28ac9f5c3e958c243b2fb6d96",
         "type": "github"
       },
       "original": {
@@ -679,11 +679,11 @@
         "qt-qrcodegenerator": "qt-qrcodegenerator"
       },
       "locked": {
-        "lastModified": 1745033980,
-        "narHash": "sha256-ddLMi7wyQNqq8QPb1l5iPsxNJlXnVT+4uN+SSCWBGH8=",
+        "lastModified": 1745126952,
+        "narHash": "sha256-hCcj3iWQucbN1zbSiFzCGbIx5K3hgL9I638ANgcsUBo=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "2ce1fdcee0d4cb4731509547b52f76ce438c52c6",
+        "rev": "60e279bf395b2a353c79b53780f5965371a80506",
         "type": "github"
       },
       "original": {
@@ -695,11 +695,11 @@
     "qt-qrcodegenerator": {
       "flake": false,
       "locked": {
-        "lastModified": 1731907326,
-        "narHash": "sha256-5+iYwsbX8wjKZPCy7ENj5HCYgOqzeSNLs/YrX2Vc7CQ=",
+        "lastModified": 1737616857,
+        "narHash": "sha256-6SugPt0lp1Gz7nV23FLmsmpfzgFItkSw7jpGftsDPWc=",
         "owner": "nayuki",
         "repo": "QR-Code-generator",
-        "rev": "f40366c40d8d1956081f7ec643d240c02a81df52",
+        "rev": "2c9044de6b049ca25cb3cd1649ed7e27aa055138",
         "type": "github"
       },
       "original": {
