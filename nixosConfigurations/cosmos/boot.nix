@@ -6,7 +6,7 @@
   boot = {
     tmp.useTmpfs = true;
 
-    kernelPackages = inputs.nixpkgs-stable.legacyPackages.${pkgs.system}.linuxKernel.packages.linux_rpi4;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     # ttyAMA0 is the serial console broken out to the GPIO
     kernelParams = [

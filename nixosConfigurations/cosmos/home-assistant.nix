@@ -2,7 +2,6 @@
   age.secrets."otel-hass-token.env".file = ../../secrets/cosmos/otel-hass-token.env.age;
 
   hardware.bluetooth.enable = true;
-  hardware.raspberry-pi."4".bluetooth.enable = true;
 
   virtualisation.oci-containers.containers.home-assistant = {
     image = config.virtualisation.oci-containers.externalImages.images."home-assistant".ref;
