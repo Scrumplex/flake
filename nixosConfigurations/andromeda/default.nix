@@ -52,6 +52,7 @@
       ../common/pkgs
       ../common/podman.nix
       ../common/printing.nix
+      ../common/pulsar-x2v2.nix
       ../common/ranger.nix
       ../common/regional.nix
       ../common/remote-build-consumer.nix
