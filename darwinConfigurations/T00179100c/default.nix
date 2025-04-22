@@ -87,7 +87,7 @@
     iterm2
     pgadmin4-desktopmode
     rectangle
-    signal-desktop
+    signal-desktop-bin
     slack
     zoom-us
     (discord.override {withVencord = true;})
