@@ -13,7 +13,7 @@
       name = "deploy-${name}";
 
       runtimeInputs = with pkgs; [
-        nixos-rebuild
+        nixos-rebuild-ng
       ];
 
       text = ''
