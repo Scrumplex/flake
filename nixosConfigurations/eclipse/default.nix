@@ -11,7 +11,7 @@ in {
       [
         (lib'.mkDeploy {
           targetHost = "eclipse.sefa.cloud";
-          extraFlags = ["--verbose" "--print-build-logs"];
+          extraFlags = ["--verbose" "--print-build-logs" "--use-substitutes"];
         })
 
         ../common
