@@ -45,7 +45,6 @@ in {
   "cosmos/hetzner-traefik.env.age".publicKeys = scrumplex ++ cosmos;
   "cosmos/id_borgbase.age".publicKeys = scrumplex ++ cosmos;
   "cosmos/wireguard.key.age".publicKeys = scrumplex ++ cosmos;
-  "cosmos/otel-hass-token.env.age".publicKeys = scrumplex ++ cosmos;
 
   "eclipse/ca_intermediate.key.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/ca_intermediate.pass.age".publicKeys = scrumplex ++ eclipse;

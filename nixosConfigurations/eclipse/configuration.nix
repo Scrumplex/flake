@@ -17,7 +17,6 @@ in {
     ./minecraft.nix
     ./miniflux.nix
     ./mosquitto.nix
-    ./otel.nix
     ./paperless.nix
     ./postgres.nix
     ./quassel.nix

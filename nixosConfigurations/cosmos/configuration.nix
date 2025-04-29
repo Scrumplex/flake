@@ -10,7 +10,6 @@ in {
     ./dyndns.nix
     ./hardware-configuration.nix
     ./home-assistant.nix
-    ./otel.nix
     ./traefik.nix
     ./wireguard.nix
 

@@ -1,6 +1,4 @@
 {config, ...}: {
-  age.secrets."otel-hass-token.env".file = ../../secrets/cosmos/otel-hass-token.env.age;
-
   hardware.bluetooth.enable = true;
 
   virtualisation.oci-containers.containers.home-assistant = {
@@ -31,25 +29,4 @@
     };
     services.hass.loadBalancer.servers = [{url = "http://localhost:8123";}];
   };
-
-  systemd.services.opentelemetry-collector.serviceConfig.EnvironmentFile = [
-    config.age.secrets."otel-hass-token.env".path
-  ];
-
-  services.opentelemetry-collector.settings.receivers.prometheus.config.scrape_configs = [
-    {
-      job_name = "hass";
-      scrape_interval = "60s";
-
-      bearer_token = "\${env:PROM_HASS_BEARER}";
-
-      metrics_path = "/api/prometheus";
-      scheme = "https";
-      static_configs = [
-        {
-          targets = ["hass.sefa.cloud"];
-        }
-      ];
-    }
-  ];
 }
