@@ -3,6 +3,7 @@
     ./jellyfin.nix
     ./sabnzbd.nix
     ./servarr.nix
+    ./slskd.nix
     ./syncthing.nix
     ./transmission.nix
   ];
