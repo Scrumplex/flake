@@ -89,7 +89,6 @@
     rectangle
     signal-desktop-bin
     slack
-    zoom-us
     (discord.override {withVencord = true;})
 
     #inputs.flox.packages.${pkgs.system}.flox
