@@ -6,5 +6,7 @@ profiles.identifyProfile "cudy_m3000-v1"
     "-wpad-basic-mbedtls"
     "wpad-openssl"
     "luci"
+    "dawn"
+    "luci-app-dawn"
   ];
 }
