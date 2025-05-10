@@ -1,5 +1,6 @@
 {config, ...}: {
   hardware.bluetooth.enable = true;
+  hardware.raspberry-pi."4".bluetooth.enable = true;
 
   virtualisation.oci-containers.containers.home-assistant = {
     image = config.virtualisation.oci-containers.externalImages.images."home-assistant".ref;
