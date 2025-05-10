@@ -15,7 +15,10 @@ in {
 
     srvos.nixosModules.server
     nixos-hardware.nixosModules.raspberry-pi-4
+    inputs.nixos-facter-modules.nixosModules.facter
   ];
+
+  facter.reportPath = ./facter.json;
 
   age.secrets.id_borgbase.file = ../../secrets/cosmos/id_borgbase.age;
 
