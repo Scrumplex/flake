@@ -16,6 +16,7 @@
     ];
     extraOptions = [
       "--device=/dev/ttyUSB0"
+      "--device=/dev/ttyUSB1"
       "--network=host"
       "--privileged"
     ];
