@@ -13,6 +13,7 @@ let
 
   universe = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPWva83JbLRs2E6oqAP71CARJpdGRLWEUxM524vhfxXr"];
   cosmos = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFP1mSnn2jJw4nsRtGdikPlN6Cie+kOo5a1bYctjjapg"];
+  sonic = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFlUqH1I3MG76kXF9cpDO6geUbhRF8h2LkSW0gO1cm+k scrumplex@dyson"];
   centauri = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIY8VwneXuBfB88eQqz48LFkfCgIghlBNzbeqyL99EcP"];
   eclipse = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEgfjN4xqCCsl+XzvSFFIR4WQ18r4+G7kGcMLkTe4be6"];
 in {
@@ -70,6 +71,7 @@ in {
   "eclipse/wg-backdoor.key.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/yt-dlp-targets.age".publicKeys = scrumplex ++ eclipse;
 
+  "common/Beehive.psk.age".publicKeys = cosmos ++ sonic ++ scrumplex;
   "common/beets-secrets.yaml.age".publicKeys = andromeda ++ dyson ++ scrumplex;
   "common/listenbrainz-token.age".publicKeys = andromeda ++ dyson ++ scrumplex;
   "common/mqtt-password.age".publicKeys = scrumplex ++ universe ++ cosmos ++ eclipse;

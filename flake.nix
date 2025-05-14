@@ -144,6 +144,7 @@
         ./nixosConfigurations/eclipse
         ./nixosConfigurations/universe
         ./nixosConfigurations/centauri
+        ./nixosConfigurations/sonic
 
         ./darwinConfigurations/builder
 

@@ -6,27 +6,22 @@
   inherit (builtins) attrValues;
 in {
   flake.nixosConfigurations = lib'.mkHost {
-    hostName = "cosmos";
+    hostName = "sonic";
     modules =
       [
         (lib'.mkDeploy {
-          targetHost = "root@cosmos.lan";
+          targetHost = "root@sonic.lan";
           extraFlags = ["--verbose" "--print-build-logs"];
         })
 
         ../common
-        ../common/docker.nix
         ../common/nix.nix
         ../common/nix-index.nix
-        ../common/nullmailer.nix
         ../common/openssh.nix
         ../common/pkgs
         ../common/regional.nix
-        ../common/remote-build-provider.nix
+        ../common/snapclient.nix
         ../common/server.nix
-        ../common/snapserver.nix
-        ../common/traefik.nix
-        ../common/upgrade.nix
         ../common/utils.nix
 
         ./configuration.nix
