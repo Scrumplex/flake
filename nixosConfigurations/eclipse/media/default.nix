@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./audiobookshelf.nix
     ./jellyfin.nix
     ./sabnzbd.nix
     ./servarr.nix
