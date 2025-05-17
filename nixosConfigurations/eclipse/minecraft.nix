@@ -49,6 +49,8 @@ in {
 
       whitelist = {
         "Aresiel" = "2295b652-0600-4212-b718-632c1181cb1f";
+        "Ashtaka4" = "25cfcd78-cb4c-4d5d-ac12-2e539eb479ed";
+        "Honey_Arcus" = "35ab6244-3e9e-452d-a6cd-258868d3cad7";
         "jopejoe1" = "668e7103-182c-43eb-aa4b-ca8cbc5a5e58";
         "jstsmthrgk" = "94800a68-96d2-4dcd-a2dd-cff82b5a0e4a";
         "MjolnirsRevenge" = "1f90dc25-6857-45b7-91fe-b1c905b5331d";
