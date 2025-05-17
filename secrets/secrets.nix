@@ -52,9 +52,6 @@ in {
   "eclipse/codeberg-oauth-secret.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/codeberg-webhook-secret.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/codeberg-token.age".publicKeys = scrumplex ++ eclipse;
-  "eclipse/firefly-iii.key.age".publicKeys = scrumplex ++ eclipse;
-  "eclipse/firefly-iii-nordigen.key.age".publicKeys = scrumplex ++ eclipse;
-  "eclipse/firefly-iii-token.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/frigate.env.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/hetzner-ddns.env.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/hetzner-traefik.env.age".publicKeys = scrumplex ++ eclipse;
