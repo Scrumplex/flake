@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   services.radarr = {
     enable = true;
     user = "media";
@@ -11,23 +6,6 @@
   };
   services.sonarr = {
     enable = true;
-    user = "media";
-    group = "media";
-  };
-  services.lidarr = {
-    enable = false;
-    package = pkgs.lidarr.overrideAttrs (let
-      version = "2.12.0.4634";
-      branch = "plugins";
-    in {
-      pname = "lidarr${lib.optionalString (branch != "master") "-${branch}"}";
-      inherit version;
-      src = pkgs.fetchurl {
-        name = "Lidarr.merge.${version}.linux-core-x64.tar.gz";
-        url = "https://lidarr.servarr.com/v1/update/${branch}/updatefile?os=linux&runtime=netcore&arch=x64&version=${version}";
-        hash = "sha256-yGsmXvqyBAgACFQ/5sqfaRbXB0tMHGTmkRDEyAc+Apg=";
-      };
-    });
     user = "media";
     group = "media";
   };
@@ -45,11 +23,6 @@
       service = "sonarr";
       rule = "Host(`sonarr.eclipse.sefa.cloud`)";
     };
-    routers.lidarr = {
-      entryPoints = ["localsecure"];
-      service = "lidarr";
-      rule = "Host(`lidarr.eclipse.sefa.cloud`)";
-    };
     routers.prowlarr = {
       entryPoints = ["localsecure"];
       service = "prowlarr";
@@ -62,7 +35,6 @@
     };
     services.radarr.loadBalancer.servers = [{url = "http://localhost:7878";}];
     services.sonarr.loadBalancer.servers = [{url = "http://localhost:8989";}];
-    services.lidarr.loadBalancer.servers = [{url = "http://localhost:8686";}];
     services.prowlarr.loadBalancer.servers = [{url = "http://localhost:9696";}];
     services.jellyseerr.loadBalancer.servers = [{url = "http://localhost:${toString config.services.jellyseerr.port}";}];
   };

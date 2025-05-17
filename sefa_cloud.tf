@@ -30,7 +30,6 @@ resource "hetznerdns_record" "eclipsecnames_sefa_cloud" {
     "nzb",
     "paperless",
     "prowlarr",
-    "lidarr",
     "money",
     "money-import",
     "radarr",
