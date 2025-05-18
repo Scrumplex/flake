@@ -65,6 +65,7 @@ in {
       serverProperties = {
         difficulty = "normal";
         enable-command-block = true;
+        enforce-secure-profile = false;
         motd = "scrumplex.net";
         spawn-protection = 0;
         white-list = true;
