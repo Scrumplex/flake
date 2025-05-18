@@ -43,7 +43,6 @@
   environment.systemPackages = with pkgs; [
     dolphin-emu
     ryujinx
-    torzu
   ];
 
   system.stateVersion = "24.11";
