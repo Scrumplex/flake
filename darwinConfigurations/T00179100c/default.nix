@@ -113,6 +113,7 @@
     linux-builder = {
       enable = true;
       maxJobs = 4;
+      ephemeral = true;
     };
     settings.experimental-features = "nix-command flakes";
 
