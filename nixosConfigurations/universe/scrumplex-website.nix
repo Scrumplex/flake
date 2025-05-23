@@ -31,11 +31,6 @@ in {
       config.common.nginx.sslVHost
       (commonVHostFor pkgs.scrumplex-website)
     ];
-    "beta.scrumplex.net" = mkMerge [
-      config.common.nginx.vHost
-      config.common.nginx.sslVHost
-      (commonVHostFor pkgs.scrumplex-website-ng)
-    ];
     "oysap5oclxaouxpuyykckncptwvt5cfwqyyckolly3hy5aq5poyvilid.onion" = mkMerge [
       (commonVHostFor pkgs.scrumplex-website)
     ];
