@@ -5,24 +5,170 @@
   pkgs,
   ...
 }: {
-  imports = [inputs.mac-app-util.darwinModules.default ./neovim.nix];
-  home-manager.sharedModules = [inputs.mac-app-util.homeManagerModules.default];
-  roles.base.username = "A105227727";
-  hm.home.homeDirectory = lib.mkForce "/Users/A105227727";
+  imports = [
+    inputs.home-manager.darwinModules.home-manager
+    inputs.mac-app-util.darwinModules.default
+    ./neovim.nix
+
+    (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" "A105227727"])
+  ];
+  system.primaryUser = "A105227727";
   hm.xdg.enable = true;
 
-  roles.catppuccin = {
-    enable = true;
-    flavor = "mocha";
-  };
-  roles.git = {
-    enable = true;
-    author = {
-      name = "Sefa Eyeoglu";
-      email = "sefa.eyeoglu@telekom.de";
+  programs.fish.enable = true;
+  programs.zsh.enable = true;
+  users.users."A105227727".shell = pkgs.fish;
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    sharedModules =
+      builtins.attrValues inputs.scrumpkgs.hmModules
+      ++ [
+        inputs.catppuccin.homeManagerModules.catppuccin
+        inputs.nix-index-database.hmModules.nix-index
+        inputs.mac-app-util.homeManagerModules.default
+      ];
+    extraSpecialArgs = {
+      inherit inputs;
+      lib' = inputs.scrumpkgs.lib;
     };
   };
-  roles.shell.enable = true;
+
+  hm = {
+  };
+
+  hm.catppuccin = {
+    enable = true;
+    flavor = "mocha";
+    bat.enable = true;
+    btop.enable = true;
+    fish.enable = true;
+    kitty.enable = true;
+  };
+  hm = {
+    home.username = "A105227727";
+    home.homeDirectory = lib.mkForce "/Users/A105227727";
+
+    programs.home-manager.enable = true;
+
+    home.packages = with pkgs; [
+      file
+      libqalculate
+      parallel
+      fzf
+      ripgrep
+      tree
+      git-extras
+    ];
+    programs.fish = {
+      enable = true;
+      shellInit = ''
+        set -g theme_color_scheme "catppuccin"
+        set -g theme_nerd_fonts "yes"
+        set -g theme_title_display_process "yes"
+      '';
+
+      shellAliases = lib.mkMerge [
+        {
+          ll = "ls --long --all --classify=always";
+          ls = "eza"; # note: we rely on the alias created by eza
+        }
+      ];
+      plugins = with pkgs.fishPlugins; [
+        {
+          name = "autopair.fish";
+          inherit (autopair-fish) src;
+        }
+        {
+          name = "bobthefisher";
+          inherit (bobthefisher) src;
+        }
+        {
+          name = "fzf";
+          inherit (fzf) src;
+        }
+        {
+          name = "humantime.fish";
+          inherit (humantime-fish) src;
+        }
+        {
+          name = "puffer";
+          inherit (puffer) src;
+        }
+        {
+          name = "z";
+          inherit (z) src;
+        }
+      ];
+    };
+
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
+    programs.eza = {
+      enable = true;
+      icons = "auto";
+    };
+
+    programs.fish.shellAbbrs = {
+      g = "git";
+      ga = "git add";
+      gap = "git add -p";
+      gca = "git commit -s --amend";
+      gcm = "git commit -sm";
+      gco = "git checkout";
+      gd = "git diff";
+      gdc = "git diff --cached";
+      gl = "git log";
+      gp = "git push";
+      gpl = "git pull";
+      gri = "git rebase --interactive";
+      grc = "git rebase --continue";
+      gs = "git status";
+    };
+
+    programs.gh = {
+      enable = true;
+      settings.git_protocol = "ssh";
+    };
+
+    programs.git = {
+      enable = true;
+      package = pkgs.gitAndTools.gitFull;
+
+      userName = "Sefa Eyeoglu";
+      userEmail = "sefa.eyeoglu@telekom.de";
+
+      delta = {
+        enable = true;
+        options.navigate = true;
+      };
+
+      extraConfig = {
+        core.autocrlf = "input";
+        color.ui = "auto";
+        diff.colorMoved = "default";
+        push.followTags = true;
+        pull.rebase = true;
+        init.defaultBranch = "main";
+        url = {
+          "https://github.com/".insteadOf = "github:";
+          "ssh://git@github.com/".pushInsteadOf = "github:";
+          "https://gitlab.com/".insteadOf = "gitlab:";
+          "ssh://git@gitlab.com/".pushInsteadOf = "gitlab:";
+          "https://aur.archlinux.org/".insteadOf = "aur:";
+          "ssh://aur@aur.archlinux.org/".pushInsteadOf = "aur:";
+          "https://git.sr.ht/".insteadOf = "srht:";
+          "ssh://git@git.sr.ht/".pushInsteadOf = "srht:";
+          "https://codeberg.org/".insteadOf = "codeberg:";
+          "ssh://git@codeberg.org/".pushInsteadOf = "codeberg:";
+        };
+      };
+    };
+  };
 
   nixpkgs.config.allowUnfree = true;
 
@@ -116,7 +262,7 @@
       ephemeral = true;
     };
     settings.experimental-features = "nix-command flakes";
-
+    settings.trusted-users = ["A105227727"];
     settings.trusted-substituters = ["https://cache.flox.dev"];
     settings.trusted-public-keys = ["flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="];
 
@@ -125,8 +271,6 @@
     ];
     registry.n.flake = inputs.nixpkgs;
   };
-
-  programs.zsh.enable = true; # default shell on catalina
 
   ids.gids.nixbld = 305;
 

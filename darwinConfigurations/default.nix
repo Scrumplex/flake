@@ -13,7 +13,6 @@ in {
           nixpkgs.hostPlatform = "aarch64-darwin";
         }
 
-        (import ../roles "darwin")
         ./T00179100c
       ];
 
