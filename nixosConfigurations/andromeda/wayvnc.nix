@@ -1,6 +1,4 @@
 {inputs, ...}: {
-  home-manager.sharedModules = [inputs.self.homeModules.wayvnc];
-
   networking.firewall.allowedTCPPorts = [5900];
 
   hm.services.wayvnc = {

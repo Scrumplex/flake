@@ -131,7 +131,6 @@
         inputs.git-hooks.flakeModule
         ./flakeDeploy.nix
 
-        ./homeModules
         ./lib
         ./nixosModules
         ./pkgs
