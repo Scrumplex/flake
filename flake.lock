@@ -388,11 +388,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1748411314,
-        "narHash": "sha256-fvtRp+oHGDLiSQico9+LTAr6Z8CU1AIldLYLQ9mHqjo=",
+        "lastModified": 1748683484,
+        "narHash": "sha256-RXiY6t9E9oLEtfdGChHk/OIPqxYg1tu8XLvbPnJlfi4=",
         "owner": "Jovian-Experiments",
         "repo": "Jovian-NixOS",
-        "rev": "9d69aed9023082af370b71bffdfcd414b6b61593",
+        "rev": "6f6bd4a27fb01c9dd623a157d769f34561407f47",
         "type": "github"
       },
       "original": {
@@ -595,11 +595,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1748655020,
-        "narHash": "sha256-OAhTtLI/qhmVfLzU+XEpDw2ee4a0+TEktAhs5kbJa1w=",
+        "lastModified": 1748698281,
+        "narHash": "sha256-U88bTsGrNj4cjsuELdQJO9IRqgxvRWKjYINBMdY+u8s=",
         "owner": "nix-community",
         "repo": "nixpkgs-xr",
-        "rev": "4e6c99caa674922eab4195154ce74f26f94b7797",
+        "rev": "c718524700299d5007b189b4c0ba5b86e41a881b",
         "type": "github"
       },
       "original": {
@@ -677,14 +677,14 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "qt-qrcodegenerator": "qt-qrcodegenerator"
+        "qrcodegenerator": "qrcodegenerator"
       },
       "locked": {
-        "lastModified": 1748631718,
-        "narHash": "sha256-H0GGBOJswY6xuNX5nk+DNCEJRtOXL8poVXhoiDn0DaQ=",
+        "lastModified": 1748716801,
+        "narHash": "sha256-vjXluFcbcT+MMTXPunxUluM4EQTZVwD0WixZDQ1CCzk=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "77057267d2987c1fe243a05f04e535e7291b683d",
+        "rev": "0a89f5cfaa559e82f599bbdd9cfbc8d09e311a1b",
         "type": "github"
       },
       "original": {
@@ -693,7 +693,7 @@
         "type": "github"
       }
     },
-    "qt-qrcodegenerator": {
+    "qrcodegenerator": {
       "flake": false,
       "locked": {
         "lastModified": 1737616857,
