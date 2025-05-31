@@ -32,6 +32,7 @@
       ../common/desktop/swayidle.nix
       ../common/desktop/vr.nix
       ../common/desktop/waybar.nix
+      ../common/desktop/wayvnc.nix
       ../common/desktop/wlogout.nix
       ../common/desktop/wlsunset.nix
       ../common/desktop/wob.nix
