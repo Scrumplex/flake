@@ -6,12 +6,6 @@
   ...
 }: let
   inherit (builtins) concatStringsSep;
-  inherit (inputs.nix-minecraft.lib) collectFilesAt;
-
-  modpack = pkgs.fetchPackwizModpack {
-    url = "https://github.com/skywardmc/adrenaline/raw/4c72d88842c4a04b30feb0d66a486851d779f417/versions/fabric/1.21.5/pack.toml";
-    packHash = "sha256-oPiO/JhidDeIJVxh4jo1domTo03h2WqX3BQNzCaWXi0=";
-  };
 
   mrpack2server21 = pkgs.fetchurl {
     url = "https://github.com/Patbox/mrpack4server/releases/download/0.5.0/mrpack4server-0.5.0.jar";
@@ -84,60 +78,18 @@ in {
         url = "https://cdn.modrinth.com/data/5FFgwNNP/versions/cqaC80tF/Cobblemon%20Official%20%5BFabric%5D%201.6.1.mrpack";
         hash = "sha256-U22WX5eL8oQb2YJSyOkP4v+ndOJyFiEu345tR8OtOXo=";
       };
-    };
-
-    servers.hielke = {
-      enable = false;
-      package = pkgs.fabricServers.fabric-1_21_5;
-
-      jvmOpts = concatStringsSep " " [
-        "-Xmx4G"
-        "-XX:+UseG1GC"
-        "-XX:+ParallelRefProcEnabled"
-        "-XX:MaxGCPauseMillis=200"
-        "-XX:+UnlockExperimentalVMOptions"
-        "-XX:+DisableExplicitGC"
-        "-XX:+AlwaysPreTouch"
-        "-XX:G1NewSizePercent=30"
-        "-XX:G1MaxNewSizePercent=40"
-        "-XX:G1HeapRegionSize=8M"
-        "-XX:G1ReservePercent=20"
-        "-XX:G1HeapWastePercent=5"
-        "-XX:G1MixedGCCountTarget=4"
-        "-XX:InitiatingHeapOccupancyPercent=15"
-        "-XX:G1MixedGCLiveThresholdPercent=90"
-        "-XX:G1RSetUpdatingPauseTimePercent=5"
-        "-XX:SurvivorRatio=32"
-        "-XX:+PerfDisableSharedMem"
-        "-XX:MaxTenuringThreshold=1"
-      ];
-
-      whitelist = {
-        "Aresiel" = "2295b652-0600-4212-b718-632c1181cb1f";
-        "Ashtaka4" = "25cfcd78-cb4c-4d5d-ac12-2e539eb479ed";
-        "Honey_Arcus" = "35ab6244-3e9e-452d-a6cd-258868d3cad7";
-        "jopejoe1" = "668e7103-182c-43eb-aa4b-ca8cbc5a5e58";
-        "jstsmthrgk" = "94800a68-96d2-4dcd-a2dd-cff82b5a0e4a";
-        "MjolnirsRevenge" = "1f90dc25-6857-45b7-91fe-b1c905b5331d";
-        "Scrumplex" = "f2873756-429d-413a-b22d-6a976ed0d3f2";
-        "WaterSword" = "fb6301b9-3060-4281-bc17-503f69fb4f53";
+      symlinks."mods/ftb-library-fabric.jar" = pkgs.fetchurl {
+        url = "https://mediafilez.forgecdn.net/files/6466/107/ftb-library-fabric-2101.1.13.jar";
+        hash = "sha256-Zbb8+h/q6OgV180wMdf1KR3k4Y+gWQsM/co9i4KbG4A=";
       };
-
-      operators = {
-        "Scrumplex".uuid = "f2873756-429d-413a-b22d-6a976ed0d3f2";
+      symlinks."mods/ftb-ultimine-fabric.jar" = pkgs.fetchurl {
+        url = "https://mediafilez.forgecdn.net/files/6607/450/ftb-ultimine-fabric-2101.1.3.jar";
+        hash = "sha256-gWn6l85MuSdWQNuErKvDTOX2Q/ZsUUsi4V8Mu5ibfjs=";
       };
-
-      serverProperties = {
-        difficulty = "normal";
-        enable-command-block = true;
-        enforce-secure-profile = false;
-        motd = "scrumplex.net";
-        spawn-protection = 0;
-        white-list = true;
+      symlinks."mods/cobblemonrider.jar" = pkgs.fetchurl {
+        url = "https://cdn.modrinth.com/data/ZLu8WiYO/versions/HPaVdg1v/cobblemonridingfabric-1.3.7.jar";
+        hash = "sha256-F95Zj6C87+fBnR8Rj0o2naAk/peFPKPrtScu2d/zymw=";
       };
-
-      symlinks = collectFilesAt modpack "mods";
-      files = collectFilesAt modpack "config";
     };
   };
 
