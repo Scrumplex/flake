@@ -7,6 +7,7 @@
 in {
   imports = [
     ./hardware-configuration.nix
+    ./actual.nix
     ./boot.nix
     ./buildbot.nix
     ./dyndns.nix

@@ -45,6 +45,7 @@ resource "hetznerdns_record" "eclipsecnames_sefa_cloud" {
 
 resource "hetznerdns_record" "cnames_sefa_cloud" {
   for_each = toset([
+    "actual",
     "audiobookshelf",
     "box",
     "buildbot",
