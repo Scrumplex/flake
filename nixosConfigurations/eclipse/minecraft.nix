@@ -71,6 +71,7 @@ in {
         motd = "scrumplex.net";
         spawn-protection = 0;
         white-list = true;
+        allow-flight = true;
       };
 
       symlinks."local.mrpack" = pkgs.fetchurl {
