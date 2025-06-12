@@ -135,6 +135,8 @@
       settings.git_protocol = "ssh";
     };
 
+    programs.mergiraf.enable = true;
+
     programs.git = {
       enable = true;
       package = pkgs.gitAndTools.gitFull;
