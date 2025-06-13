@@ -6,6 +6,8 @@
 }: {
   imports = [inputs.nixvim.nixosModules.nixvim];
 
+  programs.vim.defaultEditor = false;
+
   programs.nixvim = {
     enable = true;
     defaultEditor = true;

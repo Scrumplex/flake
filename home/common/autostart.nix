@@ -14,10 +14,6 @@
 
   autostarts = [
     {
-      pkg = pkgs.discord-canary;
-      desktopFile = "discord-canary.desktop";
-    }
-    {
       pkg = pkgs.tdesktop;
       desktopFile = "org.telegram.desktop.desktop";
     }

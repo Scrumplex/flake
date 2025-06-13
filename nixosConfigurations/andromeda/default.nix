@@ -9,7 +9,9 @@
       ../common/bluetooth.nix
       ../common/boot
       ../common/desktop
+      ../common/desktop/anydesk.nix
       ../common/desktop/chromium.nix
+      ../common/desktop/discord.nix
       ../common/desktop/evolution.nix
       ../common/desktop/firefox.nix
       ../common/desktop/fuzzel.nix
@@ -24,12 +26,14 @@
       ../common/desktop/obs.nix
       ../common/desktop/pipewire
       ../common/desktop/polkit-agent.nix
+      ../common/desktop/portfolio-performance.nix
       ../common/desktop/poweralertd.nix
       ../common/desktop/qt
       ../common/desktop/screenshot-bash.nix
       ../common/desktop/session-lock.nix
       ../common/desktop/sway.nix
       ../common/desktop/swayidle.nix
+      ../common/desktop/telegram.nix
       ../common/desktop/vr.nix
       ../common/desktop/waybar.nix
       ../common/desktop/wayvnc.nix

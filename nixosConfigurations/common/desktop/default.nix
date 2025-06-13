@@ -10,13 +10,9 @@
     virt-manager
     bottles
 
-    discord-canary
-    webcord
-    vesktop
     element-desktop
     quasselClient
     signal-desktop-bin
-    tdesktop
 
     inkscape-with-extensions
     gimp
@@ -26,8 +22,6 @@
     livecaptions
     orca-slicer
 
-    anydesk
-    portfolio
     AusweisApp2
 
     wl-clipboard
