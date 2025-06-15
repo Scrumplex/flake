@@ -141,7 +141,6 @@
 
         ./nixosConfigurations/cosmos
         ./nixosConfigurations/eclipse
-        ./nixosConfigurations/hetzner-arm-desktop
         ./nixosConfigurations/universe
         ./nixosConfigurations/centauri
         ./nixosConfigurations/sonic
