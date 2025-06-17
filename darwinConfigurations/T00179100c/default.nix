@@ -25,7 +25,7 @@
     sharedModules =
       builtins.attrValues inputs.scrumpkgs.hmModules
       ++ [
-        inputs.catppuccin.homeManagerModules.catppuccin
+        inputs.catppuccin.homeModules.catppuccin
         inputs.nix-index-database.hmModules.nix-index
         inputs.mac-app-util.homeManagerModules.default
       ];

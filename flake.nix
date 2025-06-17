@@ -27,9 +27,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.home-manager.follows = "home-manager";
-      inputs.nix-darwin.follows = "nix-darwin";
-      inputs.git-hooks.follows = "git-hooks";
     };
     catppuccin.url = "github:catppuccin/nix";
     nix-index-database = {
