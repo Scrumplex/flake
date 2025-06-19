@@ -47,8 +47,6 @@ in {
   "cosmos/id_borgbase.age".publicKeys = scrumplex ++ cosmos;
   "cosmos/wireguard.key.age".publicKeys = scrumplex ++ cosmos;
 
-  "eclipse/ca_intermediate.key.age".publicKeys = scrumplex ++ eclipse;
-  "eclipse/ca_intermediate.pass.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/codeberg-oauth-secret.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/codeberg-webhook-secret.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/codeberg-token.age".publicKeys = scrumplex ++ eclipse;

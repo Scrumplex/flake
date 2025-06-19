@@ -27,8 +27,6 @@
 
   environment.systemPackages = with pkgs; [just];
 
-  security.pki.certificates = [(builtins.readFile ../../misc/root_ca.crt)];
-
   programs.adb.enable = true;
 
   networking.firewall = {

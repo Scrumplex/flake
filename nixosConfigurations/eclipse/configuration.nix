@@ -20,7 +20,6 @@ in {
     ./paperless.nix
     ./postgres.nix
     ./quassel.nix
-    ./step-ca.nix
     ./swapfile.nix
     ./tandoor.nix
     ./traefik.nix
