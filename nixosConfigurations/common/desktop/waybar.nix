@@ -263,4 +263,6 @@ in {
     (lib.mkIf cfg.extraModules.cameraBlank.enable (lib'.sway.mkExec "${config.hm.wayland.windowManager.sway.config.modifier}+n" cfg.extraModules.cameraBlank.onClickScript))
     (lib.mkIf cfg.extraModules.paMute.enable (lib'.sway.mkExec "${config.hm.wayland.windowManager.sway.config.modifier}+m" cfg.extraModules.paMute.onClickScript))
   ];
+
+  hm.xsession.preferStatusNotifierItems = true;
 }

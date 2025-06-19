@@ -13,6 +13,7 @@
       ../common/desktop/chromium.nix
       ../common/desktop/evolution.nix
       ../common/desktop/firefox.nix
+      ../common/desktop/fonts.nix
       ../common/desktop/fuzzel.nix
       ../common/desktop/gaming.nix
       ../common/desktop/gtk
@@ -22,7 +23,6 @@
       ../common/desktop/kitty.nix
       ../common/desktop/mako.nix
       ../common/desktop/messengers.nix
-      ../common/desktop/nicotine-plus.nix
       ../common/desktop/obs.nix
       ../common/desktop/pipewire
       ../common/desktop/polkit-agent.nix
