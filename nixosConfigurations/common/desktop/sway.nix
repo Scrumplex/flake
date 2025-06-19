@@ -28,6 +28,8 @@ in {
     extraPackages = [];
   };
 
+  hm.catppuccin.sway.enable = true;
+
   hm.wayland.windowManager.sway = {
     enable = true;
     package = config.programs.sway.package;
@@ -152,34 +154,34 @@ in {
             "${mod}+a" = "focus parent";
           })
         );
-      colors = with config.hm.theme.colors; {
+      colors = {
         focused = {
-          background = "#${blue}";
-          border = "#${blue}";
-          childBorder = "#${blue}";
-          indicator = "#${blue}";
-          text = "#${base}";
+          background = "$blue";
+          border = "$blue";
+          childBorder = "$blue";
+          indicator = "$blue";
+          text = "$base";
         };
         focusedInactive = {
-          background = "#${surface0}";
-          border = "#${surface0}";
-          childBorder = "#${surface0}";
-          indicator = "#${surface0}";
-          text = "#${pink}";
+          background = "$surface0";
+          border = "$surface0";
+          childBorder = "$surface0";
+          indicator = "$surface0";
+          text = "$pink";
         };
         unfocused = {
-          background = "#${base}";
-          border = "#${base}";
-          childBorder = "#${base}";
-          indicator = "#${base}";
-          text = "#${text}";
+          background = "$base";
+          border = "$base";
+          childBorder = "$base";
+          indicator = "$base";
+          text = "$text";
         };
         urgent = {
-          background = "#${peach}";
-          border = "#${peach}";
-          childBorder = "#${peach}";
-          indicator = "#${peach}";
-          text = "#${base}";
+          background = "$peach";
+          border = "$peach";
+          childBorder = "$peach";
+          indicator = "$peach";
+          text = "$base";
         };
       };
     };

@@ -7,6 +7,7 @@
 }: let
   cfg = config.hm.programs.waybar;
 in {
+  hm.catppuccin.waybar.enable = true;
   hm.programs.waybar = {
     enable = true;
     extraModules = {
@@ -151,19 +152,19 @@ in {
       };
     };
     systemd.enable = true;
-    style = with config.hm.theme.colors; ''
+    style = ''
       window#waybar {
         font-family: "Monocraft";
         font-size: 10pt;
-        background-color: #${crust};
-        color: #${text};
+        background-color: @crust;
+        color: @text;
       }
 
       .modules-left, .modules-center, .modules-right {
         margin-left: 8px;
         margin-right: 8px;
         border-radius: 16px;
-        background-color: #${base};
+        background-color: @base;
       }
 
       #workspaces, #mpd, #clock, #network, #pulseaudio, #battery, #backlight, #custom-pa-mute, #custom-camera-blank, #idle_inhibitor, #tray {
@@ -196,21 +197,21 @@ in {
       }
 
       #workspaces button.urgent, #idle_inhibitor.activated, #custom-pa-mute.muted, #custom-camera-blank.blank {
-        background-color: #${peach};
-        color: #${base};
+        background-color: @peach;
+        color: @base;
       }
 
       #custom-pa-mute.muted, #custom-camera-blank.blank {
-        background-color: #${red};
+        background-color: @red;
       }
 
       #idle_inhibitor.activated {
-        background-color: #${mauve};
+        background-color: @mauve;
       }
 
       #workspaces button:hover {
         background-image: none; /* remove Adwaita button gradient */
-        background-color: #${surface2};
+        background-color: @surface2;
       }
 
       #workspaces button:hover label {
@@ -218,17 +219,17 @@ in {
       }
 
       #workspaces button.focused {
-        background-color: #${blue};
-        color: #${crust};
+        background-color: @blue;
+        color: @crust;
       }
 
       #workspaces button.focused:hover {
-        background-color: #${sky};
+        background-color: @sky;
       }
 
       #workspaces button:active, #workspaces button.focused:active {
-        background-color: #${text};
-        color: #${base};
+        background-color: @text;
+        color: @base;
       }
 
       #network.ethernet {
@@ -236,19 +237,19 @@ in {
       }
 
       #battery.warning {
-        color: #${peach};
+        color: @peach;
       }
 
       #battery.critical {
-        color: #${maroon};
+        color: @maroon;
       }
 
       #battery.charging {
-        color: #${green};
+        color: @green;
       }
 
       #clock.other {
-        color: #${subtext0};
+        color: @subtext0;
       }
     '';
   };
