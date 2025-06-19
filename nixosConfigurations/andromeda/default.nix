@@ -11,7 +11,6 @@
       ../common/desktop
       ../common/desktop/anydesk.nix
       ../common/desktop/chromium.nix
-      ../common/desktop/discord.nix
       ../common/desktop/evolution.nix
       ../common/desktop/firefox.nix
       ../common/desktop/fuzzel.nix
@@ -22,6 +21,7 @@
       ../common/desktop/keyring.nix
       ../common/desktop/kitty.nix
       ../common/desktop/mako.nix
+      ../common/desktop/messengers.nix
       ../common/desktop/nicotine-plus.nix
       ../common/desktop/obs.nix
       ../common/desktop/pipewire
@@ -33,7 +33,6 @@
       ../common/desktop/session-lock.nix
       ../common/desktop/sway.nix
       ../common/desktop/swayidle.nix
-      ../common/desktop/telegram.nix
       ../common/desktop/vr.nix
       ../common/desktop/waybar.nix
       ../common/desktop/wayvnc.nix
@@ -51,8 +50,8 @@
       ../common/mpd.nix
       ../common/mpv.nix
       ../common/neovim.nix
-      ../common/nix.nix
       ../common/nix-index.nix
+      ../common/nix.nix
       ../common/openssh.nix
       ../common/pkgs
       ../common/podman.nix
@@ -69,7 +68,6 @@
       ../common/utils.nix
       ../common/v4l2loopback.nix
       ../common/wireshark.nix
-      ../../home
 
       ./configuration.nix
     ];

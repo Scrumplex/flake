@@ -1,3 +1,0 @@
-{...}: {
-  hm.imports = [./common];
-}

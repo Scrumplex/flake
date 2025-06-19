@@ -10,10 +10,6 @@
     virt-manager
     bottles
 
-    element-desktop
-    quasselClient
-    signal-desktop-bin
-
     inkscape-with-extensions
     gimp
     krita
