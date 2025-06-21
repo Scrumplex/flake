@@ -8,10 +8,6 @@
   };
   users.mutableUsers = false;
 
-  system.switch = {
-    enable = false;
-    enableNg = true;
-  };
   system.rebuild.enableNg = true;
 
   services.openssh.enable = true;
