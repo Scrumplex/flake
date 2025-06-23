@@ -35,9 +35,6 @@
     };
   };
 
-  hm = {
-  };
-
   hm.catppuccin = {
     enable = true;
     flavor = "mocha";
@@ -238,6 +235,7 @@
     signal-desktop-bin
     slack
     (discord.override {withVencord = true;})
+    bitwarden-desktop
 
     #inputs.flox.packages.${pkgs.system}.flox
     fluxcd
