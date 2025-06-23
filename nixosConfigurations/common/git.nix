@@ -7,6 +7,8 @@
   hm = {
     catppuccin.delta.enable = true;
 
+    programs.mergiraf.enable = true;
+
     programs.fish.shellAbbrs = {
       g = "git";
       ga = "git add";
