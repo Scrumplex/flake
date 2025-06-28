@@ -1,4 +1,9 @@
-{config, ...}: {
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}: {
   assertions = [
     {
       assertion = config.services.postgresql.enable;
@@ -18,6 +23,7 @@
 
   services.tandoor-recipes = {
     enable = true;
+    package = inputs.nixpkgs-stable.legacyPackages.${pkgs.system}.tandoor-recipes;
     port = 22001;
     extraConfig = {
       # TODO: use something better
