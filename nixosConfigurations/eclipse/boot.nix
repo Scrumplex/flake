@@ -14,6 +14,7 @@ in {
     binfmt.emulatedSystems = ["aarch64-linux"];
 
     loader.systemd-boot.enable = true;
+    loader.systemd-boot.edk2-uefi-shell.enable = true;
     loader.efi.canTouchEfiVariables = true;
     initrd = {
       extraUtilsCommands = ''
