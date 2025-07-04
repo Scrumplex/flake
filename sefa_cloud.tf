@@ -34,7 +34,6 @@ resource "hetznerdns_record" "eclipsecnames_sefa_cloud" {
     "slskd",
     "sonarr",
     "syncthing",
-    "tls",
     "torrent",
   ])
   zone_id = hetznerdns_zone.sefa_cloud.id
