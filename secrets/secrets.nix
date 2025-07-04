@@ -53,6 +53,7 @@ in {
   "eclipse/frigate.env.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/hetzner-ddns.env.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/hetzner-traefik.env.age".publicKeys = scrumplex ++ eclipse;
+  "eclipse/home-assistant-secrets.yaml.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/id_borgbase.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/miniflux.env.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/paperless-password.age".publicKeys = scrumplex ++ eclipse;

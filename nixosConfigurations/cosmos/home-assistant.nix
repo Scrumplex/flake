@@ -2,6 +2,10 @@
   hardware.bluetooth.enable = true;
   hardware.raspberry-pi."4".bluetooth.enable = true;
 
+  services.udev.extraRules = ''
+    SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{serial}=="2ed25a95ac3aef11a9c02c1455516304", SYMLINK+="ttyUSB-SONOFF-ZigBee"
+  '';
+
   virtualisation.oci-containers.containers.home-assistant = {
     image = config.virtualisation.oci-containers.externalImages.images."home-assistant".ref;
     environment = {

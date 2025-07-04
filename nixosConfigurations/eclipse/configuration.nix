@@ -12,6 +12,7 @@ in {
     ./buildbot.nix
     ./dyndns.nix
     ./frigate.nix
+    ./home-assistant.nix
     ./immich.nix
     ./media
     ./minecraft.nix

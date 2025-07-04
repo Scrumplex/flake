@@ -55,6 +55,7 @@ resource "hetznerdns_record" "cnames_sefa_cloud" {
     "jellyfin",
     "miniflux",
     "request",
+    "smart",
     "vault",
     "view",
   ])
