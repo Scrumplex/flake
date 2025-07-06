@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   age.secrets."home-assistant-secrets.yaml" = {
     file = ../../secrets/eclipse/home-assistant-secrets.yaml.age;
     owner = "hass";
@@ -11,7 +15,11 @@
       "default_config"
       "google_translate"
       "met"
+      "shelly"
       "zha"
+    ];
+    customComponents = with pkgs.home-assistant-custom-components; [
+      frigate
     ];
     config = {
       homeassistant = {
