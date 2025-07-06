@@ -15,6 +15,7 @@
       "default_config"
       "google_translate"
       "met"
+      "mqtt"
       "shelly"
       "zha"
     ];
