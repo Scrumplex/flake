@@ -1,6 +1,7 @@
 {
   config,
   inputs,
+  pkgs,
   ...
 }: let
   inherit (inputs) srvos nixos-hardware;
@@ -41,6 +42,11 @@ in {
       ];
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    iw
+    ethtool
+  ];
 
   users.users.scrumplex = {
     isNormalUser = true;
