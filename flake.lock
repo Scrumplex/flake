@@ -388,11 +388,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1752243239,
-        "narHash": "sha256-En/d3XahzY98YAemYmPa59+3BgMl9FQCVSoBtFgXb1M=",
+        "lastModified": 1752308945,
+        "narHash": "sha256-I/mQXt/mePqaVerIHHcpX0XhWBFfD7LL8lvHKt6NLpg=",
         "owner": "Jovian-Experiments",
         "repo": "Jovian-NixOS",
-        "rev": "9162bd51720e793daa2197d5b3c0bf1f6f5219fa",
+        "rev": "681a6b69e44e4ecf9344416162a8bf9544c7d3ba",
         "type": "github"
       },
       "original": {
@@ -658,11 +658,11 @@
         "systems": "systems_5"
       },
       "locked": {
-        "lastModified": 1752222437,
-        "narHash": "sha256-wUb8B/hbXDzvL9wwYQDUpXNAZL68zzcTxSUVb7pwD+4=",
+        "lastModified": 1752308595,
+        "narHash": "sha256-DPSdVANDYBswtQ2vfoVaRT5KcjXxVd6YILOsxtPr1ck=",
         "owner": "astro",
         "repo": "nix-openwrt-imagebuilder",
-        "rev": "b8b155e30faeb08efd806bcec18871c469f82115",
+        "rev": "91434a20901f0ec1832930f6a2a7b51dfe7d0fcf",
         "type": "github"
       },
       "original": {
