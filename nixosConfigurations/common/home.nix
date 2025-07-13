@@ -50,7 +50,6 @@ in {
         attrValues scrumpkgs.hmModules
         ++ [
           catppuccin.homeModules.catppuccin
-          nix-index-database.hmModules.nix-index
         ];
       extraSpecialArgs = {
         inherit inputs;
