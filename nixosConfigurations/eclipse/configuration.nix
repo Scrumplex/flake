@@ -1,6 +1,7 @@
 {
   config,
   inputs,
+  pkgs,
   ...
 }: let
   inherit (inputs) nixos-hardware srvos;
@@ -63,6 +64,15 @@ in {
       ];
     };
   };
+
+  systemd.package = pkgs.systemd.overrideAttrs (prevAttrs: {
+    patches =
+      prevAttrs.patches or []
+      ++ [
+        # https://github.com/systemd/systemd/commit/f789b17e87b675acf1638a1801d9b16a377742e0
+        ./systemd.patch
+      ];
+  });
 
   hardware.graphics.enable = true;
 
