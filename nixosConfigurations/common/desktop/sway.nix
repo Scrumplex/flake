@@ -52,12 +52,12 @@ in {
         # TODO: other roles
         "4" = [{app_id = "org.gnome.Evolution";}];
         "5" = [
-          {class = "Signal";}
-          {class = "Element";}
-          {class = "discord";}
-          {app_id = "org.telegram.desktop";}
           {app_id = "Element";}
           {app_id = "discord";}
+          {app_id = "org.telegram.desktop";}
+          {app_id = "signal";}
+          {class = "Element";}
+          {class = "discord";}
         ];
       };
 
