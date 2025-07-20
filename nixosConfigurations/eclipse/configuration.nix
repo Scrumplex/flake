@@ -76,8 +76,6 @@ in {
 
   hardware.graphics.enable = true;
 
-  programs.ryzen-monitor-ng.enable = true;
-
   services.apcupsd = {
     enable = true;
   };
