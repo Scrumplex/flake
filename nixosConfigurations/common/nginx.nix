@@ -34,7 +34,6 @@
 
       additionalModules = with pkgs.nginxModules; [
         brotli
-        zstd
       ];
 
       statusPage = true;
@@ -44,7 +43,6 @@
       recommendedOptimisation = true;
       recommendedProxySettings = true;
       recommendedTlsSettings = true;
-      recommendedZstdSettings = true;
 
       appendHttpConfig = ''
         server_names_hash_bucket_size 128;
