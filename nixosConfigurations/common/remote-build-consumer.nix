@@ -26,7 +26,7 @@
           sshKey = config.age.secrets."bob-the-builder.key".path;
           system = "x86_64-linux";
           protocol = "ssh-ng";
-          maxJobs = 4;
+          maxJobs = 1;
           speedFactor = 1;
           supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
         }
@@ -38,7 +38,7 @@
           sshKey = config.age.secrets."bob-the-builder.key".path;
           system = "aarch64-darwin,x86_64-darwin";
           protocol = "ssh-ng";
-          maxJobs = 8;
+          maxJobs = 4;
           speedFactor = 1;
           supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "apple-virt"];
         }
