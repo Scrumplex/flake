@@ -51,7 +51,7 @@ in {
 
   boot.initrd.supportedFilesystems.zfs = false;
   boot.supportedFilesystems.zfs = false;
-  boot.kernelPackages = inputs.nixpkgs-stable.legacyPackages.aarch64-linux.linuxPackages_rpi02w;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   # Workaround for https://forums.raspberrypi.com/viewtopic.php?t=366155
   boot.kernelParams = ["brcmfmac.feature_disable=0x82000"];
 
