@@ -20,7 +20,6 @@ in {
         ../common/openssh.nix
         ../common/pkgs
         ../common/regional.nix
-        ../common/snapclient.nix
         ../common/server.nix
         ../common/utils.nix
 
