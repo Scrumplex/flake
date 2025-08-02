@@ -17,6 +17,7 @@
       "met"
       "mqtt"
       "shelly"
+      "tuya"
       "zha"
     ];
     customComponents = with pkgs.home-assistant-custom-components; [
