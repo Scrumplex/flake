@@ -12,6 +12,7 @@
   services.home-assistant = {
     enable = true;
     extraComponents = [
+      "automation"
       "default_config"
       "google_translate"
       "met"
