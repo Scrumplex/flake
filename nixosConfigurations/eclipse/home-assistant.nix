@@ -14,8 +14,10 @@
     extraComponents = [
       "automation"
       "default_config"
+      "forecast_solar"
       "google_translate"
       "met"
+      "mobile_app"
       "mqtt"
       "shelly"
       "tuya"
@@ -23,6 +25,7 @@
     ];
     customComponents = with pkgs.home-assistant-custom-components; [
       frigate
+      solarman
     ];
     config = {
       homeassistant = {
