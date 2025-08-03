@@ -25,6 +25,7 @@
       ../common/desktop/mako.nix
       ../common/desktop/messengers.nix
       ../common/desktop/obs.nix
+      ../common/desktop/orca-slicer.nix
       ../common/desktop/pipewire
       ../common/desktop/polkit-agent.nix
       ../common/desktop/portfolio-performance.nix
