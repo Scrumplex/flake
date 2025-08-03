@@ -14,6 +14,7 @@
     extraComponents = [
       "automation"
       "default_config"
+      "esphome"
       "forecast_solar"
       "google_translate"
       "met"
