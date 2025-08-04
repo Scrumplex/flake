@@ -37,10 +37,7 @@
       };
     };
 
-    clipboard = {
-      register = "unnamedplus";
-      providers.wl-copy.enable = true;
-    };
+    clipboard.register = "unnamedplus";
 
     colorschemes.catppuccin = {
       enable = true;
