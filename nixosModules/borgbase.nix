@@ -62,8 +62,8 @@ in {
         within = "1d";
         daily = 3;
         weekly = 4;
-        monthly = 6;
-        yearly = 2;
+        monthly = 3;
+        yearly = 1;
       };
       encryption = {
         mode =
