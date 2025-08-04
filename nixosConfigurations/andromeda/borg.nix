@@ -72,10 +72,9 @@
     compression = "auto,zstd";
     prune = {
       keep = {
-        daily = 7;
+        daily = 3;
         weekly = 4;
-        monthly = 6;
-        yearly = 1;
+        monthly = 3;
       };
       prefix = null;
     };
