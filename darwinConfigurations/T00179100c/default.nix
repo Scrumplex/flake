@@ -136,7 +136,6 @@
 
     programs.git = {
       enable = true;
-      package = pkgs.gitAndTools.gitFull;
 
       userName = "Sefa Eyeoglu";
       userEmail = "sefa.eyeoglu@telekom.de";
