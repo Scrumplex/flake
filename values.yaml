@@ -1,7 +1,7 @@
 draupnir:
   image:
     repository: gnuxie/draupnir
-    tag: v2.5.0@sha256:88113acae5f258a2eeb051f09ac591ffc8ce19a2240a6105735af7f958b01fae
+    tag: v2.5.1@sha256:bb3aa867ea65b01fc6fd2b22112dc362d4e097a24e9757928c3fe3290c791aed
 
 frigate:
   image:
