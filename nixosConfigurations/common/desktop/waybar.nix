@@ -26,7 +26,7 @@ in {
       run-or-raise = lib.getExe pkgs.run-or-raise;
     in {
       mainBar = {
-        modules-left = ["sway/workspaces" "mpd"];
+        modules-left = ["niri/workspaces" "mpd"];
         modules-center = ["clock" "clock#other"];
         modules-right =
           [
@@ -45,16 +45,14 @@ in {
             "clock#date"
             "tray"
           ];
-        "sway/workspaces" = {
-          disable-scroll = true;
+        "niri/workspaces" = {
           all-outputs = false;
           format = "{icon}";
           format-icons = {
-            "1" = ""; # this is not a material design circle like the other icons
-            "2" = "󰝤";
-            "3" = "󰔶";
-            "4" = "󰇮";
-            "5" = "󰍩";
+            "messages" = "󰍩";
+            "2" = ""; # this is not a material design circle like the other icons
+            "3" = "󰝤";
+            "4" = "󰔶";
           };
         };
         mpd = {

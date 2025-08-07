@@ -24,6 +24,7 @@
       ../common/desktop/kitty.nix
       ../common/desktop/mako.nix
       ../common/desktop/messengers.nix
+      ../common/desktop/niri.nix
       ../common/desktop/obs.nix
       ../common/desktop/orca-slicer.nix
       ../common/desktop/pipewire

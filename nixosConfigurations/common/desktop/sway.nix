@@ -201,10 +201,4 @@ in {
   hm.xdg.configFile."uwsm/default-id".text = ''
     sway-uwsm.desktop
   '';
-
-  hm.programs.fish.interactiveShellInit = lib.mkOrder 2000 ''
-    test -n "$XDG_SESSION_TYPE" -a "$XDG_SESSION_TYPE" = "tty" -a -n "$XDG_VTNR" -a "$XDG_VTNR" -eq 1; and uwsm check may-start; and begin
-      exec systemd-cat -t uwsm-start uwsm start -S -F default
-    end
-  '';
 }
