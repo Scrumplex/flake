@@ -42,7 +42,7 @@
 
   environment.systemPackages = with pkgs; [
     dolphin-emu
-    ryujinx
+    ryubing
   ];
 
   system.stateVersion = "24.11";
