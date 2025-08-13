@@ -7,43 +7,41 @@
   inherit (lib) mkEnableOption mkOption;
   cfg = config.profile.swayidle;
 
-  swaymsg = "${config.hm.wayland.windowManager.sway.package}/bin/swaymsg";
   loginctl = lib.getExe' pkgs.systemd "loginctl";
+  niri = lib.getExe config.programs.niri.package;
 in {
   options.profile.swayidle.lockSession = mkEnableOption "locking session on idle" // mkOption {default = true;};
 
   config = {
-    hm.services.swayidle = {
-      enable = true;
-      extraArgs = ["-d"];
-      events =
-        lib.optionals cfg.lockSession [
+    hm = {
+      services.swayidle = {
+        enable = true;
+        extraArgs = ["-d"];
+        events =
+          lib.optionals cfg.lockSession [
+            {
+              event = "before-sleep";
+              command = "${loginctl} lock-session";
+            }
+          ]
+          ++ [
+            {
+              event = "after-resume";
+              command = "${niri} msg action power-on-monitors";
+            }
+          ];
+        timeouts = [
           {
-            event = "before-sleep";
-            command = "${loginctl} lock-session";
+            timeout = 120;
+            command = "${niri} msg action power-off-monitors";
+            resumeCommand = "${niri} msg action power-on-monitors";
           }
-        ]
-        ++ [
           {
-            event = "after-resume";
-            command = "${swaymsg} 'output * power on'";
+            timeout = 600;
+            command = "${pkgs.systemd}/bin/systemctl suspend";
           }
         ];
-      timeouts = [
-        {
-          timeout = 120;
-          command = "${swaymsg} 'output * power off'";
-          resumeCommand = "${swaymsg} 'output * power on'";
-        }
-        {
-          timeout = 600;
-          command = "${pkgs.systemd}/bin/systemctl suspend";
-        }
-      ];
-    };
-    hm.systemd.user.services."swayidle" = {
-      Unit.After = ["graphical-session.target"];
-      Service.Slice = ["background-graphical.target"];
+      };
     };
   };
 }

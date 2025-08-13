@@ -75,6 +75,10 @@
       url = "github:PrismLauncher/PrismLauncher";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     inhibridge = {
       url = "git+https://codeberg.org/Scrumplex/inhibridge.git";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -6,6 +6,7 @@
   imports = [
     ./boot.nix
     ./borg.nix
+    ./desktop/niri.nix
     ./desktop/sway.nix
     ./disks.nix
     ./keyd.nix
