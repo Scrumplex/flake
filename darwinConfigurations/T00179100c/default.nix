@@ -66,6 +66,19 @@
         set -g theme_title_display_process "yes"
       '';
 
+      functions.aws-profile = ''
+        function aws-profile -a profile
+          set -l current_profile default
+          set -q AWS_PROFILE && set current_profile $AWS_PROFILE
+
+          set -gx AWS_PROFILE $profile
+          if set -q profile
+            set -gx AWS_PROFILE (aws configure list-profiles | fzf)
+          end
+          echo "Switched from $current_profile to $AWS_PROFILE"
+        end
+      '';
+
       shellAliases = lib.mkMerge [
         {
           ll = "ls --long --all --classify=always";
@@ -217,6 +230,7 @@
       "jellyfin-media-player"
       "linearmouse"
       "core-tunnel"
+      "session-manager-plugin"
       "syncthing"
       "visual-studio-code"
     ];
