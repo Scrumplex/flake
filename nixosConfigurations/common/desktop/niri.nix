@@ -35,11 +35,17 @@ in {
   hm.programs.niri = {
     package = config.programs.niri.package;
     settings = {
-      input.keyboard = {
-        numlock = true;
-        xkb = {
-          layout = "us";
-          variant = "altgr-intl";
+      input = {
+        keyboard = {
+          numlock = true;
+          xkb = {
+            layout = "us";
+            variant = "altgr-intl";
+          };
+        };
+        focus-follows-mouse = {
+          enable = true;
+          max-scroll-amount = "10%";
         };
       };
 
