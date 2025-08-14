@@ -69,10 +69,7 @@ in {
       screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
       workspaces."messages" = {};
 
-      environment.DISPLAY = ":0";
-      spawn-at-startup = [
-        {command = [(lib.getExe pkgs.xwayland-satellite)];}
-      ];
+      xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite-unstable;
 
       window-rules = [
         {
