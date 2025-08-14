@@ -81,6 +81,7 @@ in {
             {app-id = "signal";}
           ];
           open-on-workspace = "messages";
+          open-focused = false;
         }
         {
           matches = [
