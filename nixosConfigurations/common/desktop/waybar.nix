@@ -27,7 +27,7 @@ in {
     in {
       mainBar = {
         modules-left = ["niri/workspaces" "mpd"];
-        modules-center = ["clock" "clock#other"];
+        modules-center = ["clock"];
         modules-right =
           [
             "network"
@@ -63,6 +63,8 @@ in {
             paused = "󰏤";
             playing = "󰐊";
           };
+          album-len = 16;
+          title-len = 16;
           tooltip-format = "MPD (connected)";
           tooltip-format-disconnected = "MPD (disconnected)";
           on-scroll-up = "${pkgs.mpc-cli}/bin/mpc vol +2 > /dev/null && ${pkgs.mpc-cli}/bin/mpc vol | ${pkgs.gnused}/bin/sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
@@ -120,12 +122,6 @@ in {
         clock = {
           format = "{:%T}";
           interval = 1;
-        };
-        "clock#other" = {
-          format = "{:%I:%M %p}";
-          interval = 1;
-          locale = "en_US.UTF-8";
-          timezone = "America/New_York";
         };
         idle_inhibitor = {
           format = "{icon}";
@@ -244,10 +240,6 @@ in {
 
       #battery.charging {
         color: @green;
-      }
-
-      #clock.other {
-        color: @subtext0;
       }
     '';
   };
