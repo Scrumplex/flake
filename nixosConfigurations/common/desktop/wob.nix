@@ -1,4 +1,4 @@
-{config, ...}: {
+{pkgs, ...}: {
   hm.services.wob = {
     enable = true;
     settings."" = {
@@ -11,4 +11,82 @@
       bar_color = "89dcebff";
     };
   };
+  environment.systemPackages = [
+    (pkgs.writeShellApplication {
+      name = "wob-brightness";
+
+      runtimeInputs = with pkgs; [brightnessctl];
+
+      text = ''
+        case "$1" in
+          increase-brightness)
+            brightnessctl set 5%+
+            ;;
+          decrease-brightness)
+            brightnessctl set 5%-
+            ;;
+        esac
+
+
+        systemctl --user is-active wob.socket || exit 0
+        wob_socket=$(systemctl --user show --value --property Listen wob.socket | cut -d" " -f1)
+
+        brightness=$((100*$(brightnessctl get)/$(brightnessctl max)))
+        echo "$brightness" > "$wob_socket"
+      '';
+    })
+    (pkgs.writeShellApplication {
+      name = "wob-volume";
+
+      runtimeInputs = with pkgs; [pamixer];
+
+      text = ''
+        case "$1" in
+          toggle-mute)
+            pamixer --toggle-mute
+            ;;
+          increase-volume)
+            pamixer --unmute --increase 2
+            ;;
+          decrease-volume)
+            pamixer --unmute --decrease 2
+            ;;
+        esac
+
+        systemctl --user is-active wob.socket || exit 0
+        wob_socket=$(systemctl --user show --value --property Listen wob.socket | cut -d" " -f1)
+
+        muted=$(pamixer --get-mute)
+        volume=$(pamixer --get-volume)
+
+        if [ "$muted" == "true" ]; then
+          echo "0" > "$wob_socket"
+        else
+          echo "$volume" > "$wob_socket"
+        fi
+      '';
+    })
+    (pkgs.writeShellApplication {
+      name = "wob-mpc-volume";
+
+      runtimeInputs = with pkgs; [mpc];
+
+      text = ''
+        case "$1" in
+          increase-volume)
+            mpc volume +2
+            ;;
+          decrease-volume)
+            mpc volume -2
+            ;;
+        esac
+
+        systemctl --user is-active wob.socket || exit 0
+        wob_socket=$(systemctl --user show --value --property Listen wob.socket | cut -d" " -f1)
+
+        volume=$(mpc volume)
+        echo "$volume" > "$wob_socket"
+      '';
+    })
+  ];
 }

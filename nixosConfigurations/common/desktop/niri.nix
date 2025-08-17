@@ -123,15 +123,15 @@ in {
 
             "XF86AudioMute" = {
               allow-when-locked = true;
-              action = spawn ["pamixer" "-t"];
+              action = spawn ["wob-volume" "toggle-mute"];
             };
             "XF86AudioLowerVolume" = {
               allow-when-locked = true;
-              action = spawn ["pamixer" "-ud" "2"];
+              action = spawn ["wob-volume" "decrease-volume"];
             };
             "XF86AudioRaiseVolume" = {
               allow-when-locked = true;
-              action = spawn ["pamixer" "-ui" "2"];
+              action = spawn ["wob-volume" "increase-volume"];
             };
             "XF86AudioStop" = {
               allow-when-locked = true;
@@ -155,19 +155,19 @@ in {
             };
             "Shift+XF86AudioLowerVolume" = {
               allow-when-locked = true;
-              action = spawn ["mpc" "volume" "-2"];
+              action = spawn ["wob-mpc-volume" "decrease-volume"];
             };
             "Shift+XF86AudioRaiseVolume" = {
               allow-when-locked = true;
-              action = spawn ["mpc" "volume" "+2"];
+              action = spawn ["wob-mpc-volume" "increase-volume"];
             };
             "XF86MonBrightnessDown" = {
               allow-when-locked = true;
-              action = spawn ["brightnessctl" "set" "5%-"];
+              action = spawn ["wob-brightness" "decrease-brightness"];
             };
             "XF86MonBrightnessUp" = {
               allow-when-locked = true;
-              action = spawn ["brightnessctl" "set" "5%+"];
+              action = spawn ["wob-brightness" "increase-brightness"];
             };
           }
           (mkMoveFocusBinds' "Left" "column-left")
