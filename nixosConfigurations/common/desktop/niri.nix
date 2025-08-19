@@ -27,6 +27,13 @@ in {
   hm.imports = [inputs.niri.homeModules.config];
   nixpkgs.overlays = [inputs.niri.overlays.niri];
 
+  primaryUser.extraGroups = ["video" "input"];
+
+  environment.sessionVariables = {
+    "_JAVA_AWT_WM_NONREPARENTING" = "1";
+    "NIXOS_OZONE_WL" = "1";
+  };
+
   programs.niri = {
     enable = true;
     package = pkgs.niri-unstable;
@@ -201,6 +208,10 @@ in {
               cooldown-ms = 150;
               action = focus-workspace-up;
             };
+          }
+          {
+            "Mod+Tab".action = focus-monitor-next;
+            "Mod+Shift+Tab".action = focus-monitor-previous;
           }
           (mkMoveFocusBinds' "WheelScrollLeft" "column-left")
           (mkMoveFocusBinds' "WheelScrollRight" "column-right")

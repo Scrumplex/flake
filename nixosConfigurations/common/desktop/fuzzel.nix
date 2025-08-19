@@ -15,7 +15,6 @@
         main = {
           font = "Monocraft:size=13";
           terminal = config.hm.wayland.windowManager.sway.config.terminal;
-          launch-prefix = "uwsm app --";
         };
         border = {
           width = 2;

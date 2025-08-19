@@ -7,7 +7,6 @@
     ./boot.nix
     ./borg.nix
     ./desktop/niri.nix
-    ./desktop/sway.nix
     ./disks.nix
     ./keyd.nix
     ./networkmanager.nix
@@ -28,6 +27,8 @@
 
   services.power-profiles-daemon.enable = true;
   services.fwupd.enable = true;
+
+  networking.useNetworkd = true;
 
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 

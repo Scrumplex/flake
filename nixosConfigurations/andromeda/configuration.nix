@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./borg.nix
-    ./desktop/sway.nix
+    ./desktop/niri.nix
     ./desktop/swayidle.nix
     ./desktop/waybar.nix
     ./disks.nix

@@ -69,7 +69,7 @@ in {
           tooltip-format-disconnected = "MPD (disconnected)";
           on-scroll-up = "${pkgs.mpc-cli}/bin/mpc vol +2 > /dev/null && ${pkgs.mpc-cli}/bin/mpc vol | ${pkgs.gnused}/bin/sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
           on-scroll-down = "${pkgs.mpc-cli}/bin/mpc vol -2 > /dev/null && ${pkgs.mpc-cli}/bin/mpc vol | ${pkgs.gnused}/bin/sed 's|n/a|0%|g;s/[^0-9]*//g' > $XDG_RUNTIME_DIR/wob.sock";
-          on-click = "uwsm app -- ${termapp} ${config.hm.programs.ncmpcpp.package}/bin/ncmpcpp";
+          on-click = "${termapp} ${config.hm.programs.ncmpcpp.package}/bin/ncmpcpp";
           on-click-middle = "${pkgs.mpc-cli}/bin/mpc toggle";
           on-click-right = "";
           smooth-scrolling-threshold = 0.16;
@@ -82,7 +82,7 @@ in {
           tooltip-format = "{ifname}";
           tooltip-format-wifi = "{essid} ({signalStrength}%) 󰖩";
           tooltip-format-disconnected = "Disconnected";
-          on-click = "uwsm app -- ${termapp} ${pkgs.nload}/bin/nload";
+          on-click = "${termapp} ${pkgs.nload}/bin/nload";
           max-length = 50;
           interval = 1;
         };
@@ -99,7 +99,7 @@ in {
             car = "󰄍";
             default = "󰕾";
           };
-          on-click = "uwsm app -- ${termapp} ${pkgs.pulsemixer}/bin/pulsemixer";
+          on-click = "${termapp} ${pkgs.pulsemixer}/bin/pulsemixer";
           on-scroll-up = "${pkgs.pamixer}/bin/pamixer -ui 2 && ${pkgs.pamixer}/bin/pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock";
           on-scroll-down = "${pkgs.pamixer}/bin/pamixer -ud 2 && ${pkgs.pamixer}/bin/pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock";
           smooth-scrolling-threshold = 0.16;
@@ -113,7 +113,7 @@ in {
           format = "{capacity}% {icon}";
           format-icons = ["󱃍" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
           max-length = 25;
-          on-click = "uwsm app -- ${run-or-raise} powersupply ${lib.getExe pkgs.powersupply}";
+          on-click = "${run-or-raise} powersupply ${lib.getExe pkgs.powersupply}";
         };
         backlight = {
           format = "{percent}% {icon}";
