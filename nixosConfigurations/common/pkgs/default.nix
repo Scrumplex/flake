@@ -18,6 +18,7 @@ in {
         "teamspeak-server" # universe TS3 Server
         "unrar" # eclipse sabnzbd
         "anydesk"
+        "epsonscan2" # printing module
       ])
       || builtins.any (lib.flip lib.hasPrefix (lib.getName pkg)) ["cuda" "libcu" "libn"];
 
