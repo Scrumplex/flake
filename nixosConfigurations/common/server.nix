@@ -3,6 +3,8 @@
 
   environment.systemPackages = with pkgs; [kitty.terminfo htop nload tcpdump];
 
+  networking.useNetworkd = true;
+
   programs.neovim = {
     enable = true;
     configure.customRC = ''
