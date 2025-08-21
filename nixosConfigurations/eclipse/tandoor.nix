@@ -6,29 +6,21 @@
     }
   ];
 
-  services.postgresql = {
-    ensureDatabases = [config.services.tandoor-recipes.user];
-    ensureUsers = [
-      {
-        name = config.services.tandoor-recipes.user;
-        ensureDBOwnership = true;
-      }
-    ];
-  };
+  age.secrets."tandoor-recipes.env".file = ../../secrets/eclipse/tandoor-recipes.env.age;
 
   services.tandoor-recipes = {
     enable = true;
     port = 22001;
+    database.createLocally = true;
     extraConfig = {
       # TODO: use something better
       GUNICORN_MEDIA = true;
-
-      DB_ENGINE = "django.db.backends.postgresql";
-      POSTGRES_HOST = "/run/postgresql";
-      POSTGRES_USER = config.services.tandoor-recipes.user;
-      POSTGRES_DB = config.services.tandoor-recipes.user;
     };
   };
+
+  systemd.services."tandoor-recipes".serviceConfig.EnvironmentFile = [
+    config.age.secrets."tandoor-recipes.env".path
+  ];
 
   services.traefik.dynamicConfigOptions.http = {
     routers.tandoor = {
