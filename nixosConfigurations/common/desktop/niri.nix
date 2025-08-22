@@ -24,8 +24,11 @@
     "Mod+Shift+${toString workspace}".action = inputs.niri.lib.kdl.magic-leaf "move-column-to-workspace" workspace;
   };
 in {
-  hm.imports = [inputs.niri.homeModules.config];
+  imports = [inputs.niri.nixosModules.niri];
   nixpkgs.overlays = [inputs.niri.overlays.niri];
+
+  # we use lxqt pk agent
+  systemd.user.services.niri-flake-polkit.enable = false;
 
   primaryUser.extraGroups = ["video" "input"];
 
@@ -40,7 +43,6 @@ in {
   };
 
   hm.programs.niri = {
-    package = config.programs.niri.package;
     settings = {
       input = {
         keyboard = {
