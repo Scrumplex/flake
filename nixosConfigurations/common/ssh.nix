@@ -15,10 +15,7 @@
 in {
   hm.programs.ssh = {
     enable = true;
-
-    controlMaster = "auto";
-    controlPath = "~/.ssh/sockets/master-%r@%n:%p";
-    controlPersist = "10m";
+    enableDefaultConfig = false;
 
     matchBlocks = mkMerge [
       (mkGitAlias "gitlab.com")
@@ -27,6 +24,11 @@ in {
       (mkGitAlias "codeberg.org")
       (mkGitAlias "gitlab.freedesktop.org")
       {
+        "*" = {
+          controlMaster = "auto";
+          controlPath = "~/.ssh/sockets/master-%r@%n:%p";
+          controlPersist = "10m";
+        };
         "cosmos.lan" = {
           user = "root";
           identityFile = identityFile;
