@@ -32,14 +32,12 @@
 
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
-  services.logind = {
-    powerKey = "suspend-then-hibernate";
-    lidSwitch = "suspend-then-hibernate";
-    lidSwitchExternalPower = "suspend-then-hibernate";
-    extraConfig = ''
-      PowerKeyIgnoreInhibited=yes
-      LidSwitchIgnoreInhibited=yes
-    '';
+  services.logind.settings.Login = {
+    HandlePowerKey = "suspend-then-hibernate";
+    HandleLidSwitch = "suspend-then-hibernate";
+    HandleLidSwitchExternalPower = "suspend-then-hibernate";
+    PowerKeyIgnoreInhibited = true;
+    LidSwitchIgnoreInhibited = true;
   };
 
   systemd.sleep.extraConfig = ''
