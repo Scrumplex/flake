@@ -15,6 +15,6 @@
         "mode=dnd".invisible = 1;
       };
     };
-    wayland.windowManager.sway.config.keybindings = lib'.sway.mkExec "${config.hm.wayland.windowManager.sway.config.modifier}+Backspace" "${lib.getExe' config.hm.services.mako.package "makoctl"} dismiss";
+    programs.niri.settings.binds."Mod+Backspace".action = config.hm.lib.niri.actions.spawn [(lib.getExe' config.hm.services.mako.package "makoctl") "dismiss"];
   };
 }

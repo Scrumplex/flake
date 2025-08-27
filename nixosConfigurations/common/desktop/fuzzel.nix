@@ -14,7 +14,6 @@
       settings = {
         main = {
           font = "Monocraft:size=13";
-          terminal = config.hm.wayland.windowManager.sway.config.terminal;
         };
         border = {
           width = 2;
@@ -23,6 +22,9 @@
       };
     };
 
-    wayland.windowManager.sway.config.menu = lib.getExe config.hm.programs.fuzzel.package;
+    programs.niri.settings.binds."Mod+D" = {
+      hotkey-overlay.title = "Open launcher";
+      action = config.hm.lib.niri.actions.spawn [(lib.getExe config.hm.programs.fuzzel.package)];
+    };
   };
 }

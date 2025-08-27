@@ -115,20 +115,10 @@ in {
         lib.mkMerge [
           {
             "Mod+Shift+Slash".action = show-hotkey-overlay;
-            "Mod+Shift+E".action = quit;
-            "Mod+Return" = {
-              hotkey-overlay.title = "Open a terminal";
-              action = spawn ["kitty"];
-            };
-            "Mod+D" = {
-              hotkey-overlay.title = "Open launcher";
-              action = spawn ["fuzzel"];
-            };
             "Mod+Ctrl+Q" = {
               hotkey-overlay.title = "Lock the session";
               action = spawn ["loginctl" "lock-session"];
             };
-            "Mod+Backspace".action = spawn ["makoctl" "dismiss"];
 
             "XF86AudioMute" = {
               allow-when-locked = true;
@@ -265,7 +255,7 @@ in {
     };
   };
 
-  environment.systemPackages = with pkgs; [xwayland-satellite mpc brightnessctl pamixer];
+  environment.systemPackages = with pkgs; [mpc];
 
   hm.programs.fish.interactiveShellInit = lib.mkOrder 2000 ''
     test -n "$XDG_SESSION_TYPE" -a "$XDG_SESSION_TYPE" = "tty" -a -n "$XDG_VTNR" -a "$XDG_VTNR" -eq 1; and begin
