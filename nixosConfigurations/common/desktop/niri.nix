@@ -237,8 +237,8 @@ in {
             "Mod+E".action = toggle-column-tabbed-display;
             "Mod+C".action = center-column;
             "Mod+Ctrl+C".action = center-visible-columns;
-            "Mod+Space".action = toggle-window-floating;
-            "Mod+Shift+Space".action = switch-focus-between-floating-and-tiling;
+            "Mod+Space".action = switch-focus-between-floating-and-tiling;
+            "Mod+Shift+Space".action = toggle-window-floating;
           }
           {
             "Mod+Minus".action = set-column-width "-10%";
