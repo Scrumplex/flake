@@ -6,10 +6,7 @@
     }
   ];
 
-  networking.networkmanager = {
-    enable = true;
-    wifi.backend = "iwd";
-  };
+  networking.networkmanager.enable = true;
   services.avahi.enable = true;
 
   hm = {
