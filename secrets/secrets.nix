@@ -46,6 +46,7 @@ in {
   "cosmos/hetzner-traefik.env.age".publicKeys = scrumplex ++ cosmos;
   "cosmos/id_borgbase.age".publicKeys = scrumplex ++ cosmos;
   "cosmos/wireguard.key.age".publicKeys = scrumplex ++ cosmos;
+  "cosmos/wpa_supplicant.conf.age".publicKeys = scrumplex ++ cosmos;
 
   "eclipse/codeberg-oauth-secret.age".publicKeys = scrumplex ++ eclipse;
   "eclipse/codeberg-webhook-secret.age".publicKeys = scrumplex ++ eclipse;

@@ -22,6 +22,7 @@ in {
   facter.reportPath = ./facter.json;
 
   age.secrets.id_borgbase.file = ../../secrets/cosmos/id_borgbase.age;
+  age.secrets."wpa_supplicant.conf".file = ../../secrets/cosmos/wpa_supplicant.conf.age;
 
   infra.borgbase = {
     enable = true;
@@ -34,7 +35,11 @@ in {
     domain = "lan";
     interfaces.end0.useDHCP = true;
     interfaces.wlan0.useDHCP = true;
-    wireless.iwd.enable = true;
+    wireless = {
+      enable = true;
+      secretsFile = config.age.secrets."wpa_supplicant.conf".path;
+      networks."Beehive".pskRaw = "ext:psk_Beehive";
+    };
 
     firewall = {
       allowedTCPPorts = [
