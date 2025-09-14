@@ -32,7 +32,7 @@
         wob_socket=$(systemctl --user show --value --property Listen wob.socket | cut -d" " -f1)
 
         brightness=$((100*$(brightnessctl get)/$(brightnessctl max)))
-        echo "$brightness" > "$wob_socket"
+        echo "$brightness" | tee "$wob_socket"
       '';
     })
     (pkgs.writeShellApplication {
@@ -60,9 +60,9 @@
         volume=$(pamixer --get-volume)
 
         if [ "$muted" == "true" ]; then
-          echo "0" > "$wob_socket"
+          echo "0" | tee "$wob_socket"
         else
-          echo "$volume" > "$wob_socket"
+          echo "$volume" | tee "$wob_socket"
         fi
       '';
     })
@@ -85,7 +85,7 @@
         wob_socket=$(systemctl --user show --value --property Listen wob.socket | cut -d" " -f1)
 
         volume=$(mpc volume)
-        echo "$volume" > "$wob_socket"
+        echo "$volume" | tee "$wob_socket"
       '';
     })
   ];
