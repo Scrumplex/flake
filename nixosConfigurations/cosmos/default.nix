@@ -24,7 +24,6 @@ in {
         ../common/regional.nix
         ../common/remote-build-provider.nix
         ../common/server.nix
-        ../common/snapserver.nix
         ../common/traefik.nix
         ../common/upgrade.nix
         ../common/utils.nix
