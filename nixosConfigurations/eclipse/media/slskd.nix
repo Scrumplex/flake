@@ -1,19 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: let
-  settingsFormat = pkgs.formats.yaml {};
-  confWithoutNullValues = (
-    lib.filterAttrsRecursive (
-      _: value: (builtins.tryEval value).success && value != null
-    )
-    config.services.slskd.settings
-  );
-
-  configurationYaml = settingsFormat.generate "slskd.yml" confWithoutNullValues;
-in {
+{config, ...}: {
   age.secrets."slskd-creds.env" = {
     file = ../../../secrets/eclipse/slskd-creds.env.age;
     owner = "media";
@@ -35,22 +20,6 @@ in {
         downloads = "/media/slskd/downloads";
         incomplete = "/media/slskd/incomplete";
       };
-      web.authentication.api_keys."lidarr" = {
-        key = "\${SLSKD_API_KEY_LIDARR}";
-        cidr = "0.0.0.0/0,::/0";
-      };
-    };
-  };
-
-  systemd.services."slskd" = {
-    preStart = ''
-      ${pkgs.envsubst}/bin/envsubst \
-        -i "${configurationYaml}" \
-        -o "$RUNTIME_DIRECTORY/slskd.yml"
-    '';
-    serviceConfig = {
-      ExecStart = lib.mkForce "${config.services.slskd.package}/bin/slskd --app-dir \${STATE_DIRECTORY} --config \${RUNTIME_DIRECTORY}/slskd.yml";
-      RuntimeDirectory = "slskd";
     };
   };
 
