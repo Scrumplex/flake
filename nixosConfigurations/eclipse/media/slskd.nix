@@ -7,7 +7,7 @@
   settingsFormat = pkgs.formats.yaml {};
   confWithoutNullValues = (
     lib.filterAttrsRecursive (
-      key: value: (builtins.tryEval value).success && value != null
+      _: value: (builtins.tryEval value).success && value != null
     )
     config.services.slskd.settings
   );

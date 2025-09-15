@@ -8,7 +8,7 @@
   inherit (lib.lists) optional;
   inherit (lib.modules) mkAliasOptionModule;
 
-  inherit (inputs) catppuccin home-manager nix-index-database scrumpkgs;
+  inherit (inputs) catppuccin home-manager scrumpkgs;
 
   username = "scrumplex";
 in {

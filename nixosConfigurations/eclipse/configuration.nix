@@ -1,7 +1,6 @@
 {
   config,
   inputs,
-  pkgs,
   ...
 }: let
   inherit (inputs) nixos-hardware srvos;

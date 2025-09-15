@@ -14,7 +14,7 @@
       };
     };
   };
-  flake.overlays.default = final: prev: {
+  flake.overlays.default = final: _: {
     channel-notifier = final.python3.pkgs.callPackage ./channel-notifier {};
 
     linux-bpir4 = final.callPackage ./linux-bpir4.nix {};

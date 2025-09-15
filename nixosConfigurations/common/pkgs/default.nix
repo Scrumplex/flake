@@ -28,7 +28,7 @@ in {
     ];
 
     overlays = lib.mkAfter [
-      (final: prev: {
+      (_: prev: {
         discord = mkDiscordOverride prev.discord;
         discord-canary = mkDiscordOverride prev.discord-canary;
         discord-ptb = mkDiscordOverride prev.discord-ptb;

@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   age.secrets.paperless-password.file = ../../secrets/eclipse/paperless-password.age;
 
   assertions = [
