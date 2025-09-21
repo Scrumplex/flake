@@ -10,7 +10,6 @@
 
   hm.programs.beets = {
     enable = true;
-    package = pkgs.beets-unstable;
     mpdIntegration.enableUpdate = true;
     settings = {
       directory = config.hm.xdg.userDirs.music;
