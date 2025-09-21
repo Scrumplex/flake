@@ -207,7 +207,8 @@ in {
           }
           {
             "Mod+Tab".action = focus-monitor-next;
-            "Mod+Shift+Tab".action = focus-monitor-previous;
+            "Mod+Shift+Tab".action = move-column-to-monitor-next;
+            "Mod+Ctrl+Tab".action = move-workspace-to-monitor-next;
           }
           (mkMoveFocusBinds' "WheelScrollLeft" "column-left")
           (mkMoveFocusBinds' "WheelScrollRight" "column-right")
