@@ -12,6 +12,8 @@
         border-radius = "12";
         border-size = "2";
         "mode=dnd".invisible = 1;
+        outer-margin = "8,6";
+        margin = "8";
       };
     };
     programs.niri.settings.binds."Mod+Backspace".action = config.hm.lib.niri.actions.spawn [(lib.getExe' config.hm.services.mako.package "makoctl") "dismiss"];
