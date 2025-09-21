@@ -89,6 +89,10 @@ in {
             {app-id = "org.telegram.desktop";}
             {app-id = "signal";}
           ];
+          excludes = [
+            {at-startup = false;}
+            {is-urgent = false;}
+          ];
           open-on-workspace = "messages";
           open-focused = false;
         }
