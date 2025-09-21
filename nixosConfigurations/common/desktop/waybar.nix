@@ -25,6 +25,7 @@ in {
       run-or-raise = lib.getExe pkgs.run-or-raise;
     in {
       mainBar = {
+        layer = "top";
         modules-left = ["niri/workspaces" "mpd"];
         modules-center = ["clock"];
         modules-right =
