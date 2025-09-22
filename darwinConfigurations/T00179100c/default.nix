@@ -261,11 +261,7 @@
     skopeo
   ];
 
-  hm.xdg.configFile."k9s/plugins.yaml".source = pkgs.fetchurl {
-    name = "k9s-flux-plugin.yaml";
-    url = "https://github.com/derailed/k9s/raw/350439b98553f23672f7ce0b650637d0afdd4104/plugins/flux.yaml";
-    hash = "sha256-YlKmFPUNG+v3YK2tbZMMNO//qJNSgmMIDdj+31A4t/8=";
-  };
+  hm.xdg.configFile."k9s/plugins.yaml".source = "${pkgs.k9s.src}/plugins/flux.yaml";
 
   nix = {
     enable = true;
