@@ -10,11 +10,11 @@
 
   cfg = config.profile.vr;
 in {
-  options.profile.vr.enableHighPrioKernelPatch = mkEnableOption "kernel patch to allow high priority graphics for all clients";
-
   imports = [
     inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
   ];
+
+  options.profile.vr.enableHighPrioKernelPatch = mkEnableOption "kernel patch to allow high priority graphics for all clients";
 
   config = {
     profile.amdgpu.patches = mkIf cfg.enableHighPrioKernelPatch [

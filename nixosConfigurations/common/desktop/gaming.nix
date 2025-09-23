@@ -8,6 +8,10 @@
     inputs.prismlauncher.overlays.default
   ];
 
+  imports = [
+    inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
+  ];
+
   environment.systemPackages = with pkgs; [
     dolphin-emu
     prismlauncher
@@ -24,13 +28,7 @@
 
     extraCompatPackages = with pkgs; [
       proton-ge-bin
-      (proton-ge-bin.overrideAttrs (finalAttrs: _: {
-        version = "GE-Proton9-11-rtsp15";
-        src = pkgs.fetchzip {
-          url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}/${finalAttrs.version}.tar.gz";
-          hash = "sha256-3QWJUVkMgZldEXFVsry1FoKVE9y6Tg4IREAruPuL+hk=";
-        };
-      }))
+      proton-ge-rtsp-bin
     ];
   };
 
