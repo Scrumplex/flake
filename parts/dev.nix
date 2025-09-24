@@ -14,7 +14,7 @@
       '';
 
       packages =
-        [self'.formatter inputs'.agenix.packages.agenix pkgs.just pkgs.jinja2-cli]
+        [self'.formatter pkgs.just pkgs.nix-output-monitor]
         ++ lib.optionals (builtins.elem system lib.platforms.darwin) [
           inputs'.nix-darwin.packages.darwin-rebuild
         ];

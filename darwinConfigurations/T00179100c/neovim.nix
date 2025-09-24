@@ -10,6 +10,8 @@
   programs.nixvim = {
     enable = true;
 
+    nixpkgs.useGlobalPackages = true;
+
     enableMan = false;
 
     extraPackages = with pkgs; [

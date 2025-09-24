@@ -7,6 +7,7 @@
 }: {
   imports = [
     inputs.home-manager.darwinModules.home-manager
+    inputs.nix-index-database.darwinModules.nix-index
     inputs.mac-app-util.darwinModules.default
     ./neovim.nix
 
@@ -14,6 +15,8 @@
   ];
   system.primaryUser = "A105227727";
   hm.xdg.enable = true;
+
+  programs.nix-index-database.comma.enable = true;
 
   programs.fish.enable = true;
   programs.zsh.enable = true;
@@ -26,7 +29,6 @@
       builtins.attrValues inputs.scrumpkgs.hmModules
       ++ [
         inputs.catppuccin.homeModules.catppuccin
-        inputs.nix-index-database.hmModules.nix-index
         inputs.mac-app-util.homeManagerModules.default
       ];
     extraSpecialArgs = {
