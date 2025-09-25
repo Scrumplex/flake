@@ -36,7 +36,7 @@
 
   services.power-profiles-daemon.enable = true;
 
-  services.logind.powerKey = "suspend";
+  services.logind.settings.Login.HandlePowerKey = "suspend";
 
   system.stateVersion = "23.11";
 }
