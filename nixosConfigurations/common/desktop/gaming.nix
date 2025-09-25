@@ -8,10 +8,6 @@
     inputs.prismlauncher.overlays.default
   ];
 
-  imports = [
-    inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
-  ];
-
   environment.systemPackages = with pkgs; [
     dolphin-emu
     prismlauncher
@@ -28,7 +24,6 @@
 
     extraCompatPackages = with pkgs; [
       proton-ge-bin
-      proton-ge-rtsp-bin
     ];
   };
 
