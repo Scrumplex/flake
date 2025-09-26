@@ -4,6 +4,7 @@ profiles.identifyProfile "bananapi_bpi-r4"
   packages = [
     "-libustream-mbedtls"
     "-wpad-basic-mbedtls"
+    "atlas-probe"
     "dawn"
     "luci"
     "luci-app-dawn"
@@ -13,6 +14,7 @@ profiles.identifyProfile "bananapi_bpi-r4"
     "luci-ssl-openssl"
     "luci-ssl-openssl"
     "qrencode"
+    "tcpdump"
     "wpad-openssl"
   ];
 }
