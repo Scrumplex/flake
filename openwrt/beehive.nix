@@ -13,6 +13,7 @@ profiles.identifyProfile "bananapi_bpi-r4"
     "luci-proto-wireguard"
     "luci-ssl-openssl"
     "luci-ssl-openssl"
+    "openssh-client-utils" # RIPE Atlas Probe needs OpenSSH keygen
     "qrencode"
     "tcpdump"
     "wpad-openssl"
