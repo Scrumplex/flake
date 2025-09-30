@@ -44,7 +44,7 @@
     interfaces.ens3.ipv6 = {
       addresses = [
         {
-          address = "2a0a:4cc0:c0:335:8238:c03b:a699:0288";
+          address = "2a03:4000:7:7a3:8238:c03b:a699:288";
           prefixLength = 64;
         }
       ];
