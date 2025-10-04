@@ -11,6 +11,30 @@ resource "hetznerdns_record" "rootcaa_sefa_cloud" {
   type     = "CAA"
 }
 
+resource "hetznerdns_record" "cosmos4_sefa_cloud" {
+  zone_id = hetznerdns_zone.sefa_cloud.id
+  name    = "cosmos"
+  value   = "10.0.0.11"
+  type    = "A"
+}
+
+resource "hetznerdns_record" "cosmos6_sefa_cloud" {
+  zone_id = hetznerdns_zone.sefa_cloud.id
+  name    = "cosmos"
+  value   = "fd19:783f:b287:0:dea6:32ff:fe54:1a63"
+  type    = "AAAA"
+}
+
+resource "hetznerdns_record" "cosmoscnames_sefa_cloud" {
+  for_each = toset([
+    "asf",
+  ])
+  zone_id = hetznerdns_zone.sefa_cloud.id
+  name    = "${each.key}.cosmos"
+  value   = "cosmos.sefa.cloud."
+  type    = "CNAME"
+}
+
 resource "hetznerdns_record" "eclipse4_sefa_cloud" {
   zone_id = hetznerdns_zone.sefa_cloud.id
   name    = "eclipse"
