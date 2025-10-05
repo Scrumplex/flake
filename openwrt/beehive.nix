@@ -4,7 +4,7 @@ profiles.identifyProfile "bananapi_bpi-r4"
   packages = [
     "-libustream-mbedtls"
     "-wpad-basic-mbedtls"
-    "atlas-probe"
+    "atlas-sw-probe"
     "dawn"
     "luci"
     "luci-app-dawn"
