@@ -459,11 +459,11 @@
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
       },
       "locked": {
-        "lastModified": 1759820832,
-        "narHash": "sha256-KEzV85mFhHfXSlMpP8f1cPLHPuyx8P8hZPOXme+2mn4=",
+        "lastModified": 1759909257,
+        "narHash": "sha256-ZGEBkK8ZQ370ifJO+1TOQ87m9Gmj52uzqcqysd/lolI=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "69338e0c19d81b3ce6f793934d1a5c0671aff821",
+        "rev": "0d12957ebc8e272e3fc3830549edbb1ad63c34d4",
         "type": "github"
       },
       "original": {
@@ -673,11 +673,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1759887103,
-        "narHash": "sha256-sMeJhqKF+twawGHCJ6aL/EVuJQ3V2xNvDFiA0p1Ih9w=",
+        "lastModified": 1759972950,
+        "narHash": "sha256-bX7OBVUiR3q/WPecSoOVEkcjbZCh8GxonGizFVZnzi8=",
         "owner": "nix-community",
         "repo": "nixpkgs-xr",
-        "rev": "c7452173516921921ca31b123920adf21e3526ad",
+        "rev": "01c767cb6e84fbb94e0ea49697a4b8fafb595694",
         "type": "github"
       },
       "original": {
@@ -714,11 +714,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1759878636,
-        "narHash": "sha256-yKMf+iG5KmQkMamtT8wWNFwyjSiluHyH683OcpJh/kQ=",
+        "lastModified": 1759927289,
+        "narHash": "sha256-EWdwR9l+JG466rPuNmjjzDPvQAuh37lmhgWa2xeaMdk=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "c074710027ce3047382326d1fcc1a4e174cccfcc",
+        "rev": "57006a3ace4a3c889ab61b70fd5d8b197de8314e",
         "type": "github"
       },
       "original": {
@@ -736,11 +736,11 @@
         "systems": "systems_5"
       },
       "locked": {
-        "lastModified": 1759825511,
-        "narHash": "sha256-iTQ4p+QWL+9lr8C5iSk8RZ0G914gYklsdIhM48zUIC8=",
+        "lastModified": 1759912023,
+        "narHash": "sha256-jsfFCpfBrPRoIjO0OWZj/xI+CH+pSnkmUXN/v5VYydw=",
         "owner": "astro",
         "repo": "nix-openwrt-imagebuilder",
-        "rev": "a684b627ae1783771557a9640b6fccff1505ba51",
+        "rev": "006629a82f7b657590e5098c14ce4ea1c43ef25a",
         "type": "github"
       },
       "original": {
@@ -855,11 +855,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1759825189,
-        "narHash": "sha256-vQpjGMctVMz5sJIj8DOXoKb2VditOCexKdG4XZyi2rE=",
+        "lastModified": 1759926346,
+        "narHash": "sha256-S5Bbz0gh27VB/W1OA28px88Ud8xifEWlGjXfhP/m0Yw=",
         "owner": "Scrumplex",
         "repo": "pkgs",
-        "rev": "231bab872c9c11fd1885179375456c3b2ddb4dea",
+        "rev": "72e046e5a92987feee23ab3cd2e2487848085390",
         "type": "github"
       },
       "original": {
