@@ -10,19 +10,6 @@
 
   system.rebuild.enableNg = true;
 
-  services.openssh.enable = true;
-
-  security.sudo = {
-    extraConfig = ''
-      Defaults lecture = always
-      Defaults lecture_file = ${../../misc/lecture.txt}
-      Defaults pwfeedback
-      Defaults passwd_timeout=0
-    '';
-  };
-
-  environment.systemPackages = with pkgs; [just];
-
   programs.adb.enable = true;
 
   networking.firewall = {
@@ -38,23 +25,5 @@
     ];
   };
 
-  services.udev.packages = with pkgs; [meletrix-udev-rules];
-
   services.udisks2.enable = true;
-
-  security.sudo.extraRules = [
-    {
-      groups = ["wheel"];
-      commands = [
-        {
-          command = "/run/current-system/sw/bin/nixos-rebuild";
-          options = ["NOPASSWD"];
-        }
-        {
-          command = "/run/current-system/sw/bin/systemctl";
-          options = ["NOPASSWD"];
-        }
-      ];
-    }
-  ];
 }

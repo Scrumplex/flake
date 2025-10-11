@@ -357,6 +357,21 @@
         "url": "https://codeberg.org/Scrumplex/honeylinks.git"
       }
     },
+    "import-tree": {
+      "locked": {
+        "lastModified": 1752730890,
+        "narHash": "sha256-GES8fapSLGz36MMPRVNkSUWXUTtqvGQNXHjRmRLfJUY=",
+        "owner": "vic",
+        "repo": "import-tree",
+        "rev": "6ebb8cb87987b20264c09296166543fd3761d274",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vic",
+        "repo": "import-tree",
+        "type": "github"
+      }
+    },
     "inhibridge": {
       "inputs": {
         "flake-parts": [
@@ -799,6 +814,7 @@
         "git-hooks": "git-hooks",
         "home-manager": "home-manager",
         "honeylinks-website": "honeylinks-website",
+        "import-tree": "import-tree",
         "inhibridge": "inhibridge",
         "jovian": "jovian",
         "lanzaboote": "lanzaboote",

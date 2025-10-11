@@ -1,4 +1,5 @@
 {
+  fpConfig,
   inputs,
   pkgs,
   ...
@@ -9,9 +10,10 @@
     ./desktop/niri.nix
     ./disks.nix
     ./keyd.nix
-    ./networkmanager.nix
     ./swapfile.nix
     ./wireguard.nix
+
+    fpConfig.flake.modules.nixos.laptop
 
     inputs.nixos-facter-modules.nixosModules.facter
     inputs.nixos-hardware.nixosModules.framework-12th-gen-intel

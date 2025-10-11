@@ -6,6 +6,7 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    import-tree.url = "github:vic/import-tree";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     srvos = {
       url = "github:nix-community/srvos";
@@ -155,6 +156,8 @@
         ./parts/checks.nix
         ./parts/dev.nix
         ./parts/nixpkgs-dev.nix
+
+        (inputs.import-tree ./nix)
       ];
 
       systems = [

@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  config,
+  inputs,
+  ...
+}: {
   _module.args.lib' = {
     mkHost = {
       hostName,
@@ -14,6 +18,7 @@
 
         specialArgs = {
           inherit inputs;
+          fpConfig = config;
         };
       };
     };

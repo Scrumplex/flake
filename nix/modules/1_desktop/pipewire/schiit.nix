@@ -1,15 +1,6 @@
-{pkgs, ...}: {
-  security.rtkit.enable = true;
-  primaryUser.extraGroups = ["rtkit"];
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-
-    wireplumber.configPackages = [
+{
+  flake.modules.nixos.desktop = {pkgs, ...}: {
+    services.pipewire.wireplumber.configPackages = [
       (pkgs.writeTextFile {
         name = "schiit-wireplumber-rules";
         text = ''
@@ -30,20 +21,5 @@
         destination = "/share/wireplumber/main.lua.d/51-schiit.lua";
       })
     ];
-  };
-
-  hm.services.pipewire = {
-    enable = true;
-    instances = {
-      compressor = {
-        config = ./compressor.conf;
-        extraPackages = [pkgs.calf];
-      };
-      desktop-source = {config = ./desktop-source.conf;};
-      #equalizer = {
-      #  config = ./equalizer.conf;
-      #  extraPackages = [ pkgs.lsp-plugins ];
-      #};
-    };
   };
 }
