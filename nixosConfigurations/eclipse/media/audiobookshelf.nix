@@ -4,6 +4,8 @@
     port = 23232;
   };
 
+  systemd.services.traefik.unitConfig.RequiredMountsFor = "/media";
+
   services.traefik.dynamicConfigOptions.http = {
     routers.audiobookshelf = {
       entryPoints = ["websecure"];

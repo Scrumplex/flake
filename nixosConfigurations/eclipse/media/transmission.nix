@@ -9,7 +9,7 @@
     enable = true;
     user = "media";
     group = "media";
-    package = pkgs.transmission_3.override {miniupnpc = pkgs.hello;};
+    package = pkgs.transmission_4;
     openPeerPorts = true;
     home = "/media/transmission";
     downloadDirPermissions = "770";
@@ -22,6 +22,8 @@
     };
     credentialsFile = config.age.secrets."transmission-creds.json".path;
   };
+
+  systemd.services."transmission".unitConfig.RequiredMountsFor = "/media";
 
   services.traefik.dynamicConfigOptions.http = {
     routers.torrent = {

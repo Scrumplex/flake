@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   services.radarr = {
     enable = true;
     user = "media";
@@ -11,6 +15,10 @@
   };
   services.prowlarr.enable = true;
   services.jellyseerr.enable = true;
+
+  systemd.services = lib.genAttrs ["radarr" "sonarr" "prowlarr" "jellyseerr"] (_: {
+    unitConfig.RequiredMountsFor = "/media";
+  });
 
   services.traefik.dynamicConfigOptions.http = {
     routers.radarr = {

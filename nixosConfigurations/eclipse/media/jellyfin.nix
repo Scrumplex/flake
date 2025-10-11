@@ -9,6 +9,8 @@
     group = "media";
   };
 
+  systemd.services.jellyfin.unitConfig.RequiredMountsFor = "/media";
+
   users.users.${config.services.jellyfin.user}.extraGroups =
     ["video" "render"]
     ++ lib.optional config.services.syncthing.enable config.services.syncthing.group;

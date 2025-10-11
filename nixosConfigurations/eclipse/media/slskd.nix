@@ -23,6 +23,8 @@
     };
   };
 
+  systemd.services."slskd".unitConfig.RequiredMountsFor = "/media";
+
   services.traefik.dynamicConfigOptions.http = {
     routers.slskd = {
       entryPoints = ["localsecure"];

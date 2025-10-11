@@ -53,6 +53,8 @@
     };
   };
 
+  systemd.services."syncthing".unitConfig.RequiredMountsFor = "/media";
+
   services.traefik.dynamicConfigOptions.http = {
     routers.syncthing = {
       entryPoints = ["localsecure"];

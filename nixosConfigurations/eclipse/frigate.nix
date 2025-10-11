@@ -152,6 +152,8 @@ in {
     };
   };
 
+  systemd.services."docker-frigate".unitConfig.RequiresMountsFor = "/media";
+
   networking.firewall = {
     allowedTCPPorts = [
       1935

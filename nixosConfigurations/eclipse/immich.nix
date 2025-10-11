@@ -7,6 +7,8 @@
 
   users.users.immich.extraGroups = ["video" "render"];
 
+  systemd.services."immich".unitConfig.RequiresMountsFor = "/media";
+
   services.traefik.dynamicConfigOptions.http = {
     routers.immich = {
       entryPoints = ["websecure"];

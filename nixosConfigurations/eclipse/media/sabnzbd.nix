@@ -5,6 +5,8 @@
     group = "media";
   };
 
+  systemd.services.sabnzbd.unitConfig.RequiredMountsFor = "/media";
+
   services.traefik.dynamicConfigOptions.http = {
     routers.sabnzbd = {
       entryPoints = ["localsecure"];

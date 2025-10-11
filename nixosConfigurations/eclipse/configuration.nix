@@ -3,10 +3,9 @@
   inputs,
   ...
 }: let
-  inherit (inputs) nixos-hardware srvos;
+  inherit (inputs) nixos-facter-modules nixos-hardware srvos;
 in {
   imports = [
-    ./hardware-configuration.nix
     ./actual.nix
     ./boot.nix
     ./buildbot.nix
@@ -27,12 +26,16 @@ in {
     ./vaultwarden.nix
     ./wireguard.nix
 
+    nixos-facter-modules.nixosModules.facter
     nixos-hardware.nixosModules.common-cpu-amd-pstate
     nixos-hardware.nixosModules.common-gpu-amd
     nixos-hardware.nixosModules.common-pc-ssd
     srvos.nixosModules.server
     srvos.nixosModules.mixins-systemd-boot
   ];
+
+  facter.reportPath = ./facter.json;
+  hardware.enableRedistributableFirmware = true;
 
   age.secrets.id_borgbase.file = ../../secrets/eclipse/id_borgbase.age;
 
@@ -85,6 +88,31 @@ in {
       ];
     hashedPassword = "$y$j9T$JbosTEvX3uH6.mFV/Sz071$6vVkITFq4INQFdf51.guqaD68JWp6ZcVNGVfPqqIzL/";
   };
+
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/ea5c23f6-3b65-45af-8840-a1a6ef68599e";
+    fsType = "ext4";
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/783B-A3CC";
+    fsType = "vfat";
+    options = ["fmask=0022" "dmask=0022"];
+  };
+
+  fileSystems."/media" = {
+    device = "/dev/disk/by-uuid/26c61352-6e8d-4b09-866f-f7a3c8e7a80c";
+    fsType = "ext4";
+  };
+
+  boot.initrd.kernelModules = [
+    "dm-raid"
+    "dm-cache-default"
+  ];
+
+  systemd.services.docker.unitConfig.RequiresMountsFor = "/media";
+
+  swapDevices = [];
 
   system.stateVersion = "23.05";
 }
