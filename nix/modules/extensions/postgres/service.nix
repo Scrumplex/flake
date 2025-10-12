@@ -1,7 +1,7 @@
 {lib, ...}: let
   inherit (lib) mkIf mkOption types;
 in {
-  flake.modules.ext-postgres = {
+  flake.modules.nixos.ext-postgres = {
     config,
     pkgs,
     ...

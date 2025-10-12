@@ -1,5 +1,6 @@
 {
   config,
+  fpConfig,
   inputs,
   ...
 }: {
@@ -17,6 +18,8 @@
     ./synapse.nix
     ./teamspeak3.nix
     ./wireguard.nix
+
+    fpConfig.flake.modules.nixos.server
 
     inputs.nixos-facter-modules.nixosModules.facter
     inputs.srvos.nixosModules.server

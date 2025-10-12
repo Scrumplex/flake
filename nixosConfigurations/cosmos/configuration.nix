@@ -15,6 +15,7 @@ in {
     ./traefik.nix
     ./wireguard.nix
 
+    fpConfig.flake.modules.nixos.server
     fpConfig.flake.modules.nixos.ext-docker
 
     srvos.nixosModules.server

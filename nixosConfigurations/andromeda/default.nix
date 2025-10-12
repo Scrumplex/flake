@@ -4,7 +4,6 @@
     modules = [
       ../common
       ../common/amdgpu
-      ../common/bat.nix
       ../common/boot
       ../common/desktop
       ../common/desktop/anydesk.nix
@@ -25,7 +24,6 @@
       ../common/desktop/niri.nix
       ../common/desktop/obs.nix
       ../common/desktop/orca-slicer.nix
-      ../common/desktop/pipewire
       ../common/desktop/polkit-agent.nix
       ../common/desktop/portfolio-performance.nix
       ../common/desktop/poweralertd.nix
@@ -44,15 +42,9 @@
       ../common/git.nix
       ../common/gpg.nix
       ../common/home.nix
-      ../common/htop.nix
       ../common/libvirtd.nix
       ../common/misc.nix
-      ../common/mpd.nix
-      ../common/mpv.nix
       ../common/neovim.nix
-      ../common/nix-index.nix
-      ../common/nix.nix
-      ../common/openssh.nix
       ../common/pkgs
       ../common/podman.nix
       ../common/printing.nix
@@ -65,7 +57,6 @@
       ../common/ssh.nix
       ../common/syncthing.nix
       ../common/tty.nix
-      ../common/utils.nix
       ../common/v4l2loopback.nix
       ../common/wireshark.nix
 

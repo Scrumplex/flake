@@ -1,4 +1,5 @@
 {
+  fpConfig,
   inputs,
   pkgs,
   ...
@@ -7,14 +8,13 @@
     ../common
     ../common/boot
     ../common/fish.nix
-    ../common/home.nix
     ../common/neovim.nix
-    ../common/nix.nix
-    ../common/openssh.nix
     ../common/regional.nix
-    ../common/utils.nix
+    ../common/home.nix
 
     ./disks.nix
+
+    fpConfig.flake.modules.nixos.laptop
 
     inputs.nixos-facter-modules.nixosModules.facter
     inputs.jovian.nixosModules.jovian

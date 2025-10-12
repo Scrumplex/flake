@@ -17,16 +17,11 @@ in {
         ../common
         ../common/netcup.nix
         ../common/nginx.nix
-        ../common/nix.nix
-        ../common/nix-index.nix
-        ../common/openssh.nix
         ../common/pkgs
         ../common/podman.nix
-        ../common/postgres.nix
         ../common/regional.nix
         ../common/server.nix
         ../common/upgrade.nix
-        ../common/utils.nix
 
         ./configuration.nix
       ]

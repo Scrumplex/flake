@@ -14,10 +14,7 @@ in {
           extraFlags = ["--verbose" "--print-build-logs"];
         })
         ../common
-        ../common/nix.nix
-        ../common/openssh.nix
         ../common/server.nix
-        ../common/utils.nix
 
         ./configuration.nix
         ./disks.nix
