@@ -12,7 +12,6 @@ in {
   ];
 
   home-manager.sharedModules = [
-    inputs.catppuccin.homeModules.catppuccin
     inputs.scrumpkgs.hmModules.waybar-camera-blank
     inputs.scrumpkgs.hmModules.waybar-pa-mute
   ];
