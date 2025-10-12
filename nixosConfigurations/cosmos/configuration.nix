@@ -1,5 +1,6 @@
 {
   config,
+  fpConfig,
   inputs,
   pkgs,
   ...
@@ -13,6 +14,8 @@ in {
     ./home-assistant.nix
     ./traefik.nix
     ./wireguard.nix
+
+    fpConfig.flake.modules.nixos.ext-docker
 
     srvos.nixosModules.server
     nixos-hardware.nixosModules.raspberry-pi-4

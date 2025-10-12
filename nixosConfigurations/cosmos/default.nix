@@ -15,7 +15,6 @@ in {
         })
 
         ../common
-        ../common/docker.nix
         ../common/nix.nix
         ../common/nix-index.nix
         ../common/nullmailer.nix

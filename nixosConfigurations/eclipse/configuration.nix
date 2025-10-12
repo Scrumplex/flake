@@ -1,5 +1,6 @@
 {
   config,
+  fpConfig,
   inputs,
   ...
 }: let
@@ -25,6 +26,8 @@ in {
     ./traefik.nix
     ./vaultwarden.nix
     ./wireguard.nix
+
+    fpConfig.flake.modules.nixos.ext-docker
 
     nixos-facter-modules.nixosModules.facter
     nixos-hardware.nixosModules.common-cpu-amd-pstate
