@@ -1,23 +1,13 @@
-{
-  config,
-  lib,
-  ...
-}: let
-  inherit (lib) mkMerge;
-
-  identityFile = "${config.hm.home.homeDirectory}/.ssh/id_ed25519";
+{lib, ...}: let
   mkGitAlias = host: {
-    "${host}" = {
-      user = "git";
-      inherit identityFile;
-    };
+    "${host}".user = "git";
   };
 in {
-  hm.programs.ssh = {
+  flake.modules.homeManager.desktop.programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
 
-    matchBlocks = mkMerge [
+    matchBlocks = lib.mkMerge [
       (mkGitAlias "gitlab.com")
       (mkGitAlias "git.sr.ht")
       (mkGitAlias "github.com")
@@ -31,17 +21,14 @@ in {
         };
         "cosmos.lan" = {
           user = "root";
-          identityFile = identityFile;
         };
 
         "eclipse.sefa.cloud" = {
           user = "root";
-          identityFile = identityFile;
         };
 
         "scrumplex.net" = {
           user = "root";
-          identityFile = identityFile;
         };
       }
     ];

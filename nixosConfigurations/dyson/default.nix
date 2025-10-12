@@ -22,7 +22,6 @@
       ../common/desktop/mako.nix
       ../common/desktop/messengers.nix
       ../common/desktop/niri.nix
-      ../common/desktop/obs.nix
       ../common/desktop/orca-slicer.nix
       ../common/desktop/polkit-agent.nix
       ../common/desktop/portfolio-performance.nix
@@ -47,15 +46,8 @@
       ../common/podman.nix
       ../common/printing.nix
       ../common/pulsar-x2v2.nix
-      ../common/ranger.nix
-      ../common/regional.nix
       ../common/remote-build-consumer.nix
       ../common/rtl-sdr.nix
-      ../common/ssh.nix
-      ../common/syncthing.nix
-      ../common/tty.nix
-      ../common/v4l2loopback.nix
-      ../common/wireshark.nix
 
       ./configuration.nix
     ];

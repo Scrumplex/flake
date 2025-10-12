@@ -7,6 +7,7 @@
 
     environment.systemPackages = with pkgs; [
       htop
+      ranger
 
       jq
 
@@ -37,6 +38,10 @@
       right_meter_modes=1 2 2 2
       right_meters=RightCPUs2 Tasks LoadAverage Uptime
       tree_view=1
+    '';
+
+    environment.etc."ranger/rc.conf".text = ''
+      set preview_images_method kitty
     '';
   };
 }

@@ -1,16 +1,10 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   hm.catppuccin = {
     inherit (config.catppuccin) flavor accent;
   };
   users.mutableUsers = false;
 
   system.rebuild.enableNg = true;
-
-  programs.adb.enable = true;
 
   networking.firewall = {
     allowedTCPPorts = [
