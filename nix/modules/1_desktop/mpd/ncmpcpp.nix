@@ -1,45 +1,5 @@
-{config, ...}: let
-  mpdFifoName = "FIFO";
-  mpdFifoPath = "~/.cache/mpd.fifo";
-in {
-  age.secrets."listenbrainz-token" = {
-    file = ../../secrets/common/listenbrainz-token.age;
-    owner = config.primaryUser.name;
-  };
-
-  hm = {
-    services.mpd = {
-      enable = true;
-
-      extraConfig = ''
-        zeroconf_enabled "no"
-
-        filesystem_charset "UTF-8"
-
-        restore_paused "yes"
-
-        input_cache {
-          size "1 GB"
-        }
-
-        audio_output {
-          type "pipewire"
-          name "Primary Audio Stream"
-          format "96000:32:2"
-        }
-
-        audio_output {
-          type "fifo"
-          name "${mpdFifoName}"
-          path "${mpdFifoPath}"
-          format "44100:16:2"
-        }
-      '';
-    };
-    services.listenbrainz-mpd = {
-      enable = true;
-      settings.submission.token_file = config.age.secrets."listenbrainz-token".path;
-    };
+{
+  flake.modules.homeManager.desktop = {config, ...}: {
     programs.ncmpcpp = {
       enable = true;
       bindings = [
@@ -77,8 +37,8 @@ in {
         }
       ];
       settings = {
-        visualizer_data_source = mpdFifoPath;
-        visualizer_output_name = mpdFifoName;
+        visualizer_output_name = config.services.mpd.fifo.name;
+        visualizer_data_source = config.services.mpd.fifo.path;
         visualizer_in_stereo = "yes";
 
         volume_change_step = 2;

@@ -44,8 +44,6 @@
       ../common/gpg.nix
       ../common/home.nix
       ../common/libvirtd.nix
-      ../common/mpd.nix
-      ../common/mpv.nix
       ../common/neovim.nix
       ../common/pkgs
       ../common/podman.nix
