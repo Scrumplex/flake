@@ -75,6 +75,5 @@ in {
   "secrets/common/Beehive.psk.age".publicKeys = cosmos ++ sonic ++ scrumplex;
   "secrets/common/mqtt-password.age".publicKeys = scrumplex ++ universe ++ cosmos ++ eclipse;
   "secrets/common/bob-the-builder.key.age".publicKeys = scrumplex ++ andromeda ++ dyson;
-  "secrets/common/nullmailer-remotes.age".publicKeys = scrumplex ++ universe ++ cosmos ++ eclipse;
   "secrets/common/screenshot-bash.age".publicKeys = andromeda ++ dyson ++ scrumplex;
 }
