@@ -7,7 +7,7 @@ frigate:
   image:
     registry: ghcr.io
     repository: blakeblackshear/frigate
-    tag: stable@sha256:c4e02d2c511847eebbda8e0e370b41c78e7b51247353de79340e06c3e95f11be
+    tag: stable@sha256:cb6624b9075f76ece626139eedca7e728cab1456a5f8c351afbf877320826bc1
 
 home-assistant:
   image:
