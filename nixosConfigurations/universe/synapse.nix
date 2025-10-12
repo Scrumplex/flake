@@ -15,7 +15,7 @@
     group = "matrix-synapse";
   };
 
-  common.postgresql.initScript = ''
+  services.postgresql.initScript = ''
     CREATE ROLE "matrix-synapse";
     CREATE DATABASE "matrix-synapse" WITH OWNER "matrix-synapse"
       TEMPLATE template0
