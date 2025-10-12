@@ -10,6 +10,9 @@
 
   programs.nixvim = {
     enable = true;
+
+    nixpkgs.useGlobalPackages = true;
+
     defaultEditor = true;
 
     enableMan = false;
@@ -155,7 +158,7 @@
       };
       neo-tree = {
         enable = true;
-        closeIfLastWindow = true;
+        settings.close_if_last_window = true;
       };
       lsp = {
         enable = true;
