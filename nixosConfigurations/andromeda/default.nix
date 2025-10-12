@@ -5,7 +5,6 @@
       ../common
       ../common/amdgpu
       ../common/bat.nix
-      ../common/bluetooth.nix
       ../common/boot
       ../common/desktop
       ../common/desktop/anydesk.nix
