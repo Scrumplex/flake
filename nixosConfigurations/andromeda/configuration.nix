@@ -1,4 +1,5 @@
 {
+  fpConfig,
   inputs,
   pkgs,
   ...
@@ -12,6 +13,8 @@
     ./networking.nix
     ./ustreamer.nix
     ./wireguard.nix
+
+    fpConfig.flake.modules.nixos.workstation
 
     inputs.nixos-facter-modules.nixosModules.facter
     inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate

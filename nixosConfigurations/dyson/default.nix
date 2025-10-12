@@ -3,7 +3,6 @@
     hostName = "dyson";
     modules = [
       ../common
-      ../common/beets.nix
       ../common/bluetooth.nix
       ../common/boot
       ../common/boot/plymouth.nix

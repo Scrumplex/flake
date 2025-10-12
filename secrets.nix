@@ -17,7 +17,8 @@ let
   centauri = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIY8VwneXuBfB88eQqz48LFkfCgIghlBNzbeqyL99EcP"];
   eclipse = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEgfjN4xqCCsl+XzvSFFIR4WQ18r4+G7kGcMLkTe4be6"];
 in {
-  "nix/modules/1_desktop/mpd/listenbrainz-token.age".publicKeys = andromeda ++ dyson ++ scrumplex;
+  "nix/modules/class/desktop/music/listenbrainz-token.age".publicKeys = andromeda ++ dyson ++ scrumplex;
+  "nix/modules/class/desktop/music/beets-secrets.yaml.age".publicKeys = andromeda ++ dyson ++ scrumplex;
 
   "secrets/andromeda/borgbase-repokey.age".publicKeys = andromeda ++ scrumplex;
   "secrets/andromeda/cache-key.age".publicKeys = andromeda ++ scrumplex;
@@ -72,8 +73,6 @@ in {
   "secrets/eclipse/yt-dlp-targets.age".publicKeys = scrumplex ++ eclipse;
 
   "secrets/common/Beehive.psk.age".publicKeys = cosmos ++ sonic ++ scrumplex;
-  "secrets/common/beets-secrets.yaml.age".publicKeys = andromeda ++ dyson ++ scrumplex;
-  "secrets/common/listenbrainz-token.age".publicKeys = andromeda ++ dyson ++ scrumplex;
   "secrets/common/mqtt-password.age".publicKeys = scrumplex ++ universe ++ cosmos ++ eclipse;
   "secrets/common/bob-the-builder.key.age".publicKeys = scrumplex ++ andromeda ++ dyson;
   "secrets/common/nullmailer-remotes.age".publicKeys = scrumplex ++ universe ++ cosmos ++ eclipse;
