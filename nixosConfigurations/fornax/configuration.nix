@@ -9,7 +9,6 @@
     ../common/boot
     ../common/fish.nix
     ../common/neovim.nix
-    ../common/regional.nix
     ../common/home.nix
 
     ./disks.nix
