@@ -118,14 +118,16 @@ in {
           matches = [
             {
               app-id = "steam";
-              title = "^notificationtoasts_\d+_desktop$";
+              title = "^notificationtoasts_[0-9]+_desktop$";
             }
           ];
           default-floating-position = {
-            x = 10;
-            y = 10;
+            x = 0;
+            y = 0;
             relative-to = "bottom-right";
           };
+          open-focused = false;
+          focus-ring.enable = false;
         }
       ];
       binds = with config.hm.lib.niri.actions;
