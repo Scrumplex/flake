@@ -7,7 +7,6 @@
   imports = [
     ../common
     ../common/boot
-    ../common/fish.nix
     ../common/neovim.nix
     ../common/home.nix
 

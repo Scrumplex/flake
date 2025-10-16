@@ -1,39 +1,34 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
-  programs.fish.enable = true;
-  primaryUser.shell = pkgs.fish;
+{config, ...}: {
+  flake.modules.nixos.desktop = {pkgs, ...}: {
+    programs.fish = {
+      enable = true;
+      package = pkgs.fish;
+    };
+    users.users.${config.flake.meta.username}.shell = pkgs.fish;
+  };
 
-  environment.systemPackages = with pkgs; [
-    fd
-    file
-    libqalculate
-    parallel
-    ripgrep
-    tree
-  ];
-
-  hm = {
+  flake.modules.homeManager.desktop = {pkgs, ...}: {
+    catppuccin.eza.enable = true;
     catppuccin.fish.enable = true;
-    # allow apps like uwsm to read HM vars
+    catppuccin.fzf.enable = true;
+
     programs.bash.enable = true;
     programs.fish = {
       enable = true;
+      package = pkgs.fish;
+
       shellInit = ''
         set -g theme_color_scheme "catppuccin"
         set -g theme_nerd_fonts "yes"
         set -g theme_title_display_process "yes"
       '';
 
-      shellAliases = lib.mkMerge [
-        {
-          ip = "ip --color=auto";
-          ll = "ls --long --all --classify";
-          ls = "eza"; # note: we rely on the alias created by eza
-        }
-      ];
+      shellAliases = {
+        ip = "ip --color=auto";
+        ll = "ls --long --all --classify";
+        ls = "eza"; # note: we rely on the alias created by eza
+      };
+
       functions.systemctl = ''
         if contains -- --user $argv
             command systemctl $argv
@@ -41,6 +36,7 @@
             sudo systemctl $argv
         end
       '';
+
       plugins = with pkgs.fishPlugins; [
         {
           name = "autopair.fish";
@@ -90,9 +86,6 @@
     programs.fzf = {
       enable = true;
       enableFishIntegration = false; # we use jethrokuan/fzf instead
-      defaultOptions = [
-        "--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD"
-      ];
     };
   };
 }

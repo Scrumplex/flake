@@ -35,7 +35,6 @@
       ../common/desktop/wlogout.nix
       ../common/desktop/wlsunset.nix
       ../common/desktop/wob.nix
-      ../common/fish.nix
       ../common/flatpak.nix
       ../common/git.nix
       ../common/gpg.nix

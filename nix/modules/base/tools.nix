@@ -18,6 +18,12 @@
       nload
       tree
 
+      fd
+      file
+      libqalculate
+      parallel
+      ripgrep
+
       pciutils
       psmisc
       usbutils
