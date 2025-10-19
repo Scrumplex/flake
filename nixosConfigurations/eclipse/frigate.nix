@@ -142,7 +142,7 @@ in {
       "--device=/dev/bus/usb:/dev/bus/usb"
       "--device=/dev/dri:/dev/dri"
       "--privileged"
-      "--shm-size=128m"
+      "--shm-size=256m"
     ];
     labels = {
       "traefik.enable" = "true";
