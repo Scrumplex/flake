@@ -39,8 +39,6 @@
   };
   srvos.boot.consoles = ["tty0"];
 
-  netcup.bootMode = "uefi";
-
   networking = {
     hostName = "universe";
     domain = "scrumplex.net";
