@@ -19,7 +19,7 @@
     ./teamspeak3.nix
     ./wireguard.nix
 
-    fpConfig.flake.modules.nixos.server
+    fpConfig.flake.modules.nixos.netcup-vps
 
     inputs.nixos-facter-modules.nixosModules.facter
     inputs.srvos.nixosModules.server

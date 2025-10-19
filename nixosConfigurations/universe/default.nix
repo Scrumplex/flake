@@ -15,7 +15,6 @@ in {
         })
 
         ../common
-        ../common/netcup.nix
         ../common/nginx.nix
         ../common/pkgs
         ../common/podman.nix

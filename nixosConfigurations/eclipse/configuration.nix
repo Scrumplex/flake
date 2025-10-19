@@ -27,7 +27,7 @@ in {
     ./vaultwarden.nix
     ./wireguard.nix
 
-    fpConfig.flake.modules.nixos.server
+    fpConfig.flake.modules.nixos.physical-server
     fpConfig.flake.modules.nixos.ext-docker
 
     nixos-facter-modules.nixosModules.facter
