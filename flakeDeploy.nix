@@ -17,7 +17,6 @@
       ];
 
       text = ''
-        export NIX_SSHOPTS="-t"
         goal="''${1:-switch}"
         flake="${self}"
         name="${name}"
