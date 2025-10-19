@@ -69,7 +69,6 @@ in {
   "secrets/eclipse/transmission-creds.json.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/vaultwarden.env.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/wireguard.key.age".publicKeys = scrumplex ++ eclipse;
-  "secrets/eclipse/wg-backdoor.key.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/yt-dlp-targets.age".publicKeys = scrumplex ++ eclipse;
 
   "secrets/common/Beehive.psk.age".publicKeys = cosmos ++ sonic ++ scrumplex;

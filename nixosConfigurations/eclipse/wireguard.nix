@@ -4,8 +4,6 @@
     owner = "systemd-network";
   };
 
-  age.secrets."wg-backdoor.key".file = ../../secrets/eclipse/wg-backdoor.key.age;
-
   networking.firewall.allowedUDPPorts = [22701];
   networking.wireguard.interfaces.wg-scrumplex = {
     ips = ["10.255.255.12/24" "fd69:5efa:5efa:5efa::12/64"];
@@ -50,22 +48,5 @@
     ];
   };
 
-  networking.wireguard.interfaces.wg-backdoor = {
-    ips = ["10.10.11.12/24"];
-
-    privateKeyFile = config.age.secrets."wg-backdoor.key".path;
-
-    peers = [
-      {
-        publicKey = "mzH2Pbsr4qow6Vhf1WQD0F/nYWFy6NlLMn4cq6/d5Rs=";
-        allowedIPs = [
-          "10.10.11.0/24"
-        ];
-        endpoint = "arson.sefa.cloud:42069";
-        persistentKeepalive = 60;
-      }
-    ];
-  };
-
-  networking.firewall.trustedInterfaces = ["wg-scrumplex" "wg-backdoor"];
+  networking.firewall.trustedInterfaces = ["wg-scrumplex"];
 }
