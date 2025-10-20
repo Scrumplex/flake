@@ -267,8 +267,8 @@ in {
             "Mod+Shift+Equal".action = set-window-height "+10%";
           }
           {
-            "Print".action = screenshot;
-            "Shift+Print".action = screenshot-window;
+            "Print".action = inputs.niri.lib.kdl.magic-leaf "screenshot";
+            "Shift+Print".action = inputs.niri.lib.kdl.magic-leaf "screenshot-window";
             "Mod+Print".action = inputs.niri.lib.kdl.magic-leaf "screenshot-screen";
           }
         ];

@@ -42,23 +42,16 @@
       enable = true;
       package = pkgs.gitAndTools.gitFull;
 
-      userName = "Sefa Eyeoglu";
-      userEmail = "contact@scrumplex.net";
-
-      delta = {
-        enable = true;
-        options.navigate = true;
-      };
-
       lfs.enable = true;
 
       signing.key = null;
 
-      aliases = {
-        unpushed = "log --branches --not --remotes --no-walk --decorate --oneline";
-      };
-
-      extraConfig = {
+      settings = {
+        alias.unpushed = "log --branches --not --remotes --no-walk --decorate --oneline";
+        user = {
+          name = "Sefa Eyeoglu";
+          email = "contact@scrumplex.net";
+        };
         core.autocrlf = "input";
         color.ui = "auto";
         diff.colorMoved = "default";
@@ -86,6 +79,11 @@
         # Replace the default set by programs.git.signing.signByDefault
         tag.gpgSign = false;
       };
+    };
+
+    programs.delta = {
+      enable = true;
+      options.navigate = true;
     };
 
     programs.eza.git = true;
