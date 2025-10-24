@@ -250,7 +250,6 @@
     signal-desktop-bin
     slack
     (discord.override {withVencord = true;})
-    bitwarden-desktop
     alt-tab-macos
 
     #inputs.flox.packages.${pkgs.system}.flox
