@@ -37,6 +37,8 @@ in {
   networking = {
     hostName = "cosmos";
     domain = "lan";
+
+    useDHCP = false;
     interfaces.end0.useDHCP = true;
 
     firewall = {
@@ -44,6 +46,11 @@ in {
         4242
       ];
     };
+  };
+
+  systemd.network.networks."40-end0" = {
+    dhcpV4Config.RouteMetric = 1024;
+    ipv6AcceptRAConfig.RouteMetric = 1024;
   };
 
   environment.systemPackages = with pkgs; [

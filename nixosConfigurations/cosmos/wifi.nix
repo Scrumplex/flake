@@ -15,6 +15,11 @@
     };
   };
 
+  systemd.network.networks."40-wlan0" = {
+    dhcpV4Config.RouteMetric = 512;
+    ipv6AcceptRAConfig.RouteMetric = 512;
+  };
+
   systemd.services."disable-wifi-powersave" = {
     description = "Disable WiFi powersave";
     after = ["wpa_supplicant.service"];
