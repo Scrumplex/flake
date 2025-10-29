@@ -1,6 +1,6 @@
 {config, ...}: {
   flake.modules.nixos.desktop = {pkgs, ...}: {
-    primaryUser.extraGroups = [config.flake.meta.username];
+    users.users.${config.flake.meta.username}.extraGroups = ["wireshark"];
 
     programs.wireshark = {
       enable = true;
