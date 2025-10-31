@@ -17,7 +17,7 @@
     libreoffice-fresh
     livecaptions
 
-    AusweisApp2
+    ausweisapp
 
     wl-clipboard
     pulsemixer
