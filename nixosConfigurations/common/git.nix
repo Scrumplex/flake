@@ -40,7 +40,7 @@
 
     programs.git = {
       enable = true;
-      package = pkgs.gitAndTools.gitFull;
+      package = pkgs.gitFull;
 
       lfs.enable = true;
 
