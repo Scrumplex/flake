@@ -36,7 +36,6 @@
       ../common/desktop/wlogout.nix
       ../common/desktop/wlsunset.nix
       ../common/desktop/wob.nix
-      ../common/git.nix
       ../common/gpg.nix
       ../common/home.nix
       ../common/libvirtd.nix

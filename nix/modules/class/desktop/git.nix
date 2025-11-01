@@ -1,10 +1,10 @@
-{pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    git-extras
-    glab
-  ];
+{
+  flake.modules.homeManager.desktop = {pkgs, ...}: {
+    home.packages = with pkgs; [
+      git-extras
+      glab
+    ];
 
-  hm = {
     catppuccin.delta.enable = true;
 
     programs.mergiraf.enable = true;
