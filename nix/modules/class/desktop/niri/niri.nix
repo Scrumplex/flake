@@ -3,15 +3,50 @@
   inputs,
   lib,
   ...
-}: {
-  flake.modules.nixos.desktop = {pkgs, ...}: {
+}: let
+  fpConfig = config;
+in {
+  flake.modules.nixos.desktop = {
+    pkgs,
+    config,
+    ...
+  }: {
     imports = [inputs.niri.nixosModules.niri];
-    nixpkgs.overlays = [inputs.niri.overlays.niri];
+    nixpkgs.overlays = [
+      inputs.niri.overlays.niri
+      (final: prev: {
+        niri-unstable = prev.niri-unstable.overrideAttrs (prevAttrs: {
+          patches =
+            prevAttrs.patches or []
+            ++ [
+              ./rr-sched.patch
+            ];
+        });
+      })
+    ];
+
+    security.wrappers."niri" = {
+      setuid = false;
+      owner = "root";
+      group = "root";
+      capabilities = "cap_sys_nice+eip";
+      source = lib.getExe pkgs.niri-unstable;
+    };
+
+    systemd.user.services."niri" = {
+      overrideStrategy = "asDropin";
+      restartIfChanged = false; # don't kill my compositor :')
+      environment.PATH = lib.mkForce null; # inherit imported session env
+      serviceConfig.ExecStart = [
+        ""
+        "${config.security.wrapperDir}/niri --session"
+      ];
+    };
 
     # we use lxqt pk agent
     systemd.user.services.niri-flake-polkit.enable = false;
 
-    users.users.${config.flake.meta.username}.extraGroups = ["video" "input"];
+    users.users.${fpConfig.flake.meta.username}.extraGroups = ["video" "input"];
 
     environment.sessionVariables = {
       "_JAVA_AWT_WM_NONREPARENTING" = "1";
