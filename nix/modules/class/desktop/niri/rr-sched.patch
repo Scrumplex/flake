@@ -1,0 +1,231 @@
+From b16e785a1a49adacf621b0c23063983ec8954298 Mon Sep 17 00:00:00 2001
+From: Rouven Czerwinski <rouven@czerwinskis.de>
+Date: Tue, 3 Jun 2025 12:30:59 +0200
+Subject: [PATCH 1/3] Try to request RR scheduling policy for main pid
+
+Try to request the minimum priority for round robin scheduling. This
+should fix input handling problems under high-load since niri should be
+scheduled with a higher priority. Tested by running niri on the tty
+backend and spawning terminals, terminals do not inherit round-robin
+scheduling.
+
+To verify RR scheduling run "ps -acT | grep niri" and also check the
+scheduling classes of spawned terminals.
+
+This currently requires the rtprio limit for the user to be set to "1"
+or CAP_SYS_NICE.
+---
+ src/main.rs | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+diff --git a/src/main.rs b/src/main.rs
+index 9654f7e9df0565983cef40b203ddc0f7504449a8..55a58e7ea9a4607b616b94fc3db3c3b99e3b4bbf 100644
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -38,6 +38,28 @@ const DEFAULT_LOG_FILTER: &str = "niri=debug,smithay::backend::renderer::gles=er
+ static GLOBAL: tracy_client::ProfiledAllocator<std::alloc::System> =
+     tracy_client::ProfiledAllocator::new(std::alloc::System, 100);
+ 
++// SCHED_RESET_ON_FORK only exists on linux
++#[cfg(target_os = "linux")]
++fn set_rt_scheduling() -> () {
++    // Set SCHED_RESET_ON_FORK and request minimal realtime round-robin prio for main pid
++    let param = libc::sched_param {
++        sched_priority: unsafe { libc::sched_get_priority_min(libc::SCHED_RR) }
++    };
++    let res = unsafe { libc::pthread_setschedparam(libc::pthread_self(), libc::SCHED_RR | libc::SCHED_RESET_ON_FORK, &param) };
++    match res {
++        libc::EPERM => debug!("No permission to set real-time policy"),
++        libc::EINVAL => debug!("RT Policy not recognized or scheduling params wrong"),
++        libc::ESRCH => debug!("Thread ID not found for RT scheduling policy"),
++        0 => (),
++        _ => warn!("Unknown failure: {res}")
++    }
++}
++
++#[cfg(not(target_os = "linux"))]
++fn set_rt_scheduling() -> () {
++    ()
++}
++
+ fn main() -> Result<(), Box<dyn std::error::Error>> {
+     // Set backtrace defaults if not set.
+     if env::var_os("RUST_BACKTRACE").is_none() {
+@@ -246,6 +268,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
+         state.niri.config_error_notification.show_created(path);
+     }
+ 
++    set_rt_scheduling();
++
+     // Run the compositor.
+     event_loop
+         .run(None, &mut state, |state| state.refresh_and_flush_clients())
+
+From 7d1e3dd4870d758fcefff059ea97f3d3126636dc Mon Sep 17 00:00:00 2001
+From: Ivan Molodetskikh <yalterz@gmail.com>
+Date: Sun, 17 Aug 2025 10:01:50 +0300
+Subject: [PATCH 2/3] fixes
+
+---
+ src/main.rs | 30 +++++++++++++++++++-----------
+ 1 file changed, 19 insertions(+), 11 deletions(-)
+
+diff --git a/src/main.rs b/src/main.rs
+index 55a58e7ea9a4607b616b94fc3db3c3b99e3b4bbf..ce27f9d19ab5c027aee967d686b27a8376211c9c 100644
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -38,25 +38,33 @@ const DEFAULT_LOG_FILTER: &str = "niri=debug,smithay::backend::renderer::gles=er
+ static GLOBAL: tracy_client::ProfiledAllocator<std::alloc::System> =
+     tracy_client::ProfiledAllocator::new(std::alloc::System, 100);
+ 
+-// SCHED_RESET_ON_FORK only exists on linux
++// SCHED_RESET_ON_FORK only exists on Linux.
+ #[cfg(target_os = "linux")]
+-fn set_rt_scheduling() -> () {
+-    // Set SCHED_RESET_ON_FORK and request minimal realtime round-robin prio for main pid
+-    let param = libc::sched_param {
+-        sched_priority: unsafe { libc::sched_get_priority_min(libc::SCHED_RR) }
++fn set_rt_scheduling() {
++    let res = unsafe {
++        // Work around libc crate exposing more fields on musl.
++        let mut param: libc::sched_param = std::mem::zeroed();
++        // Set SCHED_RESET_ON_FORK and request minimal realtime round-robin prio for main pid.
++        param.sched_priority = libc::sched_get_priority_min(libc::SCHED_RR);
++
++        libc::pthread_setschedparam(
++            libc::pthread_self(),
++            libc::SCHED_RR | libc::SCHED_RESET_ON_FORK,
++            &param,
++        )
+     };
+-    let res = unsafe { libc::pthread_setschedparam(libc::pthread_self(), libc::SCHED_RR | libc::SCHED_RESET_ON_FORK, &param) };
++
+     match res {
+-        libc::EPERM => debug!("No permission to set real-time policy"),
+-        libc::EINVAL => debug!("RT Policy not recognized or scheduling params wrong"),
+-        libc::ESRCH => debug!("Thread ID not found for RT scheduling policy"),
++        libc::EPERM => debug!("no permission to set real-time policy"),
++        libc::EINVAL => debug!("real-time policy not recognized or scheduling params wrong"),
++        libc::ESRCH => debug!("thread ID not found for real-time policy"),
+         0 => (),
+-        _ => warn!("Unknown failure: {res}")
++        _ => warn!("unknown failure setting real-time policy: {res}"),
+     }
+ }
+ 
+ #[cfg(not(target_os = "linux"))]
+-fn set_rt_scheduling() -> () {
++fn set_rt_scheduling() {
+     ()
+ }
+ 
+
+From 42eb32c9c079f3be09368d4b2e4d2c876f8d6924 Mon Sep 17 00:00:00 2001
+From: Ivan Molodetskikh <yalterz@gmail.com>
+Date: Sun, 17 Aug 2025 10:03:55 +0300
+Subject: [PATCH 3/3] move to utils
+
+---
+ src/main.rs           | 32 +-------------------------------
+ src/utils/mod.rs      |  1 +
+ src/utils/realtime.rs | 29 +++++++++++++++++++++++++++++
+ 3 files changed, 31 insertions(+), 31 deletions(-)
+ create mode 100644 src/utils/realtime.rs
+
+diff --git a/src/main.rs b/src/main.rs
+index ce27f9d19ab5c027aee967d686b27a8376211c9c..8810125c07f237f98e828a06630b31e695882566 100644
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -38,36 +38,6 @@ const DEFAULT_LOG_FILTER: &str = "niri=debug,smithay::backend::renderer::gles=er
+ static GLOBAL: tracy_client::ProfiledAllocator<std::alloc::System> =
+     tracy_client::ProfiledAllocator::new(std::alloc::System, 100);
+ 
+-// SCHED_RESET_ON_FORK only exists on Linux.
+-#[cfg(target_os = "linux")]
+-fn set_rt_scheduling() {
+-    let res = unsafe {
+-        // Work around libc crate exposing more fields on musl.
+-        let mut param: libc::sched_param = std::mem::zeroed();
+-        // Set SCHED_RESET_ON_FORK and request minimal realtime round-robin prio for main pid.
+-        param.sched_priority = libc::sched_get_priority_min(libc::SCHED_RR);
+-
+-        libc::pthread_setschedparam(
+-            libc::pthread_self(),
+-            libc::SCHED_RR | libc::SCHED_RESET_ON_FORK,
+-            &param,
+-        )
+-    };
+-
+-    match res {
+-        libc::EPERM => debug!("no permission to set real-time policy"),
+-        libc::EINVAL => debug!("real-time policy not recognized or scheduling params wrong"),
+-        libc::ESRCH => debug!("thread ID not found for real-time policy"),
+-        0 => (),
+-        _ => warn!("unknown failure setting real-time policy: {res}"),
+-    }
+-}
+-
+-#[cfg(not(target_os = "linux"))]
+-fn set_rt_scheduling() {
+-    ()
+-}
+-
+ fn main() -> Result<(), Box<dyn std::error::Error>> {
+     // Set backtrace defaults if not set.
+     if env::var_os("RUST_BACKTRACE").is_none() {
+@@ -276,7 +246,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
+         state.niri.config_error_notification.show_created(path);
+     }
+ 
+-    set_rt_scheduling();
++    niri::utils::realtime::set_rt_scheduling();
+ 
+     // Run the compositor.
+     event_loop
+diff --git a/src/utils/mod.rs b/src/utils/mod.rs
+index 26bfe582b95f3decba65bf0b1e563eb514bf163c..61174f138a322f7c511453e020b23bd03bb530d4 100644
+--- a/src/utils/mod.rs
++++ b/src/utils/mod.rs
+@@ -33,6 +33,7 @@ use crate::handlers::KdeDecorationsModeState;
+ use crate::niri::ClientState;
+ 
+ pub mod id;
++pub mod realtime;
+ pub mod scale;
+ pub mod signals;
+ pub mod spawning;
+diff --git a/src/utils/realtime.rs b/src/utils/realtime.rs
+new file mode 100644
+index 0000000000000000000000000000000000000000..9ee8b51ffb9646660bed51986447172efab51295
+--- /dev/null
++++ b/src/utils/realtime.rs
+@@ -0,0 +1,29 @@
++// SCHED_RESET_ON_FORK only exists on Linux.
++#[cfg(target_os = "linux")]
++pub fn set_rt_scheduling() {
++    let res = unsafe {
++        // Work around libc crate exposing more fields on musl.
++        let mut param: libc::sched_param = std::mem::zeroed();
++        // Set SCHED_RESET_ON_FORK and request minimal realtime round-robin prio for main pid.
++        param.sched_priority = libc::sched_get_priority_min(libc::SCHED_RR);
++
++        libc::pthread_setschedparam(
++            libc::pthread_self(),
++            libc::SCHED_RR | libc::SCHED_RESET_ON_FORK,
++            &param,
++        )
++    };
++
++    match res {
++        libc::EPERM => debug!("no permission to set real-time policy"),
++        libc::EINVAL => debug!("real-time policy not recognized or scheduling params wrong"),
++        libc::ESRCH => debug!("thread ID not found for real-time policy"),
++        0 => (),
++        _ => warn!("unknown failure setting real-time policy: {res}"),
++    }
++}
++
++#[cfg(not(target_os = "linux"))]
++pub fn set_rt_scheduling() {
++    ()
++}
