@@ -29,7 +29,7 @@ in {
       setuid = false;
       owner = "root";
       group = "root";
-      capabilities = "cap_sys_nice+eip";
+      capabilities = "cap_sys_nice=p";
       source = lib.getExe pkgs.niri-unstable;
     };
 
