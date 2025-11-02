@@ -20,6 +20,7 @@ in {
             prevAttrs.patches or []
             ++ [
               ./rr-sched.patch
+              ./drop-caps.patch
             ];
         });
       })
