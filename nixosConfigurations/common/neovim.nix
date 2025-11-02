@@ -1,6 +1,5 @@
 {
   inputs,
-  lib,
   pkgs,
   ...
 }: {
@@ -60,49 +59,9 @@
           previous.key = "T";
         };
       };
-      cmp = {
+      blink-cmp = {
         enable = true;
-        cmdline = {
-          "/" = {
-            sources = [{name = "buffer";}];
-          };
-          ":" = {
-            sources = lib.warn "TODO: path and cmdline are in separate groups" [
-              {name = "path";}
-              {name = "cmdline";}
-            ];
-          };
-        };
-        settings = {
-          sources = lib.warn "TODO: groupIndex is not a thing anymore" [
-            {
-              name = "nvim_lsp";
-              groupIndex = 1;
-            }
-            {
-              name = "luasnip";
-              groupIndex = 1;
-            }
-            {
-              name = "buffer";
-              groupIndex = 2;
-            }
-          ];
-          mapping.__raw = ''
-            cmp.mapping.preset.insert({
-              ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-              ['<C-f>'] = cmp.mapping.scroll_docs(4),
-              ['<C-Space>'] = cmp.mapping.complete(),
-              ['<C-e>'] = cmp.mapping.abort(),
-              ['<CR>'] = cmp.mapping.confirm({ select = true }),
-            })
-          '';
-          snippet.expand = ''
-            function(args)
-              require('luasnip').lsp_expand(args.body)
-            end
-          '';
-        };
+        settings.keymap.preset = "super-tab";
       };
       indent-blankline = {
         enable = true;
