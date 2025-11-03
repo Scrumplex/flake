@@ -8,7 +8,6 @@
   imports = [
     inputs.home-manager.darwinModules.home-manager
     inputs.nix-index-database.darwinModules.nix-index
-    inputs.mac-app-util.darwinModules.default
     ./neovim.nix
 
     (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" "A105227727"])
@@ -29,7 +28,6 @@
       builtins.attrValues inputs.scrumpkgs.hmModules
       ++ [
         inputs.catppuccin.homeModules.catppuccin
-        inputs.mac-app-util.homeManagerModules.default
       ];
     extraSpecialArgs = {
       inherit inputs;
@@ -258,7 +256,7 @@
     kubectl
     kubectx
     awscli2
-    cosign
+    #cosign
     skopeo
   ];
 
@@ -283,7 +281,7 @@
     registry.n.flake = inputs.nixpkgs;
   };
 
-  ids.gids.nixbld = 305;
+  ids.gids.nixbld = 350;
 
   system.stateVersion = 4;
   hm.home.stateVersion = "23.05";
