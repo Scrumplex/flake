@@ -38,6 +38,7 @@
           "fetchart"
           "mbcollection"
           "mbsync"
+          "musicbrainz"
           "replaygain"
           "scrub"
         ];
