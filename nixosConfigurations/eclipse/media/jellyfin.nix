@@ -9,7 +9,7 @@
     group = "media";
   };
 
-  systemd.services.jellyfin.unitConfig.RequiredMountsFor = "/media";
+  systemd.services.jellyfin.unitConfig.RequiresMountsFor = "/media";
 
   users.users.${config.services.jellyfin.user}.extraGroups =
     ["video" "render"]

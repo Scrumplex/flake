@@ -23,7 +23,7 @@
     };
   };
 
-  systemd.services."slskd".unitConfig.RequiredMountsFor = "/media";
+  systemd.services."slskd".unitConfig.RequiresMountsFor = "/media";
 
   services.traefik.dynamicConfigOptions.http = {
     routers.slskd = {
