@@ -28,7 +28,7 @@ in {
       };
 
       jvmOpts = concatStringsSep " " [
-        "-Xmx8G"
+        "-Xmx12G"
         "-XX:+UseG1GC"
         "-XX:+ParallelRefProcEnabled"
         "-XX:MaxGCPauseMillis=200"
@@ -75,6 +75,6 @@ in {
   # To stop the host from OOMing after some time, tell systemd to deal with this early on
   systemd.services = lib.mapAttrs' (name: _:
     lib.nameValuePair "minecraft-server-${name}" {
-      serviceConfig.MemoryMax = "10G"; # kill the server if it sucks up too much
+      serviceConfig.MemoryMax = "16G"; # kill the server if it sucks up too much
     }) (lib.filterAttrs (_: v: v.enable) config.services.minecraft-servers.servers);
 }
