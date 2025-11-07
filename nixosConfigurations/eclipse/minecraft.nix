@@ -52,6 +52,7 @@ in {
       whitelist = {
         "Honey_Arcus" = "35ab6244-3e9e-452d-a6cd-258868d3cad7";
         "Scrumplex" = "f2873756-429d-413a-b22d-6a976ed0d3f2";
+        "BronyCovfefe" = "4b366973-b903-4bf9-8de7-1a2ab8fe2b31";
       };
 
       operators = {
