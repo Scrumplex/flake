@@ -15,11 +15,20 @@ in {
     eula = true;
     openFirewall = true;
 
-    servers.vanilla = {
-      enable = false;
+    servers.hyperwoofer = {
+      enable = true;
+      package = pkgs.writeShellApplication {
+        name = "minecraft-server";
+
+        runtimeInputs = [pkgs.jdk21];
+
+        text = ''
+          exec java "$@" @libraries/net/neoforged/neoforge/21.1.211/unix_args.txt nogui
+        '';
+      };
 
       jvmOpts = concatStringsSep " " [
-        "-Xmx4G"
+        "-Xmx8G"
         "-XX:+UseG1GC"
         "-XX:+ParallelRefProcEnabled"
         "-XX:MaxGCPauseMillis=200"
@@ -42,7 +51,6 @@ in {
 
       whitelist = {
         "Honey_Arcus" = "35ab6244-3e9e-452d-a6cd-258868d3cad7";
-        "SAL07_XD" = "dec2218c-ba1f-473b-83d0-cf3bd27e6f45";
         "Scrumplex" = "f2873756-429d-413a-b22d-6a976ed0d3f2";
       };
 
