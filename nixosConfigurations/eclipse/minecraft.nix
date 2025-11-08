@@ -54,6 +54,7 @@ in {
         "Scrumplex" = "f2873756-429d-413a-b22d-6a976ed0d3f2";
         "BronyCovfefe" = "4b366973-b903-4bf9-8de7-1a2ab8fe2b31";
         "TokiNoKotei" = "89b951e4-89d3-4881-a682-670a8a782a84";
+        "Zeiver" = "53b7f056-a274-4b63-b5f1-64a5657113f5";
       };
 
       operators = {
