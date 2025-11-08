@@ -38,5 +38,7 @@
   };
 
   # Stop apps from generating fontconfig caches and breaking reproducibility
-  hm.systemd.user.tmpfiles.settings."10-fontconfig".rules."%C/fontconfig"."R" = {};
+  hm.systemd.user.tmpfiles.rules = [
+    "R %C/fontconfig - - - - -"
+  ];
 }
