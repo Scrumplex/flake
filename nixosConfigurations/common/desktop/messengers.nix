@@ -5,7 +5,6 @@
     quasselClient
     signal-desktop-bin
     vesktop
-    webcord
   ];
 
   hm.xdg.autostart.entries = [
