@@ -37,15 +37,6 @@
   programs.partition-manager.enable = true;
 
   hm = {
-    xdg = {
-      enable = true;
-      autostart.enable = true;
-      userDirs = {
-        enable = true;
-        createDirectories = true;
-      };
-    };
-
     home.pointerCursor = {
       name = "Adwaita";
       package = pkgs.gnome-themes-extra;
