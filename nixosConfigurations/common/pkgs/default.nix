@@ -22,11 +22,6 @@ in {
       ])
       || builtins.any (lib.flip lib.hasPrefix (lib.getName pkg)) ["cuda" "libcu" "libn"];
 
-    config.permittedInsecurePackages = [
-      "aspnetcore-runtime-6.0.36"
-      "dotnet-sdk-6.0.428"
-    ];
-
     overlays = lib.mkAfter [
       (_: prev: {
         discord = mkDiscordOverride prev.discord;
@@ -35,6 +30,14 @@ in {
 
         ncmpcpp = prev.ncmpcpp.override {
           visualizerSupport = true;
+        };
+      })
+      (final: prev: {
+        # Remove once https://github.com/NixOS/nixpkgs/pull/460637 reaches unstable
+        element-web-unwrapped = prev.element-web-unwrapped.override {
+          jitsi-meet = final.jitsi-meet.overrideAttrs (previousAttrs: {
+            meta = removeAttrs previousAttrs.meta ["knownVulnerabilities"];
+          });
         };
       })
     ];
