@@ -10,7 +10,7 @@
     config.common.nginx.sslVHost
     {
       # TODO: use overlay once Nixpkgs Node.js tooling works again
-      root = inputs.honeylinks-website.packages.${pkgs.system}.honeylinks-website;
+      root = inputs.honeylinks-website.packages.${pkgs.stdenv.hostPlatform.system}.honeylinks-website;
       locations = {
         "~* \.html$".extraConfig = ''
           expires 1h;

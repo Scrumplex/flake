@@ -9,7 +9,7 @@
 
   services.skinprox = {
     enable = true;
-    package = inputs.skinprox.packages.${pkgs.system}.skinprox;
+    package = inputs.skinprox.packages.${pkgs.stdenv.hostPlatform.system}.skinprox;
     publicUrl = "https://skins.scrumplex.net";
     providers = [
       "https://scrumplex.rocks/skin/"
