@@ -13,7 +13,7 @@
     inkscape-with-extensions
     gimp
     krita
-    tenacity
+    audacity
     libreoffice-fresh
     livecaptions
 
