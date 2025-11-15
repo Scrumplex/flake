@@ -1,5 +1,13 @@
-{inputs, ...}: {
+{
+  config,
+  inputs,
+  ...
+}: {
   flake.modules.nixos.desktop = {
+    users.users.${config.flake.meta.username}.extraGroups = [
+      "audio"
+    ];
+
     services.pipewire = {
       enable = true;
       alsa.enable = true;

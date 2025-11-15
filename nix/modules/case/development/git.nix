@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.desktop = {pkgs, ...}: {
+  flake.modules.homeManager.development = {pkgs, ...}: {
     home.packages = with pkgs; [
       git-extras
       glab

@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.modules.nixos.desktop = {
+  flake.modules.nixos.base = {
     imports = [
       inputs.home-manager.nixosModules.home-manager
     ];
@@ -14,10 +14,6 @@
 
       extraGroups = [
         "wheel"
-        "audio"
-        "video"
-        "input"
-        "dialout"
       ];
     };
 
@@ -36,7 +32,7 @@
     };
   };
 
-  flake.modules.homeManager.desktop = {osConfig, ...}: {
+  flake.modules.homeManager.base = {osConfig, ...}: {
     home.stateVersion = osConfig.system.stateVersion;
   };
 }
