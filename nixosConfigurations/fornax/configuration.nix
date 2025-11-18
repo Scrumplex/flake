@@ -23,6 +23,7 @@
   nixpkgs.config.allowUnfree = true;
 
   networking.networkmanager.enable = true;
+  networking.useDHCP = false;
 
   environment.systemPackages = with pkgs; [
     dolphin-emu
