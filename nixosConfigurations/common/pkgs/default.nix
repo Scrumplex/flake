@@ -32,14 +32,6 @@ in {
           visualizerSupport = true;
         };
       })
-      (final: prev: {
-        # Remove once https://github.com/NixOS/nixpkgs/pull/460637 reaches unstable
-        element-web-unwrapped = prev.element-web-unwrapped.override {
-          jitsi-meet = final.jitsi-meet.overrideAttrs (previousAttrs: {
-            meta = removeAttrs previousAttrs.meta ["knownVulnerabilities"];
-          });
-        };
-      })
     ];
   };
 }
