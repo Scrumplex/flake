@@ -12,10 +12,9 @@
 
     ./disks.nix
 
-    fpConfig.flake.modules.nixos.laptop
+    fpConfig.flake.modules.nixos.steam-deck
 
     inputs.nixos-facter-modules.nixosModules.facter
-    inputs.jovian.nixosModules.jovian
   ];
 
   facter.reportPath = ./facter.json;
@@ -24,19 +23,6 @@
   nixpkgs.config.allowUnfree = true;
 
   networking.networkmanager.enable = true;
-
-  jovian = {
-    devices.steamdeck = {
-      enable = true;
-      autoUpdate = true;
-    };
-    steam = {
-      enable = true;
-      autoStart = true;
-      user = "scrumplex";
-    };
-    decky-loader.enable = true;
-  };
 
   environment.systemPackages = with pkgs; [
     dolphin-emu

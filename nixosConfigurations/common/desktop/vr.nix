@@ -21,10 +21,6 @@ in {
       inputs.scrumpkgs.kernelPatches.cap_sys_nice_begone.patch
     ];
 
-    programs.steam.extraCompatPackages = with pkgs; [
-      proton-ge-rtsp-bin
-    ];
-
     services.monado = {
       enable = true;
       defaultRuntime = true;
