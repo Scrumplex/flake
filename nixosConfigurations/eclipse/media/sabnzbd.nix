@@ -5,7 +5,7 @@
     group = "media";
   };
 
-  systemd.services.sabnzbd.unitConfig.RequiresMountsFor = "/media";
+  systemd.services.sabnzbd.unitConfig.RequiresMountsFor = ["/media"];
 
   services.traefik.dynamicConfigOptions.http = {
     routers.sabnzbd = {

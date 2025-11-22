@@ -4,7 +4,7 @@
     port = 23232;
   };
 
-  systemd.services.traefik.unitConfig.RequiresMountsFor = "/media";
+  systemd.services.traefik.unitConfig.RequiresMountsFor = ["/media"];
 
   services.traefik.dynamicConfigOptions.http = {
     routers.audiobookshelf = {

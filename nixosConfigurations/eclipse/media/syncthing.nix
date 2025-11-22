@@ -53,7 +53,7 @@
     };
   };
 
-  systemd.services."syncthing".unitConfig.RequiresMountsFor = "/media";
+  systemd.services."syncthing".unitConfig.RequiresMountsFor = ["/media"];
 
   services.traefik.dynamicConfigOptions.http = {
     routers.syncthing = {

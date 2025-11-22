@@ -113,7 +113,7 @@ in {
     "dm-cache-default"
   ];
 
-  systemd.services.docker.unitConfig.RequiresMountsFor = "/media";
+  systemd.services.docker.unitConfig.RequiresMountsFor = ["/media"];
 
   swapDevices = [];
 

@@ -17,7 +17,7 @@
   services.jellyseerr.enable = true;
 
   systemd.services = lib.genAttrs ["radarr" "sonarr" "prowlarr" "jellyseerr"] (_: {
-    unitConfig.RequiresMountsFor = "/media";
+    unitConfig.RequiresMountsFor = ["/media"];
   });
 
   services.traefik.dynamicConfigOptions.http = {

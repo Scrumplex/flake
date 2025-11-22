@@ -23,7 +23,7 @@
     credentialsFile = config.age.secrets."transmission-creds.json".path;
   };
 
-  systemd.services."transmission".unitConfig.RequiresMountsFor = "/media";
+  systemd.services."transmission".unitConfig.RequiresMountsFor = ["/media"];
 
   services.traefik.dynamicConfigOptions.http = {
     routers.torrent = {
