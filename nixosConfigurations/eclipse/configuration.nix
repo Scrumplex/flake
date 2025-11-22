@@ -7,7 +7,6 @@
   inherit (inputs) nixos-facter-modules nixos-hardware srvos;
 in {
   imports = [
-    ./actual.nix
     ./boot.nix
     ./buildbot.nix
     ./dyndns.nix
