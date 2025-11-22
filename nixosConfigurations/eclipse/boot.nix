@@ -5,7 +5,6 @@
 }: let
   inherit (lib) getExe;
 in {
-  hardware.mcelog.enable = true;
   hardware.enableRedistributableFirmware = true;
 
   boot = {
@@ -18,7 +17,7 @@ in {
     loader.efi.canTouchEfiVariables = true;
   };
   powerManagement = {
-    cpuFreqGovernor = "powersave";
+    cpuFreqGovernor = "ondemand";
     powertop.enable = true;
     powerUpCommands = let
       hdparm = getExe pkgs.hdparm;
