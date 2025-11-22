@@ -7,7 +7,8 @@
 
   users.users.immich.extraGroups = ["video" "render"];
 
-  systemd.services."immich".unitConfig.RequiresMountsFor = "/media";
+  systemd.services."immich-server".unitConfig.RequiresMountsFor = ["/media"];
+  systemd.services."immich-machine-learning".unitConfig.RequiresMountsFor = ["/media"];
 
   services.traefik.dynamicConfigOptions.http = {
     routers.immich = {
