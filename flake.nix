@@ -60,12 +60,10 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # intentionally not following our nixpkgs for cache
     lanzaboote = {
+      # intentionally not following our nixpkgs for cache
       url = "github:nix-community/lanzaboote";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.pre-commit-hooks-nix.follows = "git-hooks";
-      inputs.flake-compat.follows = "";
+      inputs.pre-commit.follows = "git-hooks";
     };
     nixpkgs-xr = {
       url = "github:nix-community/nixpkgs-xr";
