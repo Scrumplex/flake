@@ -3,10 +3,13 @@
   stdenv,
   linuxPackages_latest,
   kernel ? linuxPackages_latest.kernel,
+  patches ? [],
 }:
 stdenv.mkDerivation {
   pname = "amdgpu-kernel-module";
-  inherit (kernel) src version patches postPatch nativeBuildInputs;
+  inherit (kernel) src version postPatch nativeBuildInputs;
+
+  patches = kernel.patches ++ patches;
 
   kernel_dev = kernel.dev;
   kernelVersion = kernel.modDirVersion;

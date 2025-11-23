@@ -3,7 +3,6 @@
     hostName = "andromeda";
     modules = [
       ../common
-      ../common/amdgpu
       ../common/boot
       ../common/desktop
       ../common/desktop/anydesk.nix
@@ -29,7 +28,6 @@
       ../common/desktop/screenshot-bash.nix
       ../common/desktop/session-lock.nix
       ../common/desktop/swayidle.nix
-      ../common/desktop/vr.nix
       ../common/desktop/waybar.nix
       ../common/desktop/wayvnc.nix
       ../common/desktop/wlogout.nix

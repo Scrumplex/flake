@@ -27,8 +27,6 @@
   hardware.enableRedistributableFirmware = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
-  profile.vr.enableHighPrioKernelPatch = true;
-
   hardware.amdgpu = {
     initrd.enable = true;
     #opencl.enable = true;
