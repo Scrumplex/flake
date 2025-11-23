@@ -7,7 +7,6 @@
   imports = [
     ../common
     ../common/boot
-    ../common/neovim.nix
     ../common/home.nix
 
     ./disks.nix

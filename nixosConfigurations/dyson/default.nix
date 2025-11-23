@@ -37,7 +37,6 @@
       ../common/gpg.nix
       ../common/home.nix
       ../common/libvirtd.nix
-      ../common/neovim.nix
       ../common/pkgs
       ../common/podman.nix
       ../common/printing.nix
