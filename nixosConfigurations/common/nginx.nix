@@ -30,8 +30,6 @@
       enableReload = true;
       enableQuicBPF = true;
 
-      package = pkgs.nginxQuic;
-
       additionalModules = with pkgs.nginxModules; [
         brotli
       ];
