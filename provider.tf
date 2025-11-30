@@ -1,10 +1,11 @@
 terraform {
   required_providers {
-    hetznerdns = {
-      source  = "timohirt/hetznerdns"
-      version = "~> 2.2.0"
+    hcloud = {
+      source  = "hetznercloud/hcloud"
+      version = "1.57.0"
     }
   }
+
 
   cloud {
     hostname     = "app.terraform.io"
@@ -16,10 +17,10 @@ terraform {
   }
 }
 
-variable "hetznerdns_token" {
+variable "hcloud_token" {
   sensitive = true
 }
 
-provider "hetznerdns" {
-  apitoken = var.hetznerdns_token
+provider "hcloud" {
+  token = var.hcloud_token
 }

@@ -1,55 +1,79 @@
-resource "hetznerdns_zone" "sefa_cloud" {
+data "hcloud_zone" "sefa_cloud" {
   name = "sefa.cloud"
-  ttl  = 86400
 }
 
-resource "hetznerdns_record" "rootcaa_sefa_cloud" {
-  for_each = toset(var.caa_records)
-  zone_id  = hetznerdns_zone.sefa_cloud.id
-  name     = "@"
-  value    = each.key
-  type     = "CAA"
+resource "hcloud_zone_rrset" "rootcaa_sefa_cloud" {
+  zone = data.hcloud_zone.sefa_cloud.name
+  name = "@"
+  type = "CAA"
+
+  records = [for v in var.caa_records : { value = v }]
 }
 
-resource "hetznerdns_record" "cosmos4_sefa_cloud" {
-  zone_id = hetznerdns_zone.sefa_cloud.id
-  name    = "cosmos"
-  value   = "10.0.0.11"
-  type    = "A"
+resource "hcloud_zone_rrset" "cosmos4_sefa_cloud" {
+  zone = data.hcloud_zone.sefa_cloud.name
+  name = "cosmos"
+  type = "A"
+
+  records = [
+    {
+      value = "10.0.0.11"
+    }
+  ]
 }
 
-resource "hetznerdns_record" "cosmos6_sefa_cloud" {
-  zone_id = hetznerdns_zone.sefa_cloud.id
-  name    = "cosmos"
-  value   = "fd19:783f:b287:0:dea6:32ff:fe54:1a63"
-  type    = "AAAA"
+resource "hcloud_zone_rrset" "cosmos6_sefa_cloud" {
+  zone = data.hcloud_zone.sefa_cloud.name
+  name = "cosmos"
+  type = "AAAA"
+
+  records = [
+    {
+      value = "fd19:783f:b287:0:dea6:32ff:fe54:1a63"
+    }
+  ]
 }
 
-resource "hetznerdns_record" "cosmoscnames_sefa_cloud" {
+resource "hcloud_zone_rrset" "cosmoscnames_sefa_cloud" {
   for_each = toset([
     "asf",
   ])
-  zone_id = hetznerdns_zone.sefa_cloud.id
-  name    = "${each.key}.cosmos"
-  value   = "cosmos.sefa.cloud."
-  type    = "CNAME"
+  zone = data.hcloud_zone.sefa_cloud.name
+  name = "${each.key}.cosmos"
+  type = "CNAME"
+
+  records = [
+    {
+      value = "cosmos.sefa.cloud."
+    }
+  ]
 }
 
-resource "hetznerdns_record" "eclipse4_sefa_cloud" {
-  zone_id = hetznerdns_zone.sefa_cloud.id
-  name    = "eclipse"
-  value   = "10.10.10.12"
-  type    = "A"
+resource "hcloud_zone_rrset" "eclipse4_sefa_cloud" {
+  zone = data.hcloud_zone.sefa_cloud.name
+  name = "eclipse"
+  type = "A"
+
+  records = [
+    {
+      value = "10.10.10.12"
+    }
+  ]
 }
 
-resource "hetznerdns_record" "eclipse6_sefa_cloud" {
-  zone_id = hetznerdns_zone.sefa_cloud.id
-  name    = "eclipse"
-  value   = "fdcc:546e:5cf:0:da5e:d3ff:feea:f48e"
-  type    = "AAAA"
+resource "hcloud_zone_rrset" "eclipse6_sefa_cloud" {
+  zone = data.hcloud_zone.sefa_cloud.name
+  name = "eclipse"
+  type = "AAAA"
+
+  records = [
+    {
+      value = "fdcc:546e:5cf:0:da5e:d3ff:feea:f48e"
+    }
+  ]
 }
 
-resource "hetznerdns_record" "eclipsecnames_sefa_cloud" {
+resource "hcloud_zone_rrset" "eclipsecnames_sefa_cloud" {
   for_each = toset([
     "nzb",
     "paperless",
@@ -60,13 +84,18 @@ resource "hetznerdns_record" "eclipsecnames_sefa_cloud" {
     "syncthing",
     "torrent",
   ])
-  zone_id = hetznerdns_zone.sefa_cloud.id
-  name    = "${each.key}.eclipse"
-  value   = "eclipse.sefa.cloud."
-  type    = "CNAME"
+  zone = data.hcloud_zone.sefa_cloud.name
+  name = "${each.key}.eclipse"
+  type = "CNAME"
+
+  records = [
+    {
+      value = "eclipse.sefa.cloud."
+    }
+  ]
 }
 
-resource "hetznerdns_record" "cnames_sefa_cloud" {
+resource "hcloud_zone_rrset" "cnames_sefa_cloud" {
   for_each = toset([
     "audiobookshelf",
     "box",
@@ -82,44 +111,63 @@ resource "hetznerdns_record" "cnames_sefa_cloud" {
     "vault",
     "view",
   ])
-  zone_id = hetznerdns_zone.sefa_cloud.id
-  name    = each.key
-  value   = "${hetznerdns_zone.sefa_cloud.name}."
-  type    = "CNAME"
+  zone = data.hcloud_zone.sefa_cloud.name
+  name = each.key
+  type = "CNAME"
+
+  records = [
+    {
+      value = "${data.hcloud_zone.sefa_cloud.name}."
+    }
+  ]
 }
 
-resource "hetznerdns_record" "cnames_arson_sefa_cloud" {
+resource "hcloud_zone_rrset" "cnames_arson_sefa_cloud" {
   for_each = toset([
     "hass",
   ])
-  zone_id = hetznerdns_zone.sefa_cloud.id
-  name    = each.key
-  value   = "arson.${hetznerdns_zone.sefa_cloud.name}."
-  type    = "CNAME"
+  zone = data.hcloud_zone.sefa_cloud.name
+  name = each.key
+  type = "CNAME"
+
+  records = [
+    {
+      value = "arson.${data.hcloud_zone.sefa_cloud.name}."
+    }
+  ]
 }
 
 # Verifications
 
-resource "hetznerdns_record" "roottxt_sefa_cloud" {
-  for_each = tomap({
-    sendinblue = "Sendinblue-code:40fc54f18aa321c1ef380e8bc74c0f1f"
-  })
-  zone_id = hetznerdns_zone.sefa_cloud.id
-  name    = "@"
-  value   = each.value
-  type    = "TXT"
+resource "hcloud_zone_rrset" "roottxt_sefa_cloud" {
+  zone = data.hcloud_zone.sefa_cloud.name
+  name = "@"
+  type = "TXT"
+
+  records = [
+    {
+      value   = "\"Sendinblue-code:40fc54f18aa321c1ef380e8bc74c0f1f\""
+      comment = "Brevo/Send in Blue Verification"
+    },
+    {
+      value   = "\"v=spf1 include:spf.sendinblue.com mx ~all\""
+      comment = "Brevo/Send in Blue SPF"
+    }
+  ]
 }
 
-# Send in Blue records
-
-resource "hetznerdns_record" "mbotxt_sefa_cloud" {
+resource "hcloud_zone_rrset" "brevotxt_sefa_cloud" {
   for_each = tomap({
-    "@"               = "\"v=spf1 include:spf.sendinblue.com mx ~all\""
     _dmarc            = "\"v=DMARC1; p=none; sp=none; rua=mailto:dmarc@mailinblue.com!10m; ruf=mailto:dmarc@mailinblue.com!10m; rf=afrf; pct=100; ri=86400\""
     "mail._domainkey" = "\"k=rsa;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDeMVIzrCa3T14JsNY0IRv5/2V1/v2itlviLQBwXsa7shBD6TrBkswsFUToPyMRWC9tbR/5ey0nRBH0ZVxp+lsmTxid2Y2z+FApQ6ra2VsXfbJP3HE6wAO0YTVEJt1TmeczhEd2Jiz/fcabIISgXEdSpTYJhb0ct0VJRxcg4c8c7wIDAQAB\""
   })
-  zone_id = hetznerdns_zone.sefa_cloud.id
-  name    = each.key
-  value   = each.value
-  type    = "TXT"
+  zone = data.hcloud_zone.sefa_cloud.name
+  name = each.key
+  type = "TXT"
+
+  records = [
+    {
+      value = each.value
+    }
+  ]
 }

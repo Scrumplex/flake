@@ -1,36 +1,54 @@
-resource "hetznerdns_zone" "duckhub_io" {
+data "hcloud_zone" "duckhub_io" {
   name = "duckhub.io"
-  ttl  = 86400
 }
 
-resource "hetznerdns_record" "root4_duckhub_io" {
-  zone_id = hetznerdns_zone.duckhub_io.id
-  name    = "@"
-  value   = var.universe4
-  type    = "A"
-  ttl     = 3600
+resource "hcloud_zone_rrset" "root4_duckhub_io" {
+  zone = data.hcloud_zone.duckhub_io.name
+  name = "@"
+  type = "A"
+
+  records = [
+    {
+      value   = var.universe4
+      comment = "universe"
+    }
+  ]
+
+  ttl = 3600
 }
 
-resource "hetznerdns_record" "root6_duckhub_io" {
-  zone_id = hetznerdns_zone.duckhub_io.id
-  name    = "@"
-  value   = var.universe6
-  type    = "AAAA"
-  ttl     = 3600
+resource "hcloud_zone_rrset" "root6_duckhub_io" {
+  zone = data.hcloud_zone.duckhub_io.name
+  name = "@"
+  type = "AAAA"
+
+  records = [
+    {
+      value   = var.universe6
+      comment = "universe"
+    }
+  ]
+
+  ttl = 3600
 }
 
-resource "hetznerdns_record" "rootcaa_duckhub_io" {
-  for_each = toset(var.caa_records)
-  zone_id  = hetznerdns_zone.duckhub_io.id
-  name     = "@"
-  value    = each.key
-  type     = "CAA"
+resource "hcloud_zone_rrset" "rootcaa_duckhub_io" {
+  zone = data.hcloud_zone.duckhub_io.name
+  name = "@"
+  type = "CAA"
+
+  records = [for v in var.caa_records : { value = v }]
 }
 
-resource "hetznerdns_record" "cnames_duckhub_io" {
+resource "hcloud_zone_rrset" "cnames_duckhub_io" {
   for_each = toset(["quack"])
-  zone_id  = hetznerdns_zone.duckhub_io.id
+  zone     = data.hcloud_zone.duckhub_io.name
   name     = each.key
-  value    = "${hetznerdns_zone.duckhub_io.name}."
   type     = "CNAME"
+
+  records = [
+    {
+      value = "${data.hcloud_zone.duckhub_io.name}."
+    }
+  ]
 }
