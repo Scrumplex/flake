@@ -1,4 +1,4 @@
 {
   # Trusted environment ^^
-  profile.swayidle.lockSession = false;
+  hm.services.swayidle.lockSession = false;
 }

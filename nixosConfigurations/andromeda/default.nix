@@ -27,7 +27,6 @@
       ../common/desktop/qt
       ../common/desktop/screenshot-bash.nix
       ../common/desktop/session-lock.nix
-      ../common/desktop/swayidle.nix
       ../common/desktop/waybar.nix
       ../common/desktop/wayvnc.nix
       ../common/desktop/wlogout.nix
