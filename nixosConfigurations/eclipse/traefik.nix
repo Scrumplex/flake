@@ -1,5 +1,5 @@
 {config, ...}: {
-  age.secrets."hetzner-traefik.env".file = ../../secrets/eclipse/hetzner-traefik.env.age;
+  age.secrets."hetzner-api-token.env".file = ./hetzner-api-token.env.age;
 
   common.traefik = {
     primaryEntryPoint = "localsecure";
@@ -22,5 +22,5 @@
     services.nextcloud.loadBalancer.servers = [{url = "http://localhost:7701";}];
   };
 
-  systemd.services.traefik.serviceConfig.EnvironmentFile = [config.age.secrets."hetzner-traefik.env".path];
+  systemd.services.traefik.serviceConfig.EnvironmentFile = [config.age.secrets."hetzner-api-token.env".path];
 }

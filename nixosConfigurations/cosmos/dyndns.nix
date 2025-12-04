@@ -5,10 +5,12 @@
 }: {
   imports = [inputs.self.nixosModules.hetzner-dyndns];
 
-  age.secrets."hetzner-ddns.env".file = ../../secrets/cosmos/hetzner-ddns.env.age;
+  age.secrets."hetzner-api-token.env".file = ./hetzner-api-token.env.age;
 
   services.hetzner-dyndns = {
     enable = true;
-    environmentFile = config.age.secrets."hetzner-ddns.env".path;
+    zone = "sefa.cloud";
+    record = "arson";
+    environmentFile = config.age.secrets."hetzner-api-token.env".path;
   };
 }

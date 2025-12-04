@@ -20,6 +20,9 @@ in {
   "nix/modules/class/desktop/music/listenbrainz-token.age".publicKeys = andromeda ++ dyson ++ scrumplex;
   "nix/modules/class/desktop/music/beets-secrets.yaml.age".publicKeys = andromeda ++ dyson ++ scrumplex;
 
+  "nixosConfigurations/cosmos/hetzner-api-token.env.age".publicKeys = scrumplex ++ cosmos;
+  "nixosConfigurations/eclipse/hetzner-api-token.env.age".publicKeys = scrumplex ++ eclipse;
+
   "secrets/andromeda/borgbase-repokey.age".publicKeys = andromeda ++ scrumplex;
   "secrets/andromeda/cache-key.age".publicKeys = andromeda ++ scrumplex;
   "secrets/andromeda/id_borgbase.age".publicKeys = andromeda ++ scrumplex;
@@ -45,8 +48,6 @@ in {
 
   "secrets/centauri/wifi-password.age".publicKeys = scrumplex ++ centauri;
 
-  "secrets/cosmos/hetzner-ddns.env.age".publicKeys = scrumplex ++ cosmos;
-  "secrets/cosmos/hetzner-traefik.env.age".publicKeys = scrumplex ++ cosmos;
   "secrets/cosmos/id_borgbase.age".publicKeys = scrumplex ++ cosmos;
   "secrets/cosmos/wireguard.key.age".publicKeys = scrumplex ++ cosmos;
   "secrets/cosmos/wpa_supplicant.conf.age".publicKeys = scrumplex ++ cosmos;
@@ -55,8 +56,6 @@ in {
   "secrets/eclipse/codeberg-webhook-secret.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/codeberg-token.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/frigate.env.age".publicKeys = scrumplex ++ eclipse;
-  "secrets/eclipse/hetzner-ddns.env.age".publicKeys = scrumplex ++ eclipse;
-  "secrets/eclipse/hetzner-traefik.env.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/home-assistant-secrets.yaml.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/id_borgbase.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/miniflux.env.age".publicKeys = scrumplex ++ eclipse;

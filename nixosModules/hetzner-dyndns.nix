@@ -13,27 +13,18 @@
     ({
       writeShellApplication,
       curl,
-      jq,
+      hcloud,
     }:
       writeShellApplication {
         name = "update-hetzner-dns";
 
-        runtimeInputs = [curl jq];
+        runtimeInputs = [curl hcloud];
 
         text = ''
           ipLookupAddress="https://checkip.amazonaws.com"
           ipAddress=$(curl -L "$ipLookupAddress")
 
-          zoneId=$(curl "https://dns.hetzner.com/api/v1/zones?search_name=$HETZNER_ZONE" \
-            -H "Auth-API-Token: $HETZNER_TOKEN"  | jq -r ".zones[0].id")
-
-          recordId=$(curl "https://dns.hetzner.com/api/v1/records?zone_id=$zoneId" \
-            -H "Auth-API-Token: $HETZNER_TOKEN" | jq -r "(.records[] | select( .name == \"$HETZNER_RECORD\" and .type == \"A\" )).id")
-
-          curl -X PUT "https://dns.hetzner.com/api/v1/records/$recordId" \
-            -H "Auth-API-Token: $HETZNER_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d "{ \"value\": \"$ipAddress\", \"ttl\": 300, \"type\": \"A\", \"name\": \"$HETZNER_RECORD\", \"zone_id\": \"$zoneId\"}"
+          hcloud zone set-records "$HETZNER_ZONE" "$HETZNER_RECORD" A --record "$ipAddress"
         '';
       })
     {};
@@ -41,9 +32,23 @@ in {
   options.services.hetzner-dyndns = {
     enable = mkEnableOption "hetzner-dyndns";
 
+    zone = mkOption {
+      type = with types; str;
+      default = null;
+      description = "Name of the zone to modify.";
+      example = "example.tld";
+    };
+
+    record = mkOption {
+      type = with types; str;
+      default = null;
+      description = "Name of the record to modify.";
+      example = "server";
+    };
+
     environmentFile = mkOption {
       description = ''
-        Path to environment file containing HETZNER_TOKEN, HETZNER_ZONE and HETZNER_RECORD
+        Path to environment file containing HCLOUD_TOKEN
       '';
       type = with types; nullOr path;
       example = literalExpression ''config.age.secrets."hetzner-dyndns.env".path'';
@@ -52,8 +57,23 @@ in {
   };
 
   config = mkIf cfg.enable {
+    assertions = [
+      {
+        assertion = cfg.zone != null;
+        message = "services.hetzner-dyndns.zone has to be set.";
+      }
+      {
+        assertion = cfg.record != null;
+        message = "services.hetzner-dyndns.record has to be set.";
+      }
+    ];
+
     systemd.services."hetzner-dyndns" = {
       description = "Hetzner dynamic DNS updater";
+      environment = {
+        HETZNER_ZONE = cfg.zone;
+        HETZNER_RECORD = cfg.record;
+      };
       serviceConfig = {
         Type = "oneshot";
         ExecStart = lib.getExe updateScript;
