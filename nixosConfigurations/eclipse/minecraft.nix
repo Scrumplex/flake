@@ -61,6 +61,17 @@ in {
         "Scrumplex".uuid = "f2873756-429d-413a-b22d-6a976ed0d3f2";
       };
 
+      symlinks = {
+        "mods/AdvancedBackups-neoforge-1.21.2-3.7.1.jar" = pkgs.fetchurl {
+          url = "https://cdn.modrinth.com/data/Jrmoreqs/versions/7sX6c8ib/AdvancedBackups-neoforge-1.21.2-3.7.1.jar";
+          hash = "sha256-RSiIt9TR866oVPfzoizpxK63UcXP37gUSHXWr0t9dPk=";
+        };
+        "mods/spark-1.10.124-neoforge.jar" = pkgs.fetchurl {
+          url = "https://cdn.modrinth.com/data/l6YH9Als/versions/v5qtqRQi/spark-1.10.124-neoforge.jar";
+          hash = "sha256-ZH6Kga++QU26HfS6Ff0GxdMtTLVE5ogoQF6OB0wuFts=";
+        };
+      };
+
       serverProperties = {
         difficulty = "normal";
         enforce-secure-profile = false;
