@@ -11,6 +11,7 @@
     enable = true;
     zone = "sefa.cloud";
     record = "@";
+    ipv6.enable = true;
     environmentFile = config.age.secrets."hetzner-api-token.env".path;
   };
 }

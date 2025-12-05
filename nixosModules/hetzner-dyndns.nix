@@ -11,20 +11,40 @@
   updateScript =
     pkgs.callPackage
     ({
-      writeShellApplication,
       curl,
       hcloud,
+      iproute2,
+      jq,
+      writeShellApplication,
     }:
       writeShellApplication {
         name = "update-hetzner-dns";
 
-        runtimeInputs = [curl hcloud];
+        runtimeInputs = [curl hcloud iproute2 jq];
 
         text = ''
-          ipLookupAddress="https://checkip.amazonaws.com"
-          ipAddress=$(curl -L "$ipLookupAddress")
+          ipv4Address=$(curl --ipv4 --silent --location "http://myip.wtf/text")
 
-          hcloud zone set-records "$HETZNER_ZONE" "$HETZNER_RECORD" A --record "$ipAddress"
+          echo "Got IPv4: $ipv4Address"
+
+          hcloud zone set-records "$HETZNER_ZONE" "$HETZNER_RECORD" A --record "$ipv4Address"
+
+          ipv6Addr() {
+            if [ -n "$IPV6_INTERFACE" ]; then
+              ip -json -6 address show dev "$IPV6_INTERFACE" "$@"
+            else
+              ip -json -6 address show "$@"
+            fi
+          }
+
+          if [ "$ENABLE_IPV6" == "true" ]; then
+            # Extract latest global IPv6 address, that isn't in a ULA prefix
+            ipv6Address=$(ipv6Addr scope global mngtmpaddr | jq --raw-output '[.[].addr_info[] | select(.local) | select(.local | startswith("fd") == false)] | sort_by(.preferred_life_time) | last | .local')
+
+            echo "Got IPv6: $ipv6Address"
+
+            hcloud zone set-records "$HETZNER_ZONE" "$HETZNER_RECORD" AAAA --record "$ipv6Address"
+          fi
         '';
       })
     {};
@@ -44,6 +64,22 @@ in {
       default = null;
       description = "Name of the record to modify.";
       example = "server";
+    };
+
+    ipv6 = {
+      enable = mkEnableOption "IPv6 support";
+
+      interface = mkOption {
+        type = with types; nullOr str;
+        default = null;
+        example = "ens0";
+        description = ''
+          Interface to query IPv6 addresses on.
+
+          May be null to check all interfaces. Note that the longest
+          preferred_life_time is used to determine which one to use.
+        '';
+      };
     };
 
     environmentFile = mkOption {
@@ -73,6 +109,8 @@ in {
       environment = {
         HETZNER_ZONE = cfg.zone;
         HETZNER_RECORD = cfg.record;
+        ENABLE_IPV6 = lib.boolToString cfg.ipv6.enable;
+        IPV6_INTERFACE = toString cfg.ipv6.interface;
       };
       serviceConfig = {
         Type = "oneshot";
