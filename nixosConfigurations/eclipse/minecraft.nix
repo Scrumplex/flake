@@ -62,9 +62,13 @@ in {
       };
 
       symlinks = {
-        "mods/AdvancedBackups-neoforge-1.21.2-3.7.1.jar" = pkgs.fetchurl {
-          url = "https://cdn.modrinth.com/data/Jrmoreqs/versions/7sX6c8ib/AdvancedBackups-neoforge-1.21.2-3.7.1.jar";
-          hash = "sha256-RSiIt9TR866oVPfzoizpxK63UcXP37gUSHXWr0t9dPk=";
+        "mods/AdvancedBackups-neoforge-1.21-3.7.1.jar" = pkgs.fetchurl {
+          url = "https://cdn.modrinth.com/data/Jrmoreqs/versions/ufIaRDFo/AdvancedBackups-neoforge-1.21-3.7.1.jar";
+          hash = "sha256-UKNpnwWVIDW7vStfPp4R/MQ7/J1f7owQS07Xsy70lr4=";
+        };
+        "mods/DistantHorizons-2.3.6-b-1.21.1-fabric-neoforge.jar" = pkgs.fetchurl {
+          url = "https://cdn.modrinth.com/data/uCdwusMi/versions/uzLZ00HG/DistantHorizons-2.3.6-b-1.21.1-fabric-neoforge.jar";
+          hash = "sha256-VCEWJp12161VwVREmB3taKixhqLGd8VlZEaqWEIr7/s=";
         };
         "mods/spark-1.10.124-neoforge.jar" = pkgs.fetchurl {
           url = "https://cdn.modrinth.com/data/l6YH9Als/versions/v5qtqRQi/spark-1.10.124-neoforge.jar";
