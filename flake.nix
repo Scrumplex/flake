@@ -21,6 +21,7 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
+      inputs.darwin.follows = "darwin";
     };
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
@@ -46,7 +47,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.nuschtosSearch.follows = "";
     };
     catppuccin = {
       url = "github:catppuccin/nix";
@@ -120,6 +120,7 @@
     openwrt-imagebuilder = {
       url = "github:astro/nix-openwrt-imagebuilder";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "";
     };
   };
 
