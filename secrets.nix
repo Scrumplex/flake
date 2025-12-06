@@ -52,9 +52,6 @@ in {
   "secrets/cosmos/wireguard.key.age".publicKeys = scrumplex ++ cosmos;
   "secrets/cosmos/wpa_supplicant.conf.age".publicKeys = scrumplex ++ cosmos;
 
-  "secrets/eclipse/codeberg-oauth-secret.age".publicKeys = scrumplex ++ eclipse;
-  "secrets/eclipse/codeberg-webhook-secret.age".publicKeys = scrumplex ++ eclipse;
-  "secrets/eclipse/codeberg-token.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/frigate.env.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/home-assistant-secrets.yaml.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/id_borgbase.age".publicKeys = scrumplex ++ eclipse;

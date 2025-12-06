@@ -8,7 +8,6 @@
 in {
   imports = [
     ./boot.nix
-    ./buildbot.nix
     ./dyndns.nix
     ./frigate.nix
     ./home-assistant.nix

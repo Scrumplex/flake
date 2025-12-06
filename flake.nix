@@ -112,11 +112,6 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.pre-commit-hooks.follows = "git-hooks";
     };
-    buildbot-nix = {
-      url = "github:Mic92/buildbot-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-    };
     nix-minecraft = {
       url = "github:Infinidoge/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";

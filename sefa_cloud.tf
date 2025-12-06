@@ -99,7 +99,6 @@ resource "hcloud_zone_rrset" "cnames_sefa_cloud" {
   for_each = toset([
     "audiobookshelf",
     "box",
-    "buildbot",
     "cache",
     "cook",
     "home",
