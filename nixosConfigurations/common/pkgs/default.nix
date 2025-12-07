@@ -19,6 +19,7 @@ in {
         "unrar" # eclipse sabnzbd
         "anydesk"
         "epsonscan2" # printing module
+        "XiaoMi/xiaomi_home"
       ])
       || builtins.any (lib.flip lib.hasPrefix (lib.getName pkg)) ["cuda" "libcu" "libn"];
 

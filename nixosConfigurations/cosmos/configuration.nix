@@ -11,7 +11,7 @@ in {
     ./boot.nix
     ./dyndns.nix
     ./hardware-configuration.nix
-    ./home-assistant.nix
+    ./home-assistant
     ./traefik.nix
     ./wifi.nix
     ./wireguard.nix
