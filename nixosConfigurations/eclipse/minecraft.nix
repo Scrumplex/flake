@@ -96,17 +96,17 @@ in {
       mods =
         inputs.nix-minecraft.lib.collectFilesAt modpack "mods"
         // {
-          "mods/geyser-fabric-Geyser-Fabric-2.9.1-b999.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/wKkoqHrH/versions/WRvXSuOz/geyser-fabric-Geyser-Fabric-2.9.1-b999.jar";
-            hash = "sha256-Ut1H+NI34jNjkCWS7LPgPVK1gv/WO9dWgP7kthkWVN0=";
+          "mods/DistantHorizons-2.3.6-b-1.21.10-fabric-neoforge.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/uCdwusMi/versions/9Y10ZuWP/DistantHorizons-2.3.6-b-1.21.10-fabric-neoforge.jar";
+            hash = "sha256-jNvC0MC0tEil98PoAXSjlM+BXl3e6tgWBuUmZsK6ZXg=";
           };
           "mods/fastback-0.29.0+1.21.10-fabric.jar" = pkgs.fetchurl {
             url = "https://cdn.modrinth.com/data/ZHKrK8Rp/versions/DtjrGc8t/fastback-0.29.0%2B1.21.10-fabric.jar";
             hash = "sha256-I81490umifppBg65BB+TOsAljEz/z5ppaU8sM80/hoI=";
           };
-          "mods/DistantHorizons-2.3.6-b-1.21.10-fabric-neoforge.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/uCdwusMi/versions/9Y10ZuWP/DistantHorizons-2.3.6-b-1.21.10-fabric-neoforge.jar";
-            hash = "sha256-jNvC0MC0tEil98PoAXSjlM+BXl3e6tgWBuUmZsK6ZXg=";
+          "mods/geyser-fabric-Geyser-Fabric-2.9.1-b999.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/wKkoqHrH/versions/WRvXSuOz/geyser-fabric-Geyser-Fabric-2.9.1-b999.jar";
+            hash = "sha256-Ut1H+NI34jNjkCWS7LPgPVK1gv/WO9dWgP7kthkWVN0=";
           };
           "mods/NoChatReports-FABRIC-1.21.10-v2.16.0.jar" = pkgs.fetchurl {
             url = "https://cdn.modrinth.com/data/qQyHxfxd/versions/78RjC1gi/NoChatReports-FABRIC-1.21.10-v2.16.0.jar";
@@ -146,6 +146,7 @@ in {
 
       whitelist = {
         "Honey_Arcus" = "35ab6244-3e9e-452d-a6cd-258868d3cad7";
+        "ItsJustStone" = "863ec9e8-09e0-4c33-a085-d34223206fa4";
         "Scrumplex" = "f2873756-429d-413a-b22d-6a976ed0d3f2";
       };
 
