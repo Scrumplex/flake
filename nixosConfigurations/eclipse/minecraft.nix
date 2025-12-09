@@ -145,6 +145,7 @@ in {
       ];
 
       whitelist = {
+        "freckled_Star" = "8c7e6c67-9f59-4f79-afcf-bdff40df6db1";
         "Honey_Arcus" = "35ab6244-3e9e-452d-a6cd-258868d3cad7";
         "ItsJustStone" = "863ec9e8-09e0-4c33-a085-d34223206fa4";
         "Scrumplex" = "f2873756-429d-413a-b22d-6a976ed0d3f2";
