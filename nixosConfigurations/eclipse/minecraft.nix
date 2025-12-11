@@ -104,9 +104,9 @@ in {
             url = "https://cdn.modrinth.com/data/ZHKrK8Rp/versions/DtjrGc8t/fastback-0.29.0%2B1.21.10-fabric.jar";
             hash = "sha256-I81490umifppBg65BB+TOsAljEz/z5ppaU8sM80/hoI=";
           };
-          "mods/geyser-fabric-Geyser-Fabric-2.9.1-b999.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/wKkoqHrH/versions/WRvXSuOz/geyser-fabric-Geyser-Fabric-2.9.1-b999.jar";
-            hash = "sha256-Ut1H+NI34jNjkCWS7LPgPVK1gv/WO9dWgP7kthkWVN0=";
+          "mods/geyser-fabric-Geyser-Fabric-2.9.1-b1004.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/wKkoqHrH/versions/JrnwC6MC/geyser-fabric-Geyser-Fabric-2.9.2-b1004.jar";
+            hash = "sha256-HS3UYMvTBR+6qki649t/T8yatYpr9rCf5GQWxpk8Uqc=";
           };
           "mods/NoChatReports-FABRIC-1.21.10-v2.16.0.jar" = pkgs.fetchurl {
             url = "https://cdn.modrinth.com/data/qQyHxfxd/versions/78RjC1gi/NoChatReports-FABRIC-1.21.10-v2.16.0.jar";
