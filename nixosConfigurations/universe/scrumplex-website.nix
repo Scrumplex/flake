@@ -34,16 +34,6 @@ in {
     "oysap5oclxaouxpuyykckncptwvt5cfwqyyckolly3hy5aq5poyvilid.onion" = mkMerge [
       (commonVHostFor pkgs.scrumplex-website)
     ];
-    "live.scrumplex.net" = mkMerge [
-      config.common.nginx.vHost
-      config.common.nginx.sslVHost
-      {
-        locations."/" = {
-          proxyPass = "http://localhost:3333";
-          proxyWebsockets = true;
-        };
-      }
-    ];
   };
 
   services.tor = {
@@ -60,35 +50,5 @@ in {
       ];
       secretKey = config.age.secrets."scrumplex-hs_ed25519_secret_key".path;
     };
-  };
-
-  virtualisation.oci-containers.containers.ovenmediaengine = {
-    image = config.virtualisation.oci-containers.externalImages.images."ovenmediaengine".ref;
-    environment = {
-      OME_SRT_PROV_PORT = "1935";
-      OME_DISTRIBUTION = "live.scrumplex.net";
-      OME_APPLICATION = "scrumplex";
-    };
-    ports = [
-      "3333:3333" # WebRTC Signaling
-      "3478:3478" # WebRTC Relay
-      "1935:1935" # RTMP Ingest
-      "10000-10005:10000-10005/udp" # WebRTC ICE
-    ];
-    volumes = [
-      "${./scrumplex-live-Server.xml}:/opt/ovenmediaengine/bin/origin_conf/Server.xml"
-    ];
-  };
-
-  networking.firewall = {
-    allowedTCPPorts = [
-      3478
-    ];
-    allowedUDPPortRanges = [
-      {
-        from = 10000;
-        to = 10005;
-      }
-    ];
   };
 }
