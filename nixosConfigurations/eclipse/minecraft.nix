@@ -112,6 +112,10 @@ in {
             url = "https://cdn.modrinth.com/data/qQyHxfxd/versions/78RjC1gi/NoChatReports-FABRIC-1.21.10-v2.16.0.jar";
             hash = "sha256-vTrtFM2n9ED2pAmIRGePhNv7aycwCmF1OIWATaerYuQ=";
           };
+          "mods/return-my-gold-farm-2.0.0.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/kuRpWzg6/versions/X5dHDFmD/return-my-gold-farm-2.0.0.jar";
+            hash = "sha256-fzKQs5l9Xr5JRe63KZ7QYzRUgvPPCErqi6DWIbiPXTU=";
+          };
           "mods/spark-1.10.152-fabric.jar" = pkgs.fetchurl {
             url = "https://cdn.modrinth.com/data/l6YH9Als/versions/eqIoLvsF/spark-1.10.152-fabric.jar";
             hash = "sha256-Ul2oR/N2zraVvPGxWs8YbHWQu1fiBt+a9CEIUnpP/Z4=";
