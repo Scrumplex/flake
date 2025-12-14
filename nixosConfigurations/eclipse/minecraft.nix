@@ -104,9 +104,9 @@ in {
             url = "https://cdn.modrinth.com/data/ZHKrK8Rp/versions/DtjrGc8t/fastback-0.29.0%2B1.21.10-fabric.jar";
             hash = "sha256-I81490umifppBg65BB+TOsAljEz/z5ppaU8sM80/hoI=";
           };
-          "mods/geyser-fabric-Geyser-Fabric-2.9.1-b1004.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/wKkoqHrH/versions/JrnwC6MC/geyser-fabric-Geyser-Fabric-2.9.2-b1004.jar";
-            hash = "sha256-HS3UYMvTBR+6qki649t/T8yatYpr9rCf5GQWxpk8Uqc=";
+          "mods/geyser-fabric-Geyser-Fabric-2.9.1-b1006.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/wKkoqHrH/versions/AEbLjpyK/geyser-fabric-Geyser-Fabric-2.9.2-b1006.jar";
+            hash = "sha256-NXgdh9IJ1ZS9xBIZWVKdD7tZlbeC9zTugv9mWFlwvc8=";
           };
           "mods/NoChatReports-FABRIC-1.21.10-v2.16.0.jar" = pkgs.fetchurl {
             url = "https://cdn.modrinth.com/data/qQyHxfxd/versions/78RjC1gi/NoChatReports-FABRIC-1.21.10-v2.16.0.jar";
@@ -115,6 +115,10 @@ in {
           "mods/spark-1.10.152-fabric.jar" = pkgs.fetchurl {
             url = "https://cdn.modrinth.com/data/l6YH9Als/versions/eqIoLvsF/spark-1.10.152-fabric.jar";
             hash = "sha256-Ul2oR/N2zraVvPGxWs8YbHWQu1fiBt+a9CEIUnpP/Z4=";
+          };
+          "mods/worldedit-mod-7.4.0-beta-01.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/1u6JkXh5/versions/wlq4UM7x/worldedit-mod-7.4.0-beta-01.jar";
+            hash = "sha256-IYfhjYxhWE9p3dRGBB+TE9UR9cgUiL/DseCWQcnRIWI=";
           };
         };
     in {
