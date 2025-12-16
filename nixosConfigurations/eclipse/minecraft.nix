@@ -124,6 +124,10 @@ in {
             url = "https://cdn.modrinth.com/data/1u6JkXh5/versions/wlq4UM7x/worldedit-mod-7.4.0-beta-01.jar";
             hash = "sha256-IYfhjYxhWE9p3dRGBB+TE9UR9cgUiL/DseCWQcnRIWI=";
           };
+          "mods/ViaFabricPlus-4.3.6.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/rIC2XJV4/versions/gkZyGxMz/ViaFabricPlus-4.3.6.jar";
+            hash = "sha256-yZ2XaX0sYMNJGQiTXyQn910T6j4RWEF4941CBQ2rlS8=";
+          };
         };
     in {
       enable = true;
