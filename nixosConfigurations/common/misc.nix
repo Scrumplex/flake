@@ -4,8 +4,6 @@
   };
   users.mutableUsers = false;
 
-  system.rebuild.enableNg = true;
-
   networking.firewall = {
     allowedTCPPorts = [
       22000 # syncthing
