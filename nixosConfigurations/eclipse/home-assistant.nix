@@ -26,7 +26,7 @@
     ];
     customComponents = with pkgs.home-assistant-custom-components; [
       frigate
-      solarman
+      pkgs.ha-solarman # from local overlay
     ];
     config = {
       homeassistant = {
