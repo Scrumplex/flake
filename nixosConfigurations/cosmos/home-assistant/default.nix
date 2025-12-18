@@ -47,6 +47,10 @@
       "sun"
       "waqi" # World Air Quality Index
       "zha"
+
+      # for xiaomi_home
+      "ffmpeg"
+      "zeroconf"
     ];
     customComponents = with pkgs.home-assistant-custom-components; [
       adaptive_lighting

@@ -13,6 +13,7 @@
     enable = true;
     extraComponents = [
       "automation"
+      "co2signal" # Electricity Maps
       "default_config"
       "esphome"
       "forecast_solar"
