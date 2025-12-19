@@ -45,6 +45,10 @@ in {
             url = "https://cdn.modrinth.com/data/nvQzSEkH/versions/7cBo3s22/Jade-1.21.11-Fabric-21.0.1.jar";
             hash = "sha256-kHYGgsk9Kvfo4bIXA8R1GdVvTvdSorBRjSHTF5bqStM=";
           };
+          "mods/mob_explosion_griefing-2.0.0%2B1.21.11.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/l9H9JPmo/versions/Nke6FVKQ/mob_explosion_griefing-2.0.0%2B1.21.11.jar";
+            hash = "sha256-1FWNrsvaWQ62VB8fR7ZxKPhu3K6U1BFaZhPfHWW2UnI=";
+          };
           "mods/NoChatReports-FABRIC-1.21.11-v2.17.0.jar" = pkgs.fetchurl {
             url = "https://cdn.modrinth.com/data/qQyHxfxd/versions/sFOP9oAo/NoChatReports-FABRIC-1.21.11-v2.17.0.jar";
             hash = "sha256-UH8Kt6WARd2uG5PkDnPCvsl5j1ABKSgmTh9n2TfTV3Q=";
