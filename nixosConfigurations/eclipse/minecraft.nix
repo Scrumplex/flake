@@ -45,9 +45,9 @@ in {
             url = "https://cdn.modrinth.com/data/nvQzSEkH/versions/7cBo3s22/Jade-1.21.11-Fabric-21.0.1.jar";
             hash = "sha256-kHYGgsk9Kvfo4bIXA8R1GdVvTvdSorBRjSHTF5bqStM=";
           };
-          "mods/NoChatReports-FABRIC-1.21.10-v2.16.0.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/qQyHxfxd/versions/78RjC1gi/NoChatReports-FABRIC-1.21.10-v2.16.0.jar";
-            hash = "sha256-vTrtFM2n9ED2pAmIRGePhNv7aycwCmF1OIWATaerYuQ=";
+          "mods/NoChatReports-FABRIC-1.21.11-v2.17.0.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/qQyHxfxd/versions/sFOP9oAo/NoChatReports-FABRIC-1.21.11-v2.17.0.jar";
+            hash = "sha256-UH8Kt6WARd2uG5PkDnPCvsl5j1ABKSgmTh9n2TfTV3Q=";
           };
           "mods/return-my-gold-farm-2.0.0.jar" = pkgs.fetchurl {
             url = "https://cdn.modrinth.com/data/kuRpWzg6/versions/X5dHDFmD/return-my-gold-farm-2.0.0.jar";
