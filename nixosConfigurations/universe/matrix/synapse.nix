@@ -5,12 +5,12 @@
   ...
 }: {
   age.secrets."synapse.signing.key" = {
-    file = ../../secrets/universe/synapse.signing.key.age;
+    file = ../../../secrets/universe/synapse.signing.key.age;
     owner = "matrix-synapse";
     group = "matrix-synapse";
   };
   age.secrets."synapse-secrets.yaml" = {
-    file = ../../secrets/universe/synapse-secrets.yaml.age;
+    file = ../../../secrets/universe/synapse-secrets.yaml.age;
     owner = "matrix-synapse";
     group = "matrix-synapse";
   };
@@ -95,13 +95,6 @@
         "synapse.federation.transport.server.federation".level = "WARNING";
       };
     };
-  };
-
-  virtualisation.oci-containers.containers."draupnir" = {
-    image = config.virtualisation.oci-containers.externalImages.images."draupnir".ref;
-    volumes = [
-      "/srv/draupnir:/data"
-    ];
   };
 
   services.nginx = {

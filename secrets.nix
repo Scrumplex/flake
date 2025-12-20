@@ -23,6 +23,7 @@ in {
   "nixosConfigurations/cosmos/hetzner-api-token.env.age".publicKeys = scrumplex ++ cosmos;
   "nixosConfigurations/cosmos/home-assistant/secrets.yaml.age".publicKeys = scrumplex ++ cosmos;
   "nixosConfigurations/eclipse/hetzner-api-token.env.age".publicKeys = scrumplex ++ eclipse;
+  "nixosConfigurations/universe/matrix/draupnir-access-token.age".publicKeys = scrumplex ++ universe;
 
   "secrets/andromeda/borgbase-repokey.age".publicKeys = andromeda ++ scrumplex;
   "secrets/andromeda/cache-key.age".publicKeys = andromeda ++ scrumplex;

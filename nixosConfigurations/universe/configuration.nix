@@ -15,7 +15,8 @@
     ./scrumplex-website.nix
     ./scrumplex-x.nix
     ./skinprox.nix
-    ./synapse.nix
+    ./matrix/draupnir.nix
+    ./matrix/synapse.nix
     ./teamspeak3.nix
     ./wireguard.nix
 

@@ -1,8 +1,3 @@
-draupnir:
-  image:
-    repository: gnuxie/draupnir
-    tag: v2.9.0@sha256:4cffcb0197460274f5a4813e377ba08d179de08843fcdf7263ec5c3ff62d352a
-
 frigate:
   image:
     registry: ghcr.io
