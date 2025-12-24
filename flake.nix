@@ -120,7 +120,7 @@
     openwrt-imagebuilder = {
       url = "github:astro/nix-openwrt-imagebuilder";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "";
+      inputs.flake-parts.follows = "flake-parts";
     };
   };
 
