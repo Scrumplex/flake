@@ -29,21 +29,25 @@ in {
             url = "https://cdn.modrinth.com/data/EsAfCjCV/versions/pvcLnrm0/appleskin-fabric-mc1.21.11-3.0.7.jar";
             hash = "sha256-UOjD6vafWRmhbMQijPq9Xzudd0E9Jng0mSw+PFGuk+0=";
           };
-          "mods/DistantHorizons-2.4.2-b-1.21.11-fabric-neoforge.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/uCdwusMi/versions/MEUmB9jk/DistantHorizons-2.4.2-b-1.21.11-fabric-neoforge.jar";
-            hash = "sha256-impqlgDtlf22xnOpC47yCGOXHykCzRZqFWG5ZI6IDAc=";
+          "mods/DistantHorizons-2.4.3-b-1.21.11-fabric-neoforge.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/uCdwusMi/versions/OmG1jkba/DistantHorizons-2.4.3-b-1.21.11-fabric-neoforge.jar";
+            hash = "sha256-pVV2jxE9hRpC3kfmIQ9Nk6cjQma4eGgeQWlzq6Ywevo=";
           };
-          "mods/fastback-0.29.0+1.21.10-fabric.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/ZHKrK8Rp/versions/DtjrGc8t/fastback-0.29.0%2B1.21.10-fabric.jar";
-            hash = "sha256-I81490umifppBg65BB+TOsAljEz/z5ppaU8sM80/hoI=";
+          "mods/fastback-0.30.0+1.21.11-fabric.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/ZHKrK8Rp/versions/yqaOm9Fj/fastback-0.30.0%2B1.21.11-fabric.jar";
+            hash = "sha256-/GEq3gC8QJdVbFrK5JcTQDmk+cuJX6kAkFOKfrDeEmk=";
           };
-          "mods/geyser-fabric-Geyser-Fabric-2.9.2-b1009.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/wKkoqHrH/versions/ddHFw0nu/geyser-fabric-Geyser-Fabric-2.9.2-b1009.jar";
-            hash = "sha256-c5HRJCKiXZJDJId9wtnWlM+hkR61r2tRVVSek1a2YPE=";
+          "mods/geyser-fabric-Geyser-Fabric-2.9.2-b1013.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/wKkoqHrH/versions/rPAhdfqh/geyser-fabric-Geyser-Fabric-2.9.2-b1013.jar";
+            hash = "sha256-Cgd8yma4ErYNWkZHE3Q70M6EbMD6DENciZSBCA6UL+Y=";
           };
           "mods/Jade-1.21.11-Fabric-21.0.1.jar" = pkgs.fetchurl {
             url = "https://cdn.modrinth.com/data/nvQzSEkH/versions/7cBo3s22/Jade-1.21.11-Fabric-21.0.1.jar";
             hash = "sha256-kHYGgsk9Kvfo4bIXA8R1GdVvTvdSorBRjSHTF5bqStM=";
+          };
+          "mods/journeymap-fabric-1.21.11-6.0.0-beta.53.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/lfHFW1mp/versions/t3uYUEB5/journeymap-fabric-1.21.11-6.0.0-beta.53.jar";
+            hash = "sha256-VU1EsRjoDPQ5h8A3EctyYI3wumKALLH5UKS2yC/lL+w=";
           };
           "mods/mob_explosion_griefing-2.0.0%2B1.21.11.jar" = pkgs.fetchurl {
             url = "https://cdn.modrinth.com/data/l9H9JPmo/versions/Nke6FVKQ/mob_explosion_griefing-2.0.0%2B1.21.11.jar";
@@ -61,9 +65,13 @@ in {
             url = "https://cdn.modrinth.com/data/l6YH9Als/versions/1CB3cS0m/spark-1.10.156-fabric.jar";
             hash = "sha256-Nu0Tj/3iovH8sy7LzH+iG+rxYR4APRnjrUCVSHPlcvo=";
           };
-          "mods/worldedit-mod-7.3.18-beta-01.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/1u6JkXh5/versions/ZmRjhuVs/worldedit-mod-7.3.18-beta-01.jar";
-            hash = "sha256-VuUFrKbl1P1StwB7kYCsag2dji82xS+X9OHU8lAOzC8=";
+          "mods/worldedit-mod-7.4.0-beta-02.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/1u6JkXh5/versions/D4snyuU8/worldedit-mod-7.4.0-beta-02.jar";
+            hash = "sha256-r7wrA9Jl5tmrBD9LR7CCS1v+kHvs5r8CdymiZIVNUmg=";
+          };
+          "mods/ViaBackwards-5.6.1-SNAPSHOT.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/NpvuJQoq/versions/Exv8Evum/ViaBackwards-5.6.1-SNAPSHOT.jar";
+            hash = "sha256-0epzPSlinJu37/HTlBJlw75F2unrmHcIDbczwPq6e5w=";
           };
           "mods/ViaFabric-0.4.21%2B129-main.jar" = pkgs.fetchurl {
             url = "https://cdn.modrinth.com/data/YlKdE5VK/versions/jmsoyTm9/ViaFabric-0.4.21%2B129-main.jar";
@@ -90,6 +98,7 @@ in {
         "freckled_Star" = "8c7e6c67-9f59-4f79-afcf-bdff40df6db1";
         "Honey_Arcus" = "35ab6244-3e9e-452d-a6cd-258868d3cad7";
         "ItsJustStone" = "863ec9e8-09e0-4c33-a085-d34223206fa4";
+        "NotGanondorf" = "557730db-9732-4727-99db-b46f8ad7535c";
         "Scrumplex" = "f2873756-429d-413a-b22d-6a976ed0d3f2";
       };
 
