@@ -15,6 +15,7 @@ in {
     ./traefik.nix
     ./wifi.nix
     ./wireguard.nix
+    ./watchdog.nix
 
     fpConfig.flake.modules.nixos.raspberry-pi-4
     fpConfig.flake.modules.nixos.ext-docker
