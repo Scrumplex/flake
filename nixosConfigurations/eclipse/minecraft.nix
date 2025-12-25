@@ -69,14 +69,6 @@ in {
             url = "https://cdn.modrinth.com/data/1u6JkXh5/versions/D4snyuU8/worldedit-mod-7.4.0-beta-02.jar";
             hash = "sha256-r7wrA9Jl5tmrBD9LR7CCS1v+kHvs5r8CdymiZIVNUmg=";
           };
-          "mods/ViaBackwards-5.6.1-SNAPSHOT.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/NpvuJQoq/versions/Exv8Evum/ViaBackwards-5.6.1-SNAPSHOT.jar";
-            hash = "sha256-0epzPSlinJu37/HTlBJlw75F2unrmHcIDbczwPq6e5w=";
-          };
-          "mods/ViaFabric-0.4.21%2B129-main.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/YlKdE5VK/versions/jmsoyTm9/ViaFabric-0.4.21%2B129-main.jar";
-            hash = "sha256-ODt665lecEM7Zwckxfn6mC9yg9To4/CWpKj6uPbqMw0=";
-          };
         };
     in {
       enable = true;
