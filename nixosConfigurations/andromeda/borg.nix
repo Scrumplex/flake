@@ -18,6 +18,7 @@
       "*/.git/objects"
       "*/.pnpm-store"
       "*/.snapshots"
+      "*/DistantHorizons.sqlite"
       "*/node_modules"
       "/home/*/.cargo"
       "/home/*/.cargo"
