@@ -2,7 +2,6 @@
   environment.systemPackages = with pkgs; [
     discord-canary
     element-desktop
-    quasselClient
     signal-desktop-bin
     vesktop
   ];
