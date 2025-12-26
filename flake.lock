@@ -379,11 +379,11 @@
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
       },
       "locked": {
-        "lastModified": 1766675561,
-        "narHash": "sha256-5u67NLuKxFP8K6rMdoCmsQ0s6MdhMIlsZI0FHY5bjUs=",
+        "lastModified": 1766757237,
+        "narHash": "sha256-KzxXihL0UAaUyFcywtEEBTTNn7gIdtN6Z+Gd0X0jkHw=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "85438e6bff70ed1c306e7ad252bde19b459f47ef",
+        "rev": "d72c111814489ae4f549cd194598138128550847",
         "type": "github"
       },
       "original": {
@@ -412,11 +412,11 @@
     "niri-unstable": {
       "flake": false,
       "locked": {
-        "lastModified": 1766662009,
-        "narHash": "sha256-SlMUnCuN7UdD71SERvROX6b0XVXs+QCXoDeKGWtJ2v4=",
+        "lastModified": 1766751930,
+        "narHash": "sha256-83/YSW6c58i/iwGzAFApuMy6MCgoIaROeCcoIGh+ViU=",
         "owner": "YaLTeR",
         "repo": "niri",
-        "rev": "2a9d0e495a011a124b37532dfcfb3c780fd2eb89",
+        "rev": "b5640d5293ad8dca06cb447692ea7cbb21680eb1",
         "type": "github"
       },
       "original": {
@@ -552,11 +552,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1766473571,
-        "narHash": "sha256-5G1NDO2PulBx1RoaA6U1YoUDX0qZslpPxv+n5GX6Qto=",
+        "lastModified": 1766622938,
+        "narHash": "sha256-Eovt/DOCYjFFBZuYbbG9j5jhklzxdNbUGVYYxh3lG3s=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "76701a179d3a98b07653e2b0409847499b2a07d3",
+        "rev": "5900a0a8850cbba98e16d5a7a6ed389402dfcf4f",
         "type": "github"
       },
       "original": {
@@ -568,11 +568,11 @@
     },
     "nixpkgs-stable_2": {
       "locked": {
-        "lastModified": 1766399428,
-        "narHash": "sha256-vS6LSOMDOB3s+L6tqw9IGujxnmUAZQnEG+Vi640LayI=",
+        "lastModified": 1766687554,
+        "narHash": "sha256-DegN7KD/EtFSKXf2jvqL6lvev6GlfAAatYBcRC8goEo=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a6c3a6141ec1b367c58ead3f7f846c772a25f4e5",
+        "rev": "fd0ca39c92fdb4012ed8d60e1683c26fddadd136",
         "type": "github"
       },
       "original": {
@@ -634,11 +634,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1766604046,
-        "narHash": "sha256-9Wvp2G/z0YYMn7oeN/E90pRtXJxQCo7EZrKKkNpwru4=",
+        "lastModified": 1766721995,
+        "narHash": "sha256-2qZLSojZFP3AzbC6UNF3ASCIDLahNniR2XP7l/qINm4=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "48b23bdae0770d86e1d0cb8ed830a0cb58810333",
+        "rev": "66a5dc70e2d8433034bccdbb9c3c7bcecd86f9a6",
         "type": "github"
       },
       "original": {
@@ -687,11 +687,11 @@
         "systems": "systems_5"
       },
       "locked": {
-        "lastModified": 1766651883,
-        "narHash": "sha256-P4ADb4Nu9jZg1lQ1MDLsslVk1rA+duuasCAUKV4ujWQ=",
+        "lastModified": 1766738283,
+        "narHash": "sha256-QhCGVKO/UpCt1wDH7XlCsxXYBPSF7Id8aC4LcFx2c0M=",
         "owner": "astro",
         "repo": "nix-openwrt-imagebuilder",
-        "rev": "0892fdc6809779a0448c64911fd7681d65f9f365",
+        "rev": "ba75e23fe549f6cc3e5ec2ceac72515d13aa7868",
         "type": "github"
       },
       "original": {
@@ -708,11 +708,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1766527832,
-        "narHash": "sha256-f2v229wDzw2hCfmmM2FniNsQUNfoVLYHy0/c0NHwEUE=",
+        "lastModified": 1766743839,
+        "narHash": "sha256-vPbrprs+I+IEuxeL0uKemeL0x/Yg/29bFmYgYvn0CdQ=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "76d1cd1b4e2bc62c827a6dda243cb7a3e715caf6",
+        "rev": "8e3be68c658af51f72cbc5ec78fe19bc0dabfb43",
         "type": "github"
       },
       "original": {
@@ -789,11 +789,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1766484246,
-        "narHash": "sha256-qXxmy+GnSULUOiPBHOpi9c+qMdC4WUxk6spVhgDkc6w=",
+        "lastModified": 1766746650,
+        "narHash": "sha256-3Pou6DggAiizHet4gkJUy2qqiAA3HzbpyHx/WsO2hB0=",
         "owner": "Scrumplex",
         "repo": "pkgs",
-        "rev": "28e8aa01167888a6e7e2b48cc1db703431b4bf16",
+        "rev": "0a3980126876fa49ca40cb0c63461fa68994a6b6",
         "type": "github"
       },
       "original": {
