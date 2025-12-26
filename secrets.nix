@@ -59,7 +59,6 @@ in {
   "secrets/eclipse/id_borgbase.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/miniflux.env.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/paperless-password.age".publicKeys = scrumplex ++ eclipse;
-  "secrets/eclipse/quassel-cert.pem.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/slskd-creds.env.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/syncthing-key.pem.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/syncthing-cert.pem.age".publicKeys = scrumplex ++ eclipse;

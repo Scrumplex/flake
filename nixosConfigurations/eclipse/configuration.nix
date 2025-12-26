@@ -18,7 +18,6 @@ in {
     ./mosquitto.nix
     ./paperless.nix
     ./postgres.nix
-    ./quassel.nix
     ./swapfile.nix
     ./tandoor.nix
     ./traefik.nix
