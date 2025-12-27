@@ -33,6 +33,10 @@ in {
             url = "https://cdn.modrinth.com/data/EsAfCjCV/versions/pvcLnrm0/appleskin-fabric-mc1.21.11-3.0.7.jar";
             hash = "sha256-UOjD6vafWRmhbMQijPq9Xzudd0E9Jng0mSw+PFGuk+0=";
           };
+          "mods/dcintegration-fabric-MC1.21.10-3.1.0.1.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/rbJ7eS5V/versions/DJOsldZY/dcintegration-fabric-MC1.21.10-3.1.0.1.jar";
+            hash = "sha256-2toKtlufC/oW1iK4hhQMMdp1B9NY48jYaf1g0A3ir34=";
+          };
           "mods/DistantHorizons-2.4.3-b-1.21.11-fabric-neoforge.jar" = pkgs.fetchurl {
             url = "https://cdn.modrinth.com/data/uCdwusMi/versions/OmG1jkba/DistantHorizons-2.4.3-b-1.21.11-fabric-neoforge.jar";
             hash = "sha256-pVV2jxE9hRpC3kfmIQ9Nk6cjQma4eGgeQWlzq6Ywevo=";
@@ -104,9 +108,7 @@ in {
 
       symlinks = mods;
 
-      files = {
-        "config" = "${modpack}/config";
-      };
+      files = inputs.nix-minecraft.lib.collectFilesAt modpack "config";
 
       serverProperties = {
         difficulty = "normal";
