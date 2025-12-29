@@ -4,7 +4,11 @@
   pkgs,
   ...
 }: {
-  age.secrets."wpa_supplicant.conf".file = ../../secrets/cosmos/wpa_supplicant.conf.age;
+  age.secrets."wpa_supplicant.conf" = {
+    file = ../../secrets/cosmos/wpa_supplicant.conf.age;
+    owner = "wpa_supplicant";
+    group = "wpa_supplicant";
+  };
 
   networking = {
     interfaces.wlan0.useDHCP = true;
