@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   systemd.services."ping-watchdog" = {
+    enable = false; # todo: too aggressive :/
     description = "Watchdog checking for network access";
     onFailure = ["reboot.target"];
     path = [pkgs.iputils];
