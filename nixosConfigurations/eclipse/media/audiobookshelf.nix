@@ -1,7 +1,13 @@
-{config, ...}: {
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}: {
   services.audiobookshelf = {
     enable = true;
     port = 23232;
+    package = inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.audiobookshelf;
   };
 
   systemd.services.traefik.unitConfig.RequiresMountsFor = ["/media"];
