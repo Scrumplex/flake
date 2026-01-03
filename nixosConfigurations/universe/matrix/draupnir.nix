@@ -1,13 +1,8 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   age.secrets."draupnir-access-token".file = ./draupnir-access-token.age;
 
   services.draupnir = {
     enable = true;
-    package = pkgs.draupnir.override {nodejs = pkgs.nodejs_22;};
 
     secrets.accessToken = config.age.secrets."draupnir-access-token".path;
 

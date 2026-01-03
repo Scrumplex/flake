@@ -1,11 +1,7 @@
 {
-  flake.modules.nixos.vr = {
-    inputs,
-    pkgs,
-    ...
-  }: {
+  flake.modules.nixos.vr = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
-      inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.bs-manager
+      bs-manager
       index_camera_passthrough
       wayvr-dashboard
       wlx-overlay-s

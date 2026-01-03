@@ -1,9 +1,13 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     discord-canary
     element-desktop
     signal-desktop-bin
-    vesktop
+    inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.vesktop
   ];
 
   hm.xdg.autostart.entries = [
