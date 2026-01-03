@@ -8,7 +8,7 @@
     pkgs,
     ...
   }: {
-    boot.extraModulePackages = lib.mkIf (builtins.any (gpu: builtins.elem "amdgpu" gpu.drivers) config.facter.report.hardware.graphics_card) [
+    boot.extraModulePackages = lib.mkIf (builtins.any (gpu: builtins.elem "amdgpu" gpu.drivers) config.hardware.facter.detected.graphics.amd.enable) [
       (pkgs.callPackage ./_derivation.nix {
         inherit (config.boot.kernelPackages) kernel;
         patches = [

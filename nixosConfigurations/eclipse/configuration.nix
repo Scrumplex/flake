@@ -4,7 +4,7 @@
   inputs,
   ...
 }: let
-  inherit (inputs) nixos-facter-modules nixos-hardware srvos;
+  inherit (inputs) nixos-hardware srvos;
 in {
   imports = [
     ./boot.nix
@@ -27,7 +27,6 @@ in {
     fpConfig.flake.modules.nixos.physical-server
     fpConfig.flake.modules.nixos.ext-docker
 
-    nixos-facter-modules.nixosModules.facter
     nixos-hardware.nixosModules.common-cpu-amd-pstate
     nixos-hardware.nixosModules.common-gpu-amd
     nixos-hardware.nixosModules.common-pc-ssd
@@ -35,7 +34,10 @@ in {
     srvos.nixosModules.mixins-systemd-boot
   ];
 
-  facter.reportPath = ./facter.json;
+  hardware.facter = {
+    reportPath = ./facter.json;
+    detected.dhcp.enable = false;
+  };
   hardware.enableRedistributableFirmware = true;
 
   age.secrets.id_borgbase.file = ../../secrets/eclipse/id_borgbase.age;

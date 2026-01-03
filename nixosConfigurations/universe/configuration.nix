@@ -22,12 +22,14 @@
 
     fpConfig.flake.modules.nixos.netcup-vps
 
-    inputs.nixos-facter-modules.nixosModules.facter
     inputs.srvos.nixosModules.server
     inputs.srvos.nixosModules.mixins-systemd-boot
   ];
 
-  facter.reportPath = ./facter.json;
+  hardware.facter = {
+    reportPath = ./facter.json;
+    detected.dhcp.enable = false;
+  };
 
   age.secrets.id_borgbase.file = ../../secrets/universe/id_borgbase.age;
   age.secrets.borgbase_repokey.file = ../../secrets/universe/borgbase_repokey.age;

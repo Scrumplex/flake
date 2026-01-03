@@ -70,7 +70,6 @@
       inputs.flake-compat.follows = "";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-xr = {

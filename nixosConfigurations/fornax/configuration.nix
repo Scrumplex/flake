@@ -1,6 +1,5 @@
 {
   fpConfig,
-  inputs,
   pkgs,
   ...
 }: {
@@ -12,11 +11,12 @@
     ./disks.nix
 
     fpConfig.flake.modules.nixos.steam-deck
-
-    inputs.nixos-facter-modules.nixosModules.facter
   ];
 
-  facter.reportPath = ./facter.json;
+  hardware.facter = {
+    reportPath = ./facter.json;
+    detected.dhcp.enable = false;
+  };
 
   # TODO
   nixpkgs.config.allowUnfree = true;

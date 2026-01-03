@@ -15,12 +15,14 @@
 
     fpConfig.flake.modules.nixos.laptop
 
-    inputs.nixos-facter-modules.nixosModules.facter
     inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
     inputs.srvos.nixosModules.desktop
   ];
 
-  facter.reportPath = ./facter.json;
+  hardware.facter = {
+    reportPath = ./facter.json;
+    detected.dhcp.enable = false;
+  };
   hardware.enableRedistributableFirmware = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
