@@ -2,6 +2,7 @@
   config,
   fpConfig,
   inputs,
+  lib,
   pkgs,
   ...
 }: let
@@ -10,22 +11,22 @@ in {
   imports = [
     ./boot.nix
     ./dyndns.nix
-    ./hardware-configuration.nix
     ./home-assistant
     ./traefik.nix
     ./wifi.nix
     ./wireguard.nix
-    ./watchdog.nix
 
     fpConfig.flake.modules.nixos.raspberry-pi-4
     fpConfig.flake.modules.nixos.ext-docker
 
     srvos.nixosModules.server
     nixos-hardware.nixosModules.raspberry-pi-4
-    inputs.nixos-facter-modules.nixosModules.facter
   ];
 
-  facter.reportPath = ./facter.json;
+  hardware.facter = {
+    reportPath = ./facter.json;
+    detected.dhcp.enable = false;
+  };
 
   age.secrets.id_borgbase.file = ../../secrets/cosmos/id_borgbase.age;
 
@@ -68,6 +69,11 @@ in {
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKUfcVT3WxnuIWGxdmGiZMXZ5wsnQXqL+HO0ZIQS7wKL"
       ];
     hashedPassword = "$y$j9T$JbosTEvX3uH6.mFV/Sz071$6vVkITFq4INQFdf51.guqaD68JWp6ZcVNGVfPqqIzL/";
+  };
+
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/44444444-4444-4444-8888-888888888888";
+    fsType = "ext4";
   };
 
   system.stateVersion = "23.05";
