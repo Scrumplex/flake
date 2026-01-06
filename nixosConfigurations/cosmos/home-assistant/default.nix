@@ -45,6 +45,7 @@
       "smartthings"
       "steam_online"
       "sun"
+      "tuya"
       "waqi" # World Air Quality Index
       "zha"
 
