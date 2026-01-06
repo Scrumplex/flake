@@ -1,15 +1,9 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   age.secrets."murmur.env".file = ../../secrets/universe/murmur.env.age;
 
   services.murmur = {
     enable = true;
     openFirewall = true;
-    package = inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.murmur;
     environmentFile = config.age.secrets."murmur.env".path;
 
     welcometext = ''

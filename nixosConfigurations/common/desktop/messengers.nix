@@ -7,7 +7,6 @@
     discord-canary
     element-desktop
     signal-desktop-bin
-    inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.vesktop
   ];
 
   hm.xdg.autostart.entries = [
