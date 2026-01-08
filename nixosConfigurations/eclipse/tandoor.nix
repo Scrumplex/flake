@@ -15,6 +15,7 @@
     extraConfig = {
       # TODO: use something better
       GUNICORN_MEDIA = true;
+      MEDIA_ROOT = "/var/lib/tandoor-recipes/media";
     };
   };
 
