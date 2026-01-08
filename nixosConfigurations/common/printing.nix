@@ -1,15 +1,7 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
-  epsonscan2 =
-    (import inputs.nixpkgs-stable {
-      inherit (pkgs.stdenv.hostPlatform) system;
-      config.allowUnfree = true;
-    }).epsonscan2.override {
-      withNonFreePlugins = true;
-    };
+{pkgs, ...}: let
+  epsonscan2 = pkgs.epsonscan2.override {
+    withNonFreePlugins = true;
+  };
 in {
   environment.systemPackages = [epsonscan2];
   services.printing = {
