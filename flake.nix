@@ -148,7 +148,6 @@
 
         ./parts/checks.nix
         ./parts/dev.nix
-        ./parts/nixpkgs-dev.nix
 
         (inputs.import-tree ./nix)
       ];
