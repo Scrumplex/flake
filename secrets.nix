@@ -19,6 +19,9 @@ let
 in {
   "nix/modules/class/desktop/music/listenbrainz-token.age".publicKeys = andromeda ++ dyson ++ scrumplex;
   "nix/modules/class/desktop/music/beets-secrets.yaml.age".publicKeys = andromeda ++ dyson ++ scrumplex;
+  "nix/modules/machines/cosmos/asf/asf-ipc-passwd.age".publicKeys = cosmos ++ scrumplex;
+  "nix/modules/machines/cosmos/asf/asf-bot1.json.age".publicKeys = cosmos ++ scrumplex;
+  "nix/modules/machines/cosmos/asf/asf-bot2.json.age".publicKeys = cosmos ++ scrumplex;
 
   "nixosConfigurations/cosmos/hetzner-api-token.env.age".publicKeys = scrumplex ++ cosmos;
   "nixosConfigurations/cosmos/home-assistant/secrets.yaml.age".publicKeys = scrumplex ++ cosmos;

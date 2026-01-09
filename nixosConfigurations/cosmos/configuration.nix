@@ -18,6 +18,7 @@ in {
 
     fpConfig.flake.modules.nixos.raspberry-pi-4
     fpConfig.flake.modules.nixos.ext-docker
+    fpConfig.flake.modules.nixos.machine-cosmos
 
     srvos.nixosModules.server
     nixos-hardware.nixosModules.raspberry-pi-4
