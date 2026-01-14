@@ -179,6 +179,20 @@
         };
       };
     };
+
+    programs.kitty = {
+      enable = true;
+      font.name = "FiraCode Nerd Font Mono";
+      settings = {
+        disable_ligatures = "cursor";
+        paste_actions = "quote-urls-at-prompt";
+        placement_strategy = "top-left";
+        tab_bar_style = "powerline";
+        update_check_interval = 0;
+        shell = "/run/current-system/sw/bin/fish";
+      };
+      shellIntegration.mode = "no-cursor";
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -238,11 +252,11 @@
   environment.systemPath = [config.homebrew.brewPrefix];
 
   environment.systemPackages = with pkgs; [
+    config.hm.programs.kitty.package
     htop
     bruno
     hoppscotch
     inkscape
-    iterm2
     pgadmin4-desktopmode
     rectangle
     signal-desktop-bin
