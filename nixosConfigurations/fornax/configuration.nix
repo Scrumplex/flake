@@ -24,6 +24,9 @@
   networking.networkmanager.enable = true;
   networking.useDHCP = false;
 
+  services.desktopManager.plasma6.enable = true;
+  jovian.steam.desktopSession = "plasma";
+
   environment.systemPackages = with pkgs; [
     dolphin-emu
     ryubing
