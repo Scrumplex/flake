@@ -29,7 +29,7 @@ resource "hcloud_zone_rrset" "cosmos6_sefa_cloud" {
 
   records = [
     {
-      value = "fd19:783f:b287:0:dea6:32ff:fe54:1a63"
+      value = "fd19:783f:b287:0:92de:80ff:fe86:418a"
     }
   ]
 }

@@ -26,5 +26,15 @@ in {
       "${config.services.archisteamfarm.dataDir}/config/bot1.json"."L+".argument = config.age.secrets."asf-bot1.json".path;
       "${config.services.archisteamfarm.dataDir}/config/bot2.json"."L+".argument = config.age.secrets."asf-bot2.json".path;
     };
+
+    services.traefik.dynamicConfigOptions.http = {
+      routers.asf = {
+        entryPoints = ["websecure"];
+        middlewares = ["internal-only"];
+        service = "asf";
+        rule = "Host(`asf.cosmos.sefa.cloud`)";
+      };
+      services.asf.loadBalancer.servers = [{url = "http://localhost:1242";}];
+    };
   };
 }
