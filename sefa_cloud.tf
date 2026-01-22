@@ -101,6 +101,7 @@ resource "hcloud_zone_rrset" "cnames_sefa_cloud" {
     "box",
     "cache",
     "cook",
+    "grocy",
     "home",
     "immich",
     "jellyfin",
