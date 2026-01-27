@@ -9,7 +9,7 @@
     enable = true;
     schedule = "hourly";
     settings = {
-      platform = "gitea";
+      platform = "forgejo";
       endpoint = "https://codeberg.org/api/v1";
       gitAuthor = "Skippy <renovate@scrumplex.net>";
       onboardingConfig = {
