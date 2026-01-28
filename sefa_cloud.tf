@@ -95,6 +95,45 @@ resource "hcloud_zone_rrset" "eclipsecnames_sefa_cloud" {
   ]
 }
 
+resource "hcloud_zone_rrset" "galileo4_sefa_cloud" {
+  zone = data.hcloud_zone.sefa_cloud.name
+  name = "galileo"
+  type = "A"
+
+  records = [
+    {
+      value = "10.0.0.0"
+    }
+  ]
+}
+
+resource "hcloud_zone_rrset" "galileo6_sefa_cloud" {
+  zone = data.hcloud_zone.sefa_cloud.name
+  name = "galileo"
+  type = "AAAA"
+
+  records = [
+    {
+      value = "fd19:783f:b287:0:ea2a:44ff:fec8:f727"
+    }
+  ]
+}
+
+resource "hcloud_zone_rrset" "galileocnames_sefa_cloud" {
+  for_each = toset([
+    "asf",
+  ])
+  zone = data.hcloud_zone.sefa_cloud.name
+  name = "${each.key}.galileo"
+  type = "CNAME"
+
+  records = [
+    {
+      value = "galileo.sefa.cloud."
+    }
+  ]
+}
+
 resource "hcloud_zone_rrset" "cnames_sefa_cloud" {
   for_each = toset([
     "audiobookshelf",
