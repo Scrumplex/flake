@@ -15,7 +15,6 @@ let
   cosmos = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFP1mSnn2jJw4nsRtGdikPlN6Cie+kOo5a1bYctjjapg"];
   galileo = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOm7iV891WwPgu0h+Ff/MzY+Aehnqfmd9s0Q7iRHSGsM"];
   sonic = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFlUqH1I3MG76kXF9cpDO6geUbhRF8h2LkSW0gO1cm+k scrumplex@dyson"];
-  centauri = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIY8VwneXuBfB88eQqz48LFkfCgIghlBNzbeqyL99EcP"];
   eclipse = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEgfjN4xqCCsl+XzvSFFIR4WQ18r4+G7kGcMLkTe4be6"];
 in {
   "nix/modules/class/desktop/music/beets-secrets.yaml.age".publicKeys = andromeda ++ dyson ++ scrumplex;
@@ -53,8 +52,6 @@ in {
   "secrets/universe/synapse-secrets.yaml.age".publicKeys = scrumplex ++ universe;
   "secrets/universe/scrumplex-hs_ed25519_secret_key.age".publicKeys = scrumplex ++ universe;
   "secrets/universe/wireguard.key.age".publicKeys = scrumplex ++ universe;
-
-  "secrets/centauri/wifi-password.age".publicKeys = scrumplex ++ centauri;
 
   "secrets/cosmos/id_borgbase.age".publicKeys = scrumplex ++ cosmos;
   "secrets/cosmos/wireguard.key.age".publicKeys = scrumplex ++ cosmos;

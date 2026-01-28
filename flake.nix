@@ -141,7 +141,6 @@
         ./nixosConfigurations/eclipse
         ./nixosConfigurations/galileo
         ./nixosConfigurations/universe
-        ./nixosConfigurations/centauri
 
         ./darwinConfigurations/builder
 
