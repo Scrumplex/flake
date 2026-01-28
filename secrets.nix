@@ -13,15 +13,17 @@ let
 
   universe = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPWva83JbLRs2E6oqAP71CARJpdGRLWEUxM524vhfxXr"];
   cosmos = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFP1mSnn2jJw4nsRtGdikPlN6Cie+kOo5a1bYctjjapg"];
+  galileo = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOm7iV891WwPgu0h+Ff/MzY+Aehnqfmd9s0Q7iRHSGsM"];
   sonic = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFlUqH1I3MG76kXF9cpDO6geUbhRF8h2LkSW0gO1cm+k scrumplex@dyson"];
   centauri = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIY8VwneXuBfB88eQqz48LFkfCgIghlBNzbeqyL99EcP"];
   eclipse = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEgfjN4xqCCsl+XzvSFFIR4WQ18r4+G7kGcMLkTe4be6"];
 in {
-  "nix/modules/class/desktop/music/listenbrainz-token.age".publicKeys = andromeda ++ dyson ++ scrumplex;
   "nix/modules/class/desktop/music/beets-secrets.yaml.age".publicKeys = andromeda ++ dyson ++ scrumplex;
-  "nix/modules/machines/cosmos/asf/asf-ipc-passwd.age".publicKeys = cosmos ++ scrumplex;
+  "nix/modules/class/desktop/music/listenbrainz-token.age".publicKeys = andromeda ++ dyson ++ scrumplex;
   "nix/modules/machines/cosmos/asf/asf-bot1.json.age".publicKeys = cosmos ++ scrumplex;
   "nix/modules/machines/cosmos/asf/asf-bot2.json.age".publicKeys = cosmos ++ scrumplex;
+  "nix/modules/machines/cosmos/asf/asf-ipc-passwd.age".publicKeys = cosmos ++ scrumplex;
+  "nix/modules/machines/galileo/wifi/Beehive.psk.age".publicKeys = galileo ++ scrumplex;
 
   "nixosConfigurations/cosmos/hetzner-api-token.env.age".publicKeys = scrumplex ++ cosmos;
   "nixosConfigurations/cosmos/home-assistant/secrets.yaml.age".publicKeys = scrumplex ++ cosmos;

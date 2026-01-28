@@ -3,9 +3,7 @@
   lib,
   ...
 }: {
-  imports =
-    [inputs.agenix.nixosModules.age]
-    ++ builtins.attrValues inputs.scrumpkgs.nixosModules;
+  imports = builtins.attrValues inputs.scrumpkgs.nixosModules;
 
   nixpkgs.overlays = lib.mkBefore [
     inputs.scrumpkgs.overlays.default

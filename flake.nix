@@ -139,6 +139,7 @@
 
         ./nixosConfigurations/cosmos
         ./nixosConfigurations/eclipse
+        ./nixosConfigurations/galileo
         ./nixosConfigurations/universe
         ./nixosConfigurations/centauri
 
