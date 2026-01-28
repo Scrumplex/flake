@@ -2,7 +2,6 @@
   hm.catppuccin = {
     inherit (config.catppuccin) flavor accent;
   };
-  users.mutableUsers = false;
 
   networking.firewall = {
     allowedTCPPorts = [

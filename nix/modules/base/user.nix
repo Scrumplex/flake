@@ -8,6 +8,8 @@
       inputs.home-manager.nixosModules.home-manager
     ];
 
+    users.mutableUsers = false;
+
     users.users.${config.flake.meta.username} = {
       isNormalUser = true;
       hashedPassword = "$y$j9T$JbosTEvX3uH6.mFV/Sz071$6vVkITFq4INQFdf51.guqaD68JWp6ZcVNGVfPqqIzL/";
