@@ -19,7 +19,8 @@ in {
           controlPath = "~/.ssh/sockets/master-%r@%n:%p";
           controlPersist = "10m";
         };
-        "cosmos.lan" = {
+
+        "galileo.sefa.cloud" = {
           user = "root";
         };
 

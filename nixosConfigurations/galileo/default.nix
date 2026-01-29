@@ -10,7 +10,7 @@ in {
     modules =
       [
         (lib'.mkDeploy {
-          targetHost = "root@galileo.lan";
+          targetHost = "root@galileo.sefa.cloud";
           extraFlags = ["--verbose" "--print-build-logs"];
         })
 

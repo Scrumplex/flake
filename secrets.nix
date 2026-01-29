@@ -12,20 +12,21 @@ let
   ];
 
   universe = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPWva83JbLRs2E6oqAP71CARJpdGRLWEUxM524vhfxXr"];
-  cosmos = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFP1mSnn2jJw4nsRtGdikPlN6Cie+kOo5a1bYctjjapg"];
   galileo = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOm7iV891WwPgu0h+Ff/MzY+Aehnqfmd9s0Q7iRHSGsM"];
   sonic = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFlUqH1I3MG76kXF9cpDO6geUbhRF8h2LkSW0gO1cm+k scrumplex@dyson"];
   eclipse = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEgfjN4xqCCsl+XzvSFFIR4WQ18r4+G7kGcMLkTe4be6"];
 in {
   "nix/modules/class/desktop/music/beets-secrets.yaml.age".publicKeys = andromeda ++ dyson ++ scrumplex;
   "nix/modules/class/desktop/music/listenbrainz-token.age".publicKeys = andromeda ++ dyson ++ scrumplex;
-  "nix/modules/machines/cosmos/asf/asf-bot1.json.age".publicKeys = cosmos ++ scrumplex;
-  "nix/modules/machines/cosmos/asf/asf-bot2.json.age".publicKeys = cosmos ++ scrumplex;
-  "nix/modules/machines/cosmos/asf/asf-ipc-passwd.age".publicKeys = cosmos ++ scrumplex;
+  "nix/modules/extensions/traefik/hetzner-api-token.env.age".publicKeys = scrumplex ++ galileo;
+  "nix/modules/machines/galileo/asf/asf-bot1.json.age".publicKeys = galileo ++ scrumplex;
+  "nix/modules/machines/galileo/asf/asf-bot2.json.age".publicKeys = galileo ++ scrumplex;
+  "nix/modules/machines/galileo/asf/asf-ipc-passwd.age".publicKeys = galileo ++ scrumplex;
+  "nix/modules/machines/galileo/home-assistant/secrets.yaml.age".publicKeys = galileo ++ scrumplex;
+  "nix/modules/machines/galileo/id_borgbase.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/wifi/Beehive.psk.age".publicKeys = galileo ++ scrumplex;
+  "nix/modules/machines/galileo/wireguard/wg-scrumplex.key.age".publicKeys = galileo ++ scrumplex;
 
-  "nixosConfigurations/cosmos/hetzner-api-token.env.age".publicKeys = scrumplex ++ cosmos;
-  "nixosConfigurations/cosmos/home-assistant/secrets.yaml.age".publicKeys = scrumplex ++ cosmos;
   "nixosConfigurations/eclipse/hetzner-api-token.env.age".publicKeys = scrumplex ++ eclipse;
   "nixosConfigurations/eclipse/media/sabnzbd-secrets.ini.age".publicKeys = scrumplex ++ eclipse;
   "nixosConfigurations/universe/matrix/draupnir-access-token.age".publicKeys = scrumplex ++ universe;
@@ -53,10 +54,6 @@ in {
   "secrets/universe/scrumplex-hs_ed25519_secret_key.age".publicKeys = scrumplex ++ universe;
   "secrets/universe/wireguard.key.age".publicKeys = scrumplex ++ universe;
 
-  "secrets/cosmos/id_borgbase.age".publicKeys = scrumplex ++ cosmos;
-  "secrets/cosmos/wireguard.key.age".publicKeys = scrumplex ++ cosmos;
-  "secrets/cosmos/wpa_supplicant.conf.age".publicKeys = scrumplex ++ cosmos;
-
   "secrets/eclipse/frigate.env.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/home-assistant-secrets.yaml.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/id_borgbase.age".publicKeys = scrumplex ++ eclipse;
@@ -71,8 +68,8 @@ in {
   "secrets/eclipse/wireguard.key.age".publicKeys = scrumplex ++ eclipse;
   "secrets/eclipse/yt-dlp-targets.age".publicKeys = scrumplex ++ eclipse;
 
-  "secrets/common/Beehive.psk.age".publicKeys = cosmos ++ sonic ++ scrumplex;
-  "secrets/common/mqtt-password.age".publicKeys = scrumplex ++ universe ++ cosmos ++ eclipse;
+  "secrets/common/Beehive.psk.age".publicKeys = sonic ++ scrumplex;
+  "secrets/common/mqtt-password.age".publicKeys = scrumplex ++ universe ++ eclipse;
   "secrets/common/bob-the-builder.key.age".publicKeys = scrumplex ++ andromeda ++ dyson;
   "secrets/common/screenshot-bash.age".publicKeys = andromeda ++ dyson ++ scrumplex;
 }

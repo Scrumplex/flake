@@ -1,10 +1,4 @@
-{
-  config,
-  inputs,
-  ...
-}: {
-  imports = [inputs.self.nixosModules.hetzner-dyndns];
-
+{config, ...}: {
   age.secrets."hetzner-api-token.env".file = ./hetzner-api-token.env.age;
 
   services.hetzner-dyndns = {

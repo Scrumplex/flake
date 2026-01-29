@@ -5,7 +5,7 @@ let
     group = "archisteamfarm";
   };
 in {
-  flake.modules.nixos."machine-cosmos" = {config, ...}: {
+  flake.modules.nixos."machine-galileo" = {config, ...}: {
     age.secrets = {
       "asf-ipc-passwd" = mkSecret ./asf-ipc-passwd.age;
       "asf-bot1.json" = mkSecret ./asf-bot1.json.age;
@@ -32,7 +32,7 @@ in {
         entryPoints = ["websecure"];
         middlewares = ["internal-only"];
         service = "asf";
-        rule = "Host(`asf.cosmos.sefa.cloud`)";
+        rule = "Host(`asf.galileo.sefa.cloud`)";
       };
       services.asf.loadBalancer.servers = [{url = "http://localhost:1242";}];
     };

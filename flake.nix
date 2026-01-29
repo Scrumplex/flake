@@ -137,7 +137,6 @@
         ./nixosConfigurations/dyson
         ./nixosConfigurations/fornax
 
-        ./nixosConfigurations/cosmos
         ./nixosConfigurations/eclipse
         ./nixosConfigurations/galileo
         ./nixosConfigurations/universe

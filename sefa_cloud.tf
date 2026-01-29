@@ -10,45 +10,6 @@ resource "hcloud_zone_rrset" "rootcaa_sefa_cloud" {
   records = [for v in var.caa_records : { value = v }]
 }
 
-resource "hcloud_zone_rrset" "cosmos4_sefa_cloud" {
-  zone = data.hcloud_zone.sefa_cloud.name
-  name = "cosmos"
-  type = "A"
-
-  records = [
-    {
-      value = "10.0.0.11"
-    }
-  ]
-}
-
-resource "hcloud_zone_rrset" "cosmos6_sefa_cloud" {
-  zone = data.hcloud_zone.sefa_cloud.name
-  name = "cosmos"
-  type = "AAAA"
-
-  records = [
-    {
-      value = "fd19:783f:b287:0:92de:80ff:fe86:418a"
-    }
-  ]
-}
-
-resource "hcloud_zone_rrset" "cosmoscnames_sefa_cloud" {
-  for_each = toset([
-    "asf",
-  ])
-  zone = data.hcloud_zone.sefa_cloud.name
-  name = "${each.key}.cosmos"
-  type = "CNAME"
-
-  records = [
-    {
-      value = "cosmos.sefa.cloud."
-    }
-  ]
-}
-
 resource "hcloud_zone_rrset" "eclipse4_sefa_cloud" {
   zone = data.hcloud_zone.sefa_cloud.name
   name = "eclipse"

@@ -16,7 +16,7 @@ test: (rebuild "test")
 switch: (rebuild "switch")
 
 
-deploy-all: (deploy "universe") (deploy "eclipse") (deploy "cosmos")
+deploy-all: (deploy "universe") (deploy "eclipse") (deploy "galileo")
 
 update:
     nix flake update --commit-lock-file
