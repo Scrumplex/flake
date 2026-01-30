@@ -238,15 +238,21 @@
     casks = [
       "boop"
       "browserosaurus"
-      # not supported on aarch64-darwin in nixpkgs
-      "caffeine"
+      "caffeine" # not supported on aarch64-darwin in nixpkgs
+      "copilot-cli"
+      "core-tunnel"
+      "freelens"
+      "enkscape"
       "jabra-direct"
       "jellyfin-media-player"
       "linearmouse"
-      "core-tunnel"
+      "macfuse"
+      "obs"
+      "pgadmin4"
       "session-manager-plugin"
-      "syncthing"
+      "syncthing-app"
       "visual-studio-code"
+      "wireshark-app"
     ];
   };
   environment.systemPath = [config.homebrew.brewPrefix];
