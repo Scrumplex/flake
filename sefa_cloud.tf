@@ -63,7 +63,7 @@ resource "hcloud_zone_rrset" "galileo4_sefa_cloud" {
 
   records = [
     {
-      value = "10.0.0.0"
+      value = "10.0.0.11"
     }
   ]
 }
