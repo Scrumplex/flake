@@ -782,11 +782,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769018786,
-        "narHash": "sha256-1JA3DeqkOd8GkIXi0zL0ACYAb3AZR6+l/BrWG2fgBkI=",
+        "lastModified": 1769955895,
+        "narHash": "sha256-sLocnQTpzoTLBmgZB0r6546b2vesFibPiLLUJn0JZgM=",
         "ref": "refs/heads/main",
-        "rev": "af61405a0d7328455ac7bac2622b0e019260b0fb",
-        "revCount": 904,
+        "rev": "b7259231927d1b9a5ab42a21cd1c63f523153e45",
+        "revCount": 907,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/website.git"
       },
