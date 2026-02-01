@@ -235,11 +235,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769022271,
-        "narHash": "sha256-MLiqvd/ZsIlgq69MjcZcvpByD1moC+lNzC2RaWRsfwA=",
+        "lastModified": 1769955589,
+        "narHash": "sha256-e7c0cNGh2zVMW3k8WLTA9Lu+W7/b0odsycKVLUQybZM=",
         "ref": "refs/heads/main",
-        "rev": "9867558ea782e8cf75e3a1b5f1d257b48e9262d9",
-        "revCount": 286,
+        "rev": "876bb1c8b4aa33acb5dda20dfbc7bca158baacf9",
+        "revCount": 288,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/honeylinks.git"
       },
