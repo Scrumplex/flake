@@ -242,7 +242,7 @@
       "copilot-cli"
       "core-tunnel"
       "freelens"
-      "enkscape"
+      "inkscape"
       "jabra-direct"
       "jellyfin-media-player"
       "linearmouse"
