@@ -16,6 +16,7 @@
       dig
       lsof
       nload
+      tcpdump
       tree
 
       fd
