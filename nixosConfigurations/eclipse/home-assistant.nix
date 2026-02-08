@@ -48,6 +48,18 @@
       };
       default_config = {};
 
+      alarm_control_panel = [
+        {
+          platform = "manual";
+          name = "Alarm";
+          code = "!secret alarm_code";
+          code_arm_required = true;
+          delay_time = 0;
+          arming_time = 20;
+          arming_states = ["armed_away"];
+        }
+      ];
+
       "automation ui" = "!include automations.yaml";
       "scene ui" = "!include scenes.yaml";
       "script ui" = "!include scripts.yaml";
