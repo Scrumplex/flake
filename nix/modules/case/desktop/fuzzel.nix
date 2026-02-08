@@ -1,13 +1,14 @@
 {
-  config,
-  lib,
-  ...
-}: {
-  hm = {
+  flake.modules.homeManager."desktop" = {
+    config,
+    lib,
+    ...
+  }: {
     catppuccin.fuzzel = {
       enable = true;
       accent = "peach";
     };
+
     programs.fuzzel = {
       enable = true;
 
@@ -24,7 +25,7 @@
 
     programs.niri.settings.binds."Mod+D" = {
       hotkey-overlay.title = "Open launcher";
-      action = config.hm.lib.niri.actions.spawn [(lib.getExe config.hm.programs.fuzzel.package)];
+      action = config.lib.niri.actions.spawn [(lib.getExe config.programs.fuzzel.package)];
     };
   };
 }

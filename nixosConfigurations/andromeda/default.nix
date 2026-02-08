@@ -5,13 +5,8 @@
       ../common
       ../common/boot
       ../common/desktop
-      ../common/desktop/anydesk.nix
-      ../common/desktop/bitwarden.nix
-      ../common/desktop/chromium.nix
       ../common/desktop/evolution.nix
-      ../common/desktop/firefox.nix
       ../common/desktop/fonts.nix
-      ../common/desktop/fuzzel.nix
       ../common/desktop/gaming.nix
       ../common/desktop/gtk
       ../common/desktop/image-viewer.nix

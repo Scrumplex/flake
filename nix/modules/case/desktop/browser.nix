@@ -1,5 +1,7 @@
-{...}: {
-  hm = {
+{
+  flake.modules.homeManager."desktop" = {
+    programs.chromium.enable = true;
+
     programs.firefox.enable = true;
 
     xdg.mimeApps.defaultApplications = {
@@ -10,13 +12,15 @@
       "x-scheme-handler/unknown" = ["firefox.desktop"];
     };
 
-    wayland.windowManager.sway.config.window.commands = [
+    programs.niri.settings.window-rules = [
       {
-        criteria = {
-          app_id = "firefox";
-          title = "Picture-in-Picture";
-        };
-        command = "floating enable; sticky enable";
+        matches = [
+          {
+            app-id = "firefox$";
+            title = "^Picture-in-Picture$";
+          }
+        ];
+        open-floating = true;
       }
     ];
   };

@@ -96,15 +96,6 @@
             open-focused = false;
           }
           {
-            matches = [
-              {
-                app-id = "firefox$";
-                title = "^Picture-in-Picture$";
-              }
-            ];
-            open-floating = true;
-          }
-          {
             geometry-corner-radius = {
               bottom-left = 8.;
               bottom-right = 8.;
