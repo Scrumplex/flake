@@ -31,7 +31,6 @@
       ../common/home.nix
       ../common/libvirtd.nix
       ../common/misc.nix
-      ../common/pkgs
       ../common/podman.nix
       ../common/printing.nix
       ../common/pulsar-x2v2.nix

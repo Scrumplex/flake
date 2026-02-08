@@ -1,7 +1,14 @@
 {
-  flake.modules.homeManager.desktop = {config, ...}: {
+  flake.modules.homeManager.desktop = {
+    config,
+    pkgs,
+    ...
+  }: {
     programs.ncmpcpp = {
       enable = true;
+      package = pkgs.ncmpcpp.override {
+        visualizerSupport = true;
+      };
       bindings = [
         {
           key = "9";

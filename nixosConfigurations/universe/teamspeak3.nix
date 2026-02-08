@@ -1,4 +1,6 @@
 {...}: {
+  nixpkgs.allowedUnfreePackageNames = ["teamspeak-server"];
+
   services.teamspeak3 = {
     enable = true;
     openFirewall = true;

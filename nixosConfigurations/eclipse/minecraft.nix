@@ -10,6 +10,8 @@ in {
   imports = [inputs.nix-minecraft.nixosModules.minecraft-servers];
   nixpkgs.overlays = [inputs.nix-minecraft.overlays.default];
 
+  nixpkgs.allowedUnfreePackageNames = ["minecraft-server"];
+
   services.borgbackup.jobs.borgbase.exclude = [
     "*/DistantHorizons.sqlite"
   ];

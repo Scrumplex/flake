@@ -3,10 +3,13 @@
     withNonFreePlugins = true;
   };
 in {
+  nixpkgs.allowedUnfreePackageNames = ["epsonscan2"];
+
   environment.systemPackages = [epsonscan2];
+
   services.printing = {
     enable = true;
-    drivers = with pkgs; [samsung-unified-linux-driver_1_00_37 epson-escpr];
+    drivers = with pkgs; [epson-escpr];
   };
 
   hardware.sane = {

@@ -16,7 +16,6 @@ in {
 
         ../common
         ../common/nginx.nix
-        ../common/pkgs
         ../common/podman.nix
         ../common/server.nix
         ../common/upgrade.nix

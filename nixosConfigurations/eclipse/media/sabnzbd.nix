@@ -1,4 +1,8 @@
-{config, ...}: let
+{
+  config,
+  lib,
+  ...
+}: let
   fqdn = "nzb.eclipse.sefa.cloud";
 in {
   age.secrets."sabnzbd-secrets.ini" = {
@@ -7,10 +11,20 @@ in {
     group = "media";
   };
 
+  nixpkgs.allowedUnfreePackageNames = ["unrar"];
+
+  assertions = [
+    {
+      assertion = lib.versionOlder config.system.stateVersion "26.05";
+      message = "sabnzbd configFile null is set. Please remove after changing state version to 26.05";
+    }
+  ];
+
   services.sabnzbd = {
     enable = true;
     user = "media";
     group = "media";
+    configFile = null; # stateVersion
     settings = {
       misc = {
         port = 8085;

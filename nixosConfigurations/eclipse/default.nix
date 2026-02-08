@@ -15,7 +15,6 @@ in {
         })
 
         ../common
-        ../common/pkgs
         ../common/remote-build-provider.nix
         ../common/server.nix
         ../common/traefik.nix
