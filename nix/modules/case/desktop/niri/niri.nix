@@ -22,23 +22,6 @@
       enable = true;
       package = pkgs.niri-unstable;
     };
-
-    systemd.user.services."swaybg" = let
-      wallpaper = pkgs.fetchurl {
-        name = "sway-wallpaper.jpg";
-        url = "https://scrumplex.rocks/img/richard-horvath-catppuccin.jpg";
-        hash = "sha256-HQ+ZvNPUCnYkAl21JR6o83OBsAJAvpBt93OUSm0ibLU=";
-      };
-    in {
-      partOf = ["graphical-session.target"];
-      after = ["graphical-session.target"];
-      requisite = ["graphical-session.target"];
-      wantedBy = ["graphical-session.target"];
-      serviceConfig = {
-        ExecStart = "${lib.getExe pkgs.swaybg} -m fill -i ${wallpaper}";
-        Restart = "on-failure";
-      };
-    };
   };
 
   flake.modules.homeManager.desktop = {
@@ -92,7 +75,6 @@
           };
         };
         prefer-no-csd = true;
-        screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
         workspaces."messages" = {};
 
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite-unstable;
@@ -254,11 +236,6 @@
               "Mod+Equal".action = set-column-width "+10%";
               "Mod+Shift+Minus".action = set-window-height "-10%";
               "Mod+Shift+Equal".action = set-window-height "+10%";
-            }
-            {
-              "Print".action = inputs.niri.lib.kdl.magic-leaf "screenshot";
-              "Shift+Print".action = inputs.niri.lib.kdl.magic-leaf "screenshot-window";
-              "Mod+Print".action = inputs.niri.lib.kdl.magic-leaf "screenshot-screen";
             }
           ];
       };
