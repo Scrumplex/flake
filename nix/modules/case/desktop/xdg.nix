@@ -6,6 +6,7 @@
         enable = true;
         createDirectories = true;
       };
+      portal.xdgOpenUsePortal = true;
     };
   };
 }
