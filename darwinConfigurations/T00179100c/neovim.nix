@@ -61,14 +61,14 @@
             sources = [{name = "buffer";}];
           };
           ":" = {
-            sources = lib.warn "TODO: path and cmdline are in separate groups" [
+            sources = [
               {name = "path";}
               {name = "cmdline";}
             ];
           };
         };
         settings = {
-          sources = lib.warn "TODO: groupIndex is not a thing anymore" [
+          sources = [
             {
               name = "nvim_lsp";
               groupIndex = 1;
@@ -153,7 +153,7 @@
       };
       neo-tree = {
         enable = true;
-        closeIfLastWindow = true;
+        settings.close_if_last_window = true;
       };
       lsp = {
         enable = true;
@@ -228,7 +228,7 @@
       };
       treesitter = {
         enable = true;
-        folding = false;
+        folding.enable = false;
         settings.indent.enable = true;
       };
       trouble = {

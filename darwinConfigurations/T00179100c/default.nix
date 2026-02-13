@@ -147,18 +147,19 @@
 
     programs.mergiraf.enable = true;
 
+    programs.delta = {
+      enable = true;
+      options.navigate = true;
+
+      enableGitIntegration = true;
+    };
+
     programs.git = {
       enable = true;
 
-      userName = "Sefa Eyeoglu";
-      userEmail = "sefa.eyeoglu@telekom.de";
-
-      delta = {
-        enable = true;
-        options.navigate = true;
-      };
-
-      extraConfig = {
+      settings = {
+        user.name = "Sefa Eyeoglu";
+        user.email = "sefa.eyeoglu@telekom.de";
         core.autocrlf = "input";
         color.ui = "auto";
         diff.colorMoved = "default";
@@ -255,7 +256,7 @@
       "wireshark-app"
     ];
   };
-  environment.systemPath = [config.homebrew.brewPrefix];
+  environment.systemPath = ["${config.homebrew.prefix}/bin" "${config.homebrew.prefix}/sbin"];
 
   environment.systemPackages = with pkgs; [
     config.hm.programs.kitty.package
