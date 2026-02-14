@@ -7,7 +7,7 @@
     services.traefik = {
       enable = true;
 
-      staticConfigOptions = {
+      static.settings = {
         api.insecure = true;
         accessLog = {};
         entryPoints = {
@@ -38,7 +38,9 @@
         };
       };
 
-      dynamicConfigOptions.http.middlewares = {
+      dynamic.dir = "/var/lib/traefik/dynamic";
+
+      dynamic.files."common".settings.http.middlewares = {
         "security".headers = {
           stsSeconds = 31536000;
           stsIncludeSubdomains = true;

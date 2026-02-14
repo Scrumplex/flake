@@ -23,7 +23,7 @@
     backupDir = "/var/backup/vaultwarden";
   };
 
-  services.traefik.dynamicConfigOptions.http = {
+  services.traefik.dynamic.files."vaultwarden".settings.http = {
     routers = {
       vaultwarden = {
         entryPoints = ["websecure"];

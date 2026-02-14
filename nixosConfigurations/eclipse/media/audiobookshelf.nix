@@ -6,7 +6,7 @@
 
   systemd.services.traefik.unitConfig.RequiresMountsFor = ["/media"];
 
-  services.traefik.dynamicConfigOptions.http = {
+  services.traefik.dynamic.files."audiobookshelf".settings.http = {
     routers.audiobookshelf = {
       entryPoints = ["websecure"];
       service = "audiobookshelf";

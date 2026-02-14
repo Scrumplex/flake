@@ -31,7 +31,7 @@
     };
   };
 
-  services.traefik.dynamicConfigOptions.http = {
+  services.traefik.dynamic.files."paperless".settings.http = {
     routers.paperless = {
       entryPoints = ["localsecure"];
       service = "paperless";

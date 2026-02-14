@@ -11,6 +11,6 @@
 
     virtualisation.oci-containers.backend = "docker";
 
-    services.traefik.group = "docker";
+    services.traefik.supplementaryGroups = ["docker"];
   };
 }

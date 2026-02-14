@@ -12,7 +12,7 @@ in {
     };
   };
 
-  services.traefik.dynamicConfigOptions.http = {
+  services.traefik.dynamic.files."miniflux".settings.http = {
     routers.miniflux = {
       entryPoints = ["websecure"];
       service = "miniflux";

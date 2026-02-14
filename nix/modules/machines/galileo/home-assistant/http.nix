@@ -8,7 +8,7 @@
       ];
     };
 
-    services.traefik.dynamicConfigOptions.http = {
+    services.traefik.dynamic.files."home-assistant".settings.http = {
       routers.home-assistant = {
         entryPoints = ["websecure"];
         service = "home-assistant";

@@ -68,7 +68,7 @@
 
   systemd.tmpfiles.settings."10-hass"."/var/lib/hass/secrets.yaml".L.argument = config.age.secrets."home-assistant-secrets.yaml".path;
 
-  services.traefik.dynamicConfigOptions.http = {
+  services.traefik.dynamic.files."home-assistant".settings.http = {
     routers.home-assistant = {
       entryPoints = ["websecure"];
       service = "home-assistant";

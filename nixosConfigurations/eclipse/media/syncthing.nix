@@ -55,7 +55,7 @@
 
   systemd.services."syncthing".unitConfig.RequiresMountsFor = ["/media"];
 
-  services.traefik.dynamicConfigOptions.http = {
+  services.traefik.dynamic.files."syncthing".settings.http = {
     routers.syncthing = {
       entryPoints = ["localsecure"];
       service = "syncthing";

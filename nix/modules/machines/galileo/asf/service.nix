@@ -27,7 +27,7 @@ in {
       "${config.services.archisteamfarm.dataDir}/config/bot2.json"."L+".argument = config.age.secrets."asf-bot2.json".path;
     };
 
-    services.traefik.dynamicConfigOptions.http = {
+    services.traefik.dynamic.files."asf".settings.http = {
       routers.asf = {
         entryPoints = ["websecure"];
         middlewares = ["internal-only"];

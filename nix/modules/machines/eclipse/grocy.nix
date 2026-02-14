@@ -20,7 +20,7 @@ in {
       }
     ];
 
-    services.traefik.dynamicConfigOptions.http = {
+    services.traefik.dynamic.files."grocy".settings.http = {
       routers.grocy = {
         entryPoints = ["websecure"];
         service = "grocy";

@@ -15,7 +15,7 @@
     ["video" "render"]
     ++ lib.optional config.services.syncthing.enable config.services.syncthing.group;
 
-  services.traefik.dynamicConfigOptions.http = {
+  services.traefik.dynamic.files."jellyfin".settings.http = {
     routers.jellyfin = {
       entryPoints = ["websecure"];
       service = "jellyfin";

@@ -17,7 +17,6 @@ in {
         ../common
         ../common/remote-build-provider.nix
         ../common/server.nix
-        ../common/traefik.nix
         ../common/upgrade.nix
 
         ./configuration.nix

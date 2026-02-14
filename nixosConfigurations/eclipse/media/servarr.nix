@@ -20,7 +20,7 @@
     unitConfig.RequiresMountsFor = ["/media"];
   });
 
-  services.traefik.dynamicConfigOptions.http = {
+  services.traefik.dynamic.files."servarr".settings.http = {
     routers.radarr = {
       entryPoints = ["localsecure"];
       service = "radarr";

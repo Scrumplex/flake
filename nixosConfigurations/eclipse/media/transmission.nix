@@ -25,7 +25,7 @@
 
   systemd.services."transmission".unitConfig.RequiresMountsFor = ["/media"];
 
-  services.traefik.dynamicConfigOptions.http = {
+  services.traefik.dynamic.files."torrent".settings.http = {
     routers.torrent = {
       entryPoints = ["localsecure"];
       service = "torrent";

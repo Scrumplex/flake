@@ -49,7 +49,7 @@ in {
 
   systemd.services.sabnzbd.unitConfig.RequiresMountsFor = ["/media"];
 
-  services.traefik.dynamicConfigOptions.http = {
+  services.traefik.dynamic.files."sabnzbd".settings.http = {
     routers.sabnzbd = {
       entryPoints = ["localsecure"];
       service = "sabnzbd";

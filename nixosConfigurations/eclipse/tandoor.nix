@@ -23,7 +23,7 @@
     config.age.secrets."tandoor-recipes.env".path
   ];
 
-  services.traefik.dynamicConfigOptions.http = {
+  services.traefik.dynamic.files."tandoor".settings.http = {
     routers.tandoor = {
       entryPoints = ["websecure"];
       service = "tandoor";

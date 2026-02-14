@@ -25,7 +25,7 @@
 
   systemd.services."slskd".unitConfig.RequiresMountsFor = ["/media"];
 
-  services.traefik.dynamicConfigOptions.http = {
+  services.traefik.dynamic.files."slskd".settings.http = {
     routers.slskd = {
       entryPoints = ["localsecure"];
       service = "slskd";

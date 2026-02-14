@@ -10,7 +10,7 @@
   systemd.services."immich-server".unitConfig.RequiresMountsFor = ["/media"];
   systemd.services."immich-machine-learning".unitConfig.RequiresMountsFor = ["/media"];
 
-  services.traefik.dynamicConfigOptions.http = {
+  services.traefik.dynamic.files."immich".settings.http = {
     routers.immich = {
       entryPoints = ["websecure"];
       service = "immich";

@@ -1,19 +1,57 @@
 {config, ...}: {
   age.secrets."hetzner-api-token.env".file = ./hetzner-api-token.env.age;
 
-  common.traefik = {
-    primaryEntryPoint = "localsecure";
-    primaryCertResolver = "letsencrypt";
+  networking.firewall.allowedTCPPorts = [80 443 8443];
+
+  services.traefik = {
+    enable = true;
+
+    static.settings = {
+      api.insecure = true;
+      accessLog = {};
+      providers.docker.exposedByDefault = false;
+      entryPoints = {
+        web = {
+          address = ":80";
+          http = {
+            redirections.entryPoint = {
+              to = "localsecure";
+              scheme = "https";
+              permanent = true;
+            };
+            middlewares = "security@file";
+          };
+        };
+        "localsecure" = {
+          address = ":443";
+          http = {
+            tls.certResolver = "letsencrypt";
+            middlewares = "security@file";
+          };
+        };
+        "websecure" = {
+          address = ":8443";
+          http = config.services.traefik.static.settings.entryPoints.localsecure.http;
+        };
+      };
+      certificatesResolvers.letsencrypt.acme = {
+        email = "contact@scrumplex.net";
+        storage = "/var/lib/traefik/acme-le-dns.json";
+        keyType = "EC384";
+        dnsChallenge.provider = "hetzner";
+      };
+    };
+
+    dynamic.dir = "/var/lib/traefik/dynamic";
+
+    dynamic.files."common".settings.http.middlewares.security.headers = {
+      stsSeconds = 31536000;
+      stsIncludeSubdomains = true;
+      stsPreload = true;
+    };
   };
 
-  networking.firewall.allowedTCPPorts = [8443];
-
-  services.traefik.staticConfigOptions.entryPoints.websecure = {
-    address = ":8443";
-    http = config.services.traefik.staticConfigOptions.entryPoints.localsecure.http // {tls.certResolver = "letsencrypt";};
-  };
-
-  services.traefik.dynamicConfigOptions.http = {
+  services.traefik.dynamic.files."nextcloud".settings.http = {
     routers.skinprox = {
       entryPoints = ["websecure"];
       service = "nextcloud";
