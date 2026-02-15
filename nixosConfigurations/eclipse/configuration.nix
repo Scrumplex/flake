@@ -14,7 +14,6 @@ in {
     ./immich.nix
     ./media
     ./minecraft.nix
-    ./miniflux.nix
     ./mosquitto.nix
     ./paperless.nix
     ./postgres.nix
@@ -26,7 +25,6 @@ in {
 
     fpConfig.flake.modules.nixos.physical-server
     fpConfig.flake.modules.nixos.ext-docker
-    fpConfig.flake.modules.nixos.machine-eclipse
 
     nixos-hardware.nixosModules.common-cpu-amd-pstate
     nixos-hardware.nixosModules.common-gpu-amd
