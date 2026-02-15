@@ -18,7 +18,7 @@ let
 in {
   "nix/modules/class/desktop/music/beets-secrets.yaml.age".publicKeys = andromeda ++ dyson ++ scrumplex;
   "nix/modules/class/desktop/music/listenbrainz-token.age".publicKeys = andromeda ++ dyson ++ scrumplex;
-  "nix/modules/extensions/traefik/hetzner-api-token.env.age".publicKeys = scrumplex ++ galileo;
+  "nix/modules/extensions/traefik/hetzner-api-token.env.age".publicKeys = scrumplex ++ eclipse ++ galileo;
   "nix/modules/machines/galileo/asf/asf-bot1.json.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/asf/asf-bot2.json.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/asf/asf-ipc-passwd.age".publicKeys = galileo ++ scrumplex;

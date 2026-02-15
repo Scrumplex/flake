@@ -27,7 +27,8 @@
 
   services.traefik.dynamic.files."torrent".settings.http = {
     routers.torrent = {
-      entryPoints = ["localsecure"];
+      entryPoints = ["websecure"];
+      middlewares = ["internal-only"];
       service = "torrent";
       rule = "Host(`torrent.eclipse.sefa.cloud`)";
     };

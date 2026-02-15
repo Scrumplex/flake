@@ -27,7 +27,8 @@
 
   services.traefik.dynamic.files."slskd".settings.http = {
     routers.slskd = {
-      entryPoints = ["localsecure"];
+      entryPoints = ["websecure"];
+      middlewares = ["internal-only"];
       service = "slskd";
       rule = "Host(`slskd.eclipse.sefa.cloud`)";
     };

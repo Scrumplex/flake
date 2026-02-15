@@ -33,7 +33,8 @@
 
   services.traefik.dynamic.files."paperless".settings.http = {
     routers.paperless = {
-      entryPoints = ["localsecure"];
+      entryPoints = ["websecure"];
+      middlewares = ["internal-only"];
       service = "paperless";
       rule = "Host(`paperless.eclipse.sefa.cloud`)";
     };

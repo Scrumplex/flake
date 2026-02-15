@@ -22,22 +22,26 @@
 
   services.traefik.dynamic.files."servarr".settings.http = {
     routers.radarr = {
-      entryPoints = ["localsecure"];
+      entryPoints = ["websecure"];
+      middlewares = ["internal-only"];
       service = "radarr";
       rule = "Host(`radarr.eclipse.sefa.cloud`)";
     };
     routers.sonarr = {
-      entryPoints = ["localsecure"];
+      entryPoints = ["websecure"];
+      middlewares = ["internal-only"];
       service = "sonarr";
       rule = "Host(`sonarr.eclipse.sefa.cloud`)";
     };
     routers.prowlarr = {
-      entryPoints = ["localsecure"];
+      entryPoints = ["websecure"];
+      middlewares = ["internal-only"];
       service = "prowlarr";
       rule = "Host(`prowlarr.eclipse.sefa.cloud`)";
     };
     routers.jellyseerr = {
       entryPoints = ["websecure"];
+      middlewares = ["internal-only"];
       service = "jellyseerr";
       rule = "Host(`request.sefa.cloud`)";
     };

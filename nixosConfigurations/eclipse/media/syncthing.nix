@@ -57,7 +57,8 @@
 
   services.traefik.dynamic.files."syncthing".settings.http = {
     routers.syncthing = {
-      entryPoints = ["localsecure"];
+      entryPoints = ["websecure"];
+      middlewares = ["internal-only"];
       service = "syncthing";
       rule = "Host(`syncthing.eclipse.sefa.cloud`)";
     };

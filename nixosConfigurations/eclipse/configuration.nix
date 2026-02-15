@@ -19,12 +19,13 @@ in {
     ./postgres.nix
     ./swapfile.nix
     ./tandoor.nix
-    ./traefik.nix
+    ./impure-services.nix
     ./vaultwarden.nix
     ./wireguard.nix
 
     fpConfig.flake.modules.nixos.physical-server
     fpConfig.flake.modules.nixos.ext-docker
+    fpConfig.flake.modules.nixos.ext-traefik
 
     nixos-hardware.nixosModules.common-cpu-amd-pstate
     nixos-hardware.nixosModules.common-gpu-amd

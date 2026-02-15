@@ -51,7 +51,8 @@ in {
 
   services.traefik.dynamic.files."sabnzbd".settings.http = {
     routers.sabnzbd = {
-      entryPoints = ["localsecure"];
+      entryPoints = ["websecure"];
+      middlewares = ["internal-only"];
       service = "sabnzbd";
       rule = "Host(`${fqdn}`)";
     };

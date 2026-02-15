@@ -47,9 +47,11 @@
           stsPreload = true;
         };
         "internal-only".ipAllowList.sourceRange = [
+          "127.0.0.0/8"
           "10.0.0.0/8"
           "172.16.0.0/12"
           "192.168.0.0/16"
+          "::1/128"
           "fc00::/8"
           "fd00::/8"
         ];
