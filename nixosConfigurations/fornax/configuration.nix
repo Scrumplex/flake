@@ -11,6 +11,7 @@
     ./disks.nix
 
     fpConfig.flake.modules.nixos.steam-deck
+    fpConfig.flake.modules.nixos.ext-crashdump
   ];
 
   hardware.facter = {

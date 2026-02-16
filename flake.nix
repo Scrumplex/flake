@@ -71,6 +71,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixpkgs-fork-crashdump.url = "github:Scrumplex/nixpkgs/nixos/crashdump";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-xr = {
       url = "github:nix-community/nixpkgs-xr";

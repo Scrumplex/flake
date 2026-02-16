@@ -517,6 +517,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-fork-crashdump": {
+      "locked": {
+        "lastModified": 1771008460,
+        "narHash": "sha256-lnHGRcb6H//00yyTJVquhAHMahjOb0RCF7kXL5JQQdo=",
+        "owner": "Scrumplex",
+        "repo": "nixpkgs",
+        "rev": "ec858ea57710b32a457b5522ae3ce4f34cd9dd9e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Scrumplex",
+        "ref": "nixos/crashdump",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1771043024,
@@ -709,6 +725,7 @@
         "nix-minecraft": "nix-minecraft",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
+        "nixpkgs-fork-crashdump": "nixpkgs-fork-crashdump",
         "nixpkgs-stable": "nixpkgs-stable_2",
         "nixpkgs-xr": "nixpkgs-xr",
         "nixvim": "nixvim",
