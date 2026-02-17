@@ -68,6 +68,10 @@
 
   systemd.tmpfiles.settings."10-hass"."/var/lib/hass/secrets.yaml".L.argument = config.age.secrets."home-assistant-secrets.yaml".path;
 
+  services.udev.extraRules = ''
+    SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{serial}=="c24de8119f78f011948da3e70ba521c7", SYMLINK+="ttyUSB-SONOFF-ZigBee"
+  '';
+
   services.traefik.dynamic.files."home-assistant".settings.http = {
     routers.home-assistant = {
       entryPoints = ["websecure"];
