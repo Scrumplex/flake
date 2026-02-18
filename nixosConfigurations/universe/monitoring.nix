@@ -10,6 +10,10 @@ in {
     file = ../../secrets/universe/grafana-smtp-password.age;
     owner = config.systemd.services.grafana.serviceConfig.User;
   };
+  age.secrets."grafana-secret-key" = {
+    file = ./grafana-secret-key.age;
+    owner = config.systemd.services.grafana.serviceConfig.User;
+  };
 
   services.prometheus = {
     enable = true;
@@ -56,6 +60,7 @@ in {
         http_port = 3050;
         root_url = "https://${fqdn}/";
       };
+      security.secret_key = "$__file{${config.age.secrets."grafana-secret-key".path}}";
       smtp = {
         enabled = true;
         host = "smtp-relay.brevo.com:587";

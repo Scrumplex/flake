@@ -533,6 +533,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-fork-traefik": {
+      "locked": {
+        "lastModified": 1771008912,
+        "narHash": "sha256-gf2AmWVTs8lEq7z/3ZAsgnZDhWIckkb+ZnAo5RzSxJg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a82ccc39b39b621151d6732718e3e250109076fa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a82ccc39b39b621151d6732718e3e250109076fa",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1771208521,
@@ -726,6 +742,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-fork-crashdump": "nixpkgs-fork-crashdump",
+        "nixpkgs-fork-traefik": "nixpkgs-fork-traefik",
         "nixpkgs-stable": "nixpkgs-stable_2",
         "nixpkgs-xr": "nixpkgs-xr",
         "nixvim": "nixvim",
