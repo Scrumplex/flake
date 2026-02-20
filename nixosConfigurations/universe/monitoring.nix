@@ -14,6 +14,10 @@ in {
     file = ./grafana-secret-key.age;
     owner = config.systemd.services.grafana.serviceConfig.User;
   };
+  age.secrets."grafana-client-secret" = {
+    file = ./grafana-client-secret.age;
+    owner = config.systemd.services.grafana.serviceConfig.User;
+  };
 
   services.prometheus = {
     enable = true;
@@ -67,6 +71,21 @@ in {
         user = "contact@scrumplex.net";
         password = "$__file{${config.age.secrets."grafana-smtp-password".path}}";
         from_address = "notify@sefa.cloud";
+      };
+      "auth.generic_oauth" = {
+        enabled = true;
+        client_id = "f25f5d62-c68f-4881-86db-0c64e4eb1cbf";
+        client_secret = "$__file{${config.age.secrets."grafana-client-secret".path}}";
+        auth_url = "https://auth.scrumplex.net/authorize";
+        token_url = "https://auth.scrumplex.net/api/oidc/token";
+        api_url = "https://auth.scrumplex.net/api/oidc/userinfo";
+        scopes = "openid profile email groups";
+        auto_login = true;
+        login_attribute_path = "sub";
+        name_attribute_path = "name";
+        email_attribute_path = "email";
+        role_attribute_path = "contains(groups[*], 'grafana_admin') && 'Admin' || 'Viewer'";
+        use_pkce = true;
       };
     };
 
