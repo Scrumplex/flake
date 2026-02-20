@@ -32,6 +32,7 @@ in {
   "nixosConfigurations/eclipse/media/sabnzbd-secrets.ini.age".publicKeys = scrumplex ++ eclipse;
   "nixosConfigurations/universe/matrix/draupnir-access-token.age".publicKeys = scrumplex ++ universe;
   "nixosConfigurations/universe/grafana-secret-key.age".publicKeys = scrumplex ++ universe;
+  "nixosConfigurations/universe/matrix/synapse-client-secret.age".publicKeys = universe ++ scrumplex;
 
   "secrets/andromeda/borgbase-repokey.age".publicKeys = andromeda ++ scrumplex;
   "secrets/andromeda/cache-key.age".publicKeys = andromeda ++ scrumplex;
