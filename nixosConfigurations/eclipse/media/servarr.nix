@@ -41,7 +41,6 @@
     };
     routers.jellyseerr = {
       entryPoints = ["websecure"];
-      middlewares = ["internal-only"];
       service = "jellyseerr";
       rule = "Host(`request.sefa.cloud`)";
     };
