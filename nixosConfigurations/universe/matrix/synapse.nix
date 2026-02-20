@@ -121,6 +121,7 @@ in
         loggers = {
           "synapse.access.http.8008".level = "WARNING";
           "synapse.federation.transport.server.federation".level = "WARNING";
+          "synapse.federation.sender.transaction_manager".level = "WARNING";
         };
       };
     };
