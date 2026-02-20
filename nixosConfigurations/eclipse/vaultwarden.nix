@@ -17,6 +17,11 @@
 
       # key, id and endpoints set in .env
       PUSH_ENABLED = true;
+
+      SSO_ENABLED = true;
+      SSO_AUTHORITY = "https://auth.scrumplex.net";
+      SSO_SCOPES = "openid email profile";
+      SSO_CLIENT_ID = "175d84f2-5a98-4560-97e1-68c9ed70034d";
     };
     environmentFile = config.age.secrets."vaultwarden.env".path;
 
