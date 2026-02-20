@@ -21,6 +21,7 @@
     ./wireguard.nix
 
     fpConfig.flake.modules.nixos.netcup-vps
+    fpConfig.flake.modules.nixos.machine-universe
 
     inputs.srvos.nixosModules.server
     inputs.srvos.nixosModules.mixins-systemd-boot

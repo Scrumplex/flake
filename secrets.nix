@@ -26,6 +26,7 @@ in {
   "nix/modules/machines/galileo/id_borgbase.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/wifi/Beehive.psk.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/wireguard/wg-scrumplex.key.age".publicKeys = galileo ++ scrumplex;
+  "nix/modules/machines/universe/pocket-id/encryption-key.age".publicKeys = universe ++ scrumplex;
 
   "nixosConfigurations/eclipse/hetzner-api-token.env.age".publicKeys = scrumplex ++ eclipse;
   "nixosConfigurations/eclipse/media/sabnzbd-secrets.ini.age".publicKeys = scrumplex ++ eclipse;
