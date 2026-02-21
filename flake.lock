@@ -34,11 +34,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771508520,
-        "narHash": "sha256-srt94sUlkaGEJHQg7k6gVrBF1QZcHUY/VBESjCgZmKI=",
+        "lastModified": 1771587924,
+        "narHash": "sha256-eVYOGmF8nQBhudJyU6lHdgJI87kvGz8JyCq5/Vi9Mjk=",
         "owner": "catppuccin",
         "repo": "nix",
-        "rev": "ec35c21e843e4748e60822cd5543983eb61dc87a",
+        "rev": "b0c65edbf31c2ad3d84438d82c2310f2c28373f3",
         "type": "github"
       },
       "original": {
@@ -209,11 +209,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771519029,
-        "narHash": "sha256-H59Qf82wv5kBXVoyXsmUKW+9J3o8FqgY4uKaLdsLdLg=",
+        "lastModified": 1771647911,
+        "narHash": "sha256-18liNHHwOmcaKCpOptE3wLW97fm5v7RTLiZBecX7km0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "167e0b6837115e672ec5f58e2b0ea39093abe807",
+        "rev": "436b27742c996b75e2baf8e835e3b3eae0c9fbd4",
         "type": "github"
       },
       "original": {
@@ -297,11 +297,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771440156,
-        "narHash": "sha256-IrznE3ZQ+tf6amuQW/zlVkA18LzknWK+Hbt6tdmNtnw=",
+        "lastModified": 1771587792,
+        "narHash": "sha256-XGFLdlLOez7f0rmjlF+1TLXyBguy8gx2aBHx/Q5JXxs=",
         "owner": "Jovian-Experiments",
         "repo": "Jovian-NixOS",
-        "rev": "faf829408344456d53c33df0a99f2f307498c830",
+        "rev": "b49fc54950e251f166a2240799315033ab7a8916",
         "type": "github"
       },
       "original": {
@@ -361,11 +361,11 @@
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
       },
       "locked": {
-        "lastModified": 1771514840,
-        "narHash": "sha256-t3WbZvwoDj/75YDX/nwkZuxanZLZaWr9meSfKswaN6g=",
+        "lastModified": 1771638124,
+        "narHash": "sha256-rIF69lE48tBvOMFiIyserOa0MF3SXh1ZiRqv7WqlUew=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "4f69ab280e9bb34e2c0b67fdfa6f0978a170ef56",
+        "rev": "a1dac2b08c329af22200104c3c4b18de5ded6034",
         "type": "github"
       },
       "original": {
@@ -473,11 +473,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1771469368,
-        "narHash": "sha256-yGRHre2BINQJBDAyUwxyzvgAce22J4pNdpLS8roo6fY=",
+        "lastModified": 1771641457,
+        "narHash": "sha256-TIekRGfeCwuEmYcWex40RTx0Gd46pqmyUtxdFKb5juI=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "a708458be9b9421e377c54d86807d3490db53816",
+        "rev": "c4e2b8969e09067da9d44b6b5762e1e896418f40",
         "type": "github"
       },
       "original": {
@@ -551,11 +551,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1771419570,
-        "narHash": "sha256-bxAlQgre3pcQcaRUm/8A0v/X8d2nhfraWSFqVmMcBcU=",
+        "lastModified": 1771574726,
+        "narHash": "sha256-D1PA3xQv/s4W3lnR9yJFSld8UOLr0a/cBWMQMXS+1Qg=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6d41bc27aaf7b6a3ba6b169db3bd5d6159cfaa47",
+        "rev": "c217913993d6c6f6805c3b1a3bda5e639adfde6d",
         "type": "github"
       },
       "original": {
@@ -567,11 +567,11 @@
     },
     "nixpkgs-stable_2": {
       "locked": {
-        "lastModified": 1771419570,
-        "narHash": "sha256-bxAlQgre3pcQcaRUm/8A0v/X8d2nhfraWSFqVmMcBcU=",
+        "lastModified": 1771574726,
+        "narHash": "sha256-D1PA3xQv/s4W3lnR9yJFSld8UOLr0a/cBWMQMXS+1Qg=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6d41bc27aaf7b6a3ba6b169db3bd5d6159cfaa47",
+        "rev": "c217913993d6c6f6805c3b1a3bda5e639adfde6d",
         "type": "github"
       },
       "original": {
@@ -593,11 +593,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1771467423,
-        "narHash": "sha256-W0QZgcU34PioiwoSy84usD7En5HIg3TnOta5wli3w38=",
+        "lastModified": 1771639166,
+        "narHash": "sha256-oZWqBifGyRGv1XDXvdKB5luZGlSGtsM2m0947sUkSlo=",
         "owner": "nix-community",
         "repo": "nixpkgs-xr",
-        "rev": "d4e2705e55344cc2c648765eaf63f82731d984d8",
+        "rev": "52dcb56636b7412dda83526a1db1320b8755bffa",
         "type": "github"
       },
       "original": {
@@ -870,11 +870,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1770818573,
-        "narHash": "sha256-LI9JqGOC5kYugAuO2cjHR95HYOJ1aHkXQ2pJIp3Xc7Y=",
+        "lastModified": 1771528113,
+        "narHash": "sha256-ly6YjTnCTAD7UnV13D3JcVaB2RDQewUESeX86aA3Myg=",
         "ref": "refs/heads/main",
-        "rev": "ea5ffd6754789579c13d2cf5c5541a0f2a5693c3",
-        "revCount": 457,
+        "rev": "d2031ffb8a580aea8a0e2d514db077e68de4ce07",
+        "revCount": 461,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/skinprox.git"
       },
