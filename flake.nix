@@ -71,7 +71,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    nixpkgs-fork-traefik.url = "github:NixOS/nixpkgs/a82ccc39b39b621151d6732718e3e250109076fa";
+    nixpkgs-fork-traefik.url = "github:NixOS/nixpkgs/4868e994de79bd9ff36581d73978549c35bc614d";
     nixpkgs-fork-crashdump.url = "github:Scrumplex/nixpkgs/nixos/crashdump";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-xr = {
