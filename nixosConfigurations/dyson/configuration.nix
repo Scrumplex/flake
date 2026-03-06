@@ -44,9 +44,7 @@
     LidSwitchIgnoreInhibited = true;
   };
 
-  systemd.sleep.extraConfig = ''
-    HibernateDelaySec=10m
-  '';
+  systemd.sleep.settings.Sleep.HibernateDelaySec = "10m";
 
   system.stateVersion = "23.11";
 }
