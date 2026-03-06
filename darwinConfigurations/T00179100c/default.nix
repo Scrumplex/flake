@@ -266,7 +266,7 @@
     inkscape
     pgadmin4-desktopmode
     rectangle
-    signal-desktop-bin
+    signal-desktop
     slack
     (discord.override {withVencord = true;})
     alt-tab-macos
