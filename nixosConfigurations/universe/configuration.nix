@@ -22,6 +22,7 @@
 
     fpConfig.flake.modules.nixos.netcup-vps
     fpConfig.flake.modules.nixos.machine-universe
+    fpConfig.flake.modules.nixos.ext-monitoring
 
     inputs.srvos.nixosModules.server
     inputs.srvos.nixosModules.mixins-systemd-boot
