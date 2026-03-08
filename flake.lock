@@ -263,6 +263,28 @@
         "type": "github"
       }
     },
+    "importPnpmLock": {
+      "inputs": {
+        "nixpkgs": [
+          "scrumplex-website-ng",
+          "nixpkgs"
+        ],
+        "systems": "systems_6"
+      },
+      "locked": {
+        "lastModified": 1772891289,
+        "narHash": "sha256-rKJg7J74OTNPBvtEEjfdl3Mr3gztF5BsKOQaN96HE5c=",
+        "ref": "refs/heads/main",
+        "rev": "ae15ae9818790200f33fa85ab96321e14b2f9983",
+        "revCount": 8,
+        "type": "git",
+        "url": "https://tangled.org/scrumplex.net/importPnpmLock.nix"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://tangled.org/scrumplex.net/importPnpmLock.nix"
+      }
+    },
     "inhibridge": {
       "inputs": {
         "flake-parts": [
@@ -834,6 +856,7 @@
         "flake-parts": [
           "flake-parts"
         ],
+        "importPnpmLock": "importPnpmLock",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -842,18 +865,18 @@
         ]
       },
       "locked": {
-        "lastModified": 1747940232,
-        "narHash": "sha256-VGT3alvW88dcSmLFYoFbvub6lchoRsBktTqsynPjpnU=",
-        "ref": "astro",
-        "rev": "2bd8fdbe17cf4de766d56464a753c97a6723c2c2",
-        "revCount": 5,
+        "lastModified": 1772971962,
+        "narHash": "sha256-MewVN8zRBDhlexAoiUapZtXOCEnLg3E5n7/hGxlmkXM=",
+        "ref": "refs/heads/refactor/vite",
+        "rev": "e605984912da8b0b9acb5b2533556eae34b7098c",
+        "revCount": 916,
         "type": "git",
-        "url": "https://codeberg.org/Scrumplex/website.git"
+        "url": "https://tangled.org/scrumplex.net/website"
       },
       "original": {
-        "ref": "astro",
+        "ref": "refs/heads/refactor/vite",
         "type": "git",
-        "url": "https://codeberg.org/Scrumplex/website.git"
+        "url": "https://tangled.org/scrumplex.net/website"
       }
     },
     "skinprox": {
@@ -975,6 +998,21 @@
       "original": {
         "owner": "nix-systems",
         "repo": "x86_64-linux",
+        "type": "github"
+      }
+    },
+    "systems_6": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
         "type": "github"
       }
     },

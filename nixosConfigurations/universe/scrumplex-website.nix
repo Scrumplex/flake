@@ -26,6 +26,11 @@ in {
   nixpkgs.overlays = [inputs.scrumplex-website.overlays.default inputs.scrumplex-website-ng.overlays.default];
 
   services.nginx.virtualHosts = {
+    "beta.scrumplex.net" = mkMerge [
+      config.common.nginx.vHost
+      config.common.nginx.sslVHost
+      (commonVHostFor pkgs.scrumplex-website-ng)
+    ];
     "scrumplex.net" = mkMerge [
       config.common.nginx.vHost
       config.common.nginx.sslVHost

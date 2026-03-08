@@ -63,7 +63,7 @@
     scrumplex-website-ng.inputs.flake-parts.follows = "flake-parts";
     scrumplex-website-ng.inputs.nixpkgs.follows = "nixpkgs";
     scrumplex-website-ng.inputs.pre-commit-hooks.follows = "git-hooks";
-    scrumplex-website-ng.url = "git+https://codeberg.org/Scrumplex/website.git?ref=astro";
+    scrumplex-website-ng.url = "git+https://tangled.org/scrumplex.net/website?ref=refs/heads/refactor/vite";
     scrumplex-website.inputs.flake-parts.follows = "flake-parts";
     scrumplex-website.inputs.nixpkgs.follows = "nixpkgs";
     scrumplex-website.inputs.pre-commit-hooks.follows = "git-hooks";
