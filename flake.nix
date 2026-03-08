@@ -1,128 +1,79 @@
 {
   inputs = {
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.darwin.follows = "darwin";
-      inputs.home-manager.follows = "home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    catppuccin = {
-      url = "github:catppuccin/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    catppuccin-qt5ct = {
-      url = "github:catppuccin/qt5ct";
-      flake = false;
-    };
-    darwin = {
-      url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-    git-hooks = {
-      url = "github:cachix/git-hooks.nix";
-      inputs.flake-compat.follows = "";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    honeylinks-website = {
-      url = "git+https://codeberg.org/Scrumplex/honeylinks.git";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.pre-commit-hooks.follows = "git-hooks";
-    };
+    agenix.inputs.darwin.follows = "darwin";
+    agenix.inputs.home-manager.follows = "home-manager";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
+    agenix.url = "github:ryantm/agenix";
+    catppuccin-qt5ct.flake = false;
+    catppuccin-qt5ct.url = "github:catppuccin/qt5ct";
+    catppuccin.inputs.nixpkgs.follows = "nixpkgs";
+    catppuccin.url = "github:catppuccin/nix";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
+    darwin.url = "github:LnL7/nix-darwin";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+    disko.url = "github:nix-community/disko";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    git-hooks.inputs.flake-compat.follows = "";
+    git-hooks.inputs.nixpkgs.follows = "nixpkgs";
+    git-hooks.url = "github:cachix/git-hooks.nix";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
+    honeylinks-website.inputs.flake-parts.follows = "flake-parts";
+    honeylinks-website.inputs.nixpkgs.follows = "nixpkgs";
+    honeylinks-website.inputs.pre-commit-hooks.follows = "git-hooks";
+    honeylinks-website.url = "git+https://codeberg.org/Scrumplex/honeylinks.git";
     import-tree.url = "github:vic/import-tree";
-    inhibridge = {
-      url = "git+https://codeberg.org/Scrumplex/inhibridge.git";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.git-hooks.follows = "git-hooks";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    jovian = {
-      url = "github:Jovian-Experiments/Jovian-NixOS";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    lanzaboote = {
-      # intentionally not following our nixpkgs for cache
-      url = "github:nix-community/lanzaboote";
-      inputs.pre-commit.follows = "git-hooks";
-    };
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-minecraft = {
-      url = "github:Infinidoge/nix-minecraft";
-      inputs.flake-compat.follows = "";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    inhibridge.inputs.flake-parts.follows = "flake-parts";
+    inhibridge.inputs.git-hooks.follows = "git-hooks";
+    inhibridge.inputs.nixpkgs.follows = "nixpkgs";
+    inhibridge.url = "git+https://codeberg.org/Scrumplex/inhibridge.git";
+    jovian.inputs.nixpkgs.follows = "nixpkgs";
+    jovian.url = "github:Jovian-Experiments/Jovian-NixOS";
+    lanzaboote.inputs.pre-commit.follows = "git-hooks";
+    lanzaboote.url = "github:nix-community/lanzaboote";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
+    niri.url = "github:sodiboo/niri-flake";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-minecraft.inputs.flake-compat.follows = "";
+    nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    nixpkgs-fork-traefik.url = "github:NixOS/nixpkgs/a82ccc39b39b621151d6732718e3e250109076fa";
     nixpkgs-fork-crashdump.url = "github:Scrumplex/nixpkgs/nixos/crashdump";
+    nixpkgs-fork-traefik.url = "github:NixOS/nixpkgs/a82ccc39b39b621151d6732718e3e250109076fa";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs-xr = {
-      url = "github:nix-community/nixpkgs-xr";
-      inputs.flake-compat.follows = "";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs-xr.inputs.flake-compat.follows = "";
+    nixpkgs-xr.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    openwrt-imagebuilder = {
-      url = "github:astro/nix-openwrt-imagebuilder";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    prismlauncher = {
-      url = "github:PrismLauncher/PrismLauncher";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    scrumpkgs = {
-      url = "github:Scrumplex/pkgs";
-      inputs.flake-compat.follows = "";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.pre-commit-hooks.follows = "git-hooks";
-    };
-    scrumplex-website = {
-      url = "git+https://codeberg.org/Scrumplex/website.git";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.pre-commit-hooks.follows = "git-hooks";
-    };
-    scrumplex-website-ng = {
-      url = "git+https://codeberg.org/Scrumplex/website.git?ref=astro";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.pre-commit-hooks.follows = "git-hooks";
-    };
-    skinprox = {
-      url = "git+https://codeberg.org/Scrumplex/skinprox.git";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.pre-commit-hooks.follows = "git-hooks";
-    };
-    srvos = {
-      url = "github:nix-community/srvos";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixvim.inputs.flake-parts.follows = "flake-parts";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim.url = "github:nix-community/nixvim";
+    openwrt-imagebuilder.inputs.flake-parts.follows = "flake-parts";
+    openwrt-imagebuilder.inputs.nixpkgs.follows = "nixpkgs";
+    openwrt-imagebuilder.url = "github:astro/nix-openwrt-imagebuilder";
+    prismlauncher.inputs.nixpkgs.follows = "nixpkgs";
+    prismlauncher.url = "github:PrismLauncher/PrismLauncher";
+    scrumpkgs.inputs.flake-compat.follows = "";
+    scrumpkgs.inputs.flake-parts.follows = "flake-parts";
+    scrumpkgs.inputs.nixpkgs.follows = "nixpkgs";
+    scrumpkgs.inputs.pre-commit-hooks.follows = "git-hooks";
+    scrumpkgs.url = "github:Scrumplex/pkgs";
+    scrumplex-website-ng.inputs.flake-parts.follows = "flake-parts";
+    scrumplex-website-ng.inputs.nixpkgs.follows = "nixpkgs";
+    scrumplex-website-ng.inputs.pre-commit-hooks.follows = "git-hooks";
+    scrumplex-website-ng.url = "git+https://codeberg.org/Scrumplex/website.git?ref=astro";
+    scrumplex-website.inputs.flake-parts.follows = "flake-parts";
+    scrumplex-website.inputs.nixpkgs.follows = "nixpkgs";
+    scrumplex-website.inputs.pre-commit-hooks.follows = "git-hooks";
+    scrumplex-website.url = "git+https://codeberg.org/Scrumplex/website.git";
+    skinprox.inputs.flake-parts.follows = "flake-parts";
+    skinprox.inputs.nixpkgs.follows = "nixpkgs";
+    skinprox.inputs.pre-commit-hooks.follows = "git-hooks";
+    skinprox.url = "git+https://codeberg.org/Scrumplex/skinprox.git";
+    srvos.inputs.nixpkgs.follows = "nixpkgs";
+    srvos.url = "github:nix-community/srvos";
   };
 
   outputs = inputs @ {flake-parts, ...}:
