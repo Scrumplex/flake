@@ -8,7 +8,6 @@
       ../common/desktop
       ../common/desktop/evolution.nix
       ../common/desktop/fonts.nix
-      ../common/desktop/gaming.nix
       ../common/desktop/gtk
       ../common/desktop/image-viewer.nix
       ../common/desktop/inhibridge.nix
