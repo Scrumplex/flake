@@ -24,7 +24,7 @@
         "andromeda".id = "PUP74AL-VXGLRML-MLMUZIJ-5SZCUCK-A3H2VKD-HNB5X7Z-HHDI244-O7KU5AL";
         "antares".id = "MOD53BR-TS455TP-KWYY4VD-RQ7JLZM-NSURG2I-GLAFRFQ-K4XIWQ4-7BMPBQK";
         "dyson".id = "KW6OFUM-DN2HFJT-GDQPMCP-Q6LQWAV-2OZP7VP-CZJSZH7-HZX2JFB-GN4IBQ2";
-        "void".id = "ROC6PRH-RGV3UZK-YZADBBJ-WKEQPDT-N6QWDRR-QGCFEXT-OSLP5GH-7FUD5AJ";
+        "borealis".id = "HTHVAWB-C5SXLYH-UZA4ZIJ-A75RYY2-WNOFJ5Y-J6Z3FEQ-TUJHI7Z-L7WYQQC";
       };
 
       folders = {
@@ -33,7 +33,7 @@
           id = "txukz-pi5xa";
           type = "receiveonly";
           path = "/media/jellyfin/music_sefa";
-          devices = ["andromeda" "dyson" "void"];
+          devices = ["andromeda" "dyson" "borealis"];
         };
         "VRC" = {
           enable = true;
