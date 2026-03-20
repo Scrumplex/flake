@@ -56,7 +56,7 @@
           code_arm_required = true;
           delay_time = 0;
           arming_time = 20;
-          arming_states = ["armed_away"];
+          arming_states = ["armed_away" "armed_home"];
         }
       ];
 
