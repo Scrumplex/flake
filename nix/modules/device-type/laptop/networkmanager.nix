@@ -6,9 +6,4 @@
 
     users.users.${config.flake.meta.username}.extraGroups = ["networkmanager"];
   };
-
-  flake.modules.homeManager.laptop = {
-    xsession.preferStatusNotifierItems = true; # needed for network-manager-applet
-    services.network-manager-applet.enable = true;
-  };
 }

@@ -50,6 +50,11 @@
     nixvim.inputs.flake-parts.follows = "flake-parts";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.url = "github:nix-community/nixvim";
+    noctalia-qs.inputs.nixpkgs.follows = "nixpkgs";
+    noctalia-qs.url = "github:noctalia-dev/noctalia-qs";
+    noctalia.inputs.nixpkgs.follows = "nixpkgs";
+    noctalia.inputs.noctalia-qs.follows = "noctalia-qs";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
     openwrt-imagebuilder.inputs.flake-parts.follows = "flake-parts";
     openwrt-imagebuilder.inputs.nixpkgs.follows = "nixpkgs";
     openwrt-imagebuilder.url = "github:astro/nix-openwrt-imagebuilder";

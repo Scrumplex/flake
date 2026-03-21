@@ -42,30 +42,10 @@
         '';
       };
 
+      services.mpdris2.enable = true;
+
       home.packages = [
         pkgs.mpc
-        (pkgs.writeShellApplication {
-          name = "wob-mpc-volume";
-
-          runtimeInputs = [pkgs.mpc];
-
-          text = ''
-            case "$1" in
-              increase-volume)
-                mpc volume +2
-                ;;
-              decrease-volume)
-                mpc volume -2
-                ;;
-            esac
-
-            systemctl --user is-active wob.socket || exit 0
-            wob_socket=$(systemctl --user show --value --property Listen wob.socket | cut -d" " -f1)
-
-            volume=$(mpc volume | grep -oE '[0-9]+')
-            echo "$volume" | tee "$wob_socket"
-          '';
-        })
       ];
 
       programs.niri.settings.binds = with config.lib.niri.actions; {

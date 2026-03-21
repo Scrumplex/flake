@@ -26,7 +26,7 @@
   hardware.enableRedistributableFirmware = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
-  security.pam.services.login.fprintAuth = false;
+  security.pam.services.ly.fprintAuth = false;
   security.pam.services.sudo.fprintAuth = false;
 
   services.power-profiles-daemon.enable = true;

@@ -7,8 +7,6 @@
   imports = [
     ./borg.nix
     ./desktop/niri.nix
-    ./desktop/swayidle.nix
-    ./desktop/waybar.nix
     ./disks.nix
     ./networking.nix
     ./ustreamer.nix

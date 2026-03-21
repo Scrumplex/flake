@@ -120,34 +120,42 @@
             focus-ring.enable = false;
           }
         ];
+
+        debug.honor-xdg-activation-with-invalid-serial = true;
+
         binds = with config.lib.niri.actions;
           lib.mkMerge [
             {
               "Mod+Shift+Slash".action = show-hotkey-overlay;
               "Mod+Ctrl+Q" = {
-                hotkey-overlay.title = "Lock the session";
-                action = spawn ["loginctl" "lock-session"];
+                hotkey-overlay.title = "Lock Session";
+                action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "lockScreen" "lock"];
               };
 
               "XF86AudioMute" = {
+                hotkey-overlay.title = "Mute Output";
                 allow-when-locked = true;
-                action = spawn ["wob-volume" "toggle-mute"];
+                action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "volume" "muteOutput"];
               };
               "XF86AudioLowerVolume" = {
+                hotkey-overlay.title = "Output Volume -";
                 allow-when-locked = true;
-                action = spawn ["wob-volume" "decrease-volume"];
+                action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "volume" "decrease"];
               };
               "XF86AudioRaiseVolume" = {
+                hotkey-overlay.title = "Output Volume +";
                 allow-when-locked = true;
-                action = spawn ["wob-volume" "increase-volume"];
+                action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "volume" "increase"];
               };
               "XF86MonBrightnessDown" = {
+                hotkey-overlay.title = "Screen Brightness -";
                 allow-when-locked = true;
-                action = spawn ["wob-brightness" "decrease-brightness"];
+                action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "brightness" "decrease"];
               };
               "XF86MonBrightnessUp" = {
+                hotkey-overlay.title = "Screen Brightness +";
                 allow-when-locked = true;
-                action = spawn ["wob-brightness" "increase-brightness"];
+                action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "brightness" "increase"];
               };
             }
             (mkMoveFocusBinds' "Left" "column-left")
