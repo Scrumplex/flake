@@ -9,6 +9,8 @@
 
       ha-solarman = pkgs.home-assistant.python.pkgs.callPackage ./ha-solarman.nix {};
 
+      netzbremse-measurement = pkgs.callPackage ./netzbremse-measurement.nix {};
+
       linux-bpir4 = pkgs.callPackage ./linux-bpir4.nix {};
       uboot-bpir4 = pkgs.callPackage ./uboot-bpir4.nix {};
       banana-pi-r4-firmware = pkgs.callPackage ./banana-pi-r4-firmware.nix {
@@ -20,6 +22,8 @@
     channel-notifier = final.python3.pkgs.callPackage ./channel-notifier {};
 
     ha-solarman = final.home-assistant.python.pkgs.callPackage ./ha-solarman.nix {};
+
+    netzbremse-measurement = final.callPackage ./netzbremse-measurement.nix {};
 
     linux-bpir4 = final.callPackage ./linux-bpir4.nix {};
     uboot-bpir4 = final.callPackage ./uboot-bpir4.nix {};
