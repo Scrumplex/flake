@@ -7,7 +7,10 @@
 
     catppuccin.delta.enable = true;
 
-    programs.mergiraf.enable = true;
+    programs.mergiraf = {
+      enable = true;
+      enableGitIntegration = true;
+    };
 
     programs.fish.shellAbbrs = {
       g = "git";
@@ -44,7 +47,10 @@
 
       lfs.enable = true;
 
-      signing.key = null;
+      signing = {
+        format = "openpgp";
+        key = null;
+      };
 
       settings = {
         alias.unpushed = "log --branches --not --remotes --no-walk --decorate --oneline";

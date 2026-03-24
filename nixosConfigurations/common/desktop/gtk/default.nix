@@ -28,7 +28,10 @@
         package = pkgs.adw-gtk3;
       };
       gtk3.extraCss = builtins.readFile ./adwaita.css;
-      gtk4.extraCss = builtins.readFile ./adwaita.css;
+      gtk4 = {
+        extraCss = builtins.readFile ./adwaita.css;
+        theme = config.hm.gtk.theme;
+      };
     };
     dconf.settings = {
       "org/gnome/desktop/interface" = {
