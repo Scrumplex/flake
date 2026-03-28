@@ -557,17 +557,17 @@
     },
     "nixpkgs-fork-traefik": {
       "locked": {
-        "lastModified": 1771008912,
-        "narHash": "sha256-gf2AmWVTs8lEq7z/3ZAsgnZDhWIckkb+ZnAo5RzSxJg=",
+        "lastModified": 1774726786,
+        "narHash": "sha256-/x9aPephAMsYDwmpxK5mN4x6W86gj6S8ZE8JgukmBWQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a82ccc39b39b621151d6732718e3e250109076fa",
+        "rev": "1ec6ad00ff94be95ca85f6c2f01a793bf9e4652c",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a82ccc39b39b621151d6732718e3e250109076fa",
+        "rev": "1ec6ad00ff94be95ca85f6c2f01a793bf9e4652c",
         "type": "github"
       }
     },
