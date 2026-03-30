@@ -237,7 +237,6 @@
           tooltipsEnabled = true;
           translucentWidgets = true;
         };
-        wallpaper.enabled = false;
       };
     };
   };

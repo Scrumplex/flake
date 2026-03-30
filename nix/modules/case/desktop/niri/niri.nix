@@ -121,8 +121,6 @@
           }
         ];
 
-        debug.honor-xdg-activation-with-invalid-serial = true;
-
         binds = with config.lib.niri.actions;
           lib.mkMerge [
             {

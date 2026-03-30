@@ -8,9 +8,12 @@
       sounds.enabled = true;
     };
 
-    programs.niri.settings.binds = with config.lib.niri.actions; {
-      "Mod+Backspace".action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "notifications" "dismissAll"];
-      "Mod+Shift+Backspace".action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "notifications" "toggleDND"];
+    programs.niri.settings = {
+      debug.honor-xdg-activation-with-invalid-serial = true;
+      binds = with config.lib.niri.actions; {
+        "Mod+Backspace".action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "notifications" "dismissAll"];
+        "Mod+Shift+Backspace".action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "notifications" "toggleDND"];
+      };
     };
   };
 }
