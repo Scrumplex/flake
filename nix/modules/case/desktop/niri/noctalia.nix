@@ -11,9 +11,7 @@
     config,
     pkgs,
     ...
-  }: let
-    termapp = "${pkgs.termapp}/bin/termapp";
-  in {
+  }: {
     imports = [
       inputs.noctalia.homeModules.default
     ];
@@ -25,12 +23,6 @@
       package = pkgs.noctalia-shell.override {calendarSupport = true;};
       systemd.enable = true;
       settings = {
-        appLauncher = {
-          density = "default";
-          iconMode = "native";
-          position = "center";
-          terminalCommand = termapp;
-        };
         controlCenter = {
           shortcuts = {
             left = [
@@ -121,7 +113,7 @@
               {
                 displayMode = "alwaysShow";
                 id = "Volume";
-                middleClickCommand = "${termapp} ${pkgs.pulsemixer}/bin/pulsemixer";
+                middleClickCommand = "${lib.getExe pkgs.termapp} ${pkgs.pulsemixer}/bin/pulsemixer";
               }
               {
                 displayMode = "alwaysShow";
@@ -205,7 +197,7 @@
           location = "top_center";
         };
         settingsVersion = 59;
-        systemMonitor.externalMonitor = "${termapp} ${lib.getExe pkgs.btop}";
+        systemMonitor.externalMonitor = "${lib.getExe pkgs.termapp} ${lib.getExe pkgs.btop}";
         ui = {
           boxBorderEnabled = false;
           fontDefault = "Monocraft";

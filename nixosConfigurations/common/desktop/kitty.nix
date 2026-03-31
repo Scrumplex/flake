@@ -64,8 +64,6 @@ in {
       hotkey-overlay.title = "Open a terminal";
       action = config.hm.lib.niri.actions.spawn [(lib.getExe config.hm.programs.kitty.package)];
     };
-
-    programs.fuzzel.settings.main.terminal = lib.getExe config.hm.programs.kitty.package;
   };
 
   systemd.tmpfiles.settings."10-kitty".${staticBinPath}."L+".argument = lib.getExe config.hm.programs.kitty.package;
