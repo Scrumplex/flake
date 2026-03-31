@@ -5,6 +5,8 @@
 }: {
   flake.modules.nixos.desktop = {
     nixpkgs.overlays = [inputs.noctalia.overlays.default];
+
+    services.upower.enable = true;
   };
 
   flake.modules.homeManager.desktop = {
