@@ -125,10 +125,6 @@
           lib.mkMerge [
             {
               "Mod+Shift+Slash".action = show-hotkey-overlay;
-              "Mod+Ctrl+Q" = {
-                hotkey-overlay.title = "Lock Session";
-                action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "lockScreen" "lock"];
-              };
 
               "XF86AudioMute" = {
                 hotkey-overlay.title = "Mute Output";

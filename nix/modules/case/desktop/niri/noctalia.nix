@@ -5,8 +5,6 @@
 }: {
   flake.modules.nixos.desktop = {
     nixpkgs.overlays = [inputs.noctalia.overlays.default];
-
-    security.pam.services.noctalia = {};
   };
 
   flake.modules.homeManager.desktop = {
@@ -173,32 +171,19 @@
         idle = {
           enabled = true;
           screenOffTimeout = 120;
-          lockTimeout = 300;
           suspendTimeout = 1800;
           fadeDuration = 10;
         };
         general = {
-          allowPasswordWithFprintd = true;
           animationSpeed = 2;
           avatarImage = "${config.home.homeDirectory}/.face";
-          autoStartAuth = true;
           clockFormat = "hh\\nmm";
           clockStyle = "analog";
-          compactLockScreen = false;
           dimmerOpacity = 0.2;
           enableBlurBehind = true;
-          enableLockScreenCountdown = true;
-          enableLockScreenMediaControls = true;
           enableShadows = false;
           forceBlackScreenCorners = false;
           iRadiusRatio = 1;
-          lockOnSuspend = true;
-          lockScreenAnimations = true;
-          lockScreenBlur = 0;
-          lockScreenCountdownDuration = 10000;
-          lockScreenMonitors = [];
-          lockScreenTint = 0;
-          passwordChars = false;
           radiusRatio = 0.2;
           reverseScroll = false;
           scaleRatio = 1;
@@ -207,9 +192,7 @@
           shadowOffsetX = 2;
           shadowOffsetY = 3;
           showChangelogOnStartup = true;
-          showHibernateOnLockScreen = false;
           showScreenCorners = false;
-          showSessionButtonsOnLockScreen = true;
           telemetryEnabled = false;
         };
         location.name = "Essen, Germany";
