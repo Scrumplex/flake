@@ -2,11 +2,9 @@
 
 This repository contains my [NixOS](https://nixos.org/) and [home-manager](https://github.com/nix-community/home-manager) configurations and modules.
 
-![Screenshot of my desktop](https://scrumplex.rocks/img/1691653525_Caaph4.png)
+It is always in a phase of refactoring. Current goal: dendritic pattern
 
-![Screenshot of my neovim](https://scrumplex.rocks/img/1691653574_oH4Kai.png)
-
-![Screenshot of my shell](https://scrumplex.rocks/img/1691653635_ziew9D.png)
+![Screenshot of my desktop](https://scrumplex.rocks/img/nixos-niri-noctalia-2026.png)
 
 ## License
 
