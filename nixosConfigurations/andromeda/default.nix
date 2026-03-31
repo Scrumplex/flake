@@ -16,7 +16,6 @@
       ../common/desktop/orca-slicer.nix
       ../common/desktop/polkit-agent.nix
       ../common/desktop/portfolio-performance.nix
-      ../common/desktop/poweralertd.nix
       ../common/desktop/qt
       ../common/desktop/screenshot-bash.nix
       ../common/desktop/wayvnc.nix
