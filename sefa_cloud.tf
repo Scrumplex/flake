@@ -123,6 +123,7 @@ resource "hcloud_zone_rrset" "cnames_sefa_cloud" {
 resource "hcloud_zone_rrset" "cnames_arson_sefa_cloud" {
   for_each = toset([
     "hass",
+    "mass",
   ])
   zone = data.hcloud_zone.sefa_cloud.name
   name = each.key
