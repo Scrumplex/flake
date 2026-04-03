@@ -11,6 +11,7 @@
         "airplay"
         "builtin"
         "fanarttv"
+        # "heos"
         "jellyfin"
         "listenbrainz_scrobble"
         "lrclib"
@@ -28,5 +29,10 @@
       };
       services.music-assistant.loadBalancer.servers = [{url = "http://localhost:8095";}];
     };
+
+    services.avahi.enable = true;
+
+    # allow mdns
+    networking.firewall.allowedUDPPorts = [5353];
   };
 }
