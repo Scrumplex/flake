@@ -3,7 +3,7 @@
     age.secrets."Beehive.psk".file = ./Beehive.psk.age;
 
     networking.wireless.iwd = {
-      enable = true;
+      enable = false;
     };
 
     systemd.network.networks."40-wl" = {
