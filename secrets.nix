@@ -24,6 +24,8 @@ in {
   "nix/modules/machines/galileo/asf/asf-ipc-passwd.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/home-assistant/secrets.yaml.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/id_borgbase.age".publicKeys = galileo ++ scrumplex;
+  "nix/modules/machines/galileo/syncthing/cert.pem.age".publicKeys = galileo ++ scrumplex;
+  "nix/modules/machines/galileo/syncthing/key.pem.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/wifi/Beehive.psk.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/wireguard/wg-scrumplex.key.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/universe/pocket-id/encryption-key.age".publicKeys = universe ++ scrumplex;
