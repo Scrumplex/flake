@@ -20,11 +20,8 @@ in {
     };
 
     services.syncthing = {
-      enable = true;
-
       key = config.age.secrets."syncthing-key.pem".path;
       cert = config.age.secrets."syncthing-cert.pem".path;
-      openDefaultPorts = true;
 
       settings = {
         devices = lib.getAttrs ["andromeda" "borealis" "dyson" "eclipse"] fConfig.flake.meta.syncthingDevices;
@@ -38,17 +35,11 @@ in {
       };
     };
 
-    services.traefik.dynamic.files."syncthing".settings.http = {
-      routers.syncthing = {
-        entryPoints = ["websecure"];
-        middlewares = ["internal-only"];
-        service = "syncthing";
-        rule = "Host(`syncthing.galileo.sefa.cloud`)";
-      };
-      services.syncthing.loadBalancer = {
-        servers = [{url = "http://localhost:8384";}];
-        passHostHeader = false;
-      };
+    services.traefik.dynamic.files."syncthing".settings.http.routers.syncthing = {
+      entryPoints = ["websecure"];
+      middlewares = ["internal-only"];
+      service = "syncthing";
+      rule = "Host(`syncthing.galileo.sefa.cloud`)";
     };
   };
 }

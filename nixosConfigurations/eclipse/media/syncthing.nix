@@ -16,14 +16,8 @@
   };
 
   services.syncthing = {
-    enable = true;
-    user = "media";
-    group = "media";
-
     key = config.age.secrets."syncthing-key.pem".path;
     cert = config.age.secrets."syncthing-cert.pem".path;
-    openDefaultPorts = true;
-
     settings = {
       devices = lib.getAttrs ["andromeda" "antares" "borealis" "dyson" "galileo"] fpConfig.flake.meta.syncthingDevices;
 
@@ -55,16 +49,10 @@
 
   systemd.services."syncthing".unitConfig.RequiresMountsFor = ["/media"];
 
-  services.traefik.dynamic.files."syncthing".settings.http = {
-    routers.syncthing = {
-      entryPoints = ["websecure"];
-      middlewares = ["internal-only"];
-      service = "syncthing";
-      rule = "Host(`syncthing.eclipse.sefa.cloud`)";
-    };
-    services.syncthing.loadBalancer = {
-      servers = [{url = "http://localhost:8384";}];
-      passHostHeader = false;
-    };
+  services.traefik.dynamic.files."syncthing".settings.http.routers.syncthing = {
+    entryPoints = ["websecure"];
+    middlewares = ["internal-only"];
+    service = "syncthing";
+    rule = "Host(`syncthing.eclipse.sefa.cloud`)";
   };
 }

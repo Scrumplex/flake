@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   flake.modules.nixos."machine-galileo" = {
     services.home-assistant.extraComponents = [
       "music_assistant"
@@ -11,7 +11,7 @@
         "airplay"
         "builtin"
         "fanarttv"
-        # "heos"
+        "heos"
         "jellyfin"
         "listenbrainz_scrobble"
         "lrclib"
@@ -19,6 +19,12 @@
         "sendspin"
         "theaudiodb"
       ];
+    };
+
+    systemd.services."music-assistant".serviceConfig = {
+      User = "media";
+      Group = "media";
+      DynamicUser = lib.mkForce false;
     };
 
     services.traefik.dynamic.files."music-assistant".settings.http = {
