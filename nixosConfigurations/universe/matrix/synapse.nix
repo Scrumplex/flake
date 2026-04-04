@@ -34,6 +34,8 @@ in
         LC_CTYPE = "C";
     '';
 
+    alloc.tcpPorts.blocks.synapse-metrics.length = 1;
+
     services.matrix-synapse = {
       enable = true;
 
@@ -64,7 +66,7 @@ in
             ];
           }
           {
-            port = 9008;
+            port = config.alloc.tcpPorts.blocks.synapse-metrics.start;
             tls = false;
             type = "http";
             resources = [
@@ -202,21 +204,18 @@ in
       };
     };
 
-    nixpkgs.config.permittedInsecurePackages = [
-      "jitsi-meet-1.0.8043"
-    ];
-
     networking.firewall.allowedTCPPorts = [8448];
 
-    services.prometheus.scrapeConfigs = [
-      {
-        job_name = "synapse";
-        metrics_path = "/_synapse/metrics";
-        static_configs = [
-          {
-            targets = ["localhost:9008"];
-          }
-        ];
+    # Because Synapse exposes its metrics in a different path, we need a custom config here
+    environment.etc."alloy/synapse.alloy".text = ''
+      prometheus.scrape "synapse" {
+        targets = [
+          {"__address__" = "localhost:${toString config.alloc.tcpPorts.blocks.synapse-metrics.start}"},
+        ]
+
+        metrics_path = "/_synapse/metrics"
+
+        forward_to = [prometheus.relabel.default.receiver]
       }
-    ];
+    '';
   }

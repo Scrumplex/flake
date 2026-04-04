@@ -22,6 +22,14 @@
         }
       }
 
+      prometheus.relabel "default" {
+        rule {
+          target_label = "node"
+          replacement = sys.env("HOSTNAME")
+        }
+        forward_to = [prometheus.remote_write.default.receiver]
+      }
+
       loki.write "default" {
         endpoint {
           url = "https://logs-prod-012.grafana.net/loki/api/v1/push"

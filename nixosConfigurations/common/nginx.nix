@@ -59,18 +59,17 @@
       };
     };
 
-    services.prometheus = {
-      exporters.nginx.enable = true;
-      scrapeConfigs = [
-        {
-          job_name = "nginx";
-          static_configs = [
-            {
-              targets = ["localhost:${toString config.services.prometheus.exporters.nginx.port}"];
-            }
-          ];
-        }
-      ];
+    alloc.tcpPorts.blocks.prometheus-nginx-exporter.length = 1;
+
+    services.prometheus.exporters.nginx = {
+      enable = true;
+      port = config.alloc.tcpPorts.blocks.prometheus-nginx-exporter.start;
     };
+
+    services.alloy.scrape = [
+      {
+        targets = ["localhost:${toString config.services.prometheus.exporters.nginx.port}"];
+      }
+    ];
   };
 }

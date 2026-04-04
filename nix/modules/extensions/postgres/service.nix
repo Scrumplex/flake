@@ -23,22 +23,18 @@ in {
       };
       services.postgresqlBackup.enable = true;
 
-      services.prometheus = {
-        exporters.postgres = {
-          enable = true;
-          runAsLocalSuperUser = true;
-        };
-        scrapeConfigs = [
-          {
-            job_name = "postgres";
-            static_configs = [
-              {
-                targets = ["localhost:${toString config.services.prometheus.exporters.postgres.port}"];
-              }
-            ];
-          }
-        ];
+      alloc.tcpPorts.blocks.prometheus-postgres-exporter.length = 1;
+      services.prometheus.exporters.postgres = {
+        enable = true;
+        runAsLocalSuperUser = true;
+        port = config.alloc.tcpPorts.blocks.prometheus-postgres-exporter.start;
       };
+
+      services.alloy.scrape = [
+        {
+          targets = with config.services.prometheus.exporters.postgres; ["${listenAddress}:${toString port}"];
+        }
+      ];
 
       services.borgbackup.jobs.borgbase.exclude = ["/var/lib/postgresql"];
     };

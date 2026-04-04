@@ -4,6 +4,8 @@
     agenix.inputs.home-manager.follows = "home-manager";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     agenix.url = "github:ryantm/agenix";
+    alloc.url = "github:Aleksanaa/alloc.nix";
+    alloc.inputs.nixpkgs-lib.follows = "nixpkgs";
     catppuccin-qt5ct.flake = false;
     catppuccin-qt5ct.url = "github:catppuccin/qt5ct";
     catppuccin.inputs.nixpkgs.follows = "nixpkgs";

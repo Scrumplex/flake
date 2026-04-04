@@ -8,7 +8,6 @@
     ./channel-notifier.nix
     ./disks.nix
     ./honeylinks-website.nix
-    ./monitoring.nix
     ./murmur.nix
     ./postgres.nix
     ./renovate.nix

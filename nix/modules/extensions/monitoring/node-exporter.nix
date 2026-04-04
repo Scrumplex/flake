@@ -1,6 +1,15 @@
 {
   flake.modules.nixos."ext-monitoring" = {config, ...}: {
-    services.prometheus.exporters.node.enable = true;
+    alloc.tcpPorts.blocks.prometheus-node-exporter.length = 1;
+
+    services.prometheus.exporters.node = {
+      enable = true;
+      port = config.alloc.tcpPorts.blocks.prometheus-node-exporter.start;
+      enabledCollectors = [
+        "processes"
+        "systemd"
+      ];
+    };
 
     services.alloy.scrape = [
       {

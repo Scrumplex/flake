@@ -27,6 +27,26 @@
         "type": "github"
       }
     },
+    "alloc": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1764261139,
+        "narHash": "sha256-KfmxdnK3Vf2Z+/JQHfWWGrxlGHyLrxgPRu2NEjcCNbE=",
+        "owner": "Aleksanaa",
+        "repo": "alloc.nix",
+        "rev": "583bbe6ea0715e8200bccbebdd15735db3145736",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Aleksanaa",
+        "repo": "alloc.nix",
+        "type": "github"
+      }
+    },
     "catppuccin": {
       "inputs": {
         "nixpkgs": [
@@ -791,6 +811,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "alloc": "alloc",
         "catppuccin": "catppuccin",
         "catppuccin-qt5ct": "catppuccin-qt5ct",
         "darwin": "darwin",
