@@ -6,7 +6,7 @@
       record = "arson";
       ipv6 = {
         enable = true;
-        interface = "wlan0";
+        interface = "enp2s0f1";
       };
       environmentFile = config.age.secrets."hetzner-api-token.env".path;
     };
