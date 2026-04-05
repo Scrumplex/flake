@@ -12,6 +12,7 @@
   flake.modules.homeManager.desktop = {
     config,
     pkgs,
+    osConfig,
     ...
   }: {
     imports = [
@@ -28,9 +29,10 @@
         controlCenter = {
           shortcuts = {
             left = [
-              {
-                "id" = "Network";
-              }
+              (lib.mkIf osConfig.networking.networkmanager.enable
+                {
+                  "id" = "Network";
+                })
               {
                 "id" = "Bluetooth";
               }
@@ -106,9 +108,10 @@
               }
             ];
             right = [
-              {
-                id = "Network";
-              }
+              (lib.mkIf osConfig.networking.networkmanager.enable
+                {
+                  id = "Network";
+                })
               {
                 id = "Bluetooth";
               }
