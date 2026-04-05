@@ -11,10 +11,23 @@
       ];
     };
 
-    services.alloy.scrape = [
-      {
-        targets = with config.services.prometheus.exporters.node; ["${listenAddress}:${toString port}"];
+    environment.etc."alloy/node-exporter.alloy".text = with config.services.prometheus.exporters.node; ''
+      prometheus.scrape "integrations_node_exporter" {
+        targets    = [
+          {"__address__" = "${listenAddress}:${toString port}"},
+        ]
+
+        forward_to = [prometheus.relabel.integrations_node_exporter.receiver]
       }
-    ];
+
+      prometheus.relabel "integrations_node_exporter" {
+        forward_to = [prometheus.relabel.default.receiver]
+
+        rule {
+          target_label = "job"
+          replacement = "integrations/node_exporter"
+        }
+      }
+    '';
   };
 }

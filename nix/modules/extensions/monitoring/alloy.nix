@@ -24,8 +24,12 @@
 
       prometheus.relabel "default" {
         rule {
-          target_label = "node"
-          replacement = sys.env("HOSTNAME")
+          target_label = "instance"
+          replacement  = constants.hostname
+        }
+        rule {
+          target_label = "cluster"
+          replacement  = "primary"
         }
         forward_to = [prometheus.remote_write.default.receiver]
       }
