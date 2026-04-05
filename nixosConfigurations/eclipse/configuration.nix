@@ -23,9 +23,10 @@ in {
     ./vaultwarden.nix
     ./wireguard.nix
 
-    fpConfig.flake.modules.nixos.physical-server
     fpConfig.flake.modules.nixos.ext-docker
+    fpConfig.flake.modules.nixos.ext-monitoring
     fpConfig.flake.modules.nixos.ext-traefik
+    fpConfig.flake.modules.nixos.physical-server
 
     nixos-hardware.nixosModules.common-cpu-amd-pstate
     nixos-hardware.nixosModules.common-gpu-amd

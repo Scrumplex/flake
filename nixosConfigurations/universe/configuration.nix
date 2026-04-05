@@ -19,9 +19,9 @@
     ./teamspeak3.nix
     ./wireguard.nix
 
-    fpConfig.flake.modules.nixos.netcup-vps
-    fpConfig.flake.modules.nixos.machine-universe
     fpConfig.flake.modules.nixos.ext-monitoring
+    fpConfig.flake.modules.nixos.machine-universe
+    fpConfig.flake.modules.nixos.netcup-vps
 
     inputs.srvos.nixosModules.server
     inputs.srvos.nixosModules.mixins-systemd-boot
