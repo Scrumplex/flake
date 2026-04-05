@@ -1,8 +1,10 @@
 {config, ...}: {
+  alloc.tcpPorts.blocks.immich.length = 1;
+
   services.immich = {
     enable = true;
     mediaLocation = "/media/immich-library";
-    port = 9121;
+    port = config.alloc.tcpPorts.blocks.immich.start;
   };
 
   users.users.immich.extraGroups = ["video" "render"];

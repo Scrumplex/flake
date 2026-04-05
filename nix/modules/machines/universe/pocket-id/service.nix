@@ -18,6 +18,8 @@ in {
       ensureDatabases = [config.services.pocket-id.user];
     };
 
+    alloc.tcpPorts.blocks.pocket-id.length = 1;
+
     services.pocket-id = {
       enable = true;
 
@@ -28,12 +30,12 @@ in {
         TRUST_PROXY = true;
         ENCRYPTION_KEY_FILE = config.age.secrets."pocket-id-encryption-key".path;
         HOST = "::1";
-        PORT = 8003;
+        PORT = config.alloc.tcpPorts.blocks.pocket-id.start;
       };
     };
 
     services.nginx = {
-      upstreams.pocket-id.servers."[::1]:8003" = {};
+      upstreams.pocket-id.servers."[::1]:${toString config.services.pocket-id.settings.PORT}" = {};
       virtualHosts."${fqdn}" = lib.mkMerge [
         config.common.nginx.vHost
         config.common.nginx.sslVHost

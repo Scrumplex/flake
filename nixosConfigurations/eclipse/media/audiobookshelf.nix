@@ -1,7 +1,9 @@
 {config, ...}: {
+  alloc.tcpPorts.blocks.audiobookshelf.length = 1;
+
   services.audiobookshelf = {
     enable = true;
-    port = 23232;
+    port = config.alloc.tcpPorts.blocks.audiobookshelf.start;
   };
 
   systemd.services.traefik.unitConfig.RequiresMountsFor = ["/media"];
