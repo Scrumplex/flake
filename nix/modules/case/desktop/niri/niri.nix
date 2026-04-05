@@ -126,6 +126,11 @@
             {
               "Mod+Shift+Slash".action = show-hotkey-overlay;
 
+              "Mod+M" = {
+                hotkey-overlay.title = "Mute Input";
+                allow-when-locked = true;
+                action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "volume" "muteInput"];
+              };
               "XF86AudioMute" = {
                 hotkey-overlay.title = "Mute Output";
                 allow-when-locked = true;
