@@ -21,8 +21,6 @@
         }
       ];
       extraConfig = ''
-        Defaults lecture = always
-        Defaults lecture_file = ${./sudo_lecture.txt}
         Defaults pwfeedback
         Defaults passwd_timeout=0
       '';
