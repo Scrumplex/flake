@@ -17,6 +17,7 @@
       GUNICORN_MEDIA = true;
       MEDIA_ROOT = "/var/lib/tandoor-recipes/media";
       SOCIAL_PROVIDERS = "allauth.socialaccount.providers.openid_connect";
+      ALLOWED_HOSTS = "cook.sefa.cloud";
     };
   };
 

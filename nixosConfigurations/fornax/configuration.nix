@@ -10,9 +10,10 @@
 
     ./disks.nix
 
-    fpConfig.flake.modules.nixos.steam-deck
-    fpConfig.flake.modules.nixos.gaming
     fpConfig.flake.modules.nixos.ext-crashdump
+    fpConfig.flake.modules.nixos.gaming
+    fpConfig.flake.modules.nixos.machine-fornax
+    fpConfig.flake.modules.nixos.steam-deck
   ];
 
   hardware.facter = {

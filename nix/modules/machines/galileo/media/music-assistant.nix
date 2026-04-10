@@ -9,6 +9,8 @@
       openFirewall = true;
       providers = [
         "airplay"
+        "apple_music"
+        "audiobookshelf"
         "builtin"
         "fanarttv"
         "heos"
