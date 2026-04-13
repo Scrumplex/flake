@@ -24,11 +24,9 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    sharedModules =
-      builtins.attrValues inputs.scrumpkgs.hmModules
-      ++ [
-        inputs.catppuccin.homeModules.catppuccin
-      ];
+    sharedModules = [
+      inputs.catppuccin.homeModules.catppuccin
+    ];
     extraSpecialArgs = {
       inherit inputs;
       lib' = inputs.scrumpkgs.lib;
@@ -145,7 +143,10 @@
       settings.git_protocol = "ssh";
     };
 
-    programs.mergiraf.enable = true;
+    programs.mergiraf = {
+      enable = true;
+      enableGitIntegration = true;
+    };
 
     programs.delta = {
       enable = true;
