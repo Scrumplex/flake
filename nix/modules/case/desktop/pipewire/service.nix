@@ -18,7 +18,7 @@
   };
 
   flake.modules.homeManager.desktop = {
-    imports = [inputs.scrumpkgs.hmModules.pipewire];
+    imports = [inputs.scrumpkgs.hmModules.pipewire-instances];
     services.pipewire.enable = true;
   };
 }
