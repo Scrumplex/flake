@@ -15,7 +15,8 @@ in {
       daemonIOSchedPriority = 6;
       settings = {
         auto-optimise-store = true;
-        experimental-features = ["nix-command" "flakes" "no-url-literals"];
+        experimental-features = ["nix-command" "flakes"];
+        lint-url-literals = "fatal";
         substituters = [
           "https://cache.nixos.org"
         ];
