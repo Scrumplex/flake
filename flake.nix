@@ -43,7 +43,7 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nixpkgs-fork-crashdump.url = "github:Scrumplex/nixpkgs/nixos/crashdump";
-    nixpkgs-fork-traefik.url = "github:NixOS/nixpkgs/a82ccc39b39b621151d6732718e3e250109076fa";
+    nixpkgs-fork-traefik.url = "github:NixOS/nixpkgs/672abebc3bec4a1cccdeb9fdeb739bbe4e4783dd";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-xr.inputs.flake-compat.follows = "";
     nixpkgs-xr.inputs.nixpkgs.follows = "nixpkgs";
