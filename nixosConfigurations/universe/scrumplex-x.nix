@@ -7,17 +7,7 @@
   fqdn = "scrumplex.rocks";
   dataPath = "/var/lib/screenshots";
 in {
-  age.secrets."scrumplex-x.htaccess" = {
-    file = ../../secrets/universe/scrumplex-x.htaccess.age;
-    owner = config.services.nginx.user;
-    group = config.services.nginx.group;
-  };
-
   services.nginx = {
-    additionalModules = with pkgs.nginxModules; [
-      dav
-    ];
-
     upstreams.scrumplex-x.servers."localhost:3001" = {};
 
     virtualHosts = {
@@ -26,16 +16,7 @@ in {
         config.common.nginx.sslVHost
         {
           root = dataPath;
-          locations."/".extraConfig = ''
-            limit_except GET {
-              auth_basic "scrumplex-x";
-              auth_basic_user_file ${config.age.secrets."scrumplex-x.htaccess".path};
-            }
-          '';
           extraConfig = ''
-            dav_methods PUT;
-            create_full_put_path on;
-
             add_header Access-Control-Allow-Origin *;
           '';
         }
@@ -51,7 +32,7 @@ in {
     };
   };
 
-  systemd.services."nginx".serviceConfig.ReadWritePaths = [dataPath];
+  systemd.services."nginx".serviceConfig.ReadOnlyPaths = [dataPath];
 
   systemd.tmpfiles.settings = {
     "10-scrumplex-x".${dataPath}.d = {

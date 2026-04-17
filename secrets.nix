@@ -78,5 +78,4 @@ in {
   "secrets/common/Beehive.psk.age".publicKeys = sonic ++ scrumplex;
   "secrets/common/mqtt-password.age".publicKeys = scrumplex ++ universe ++ eclipse;
   "secrets/common/bob-the-builder.key.age".publicKeys = scrumplex ++ andromeda ++ dyson;
-  "secrets/common/screenshot-bash.age".publicKeys = andromeda ++ dyson ++ scrumplex;
 }

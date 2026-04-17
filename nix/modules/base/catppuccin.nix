@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.modules.nixos.desktop = {
+  flake.modules.nixos."base" = {
     imports = [
       inputs.catppuccin.nixosModules.catppuccin
     ];
@@ -10,7 +10,7 @@
     };
   };
 
-  flake.modules.homeManager.desktop = {osConfig, ...}: {
+  flake.modules.homeManager."base" = {osConfig, ...}: {
     imports = [
       inputs.catppuccin.homeModules.catppuccin
     ];

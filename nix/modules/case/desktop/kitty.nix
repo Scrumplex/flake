@@ -1,14 +1,10 @@
-{
-  config,
-  lib,
-  ...
-}: let
-  staticBinPath = "/etc/nix/programs/kitty";
-in {
-  # Set xdg-terminal-exec target
-  xdg.terminal-exec.enable = lib.mkDefault true;
+{lib, ...}: {
+  flake.modules.nixos."desktop" = {
+    # Set xdg-terminal-exec target
+    xdg.terminal-exec.enable = lib.mkDefault true;
+  };
 
-  hm = {
+  flake.modules.homeManager."desktop" = {config, ...}: {
     catppuccin.kitty.enable = true;
     programs.kitty = {
       enable = true;
@@ -60,13 +56,11 @@ in {
       kitty.desktop
     '';
 
+    home.sessionVariables."TERMINAL" = "kitty";
+
     programs.niri.settings.binds."Mod+Return" = {
       hotkey-overlay.title = "Open a terminal";
-      action = config.hm.lib.niri.actions.spawn [(lib.getExe config.hm.programs.kitty.package)];
+      action = config.lib.niri.actions.spawn [(lib.getExe config.programs.kitty.package)];
     };
   };
-
-  systemd.tmpfiles.settings."10-kitty".${staticBinPath}."L+".argument = lib.getExe config.hm.programs.kitty.package;
-
-  environment.sessionVariables."TERMINAL" = staticBinPath;
 }
