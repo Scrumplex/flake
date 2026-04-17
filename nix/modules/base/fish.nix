@@ -1,5 +1,5 @@
 {config, ...}: {
-  flake.modules.nixos.desktop = {pkgs, ...}: {
+  flake.modules.nixos.base = {pkgs, ...}: {
     programs.fish = {
       enable = true;
       package = pkgs.fish;
@@ -7,7 +7,7 @@
     users.users.${config.flake.meta.username}.shell = pkgs.fish;
   };
 
-  flake.modules.homeManager.desktop = {pkgs, ...}: {
+  flake.modules.homeManager.base = {pkgs, ...}: {
     catppuccin.eza.enable = true;
     catppuccin.fish.enable = true;
     catppuccin.fzf.enable = true;
