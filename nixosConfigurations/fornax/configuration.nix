@@ -28,11 +28,15 @@
   networking.useDHCP = false;
 
   services.desktopManager.plasma6.enable = true;
+  programs.kdeconnect.enable = true;
   jovian.steam.desktopSession = "plasma";
 
   environment.systemPackages = with pkgs; [
     dolphin-emu
     ryubing
+    kdePackages.plasma-keyboard
+    firefox
+    bottles
   ];
 
   system.stateVersion = "24.11";
