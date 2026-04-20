@@ -37,6 +37,7 @@
     kdePackages.plasma-keyboard
     firefox
     bottles
+    bitwarden-desktop
   ];
 
   system.stateVersion = "24.11";
