@@ -24,7 +24,6 @@
     programs.noctalia-shell = {
       enable = true;
       package = pkgs.noctalia-shell.override {calendarSupport = true;};
-      systemd.enable = true;
       settings = {
         controlCenter = {
           shortcuts = {
@@ -218,6 +217,20 @@
           translucentWidgets = true;
         };
       };
+    };
+
+    systemd.user.services."noctalia-shell" = {
+      Unit = {
+        Description = "Noctalia Shell";
+        PartOf = ["graphical-session.target"];
+        After = ["graphical-session.target"];
+        X-Restart-Triggers = [config.xdg.configFile."noctalia/settings.json".source];
+      };
+      Service = {
+        ExecStart = ["${lib.getExe config.programs.noctalia-shell.package}"];
+        Restart = "on-failure";
+      };
+      Install.WantedBy = ["graphical-session.target"];
     };
   };
 }
