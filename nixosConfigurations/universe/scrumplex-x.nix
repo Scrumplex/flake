@@ -13,7 +13,6 @@ in {
     virtualHosts = {
       ${fqdn} = lib.mkMerge [
         config.common.nginx.vHost
-        config.common.nginx.sslVHost
         {
           root = dataPath;
           extraConfig = ''
@@ -23,13 +22,19 @@ in {
       ];
       "x.scrumplex.rocks" = lib.mkMerge [
         config.common.nginx.vHost
-        config.common.nginx.sslVHost
         {
           serverAliases = ["x.scrumplex.net"];
           globalRedirect = fqdn;
         }
       ];
     };
+  };
+
+  services.traefik.dynamic.files."scrumplex-x".settings.http.routers.scrumplex-x = {
+    entryPoints = ["websecure"];
+    middlewares = ["allow-cors"];
+    service = "nginx";
+    rule = "Host(`scrumplex.rocks`) || Host(`x.scrumplex.rocks`)";
   };
 
   systemd.services."nginx".serviceConfig.ReadOnlyPaths = [dataPath];

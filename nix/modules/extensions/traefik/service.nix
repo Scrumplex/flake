@@ -2,7 +2,10 @@
   flake.modules.nixos."ext-traefik" = {config, ...}: {
     age.secrets."hetzner-api-token.env".file = ./hetzner-api-token.env.age;
 
-    networking.firewall.allowedTCPPorts = [80 443];
+    networking.firewall = {
+      allowedTCPPorts = [80 443];
+      allowedUDPPorts = [443];
+    };
 
     services.traefik = {
       enable = true;
@@ -28,6 +31,7 @@
               tls.certResolver = "letsencrypt";
               middlewares = "security@file";
             };
+            http3 = {};
           };
         };
         certificatesResolvers.letsencrypt.acme = {
@@ -46,6 +50,7 @@
           stsIncludeSubdomains = true;
           stsPreload = true;
         };
+        "allow-cors".headers.accessControlAllowOriginList = "*";
         "internal-only".ipAllowList.sourceRange = [
           "127.0.0.0/8"
           "10.0.0.0/8"

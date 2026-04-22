@@ -7,7 +7,6 @@
 }: {
   services.nginx.virtualHosts."honeyarcus.art" = lib.mkMerge [
     config.common.nginx.vHost
-    config.common.nginx.sslVHost
     {
       # TODO: use overlay once Nixpkgs Node.js tooling works again
       root = inputs.honeylinks-website.packages.${pkgs.stdenv.hostPlatform.system}.honeylinks-website;
@@ -21,4 +20,10 @@
       };
     }
   ];
+
+  services.traefik.dynamic.files."honeyarcus-art".settings.http.routers.honeyarcus-art = {
+    entryPoints = ["websecure"];
+    service = "nginx";
+    rule = "Host(`honeyarcus.art`)";
+  };
 }

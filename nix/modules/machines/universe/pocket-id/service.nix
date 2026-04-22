@@ -1,4 +1,4 @@
-{lib, ...}: let
+{...}: let
   fqdn = "auth.scrumplex.net";
 in {
   flake.modules.nixos."machine-universe" = {config, ...}: {
@@ -34,15 +34,13 @@ in {
       };
     };
 
-    services.nginx = {
-      upstreams.pocket-id.servers."[::1]:${toString config.services.pocket-id.settings.PORT}" = {};
-      virtualHosts."${fqdn}" = lib.mkMerge [
-        config.common.nginx.vHost
-        config.common.nginx.sslVHost
-        {
-          locations."/".proxyPass = "http://pocket-id";
-        }
-      ];
+    services.traefik.dynamic.files."pocket-id".settings.http = {
+      routers.pocket-id = {
+        entryPoints = ["websecure"];
+        service = "pocket-id";
+        rule = "Host(`${fqdn}`)";
+      };
+      services.pocket-id.loadBalancer.servers = [{url = "http://[::1]:${toString config.services.pocket-id.settings.PORT}";}];
     };
   };
 }

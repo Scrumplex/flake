@@ -129,17 +129,10 @@ in
     };
 
     services.nginx = {
-      upstreams.synapse.servers."localhost:8008" = {};
       virtualHosts = {
         "duckhub.io" = lib.mkMerge [
           config.common.nginx.vHost
-          config.common.nginx.sslVHost
           {
-            extraConfig = ''
-              listen 0.0.0.0:8448 ssl default_server;
-              listen [::0]:8448 ssl default_server;
-            '';
-
             root = pkgs.fetchFromGitea {
               domain = "codeberg.org";
               owner = "Scrumplex";
@@ -148,13 +141,6 @@ in
               hash = "sha256-+snAi7qmP2N/Svhosi84A4s8GAi4fz4coW7JsWY/NAE=";
             };
             locations = {
-              "~ ^(/_matrix|/_synapse/client)" = {
-                proxyPass = "http://synapse";
-                extraConfig = ''
-                  client_max_body_size 50M;
-                  proxy_http_version 1.1;
-                '';
-              };
               "/.well-known/matrix".extraConfig = ''
                 default_type "application/json";
                 add_header Access-Control-Allow-Origin *;
@@ -170,17 +156,9 @@ in
         ];
         "quack.duckhub.io" = lib.mkMerge [
           config.common.nginx.vHost
-          config.common.nginx.sslVHost
           {
             root = pkgs.element-web;
             locations = {
-              "~ ^(/_matrix|/_synapse/client)" = {
-                proxyPass = "http://synapse";
-                extraConfig = ''
-                  client_max_body_size 50M;
-                  proxy_http_version 1.1;
-                '';
-              };
               "= /config.json".alias = pkgs.writeText "element-web-config.json" (builtins.toJSON {
                 default_server_name = "duckhub.io";
                 default_server_config = {
@@ -202,6 +180,36 @@ in
           }
         ];
       };
+    };
+
+    services.traefik.static.settings.entryPoints.synapsesecure = {
+      address = ":8448";
+      http = {
+        tls.certResolver = "letsencrypt";
+        middlewares = "security@file";
+      };
+      http3 = {};
+    };
+
+    services.traefik.dynamic.files."synapse".settings.http = {
+      routers = {
+        synapse-federation = {
+          entryPoints = ["websecure" "synapsesecure"];
+          service = "synapse";
+          rule = "(Host(`quack.duckhub.io`) || Host(`duckhub.io`)) && (PathPrefix(`/_matrix/`) || PathPrefix(`/_synapse/client`))";
+        };
+        duckhub-homepage = {
+          entryPoints = ["websecure"];
+          service = "nginx";
+          rule = "Host(`duckhub.io`)";
+        };
+        element-web = {
+          entryPoints = ["websecure"];
+          service = "nginx";
+          rule = "Host(`quack.duckhub.io`)";
+        };
+      };
+      services.synapse.loadBalancer.servers = [{url = "http://localhost:8008";}];
     };
 
     networking.firewall.allowedTCPPorts = [8448];

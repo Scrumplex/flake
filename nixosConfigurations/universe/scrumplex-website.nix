@@ -28,17 +28,34 @@ in {
   services.nginx.virtualHosts = {
     "beta.scrumplex.net" = mkMerge [
       config.common.nginx.vHost
-      config.common.nginx.sslVHost
       (commonVHostFor pkgs.scrumplex-website-ng)
     ];
     "scrumplex.net" = mkMerge [
       config.common.nginx.vHost
-      config.common.nginx.sslVHost
       (commonVHostFor pkgs.scrumplex-website)
     ];
     "oysap5oclxaouxpuyykckncptwvt5cfwqyyckolly3hy5aq5poyvilid.onion" = mkMerge [
+      config.common.nginx.vHost
       (commonVHostFor pkgs.scrumplex-website)
     ];
+  };
+
+  services.traefik.dynamic.files."scrumplex-net".settings.http.routers = {
+    scrumplex-net-onion = {
+      entryPoints = ["websecure"];
+      service = "nginx";
+      rule = "Host(`oysap5oclxaouxpuyykckncptwvt5cfwqyyckolly3hy5aq5poyvilid.onion`)";
+    };
+    beta-scrumplex-net = {
+      entryPoints = ["websecure"];
+      service = "nginx";
+      rule = "Host(`beta.scrumplex.net`)";
+    };
+    scrumplex-net = {
+      entryPoints = ["websecure"];
+      service = "nginx";
+      rule = "Host(`scrumplex.net`)";
+    };
   };
 
   services.tor = {

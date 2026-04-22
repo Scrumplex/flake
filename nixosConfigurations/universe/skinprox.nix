@@ -1,7 +1,6 @@
 {
   config,
   inputs,
-  lib,
   pkgs,
   ...
 }: {
@@ -18,17 +17,13 @@
     ];
   };
 
-  services.nginx = {
-    upstreams.skinprox.servers."localhost:${toString config.services.skinprox.listenPort}" = {};
-    virtualHosts."skins.scrumplex.net" = lib.mkMerge [
-      config.common.nginx.vHost
-      config.common.nginx.sslVHost
-      {
-        locations."/".proxyPass = "http://skinprox";
-        extraConfig = ''
-          add_header Access-Control-Allow-Origin *;
-        '';
-      }
-    ];
+  services.traefik.dynamic.files."skinprox".settings.http = {
+    routers.skinprox = {
+      entryPoints = ["websecure"];
+      middlewares = ["allow-cors"];
+      service = "skinprox";
+      rule = "Host(`skins.scrumplex.net`)";
+    };
+    services.skinprox.loadBalancer.servers = [{url = "http://localhost:${toString config.services.skinprox.listenPort}";}];
   };
 }
