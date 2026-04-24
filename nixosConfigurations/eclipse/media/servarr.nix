@@ -14,9 +14,9 @@
     group = "media";
   };
   services.prowlarr.enable = true;
-  services.jellyseerr.enable = true;
+  services.seerr.enable = true;
 
-  systemd.services = lib.genAttrs ["radarr" "sonarr" "prowlarr" "jellyseerr"] (_: {
+  systemd.services = lib.genAttrs ["radarr" "sonarr" "prowlarr" "seerr"] (_: {
     unitConfig.RequiresMountsFor = ["/media"];
   });
 
