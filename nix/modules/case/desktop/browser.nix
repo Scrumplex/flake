@@ -2,7 +2,10 @@
   flake.modules.homeManager."desktop" = {
     programs.chromium.enable = true;
 
-    programs.firefox.enable = true;
+    programs.firefox = {
+      enable = true;
+      configPath = ".mozilla/firefox";
+    };
 
     xdg.mimeApps.defaultApplications = {
       "text/html" = ["firefox.desktop"];
