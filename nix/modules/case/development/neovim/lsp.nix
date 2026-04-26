@@ -1,6 +1,6 @@
-{
-  flake.modules.nixos.development.programs.nixvim = {
-    plugins.lsp = {
+{lib, ...}: {
+  flake.modules.nixos.development = {config, ...}: {
+    programs.nixvim.plugins.lsp = {
       enable = true;
       keymaps = {
         silent = true;
@@ -42,6 +42,11 @@
         nixd.enable = true;
         pylsp.enable = true;
         pyright.enable = true;
+        qmlls = {
+          enable = true;
+          # Load QML_IMPORT_PATH
+          cmd = [(lib.getExe' config.programs.nixvim.plugins.lsp.servers.qmlls.package "qmlls") "-E"];
+        };
         rust_analyzer = {
           enable = true;
           installRustc = false;
