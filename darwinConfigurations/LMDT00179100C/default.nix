@@ -248,7 +248,6 @@
       "jabra-direct"
       "jellyfin-media-player"
       "linearmouse"
-      "macfuse"
       "obs"
       "pgadmin4"
       "session-manager-plugin"
