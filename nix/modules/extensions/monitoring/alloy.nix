@@ -9,40 +9,58 @@
 
     systemd.services."alloy".environment.HOSTNAME = config.networking.hostName;
 
-    environment.etc."alloy/remotes.alloy".text = ''
-      prometheus.remote_write "default" {
-        endpoint {
-          name = "grafana-cloud"
-          url = "https://prometheus-prod-65-prod-eu-west-2.grafana.net/api/prom/push"
-
-          basic_auth {
-            username = sys.env("GCLOUD_MIMIR_USERNAME")
-            password = sys.env("GCLOUD_RW_TOKEN")
-          }
+    environment.etc."alloy/receiver.alloy".text = ''
+      otelcol.receiver.prometheus "default" {
+        output {
+          metrics = [otelcol.processor.attributes.default.input]
         }
       }
 
-      prometheus.relabel "default" {
-        rule {
-          target_label = "instance"
-          replacement  = constants.hostname
+      otelcol.receiver.otlp "default" {
+        grpc { }
+        http { }
+
+        output {
+          logs    = [otelcol.processor.attributes.default.input]
+          metrics = [otelcol.processor.attributes.default.input]
+          traces  = [otelcol.processor.attributes.default.input]
         }
-        rule {
-          target_label = "cluster"
-          replacement  = "primary"
+      }
+    '';
+
+    environment.etc."alloy/grafana-cloud.alloy".text = ''
+      otelcol.processor.attributes "default" {
+        action {
+          key = "host.name"
+          action = "upsert"
+          value = constants.hostname
         }
-        forward_to = [prometheus.remote_write.default.receiver]
+
+        output {
+          logs    = [otelcol.processor.batch.default.input]
+          metrics = [otelcol.processor.batch.default.input]
+          traces  = [otelcol.processor.batch.default.input]
+        }
       }
 
-      loki.write "default" {
-        endpoint {
-          url = "https://logs-prod-012.grafana.net/loki/api/v1/push"
-
-          basic_auth {
-            username = sys.env("GCLOUD_LOKI_USERNAME")
-            password = sys.env("GCLOUD_RW_TOKEN")
-          }
+      otelcol.processor.batch "default" {
+        output {
+          logs    = [otelcol.exporter.otlphttp.gcloud.input]
+          metrics = [otelcol.exporter.otlphttp.gcloud.input]
+          traces  = [otelcol.exporter.otlphttp.gcloud.input]
         }
+      }
+
+      otelcol.exporter.otlphttp "gcloud" {
+        client {
+          endpoint = sys.env("GCLOUD_OTLP_ENDPOINT")
+          auth = otelcol.auth.basic.gcloud.handler
+        }
+      }
+
+      otelcol.auth.basic "gcloud" {
+        username = sys.env("GCLOUD_OTLP_USERNAME")
+        password = sys.env("GCLOUD_OTLP_PASSWORD")
       }
     '';
   };

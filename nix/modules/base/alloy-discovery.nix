@@ -35,7 +35,7 @@
         prometheus.scrape "default" {
           targets    = discovery.file.default.targets
 
-          forward_to = [prometheus.relabel.default.receiver]
+          forward_to = [otelcol.receiver.prometheus.default.receiver]
         }
       '';
       environment.etc."alloy/discovery.json".source = jsonFormat.generate "alloy-discovery.json" cfg;

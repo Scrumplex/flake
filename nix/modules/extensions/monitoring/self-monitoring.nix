@@ -5,7 +5,7 @@
 
       prometheus.scrape "self" {
         targets    = prometheus.exporter.self.default.targets
-        forward_to = [prometheus.relabel.default.receiver]
+        forward_to = [otelcol.receiver.prometheus.default.receiver]
       }
     '';
   };

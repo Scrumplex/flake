@@ -21,7 +21,7 @@
       }
 
       prometheus.relabel "integrations_node_exporter" {
-        forward_to = [prometheus.relabel.default.receiver]
+        forward_to = [otelcol.receiver.prometheus.default.receiver]
 
         rule {
           target_label = "job"

@@ -223,7 +223,7 @@ in
 
         metrics_path = "/_synapse/metrics"
 
-        forward_to = [prometheus.relabel.default.receiver]
+        forward_to = [otelcol.receiver.prometheus.default.receiver]
       }
     '';
   }

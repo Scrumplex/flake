@@ -40,6 +40,9 @@
           keyType = "EC384";
           dnsChallenge.provider = "hetzner";
         };
+        experimental.otlpLogs = true;
+        log.otlp.http.endpoint = "http://localhost:4318/v1/logs";
+        metrics.otlp.http.endpoint = "http://localhost:4318/v1/metrics";
       };
 
       dynamic.dir = "/var/lib/traefik/dynamic";
