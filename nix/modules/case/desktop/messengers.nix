@@ -1,4 +1,8 @@
-{lib, ...}: let
+{
+  inputs,
+  lib,
+  ...
+}: let
   mkDiscordOverride = p:
     p.override {
       withOpenASAR = true;
@@ -6,7 +10,13 @@
     };
 in {
   flake.modules.nixos."desktop" = {pkgs, ...}: {
-    nixpkgs.allowedUnfreePackageNames = ["discord" "discord-development" "discord-ptb" "discord-canary"];
+    nixpkgs = {
+      allowedUnfreePackageNames = ["discord" "discord-development" "discord-ptb" "discord-canary"];
+      # Allow openssl for about two weeks. Hoping that Discord pushed the promised update removing openssl
+      config.permittedInsecurePackages = lib.mkIf (inputs.nixpkgs.lastModified < 1778765071) [
+        "openssl-1.1.1w"
+      ];
+    };
 
     nixpkgs.overlays = lib.mkAfter [
       (_: prev: {
