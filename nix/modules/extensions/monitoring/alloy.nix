@@ -38,8 +38,14 @@
 
         output {
           logs    = [otelcol.processor.batch.default.input]
-          metrics = [otelcol.processor.batch.default.input]
+          metrics = [otelcol.processor.interval.default.input]
           traces  = [otelcol.processor.batch.default.input]
+        }
+      }
+
+      otelcol.processor.interval "default" {
+        output {
+          metrics = [otelcol.exporter.otlphttp.gcloud.input]
         }
       }
 
