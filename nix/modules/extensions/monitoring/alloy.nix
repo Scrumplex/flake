@@ -5,6 +5,7 @@
     services.alloy = {
       enable = true;
       environmentFile = config.age.secrets."alloy.env".path;
+      extraFlags = ["--stability.level=experimental"];
     };
 
     systemd.services."alloy".environment.HOSTNAME = config.networking.hostName;
