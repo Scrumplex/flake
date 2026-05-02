@@ -1,10 +1,14 @@
 {
-  flake.modules.nixos.base.programs.nixvim = {
-    plugins.barbar = {
-      enable = true;
-      keymaps = {
-        next.key = "t";
-        previous.key = "T";
+  flake.modules.nixos.base = {
+    nixpkgs.allowedUnfreePackageNames = ["barbar.nvim"];
+
+    programs.nixvim = {
+      plugins.barbar = {
+        enable = true;
+        keymaps = {
+          next.key = "t";
+          previous.key = "T";
+        };
       };
     };
   };
