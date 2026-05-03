@@ -79,8 +79,6 @@
 
     systemd.tmpfiles.settings."10-hass"."/var/lib/hass/secrets.yaml".L.argument = config.age.secrets."home-assistant-secrets.yaml".path;
 
-    nixpkgs.config.allowUnfreePredicate = pkg: (builtins.elem (lib.getName pkg) [
-      "XiaoMi/xiaomi_home"
-    ]);
+    nixpkgs.allowedUnfreePackageNames = ["XiaoMi/xiaomi_home"];
   };
 }
