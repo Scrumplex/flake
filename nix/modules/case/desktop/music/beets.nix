@@ -36,6 +36,7 @@
           "duplicates"
           "edit"
           "fetchart"
+          "lyrics"
           "mbcollection"
           "mbsync"
           "musicbrainz"
