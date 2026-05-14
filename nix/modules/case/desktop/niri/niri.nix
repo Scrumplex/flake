@@ -60,6 +60,7 @@
 
         layout = {
           gaps = 8;
+          background-color = "#11111b";
           center-focused-column = "never";
           always-center-single-column = true;
           preset-column-widths = [
