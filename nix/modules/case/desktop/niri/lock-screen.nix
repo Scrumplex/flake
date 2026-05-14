@@ -10,7 +10,7 @@
       idle.lockTimeout = 300;
       general = {
         allowPasswordWithFprintd = true;
-        autoStartAuth = true;
+        autoStartAuth = false;
         compactLockScreen = false;
         enableLockScreenCountdown = true;
         enableLockScreenMediaControls = true;
