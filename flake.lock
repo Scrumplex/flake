@@ -292,11 +292,11 @@
         "systems": "systems_7"
       },
       "locked": {
-        "lastModified": 1772891289,
-        "narHash": "sha256-rKJg7J74OTNPBvtEEjfdl3Mr3gztF5BsKOQaN96HE5c=",
+        "lastModified": 1778947140,
+        "narHash": "sha256-Yfu2yLEmWdcviAWMbCuAL7KnPfjGBAoUiIkW2odxnU4=",
         "ref": "refs/heads/main",
-        "rev": "ae15ae9818790200f33fa85ab96321e14b2f9983",
-        "revCount": 8,
+        "rev": "c9492f36923f2fa39b8476914c5ca488d70d9f92",
+        "revCount": 20,
         "type": "git",
         "url": "https://tangled.org/scrumplex.net/importPnpmLock.nix"
       },
@@ -530,11 +530,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1778924461,
-        "narHash": "sha256-pDGhSCz+QxjHzP9gqYpK59k4Z1ZpVyYjzBgoXLFXh9s=",
+        "lastModified": 1778945272,
+        "narHash": "sha256-Aipz0UiBhE2a1FYJrNc2y+5vKWo5QVkhmaIJk3/ls+g=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "65a5c8f9c19d5f9d1b06d8942b04d790414ccfdd",
+        "rev": "379c1f274f0fa354d012f0600806de54e79f29b5",
         "type": "github"
       },
       "original": {
@@ -933,11 +933,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773251092,
-        "narHash": "sha256-rTLXYUCtF15g2b/pTzXvXW4rXQQtqjfhvwSU+K/EZ0Y=",
+        "lastModified": 1778948041,
+        "narHash": "sha256-EOIc6c07AcfPDvFRDmpjnKhXNbu7d40L76GfWRR1evo=",
         "ref": "refs/heads/refactor/vite",
-        "rev": "e231d516b33949127c5e5ab21c967ed406999cb2",
-        "revCount": 918,
+        "rev": "4e69fea94f51da3d67a96f0aed67a3c5f41b7c1d",
+        "revCount": 920,
         "type": "git",
         "url": "https://tangled.org/scrumplex.net/website"
       },
