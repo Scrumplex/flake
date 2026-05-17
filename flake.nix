@@ -55,9 +55,6 @@
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
     noctalia.inputs.noctalia-qs.follows = "noctalia-qs";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
-    openwrt-imagebuilder.inputs.flake-parts.follows = "flake-parts";
-    openwrt-imagebuilder.inputs.nixpkgs.follows = "nixpkgs";
-    openwrt-imagebuilder.url = "github:astro/nix-openwrt-imagebuilder";
     prismlauncher.inputs.nixpkgs.follows = "nixpkgs";
     prismlauncher.url = "github:PrismLauncher/PrismLauncher";
     scrumpkgs.inputs.flake-compat.follows = "";
@@ -99,8 +96,6 @@
         ./nixosConfigurations/universe
 
         ./darwinConfigurations/builder
-
-        ./openwrt
 
         ./parts/checks.nix
         ./parts/dev.nix
