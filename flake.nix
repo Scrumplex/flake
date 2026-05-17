@@ -30,8 +30,6 @@
     inhibridge.inputs.git-hooks.follows = "git-hooks";
     inhibridge.inputs.nixpkgs.follows = "nixpkgs";
     inhibridge.url = "git+https://codeberg.org/Scrumplex/inhibridge.git";
-    jovian.inputs.nixpkgs.follows = "nixpkgs";
-    jovian.url = "github:Jovian-Experiments/Jovian-NixOS";
     lanzaboote.inputs.pre-commit.follows = "git-hooks";
     lanzaboote.url = "github:nix-community/lanzaboote";
     niri.inputs.nixpkgs.follows = "nixpkgs";
@@ -95,7 +93,6 @@
 
         ./nixosConfigurations/andromeda
         ./nixosConfigurations/dyson
-        ./nixosConfigurations/fornax
 
         ./nixosConfigurations/eclipse
         ./nixosConfigurations/galileo
