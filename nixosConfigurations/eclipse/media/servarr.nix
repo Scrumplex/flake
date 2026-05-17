@@ -47,6 +47,6 @@
     services.radarr.loadBalancer.servers = [{url = "http://localhost:7878";}];
     services.sonarr.loadBalancer.servers = [{url = "http://localhost:8989";}];
     services.prowlarr.loadBalancer.servers = [{url = "http://localhost:9696";}];
-    services.jellyseerr.loadBalancer.servers = [{url = "http://localhost:${toString config.services.jellyseerr.port}";}];
+    services.jellyseerr.loadBalancer.servers = [{url = "http://localhost:${toString config.services.seerr.port}";}];
   };
 }
