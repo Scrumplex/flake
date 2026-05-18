@@ -10,16 +10,16 @@
     inputs.nix-index-database.darwinModules.nix-index
     ./neovim.nix
 
-    (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" "A105227727"])
+    (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" "Sefa.Eyeoglu"])
   ];
-  system.primaryUser = "A105227727";
+  system.primaryUser = "Sefa.Eyeoglu";
   hm.xdg.enable = true;
 
   programs.nix-index-database.comma.enable = true;
 
   programs.fish.enable = true;
   programs.zsh.enable = true;
-  users.users."A105227727".shell = pkgs.fish;
+  users.users."Sefa.Eyeoglu".shell = pkgs.fish;
 
   home-manager = {
     useGlobalPkgs = true;
@@ -42,8 +42,8 @@
     kitty.enable = true;
   };
   hm = {
-    home.username = "A105227727";
-    home.homeDirectory = lib.mkForce "/Users/A105227727";
+    home.username = "Sefa.Eyeoglu";
+    home.homeDirectory = lib.mkForce "/Users/Sefa.Eyeoglu";
 
     programs.home-manager.enable = true;
 
@@ -243,6 +243,7 @@
       "caffeine" # not supported on aarch64-darwin in nixpkgs
       "copilot-cli"
       "core-tunnel"
+      "firefox"
       "freelens"
       "inkscape"
       "jabra-direct"
@@ -292,7 +293,7 @@
       ephemeral = true;
     };
     settings.experimental-features = "nix-command flakes";
-    settings.trusted-users = ["A105227727"];
+    settings.trusted-users = ["Sefa.Eyeoglu"];
     settings.trusted-substituters = ["https://cache.flox.dev"];
     settings.trusted-public-keys = ["flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="];
 
