@@ -261,6 +261,7 @@
 
   environment.variables = {
     SSH_AUTH_SOCK = "${config.hm.home.homeDirectory}/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock";
+    AWS_REGION = "eu-central-1";
   };
 
   environment.systemPackages = with pkgs; [
