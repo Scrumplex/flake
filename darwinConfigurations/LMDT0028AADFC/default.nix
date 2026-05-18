@@ -259,6 +259,10 @@
   };
   environment.systemPath = ["${config.homebrew.prefix}/bin" "${config.homebrew.prefix}/sbin"];
 
+  environment.variables = {
+    SSH_AUTH_SOCK = "${config.hm.home.homeDirectory}/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock";
+  };
+
   environment.systemPackages = with pkgs; [
     config.hm.programs.kitty.package
     htop
