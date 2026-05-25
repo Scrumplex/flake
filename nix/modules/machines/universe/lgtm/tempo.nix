@@ -10,19 +10,13 @@
           grpc_listen_port = config.alloc.tcpPorts.blocks.tempo.start + 1;
         };
         distributor.receivers.otlp.protocols = {
-          grpc = "localhost:${toString (config.alloc.tcpPorts.blocks.tempo.start + 2)}";
-          http = "localhost:${toString (config.alloc.tcpPorts.blocks.tempo.start + 3)}";
+          grpc.endpoint = "localhost:${toString (config.alloc.tcpPorts.blocks.tempo.start + 2)}";
+          http.endpoint = "localhost:${toString (config.alloc.tcpPorts.blocks.tempo.start + 3)}";
         };
-        metrics_generator = {
-          ring = {
-            kvstore.store = "inmemory";
-            instance_addr = "127.0.0.1";
-          };
-          traces_storage.path = "/var/lib/tempo/generator/traces";
-        };
-        compactor.ring = {
-          kvstore.store = "inmemory";
-          instance_addr = "127.0.0.1";
+        storage.trace = {
+          backend = "local";
+          wal.path = "/var/lib/tempo/wal";
+          local.path = "/var/lib/tempo/blocks";
         };
       };
     };
