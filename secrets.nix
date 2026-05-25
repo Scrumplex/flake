@@ -28,6 +28,7 @@ in {
   "nix/modules/machines/galileo/syncthing/key.pem.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/wifi/Beehive.psk.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/wireguard/wg-scrumplex.key.age".publicKeys = galileo ++ scrumplex;
+  "nix/modules/machines/universe/lgtm/loki-htaccess.age".publicKeys = universe ++ scrumplex;
   "nix/modules/machines/universe/pocket-id/encryption-key.age".publicKeys = universe ++ scrumplex;
   "nix/modules/extensions/monitoring/alloy.env.age".publicKeys = universe ++ eclipse ++ galileo ++ scrumplex;
 
