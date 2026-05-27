@@ -20,5 +20,13 @@
         };
       };
     };
+
+    environment.etc."alloy/lgtm-tempo.alloy".text = ''
+      otelcol.exporter.otlp "lgtm_tempo" {
+        client {
+          endpoint = "${toString config.services.tempo.settings.distributor.receivers.otlp.protocols.grpc.endpoint}"
+        }
+      }
+    '';
   };
 }

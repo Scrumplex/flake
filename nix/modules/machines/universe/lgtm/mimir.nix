@@ -32,5 +32,17 @@
         };
       };
     };
+
+    environment.etc."alloy/lgtm-mimir.alloy".text = ''
+      otelcol.exporter.prometheus "lgtm" {
+        forward_to = [prometheus.remote_write.lgtm_mimir.receiver]
+      }
+
+      prometheus.remote_write "lgtm_mimir" {
+        endpoint {
+          url = "localhost:${toString config.services.mimir.configuration.server.http_listen_port}"
+        }
+      }
+    '';
   };
 }

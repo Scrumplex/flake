@@ -1,11 +1,5 @@
 {
   flake.modules.nixos."machine-universe" = {config, ...}: {
-    age.secrets."loki-htaccess" = {
-      file = ./loki-htaccess.age;
-      owner = "traefik";
-      inherit (config.services.traefik) group;
-    };
-
     alloc.tcpPorts.blocks.loki.length = 2;
 
     services.loki = {
@@ -65,25 +59,16 @@
       };
     };
 
-    services.traefik.dynamic.files."lgtm".settings.http = {
-      middlewares.loki-auth.basicAuth = {
-        usersFile = config.age.secrets."loki-htaccess".path;
-        realm = "loki";
-      };
-      routers.loki-http = {
-        entryPoints = ["websecure"];
-        middlewares = ["loki-auth"];
-        service = "loki-http";
-        rule = "Host(`loki.scrumplex.net`)";
-      };
-      routers.loki-grpc = {
-        entryPoints = ["websecure"];
-        middlewares = ["loki-auth"];
-        service = "loki-grpc";
-        rule = "Host(`loki-grpc.scrumplex.net`)";
-      };
-      services.loki-http.loadBalancer.servers = [{url = "http://[::1]:${toString config.services.loki.configuration.server.http_listen_port}";}];
-      services.loki-grpc.loadBalancer.servers = [{url = "http://[::1]:${toString config.services.loki.configuration.server.grpc_listen_port}";}];
-    };
+    environment.etc."alloy/lgtm-loki.alloy".text = ''
+      otelcol.exporter.loki "lgtm" {
+        forward_to = [loki.write.lgtm_loki.receiver]
+      }
+
+      loki.write "lgtm_loki" {
+        endpoint {
+          url = "localhost:${toString config.services.tempo.settings.server.http_listen_port}"
+        }
+      }
+    '';
   };
 }

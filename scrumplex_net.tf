@@ -41,7 +41,7 @@ resource "hcloud_zone_rrset" "rootcaa_scrumplex_net" {
 }
 
 resource "hcloud_zone_rrset" "cnames_scrumplex_net" {
-  for_each = toset(["x", "skins", "grafana", "beta", "auth", "loki", "loki-grpc"])
+  for_each = toset(["x", "skins", "grafana", "beta", "auth", "otlp"])
   zone     = data.hcloud_zone.scrumplex_net.name
   name     = each.key
   type     = "CNAME"
