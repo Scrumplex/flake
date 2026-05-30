@@ -43,9 +43,8 @@ in {
 
   age.secrets.id_borgbase.file = ../../secrets/eclipse/id_borgbase.age;
 
-  infra.borgbase = {
+  infra.borg-rsync-net = {
     enable = true;
-    repo = "ssh://c8wl3xsp@c8wl3xsp.repo.borgbase.com/./repo";
     sshKeyFile = config.age.secrets.id_borgbase.path;
   };
 

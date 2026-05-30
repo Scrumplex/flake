@@ -51,5 +51,5 @@
     "d ${config.services.vaultwarden.backupDir} 0770 ${config.users.users.vaultwarden.name} ${config.users.users.vaultwarden.name}"
   ];
 
-  services.borgbackup.jobs.borgbase.paths = [config.services.vaultwarden.backupDir];
+  infra.borg-rsync-net.extraPaths = [config.services.vaultwarden.backupDir];
 }

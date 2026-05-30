@@ -36,7 +36,7 @@ in {
         }
       ];
 
-      services.borgbackup.jobs.borgbase.exclude = ["/var/lib/postgresql"];
+      infra.borg-rsync-net.extraExcludes = ["/var/lib/postgresql"];
     };
   };
 }

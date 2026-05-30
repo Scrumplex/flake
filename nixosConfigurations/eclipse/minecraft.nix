@@ -12,7 +12,7 @@ in {
 
   nixpkgs.allowedUnfreePackageNames = ["minecraft-server"];
 
-  services.borgbackup.jobs.borgbase.exclude = [
+  infra.borg-rsync-net.extraExcludes = [
     "*/DistantHorizons.sqlite"
   ];
 

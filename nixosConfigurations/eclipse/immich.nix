@@ -21,5 +21,5 @@
     services.immich.loadBalancer.servers = [{url = "http://${config.services.immich.host}:${toString config.services.immich.port}";}];
   };
 
-  services.borgbackup.jobs.borgbase.paths = ["/media/immich-library"];
+  infra.borg-rsync-net.extraPaths = ["/media/immich-library"];
 }

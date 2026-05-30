@@ -6,23 +6,26 @@
   }: let
     inherit (lib) literalExpression mkEnableOption mkIf mkOption optional types;
 
-    cfg = config.infra.borgbase;
-  in {
-    options.infra.borgbase = {
-      enable = mkEnableOption "Regular Borg backup";
+    cfg = config.infra.borg-rsync-net;
 
-      repo = mkOption {
-        type = with types; str;
-        description = ''
-          Remote borgbase repo.
+    user = "zh6584";
+    host = "${user}.rsync.net";
+
+    repo = "ssh://${user}@${host}/./borg/${cfg.subDir}";
+  in {
+    options.infra.borg-rsync-net = {
+      enable = mkEnableOption "regular Borg backup";
+
+      subDir = mkOption {
+        type = types.str;
+        default = config.networking.hostName;
+        defaultText = literalExpression ''
+          config.networking.hostName
         '';
       };
 
       sshKeyFile = mkOption {
-        type = with types; path;
-        description = ''
-          Path to a ssh key file to authenticate against the borgbase repo.
-        '';
+        type = types.path;
         example = literalExpression ''
           config.age.secrets."id-borgbase".path
         '';
@@ -31,9 +34,6 @@
       repokeyPasswordFile = mkOption {
         type = with types; nullOr path;
         default = null;
-        description = ''
-          Path to a password file to decrypt a repokey.
-        '';
         example = literalExpression ''
           config.age.secrets."borgbase-repokey".path
         '';
@@ -42,22 +42,34 @@
       extraPaths = mkOption {
         type = with types; listOf path;
         default = [];
-        description = ''
-          A list of extra paths that should be backed up.
-        '';
+      };
+
+      extraExcludes = mkOption {
+        type = with types; listOf str;
+        default = [];
       };
     };
 
     config = mkIf cfg.enable {
-      services.borgbackup.jobs.borgbase = {
-        inherit (cfg) repo;
+      assertions = [
+        {
+          assertion = lib.versionOlder config.services.borgbackup.package.version "1.15";
+          message = ''
+            Expected Borg version <1.15 for `services.borgbackup.package`. Got ${config.services.borgbackup.package.version}
+          '';
+        }
+      ];
+      services.borgbackup.jobs.rsync-net = {
+        inherit repo;
         environment.BORG_RSH = "ssh -i ${cfg.sshKeyFile}";
         paths =
           ["/srv" "/var/lib" "/home" "/root"]
           ++ optional config.services.postgresqlBackup.enable config.services.postgresqlBackup.location
           ++ cfg.extraPaths;
-        exclude = ["/var/lib/containers" "/var/lib/docker" "/var/lib/kubelet"];
-        startAt = "05:00"; # run later, maybe the servers are overloaded at 00:00 CE(S)T
+        exclude =
+          ["/var/lib/containers" "/var/lib/docker" "/var/lib/kubelet"]
+          ++ cfg.extraExcludes;
+        startAt = lib.mkDefault "05:00"; # run later, maybe the servers are overloaded at 00:00 CE(S)T
         compression = "auto,zstd";
         prune.keep = {
           within = "1d";
@@ -75,13 +87,13 @@
           passCommand = mkIf (cfg.repokeyPasswordFile != null) "cat ${cfg.repokeyPasswordFile}";
         };
 
-        extraArgs = "-v";
-        extraCreateArgs = "--stats";
+        extraArgs = ["-v" "--remote-path=borg14"];
+        extraCreateArgs = lib.mkDefault ["--stats"];
       };
 
-      programs.ssh.knownHosts."borgbase" = {
-        hostNames = ["c8wl3xsp.repo.borgbase.com" "gils6l68.repo.borgbase.com" "yekr15ge.repo.borgbase.com"];
-        publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMS3185JdDy7ffnr0nLWqVy8FaAQeVh1QYUSiNpW5ESq";
+      programs.ssh.knownHosts."rsync-net" = {
+        hostNames = [host];
+        publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJtclizeBy1Uo3D86HpgD3LONGVH0CJ0NT+YfZlldAJd";
       };
     };
   };

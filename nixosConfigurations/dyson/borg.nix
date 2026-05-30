@@ -2,15 +2,14 @@
   age.secrets."id_borgbase".file = ../../secrets/dyson/id_borgbase.age;
   age.secrets."borgbase-repokey".file = ../../secrets/dyson/borgbase-repokey.age;
 
-  services.borgbackup.jobs."borgbase" = {
-    repo = "ssh://h5hnq64u@h5hnq64u.repo.borgbase.com/./repo";
-    environment.BORG_RSH = "ssh -i ${config.age.secrets."id_borgbase".path}";
-    paths = [
+  infra.borg-rsync-net = {
+    enable = true;
+    sshKeyFile = config.age.secrets.id_borgbase.path;
+    repokeyPasswordFile = config.age.secrets.borgbase-repokey.path;
+    extraPaths = [
       config.hm.home.homeDirectory
     ];
-    inhibitsSleep = true;
-    startAt = "13:00";
-    exclude = [
+    extraExcludes = [
       "*.mega"
       "*/.Trash-*"
       "*/.cache"
@@ -82,27 +81,12 @@
       "/home/*/Unity"
       "/home/*/go"
     ];
-    extraCreateArgs = ["--exclude-caches" "--exclude-if-present" ".nobackup" "--stats"];
-    compression = "auto,zstd";
-    prune = {
-      keep = {
-        daily = 3;
-        weekly = 4;
-        monthly = 3;
-      };
-      prefix = null;
-    };
-    encryption = {
-      mode = "repokey-blake2";
-      passphrase = "";
-      passCommand = "cat ${config.age.secrets."borgbase-repokey".path}";
-    };
-
-    extraArgs = "-v";
   };
 
-  programs.ssh.knownHosts."borgbase" = {
-    hostNames = ["h5hnq64u.repo.borgbase.com"];
-    publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMS3185JdDy7ffnr0nLWqVy8FaAQeVh1QYUSiNpW5ESq";
+  services.borgbackup.jobs.rsync-net = {
+    inhibitsSleep = true;
+    startAt = "13:00";
+    extraCreateArgs = ["--exclude-caches" "--exclude-if-present" ".nobackup" "--stats"];
+    prune.prefix = null;
   };
 }

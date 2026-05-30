@@ -1,6 +1,6 @@
 {
   flake.modules.nixos."machine-galileo" = {config, ...}: {
-    services.borgbackup.jobs.borgbase.exclude = [
+    infra.borg-rsync-net.extraExcludes = [
       config.services.syncthing.dataDir
     ];
   };

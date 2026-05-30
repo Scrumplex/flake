@@ -35,9 +35,8 @@
   age.secrets.id_borgbase.file = ../../secrets/universe/id_borgbase.age;
   age.secrets.borgbase_repokey.file = ../../secrets/universe/borgbase_repokey.age;
 
-  infra.borgbase = {
+  infra.borg-rsync-net = {
     enable = true;
-    repo = "ssh://yekr15ge@yekr15ge.repo.borgbase.com/./repo";
     sshKeyFile = config.age.secrets.id_borgbase.path;
     repokeyPasswordFile = config.age.secrets.borgbase_repokey.path;
   };
