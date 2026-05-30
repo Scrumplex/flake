@@ -75,7 +75,7 @@ resource "hcloud_zone_rrset" "galileo6_sefa_cloud" {
 
   records = [
     {
-      value = "fd19:783f:b287:0:ea2a:44ff:fec8:f727"
+      value = "fd19:783f:b287:0:aa1e:84ff:fedf:6d04"
     }
   ]
 }
