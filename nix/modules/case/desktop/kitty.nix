@@ -5,7 +5,6 @@
   };
 
   flake.modules.homeManager."desktop" = {config, ...}: {
-    catppuccin.kitty.enable = true;
     programs.kitty = {
       enable = true;
       font.name = "Fira Code";

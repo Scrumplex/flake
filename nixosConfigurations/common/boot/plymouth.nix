@@ -3,6 +3,8 @@
   pkgs,
   ...
 }: {
+  catppuccin.plymouth.enable = false;
+
   boot.plymouth = {
     enable = lib.mkDefault true;
     theme = "bgrt";

@@ -1,7 +1,5 @@
 {...}: {
   flake.modules.homeManager.desktop = {
-    catppuccin.mpv.enable = true;
-
     programs.mpv = {
       enable = true;
       config = {

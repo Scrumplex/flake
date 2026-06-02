@@ -5,8 +5,6 @@
       glab
     ];
 
-    catppuccin.delta.enable = true;
-
     programs.mergiraf = {
       enable = true;
       enableGitIntegration = true;

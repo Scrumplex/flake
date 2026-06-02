@@ -8,10 +8,6 @@
   };
 
   flake.modules.homeManager.base = {pkgs, ...}: {
-    catppuccin.eza.enable = true;
-    catppuccin.fish.enable = true;
-    catppuccin.fzf.enable = true;
-
     programs.bash.enable = true;
     programs.fish = {
       enable = true;

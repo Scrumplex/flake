@@ -8,7 +8,6 @@
 
     qpwgraph
     virt-manager
-    bottles
 
     inkscape-with-extensions
     gimp

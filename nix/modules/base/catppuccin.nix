@@ -5,6 +5,8 @@
     ];
 
     catppuccin = {
+      enable = true;
+      autoEnable = true;
       flavor = "mocha";
       accent = "blue";
     };
@@ -16,6 +18,8 @@
     ];
 
     catppuccin = {
+      enable = true;
+      autoEnable = true;
       inherit (osConfig.catppuccin) flavor accent;
     };
   };

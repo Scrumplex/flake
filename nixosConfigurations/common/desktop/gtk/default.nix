@@ -15,10 +15,6 @@
   hm = {
     gtk = {
       enable = true;
-      iconTheme = {
-        package = pkgs.gnome-themes-extra;
-        name = "Adwaita";
-      };
       font = {
         name = "Fira Sans";
         size = 11;
