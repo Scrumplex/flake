@@ -14,6 +14,7 @@
     darwin.url = "github:LnL7/nix-darwin";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     disko.url = "github:nix-community/disko";
+    flake-aspects.url = "github:denful/flake-aspects";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     flake-parts.url = "github:hercules-ci/flake-parts";
     git-hooks.inputs.flake-compat.follows = "";
@@ -25,7 +26,7 @@
     honeylinks-website.inputs.nixpkgs.follows = "nixpkgs";
     honeylinks-website.inputs.pre-commit-hooks.follows = "git-hooks";
     honeylinks-website.url = "git+https://codeberg.org/Scrumplex/honeylinks.git";
-    import-tree.url = "github:vic/import-tree";
+    import-tree.url = "github:denful/import-tree";
     inhibridge.inputs.flake-parts.follows = "flake-parts";
     inhibridge.inputs.git-hooks.follows = "git-hooks";
     inhibridge.inputs.nixpkgs.follows = "nixpkgs";
@@ -96,6 +97,7 @@
         ./parts/checks.nix
         ./parts/dev.nix
 
+        inputs.flake-aspects.flakeModule
         (inputs.import-tree ./nix)
       ];
 

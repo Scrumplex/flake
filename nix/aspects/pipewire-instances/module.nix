@@ -1,5 +1,5 @@
 {lib, ...}: {
-  flake.modules.homeManager."base" = {
+  flake.aspects."pipewire-instances".homeManager = {
     config,
     pkgs,
     ...

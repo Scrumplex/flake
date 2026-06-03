@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.desktop = {pkgs, ...}: {
+  flake.aspects."desktop"._."pipewire".nixos = {pkgs, ...}: {
     services.pipewire.wireplumber.configPackages = [
       (pkgs.writeTextFile {
         name = "schiit-wireplumber-rules";
