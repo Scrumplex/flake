@@ -14,7 +14,6 @@
     ./wireguard.nix
 
     fpConfig.flake.modules.nixos.laptop
-    fpConfig.flake.modules.nixos.machine-dyson
 
     inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
     inputs.srvos.nixosModules.desktop
