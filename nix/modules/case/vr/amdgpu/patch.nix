@@ -1,8 +1,4 @@
-{
-  inputs,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   flake.modules.nixos.vr = {
     config,
     pkgs,
@@ -12,7 +8,7 @@
       (pkgs.callPackage ./_derivation.nix {
         inherit (config.boot.kernelPackages) kernel;
         patches = [
-          inputs.scrumpkgs.kernelPatches.cap_sys_nice_begone.patch
+          ./cap_sys_nice_begone.patch
         ];
       })
     ];
