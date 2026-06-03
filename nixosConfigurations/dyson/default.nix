@@ -2,7 +2,6 @@
   flake.nixosConfigurations = lib'.mkHost {
     hostName = "dyson";
     modules = [
-      ../common
       ../common/boot
       ../common/boot/plymouth.nix
       ../common/desktop

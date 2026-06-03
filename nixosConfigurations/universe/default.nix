@@ -14,7 +14,6 @@ in {
           extraFlags = ["--verbose" "--print-build-logs" "--use-substitutes"];
         })
 
-        ../common
         ../common/nginx.nix
         ../common/podman.nix
         ../common/server.nix

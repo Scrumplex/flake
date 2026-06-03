@@ -58,11 +58,6 @@
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     prismlauncher.inputs.nixpkgs.follows = "nixpkgs";
     prismlauncher.url = "github:PrismLauncher/PrismLauncher";
-    scrumpkgs.inputs.flake-compat.follows = "";
-    scrumpkgs.inputs.flake-parts.follows = "flake-parts";
-    scrumpkgs.inputs.nixpkgs.follows = "nixpkgs";
-    scrumpkgs.inputs.pre-commit-hooks.follows = "git-hooks";
-    scrumpkgs.url = "github:Scrumplex/pkgs";
     scrumplex-website-ng.inputs.flake-parts.follows = "flake-parts";
     scrumplex-website-ng.inputs.nixpkgs.follows = "nixpkgs";
     scrumplex-website-ng.inputs.pre-commit-hooks.follows = "git-hooks";

@@ -14,7 +14,6 @@ in {
           extraFlags = ["--verbose" "--print-build-logs" "--use-substitutes"];
         })
 
-        ../common
         ../common/remote-build-provider.nix
         ../common/server.nix
         ../common/upgrade.nix

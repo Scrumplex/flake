@@ -774,7 +774,6 @@
         "noctalia": "noctalia",
         "noctalia-qs": "noctalia-qs",
         "prismlauncher": "prismlauncher",
-        "scrumpkgs": "scrumpkgs",
         "scrumplex-website": "scrumplex-website",
         "scrumplex-website-ng": "scrumplex-website-ng",
         "skinprox": "skinprox",
@@ -799,33 +798,6 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "scrumpkgs": {
-      "inputs": {
-        "flake-compat": [],
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "pre-commit-hooks": [
-          "git-hooks"
-        ]
-      },
-      "locked": {
-        "lastModified": 1779808106,
-        "narHash": "sha256-+DS/IS/hLrDdqlT4elzKzhFAJoX04X21zH0mcu1WcK8=",
-        "owner": "Scrumplex",
-        "repo": "pkgs",
-        "rev": "e53e3a35dac879aad7acebb42d7848369bb73dc8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Scrumplex",
-        "repo": "pkgs",
         "type": "github"
       }
     },

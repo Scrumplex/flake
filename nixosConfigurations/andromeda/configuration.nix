@@ -31,7 +31,7 @@
     initrd.enable = true;
     #opencl.enable = true;
   };
-  hardware.opengl.vdpau.driverName = "radeonsi";
+  environment.variables."VDPAU_DRIVER" = "radeonsi";
 
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 

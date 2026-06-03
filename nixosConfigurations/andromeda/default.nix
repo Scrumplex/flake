@@ -2,7 +2,6 @@
   flake.nixosConfigurations = lib'.mkHost {
     hostName = "andromeda";
     modules = [
-      ../common
       ../common/boot
       ../common/desktop
       ../common/desktop/evolution.nix
