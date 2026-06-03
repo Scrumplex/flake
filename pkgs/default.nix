@@ -19,7 +19,7 @@
   flake.overlays.default = final: _: {
     channel-notifier = final.python3.pkgs.callPackage ./channel-notifier {};
 
-    ha-solarman = final.home-assistant.python.pkgs.callPackage ./ha-solarman.nix {};
+    ha-solarman = final.home-assistant.python3Packages.callPackage ./ha-solarman.nix {};
 
     linux-bpir4 = final.callPackage ./linux-bpir4.nix {};
     uboot-bpir4 = final.callPackage ./uboot-bpir4.nix {};
