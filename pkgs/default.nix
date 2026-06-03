@@ -16,7 +16,7 @@
       };
     };
   };
-  flake.overlays.default = final: _: {
+  flake.overlays.legacy = final: _: {
     channel-notifier = final.python3.pkgs.callPackage ./channel-notifier {};
 
     ha-solarman = final.home-assistant.python3Packages.callPackage ./ha-solarman.nix {};

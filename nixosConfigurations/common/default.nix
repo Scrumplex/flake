@@ -6,7 +6,6 @@
   imports = builtins.attrValues inputs.scrumpkgs.nixosModules;
 
   nixpkgs.overlays = lib.mkBefore [
-    inputs.scrumpkgs.overlays.default
     inputs.self.overlays.default
   ];
 

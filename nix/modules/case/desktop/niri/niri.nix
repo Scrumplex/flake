@@ -6,7 +6,14 @@
 }: {
   flake.modules.nixos.desktop = {pkgs, ...}: {
     imports = [inputs.niri.nixosModules.niri];
-    nixpkgs.overlays = [inputs.niri.overlays.niri];
+    nixpkgs.overlays = [
+      inputs.niri.overlays.niri
+      (final: prev: {
+        run-or-raise = prev.run-or-raise.override {
+          niri = final.niri-unstable;
+        };
+      })
+    ];
 
     # we use lxqt pk agent
     systemd.user.services.niri-flake-polkit.enable = false;
