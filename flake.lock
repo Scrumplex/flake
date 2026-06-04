@@ -244,11 +244,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780408569,
-        "narHash": "sha256-s7Tv6FUQThRAvW8En8XVC6HMb0uiikzVccCcCo9u/Bg=",
+        "lastModified": 1780515920,
+        "narHash": "sha256-8KX2hEeOX6KP3hBBJJI8dGWVrzbOOf1rBPmg/GUG24U=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f384af1bec6423a0d4ba1855917ab948f64e5808",
+        "rev": "4c5c1e8ba14f1c7475fa31ff11bc1c19cd220974",
         "type": "github"
       },
       "original": {
@@ -748,11 +748,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780288654,
-        "narHash": "sha256-8WtUZoXzJykEezwn4Q5VShPIMCOD8BbOF9anXYj1kgk=",
+        "lastModified": 1780551502,
+        "narHash": "sha256-/fztfrvefydBQGa9B+jZzUqyQp8ojR3/T6ULaNfXIDk=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "bf8d1ca1f8c3e82835965e1cad7d2d6de8840924",
+        "rev": "6f3574f328f9aeafd4db04da122ef79de5d09c4e",
         "type": "github"
       },
       "original": {
@@ -885,11 +885,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779826754,
-        "narHash": "sha256-Y0fo6IpY9k70CECcfEj/hp92ehZSqXmH+iKCUWnQpgU=",
+        "lastModified": 1780560329,
+        "narHash": "sha256-lupTPTjuYsQY9J7RhY99Qptq2Rx1Qzzf8IuZZ6lbb7c=",
         "ref": "refs/heads/main",
-        "rev": "cb09cae24639d45d010f50166360ede738d2ba92",
-        "revCount": 501,
+        "rev": "719ffdc05d79cd86621e8dce4e025ab01bceb6c5",
+        "revCount": 505,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/skinprox.git"
       },
@@ -905,11 +905,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780391957,
-        "narHash": "sha256-dPoi/DCQYlMGk9MRNODrI0VKTyLw4VzXMgIijQqhRIo=",
+        "lastModified": 1780545143,
+        "narHash": "sha256-y9aFcK8A3pctkW9G9LdppzPDsuBa3VzToADnacjir/A=",
         "owner": "nix-community",
         "repo": "srvos",
-        "rev": "f7378bf89f4c4c0b5e3bf18079a7366a78beba07",
+        "rev": "bc0ca7b0f7c8ca9dc55166438fec4dc2dd74f8a4",
         "type": "github"
       },
       "original": {
