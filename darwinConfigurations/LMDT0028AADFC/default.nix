@@ -35,11 +35,8 @@
 
   hm.catppuccin = {
     enable = true;
+    autoEnable = true;
     flavor = "mocha";
-    bat.enable = true;
-    btop.enable = true;
-    fish.enable = true;
-    kitty.enable = true;
   };
   hm = {
     home.username = "Sefa.Eyeoglu";
@@ -271,7 +268,6 @@
     bruno
     hoppscotch
     inkscape
-    pgadmin4-desktopmode
     rectangle
     signal-desktop
     slack
