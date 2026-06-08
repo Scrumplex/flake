@@ -6,30 +6,26 @@
   flake.modules.homeManager."desktop" = {config, ...}: {
     home.sessionVariables."NOCTALIA_PAM_SERVICE" = "noctalia";
 
-    programs.noctalia-shell.settings = {
-      idle.lockTimeout = 300;
-      general = {
-        allowPasswordWithFprintd = true;
-        autoStartAuth = false;
-        compactLockScreen = false;
-        enableLockScreenCountdown = true;
-        enableLockScreenMediaControls = true;
-        lockOnSuspend = true;
-        lockScreenAnimations = true;
-        lockScreenBlur = 0;
-        lockScreenCountdownDuration = 10000;
-        lockScreenMonitors = [];
-        lockScreenTint = 0;
-        passwordChars = false;
-        showHibernateOnLockScreen = false;
-        showSessionButtonsOnLockScreen = true;
+    programs.noctalia.settings = {
+      idle.behavior = {
+        lock = {
+          enabled = true;
+          command = "noctalia:session lock";
+          timeout = 300;
+        };
+        screen-off = {
+          enabled = true;
+          command = "noctalia:dpms-off";
+          resume = "noctalia:dpms-on";
+          timeout = 120;
+        };
       };
     };
 
     programs.niri.settings.binds = {
       "Mod+Ctrl+Q" = {
         hotkey-overlay.title = "Lock Session";
-        action = config.lib.niri.actions.spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "lockScreen" "lock"];
+        action = config.lib.niri.actions.spawn [(lib.getExe config.programs.noctalia.package) "msg" "session" "lock"];
       };
     };
   };

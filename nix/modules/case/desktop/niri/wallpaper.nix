@@ -9,9 +9,9 @@
       "primary.jpg" = primary;
     };
   in {
-    programs.noctalia-shell.settings.wallpaper = {
+    programs.noctalia.settings.wallpaper = {
       enabled = true;
-      overviewEnabled = true;
+      transition_on_startup = true;
       directory = wallpapers;
     };
 

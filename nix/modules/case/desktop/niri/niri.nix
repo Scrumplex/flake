@@ -137,32 +137,32 @@
               "Mod+M" = {
                 hotkey-overlay.title = "Mute Input";
                 allow-when-locked = true;
-                action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "volume" "muteInput"];
+                action = spawn [(lib.getExe config.programs.noctalia.package) "msg" "mic-mute"];
               };
               "XF86AudioMute" = {
                 hotkey-overlay.title = "Mute Output";
                 allow-when-locked = true;
-                action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "volume" "muteOutput"];
+                action = spawn [(lib.getExe config.programs.noctalia.package) "msg" "volume-mute"];
               };
               "XF86AudioLowerVolume" = {
                 hotkey-overlay.title = "Output Volume -";
                 allow-when-locked = true;
-                action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "volume" "decrease"];
+                action = spawn [(lib.getExe config.programs.noctalia.package) "msg" "volume-down"];
               };
               "XF86AudioRaiseVolume" = {
                 hotkey-overlay.title = "Output Volume +";
                 allow-when-locked = true;
-                action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "volume" "increase"];
+                action = spawn [(lib.getExe config.programs.noctalia.package) "msg" "volume-up"];
               };
               "XF86MonBrightnessDown" = {
                 hotkey-overlay.title = "Screen Brightness -";
                 allow-when-locked = true;
-                action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "brightness" "decrease"];
+                action = spawn [(lib.getExe config.programs.noctalia.package) "msg" "brightness-down"];
               };
               "XF86MonBrightnessUp" = {
                 hotkey-overlay.title = "Screen Brightness +";
                 allow-when-locked = true;
-                action = spawn [(lib.getExe config.programs.noctalia-shell.package) "ipc" "call" "brightness" "increase"];
+                action = spawn [(lib.getExe config.programs.noctalia.package) "msg" "brightness-up"];
               };
             }
             (mkMoveFocusBinds' "Left" "column-left")

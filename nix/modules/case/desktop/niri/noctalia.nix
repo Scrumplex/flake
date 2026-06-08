@@ -10,7 +10,6 @@
   };
 
   flake.modules.homeManager.desktop = {
-    config,
     pkgs,
     osConfig,
     ...
@@ -21,216 +20,64 @@
 
     home.sessionVariables."NOCTALIA_PAM_SERVICE" = "noctalia";
 
-    programs.noctalia-shell = {
+    programs.noctalia = {
       enable = true;
-      package = pkgs.noctalia-shell.override {calendarSupport = true;};
+      systemd.enable = true;
+      package = pkgs.noctalia;
       settings = {
-        controlCenter = {
-          shortcuts = {
-            left = [
-              (lib.mkIf osConfig.networking.networkmanager.enable
-                {
-                  "id" = "Network";
-                })
-              {
-                "id" = "Bluetooth";
-              }
-              {
-                "id" = "PowerProfile";
-              }
-            ];
-            right = [
-              {
-                "id" = "Notifications";
-              }
-              {
-                "id" = "KeepAwake";
-              }
-              {
-                "id" = "NightLight";
-              }
-            ];
-          };
-          cards = [
-            {
-              "enabled" = true;
-              "id" = "profile-card";
-            }
-            {
-              "enabled" = true;
-              "id" = "shortcuts-card";
-            }
-            {
-              "enabled" = true;
-              "id" = "audio-card";
-            }
-            {
-              "enabled" = true;
-              "id" = "brightness-card";
-            }
-            {
-              "enabled" = true;
-              "id" = "weather-card";
-            }
-            {
-              "enabled" = true;
-              "id" = "media-sysmon-card";
-            }
-          ];
-        };
         bar = {
-          barType = "simple";
-          density = "default";
-          displayMode = "always_visible";
-          position = "top";
-          showCapsule = false;
-          widgetSpacing = 4;
-          widgets = {
-            center = [
-              {
-                formatHorizontal = "HH:mm:ss";
-                formatVertical = "HH mm ss";
-                id = "Clock";
-                tooltipFormat = "HH:mm ddd, MMM dd";
-              }
+          default = {
+            background_opacity = 0.9;
+            capsule = true;
+            end = [
+              (lib.mkIf osConfig.networking.networkmanager.enable "network")
+              "bluetooth"
+              "volume"
+              "brightness"
+              "battery"
+              "caffeine"
+              "date"
+              "tray"
             ];
-            left = [
-              {
-                id = "Workspace";
-                labelMode = "index";
-                occupiedColor = "secondary";
-              }
-              {
-                id = "MediaMini";
-                maxWidth = 500;
-                showVisualizer = true;
-              }
+            margin_edge = 0;
+            margin_ends = 0;
+            radius = 0;
+            start = [
+              "workspaces"
+              "media"
             ];
-            right = [
-              (lib.mkIf osConfig.networking.networkmanager.enable
-                {
-                  id = "Network";
-                })
-              {
-                id = "Bluetooth";
-              }
-              {
-                displayMode = "alwaysShow";
-                id = "Volume";
-                middleClickCommand = "${lib.getExe pkgs.termapp} ${pkgs.pulsemixer}/bin/pulsemixer";
-              }
-              {
-                displayMode = "alwaysShow";
-                id = "Brightness";
-              }
-              {
-                displayMode = "graphic";
-                id = "Battery";
-                showPowerProfiles = true;
-              }
-              {
-                id = "KeepAwake";
-              }
-              {
-                formatHorizontal = "ddd, dd. MMM yyyy";
-                formatVertical = "ddd dd MMM yyyy";
-                id = "Clock";
-                tooltipFormat = "HH:mm ddd, dd. MMM yyyy";
-              }
-              {
-                drawerEnabled = false;
-                id = "Tray";
-              }
-              {
-                hideWhenZero = false;
-                id = "NotificationHistory";
-              }
-            ];
+            widget_spacing = 8;
           };
         };
-        colorSchemes = {
-          darkMode = true;
-          predefinedScheme = "Catppuccin";
+        control_center.sidebar = "full";
+        lockscreen_widgets = {
+          enabled = false;
+          schema_version = 2;
         };
-        desktopWidgets.enabled = false;
-        dock.enabled = false;
-        audio = {
-          preferredPlayer = "mpd";
-          volumeFeedback = true;
+        shell = {
+          font_family = "Monocraft";
+          niri_overview_type_to_launch_enabled = true;
+          panel = {open_near_click_control_center = true;};
+          telemetry_enabled = false;
         };
-        nightLight = {
-          enabled = true;
-          autoSchedule = true;
-          nightTemp = "4017";
-          dayTemp = "6500";
+        theme = {
+          builtin = "Catppuccin";
+          source = "builtin";
+          templates = {
+            enable_builtin_templates = false;
+            enable_community_templates = false;
+          };
         };
-        idle = {
-          enabled = true;
-          screenOffTimeout = 120;
-          suspendTimeout = 1800;
-          fadeDuration = 10;
-        };
-        general = {
-          animationSpeed = 2;
-          avatarImage = "${config.home.homeDirectory}/.face";
-          clockFormat = "hh\\nmm";
-          clockStyle = "analog";
-          dimmerOpacity = 0.2;
-          enableBlurBehind = true;
-          enableShadows = false;
-          forceBlackScreenCorners = false;
-          iRadiusRatio = 1;
-          radiusRatio = 0.2;
-          reverseScroll = false;
-          scaleRatio = 1;
-          screenRadiusRatio = 1;
-          shadowDirection = "bottom_right";
-          shadowOffsetX = 2;
-          shadowOffsetY = 3;
-          showChangelogOnStartup = true;
-          showScreenCorners = false;
-          telemetryEnabled = false;
-        };
-        location.name = "Essen, Germany";
-        noctaliaPerformance = {
-          disableDesktopWidgets = true;
-          disableWallpaper = true;
-        };
-        osd = {
-          autoHideMs = 500;
-          location = "top_center";
-        };
-        settingsVersion = 59;
-        systemMonitor.externalMonitor = "${lib.getExe pkgs.termapp} ${lib.getExe pkgs.btop}";
-        ui = {
-          boxBorderEnabled = false;
-          fontDefault = "Monocraft";
-          fontDefaultScale = 1;
-          fontFixed = "Monocraft";
-          fontFixedScale = 1;
-          panelBackgroundOpacity = 0.95;
-          panelsAttachedToBar = true;
-          scrollbarAlwaysVisible = true;
-          settingsPanelMode = "window";
-          settingsPanelSideBarCardStyle = false;
-          tooltipsEnabled = true;
-          translucentWidgets = true;
+        widget = {
+          battery.display_mode = "graphic";
+          clock.format = "{:%H:%M:%S}";
+          network.show_label = false;
+          workspaces = {
+            capsule_radius = "auto";
+            labels_only_when_occupied = true;
+          };
         };
       };
-    };
-
-    systemd.user.services."noctalia-shell" = {
-      Unit = {
-        Description = "Noctalia Shell";
-        PartOf = ["graphical-session.target"];
-        After = ["graphical-session.target"];
-        X-Restart-Triggers = [config.xdg.configFile."noctalia/settings.json".source];
-      };
-      Service = {
-        ExecStart = ["${lib.getExe config.programs.noctalia-shell.package}"];
-        Restart = "on-failure";
-      };
-      Install.WantedBy = ["graphical-session.target"];
     };
   };
 }
