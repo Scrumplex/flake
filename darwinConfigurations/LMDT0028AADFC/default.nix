@@ -274,7 +274,6 @@
     (discord.override {withVencord = true;})
     alt-tab-macos
 
-    #inputs.flox.packages.${pkgs.system}.flox
     fluxcd
     k9s
     kubectl
@@ -296,8 +295,6 @@
     };
     settings.experimental-features = "nix-command flakes";
     settings.trusted-users = ["Sefa.Eyeoglu"];
-    settings.trusted-substituters = ["https://cache.flox.dev"];
-    settings.trusted-public-keys = ["flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="];
 
     nixPath = [
       "nixpkgs=${inputs.nixpkgs}"

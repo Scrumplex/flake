@@ -32,11 +32,6 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flox = {
-      url = "github:flox/flox";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.pre-commit-hooks.follows = "git-hooks";
-    };
   };
 
   outputs = inputs @ {flake-parts, ...}:
