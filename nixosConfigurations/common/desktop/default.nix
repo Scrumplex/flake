@@ -25,9 +25,6 @@
     xdg-utils
   ];
 
-  # TODO: move somewhere better
-  services.dbus.implementation = "broker";
-
   programs.appimage = {
     enable = true;
     binfmt = true;
