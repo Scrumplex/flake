@@ -21,7 +21,6 @@
       ../common/podman.nix
       ../common/printing.nix
       ../common/pulsar-x2v2.nix
-      ../common/remote-build-provider.nix
       ../common/rtl-sdr.nix
 
       ./configuration.nix
