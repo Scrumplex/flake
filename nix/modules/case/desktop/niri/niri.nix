@@ -15,7 +15,7 @@
       })
     ];
 
-    # we use lxqt pk agent
+    # we use noctalia pk agent
     systemd.user.services.niri-flake-polkit.enable = false;
 
     users.users.${config.flake.meta.username}.extraGroups = ["video" "input"];

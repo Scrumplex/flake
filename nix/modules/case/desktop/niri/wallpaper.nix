@@ -13,6 +13,7 @@
       enabled = true;
       transition_on_startup = true;
       directory = wallpapers;
+      default.path = "${wallpapers}/primary.jpg";
     };
 
     programs.niri.settings.layer-rules = [

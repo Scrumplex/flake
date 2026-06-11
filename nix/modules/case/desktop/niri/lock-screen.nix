@@ -7,6 +7,7 @@
     home.sessionVariables."NOCTALIA_PAM_SERVICE" = "noctalia";
 
     programs.noctalia.settings = {
+      idle.pre_action_fade_seconds = 0;
       idle.behavior = {
         lock = {
           enabled = true;

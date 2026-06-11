@@ -12,7 +12,6 @@
       ../common/desktop/inhibridge.nix
       ../common/desktop/keyring.nix
       ../common/desktop/orca-slicer.nix
-      ../common/desktop/polkit-agent.nix
       ../common/desktop/portfolio-performance.nix
       ../common/desktop/qt
       ../common/gpg.nix
