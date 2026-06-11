@@ -1,7 +1,7 @@
-{
+{lib, ...}: {
   flake.modules.nixos.base = {
     services.openssh = {
-      enable = true;
+      enable = lib.mkDefault true;
       settings.PasswordAuthentication = false;
     };
 
