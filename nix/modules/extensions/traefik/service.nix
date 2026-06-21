@@ -32,6 +32,7 @@
               middlewares = "security@file";
             };
             http3 = {};
+            transport.respondingTimeouts.readTimeout = "120s";
           };
         };
         certificatesResolvers.letsencrypt.acme = {
