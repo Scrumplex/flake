@@ -127,10 +127,7 @@
           battery.display_mode = "graphic";
           clock.format = "{:%H:%M:%S}";
           network.show_label = false;
-          workspaces = {
-            capsule_radius = "auto";
-            labels_only_when_occupied = true;
-          };
+          workspaces.labels_only_when_occupied = true;
         };
       };
     };
