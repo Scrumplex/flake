@@ -113,6 +113,8 @@
             open_near_click_control_center = true;
             transparency_mode = "soft";
           };
+          password_style = "random";
+          polkit_agent = true;
           telemetry_enabled = false;
         };
         theme = {
