@@ -240,7 +240,6 @@
       "caffeine" # not supported on aarch64-darwin in nixpkgs
       "claude-code"
       "copilot-cli"
-      "core-tunnel"
       "firefox"
       "freelens"
       "inkscape"
