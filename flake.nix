@@ -81,7 +81,6 @@
         ./flakeDeploy.nix
 
         ./lib
-        ./nixosModules
         ./pkgs
 
         ./nixosConfigurations/andromeda

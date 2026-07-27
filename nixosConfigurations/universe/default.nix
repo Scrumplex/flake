@@ -7,20 +7,18 @@
 in {
   flake.nixosConfigurations = lib'.mkHost {
     hostName = "universe";
-    modules =
-      [
-        (lib'.mkDeploy {
-          targetHost = "scrumplex.net";
-          extraFlags = ["--verbose" "--print-build-logs" "--use-substitutes"];
-        })
+    modules = [
+      (lib'.mkDeploy {
+        targetHost = "scrumplex.net";
+        extraFlags = ["--verbose" "--print-build-logs" "--use-substitutes"];
+      })
 
-        ../common/nginx.nix
-        ../common/podman.nix
-        ../common/server.nix
-        ../common/upgrade.nix
+      ../common/nginx.nix
+      ../common/podman.nix
+      ../common/server.nix
+      ../common/upgrade.nix
 
-        ./configuration.nix
-      ]
-      ++ attrValues self.nixosModules;
+      ./configuration.nix
+    ];
   };
 }

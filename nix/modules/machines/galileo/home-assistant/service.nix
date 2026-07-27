@@ -29,6 +29,7 @@
         "denonavr"
         "dwd_weather_warnings"
         "esphome"
+        "heos"
         "holiday"
         "immich"
         "local_todo"
@@ -51,6 +52,7 @@
       ];
       customComponents = with pkgs.home-assistant-custom-components; [
         adaptive_lighting
+        frigate
         moonraker
         # powercalc
         waste_collection_schedule

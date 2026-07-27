@@ -84,6 +84,7 @@ resource "hcloud_zone_rrset" "galileocnames_sefa_cloud" {
   for_each = toset([
     "asf",
     "syncthing",
+    "view",
   ])
   zone = data.hcloud_zone.sefa_cloud.name
   name = "${each.key}.galileo"

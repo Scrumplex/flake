@@ -24,6 +24,7 @@ in {
     ./wireguard.nix
 
     fpConfig.flake.modules.nixos.ext-docker
+    fpConfig.flake.modules.nixos.ext-frigate
     fpConfig.flake.modules.nixos.ext-monitoring
     fpConfig.flake.modules.nixos.ext-traefik
     fpConfig.flake.modules.nixos.physical-server
