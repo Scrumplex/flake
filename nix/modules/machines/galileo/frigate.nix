@@ -9,6 +9,8 @@ in {
     virtualisation.oci-containers.containers."frigate" = {
       image = config.virtualisation.oci-containers.externalImages.images."frigate".ref;
 
+      environment.LIBVA_DRIVER_NAME = "i965";
+
       volumes = [
         "/srv/frigate/media:/media/frigate"
         "/srv/frigate/config:/config"
