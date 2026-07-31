@@ -34,6 +34,7 @@
 
   hm = {
     home.pointerCursor = {
+      enable = true;
       name = "Adwaita";
       package = pkgs.gnome-themes-extra;
     };
