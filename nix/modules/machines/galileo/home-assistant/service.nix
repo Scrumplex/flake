@@ -32,6 +32,7 @@
         "heos"
         "holiday"
         "immich"
+        "lg_thinq"
         "local_todo"
         "meater"
         "met"
