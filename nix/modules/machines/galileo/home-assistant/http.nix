@@ -2,6 +2,7 @@
   flake.modules.nixos."machine-galileo" = {config, ...}: {
     services.home-assistant.config.http = {
       use_x_forwarded_for = true;
+      server_port = 8123;
       trusted_proxies = [
         "127.0.0.1"
         "::1"
