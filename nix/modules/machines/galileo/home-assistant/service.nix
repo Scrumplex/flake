@@ -54,6 +54,7 @@
       customComponents = with pkgs.home-assistant-custom-components; [
         adaptive_lighting
         frigate
+        localthings
         moonraker
         # powercalc
         waste_collection_schedule
