@@ -12,6 +12,11 @@
         run-or-raise = prev.run-or-raise.override {
           niri = final.niri-unstable;
         };
+
+        libdisplay-info_0_2 = final.callPackage (import "${pkgs.path}/pkgs/by-name/li/libdisplay-info/generic.nix" {
+          version = "0.2.0";
+          hash = "sha256-6xmWBrPHghjok43eIDGeshpUEQTuwWLXNHg7CnBUt3Q=";
+        }) {};
       })
     ];
 
