@@ -11,7 +11,7 @@
 in {
   flake.modules.nixos."desktop" = {pkgs, ...}: {
     nixpkgs = {
-      allowedUnfreePackageNames = ["discord" "discord-development" "discord-ptb" "discord-canary"];
+      allowedUnfreePackageNames = ["discord-canary" "discord-canary-unwrapped"];
     };
 
     nixpkgs.overlays = lib.mkAfter [
