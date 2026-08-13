@@ -44,7 +44,10 @@
     LidSwitchIgnoreInhibited = true;
   };
 
-  systemd.sleep.settings.Sleep.HibernateDelaySec = "10m";
+  systemd.sleep.settings.Sleep = {
+    HibernateDelaySec = "10m";
+    MemorySleepMode = "deep";
+  };
 
   system.stateVersion = "23.11";
 }
