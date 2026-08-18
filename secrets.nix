@@ -22,8 +22,10 @@ in {
   "nix/modules/machines/galileo/asf/asf-bot1.json.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/asf/asf-bot2.json.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/asf/asf-ipc-passwd.age".publicKeys = galileo ++ scrumplex;
-  "nix/modules/machines/galileo/frigate.env.age".publicKeys = galileo ++ scrumplex;
+  "nix/modules/machines/galileo/frigate/frigate.env.age".publicKeys = galileo ++ scrumplex;
+  "nix/modules/machines/galileo/frigate/mqtt-password.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/home-assistant/secrets.yaml.age".publicKeys = galileo ++ scrumplex;
+  "nix/modules/machines/galileo/home-assistant/mqtt-password.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/id_borgbase.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/syncthing/cert.pem.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/syncthing/key.pem.age".publicKeys = galileo ++ scrumplex;
