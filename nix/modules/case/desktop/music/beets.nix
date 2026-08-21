@@ -30,6 +30,8 @@
           bell = true;
         };
 
+        lyrics.sources = ["lrclib"];
+
         ui.color = true;
         plugins = [
           "chroma"
