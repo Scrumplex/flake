@@ -9,15 +9,14 @@
     programs.noctalia.settings = {
       idle.pre_action_fade_seconds = 0;
       idle.behavior = {
-        lock = {
+        lock-and-suspend = {
+          action = "lock_and_suspend";
           enabled = true;
-          command = "noctalia:session lock";
           timeout = 300;
         };
         screen-off = {
           enabled = true;
-          command = "noctalia:dpms-off";
-          resume = "noctalia:dpms-on";
+          action = "screen_off";
           timeout = 120;
         };
       };
