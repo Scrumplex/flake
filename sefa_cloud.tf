@@ -39,6 +39,7 @@ resource "hcloud_zone_rrset" "eclipsecnames_sefa_cloud" {
     "nzb",
     "paperless",
     "prowlarr",
+    "lidarr",
     "radarr",
     "slskd",
     "sonarr",

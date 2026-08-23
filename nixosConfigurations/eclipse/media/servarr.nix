@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   services.radarr = {
@@ -9,6 +10,11 @@
     group = "media";
   };
   services.sonarr = {
+    enable = true;
+    user = "media";
+    group = "media";
+  };
+  services.lidarr = {
     enable = true;
     user = "media";
     group = "media";
@@ -33,6 +39,12 @@
       service = "sonarr";
       rule = "Host(`sonarr.eclipse.sefa.cloud`)";
     };
+    routers.lidarr = {
+      entryPoints = ["websecure"];
+      middlewares = ["internal-only"];
+      service = "lidarr";
+      rule = "Host(`lidarr.eclipse.sefa.cloud`)";
+    };
     routers.prowlarr = {
       entryPoints = ["websecure"];
       middlewares = ["internal-only"];
@@ -46,6 +58,7 @@
     };
     services.radarr.loadBalancer.servers = [{url = "http://localhost:7878";}];
     services.sonarr.loadBalancer.servers = [{url = "http://localhost:8989";}];
+    services.lidarr.loadBalancer.servers = [{url = "http://localhost:8686";}];
     services.prowlarr.loadBalancer.servers = [{url = "http://localhost:9696";}];
     services.jellyseerr.loadBalancer.servers = [{url = "http://localhost:${toString config.services.seerr.port}";}];
   };
