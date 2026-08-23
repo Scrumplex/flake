@@ -13,7 +13,7 @@
     gimp
     krita
     audacity
-    libreoffice-fresh
+    libreoffice-stable
     livecaptions
 
     ausweisapp
