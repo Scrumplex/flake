@@ -12,7 +12,6 @@
     config = {
       services.mosquitto = {
         enable = true;
-        logType = ["all"];
 
         listeners = lib.mkIf (config.services.mosquitto.defaultListener != {}) [
           config.services.mosquitto.defaultListener

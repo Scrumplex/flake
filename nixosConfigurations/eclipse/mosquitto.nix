@@ -2,7 +2,6 @@
   age.secrets."mqtt-password".file = ../../secrets/common/mqtt-password.age;
   services.mosquitto = {
     enable = true;
-    logType = ["all"];
     listeners = [
       {
         users.user = {
