@@ -18,7 +18,7 @@
         ],
         "runtime" :
         [
-          "${pkgs.opencomposite-vendored}/lib/opencomposite",
+          "${pkgs.xrizer}/lib/xrizer",
           "${config.xdg.dataHome}/Steam/steamapps/common/SteamVR"
         ],
         "version" : 1
