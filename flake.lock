@@ -222,11 +222,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787750582,
-        "narHash": "sha256-FfIAV44k33i+IjC1+new2KyjyVGUzGtV89VHVP4eK1U=",
+        "lastModified": 1787797243,
+        "narHash": "sha256-8+Q7NOB7RPajRjA4pbCDLzqH+MTjnG9x6LUPLfL2joA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "0a364342a66bcecfc8a00d2fc38c6c29eee7bc5e",
+        "rev": "99c9ec63390f1d8c14d95d9e8b17cc29cfbd4e11",
         "type": "github"
       },
       "original": {
@@ -486,11 +486,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1787708793,
-        "narHash": "sha256-Ovp8JorHAQbFNgenK0jTUnUU4tB7R9rS5Uao/L/dkg0=",
+        "lastModified": 1787820617,
+        "narHash": "sha256-XZ/fZ4a5OE5vt0ycd027xoeSoXh7ljAQ284f+oYtW1U=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "e81f8786718bd697348f66ef7023d1ddc4e5a0b6",
+        "rev": "7ba208453e42f6dbbd8e80a9ef86bea2ba6745a6",
         "type": "github"
       },
       "original": {
@@ -611,11 +611,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1787706980,
-        "narHash": "sha256-P5OhTuSgtii+T73x1pwiL8vp6poZw3PgVh661nYf2r0=",
+        "lastModified": 1787815777,
+        "narHash": "sha256-6ESYyN5fRVbP3Eu2eiBWyxBCYX6g8HQTwAjReeO6UA4=",
         "owner": "nix-community",
         "repo": "nixpkgs-xr",
-        "rev": "149d4a4672b9daf861b780c2fc2030d05b4078a2",
+        "rev": "5daf7d622cb0605f7b5971d1a92f5b0f6155af18",
         "type": "github"
       },
       "original": {
@@ -626,11 +626,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1787498568,
-        "narHash": "sha256-9i/VTdusq/+NM/tz+J1Re+ojkMB8MBf0QshnYfzHz30=",
+        "lastModified": 1787736819,
+        "narHash": "sha256-cV5xEJJK3BvhU8rEd4mC9UsmDi5qscv/kzGPhBRC5WA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "56c02bc00adcf003215cc4bd996d6efaf4cff188",
+        "rev": "9fbb54b33e91ee4ca368e35a78e0613c720600b3",
         "type": "github"
       },
       "original": {
@@ -651,11 +651,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1787691219,
-        "narHash": "sha256-CjeJTOjrluiDuL0W/YBFkSBOQjBYmdKwj7hWAJ4PIh0=",
+        "lastModified": 1787851940,
+        "narHash": "sha256-j4LsLDsbPDTZasskXRDLG68DzhBZQMxwaD7OvltYoxc=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "ebec1ae277a50b16e7d6682edd009ef585d68261",
+        "rev": "2d8c5eccb44174b359cf0a12982d7886a82fb84d",
         "type": "github"
       },
       "original": {
@@ -671,11 +671,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787758862,
-        "narHash": "sha256-1h94oVrgUNp1GLIPzg2kxDzBDO6x82RV6fnUGnBt5/w=",
+        "lastModified": 1787836896,
+        "narHash": "sha256-I9Bs9scEn3OiqYVi4YaR7QCFnubrk1IL9Ru26OHbiqg=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "e7578b41121934790697a6a24ebaf66b4a75d0b4",
+        "rev": "f96a407deb109c9db6f29db75e6fe487a5289e02",
         "type": "github"
       },
       "original": {
@@ -722,11 +722,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787739929,
-        "narHash": "sha256-sUP/qa2tbIl7/jgiaXPuuDAy3NzWcNdh21OczoGRfAM=",
+        "lastModified": 1787829971,
+        "narHash": "sha256-2PhbtSkzYgux9d/MFsFQox83lN+9cHLbBWAc5QyOxBw=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "84e9b0f2255511f6b507aca78ee389a766ab7bad",
+        "rev": "47c26f43919f7be98b3915bbf176d88ae91b3510",
         "type": "github"
       },
       "original": {
@@ -901,11 +901,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787697009,
-        "narHash": "sha256-5DgVePbtWSn/plAqXtM19bWiAmIk1VQoAe0ZKtDK83Q=",
+        "lastModified": 1787798056,
+        "narHash": "sha256-xxXzusyYPwoWDY8yC7a3FrLaqWahS1bOhrC/p5Yq2X0=",
         "owner": "nix-community",
         "repo": "srvos",
-        "rev": "a70abb0ba82480133e8be71854512adaf7edd268",
+        "rev": "a00436b148ec1c2f54f60e3973af197d7c7d8009",
         "type": "github"
       },
       "original": {
