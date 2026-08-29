@@ -40,6 +40,7 @@
           storage = "/var/lib/traefik/acme-le-dns.json";
           keyType = "EC384";
           dnsChallenge.provider = "hetzner";
+          dnsChallenge.resolvers = ["8.8.8.8:53"];
         };
         experimental.otlpLogs = true;
         log.otlp.http.endpoint = "http://localhost:4318/v1/logs";
