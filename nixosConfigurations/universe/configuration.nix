@@ -16,6 +16,7 @@
     ./skinprox.nix
     ./matrix/draupnir.nix
     ./matrix/synapse.nix
+    ./starbound
     ./teamspeak3.nix
     ./wireguard.nix
 
