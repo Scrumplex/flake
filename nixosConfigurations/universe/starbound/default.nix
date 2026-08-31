@@ -5,6 +5,8 @@
 }: let
   starbound-server = pkgs.callPackage ./server.nix {};
 in {
+  nixpkgs.allowedUnfreePackageNames = ["starbound-dedicated-server" "Starbound.tar"];
+
   systemd.services."starbound-dedicated-server" = {
     after = ["network.target"];
     wantedBy = ["multi-user.target"];

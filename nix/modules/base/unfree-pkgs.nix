@@ -8,7 +8,7 @@
     };
 
     config = lib.mkIf (cfg.allowedUnfreePackageNames != []) {
-      nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem pkg.pname cfg.allowedUnfreePackageNames;
+      nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkg.pname or pkg.name) cfg.allowedUnfreePackageNames;
     };
   };
 }

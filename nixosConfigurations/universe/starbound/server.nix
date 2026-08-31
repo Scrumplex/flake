@@ -6,8 +6,9 @@
   stdenv,
 }:
 stdenv.mkDerivation {
-  name = "starbound-dedicated-server";
+  pname = "starbound-dedicated-server";
   version = "1.4.3";
+
   src = requireFile {
     name = "Starbound.tar";
     hash = "sha256-tdU0WU+p8GQ2GK00beCX9B4JSNM3ljWv4uC4wjbasO4=";
