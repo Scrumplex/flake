@@ -18,7 +18,6 @@ in {
       ipcPasswordFile = config.age.secrets."asf-ipc-passwd".path;
       settings = {
         SteamOwnerID = 76561198122396352; # Scrumplex
-        SteamTokenDumperPluginEnabled = true;
       };
     };
 
