@@ -14,6 +14,7 @@
       "https://scrumplex.rocks/skin/"
       "https://skins.ddnet.org/skin/community/"
       "https://skins.tee.world/"
+      "https://skins.ddstats.tw/"
     ];
   };
 
