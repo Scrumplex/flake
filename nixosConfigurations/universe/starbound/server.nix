@@ -11,7 +11,7 @@ stdenv.mkDerivation {
 
   src = requireFile {
     name = "Starbound.tar";
-    hash = "sha256-tdU0WU+p8GQ2GK00beCX9B4JSNM3ljWv4uC4wjbasO4=";
+    hash = "sha256-ystoiCqjS6Em2pjI+OwXoBmZXaxWTXHWae8xO5EF7hA=";
     message = ''
       Install Starbound Dedicated Server on Linux using Steam and run the following command in your `steamapps/common` folder:
         $ tar --mtime='1980-01-01 00:00Z' -cf Starbound.tar "Starbound Dedicated Server"
