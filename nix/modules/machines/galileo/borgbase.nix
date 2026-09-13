@@ -5,6 +5,9 @@
     infra.borg-rsync-net = {
       enable = true;
       sshKeyFile = config.age.secrets.id_borgbase.path;
+      extraExcludes = [
+        "/srv/frigate/media"
+      ];
     };
   };
 }
