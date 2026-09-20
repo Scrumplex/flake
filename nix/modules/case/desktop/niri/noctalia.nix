@@ -1,11 +1,5 @@
-{
-  inputs,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   flake.modules.nixos.desktop = {
-    nixpkgs.overlays = [inputs.noctalia.overlays.default];
-
     services.upower.enable = true;
   };
 
@@ -14,10 +8,6 @@
     osConfig,
     ...
   }: {
-    imports = [
-      inputs.noctalia.homeModules.default
-    ];
-
     home.sessionVariables."NOCTALIA_PAM_SERVICE" = "noctalia";
 
     programs.noctalia = {
