@@ -15,15 +15,19 @@
       "x-scheme-handler/unknown" = ["firefox.desktop"];
     };
 
-    programs.niri.settings.window-rules = [
+    wayland.windowManager.niri.settings._children = [
       {
-        matches = [
-          {
-            app-id = "firefox$";
-            title = "^Picture-in-Picture$";
-          }
-        ];
-        open-floating = true;
+        window-rule = {
+          _children = [
+            {
+              match._props = {
+                app-id = "firefox$";
+                title = "^Picture-in-Picture$";
+              };
+            }
+          ];
+          open-floating = true;
+        };
       }
     ];
   };

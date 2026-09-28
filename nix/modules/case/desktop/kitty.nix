@@ -57,9 +57,9 @@
 
     home.sessionVariables."TERMINAL" = "kitty";
 
-    programs.niri.settings.binds."Mod+Return" = {
-      hotkey-overlay.title = "Open a terminal";
-      action = config.lib.niri.actions.spawn [(lib.getExe config.programs.kitty.package)];
+    wayland.windowManager.niri.settings.binds."Mod+Return" = {
+      _props.hotkey-overlay-title = "Open a terminal";
+      spawn = [(lib.getExe config.programs.kitty.package)];
     };
   };
 }

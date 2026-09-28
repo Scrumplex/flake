@@ -48,34 +48,34 @@
         pkgs.mpc
       ];
 
-      programs.niri.settings.binds = with config.lib.niri.actions; {
+      wayland.windowManager.niri.settings.binds = {
         "XF86AudioStop" = {
-          allow-when-locked = true;
-          action = spawn ["mpc" "stop"];
+          _props.allow-when-locked = true;
+          spawn = ["mpc" "stop"];
         };
         "XF86AudioPlay" = {
-          allow-when-locked = true;
-          action = spawn ["mpc" "toggle"];
+          _props.allow-when-locked = true;
+          spawn = ["mpc" "toggle"];
         };
         "XF86AudioPause" = {
-          allow-when-locked = true;
-          action = spawn ["mpc" "toggle"];
+          _props.allow-when-locked = true;
+          spawn = ["mpc" "toggle"];
         };
         "XF86AudioPrev" = {
-          allow-when-locked = true;
-          action = spawn ["mpc" "prev"];
+          _props.allow-when-locked = true;
+          spawn = ["mpc" "prev"];
         };
         "XF86AudioNext" = {
-          allow-when-locked = true;
-          action = spawn ["mpc" "next"];
+          _props.allow-when-locked = true;
+          spawn = ["mpc" "next"];
         };
         "Shift+XF86AudioLowerVolume" = {
-          allow-when-locked = true;
-          action = spawn ["wob-mpc-volume" "decrease-volume"];
+          _props.allow-when-locked = true;
+          spawn = ["wob-mpc-volume" "decrease-volume"];
         };
         "Shift+XF86AudioRaiseVolume" = {
-          allow-when-locked = true;
-          action = spawn ["wob-mpc-volume" "increase-volume"];
+          _props.allow-when-locked = true;
+          spawn = ["wob-mpc-volume" "increase-volume"];
         };
       };
     };

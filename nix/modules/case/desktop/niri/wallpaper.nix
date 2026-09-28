@@ -1,4 +1,4 @@
-{lib, ...}: {
+{
   flake.modules.homeManager.desktop = {pkgs, ...}: let
     primary = pkgs.fetchurl {
       name = "primary-wallpaper.jpg";
@@ -16,10 +16,14 @@
       default.path = "${wallpapers}/primary.jpg";
     };
 
-    programs.niri.settings.layer-rules = [
+    wayland.windowManager.niri.settings._children = [
       {
-        matches = [{namespace = "^noctalia-overview*";}];
-        place-within-backdrop = true;
+        layer-rule = {
+          _children = [
+            {match._props.namespace = "^noctalia-overview*";}
+          ];
+          place-within-backdrop = true;
+        };
       }
     ];
   };

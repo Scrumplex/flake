@@ -1,10 +1,17 @@
 {...}: {
-  hm.programs.niri.settings = {
+  hm.wayland.windowManager.niri.settings = {
     input.touchpad = {
-      tap = true;
-      natural-scroll = true;
+      tap = {};
+      natural-scroll = {};
     };
 
-    outputs."eDP-1".scale = 1.25;
+    _children = [
+      {
+        output = {
+          _args = ["eDP-1"];
+          scale = 1.25;
+        };
+      }
+    ];
   };
 }

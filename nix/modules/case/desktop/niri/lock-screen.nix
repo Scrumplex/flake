@@ -22,10 +22,10 @@
       };
     };
 
-    programs.niri.settings.binds = {
+    wayland.windowManager.niri.settings.binds = {
       "Mod+Ctrl+Q" = {
-        hotkey-overlay.title = "Lock Session";
-        action = config.lib.niri.actions.spawn [(lib.getExe config.programs.noctalia.package) "msg" "session" "lock"];
+        _props.hotkey-overlay-title = "Lock Session";
+        spawn = [(lib.getExe config.programs.noctalia.package) "msg" "session" "lock"];
       };
     };
   };
