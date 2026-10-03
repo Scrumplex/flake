@@ -21,7 +21,7 @@
 
       shellAliases = {
         ip = "ip --color=auto";
-        ll = "ls --long --all --classify";
+        ll = "ls --long --all --classify=auto";
         ls = "eza"; # note: we rely on the alias created by eza
       };
 
