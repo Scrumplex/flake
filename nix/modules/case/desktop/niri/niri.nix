@@ -1,28 +1,9 @@
 {
   config,
-  inputs,
   lib,
   ...
 }: {
-  flake.modules.nixos.desktop = {pkgs, ...}: {
-    imports = [inputs.niri.nixosModules.niri];
-    nixpkgs.overlays = [
-      inputs.niri.overlays.niri
-      (final: prev: {
-        run-or-raise = prev.run-or-raise.override {
-          niri = final.niri-unstable;
-        };
-
-        libdisplay-info_0_2 = final.callPackage (import "${pkgs.path}/pkgs/by-name/li/libdisplay-info/generic.nix" {
-          version = "0.2.0";
-          hash = "sha256-6xmWBrPHghjok43eIDGeshpUEQTuwWLXNHg7CnBUt3Q=";
-        }) {};
-      })
-    ];
-
-    # we use noctalia pk agent
-    systemd.user.services.niri-flake-polkit.enable = false;
-
+  flake.modules.nixos.desktop = {
     users.users.${config.flake.meta.username}.extraGroups = ["video" "input"];
 
     environment.sessionVariables = {
@@ -30,10 +11,7 @@
       "NIXOS_OZONE_WL" = "1";
     };
 
-    programs.niri = {
-      enable = true;
-      package = pkgs.niri-unstable;
-    };
+    programs.niri.enable = true;
   };
 
   flake.modules.homeManager.desktop = {
@@ -136,7 +114,7 @@
           }
         ];
 
-        xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite-unstable;
+        xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
 
         binds = lib.mkMerge [
           {

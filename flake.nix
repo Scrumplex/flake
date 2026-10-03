@@ -31,8 +31,6 @@
     inhibridge.url = "git+https://codeberg.org/Scrumplex/inhibridge.git";
     lanzaboote.inputs.pre-commit.follows = "git-hooks";
     lanzaboote.url = "github:nix-community/lanzaboote";
-    niri.inputs.nixpkgs.follows = "nixpkgs";
-    niri.url = "github:sodiboo/niri-flake";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-minecraft.inputs.flake-compat.follows = "";
