@@ -22,69 +22,69 @@ in {
     openFirewall = true;
 
     servers.forever = let
-      modpack = pkgs.fetchPackwizModpack {
-        name = "adrenaline-26.1.2";
-        url = "https://github.com/skywardmc/adrenaline/raw/d2b3c6524961c7ac4ea78ca032a2ce4058bdf3cc/versions/fabric/26.1.2/pack.toml";
-        packHash = "sha256-MIHfggVkse4FpurNmlB4u2cG3Ya8H5YR+Gm9hmLzWvU=";
+      modpack = pkgs.fetchModrinthModpack {
+        name = "adrenaline-26.5.1";
+        url = "https://github.com/skywardmc/adrenaline/releases/download/26.5.1/Adrenaline-26.5.1+mc26.3.fabric.mrpack";
+        packHash = "sha256-zpP38NZUUdmcITViXf+dvqEa1q9sh09Ot4eNQDDQ9tg=";
       };
 
       mods =
         inputs.nix-minecraft.lib.collectFilesAt modpack "mods"
         // {
-          "mods/appleskin-fabric-mc26.1-3.0.9.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/EsAfCjCV/versions/HwaLJe3v/appleskin-fabric-mc26.1-3.0.9.jar";
-            hash = "sha256-iNCycR/oxqFpbPGfIcfgfWOm7PzPiIu5AmBWb8asTb4=";
+          "mods/appleskin.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/EsAfCjCV/versions/PHjDtQay/appleskin-fabric-mc26.3-3.0.10.jar";
+            hash = "sha256-ywUIfDnw2GBhGqH6589jVgIU0bcTeKfJA8GNw3C1w84=";
           };
           /*
             "mods/dcintegration-fabric-MC1.21.10-3.1.0.1.jar" = pkgs.fetchurl {
             url = "https://cdn.modrinth.com/data/rbJ7eS5V/versions/DJOsldZY/dcintegration-fabric-MC1.21.10-3.1.0.1.jar";
-            hash = "sha256-2toKtlufC/oW1iK4hhQMMdp1B9NY48jYaf1g0A3ir34=";
+            hash = "";
           };
           */
-          "mods/DistantHorizons-3.0.3-b-26.1.2-fabric-neoforge.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/uCdwusMi/versions/FJrLlu3p/DistantHorizons-3.0.3-b-26.1.2-fabric-neoforge.jar";
-            hash = "sha256-bvQZMYQ/VCaIsU4L95JgWuK8F691zgFYYWEkfv/sMVU=";
+          "mods/DistantHorizons.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/uCdwusMi/versions/TGgEbP9A/DistantHorizons-3.3.4-26.3-fabric-neoforge.jar";
+            hash = "sha256-uj5chadloQkhmDHfmbme9c/N7gWy36Z5YRaZO9SNOUc=";
           };
-          "mods/fastback-fabric-0.33.0+26.1.2.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/ZHKrK8Rp/versions/QIxDzHv6/fastback-fabric-0.33.0%2B26.1.2.jar";
-            hash = "sha256-tkAaiB5V/4hKBRowS45KhnoRh399SJcg+QkFiPjXSpI=";
+          "mods/fastback.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/ZHKrK8Rp/versions/RvW6Ltl7/fastback-fabric-0.35.0%2B26.3.0.jar";
+            hash = "sha256-wsN2vWAeB0XFIqmvQOiBEnH3vlKXWp9l69sWC+zI7q0=";
           };
-          "mods/Geyser-Fabric-2.10.0-b1161.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/wKkoqHrH/versions/Zv3IaIl5/Geyser-Fabric-2.10.0-b1161.jar";
-            hash = "sha256-Kc/B6pq42YBZgQBzoT8PhUvY3APzxaYW9MXZNYxTBbM=";
+          "mods/Geyser.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/wKkoqHrH/versions/rUOASU7J/Geyser-Fabric-2.12.0-b1265.jar";
+            hash = "sha256-WUqmSeYBMgUBN1NNIvpC7seSGel8RkY8k6ZOvR0EeRs=";
           };
-          "mods/Jade-mc26.1-Fabric-26.1.0.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/nvQzSEkH/versions/QglgrEFX/Jade-mc26.1-Fabric-26.1.0.jar";
-            hash = "sha256-ClGpoF6lPSL6M9uJt26s0nV451IUlJmu0ZdOdpJLMew=";
+          "mods/Jade.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/nvQzSEkH/versions/71CTWqdE/Jade-mc26.3-Fabric-26.3.5.jar";
+            hash = "sha256-SJnWxgr6KvhZs6fggk0O9rQE8mRY+DHj2Hf6o2vprxw=";
           };
-          "mods/journeymap-fabric-26.1.2-6.0.0-beta.85.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/lfHFW1mp/versions/jP3MlN9K/journeymap-fabric-26.1.2-6.0.0-beta.85.jar";
-            hash = "sha256-GJ5yoZID6XD7FleEBCLPAOurXmXcNsGYoB9kW7VkVTc=";
+          "mods/journeymap.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/lfHFW1mp/versions/2zmj8ela/journeymap-fabric-26.3-6.0.10.jar";
+            hash = "sha256-m8k5X0gdC8tl1prtI3SRIOfM0oeAW66Wvu+8Dv2v1Ww=";
           };
-          "mods/mob_explosion_griefing-2.1.0+26.1.x.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/l9H9JPmo/versions/FgxgRIlb/mob_explosion_griefing-2.1.0%2B26.1.x.jar";
-            hash = "sha256-wTxb3JP+ZvXSR4Tz6+0UGn2lL5XvZd4PMkb4S0+EfG4=";
+          "mods/mobexplosiongriefinggamerule.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/l9H9JPmo/versions/jmz3ZO8r/mob_explosion_griefing-2.1.2%2B26.1-26.3.jar";
+            hash = "sha256-KuM2DFIHV6Np1pc0sXksRnVhWjFSbIF3VEzHA/41Qxc=";
           };
-          "mods/NoChatReports-FABRIC-26.1-v2.19.0.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/qQyHxfxd/versions/2yrLNE3S/NoChatReports-FABRIC-26.1-v2.19.0.jar";
-            hash = "sha256-sySe6xxj3VDAF6e14DnuhMn2hbfQ3a57PrRqhzWlN7Q=";
+          "mods/NoChatReports.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/qQyHxfxd/versions/6g96avt2/NoChatReports-FABRIC-26.3-v2.21.0.jar";
+            hash = "sha256-00Y5G+p5kbpdXrPIMIpBS/xnNNbSIL7OhOdpZsg0tb8=";
           };
-          "mods/return-my-gold-farm-2.0.0.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/kuRpWzg6/versions/X5dHDFmD/return-my-gold-farm-2.0.0.jar";
-            hash = "sha256-fzKQs5l9Xr5JRe63KZ7QYzRUgvPPCErqi6DWIbiPXTU=";
+          "mods/return-my-gold-farm.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/kuRpWzg6/versions/AGwgY1Vh/return-my-gold-farm-fabric-mc26.1-2.1.1.jar";
+            hash = "sha256-iXIqhPrM5+hHIOU0lgQWKjqKdF0esImHMRH3XTxWR2k=";
           };
-          "mods/spark-1.10.172-fabric.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/l6YH9Als/versions/J1GUYyGQ/spark-1.10.172-fabric.jar";
-            hash = "sha256-m++Dstsza1EwD2nfcw7ejGTEEHp5aKDAGylNLu8HWQw=";
+          "mods/spark.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/l6YH9Als/versions/e3hsPc1o/spark-1.10.187-fabric.jar";
+            hash = "sha256-P8AGY8qlQrHngzNzBgm06yVoMmYo42ZqOTitWMvJrMY=";
           };
-          "mods/worldedit-mod-7.4.3.jar" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/1u6JkXh5/versions/gjsLvJfW/worldedit-mod-7.4.3.jar";
-            hash = "sha256-qLDZza+snnGN4NAMST1JxFNeQQCMUbhGnRbNeIZdifI=";
+          "mods/worldedit.jar" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/1u6JkXh5/versions/ByRNkO83/worldedit-mod-7.4.6.jar";
+            hash = "sha256-JPIzisnV5yBfFc20oRiSTF2cvUirDKv4ujawe31kwis=";
           };
         };
     in {
       enable = true;
-      package = pkgs.fabricServers.fabric-26_1_2.override (old: {
+      package = pkgs.fabricServers.fabric-26_3.override (old: {
         jre_headless =
           lib.warnIf (
             lib.versions.major old.jre_headless.version == "25"
