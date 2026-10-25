@@ -21,6 +21,7 @@
       "met"
       "mobile_app"
       "mqtt"
+      "samsungtv"
       "shelly"
       "tuya"
       "zha"
