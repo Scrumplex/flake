@@ -98,11 +98,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792737899,
-        "narHash": "sha256-P0/GhewcEQmAbzq3QunNWY2jLJaYH9F6c/5dEM/jQ4M=",
+        "lastModified": 1793418699,
+        "narHash": "sha256-+RpTlcdh9KqZ+ZiLkNSTvibQWm935EcIdBzRPCTFsrQ=",
         "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "bb0b90dbd54e207100de72b5dcbe3188c98a4b69",
+        "rev": "ff0e21a414d4547183396da1b44a66f2577b65e9",
         "type": "github"
       },
       "original": {
@@ -421,11 +421,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1793337890,
-        "narHash": "sha256-yg7ZakPsZOsx1RPNslOSHoHyqPVudzm0OdmxhLs7+OE=",
+        "lastModified": 1793423372,
+        "narHash": "sha256-2KycYby9DrXo3W3kUaqfKRxN0GKhuNTSM1u/VW+GaVA=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "f71d4e9de99e640898e6fe9c61cfd11ee0420697",
+        "rev": "dbdac5f0805ef57bc3d1978288114a796f8d98ea",
         "type": "github"
       },
       "original": {
@@ -621,11 +621,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793272488,
-        "narHash": "sha256-VBc6E3AOc2g8Gc/DgIP8aq9L7VgPhE+P3qS38bQ2Dsk=",
+        "lastModified": 1793400908,
+        "narHash": "sha256-htaoT3zqXbAWJW/4NyIYBSjEBkRYWb+eJCPsMArjG3o=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "573665ffa1ccbd7e19df39c28193d26d5b202d60",
+        "rev": "6e6f81779a2f32fd98550004051ec834cf4c5e30",
         "type": "github"
       },
       "original": {
