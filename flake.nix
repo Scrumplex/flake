@@ -44,7 +44,7 @@
     nixpkgs-xr.inputs.flake-compat.follows = "";
     nixpkgs-xr.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
     nixvim.inputs.flake-parts.follows = "flake-parts";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.url = "github:nix-community/nixvim";
