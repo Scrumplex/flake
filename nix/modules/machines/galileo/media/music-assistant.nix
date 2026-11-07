@@ -32,8 +32,9 @@
     services.traefik.dynamic.files."music-assistant".settings.http = {
       routers.music-assistant = {
         entryPoints = ["websecure"];
+        middlewares = ["internal-only"];
         service = "music-assistant";
-        rule = "Host(`mass.sefa.cloud`)";
+        rule = "Host(`mass.galileo.sefa.cloud`)";
       };
       services.music-assistant.loadBalancer.servers = [{url = "http://localhost:8095";}];
     };
