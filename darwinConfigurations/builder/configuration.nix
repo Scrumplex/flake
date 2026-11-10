@@ -12,11 +12,13 @@
   system.stateVersion = 5;
 
   programs.zsh.enable = true;
-  programs.zsh.enableCompletion = false;
+  programs.zsh.enableCompletion = true;
   programs.bash.enable = true;
   programs.bash.completion.enable = true;
 
   environment.enableAllTerminfo = true;
+
+  users.users.root.shell = pkgs.zsh;
 
   nix = {
     package = pkgs.nix;
