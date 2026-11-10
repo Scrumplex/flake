@@ -16,6 +16,8 @@
   programs.bash.enable = true;
   programs.bash.completion.enable = true;
 
+  environment.enableAllTerminfo = true;
+
   nix = {
     package = pkgs.nix;
     settings = {
