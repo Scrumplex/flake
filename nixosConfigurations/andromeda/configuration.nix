@@ -13,6 +13,7 @@
     ./wireguard.nix
 
     fpConfig.flake.modules.nixos.workstation
+    fpConfig.flake.modules.nixos.workstation
 
     inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
     inputs.nixos-hardware.nixosModules.common-gpu-amd

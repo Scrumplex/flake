@@ -14,9 +14,7 @@
       ../common/desktop/orca-slicer.nix
       ../common/desktop/portfolio-performance.nix
       ../common/desktop/qt
-      ../common/gpg.nix
       ../common/home.nix
-      ../common/libvirtd.nix
       ../common/podman.nix
       ../common/printing.nix
       ../common/pulsar-x2v2.nix
