@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   flake.modules.nixos."ext-traefik" = {config, ...}: {
     age.secrets."hetzner-api-token.env".file = ./hetzner-api-token.env.age;
 
@@ -68,6 +68,9 @@
       };
     };
 
-    systemd.services.traefik.serviceConfig.EnvironmentFile = [config.age.secrets."hetzner-api-token.env".path];
+    systemd.services.traefik.serviceConfig = {
+      EnvironmentFile = [config.age.secrets."hetzner-api-token.env".path];
+      WatchdogSec = lib.mkForce "10s";
+    };
   };
 }
