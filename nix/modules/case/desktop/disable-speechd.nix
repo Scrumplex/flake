@@ -1,3 +1,5 @@
 {
-  flake.modules.nixos.desktop.services.speechd.enable = false;
+  flake.modules.nixos.desktop = {
+    services.speechd.enable = false;
+  };
 }

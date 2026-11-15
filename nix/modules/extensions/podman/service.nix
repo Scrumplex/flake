@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   flake.modules.nixos."ext-podman" = {
     virtualisation.podman = {
       enable = true;
@@ -15,5 +15,7 @@
         endpoint = "unix:///run/podman/podman.sock";
       };
     };
+
+    users.users."${config.flake.meta.username}".extraGroups = ["podman"];
   };
 }
