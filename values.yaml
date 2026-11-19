@@ -2,4 +2,4 @@ frigate:
   image:
     registry: ghcr.io
     repository: blakeblackshear/frigate
-    tag: stable@sha256:9678a83a76e4730ac7d9ea7428370e32ae656d6b312aaad30d6c69f3fef14d35
+    tag: stable@sha256:d1a3e0008557bb3f3314d442ecd4ba68e9b16ab7872d64612649f7a6e5156635
