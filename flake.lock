@@ -118,11 +118,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794328522,
-        "narHash": "sha256-h2BYMW4nTFpIqnMd8gwAPFmJAp/1wWLQ6vT0NfL5qt4=",
+        "lastModified": 1795168368,
+        "narHash": "sha256-D35n2Q2v1KrlF9LS/pFl8Z3EBMJW6qvPw5q4HMbXXLg=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "1dd30c29c88d99ce295f15e27f93c49bc5fbae07",
+        "rev": "44761d4f745b95e037458a0e57133c5700c8e320",
         "type": "github"
       },
       "original": {
@@ -421,11 +421,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1794985146,
-        "narHash": "sha256-lgmCpYn3bic+HQDXctepO5WnXUrgTHT+m7++bWv3Mi4=",
+        "lastModified": 1795157502,
+        "narHash": "sha256-6Nr01aA2VLztxHLpRRSPbDk+rGH2/NRuw7hbTqLMHjw=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "d8984571c086fe76ac4e1a3e412ca801d8303a68",
+        "rev": "c01e4bdbf3e8c76429fa178e179ece6cde3e2100",
         "type": "github"
       },
       "original": {
@@ -545,11 +545,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1794890597,
-        "narHash": "sha256-vJoAj1xon3Mhfc8FZ5uBrPyZee9Eqa05gG/taXv6iZ8=",
-        "rev": "04906337b6d53e8bb0eaf0470ae9f070a4d4eb55",
+        "lastModified": 1795085501,
+        "narHash": "sha256-kqy60mdSH4GQAv3kzSeefteaiCv9arf3P+auosZrpo0=",
+        "rev": "0bb8272318b4ca41bf0edc6224df3e3e3046b70d",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1122823.04906337b6d5/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1124497.0bb8272318b4/nixexprs.tar.zst"
       },
       "original": {
         "type": "tarball",
@@ -618,11 +618,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794838388,
-        "narHash": "sha256-FMoWGe4/trYhj15kdl2+vkAWAxgiqJuqWsqRBegFlzg=",
+        "lastModified": 1795107151,
+        "narHash": "sha256-RD1/6ep35ZqMoAF4m5yCgFquw8jc9jjoRNcqD9LwXc8=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "15125f168cb414384e540d6f6370f4868579145a",
+        "rev": "5a52fca7e8e221a678c375775a19d2b311863aa7",
         "type": "github"
       },
       "original": {
@@ -775,11 +775,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794174718,
-        "narHash": "sha256-+/nDqS+u2WrFKt5X33oIZQGm7tmLAeLJZnsp4PuEkQo=",
+        "lastModified": 1795140400,
+        "narHash": "sha256-z89BCdDKZXXz1qpJwcqrKovPv9grWCAnis6hmuIyfn0=",
         "ref": "refs/heads/main",
-        "rev": "2e086fe02dcb6e6b5cbc95e5eecb80bf554511c1",
-        "revCount": 540,
+        "rev": "e7e573128b144fc28dce4c1a1f95c962d0640ed6",
+        "revCount": 544,
         "type": "git",
         "url": "https://codeberg.org/Scrumplex/skinprox.git"
       },
@@ -795,11 +795,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794796187,
-        "narHash": "sha256-EROQCd/xoO6rGK2HEjvCxLe7WkP97KY0DQm6c7yef7M=",
+        "lastModified": 1795055354,
+        "narHash": "sha256-LduOFL9JWJL3zHuJ/J7kjr0d2m1wPUpd3aAybxaTdu0=",
         "owner": "nix-community",
         "repo": "srvos",
-        "rev": "d2e8951b0b98452779565ab9ff5375f221a9a1e2",
+        "rev": "92bb5f6764b4fc24e03a63b82d77b8bb30689f78",
         "type": "github"
       },
       "original": {
