@@ -66,9 +66,22 @@
 
       loki.write "lgtm_loki" {
         endpoint {
-          url = "localhost:${toString config.services.tempo.settings.server.http_listen_port}"
+          url = "localhost:${toString config.services.loki.configuration.server.http_listen_port}"
         }
       }
     '';
+
+    services.grafana.provision.datasources.settings = {
+      apiVersion = 1;
+
+      datasources = [
+        {
+          name = "Loki";
+          uid = "loki";
+          type = "loki";
+          url = "http://localhost:${toString config.services.loki.configuration.server.http_listen_port}";
+        }
+      ];
+    };
   };
 }

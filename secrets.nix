@@ -32,6 +32,9 @@ in {
   "nix/modules/machines/galileo/wifi/Beehive.psk.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/galileo/wireguard/wg-scrumplex.key.age".publicKeys = galileo ++ scrumplex;
   "nix/modules/machines/universe/lgtm/alloy/alloy-htaccess.age".publicKeys = universe ++ scrumplex;
+  "nix/modules/machines/universe/lgtm/grafana/client-secret.age".publicKeys = scrumplex ++ universe;
+  "nix/modules/machines/universe/lgtm/grafana/secret-key.age".publicKeys = scrumplex ++ universe;
+  "nix/modules/machines/universe/lgtm/grafana/smtp-password.age".publicKeys = scrumplex ++ universe;
   "nix/modules/machines/universe/pds/pds.env.age".publicKeys = universe ++ scrumplex;
   "nix/modules/machines/universe/pocket-id/encryption-key.age".publicKeys = universe ++ scrumplex;
   "nix/modules/extensions/monitoring/alloy.env.age".publicKeys = universe ++ eclipse ++ galileo ++ scrumplex;
@@ -39,8 +42,6 @@ in {
   "nixosConfigurations/eclipse/hetzner-api-token.env.age".publicKeys = scrumplex ++ eclipse;
   "nixosConfigurations/eclipse/media/sabnzbd-secrets.ini.age".publicKeys = scrumplex ++ eclipse;
   "nixosConfigurations/universe/matrix/draupnir-access-token.age".publicKeys = scrumplex ++ universe;
-  "nixosConfigurations/universe/grafana-client-secret.age".publicKeys = scrumplex ++ universe;
-  "nixosConfigurations/universe/grafana-secret-key.age".publicKeys = scrumplex ++ universe;
   "nixosConfigurations/universe/matrix/synapse-client-secret.age".publicKeys = universe ++ scrumplex;
 
   "secrets/andromeda/borgbase-repokey.age".publicKeys = andromeda ++ scrumplex;
@@ -55,7 +56,6 @@ in {
   "secrets/universe/id_borgbase.age".publicKeys = scrumplex ++ universe;
   "secrets/universe/borgbase_repokey.age".publicKeys = scrumplex ++ universe;
   "secrets/universe/channel-notifier.env.age".publicKeys = scrumplex ++ universe;
-  "secrets/universe/grafana-smtp-password.age".publicKeys = scrumplex ++ universe;
   "secrets/universe/murmur.env.age".publicKeys = scrumplex ++ universe;
   "secrets/universe/renovate.env.age".publicKeys = scrumplex ++ universe;
   "secrets/universe/scrumplex-x.htaccess.age".publicKeys = scrumplex ++ universe;

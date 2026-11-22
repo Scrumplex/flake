@@ -33,5 +33,18 @@
         }
       }
     '';
+
+    services.grafana.provision.datasources.settings = {
+      apiVersion = 1;
+
+      datasources = [
+        {
+          name = "Tempo";
+          uid = "tempo";
+          type = "tempo";
+          url = "http://localhost:${toString config.services.tempo.settings.server.http_listen_port}";
+        }
+      ];
+    };
   };
 }

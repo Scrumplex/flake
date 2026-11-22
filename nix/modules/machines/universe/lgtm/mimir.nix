@@ -1,6 +1,6 @@
 {
   flake.modules.nixos."machine-universe" = {config, ...}: {
-    alloc.tcpPorts.blocks.mimir.length = 2;
+    alloc.tcpPorts.blocks.mimir.length = 3;
 
     services.mimir = {
       enable = true;
@@ -30,6 +30,10 @@
           kvstore.store = "inmemory";
           instance_addr = "127.0.0.1";
         };
+        memberlist = {
+          bind_port = config.alloc.tcpPorts.blocks.mimir.start + 2;
+          advertise_port = config.alloc.tcpPorts.blocks.mimir.start + 3;
+        };
       };
     };
 
@@ -41,8 +45,29 @@
       prometheus.remote_write "lgtm_mimir" {
         endpoint {
           url = "localhost:${toString config.services.mimir.configuration.server.http_listen_port}"
+          headers = {
+            "X-Scope-OrgID" = "primary",
+          }
         }
       }
     '';
+
+    services.grafana.provision.datasources.settings = {
+      apiVersion = 1;
+
+      datasources = [
+        {
+          name = "Mimir";
+          uid = "mimir";
+          type = "prometheus";
+          jsonData = {
+            prometheusType = "mimir";
+            httpHeaderName1 = "X-Scope-OrgID";
+          };
+          secureJsonData.httpHeaderValue1 = "primary";
+          url = "http://localhost:${toString config.services.mimir.configuration.server.http_listen_port}/prometheus";
+        }
+      ];
+    };
   };
 }
