@@ -1,5 +1,5 @@
 {config, ...}: {
-  flake.modules.nixos."ext-libvirtd" = {pkgs, ...}: {
+  flake.modules.nixos."desktop" = {pkgs, ...}: {
     virtualisation.libvirtd = {
       enable = true;
       qemu = {
